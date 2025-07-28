@@ -1,10 +1,17 @@
 import { Github, Linkedin, Twitter } from "lucide-react";
 import { Link } from "react-router-dom";
+import Logo from "@/components/Logo";
 
 const Footer = () => {
   return (
     <footer className="bg-card border-t border-border">
       <div className="container mx-auto px-6 py-8">
+        <div className="flex items-center justify-center mb-6">
+          <Link to="/" className="flex items-center space-x-3">
+            <Logo size="default" />
+            <div className="text-xl font-bold text-foreground">Quantum Intelligence</div>
+          </Link>
+        </div>
         <div className="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">
           {/* Social Links */}
           <div className="flex items-center space-x-6">

@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
+import Logo from "@/components/Logo";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -10,7 +11,7 @@ const Header = () => {
 
   const navItems = [
     { 
-      name: "Products & Services", 
+      name: "Services", 
       path: "/services",
       dropdown: [
         { name: "Data Analysis", desc: "Build better datasets for AI models", path: "/data-analysis" },
@@ -20,42 +21,67 @@ const Header = () => {
       ]
     },
     { 
-      name: "Developers", 
-      path: "/developers",
+      name: "Products", 
+      path: "/services",
       dropdown: [
-        { name: "GenAI for enterprise", desc: "Take full advantage of core workflows on existing solutions", path: "/genai-enterprise" },
+        { name: "SURASOFT", desc: "AI security platform with biometric verification", path: "/surasoft" },
+        { name: "AI Proctoring", desc: "Powered by AI for safe online assessments", path: "/ai-proctoring" },
+        { name: "Askari LLM", desc: "Policy guardrails for language models", path: "/askari-llm" }
+      ]
+    },
+    { 
+      name: "Clients", 
+      path: "/services",
+      dropdown: [
+        { name: "Client for enterprise", desc: "Take full advantage of core workflows on existing solutions", path: "/client-enterprise" },
         { name: "Actionable custom AI solutions", desc: "Adopt a Data approach towards the AI development", path: "/custom-ai" },
         { name: "Machine Learning + DevOps", desc: "MLOps to bridge the gap on data and IT Operation teams", path: "/mlops" },
         { name: "Capacity Building", desc: "Awareness, mentoring capacity and strategy guide on AI", path: "/capacity-building" }
       ]
     },
     { 
-      name: "Industries", 
-      path: "/industries",
+      name: "Careers", 
+      path: "/careers",
       dropdown: [
-        { name: "Financial Services", desc: "Getting easy with the payment sector", path: "/financial" },
-        { name: "Telecommunications", desc: "Everything that involves communication", path: "/telecom" },
-        { name: "Education Services", desc: "Everything that involves Learning and students", path: "/education" },
-        { name: "Utilities", desc: "From electricity, to water supplies to public services", path: "/utilities" },
-        { name: "Retail & Logistics", desc: "Great brands who chose secure data", path: "/retail" },
-        { name: "Healthcare & Pharmacy", desc: "Health sector covered", path: "/healthcare" }
+        { name: "Open Positions", desc: "Join our team of AI innovators", path: "/careers" },
+        { name: "Culture & Values", desc: "Learn about our company culture", path: "/careers" },
+        { name: "Benefits", desc: "Comprehensive benefits and growth opportunities", path: "/careers" }
       ]
     },
     { 
       name: "Resources", 
       path: "/resources",
       dropdown: [
-        { name: "Coming Soon", desc: "We Understand having right resource for AI is crucial, we are working on that.", path: "/resources" }
+        { name: "Documentation", desc: "Comprehensive guides and API docs", path: "/resources" },
+        { name: "Whitepapers", desc: "In-depth research and industry insights", path: "/resources" },
+        { name: "Video Tutorials", desc: "Step-by-step guides and webinars", path: "/resources" }
       ]
     },
     { 
-      name: "Company", 
+      name: "Blog", 
+      path: "/blog",
+      dropdown: [
+        { name: "Latest Articles", desc: "Stay updated with our latest insights", path: "/blog" },
+        { name: "AI & Data Science", desc: "Technical articles and tutorials", path: "/blog" },
+        { name: "Case Studies", desc: "Real-world AI implementation stories", path: "/blog" }
+      ]
+    },
+    { 
+      name: "About Us", 
       path: "/about",
       dropdown: [
-        { name: "About Us", desc: "Learn about our mission, vision and culture", path: "/about" },
-        { name: "Partners", desc: "Innovative partners that are building the future of AI", path: "/partners" },
-        { name: "Our Community", desc: "We are grateful being part of these communities", path: "/community" },
-        { name: "Contact Us", desc: "We would love to hear from you!", path: "/contact" }
+        { name: "Our Story", desc: "Learn about our mission and vision", path: "/about" },
+        { name: "Our Team", desc: "Meet the people behind Quantum Intelligence", path: "/about" },
+        { name: "Partners", desc: "Innovative partners building the future of AI", path: "/about" }
+      ]
+    },
+    { 
+      name: "Contact Us", 
+      path: "/contact",
+      dropdown: [
+        { name: "Get in Touch", desc: "We would love to hear from you!", path: "/contact" },
+        { name: "Support", desc: "Technical support and assistance", path: "/contact" },
+        { name: "Partnerships", desc: "Explore partnership opportunities", path: "/contact" }
       ]
     },
   ];
@@ -67,7 +93,8 @@ const Header = () => {
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2">
+          <Link to="/" className="flex items-center space-x-3">
+            <Logo size="default" />
             <div className="text-2xl font-bold text-foreground">
               Quantum Intelligence
             </div>
@@ -119,7 +146,7 @@ const Header = () => {
               variant="outline" 
               className="border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300"
             >
-              Book a demo
+              Estimate Project
             </Button>
           </div>
 
@@ -152,7 +179,7 @@ const Header = () => {
                 variant="outline" 
                 className="border-primary text-primary hover:bg-primary hover:text-primary-foreground w-fit"
               >
-                Book a demo
+                Estimate Project
               </Button>
             </nav>
           </div>

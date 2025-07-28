@@ -67,13 +67,28 @@ const Index = () => {
       
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        {/* Background Video */}
+        <div className="absolute inset-0 w-full h-full">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover"
+            style={{ filter: 'brightness(0.3)' }}
+          >
+            <source src="https://6266199.fs1.hubspotusercontent-na1.net/hubfs/6266199/YData_background_large_compressed.mp4#t=0.001" type="video/mp4" />
+          </video>
+          <div className="absolute inset-0 bg-background/60"></div>
+        </div>
+
         {/* Floating Cubes Background */}
         <div className="absolute inset-0 overflow-hidden">
-          <Cube3D className="absolute top-20 left-10 opacity-30" size="sm" />
-          <Cube3D className="absolute top-32 right-20 opacity-20" size="md" />
-          <Cube3D className="absolute bottom-40 left-1/4 opacity-25" size="lg" />
-          <Cube3D className="absolute top-1/3 right-1/3 opacity-15" size="sm" />
-          <Cube3D className="absolute bottom-20 right-10 opacity-35" size="md" />
+          <Cube3D className="absolute top-20 left-10 opacity-20" size="sm" />
+          <Cube3D className="absolute top-32 right-20 opacity-15" size="md" />
+          <Cube3D className="absolute bottom-40 left-1/4 opacity-20" size="lg" />
+          <Cube3D className="absolute top-1/3 right-1/3 opacity-10" size="sm" />
+          <Cube3D className="absolute bottom-20 right-10 opacity-25" size="md" />
         </div>
 
         <div className="container mx-auto px-6 text-center relative z-10">
@@ -89,7 +104,7 @@ const Index = () => {
               size="lg" 
               className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-4 text-lg animate-glow-pulse"
             >
-              Book a demo
+              Estimate Project
             </Button>
           </div>
         </div>
@@ -334,7 +349,7 @@ const Index = () => {
               size="lg"
               className="border-foreground text-foreground hover:bg-foreground hover:text-background px-8"
             >
-              Ask for demo
+              Estimate Project
             </Button>
           </div>
         </div>
