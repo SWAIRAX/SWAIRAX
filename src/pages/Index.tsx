@@ -25,7 +25,7 @@ const Index = () => {
     },
     {
       title: "AI Proctoring",
-      category: "SaaS", 
+      category: "SaaS",
       description: "A Proctoring System Powered by Artificial Intelligence, this can be used to monitor the students and interviewees for safe and credible online assessment.",
       cta: "Request today"
     },
@@ -46,7 +46,7 @@ const Index = () => {
       cta: "Read More"
     },
     {
-      date: "May 3, 2023", 
+      date: "May 3, 2023",
       category: "Life On Data",
       title: "Overcoming the Barriers: A Look at the Challenges of Implementing AI in Africa.",
       description: "Implementing AI in Africa is not without its challenges. In this article, we will explore some of the key challenges of implementing AI in Africa, and we will discuss how these challenges can be addressed in order to realize the full potential of AI in the region.",
@@ -54,7 +54,7 @@ const Index = () => {
     },
     {
       date: "April 4, 2023",
-      category: "Case Study", 
+      category: "Case Study",
       title: "What is Retrieval Augmented Generation (RAG) in AI?",
       description: "Think of RAG like having a super-smart assistant who can help you find just the right information you need, exactly when you need it Here we will teach you how to build one.",
       cta: "Read More"
@@ -64,7 +64,7 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      
+
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         {/* Background Video */}
@@ -82,15 +82,6 @@ const Index = () => {
           <div className="absolute inset-0 bg-background/60"></div>
         </div>
 
-        {/* Floating Cubes Background */}
-        <div className="absolute inset-0 overflow-hidden">
-          <Cube3D className="absolute top-20 left-10 opacity-20" size="sm" />
-          <Cube3D className="absolute top-32 right-20 opacity-15" size="md" />
-          <Cube3D className="absolute bottom-40 left-1/4 opacity-20" size="lg" />
-          <Cube3D className="absolute top-1/3 right-1/3 opacity-10" size="sm" />
-          <Cube3D className="absolute bottom-20 right-10 opacity-25" size="md" />
-        </div>
-
         <div className="container mx-auto px-6 text-center relative z-10">
           <div className="max-w-4xl mx-auto animate-fade-in">
             <h1 className="text-5xl md:text-7xl font-bold mb-6">
@@ -100,8 +91,8 @@ const Index = () => {
             <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto">
               Adopting data-centric operations and building AI solutions has never been easier, we are working on that.
             </p>
-            <Button 
-              size="lg" 
+            <Button
+              size="lg"
               className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-4 text-lg animate-glow-pulse"
             >
               Estimate Project
@@ -126,7 +117,7 @@ const Index = () => {
               <p className="text-lg text-muted-foreground mb-8">
                 Through measurable <span className="text-primary">performance</span> & improvements we offer services as follows.
               </p>
-              
+
               <div className="grid grid-cols-2 gap-8">
                 {stats.map((stat, index) => (
                   <div key={index} className="text-center">
@@ -164,7 +155,7 @@ const Index = () => {
                 Data-Centric and AI solutions
               </h2>
             </div>
-            
+
             <div>
               <div className="bg-card p-8 rounded-lg border">
                 <p className="text-primary text-sm font-semibold mb-4">AI STUDIO & IDEAS</p>
@@ -172,11 +163,11 @@ const Index = () => {
                   Get Customized AI powered solution for a research or business.
                 </h3>
                 <p className="text-muted-foreground mb-6">
-                  Tell us a bit about your research and business challenge and our AI Team with combination 
+                  Tell us a bit about your research and business challenge and our AI Team with combination
                   of expert data scientists, developers, and business strategists — will come up with a few solutions.
                 </p>
                 <p className="text-muted-foreground mb-6">
-                  We are working on computer vision, NLP, LLMs, Generative AI and more. We help you to 
+                  We are working on computer vision, NLP, LLMs, Generative AI and more. We help you to
                   reduce development timeline, cheap and faster.
                 </p>
                 <Button variant="ghost" className="text-foreground hover:text-primary p-0">
@@ -198,27 +189,27 @@ const Index = () => {
                 Machine Learning + DevOps.
               </h2>
               <p className="text-muted-foreground mb-6">
-                You have the data and the model, but you still can't see the return on investment for your AI 
-                projects. Research shows that 50 - 90% of AI models are never commercialized because of 
+                You have the data and the model, but you still can't see the return on investment for your AI
+                projects. Research shows that 50 - 90% of AI models are never commercialized because of
                 the "last-mile" deployment problem.
               </p>
               <p className="text-muted-foreground mb-8">
-                We practices Machine Learning Operations (MLOps) by bridging the gap between data and 
-                IT Ops teams. We help you convert your data to business value by deploying your models 
+                We practices Machine Learning Operations (MLOps) by bridging the gap between data and
+                IT Ops teams. We help you convert your data to business value by deploying your models
                 into production.
               </p>
               <Button variant="ghost" className="text-foreground hover:text-primary p-0">
                 Learn more <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </div>
-            
+
             <div className="relative">
               {/* 3D Cube Visualization */}
               <div className="grid grid-cols-4 gap-4">
                 {Array.from({ length: 16 }).map((_, i) => (
-                  <Cube3D 
-                    key={i} 
-                    size="sm" 
+                  <Cube3D
+                    key={i}
+                    size="sm"
                     className={`opacity-${Math.random() > 0.5 ? '70' : '30'}`}
                   />
                 ))}
@@ -242,18 +233,18 @@ const Index = () => {
                 </div>
               </div>
             </div>
-            
+
             <div>
               <p className="text-primary text-sm font-semibold mb-4">Business Analysis.</p>
               <h2 className="text-4xl md:text-5xl font-bold mb-8">
                 Turning Data into Opportunity.
               </h2>
               <p className="text-muted-foreground mb-6">
-                A free SaaS option to start with Data analysis and visualization with AI with drag and drop a 
+                A free SaaS option to start with Data analysis and visualization with AI with drag and drop a
                 dataset in a minute. We help to you to see opportunities from your data.
               </p>
               <p className="text-muted-foreground mb-8">
-                In the digital age of data we can Quickly understand human better, our needs, 
+                In the digital age of data we can Quickly understand human better, our needs,
                 and business science overall.
               </p>
               <Button variant="ghost" className="text-foreground hover:text-primary p-0">
@@ -286,12 +277,12 @@ const Index = () => {
                       {product.category}
                     </span>
                   </div>
-                  
+
                   <h3 className="text-2xl font-bold mb-4">{product.title}</h3>
                   <p className="text-muted-foreground mb-6 text-sm leading-relaxed">
                     {product.description}
                   </p>
-                  
+
                   <Button variant="ghost" className="text-foreground hover:text-primary p-0">
                     {product.cta} <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
@@ -310,14 +301,14 @@ const Index = () => {
               Want to develop AI and data related solutions on-premises?
             </h2>
             <p className="text-xl text-muted-foreground mb-8">
-              Quantum Intelligence offers AI related solutions that can be deployed in any infrastructure for 
+              Quantum Intelligence offers AI related solutions that can be deployed in any infrastructure for
               anyone eager to enter in the industry.
             </p>
             <p className="text-lg text-muted-foreground mb-8">
               Contact us to know more!
             </p>
-            <Button 
-              variant="outline" 
+            <Button
+              variant="outline"
               size="lg"
               className="border-foreground text-foreground hover:bg-foreground hover:text-background"
             >
@@ -334,18 +325,18 @@ const Index = () => {
             Join the <span className="text-primary">Data-Centric AI</span> movement!
           </h2>
           <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
-            Connect, profile, understand & orchestrate your data preparation flows to train models more 
+            Connect, profile, understand & orchestrate your data preparation flows to train models more
             efficiently! Improve AI initiatives performance in a iterative way.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button 
-              size="lg" 
+            <Button
+              size="lg"
               className="bg-primary hover:bg-primary/90 text-primary-foreground px-8"
             >
               Try now
             </Button>
-            <Button 
-              variant="outline" 
+            <Button
+              variant="outline"
               size="lg"
               className="border-foreground text-foreground hover:bg-foreground hover:text-background px-8"
             >
@@ -359,7 +350,7 @@ const Index = () => {
       <section className="py-20">
         <div className="container mx-auto px-6">
           <h2 className="text-4xl md:text-5xl font-bold mb-16">Our Featured Articles</h2>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {articles.map((article, index) => (
               <Card key={index} className="bg-card border-border hover:shadow-card transition-all duration-300 overflow-hidden">
@@ -371,12 +362,12 @@ const Index = () => {
                       {article.category}
                     </span>
                   </div>
-                  
+
                   <h3 className="text-xl font-bold mb-4">{article.title}</h3>
                   <p className="text-muted-foreground mb-6 text-sm leading-relaxed">
                     {article.description}
                   </p>
-                  
+
                   <Button variant="ghost" className="text-foreground hover:text-primary p-0">
                     {article.cta} <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
