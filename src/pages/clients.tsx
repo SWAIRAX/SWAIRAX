@@ -235,76 +235,62 @@ return (
         </div>
     </section>
 
-      {/* Benefits Section */}
-    <section className="py-16 bg-card">
-        <div className="container mx-auto px-6">
-        <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Why Join Quantum Intelligence?</h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            We offer competitive benefits and a work environment designed to help you grow and succeed.
-            </p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {benefits.map((benefit, index) => (
-            <div key={index} className="text-center">
-                <div className="mb-4 flex justify-center">{benefit.icon}</div>
-                <h3 className="text-xl font-bold mb-3">{benefit.title}</h3>
-                <p className="text-muted-foreground text-sm">{benefit.description}</p>
-            </div>
-            ))}
-        </div>
-        </div>
-    </section>
 
 
     {/* Clients Section */}
     <section className="py-16">
-      <div className="container mx-auto px-6">
+    <div className="container mx-auto px-6">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Clients</h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+        <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Clients</h2>
+        <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Discover how we help organizations unlock the power of data and AI.
-          </p>
+        </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {clients.map((client, idx) => (
+        {clients.map((client, idx) => (
             <Card
-              key={client.id}
-              className="bg-card border-border hover:shadow-card transition-all duration-300 cursor-pointer"
-              onClick={() => {
-                setSelectedClient(client);
-                setIsModalOpen(true);
-              }}
+                key={client.id}
+                className="bg-card border-border hover:shadow-card transition-all duration-300 cursor-pointer"
+                onClick={() => {
+                    setSelectedClient(client);
+                    setIsModalOpen(true);
+                }}
             >
-              <CardContent className="p-6">
-                <div className="flex items-center gap-4 mb-4">
-                  {client.logoUrl && (
-                    <img src={client.logoUrl} alt={client.name} className="h-10 w-10 object-contain rounded" />
-                  )}
-                  <div>
-                    <h3 className="text-xl font-bold mb-1">{client.title}</h3>
-                    <Badge variant="secondary">{client.industry}</Badge>
-                  </div>
-                </div>
-                <p className="text-muted-foreground mb-4 line-clamp-3">{client.details.slice(0, 120)}...</p>
-                <div className="flex flex-wrap gap-2">
-                  {client.tags.map((tag, tagIdx) => (
-                    <Badge key={tagIdx} variant="outline" className="text-xs">
-                      #{tag}
-                    </Badge>
-                  ))}
-                </div>
-                <Button variant="ghost" className="mt-4 text-primary">
-                  Learn More <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
-              </CardContent>
+                <CardContent className="p-6">
+                    {/* Image Section */}
+                    <div className="flex flex-col items-center mb-4">
+                        {client.logoUrl && (
+                            <img
+                                src={`/uploads/${client.logoUrl.replace(/^\/+/, '')}`}
+                                alt={client.name || client.title}
+                                className="h-20 w-20 object-contain rounded mb-2 border"
+                            />
+                        )}
+                    </div>
+                    <div className="flex items-center gap-4 mb-4">
+                        <div>
+                            <h3 className="text-xl font-bold mb-1">{client.title}</h3>
+                            <Badge variant="secondary">{client.industry}</Badge>
+                        </div>
+                    </div>
+                    <p className="text-muted-foreground mb-4 line-clamp-3">{client.details.slice(0, 120)}...</p>
+                    <div className="flex flex-wrap gap-2">
+                        {client.tags.map((tag, tagIdx) => (
+                            <Badge key={tagIdx} variant="outline" className="text-xs">
+                                #{tag}
+                            </Badge>
+                        ))}
+                    </div>
+                    <Button variant="ghost" className="mt-4 text-primary">
+                        Learn More <ArrowRight className="ml-2 h-4 w-4" />
+                    </Button>
+                </CardContent>
             </Card>
-          ))}
+        ))}
         </div>
         {/* Modal for client details */}
         <ClientModal client={selectedClient} isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
-      </div>
+    </div>
     </section>
 
       {/* CTA Section */}

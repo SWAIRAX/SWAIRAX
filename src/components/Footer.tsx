@@ -19,7 +19,7 @@ const Footer = () => {
               />
             </picture>
             <div className="text-2xl font-bold text-foreground">
-              Quantum Intelligence
+              
             </div>
             </Link>
             <div className="text-xl font-bold text-foreground">Quantum Intelligence</div>

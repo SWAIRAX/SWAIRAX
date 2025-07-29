@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import Cube3D from "@/components/3DCube";
@@ -5,6 +6,7 @@ import AnimatedCounter from "@/components/AnimatedCounter";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { ArrowRight, CheckCircle } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Index = () => {
   const stats = [
@@ -95,7 +97,7 @@ const Index = () => {
               size="lg"
               className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-4 text-lg animate-glow-pulse"
             >
-              Estimate Project
+              <Link to="/contact">Estimate Project</Link>
             </Button>
           </div>
         </div>
@@ -338,11 +340,12 @@ const Index = () => {
               Try now
             </Button>
             <Button
+              asChild
               variant="outline"
               size="lg"
               className="border-foreground text-foreground hover:bg-foreground hover:text-background px-8"
             >
-              Estimate Project
+              <Link to="/contact">Estimate Project</Link>
             </Button>
           </div>
         </div>

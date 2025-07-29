@@ -66,52 +66,7 @@ const Contact = () => {
         </div>
       </section>
 
-      {/* Contact Information */}
-      <section className="py-16 bg-background">
-        <div className="container mx-auto px-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
-            <Card className="bg-card border-border">
-              <CardContent className="p-6 text-center">
-                <Mail className="h-8 w-8 text-primary mx-auto mb-4" />
-                <h3 className="font-semibold mb-2">Email</h3>
-                <p className="text-muted-foreground text-sm">
-                  communications@quantumintelligence.co.tz
-                </p>
-              </CardContent>
-            </Card>
-            
-            <Card className="bg-card border-border">
-              <CardContent className="p-6 text-center">
-                <Phone className="h-8 w-8 text-primary mx-auto mb-4" />
-                <h3 className="font-semibold mb-2">Phone</h3>
-                <p className="text-muted-foreground text-sm">
-                  +255 689 726 060
-                </p>
-              </CardContent>
-            </Card>
-            
-            <Card className="bg-card border-border">
-              <CardContent className="p-6 text-center">
-                <MapPin className="h-8 w-8 text-primary mx-auto mb-4" />
-                <h3 className="font-semibold mb-2">Location</h3>
-                <p className="text-muted-foreground text-sm">
-                  Dar es Salaam, Tanzania
-                </p>
-              </CardContent>
-            </Card>
-            
-            <Card className="bg-card border-border">
-              <CardContent className="p-6 text-center">
-                <Globe className="h-8 w-8 text-primary mx-auto mb-4" />
-                <h3 className="font-semibold mb-2">Services</h3>
-                <p className="text-muted-foreground text-sm">
-                  Global AI Solutions
-                </p>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
+      {/* Contact Information (moved below) */}
 
       {/* Contact Form */}
       <section className="py-16 bg-card">
@@ -127,6 +82,7 @@ const Contact = () => {
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-8">
+              {/* ...existing form fields... */}
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div>
                   <Label htmlFor="firstName">First Name*</Label>
@@ -242,6 +198,50 @@ const Contact = () => {
                 Request Free Estimate
               </Button>
             </form>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Information (moved below) */}
+      <section className="py-16 bg-background">
+        <div className="container mx-auto px-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+            <Card className="bg-card border-border">
+              <CardContent className="p-6 text-center">
+                <Mail className="h-8 w-8 text-primary mx-auto mb-4" />
+                <h3 className="font-semibold mb-2">Email</h3>
+                <p className="text-muted-foreground text-sm">
+                  communications@quantumintelligence.co.tz
+                </p>
+              </CardContent>
+            </Card>
+            <Card className="bg-card border-border">
+              <CardContent className="p-6 text-center">
+                <Phone className="h-8 w-8 text-primary mx-auto mb-4" />
+                <h3 className="font-semibold mb-2">Phone</h3>
+                <p className="text-muted-foreground text-sm">
+                  +255 689 726 060
+                </p>
+              </CardContent>
+            </Card>
+            <Card className="bg-card border-border">
+              <CardContent className="p-6 text-center">
+                <MapPin className="h-8 w-8 text-primary mx-auto mb-4" />
+                <h3 className="font-semibold mb-2">Location</h3>
+                <p className="text-muted-foreground text-sm">
+                  Dar es Salaam, Tanzania
+                </p>
+              </CardContent>
+            </Card>
+            <Card className="bg-card border-border">
+              <CardContent className="p-6 text-center">
+                <Globe className="h-8 w-8 text-primary mx-auto mb-4" />
+                <h3 className="font-semibold mb-2">Services</h3>
+                <p className="text-muted-foreground text-sm">
+                  Global AI Solutions
+                </p>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>
