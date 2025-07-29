@@ -14,6 +14,8 @@ title: string;
 details: string;
 industry: string;
 logoUrl?: string;
+logoLinkUrl?: string; // URL to open when logo is clicked
+imageUrl?: string; // Main card image (not logo)
 tags: string[];
 }
 
@@ -25,20 +27,22 @@ const [isModalOpen, setIsModalOpen] = useState(false);
 const clients = [
     {
     id: "1",
-    title: "Digital Data is the new software code",
-    details: `Drawing inspiration from the profound words of British Mathematician Clive Humby that 'Data is the new oil', we embark on a journey to discover the secrets of successful AI development, where data takes center stage.
+    title: "PAL Africa",
+    details: `PAL Africa is an African initiative dedicated to transforming education through innovative STEAM (Science, Technology, Engineering, Arts, and Mathematics) programs that celebrate African culture and creativity.
 
-In today's rapidly evolving technological landscape, data has become the cornerstone of innovation. Just as software code revolutionized the digital age, data now serves as the fundamental building block for artificial intelligence and machine learning applications.
+We believe in teaching mindset, not just subject matter. Our approach combines traditional African storytelling with modern educational techniques to create engaging, memorable learning experiences.
 
-The paradigm shift from traditional software development to data-centric AI development represents a fundamental change in how we approach problem-solving. Instead of writing explicit rules and logic, we now train models on vast datasets to learn patterns and make predictions.
+From rural schools to urban centers, we're building a generation of African innovators, problem-solvers, and creative thinkers who will shape the future of our continent.
 
-This transformation has profound implications for businesses, researchers, and society as a whole. Organizations that understand how to harness the power of their data will gain competitive advantages, while those that fail to adapt risk being left behind.
+About This Program
+A heartwarming session where children and their parents, guardians or siblings team up to create amazing STEAM projects. Whether it's building a robot, lighting up a circuit, art and crafts or coding a game this session is all about teamwork, laughter and quality time. You'll leave with more than just a project you'll leave with memories.
 
-The quality, quantity, and diversity of data directly impact the performance of AI systems. Clean, well-labeled, and representative datasets are essential for building robust and reliable AI applications.
-
-As we move forward, the ability to collect, process, and analyze data effectively will become increasingly important. Data engineering, data science, and MLOps will continue to be critical disciplines for organizations looking to leverage AI successfully.`,
-    name: "Quantum Intelligence Team",
+"This isn't just another workshop – it's a place where your child will explore, create and grow. And for you as a parent, it's a chance to join the magic. If you're not part of this, you're missing the spark that could light up your child's future."`,
+    name: "PAL Africa",
     industry: "AI & Data",
+    logoUrl: "pal-africa-logo.png", // just the filename
+    logoLinkUrl: "https://palafrica.org", // example external link
+    imageUrl: "palaafrica.png", // main card image filename in uploads
     tags: ["artificial-intelligence", "data-science", "machine-learning", "innovation"]
     },
     {
@@ -257,15 +261,34 @@ return (
                 }}
             >
                 <CardContent className="p-6">
-                    {/* Image Section */}
-                    <div className="flex flex-col items-center mb-4">
-                        {client.logoUrl && (
+                    {/* Main Card Image Section */}
+                    {client.imageUrl && (
+                        <div className="flex flex-col items-center mb-4">
                             <img
-                                src={`/uploads/${client.logoUrl.replace(/^\/+/, '')}`}
-                                alt={client.name || client.title}
+                                src={`/uploads/${client.imageUrl.replace(/^\/+/,'')}`}
+                                alt={client.title + ' main image'}
+                                className="w-full h-40 object-cover rounded mb-2 border"
+                            />
+                        </div>
+                    )}
+                    {/* Logo Section (clickable if logoLinkUrl) */}
+                    <div className="flex flex-col items-center mb-4">
+                        {client.logoUrl && client.logoLinkUrl ? (
+                            <a href={client.logoLinkUrl} target="_blank" rel="noopener noreferrer">
+                                <img
+                                    src={`/uploads/${client.logoUrl.replace(/^\/+/,'')}`}
+                                    alt={client.name || client.title + ' logo'}
+                                    className="h-20 w-20 object-contain rounded mb-2 border hover:scale-105 transition-transform"
+                                    style={{ cursor: 'pointer' }}
+                                />
+                            </a>
+                        ) : client.logoUrl ? (
+                            <img
+                                src={`/uploads/${client.logoUrl.replace(/^\/+/,'')}`}
+                                alt={client.name || client.title + ' logo'}
                                 className="h-20 w-20 object-contain rounded mb-2 border"
                             />
-                        )}
+                        ) : null}
                     </div>
                     <div className="flex items-center gap-4 mb-4">
                         <div>

@@ -12,6 +12,8 @@ description: string;
 details: string;
 industry: string;
 logoUrl?: string;
+logoLinkUrl?: string; // URL to open when logo is clicked
+imageUrl?: string; // Main card image (not logo)
 tags: string[];
 }
 
@@ -41,10 +43,8 @@ return (
             <Button
             variant="ghost"
             size="sm"
-            onClick={onClose}
-            className="h-8 w-8 p-0"
-            >
-            <X className="h-4 w-4" />
+			aria-label="Close">
+            <X className="h-8 w-8 p-0" />
             </Button>
         </div>
 
