@@ -75,7 +75,7 @@ const Index = () => {
             muted
             playsInline
             className="absolute inset-0 w-full h-full object-cover"
-            style={{ filter: 'brightness(0.3)' }}
+            style={{ filter: 'brightness(0.6)' }}
           >
             <source src="https://6266199.fs1.hubspotusercontent-na1.net/hubfs/6266199/YData_background_large_compressed.mp4#t=0.001" type="video/mp4" />
           </video>
