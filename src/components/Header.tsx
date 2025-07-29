@@ -39,15 +39,15 @@ const Header = () => {
         { name: "Capacity Building", desc: "Awareness, mentoring capacity and strategy guide on AI", path: "/capacity-building" }
       ]
     },
-    { 
-      name: "Careers", 
-      path: "/careers",
-      dropdown: [
-        { name: "Open Positions", desc: "Join our team of AI innovators", path: "/careers" },
-        { name: "Culture & Values", desc: "Learn about our company culture", path: "/careers" },
-        { name: "Benefits", desc: "Comprehensive benefits and growth opportunities", path: "/careers" }
-      ]
-    },
+    // { 
+    //   name: "Careers", 
+    //   path: "/careers",
+    //   dropdown: [
+    //     { name: "Open Positions", desc: "Join our team of AI innovators", path: "/careers" },
+    //     { name: "Culture & Values", desc: "Learn about our company culture", path: "/careers" },
+    //     { name: "Benefits", desc: "Comprehensive benefits and growth opportunities", path: "/careers" }
+    //   ]
+    // },
     { 
       name: "Resources", 
       path: "/resources",
@@ -93,12 +93,19 @@ const Header = () => {
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-3">
-            <Logo size="default" />
+            <Link to="/" className="flex items-center space-x-3">
+            <picture>
+              <img
+              src="/uploads/logo.png"
+              alt="Quantum Intelligence Logo"
+              className="h-10 w-auto object-contain"
+              style={{ maxWidth: "160px" }}
+              />
+            </picture>
             <div className="text-2xl font-bold text-foreground">
               Quantum Intelligence
             </div>
-          </Link>
+            </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-8">

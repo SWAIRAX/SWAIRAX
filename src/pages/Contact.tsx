@@ -75,7 +75,7 @@ const Contact = () => {
                 <Mail className="h-8 w-8 text-primary mx-auto mb-4" />
                 <h3 className="font-semibold mb-2">Email</h3>
                 <p className="text-muted-foreground text-sm">
-                  hello@quantumintelligence.com
+                  communications@quantumintelligence.co.tz
                 </p>
               </CardContent>
             </Card>
@@ -85,7 +85,7 @@ const Contact = () => {
                 <Phone className="h-8 w-8 text-primary mx-auto mb-4" />
                 <h3 className="font-semibold mb-2">Phone</h3>
                 <p className="text-muted-foreground text-sm">
-                  +255 123 456 789
+                  +255 689 726 060
                 </p>
               </CardContent>
             </Card>
