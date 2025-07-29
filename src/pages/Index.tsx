@@ -312,7 +312,9 @@ const Index = () => {
               size="lg"
               className="border-foreground text-foreground hover:bg-foreground hover:text-background"
             >
-              Contact us
+
+            <a href="/contact" >Contact us</a>
+
             </Button>
           </div>
         </div>

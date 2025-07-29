@@ -8,7 +8,20 @@ const Footer = () => {
       <div className="container mx-auto px-6 py-8">
         <div className="flex items-center justify-center mb-6">
           <Link to="/" className="flex items-center space-x-3">
-            <Logo size="default" />
+            {/* Logo */}
+            <Link to="/" className="flex items-center space-x-3">
+            <picture>
+              <img
+              src="/uploads/logo.png"
+              alt="Quantum Intelligence Logo"
+              className="h-10 w-auto object-contain"
+              style={{ maxWidth: "160px" }}
+              />
+            </picture>
+            <div className="text-2xl font-bold text-foreground">
+              Quantum Intelligence
+            </div>
+            </Link>
             <div className="text-xl font-bold text-foreground">Quantum Intelligence</div>
           </Link>
         </div>

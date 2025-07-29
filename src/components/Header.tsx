@@ -10,8 +10,8 @@ const Header = () => {
   const location = useLocation();
 
   const navItems = [
-    { 
-      name: "Services", 
+    {
+      name: "Products&Services",
       path: "/services",
       dropdown: [
         { name: "Data Analysis", desc: "Build better datasets for AI models", path: "/data-analysis" },
@@ -20,18 +20,18 @@ const Header = () => {
         { name: "Customized Machine Learning Models", desc: "Improve your ML development flow", path: "/ml-models" }
       ]
     },
-    { 
-      name: "Products", 
-      path: "/services",
-      dropdown: [
-        { name: "SURASOFT", desc: "AI security platform with biometric verification", path: "/surasoft" },
-        { name: "AI Proctoring", desc: "Powered by AI for safe online assessments", path: "/ai-proctoring" },
-        { name: "Askari LLM", desc: "Policy guardrails for language models", path: "/askari-llm" }
-      ]
-    },
-    { 
-      name: "Clients", 
-      path: "/services",
+    // {
+    //   name: "Products",
+    //   path: "/services",
+    //   dropdown: [
+    //     { name: "SURASOFT", desc: "AI security platform with biometric verification", path: "/surasoft" },
+    //     { name: "AI Proctoring", desc: "Powered by AI for safe online assessments", path: "/ai-proctoring" },
+    //     { name: "Askari LLM", desc: "Policy guardrails for language models", path: "/askari-llm" }
+    //   ]
+    // },
+    {
+      name: "Clients",
+      path: "/clients",
       dropdown: [
         { name: "Client for enterprise", desc: "Take full advantage of core workflows on existing solutions", path: "/client-enterprise" },
         { name: "Actionable custom AI solutions", desc: "Adopt a Data approach towards the AI development", path: "/custom-ai" },
@@ -39,8 +39,8 @@ const Header = () => {
         { name: "Capacity Building", desc: "Awareness, mentoring capacity and strategy guide on AI", path: "/capacity-building" }
       ]
     },
-    // { 
-    //   name: "Careers", 
+    // {
+    //   name: "Careers",
     //   path: "/careers",
     //   dropdown: [
     //     { name: "Open Positions", desc: "Join our team of AI innovators", path: "/careers" },
@@ -48,8 +48,8 @@ const Header = () => {
     //     { name: "Benefits", desc: "Comprehensive benefits and growth opportunities", path: "/careers" }
     //   ]
     // },
-    { 
-      name: "Resources", 
+    {
+      name: "Resources",
       path: "/resources",
       dropdown: [
         { name: "Documentation", desc: "Comprehensive guides and API docs", path: "/resources" },
@@ -57,8 +57,8 @@ const Header = () => {
         { name: "Video Tutorials", desc: "Step-by-step guides and webinars", path: "/resources" }
       ]
     },
-    { 
-      name: "Blog", 
+    {
+      name: "Blog",
       path: "/blog",
       dropdown: [
         { name: "Latest Articles", desc: "Stay updated with our latest insights", path: "/blog" },
@@ -66,8 +66,8 @@ const Header = () => {
         { name: "Case Studies", desc: "Real-world AI implementation stories", path: "/blog" }
       ]
     },
-    { 
-      name: "About Us", 
+    {
+      name: "About Us",
       path: "/about",
       dropdown: [
         { name: "Our Story", desc: "Learn about our mission and vision", path: "/about" },
@@ -75,8 +75,8 @@ const Header = () => {
         { name: "Partners", desc: "Innovative partners building the future of AI", path: "/about" }
       ]
     },
-    { 
-      name: "Contact Us", 
+    {
+      name: "Contact Us",
       path: "/contact",
       dropdown: [
         { name: "Get in Touch", desc: "We would love to hear from you!", path: "/contact" },
@@ -112,20 +112,33 @@ const Header = () => {
             {navItems.map((item) => (
               <div
                 key={item.name}
-                className="relative"
-                onMouseEnter={() => setActiveDropdown(item.name)}
-                onMouseLeave={() => setActiveDropdown(null)}
+                className="relative flex items-center"
+                tabIndex={0}
+                onBlur={(e) => {
+                  if (!e.currentTarget.contains(e.relatedTarget)) setActiveDropdown(null);
+                }}
               >
                 <Link
                   to={item.path}
                   className={`flex items-center text-sm font-medium transition-colors hover:text-primary ${
                     isActive(item.path) ? "text-primary" : "text-muted-foreground"
                   }`}
+                  style={{ paddingRight: item.dropdown ? 0 : undefined }}
                 >
                   {item.name}
-                  <ChevronDown className="ml-1 h-3 w-3" />
                 </Link>
-                
+                {item.dropdown && (
+                  <button
+                    type="button"
+                    className="ml-1 flex items-center bg-transparent border-none outline-none p-0"
+                    onClick={() => setActiveDropdown(activeDropdown === item.name ? null : item.name)}
+                    aria-haspopup="true"
+                    aria-expanded={activeDropdown === item.name}
+                  >
+                    <ChevronDown className="h-3 w-3" />
+                  </button>
+                )}
+
                 {/* Dropdown Menu */}
                 {activeDropdown === item.name && item.dropdown && (
                   <div className="absolute top-full left-0 mt-2 w-80 bg-background border border-border rounded-lg shadow-card z-50 animate-fade-in">
@@ -135,6 +148,7 @@ const Header = () => {
                           key={dropdownItem.name}
                           to={dropdownItem.path}
                           className="block p-3 rounded-lg hover:bg-muted transition-colors"
+                          onClick={() => setActiveDropdown(null)}
                         >
                           <div className="font-medium text-foreground mb-1">{dropdownItem.name}</div>
                           <div className="text-sm text-muted-foreground">{dropdownItem.desc}</div>
@@ -149,12 +163,14 @@ const Header = () => {
 
           {/* CTA Button */}
           <div className="hidden lg:flex">
-            <Button 
-              variant="outline" 
-              className="border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300"
-            >
-              Estimate Project
-            </Button>
+            <Link to="/contact">
+              <Button
+                variant="outline"
+                className="border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300"
+              >
+                Estimate Project
+              </Button>
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
@@ -182,12 +198,15 @@ const Header = () => {
                   {item.name}
                 </Link>
               ))}
-              <Button 
-                variant="outline" 
-                className="border-primary text-primary hover:bg-primary hover:text-primary-foreground w-fit"
-              >
-                Estimate Project
-              </Button>
+              <Link to="/contact">
+                <Button
+                  variant="outline"
+                  className="border-primary text-primary hover:bg-primary hover:text-primary-foreground w-fit"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Estimate Project
+                </Button>
+              </Link>
             </nav>
           </div>
         )}
