@@ -7,7 +7,7 @@ import AnimatedCounter from "@/components/AnimatedCounter";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import BlogModal from "@/components/BlogModal";
-import { ArrowRight, CheckCircle } from "lucide-react";
+import { ArrowRight, CheckCircle, Database, Cog, Cloud, BarChart3, PieChart, TrendingUp } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Index = () => {
@@ -222,7 +222,7 @@ const Index = () => {
             <div>
               <p className="text-primary text-sm font-semibold mb-4">MLOps</p>
               <h2 className="text-4xl md:text-5xl font-bold mb-8">
-                Machine Learning + DevOps.
+                From Model to Value—Deploy AI with Confidence
               </h2>
               <p className="text-muted-foreground mb-6">
                 You have the data and the model, but you still can't see the return on investment for your AI
@@ -240,16 +240,40 @@ const Index = () => {
             </div>
 
             <div className="relative">
-              {/* 3D Cube Visualization */}
-              <div className="grid grid-cols-4 gap-4">
-                {Array.from({ length: 16 }).map((_, i) => (
-                  <Cube3D
-                    key={i}
-                    size="sm"
-                    className={`opacity-${Math.random() > 0.5 ? '70' : '30'}`}
-                  />
-                ))}
+              {/* Animated Pipeline Flow */}
+              <div className="flex items-center justify-center space-x-8">
+                <div className="flex flex-col items-center space-y-4 animate-fade-in">
+                  <div className="w-16 h-16 bg-primary/20 rounded-lg flex items-center justify-center group hover:bg-primary/30 transition-colors duration-300">
+                    <Database className="w-8 h-8 text-primary group-hover:scale-110 transition-transform" />
+                  </div>
+                  <span className="text-sm text-muted-foreground">Dataset</span>
+                </div>
+                
+                <div className="animate-pulse">
+                  <ArrowRight className="w-6 h-6 text-primary" />
+                </div>
+                
+                <div className="flex flex-col items-center space-y-4 animate-fade-in" style={{ animationDelay: '0.2s' }}>
+                  <div className="w-16 h-16 bg-primary/20 rounded-lg flex items-center justify-center group hover:bg-primary/30 transition-colors duration-300">
+                    <Cog className="w-8 h-8 text-primary group-hover:scale-110 transition-transform animate-spin-slow" />
+                  </div>
+                  <span className="text-sm text-muted-foreground">Model</span>
+                </div>
+                
+                <div className="animate-pulse" style={{ animationDelay: '0.4s' }}>
+                  <ArrowRight className="w-6 h-6 text-primary" />
+                </div>
+                
+                <div className="flex flex-col items-center space-y-4 animate-fade-in" style={{ animationDelay: '0.4s' }}>
+                  <div className="w-16 h-16 bg-primary/20 rounded-lg flex items-center justify-center group hover:bg-primary/30 transition-colors duration-300">
+                    <Cloud className="w-8 h-8 text-primary group-hover:scale-110 transition-transform" />
+                  </div>
+                  <span className="text-sm text-muted-foreground">Deploy</span>
+                </div>
               </div>
+              
+              {/* Background glow effect */}
+              <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-primary/5 rounded-lg -z-10"></div>
             </div>
           </div>
         </div>
@@ -260,20 +284,74 @@ const Index = () => {
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div className="relative">
-              {/* Isometric visualization placeholder */}
-              <div className="bg-gradient-secondary p-8 rounded-lg border">
-                <div className="grid grid-cols-3 gap-4">
-                  {Array.from({ length: 9 }).map((_, i) => (
-                    <div key={i} className="aspect-square bg-primary/20 rounded border border-primary/30"></div>
-                  ))}
+              {/* Interactive Dashboard Illustration */}
+              <div className="bg-card/50 p-8 rounded-lg border border-border/50 backdrop-blur-sm">
+                <div className="grid grid-cols-2 gap-6">
+                  {/* Bar Chart */}
+                  <div className="bg-background/80 p-4 rounded-lg border group hover:shadow-lg transition-all duration-300">
+                    <div className="flex items-center justify-between mb-3">
+                      <BarChart3 className="w-5 h-5 text-primary" />
+                      <span className="text-xs text-muted-foreground">Revenue</span>
+                    </div>
+                    <div className="space-y-2">
+                      {[60, 80, 45, 90].map((height, i) => (
+                        <div key={i} className="flex items-end space-x-1">
+                          <div 
+                            className="bg-primary/70 w-6 rounded-sm transition-all duration-1000 hover:bg-primary"
+                            style={{ 
+                              height: `${height * 0.4}px`,
+                              animationDelay: `${i * 0.2}s`
+                            }}
+                          ></div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                  
+                  {/* Pie Chart */}
+                  <div className="bg-background/80 p-4 rounded-lg border group hover:shadow-lg transition-all duration-300">
+                    <div className="flex items-center justify-between mb-3">
+                      <PieChart className="w-5 h-5 text-primary" />
+                      <span className="text-xs text-muted-foreground">Growth</span>
+                    </div>
+                    <div className="relative w-16 h-16 mx-auto">
+                      <div className="absolute inset-0 rounded-full border-4 border-primary/30"></div>
+                      <div className="absolute inset-0 rounded-full border-4 border-primary border-t-transparent animate-spin-slow"></div>
+                    </div>
+                  </div>
+                  
+                  {/* KPI Widgets */}
+                  <div className="bg-background/80 p-4 rounded-lg border group hover:shadow-lg transition-all duration-300">
+                    <TrendingUp className="w-5 h-5 text-primary mb-2" />
+                    <div className="text-2xl font-bold text-primary">
+                      <AnimatedCounter value="24%" />
+                    </div>
+                    <span className="text-xs text-muted-foreground">Customer Growth</span>
+                  </div>
+                  
+                  <div className="bg-background/80 p-4 rounded-lg border group hover:shadow-lg transition-all duration-300">
+                    <CheckCircle className="w-5 h-5 text-primary mb-2" />
+                    <div className="text-2xl font-bold text-primary">
+                      <AnimatedCounter value="98%" />
+                    </div>
+                    <span className="text-xs text-muted-foreground">Data Quality</span>
+                  </div>
+                </div>
+                
+                {/* Floating Analytics Icons */}
+                <div className="absolute -top-4 -right-4 w-8 h-8 bg-primary/20 rounded-full flex items-center justify-center animate-bounce">
+                  <span className="text-xs">📊</span>
+                </div>
+                <div className="absolute -bottom-2 -left-2 w-6 h-6 bg-primary/20 rounded-full flex items-center justify-center animate-pulse">
+                  <span className="text-xs">🎯</span>
                 </div>
               </div>
             </div>
 
             <div>
-              <p className="text-primary text-sm font-semibold mb-4">Business Analysis.</p>
+              <p className="text-primary text-sm font-semibold mb-4">Business Analysis</p>
               <h2 className="text-4xl md:text-5xl font-bold mb-8">
-                Turning Data into Opportunity.
+                Turn Insight Into Strategy
               </h2>
               <p className="text-muted-foreground mb-6">
                 A free SaaS option to start with Data analysis and visualization with AI with drag and drop a
@@ -297,31 +375,65 @@ const Index = () => {
           <div className="text-center mb-16">
             <p className="text-primary text-sm font-semibold mb-4">Ready to start?</p>
             <h2 className="text-4xl md:text-5xl font-bold">
-              Get started with our flexible infrastructure
+              Solutions Built to Scale
             </h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {products.map((product, index) => (
-              <Card key={index} className="bg-secondary border-border hover:shadow-card transition-all duration-300">
-                <CardContent className="p-8">
-                  <div className="flex items-center justify-between mb-6">
-                    <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center">
-                      <div className="w-6 h-6 bg-primary rounded"></div>
+              <Card 
+                key={index} 
+                className="bg-secondary border-border hover:shadow-lg hover:scale-105 transition-all duration-300 group"
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                <CardContent className="p-8 relative overflow-hidden">
+                  {/* Animated SVG background */}
+                  <div className="absolute inset-0 opacity-5">
+                    <svg className="w-full h-full" viewBox="0 0 100 100">
+                      <circle 
+                        cx="50" 
+                        cy="50" 
+                        r="30" 
+                        fill="none" 
+                        stroke="currentColor" 
+                        strokeWidth="1"
+                        className="animate-spin-slow"
+                      />
+                      <circle 
+                        cx="50" 
+                        cy="50" 
+                        r="20" 
+                        fill="none" 
+                        stroke="currentColor" 
+                        strokeWidth="0.5"
+                        className="animate-spin-slow"
+                        style={{ animationDirection: 'reverse' }}
+                      />
+                    </svg>
+                  </div>
+                  
+                  <div className="flex items-center justify-between mb-6 relative z-10">
+                    <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center group-hover:bg-primary/30 transition-colors duration-300">
+                      <div className="w-6 h-6 bg-primary rounded group-hover:animate-pulse"></div>
                     </div>
-                    <span className="text-xs px-3 py-1 rounded-full bg-muted text-muted-foreground">
+                    <span className="text-xs px-3 py-1 rounded-full bg-muted text-muted-foreground group-hover:bg-primary/20 transition-colors duration-300">
                       {product.category}
                     </span>
                   </div>
 
-                  <h3 className="text-2xl font-bold mb-4">{product.title}</h3>
-                  <p className="text-muted-foreground mb-6 text-sm leading-relaxed">
+                  <h3 className="text-2xl font-bold mb-4 relative z-10">{product.title}</h3>
+                  <p className="text-muted-foreground mb-6 text-sm leading-relaxed relative z-10">
                     {product.description}
                   </p>
 
-                  <Button asChild variant="ghost" className="text-foreground hover:text-primary p-0">
+                  <Button asChild variant="ghost" className="text-foreground hover:text-primary p-0 relative z-10 group-hover:translate-x-1 transition-transform duration-300">
                     <Link to="/try-now">{product.cta} <ArrowRight className="ml-2 h-4 w-4" /></Link>
                   </Button>
+                  
+                  {/* Sparkle effect on hover */}
+                  <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div className="w-2 h-2 bg-primary rounded-full animate-ping"></div>
+                  </div>
                 </CardContent>
               </Card>
             ))}

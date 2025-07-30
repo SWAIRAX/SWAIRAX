@@ -23,6 +23,10 @@ import AIStudio from '@/pages/AIStudio';
 import MLOps from '@/pages/MLOps';
 import BusinessAnalysis from '@/pages/BusinessAnalysis';
 import TryNow from '@/pages/TryNow';
+import Privacy from '@/pages/Privacy';
+import Terms from '@/pages/Terms';
+import FAQ from '@/pages/FAQ';
+import Glossary from '@/pages/Glossary';
 
 const queryClient = new QueryClient();
 
@@ -52,6 +56,10 @@ const App = () => (
           <Route path="/mlops" element={<MLOps />} />
           <Route path="/business-analysis" element={<BusinessAnalysis />} />
           <Route path="/try-now" element={<TryNow />} />
+          <Route path="/privacy" element={<Privacy />} />
+          <Route path="/terms" element={<Terms />} />
+          <Route path="/faq" element={<FAQ />} />
+          <Route path="/glossary" element={<Glossary />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
