@@ -202,8 +202,8 @@ const Index = () => {
                   We are working on computer vision, NLP, LLMs, Generative AI and more. We help you to
                   reduce development timeline, cheap and faster.
                 </p>
-                <Button variant="ghost" className="text-foreground hover:text-primary p-0">
-                  Know More <ArrowRight className="ml-2 h-4 w-4" />
+                <Button asChild variant="ghost" className="text-foreground hover:text-primary p-0">
+                  <Link to="/ai-studio">Know More <ArrowRight className="ml-2 h-4 w-4" /></Link>
                 </Button>
               </div>
             </div>
@@ -230,8 +230,8 @@ const Index = () => {
                 IT Ops teams. We help you convert your data to business value by deploying your models
                 into production.
               </p>
-              <Button variant="ghost" className="text-foreground hover:text-primary p-0">
-                Learn more <ArrowRight className="ml-2 h-4 w-4" />
+              <Button asChild variant="ghost" className="text-foreground hover:text-primary p-0">
+                <Link to="/mlops">Learn more <ArrowRight className="ml-2 h-4 w-4" /></Link>
               </Button>
             </div>
 
@@ -279,8 +279,8 @@ const Index = () => {
                 In the digital age of data we can Quickly understand human better, our needs,
                 and business science overall.
               </p>
-              <Button variant="ghost" className="text-foreground hover:text-primary p-0">
-                Explore how <ArrowRight className="ml-2 h-4 w-4" />
+              <Button asChild variant="ghost" className="text-foreground hover:text-primary p-0">
+                <Link to="/business-analysis">Explore how <ArrowRight className="ml-2 h-4 w-4" /></Link>
               </Button>
             </div>
           </div>
@@ -315,8 +315,8 @@ const Index = () => {
                     {product.description}
                   </p>
 
-                  <Button variant="ghost" className="text-foreground hover:text-primary p-0">
-                    {product.cta} <ArrowRight className="ml-2 h-4 w-4" />
+                  <Button asChild variant="ghost" className="text-foreground hover:text-primary p-0">
+                    <Link to="/try-now">{product.cta} <ArrowRight className="ml-2 h-4 w-4" /></Link>
                   </Button>
                 </CardContent>
               </Card>
@@ -364,10 +364,11 @@ const Index = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button
+              asChild
               size="lg"
               className="bg-primary hover:bg-primary/90 text-primary-foreground px-8"
             >
-              Try now
+              <Link to="/try-now">Try now</Link>
             </Button>
             <Button
               asChild
@@ -407,7 +408,7 @@ const Index = () => {
                     {article.excerpt}
                   </p>
 
-                  <Button variant="ghost" className="text-foreground hover:text-primary p-0">
+                  <Button variant="ghost" className="text-foreground hover:text-primary p-0" onClick={() => handleBlogClick(article)}>
                     {article.cta} <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
                 </CardContent>

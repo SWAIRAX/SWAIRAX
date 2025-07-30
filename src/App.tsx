@@ -19,6 +19,10 @@ import EducationServices from '@/pages/industries/EducationServices';
 import Utilities from '@/pages/industries/Utilities';
 import RetailLogistics from '@/pages/industries/RetailLogistics';
 import HealthcarePharmacy from '@/pages/industries/HealthcarePharmacy';
+import AIStudio from '@/pages/AIStudio';
+import MLOps from '@/pages/MLOps';
+import BusinessAnalysis from '@/pages/BusinessAnalysis';
+import TryNow from '@/pages/TryNow';
 
 const queryClient = new QueryClient();
 
@@ -44,6 +48,10 @@ const App = () => (
           <Route path="/blog" element={<Blog />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/ai-studio" element={<AIStudio />} />
+          <Route path="/mlops" element={<MLOps />} />
+          <Route path="/business-analysis" element={<BusinessAnalysis />} />
+          <Route path="/try-now" element={<TryNow />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
