@@ -41,8 +41,6 @@ return (
             </Badge>
             </div>
             <Button
-            variant="ghost"
-            size="sm"
 			aria-label="Close">
             <X className="h-8 w-8 p-0" />
             </Button>
