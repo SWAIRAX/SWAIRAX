@@ -21,15 +21,18 @@ const Header = () => {
       //   { name: "Customized Machine Learning Models", desc: "Improve your ML development flow", path: "/ml-models" }
       // ]
     },
-    // {
-    //   name: "Products",
-    //   path: "/services",
-    //   dropdown: [
-    //     { name: "SURASOFT", desc: "AI security platform with biometric verification", path: "/surasoft" },
-    //     { name: "AI Proctoring", desc: "Powered by AI for safe online assessments", path: "/ai-proctoring" },
-    //     { name: "Askari LLM", desc: "Policy guardrails for language models", path: "/askari-llm" }
-    //   ]
-    // },
+    {
+      name: "Industries",
+      path: "/industries",
+      dropdown: [
+        { name: "Financial Services", desc: "Getting easy with the payment sector", path: "/industries/financial-services" },
+        { name: "Telecommunications", desc: "Everything that involves communication", path: "/industries/telecommunications" },
+        { name: "Education Services", desc: "Everything that involves Learning and students", path: "/industries/education-services" },
+        { name: "Utilities", desc: "From electricity, to water supplies to public services", path: "/industries/utilities" },
+        { name: "Retail & Logistics", desc: "Great brands who chose secure data", path: "/industries/retail-logistics" },
+        { name: "Healthcare & Pharmacy", desc: "Health sector covered", path: "/industries/healthcare-pharmacy" }
+      ]
+    },
     {
       name: "Clients",
       path: "/clients",
@@ -40,15 +43,6 @@ const Header = () => {
       //   { name: "Capacity Building", desc: "Awareness, mentoring capacity and strategy guide on AI", path: "/capacity-building" }
       // ]
     },
-    // {
-    //   name: "Careers",
-    //   path: "/careers",
-    //   dropdown: [
-    //     { name: "Open Positions", desc: "Join our team of AI innovators", path: "/careers" },
-    //     { name: "Culture & Values", desc: "Learn about our company culture", path: "/careers" },
-    //     { name: "Benefits", desc: "Comprehensive benefits and growth opportunities", path: "/careers" }
-    //   ]
-    // },
     {
       name: "Resources",
       path: "/resources",
