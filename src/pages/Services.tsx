@@ -1,10 +1,21 @@
+import { useState } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { ArrowRight, Brain, Database, Cog, BarChart3 } from "lucide-react";
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
+import { ArrowRight, Brain, Database, Cog, BarChart3, ChevronDown, ChevronUp, CheckCircle } from "lucide-react";
 
 const Services = () => {
+  const [expandedServices, setExpandedServices] = useState<{[key: string]: boolean}>({});
+
+  const toggleService = (serviceId: string) => {
+    setExpandedServices(prev => ({
+      ...prev,
+      [serviceId]: !prev[serviceId]
+    }));
+  };
+
   const services = [
     {
       icon: <Brain className="h-8 w-8" />,
@@ -89,6 +100,123 @@ const Services = () => {
                     ))}
                   </ul>
                   
+                  <Collapsible open={expandedServices[service.title]} onOpenChange={() => toggleService(service.title)}>
+                    <CollapsibleTrigger asChild>
+                      <Button
+                        variant="ghost"
+                        className="text-foreground hover:text-primary p-0 mb-4"
+                        aria-expanded={expandedServices[service.title]}
+                      >
+                        Show More Details
+                        {expandedServices[service.title] ? (
+                          <ChevronUp className="ml-2 h-4 w-4" />
+                        ) : (
+                          <ChevronDown className="ml-2 h-4 w-4" />
+                        )}
+                      </Button>
+                    </CollapsibleTrigger>
+                    <CollapsibleContent className="animate-accordion-down overflow-hidden">
+                      <div className="bg-background/50 p-6 rounded-lg border border-border/50 mb-4">
+                        {service.title === "AI Solutions Development" && (
+                          <>
+                            <h4 className="text-lg font-semibold mb-4 text-primary">Detailed Capabilities:</h4>
+                            <div className="space-y-3">
+                              <div className="flex items-start space-x-3">
+                                <CheckCircle className="w-5 h-5 text-primary mt-0.5" />
+                                <div>
+                                  <h5 className="font-medium">Custom AI Models</h5>
+                                  <p className="text-sm text-muted-foreground">Tailored machine learning models for specific business needs</p>
+                                </div>
+                              </div>
+                              <div className="flex items-start space-x-3">
+                                <CheckCircle className="w-5 h-5 text-primary mt-0.5" />
+                                <div>
+                                  <h5 className="font-medium">Computer Vision</h5>
+                                  <p className="text-sm text-muted-foreground">Image recognition, object detection, and visual analytics</p>
+                                </div>
+                              </div>
+                              <div className="flex items-start space-x-3">
+                                <CheckCircle className="w-5 h-5 text-primary mt-0.5" />
+                                <div>
+                                  <h5 className="font-medium">Natural Language Processing</h5>
+                                  <p className="text-sm text-muted-foreground">Text analysis, chatbots, and language understanding</p>
+                                </div>
+                              </div>
+                            </div>
+                          </>
+                        )}
+                        {service.title === "Data Engineering" && (
+                          <>
+                            <h4 className="text-lg font-semibold mb-4 text-primary">Data Infrastructure:</h4>
+                            <div className="space-y-3">
+                              <div className="flex items-start space-x-3">
+                                <CheckCircle className="w-5 h-5 text-primary mt-0.5" />
+                                <div>
+                                  <h5 className="font-medium">Scalable Pipelines</h5>
+                                  <p className="text-sm text-muted-foreground">Automated data processing with cloud-native architecture</p>
+                                </div>
+                              </div>
+                              <div className="flex items-start space-x-3">
+                                <CheckCircle className="w-5 h-5 text-primary mt-0.5" />
+                                <div>
+                                  <h5 className="font-medium">Real-time Processing</h5>
+                                  <p className="text-sm text-muted-foreground">Stream processing for live data analytics</p>
+                                </div>
+                              </div>
+                            </div>
+                          </>
+                        )}
+                        {service.title === "MLOps & DevOps" && (
+                          <>
+                            <h4 className="text-lg font-semibold mb-4 text-primary">Deployment Excellence:</h4>
+                            <div className="space-y-3">
+                              <div className="flex items-start space-x-3">
+                                <CheckCircle className="w-5 h-5 text-primary mt-0.5" />
+                                <div>
+                                  <h5 className="font-medium">Automated Deployment</h5>
+                                  <p className="text-sm text-muted-foreground">CI/CD pipelines for machine learning models</p>
+                                </div>
+                              </div>
+                              <div className="flex items-start space-x-3">
+                                <CheckCircle className="w-5 h-5 text-primary mt-0.5" />
+                                <div>
+                                  <h5 className="font-medium">Model Monitoring</h5>
+                                  <p className="text-sm text-muted-foreground">Real-time performance tracking and drift detection</p>
+                                </div>
+                              </div>
+                            </div>
+                          </>
+                        )}
+                        {service.title === "Business Intelligence" && (
+                          <>
+                            <h4 className="text-lg font-semibold mb-4 text-primary">Analytics Solutions:</h4>
+                            <div className="space-y-3">
+                              <div className="flex items-start space-x-3">
+                                <CheckCircle className="w-5 h-5 text-primary mt-0.5" />
+                                <div>
+                                  <h5 className="font-medium">Interactive Dashboards</h5>
+                                  <p className="text-sm text-muted-foreground">Real-time data visualization and KPI tracking</p>
+                                </div>
+                              </div>
+                              <div className="flex items-start space-x-3">
+                                <CheckCircle className="w-5 h-5 text-primary mt-0.5" />
+                                <div>
+                                  <h5 className="font-medium">Predictive Analytics</h5>
+                                  <p className="text-sm text-muted-foreground">AI-powered forecasting and trend analysis</p>
+                                </div>
+                              </div>
+                            </div>
+                          </>
+                        )}
+                        <div className="mt-4 p-3 bg-primary/10 rounded-lg">
+                          <p className="text-sm text-primary font-medium">
+                            ✓ Free consultation • ✓ 30-day trial available • ✓ Custom implementation
+                          </p>
+                        </div>
+                      </div>
+                    </CollapsibleContent>
+                  </Collapsible>
+
                   <Button 
                     variant="ghost" 
                     onClick={() => {

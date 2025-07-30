@@ -1,10 +1,21 @@
+import { useState } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Users, Target, Eye, Award } from "lucide-react";
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
+import { Users, Target, Eye, Award, ChevronDown, ChevronUp, CheckCircle } from "lucide-react";
 
 const About = () => {
+  const [expandedValues, setExpandedValues] = useState<{[key: string]: boolean}>({});
+
+  const toggleValue = (valueId: string) => {
+    setExpandedValues(prev => ({
+      ...prev,
+      [valueId]: !prev[valueId]
+    }));
+  };
+
   const values = [
     {
       icon: <Target className="h-8 w-8" />,
@@ -112,13 +123,99 @@ We’re a team of scientists, engineers, ethicists and more, working to build th
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {values.map((value, index) => (
-              <Card key={index} className="bg-background border-border text-center">
+              <Card key={index} className="bg-background border-border text-center hover:shadow-card transition-all duration-300">
                 <CardContent className="p-6">
                   <div className="w-16 h-16 bg-primary/20 rounded-lg flex items-center justify-center text-primary mx-auto mb-4">
                     {value.icon}
                   </div>
                   <h3 className="text-xl font-bold mb-3">{value.title}</h3>
-                  <p className="text-muted-foreground text-sm">{value.description}</p>
+                  <p className="text-muted-foreground text-sm mb-4">{value.description}</p>
+                  
+                  <Collapsible open={expandedValues[value.title]} onOpenChange={() => toggleValue(value.title)}>
+                    <CollapsibleTrigger asChild>
+                      <Button
+                        variant="ghost"
+                        size="sm"
+                        className="text-primary hover:text-primary/80 p-0"
+                        aria-expanded={expandedValues[value.title]}
+                      >
+                        Learn More
+                        {expandedValues[value.title] ? (
+                          <ChevronUp className="ml-1 h-3 w-3" />
+                        ) : (
+                          <ChevronDown className="ml-1 h-3 w-3" />
+                        )}
+                      </Button>
+                    </CollapsibleTrigger>
+                    <CollapsibleContent className="animate-accordion-down overflow-hidden">
+                      <div className="bg-card/50 p-4 rounded-lg border border-border/30 mt-3">
+                        {value.title === "Innovation First" && (
+                          <div className="text-left text-sm space-y-2">
+                            <div className="flex items-start space-x-2">
+                              <CheckCircle className="w-4 h-4 text-primary mt-0.5" />
+                              <span>Research-driven AI development</span>
+                            </div>
+                            <div className="flex items-start space-x-2">
+                              <CheckCircle className="w-4 h-4 text-primary mt-0.5" />
+                              <span>Cutting-edge technology adoption</span>
+                            </div>
+                            <div className="flex items-start space-x-2">
+                              <CheckCircle className="w-4 h-4 text-primary mt-0.5" />
+                              <span>Continuous learning culture</span>
+                            </div>
+                          </div>
+                        )}
+                        {value.title === "Inclusive Culture" && (
+                          <div className="text-left text-sm space-y-2">
+                            <div className="flex items-start space-x-2">
+                              <CheckCircle className="w-4 h-4 text-primary mt-0.5" />
+                              <span>Diverse team of experts</span>
+                            </div>
+                            <div className="flex items-start space-x-2">
+                              <CheckCircle className="w-4 h-4 text-primary mt-0.5" />
+                              <span>Equal opportunity workplace</span>
+                            </div>
+                            <div className="flex items-start space-x-2">
+                              <CheckCircle className="w-4 h-4 text-primary mt-0.5" />
+                              <span>Global perspective on AI ethics</span>
+                            </div>
+                          </div>
+                        )}
+                        {value.title === "Transparency" && (
+                          <div className="text-left text-sm space-y-2">
+                            <div className="flex items-start space-x-2">
+                              <CheckCircle className="w-4 h-4 text-primary mt-0.5" />
+                              <span>Open source contributions</span>
+                            </div>
+                            <div className="flex items-start space-x-2">
+                              <CheckCircle className="w-4 h-4 text-primary mt-0.5" />
+                              <span>Ethical AI practices</span>
+                            </div>
+                            <div className="flex items-start space-x-2">
+                              <CheckCircle className="w-4 h-4 text-primary mt-0.5" />
+                              <span>Clear communication standards</span>
+                            </div>
+                          </div>
+                        )}
+                        {value.title === "Excellence" && (
+                          <div className="text-left text-sm space-y-2">
+                            <div className="flex items-start space-x-2">
+                              <CheckCircle className="w-4 h-4 text-primary mt-0.5" />
+                              <span>Quality-first approach</span>
+                            </div>
+                            <div className="flex items-start space-x-2">
+                              <CheckCircle className="w-4 h-4 text-primary mt-0.5" />
+                              <span>Continuous improvement</span>
+                            </div>
+                            <div className="flex items-start space-x-2">
+                              <CheckCircle className="w-4 h-4 text-primary mt-0.5" />
+                              <span>Client success focus</span>
+                            </div>
+                          </div>
+                        )}
+                      </div>
+                    </CollapsibleContent>
+                  </Collapsible>
                 </CardContent>
               </Card>
             ))}
