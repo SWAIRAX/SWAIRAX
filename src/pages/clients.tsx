@@ -41,53 +41,53 @@ A heartwarming session where children and their parents, guardians or siblings t
 
 "This isn't just another workshop – it's a place where your child will explore, create and grow. And for you as a parent, it's a chance to join the magic. If you're not part of this, you're missing the spark that could light up your child's future."`,
     name: "PAL Africa",
-    industry: "AI & Data",
-    logoUrl: "pal-africa-logo.png", // just the filename
-    logoLinkUrl: "https://palafrica.org", // example external link
-    imageUrl: "palaafrica.png", // main card image filename in uploads
-    tags: ["artificial-intelligence", "data-science", "machine-learning", "innovation"]
+    industry: "Education",
+    logoUrl: "pal-africa-logo.png",
+    logoLinkUrl: "http://www.palafrica.com/",
+    imageUrl: "palaafrica.png",
+    tags: ["STEAM TALE", "STEAM KIT", "STEAM EVENT", "SCHOOL LAB","TOT TEACHERS"]
     },
     {
     id: "2",
-    title: "Overcoming the Barriers: AI Implementation in Africa",
-    description: "Comprehensive analysis of AI implementation challenges in Africa and strategies to unlock the continent's potential.",
-    details: `Implementing AI in Africa is not without its challenges. In this comprehensive analysis, we explore the key challenges of implementing AI in Africa and discuss how these challenges can be addressed to realize the full potential of AI in the region.
-
-Africa represents one of the most promising frontiers for AI adoption and innovation. With a young, tech-savvy population and rapidly growing economies, the continent is poised to benefit significantly from AI technologies.
-
-However, several barriers must be overcome to fully realize this potential. Infrastructure challenges, including limited internet connectivity and unreliable power supply, pose significant obstacles to AI implementation.
-
-Skills gap is another critical challenge. While Africa has talented individuals in technology, there's a need for more specialized AI and machine learning expertise. Educational institutions and training programs must adapt to meet this growing demand.
-
-Data availability and quality remain persistent challenges. Many African organizations lack the structured data necessary for effective AI implementation. Additionally, privacy and regulatory frameworks are still evolving.
-
-Despite these challenges, numerous success stories demonstrate the transformative potential of AI in Africa. From healthcare applications that diagnose diseases to agricultural solutions that optimize crop yields, AI is already making a positive impact.
-
-The path forward requires collaboration between governments, private sector, educational institutions, and international organizations. By working together, we can build the infrastructure, develop the skills, and create the enabling environment necessary for AI to thrive in Africa.`,
-    name: "Dr. Amara Okafor",
-    industry: "AI Implementation",
-    tags: ["africa", "ai-implementation", "challenges", "opportunities", "development"]
+    title: "Swahilies",
+    description: "A suite of tools to help SME’s track, assess and manage the growth of their businesses.",
+    details: `At Swahilies, we are building payments processing systems to digitize payments in Africa.
+    We make it easy for businesses to accept digital payments from anyone, anywhere.
+With our payments solutions, businesses can receive payments quicky and easily,
+without having to worry about the hassle of traditiona methods.
+Sell anything, anywhere Accept payments in seconds.
+We enable you to easily accept payments from your international customers.
+With our payment feature link, you can easily share a payment link with your customers through their preferred chanel -
+whether that's Whatsapp, Facebook, Telegram or any other chanel.
+Once your customer pays via the link, we'ill take care of transferring the money from their card to your bank or mobile money account.
+Increase Sales by allowing your customers to pay in installments.
+An offer that your customers can not deny. Let them layby for the things they love.
+We offer you all the tools neccessary to digitally accept layaway payments from your customers.
+Set the terms and we shall handle the payments..`,
+    name: "Swahilies",
+    industry: "Financial Service",
+    logoUrl: "swahilies-logo.jpg",
+    logoLinkUrl: "https://www.swahilies.com/",
+    imageUrl: "swahilies.png",
+    tags: ["swahilies app", "Swahilies pay", "Payment API", "virtual Card", "Foreign Bank Account"]
     },
     {
     id: "3",
-    title: "What is Retrieval Augmented Generation (RAG) in AI?",
-    description: "Exploring RAG technology that combines language models with external knowledge retrieval for enhanced AI capabilities.",
-    details: `Retrieval Augmented Generation (RAG) represents a significant advancement in AI technology, combining the power of large language models with external knowledge retrieval systems.
+    title: "NeuroTech",
+    description: "We are a tech company that focuses on helping businesses thrive through AI and data-driven solutions.",
+    details: `Neurotech Africa is a leading AI company dedicated to elevating customer experiences for businesses across various industries. Our conversational AI technology seamlessly integrates with popular messaging channels like WhatsApp, Messenger, and Telegram, enabling companies to serve their customers wherever they are.
 
-Think of RAG like having a super-smart assistant who can help you find just the right information you need, exactly when you need it. Unlike traditional language models that rely solely on their training data, RAG systems can access and incorporate real-time information from external sources.
+Our comprehensive suite of ready-made chatbot solutions is tailored to meet the unique needs of businesses in diverse sectors, including Banking & Telecom, Insurance, Tourism & Travel, and Retail and Hospitality. Additionally, our API interface allows developers to integrate conversational intelligence into their applications with ease.
 
-The RAG architecture consists of two main components: a retriever and a generator. The retriever searches through a knowledge base to find relevant information, while the generator uses this information to produce accurate and contextually appropriate responses.
+At Neurotech Africa, we're committed to empowering the African market, and we've prioritized supporting local languages like Swahili, Kinyarwanda, and Yoruba to facilitate effective communication between businesses and their customers.
 
-This approach offers several advantages over traditional language models. First, it allows for more accurate and up-to-date information, as the system can access current data from external sources. Second, it reduces the likelihood of hallucinations, as responses are grounded in retrieved facts.
-
-Building a RAG system involves several key steps. First, you need to create a comprehensive knowledge base containing relevant documents and information. This knowledge base is then indexed using vector embeddings to enable efficient similarity search.
-
-When a user submits a query, the system first retrieves the most relevant documents or passages from the knowledge base. These retrieved documents are then provided as context to the language model, which generates a response based on both the query and the retrieved information.
-
-The implementation of RAG systems has numerous practical applications, from customer support chatbots that can access company documentation to research assistants that can query scientific literature.`,
-    name: "Prof. Michael Chen",
-    industry: "Technical Deep Dive",
-    tags: ["rag", "retrieval", "generation", "nlp", "llm", "tutorial"]
+We're currently operating in Tanzania and will soon be expanding to neighboring countries like Kenya and Uganda, with plans to explore additional markets in the near future..`,
+    name: "NeuroTech Africa",
+    industry: "Software Development",
+    logoUrl: "neurotech-logo.jpg",
+    logoLinkUrl: "https://neurotech.africa/",
+    imageUrl: "neurotech.png",
+    tags: ["Machine Learning", "Conversational AI", "Data driven solutions", "Big Data", "Chatbots", "Artificial Intelligence"]
     },
     {
     id: "4",
@@ -221,30 +221,7 @@ return (
         </div>
     </section>
 
-      {/* Company Values */}
-    <section className="py-20 bg-card/30">
-        <div className="container mx-auto px-6 max-w-6xl">
-        <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold mb-6">
-            How our clients are <span className="text-primary">leading the change</span>
-            </h2>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            We have helped 600+ companies accelerate their business with top-notch technology solutions.
-            </p>
-        </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {values.map((value, index) => (
-            <Card key={index} className="bg-card border-border text-center hover:shadow-lg transition-all duration-300 hover-scale">
-                <CardContent className="p-6">
-                <h3 className="text-xl font-bold mb-3">{value.title}</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">{value.description}</p>
-                </CardContent>
-            </Card>
-            ))}
-        </div>
-        </div>
-    </section>
 
 
 
@@ -252,12 +229,14 @@ return (
     <section className="py-20">
     <div className="container mx-auto px-6 max-w-6xl">
         <div className="text-center mb-16">
-        <h2 className="text-3xl md:text-4xl font-bold mb-6">Client Success Stories</h2>
+        <h2 className="text-3xl md:text-5xl font-bold mb-6">
+            How our clients are <span className="text-primary">leading the change</span>
+            </h2>
         <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            Discover how we help organizations unlock the power of data and AI through innovative solutions.
+            We have helped 15+ companies accelerate their business with top-notch technology solutions.
         </p>
         </div>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {clients.map((client, idx) => (
             <Card
@@ -280,11 +259,11 @@ return (
                                 by {client.name}
                             </div>
                         </div>
-                        
+
                         <h3 className="text-xl font-bold mb-3 leading-tight group-hover:text-primary transition-colors duration-300">
                             {client.title}
                         </h3>
-                        
+
                         <p className="text-muted-foreground text-sm mb-4 leading-relaxed line-clamp-3">
                             {client.description}
                         </p>
@@ -318,7 +297,7 @@ return (
                                 </Badge>
                             )}
                         </div>
-                        
+
                         <Button variant="ghost" size="sm" className="text-primary p-0 h-auto font-medium group-hover:translate-x-1 transition-transform duration-300">
                             Read Story <ArrowRight className="ml-2 h-4 w-4" />
                         </Button>
@@ -327,7 +306,7 @@ return (
             </Card>
         ))}
         </div>
-        
+
         {/* Modal for client details */}
         <ClientModal client={selectedClient} isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </div>
