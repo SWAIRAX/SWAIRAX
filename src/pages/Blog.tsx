@@ -16,6 +16,7 @@ interface BlogPost {
   date: string;
   category: string;
   readTime: string;
+  imageUrl?: string;
   tags: string[];
 }
 
@@ -43,6 +44,7 @@ As we move forward, the ability to collect, process, and analyze data effectivel
       date: "June 3, 2024",
       category: "AI & Data",
       readTime: "5 min read",
+      imageUrl: "blog.jpg",
       tags: ["artificial-intelligence", "data-science", "machine-learning", "innovation"]
     },
     {
@@ -66,6 +68,7 @@ The path forward requires collaboration between governments, private sector, edu
       date: "May 15, 2024",
       category: "AI Implementation",
       readTime: "8 min read",
+      imageUrl: "blog1.jpg",
       tags: ["africa", "ai-implementation", "challenges", "opportunities", "development"]
     },
     {
@@ -89,6 +92,7 @@ The implementation of RAG systems has numerous practical applications, from cust
       date: "April 28, 2024",
       category: "Technical Deep Dive",
       readTime: "12 min read",
+      imageUrl: "blog2.png",
       tags: ["rag", "retrieval", "generation", "nlp", "llm", "tutorial"]
     },
     {
@@ -112,6 +116,7 @@ Looking ahead, MLOps will continue to evolve with advances in automation, edge c
       date: "March 22, 2024",
       category: "MLOps",
       readTime: "10 min read",
+      imageUrl: "blog4.png",
       tags: ["mlops", "devops", "machine-learning", "production", "automation"]
     },
     {
@@ -135,6 +140,7 @@ The future of computer vision in healthcare is bright, with emerging application
       date: "February 14, 2024",
       category: "Computer Vision",
       readTime: "7 min read",
+      imageUrl: "blog5.jpg",
       tags: ["computer-vision", "healthcare", "medical-ai", "diagnosis", "radiology"]
     },
     {
@@ -160,6 +166,7 @@ Looking forward, NLP will continue to evolve with advances in multimodal AI, ena
       date: "January 30, 2024",
       category: "NLP",
       readTime: "9 min read",
+      imageUrl: "blog6.png",
       tags: ["nlp", "natural-language-processing", "chatbots", "transformers", "communication"]
     }
   ];
@@ -177,14 +184,14 @@ Looking forward, NLP will continue to evolve with advances in multimodal AI, ena
   const categories = ["All", "AI & Data", "AI Implementation", "Technical Deep Dive", "MLOps", "Computer Vision", "NLP"];
   const [selectedCategory, setSelectedCategory] = useState("All");
 
-  const filteredPosts = selectedCategory === "All" 
-    ? blogPosts 
+  const filteredPosts = selectedCategory === "All"
+    ? blogPosts
     : blogPosts.filter(post => post.category === selectedCategory);
 
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      
+
       {/* Hero Section */}
       <section className="pt-24 pb-16 bg-card">
         <div className="container mx-auto px-6">
@@ -223,12 +230,18 @@ Looking forward, NLP will continue to evolve with advances in multimodal AI, ena
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredPosts.map((post) => (
-              <Card 
-                key={post.id} 
+              <Card
+                key={post.id}
                 className="bg-card border-border hover:shadow-card transition-all duration-300 overflow-hidden cursor-pointer hover-scale"
                 onClick={() => handlePostClick(post)}
               >
-                <div className="aspect-video bg-gradient-secondary"></div>
+                {post.imageUrl && (
+                  <img
+                    src={`/uploads/${post.imageUrl.replace(/^\/+/,'')}`}
+                    alt={post.title}
+                    className="w-full aspect-video object-cover"
+                  />
+                )}
                 <CardContent className="p-6">
                   <div className="flex items-center justify-between mb-4">
                     <Badge variant="secondary" className="text-xs">
@@ -239,12 +252,12 @@ Looking forward, NLP will continue to evolve with advances in multimodal AI, ena
                       {post.readTime}
                     </div>
                   </div>
-                  
+
                   <h3 className="text-xl font-bold mb-3 leading-tight">{post.title}</h3>
                   <p className="text-muted-foreground mb-4 text-sm leading-relaxed line-clamp-3">
                     {post.excerpt}
                   </p>
-                  
+
                   <div className="flex items-center justify-between text-xs text-muted-foreground mb-4">
                     <div className="flex items-center gap-1">
                       <User className="h-3 w-3" />
@@ -255,9 +268,9 @@ Looking forward, NLP will continue to evolve with advances in multimodal AI, ena
                       {post.date}
                     </div>
                   </div>
-                  
-                  <Button 
-                    variant="ghost" 
+
+                  <Button
+                    variant="ghost"
                     onClick={() => handlePostClick(post)}
                     className="text-foreground hover:text-primary p-0"
                   >
@@ -271,11 +284,18 @@ Looking forward, NLP will continue to evolve with advances in multimodal AI, ena
       </section>
 
       <Footer />
-      
-      <BlogModal 
-        post={selectedPost} 
-        isOpen={isModalOpen} 
-        onClose={closeModal} 
+
+      <BlogModal
+        post={selectedPost}
+        isOpen={isModalOpen}
+        onClose={closeModal}
+        renderImage={selectedPost && selectedPost.imageUrl ? (
+          <img
+            src={`/uploads/${selectedPost.imageUrl.replace(/^\/+/,'')}`}
+            alt={selectedPost.title}
+            className="w-full aspect-video object-cover rounded-t"
+          />
+        ) : null}
       />
     </div>
   );

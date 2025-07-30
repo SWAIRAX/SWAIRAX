@@ -91,68 +91,71 @@ We're currently operating in Tanzania and will soon be expanding to neighboring 
     },
     {
     id: "4",
-    title: "The Future of MLOps: Bridging AI and Production",
-    description: "How MLOps transforms machine learning from research to reliable production systems with DevOps principles.",
-    details: `Machine Learning Operations (MLOps) has emerged as a critical discipline for organizations looking to successfully deploy and manage AI systems in production environments.
+    title: "Tanzania AI Community",
+    description: "Community of Problem Solvers Using AI in Tanzania.",
+    details: `Tanzania AI Community aspires to empower anyone in Tanzania to access the potential of AI for the growth of themselves and the nation.
 
-The traditional approach to machine learning development often resulted in models that performed well in research settings but failed to deliver value in real-world applications. MLOps addresses this challenge by applying DevOps principles to machine learning workflows.
-
-MLOps encompasses the entire machine learning lifecycle, from data collection and model training to deployment, monitoring, and maintenance. This holistic approach ensures that models not only perform well but also remain reliable and valuable over time.
-
-Key components of effective MLOps include continuous integration and deployment (CI/CD) for ML models, automated testing and validation, model versioning and lineage tracking, and comprehensive monitoring and alerting systems.
-
-The benefits of implementing MLOps are substantial. Organizations report faster time-to-market for AI applications, improved model reliability and performance, better collaboration between data science and engineering teams, and more efficient resource utilization.
-
-However, implementing MLOps is not without challenges. It requires significant changes to organizational processes, new tooling and infrastructure, and upskilling of teams. Cultural changes are often necessary to foster collaboration between traditionally separate teams.
-
-Looking ahead, MLOps will continue to evolve with advances in automation, edge computing, and AI governance. Organizations that invest in MLOps capabilities today will be better positioned to realize the full potential of their AI initiatives.`,
-    name: "Sarah Johnson",
-    industry: "MLOps",
-    tags: ["mlops", "devops", "machine-learning", "production", "automation"]
+We exist to bring together and connect those passionate in AI and social impact to work together in facing the challenges around us.
+Our Mission
+Africa’s leading enabler of Responsible AI, through the provision of resources & networks for practitioners & enthusiasts.
+Our Vision
+A Future where Responsible AI Accelerates the Growth ofAfrican Economies..`,
+    name: "Tanzania AI Community",
+    industry: "IT Services and IT Consulting",
+    logoUrl: "ai-logo.jpg",
+    logoLinkUrl: "http://www.ai.or.tz",
+    imageUrl: "AICommunity.jpg",
+    tags: ["Artificial Intelligence", "Data Science", "machine-learning", "AI Policy", "Innovation"]
     },
     {
     id: "5",
-    title: "Computer Vision in Healthcare: Revolutionizing Diagnosis",
-    description: "AI-powered vision systems transforming medical diagnosis through advanced image analysis and pattern recognition.",
-    details: `Computer vision technology is revolutionizing healthcare by enabling more accurate, efficient, and accessible medical diagnosis. From analyzing medical images to assisting in surgical procedures, AI-powered vision systems are transforming how healthcare professionals work.
+    title: "Sartify Co. Ltd",
+    description: "AI That Powers Your Business.",
+    details: `ENABLING THE NEW BUSINESS INNOVATIONS WITH ARTIFICIAL INTELLIGENCE.
 
-In radiology, computer vision algorithms can detect subtle patterns in X-rays, MRIs, and CT scans that might be missed by human eyes. These systems can identify early signs of diseases such as cancer, helping to improve patient outcomes through earlier intervention.
+Sartify LLC is a deep AI technology company in consultation, research and products that delivers customized AI-powered decision-making solutions for the enterprises and consumers to help them with the new business innovations that drive exponential growth with our expertise in both machine intelligence, AI research, data, engineering and concrete business deployments of AI at scale.
 
-Pathology is another area where computer vision is making significant impact. AI systems can analyze tissue samples and identify malignant cells with remarkable accuracy, supporting pathologists in making critical diagnoses.
+We're the company behind Docipro (www.docipro.com), our flagship global technology product operating in $7.4 billions market of IDP that process documents intelligently (AI/ML) for companies with problem of hard reach data. It extracts, enrich, match, search organize unstructured data to structure at ease with no code, 100% accuracy, fast (Ms) and scalable (unlimited fields).
 
-Ophthalmology has seen particularly impressive advances, with AI systems capable of detecting diabetic retinopathy, glaucoma, and other eye conditions from retinal photographs. This technology is especially valuable in areas with limited access to specialist care.
+We have seen and solved complex business problems that have changed the status quo. Our proudly notable clients include Bosch, AwamuPay, iPF Softwares, Citi, Raytheon technologies, and others in various industries such as Healthcare, Finance, Logistics, Agriculture, Manufacturing Energy, Utilities, Legal etc...
 
-The implementation of computer vision in healthcare requires careful consideration of regulatory requirements, data privacy, and integration with existing clinical workflows. Successful deployments often involve close collaboration between AI developers and healthcare professionals.
-
-Despite the promise of this technology, challenges remain. Ensuring AI systems work effectively across diverse populations, maintaining data privacy and security, and gaining trust from healthcare professionals are ongoing concerns.
-
-The future of computer vision in healthcare is bright, with emerging applications in areas such as surgical robotics, personalized treatment planning, and remote patient monitoring. As these technologies mature, they promise to make healthcare more effective and accessible worldwide.`,
-    name: "Dr. Lisa Wang",
-    industry: "Computer Vision",
-    tags: ["computer-vision", "healthcare", "medical-ai", "diagnosis", "radiology"]
+Our customized services and activities include:
+● Full stack enterprise AI development.
+● Advanced data analytics.
+● Data & AI strategy consultation.
+● AI executives training.
+● Sartify for startups and indiepreneurs.
+● Developer and business AI-based products.
+● Advanced AI research.`,
+    name: "Sartify Co. Ltd",
+    industry: "Technology, Information and Internet",
+    logoUrl: "sartify-logo.jpg",
+    logoLinkUrl: "https://www.sartify.com/",
+    imageUrl: "sartify.png",
+    tags: ["Artificial intelligence", "Advanced data analytics", "data strategy", "Deep learning", "Executive AI training"]
     },
     {
     id: "6",
-    title: "Natural Language Processing: The Evolution of Human-AI Communication",
+    title: "Sinnovate",
     description: "From keyword matching to sophisticated language models that understand context, emotion, and nuance in human communication.",
-    details: `Natural Language Processing (NLP) has undergone remarkable evolution, transforming from simple keyword matching systems to sophisticated models that can understand context, emotion, and nuance in human communication.
+    details: `SINNOVATE CHARTERD ACCOUNTANTS
+is an auditing firm incorporated in 2023, under the Business Names (Registration) Act (Cap 213) with index of registration no. 546106. We are specializing in providing innovative high-quality, value-added Taxation, Accounting, Auditing, and Other Business consulting services
 
-The journey of NLP began with rule-based systems that relied on manually crafted linguistic rules. While effective for specific tasks, these systems lacked the flexibility to handle the complexity and variability of natural language.
+Our Vision
+To be the undisputed first choice for businesses seeking exceptional Taxation, auditing and accounting services across the continent.
 
-The introduction of machine learning brought significant improvements, enabling systems to learn patterns from data rather than relying solely on predefined rules. Statistical models and later neural networks marked important milestones in NLP development.
-
-The transformer architecture, introduced in 2017, revolutionized NLP by enabling models to process sequences more efficiently and capture long-range dependencies in text. This breakthrough laid the foundation for the large language models we see today.
-
-Current NLP applications span a wide range of domains. Chatbots and virtual assistants help customers find information and complete tasks. Sentiment analysis helps businesses understand customer feedback. Machine translation breaks down language barriers in global communication.
-
-The emergence of large language models like GPT has opened new possibilities for human-AI interaction. These models can engage in complex conversations, assist with creative writing, and even help with coding tasks.
-
-However, challenges remain. Bias in language models, ensuring factual accuracy, and handling ambiguity in natural language are ongoing areas of research. Privacy and ethical considerations also play important roles in NLP development.
-
-Looking forward, NLP will continue to evolve with advances in multimodal AI, enabling systems that can understand both text and visual information. The future promises more natural and intuitive human-AI interactions.`,
-    name: "Prof. David Rodriguez",
-    industry: "NLP",
-    tags: ["nlp", "natural-language-processing", "chatbots", "transformers", "communication"]
+Our Mission
+To consistently deliver innovative and exceptional Taxation, Auditing, and Accounting services with uncompromising quality and integrity.
+Since its founding in 2023, Sinnovate Chartered Accountants (SVT) has contributed to improving the financial and accounting performance of Various Companies,
+Non-Profit Making Organization and Business Entities in Tanzania. Furthermore,
+SVT has always helped its clients in the face of the challenges posed by expansions of the scope of their work and activities at the local and international levels through providing quality Auditing and Assurance, Taxation, Business & Financial Consulting and Accounting services. Founder of SVT has the seasoned experience in providing expertise in their respective specialized fieldâ€™s i.e. taxation, auditing and financial consultancy as set out in this profile. Has also strong practical backgrounds and in-depth industry experience.
+Together he brings to the firms the collective knowledge in financial matters in addition to a wide range of tax laws experience acquired from their previous professional careers..`,
+    name: "Sinnovate",
+    industry: "NL",
+    logoUrl: "sinnovate-logo.png",
+    logoLinkUrl: "https://www.sinnovate.co.tz/",
+    imageUrl: "sinnovate.png",
+    tags: ["Tax Planning", "Financial Statement Compilation", "Audit Solutions", "Forensic Accounting", "Fraud Examination"]
     }
 ];
 
@@ -214,8 +217,8 @@ return (
             Whether you're a startup aiming to scale or a global enterprise seeking tech solutions,
             we tailor every project to your goals. Your success is our mission—and our measure.
             </p>
-            <Button 
-              size="lg" 
+            <Button
+              size="lg"
               onClick={() => window.location.href = '/services'}
               className="bg-primary hover:bg-primary/90 text-primary-foreground px-8"
             >
@@ -302,9 +305,9 @@ return (
                             )}
                         </div>
 
-                        <Button 
-                          variant="ghost" 
-                          size="sm" 
+                        <Button
+                          variant="ghost"
+                          size="sm"
                           onClick={() => {
                             setSelectedClient(client);
                             setIsModalOpen(true);
@@ -334,8 +337,8 @@ return (
             <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
             Ready to transform your business with intelligent solutions? Let's collaborate to turn your vision into reality.
             </p>
-            <Button 
-              size="lg" 
+            <Button
+              size="lg"
               onClick={() => window.location.href = '/contact'}
               className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 hover-scale"
             >

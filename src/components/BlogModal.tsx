@@ -13,6 +13,7 @@ interface BlogPost {
   date: string;
   category: string;
   readTime: string;
+  imageUrl?: string; 
   tags: string[];
 }
 
@@ -20,6 +21,7 @@ interface BlogModalProps {
   post: BlogPost | null;
   isOpen: boolean;
   onClose: () => void;
+  renderImage?: React.ReactNode;
 }
 
 const BlogModal = ({ post, isOpen, onClose }: BlogModalProps) => {
@@ -34,8 +36,8 @@ const BlogModal = ({ post, isOpen, onClose }: BlogModalProps) => {
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent 
-        className="max-w-4xl max-h-[90vh] overflow-y-auto animate-scale-in" 
+      <DialogContent
+        className="max-w-4xl max-h-[90vh] overflow-y-auto animate-scale-in"
         onKeyDown={handleKeyDown}
         role="dialog"
         aria-labelledby="modal-title"
@@ -47,11 +49,11 @@ const BlogModal = ({ post, isOpen, onClose }: BlogModalProps) => {
               {post.category}
             </Badge>
           </div>
-          
+
           <DialogTitle id="modal-title" className="text-2xl md:text-3xl font-bold leading-tight">
             {post.title}
           </DialogTitle>
-          
+
           <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
             <div className="flex items-center gap-1">
               <User className="h-4 w-4" />
@@ -66,15 +68,15 @@ const BlogModal = ({ post, isOpen, onClose }: BlogModalProps) => {
               {post.readTime}
             </div>
           </div>
-          
+
           <p id="modal-description" className="text-lg text-muted-foreground leading-relaxed">
             {post.excerpt}
           </p>
         </DialogHeader>
-        
+
         <div className="mt-8 space-y-6">
           <div className="aspect-video bg-gradient-secondary rounded-lg mb-8"></div>
-          
+
           <div className="prose prose-lg max-w-none">
             <div className="text-foreground leading-relaxed space-y-4">
               {post.content.split('\n\n').map((paragraph, index) => (
@@ -84,7 +86,7 @@ const BlogModal = ({ post, isOpen, onClose }: BlogModalProps) => {
               ))}
             </div>
           </div>
-          
+
           <div className="flex flex-wrap gap-2 pt-6 border-t border-border">
             {post.tags.map((tag, index) => (
               <Badge key={index} variant="outline" className="text-xs">
