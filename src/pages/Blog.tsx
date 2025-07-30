@@ -44,7 +44,7 @@ As we move forward, the ability to collect, process, and analyze data effectivel
       date: "June 3, 2024",
       category: "AI & Data",
       readTime: "5 min read",
-      imageUrl: "blog.jpg",
+      imageUrl: "blog1.jpg",
       tags: ["artificial-intelligence", "data-science", "machine-learning", "innovation"]
     },
     {
@@ -64,11 +64,11 @@ Data availability and quality remain persistent challenges. Many African organiz
 Despite these challenges, numerous success stories demonstrate the transformative potential of AI in Africa. From healthcare applications that diagnose diseases to agricultural solutions that optimize crop yields, AI is already making a positive impact.
 
 The path forward requires collaboration between governments, private sector, educational institutions, and international organizations. By working together, we can build the infrastructure, develop the skills, and create the enabling environment necessary for AI to thrive in Africa.`,
-      author: "Dr. Amara Okafor",
+      author: "Quantum Intelligence Team",
       date: "May 15, 2024",
       category: "AI Implementation",
       readTime: "8 min read",
-      imageUrl: "blog1.jpg",
+      imageUrl: "blog2.png",
       tags: ["africa", "ai-implementation", "challenges", "opportunities", "development"]
     },
     {
@@ -88,11 +88,11 @@ Building a RAG system involves several key steps. First, you need to create a co
 When a user submits a query, the system first retrieves the most relevant documents or passages from the knowledge base. These retrieved documents are then provided as context to the language model, which generates a response based on both the query and the retrieved information.
 
 The implementation of RAG systems has numerous practical applications, from customer support chatbots that can access company documentation to research assistants that can query scientific literature.`,
-      author: "Prof. Michael Chen",
+      author: "Quantum Intelligence Team",
       date: "April 28, 2024",
       category: "Technical Deep Dive",
       readTime: "12 min read",
-      imageUrl: "blog2.png",
+      imageUrl: "blog.jpg",
       tags: ["rag", "retrieval", "generation", "nlp", "llm", "tutorial"]
     },
     {
@@ -112,7 +112,7 @@ The benefits of implementing MLOps are substantial. Organizations report faster 
 However, implementing MLOps is not without challenges. It requires significant changes to organizational processes, new tooling and infrastructure, and upskilling of teams. Cultural changes are often necessary to foster collaboration between traditionally separate teams.
 
 Looking ahead, MLOps will continue to evolve with advances in automation, edge computing, and AI governance. Organizations that invest in MLOps capabilities today will be better positioned to realize the full potential of their AI initiatives.`,
-      author: "Sarah Johnson",
+      author: "Quantum Intelligence Team",
       date: "March 22, 2024",
       category: "MLOps",
       readTime: "10 min read",
@@ -136,7 +136,7 @@ The implementation of computer vision in healthcare requires careful considerati
 Despite the promise of this technology, challenges remain. Ensuring AI systems work effectively across diverse populations, maintaining data privacy and security, and gaining trust from healthcare professionals are ongoing concerns.
 
 The future of computer vision in healthcare is bright, with emerging applications in areas such as surgical robotics, personalized treatment planning, and remote patient monitoring. As these technologies mature, they promise to make healthcare more effective and accessible worldwide.`,
-      author: "Dr. Lisa Wang",
+      author: "Quantum Intelligence Team",
       date: "February 14, 2024",
       category: "Computer Vision",
       readTime: "7 min read",
@@ -162,7 +162,7 @@ The emergence of large language models like GPT has opened new possibilities for
 However, challenges remain. Bias in language models, ensuring factual accuracy, and handling ambiguity in natural language are ongoing areas of research. Privacy and ethical considerations also play important roles in NLP development.
 
 Looking forward, NLP will continue to evolve with advances in multimodal AI, enabling systems that can understand both text and visual information. The future promises more natural and intuitive human-AI interactions.`,
-      author: "Prof. David Rodriguez",
+      author: "Quantum Intelligence Team",
       date: "January 30, 2024",
       category: "NLP",
       readTime: "9 min read",

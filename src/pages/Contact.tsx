@@ -34,16 +34,13 @@ const Contact = () => {
   };
 
   const partnerLogos = [
-    { name: "KW", logo: "KW" },
-    { name: "UBS", logo: "UBS" },
-    { name: "Merck", logo: "Merck" },
-    { name: "IKEA", logo: "IKEA" }
+
   ];
 
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      
+
       {/* Hero Section */}
       <section className="pt-24 pb-16 bg-card">
         <div className="container mx-auto px-6">
@@ -55,10 +52,10 @@ const Contact = () => {
               We're here to help.
             </h2>
             <p className="text-xl text-muted-foreground mb-8">
-              We would like to understand your needs. Before we start, please 
+              We would like to understand your needs. Before we start, please
               fill in the form or send your RFP or inquiry via{" "}
-              <a href="mailto:hello@quantumintelligence.com" className="text-primary underline">
-                hello@quantumintelligence.com
+              <a href="mailto:communications@quantumintelligence.co.tz" className="text-primary underline">
+                communications@quantumintelligence.co.tz
               </a>
               .
             </p>

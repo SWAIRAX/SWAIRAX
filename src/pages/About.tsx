@@ -28,37 +28,37 @@ const About = () => {
     }
   ];
 
-  const team = [
-    {
-      name: "Dr. Sarah Chen",
-      role: "Chief Technology Officer",
-      bio: "Leading AI researcher with 15+ years experience in machine learning and computer vision.",
-      image: "SC"
-    },
-    {
-      name: "Marcus Johnson",
-      role: "Head of Data Engineering", 
-      bio: "Expert in building scalable data infrastructure and MLOps pipelines.",
-      image: "MJ"
-    },
-    {
-      name: "Dr. Amira Hassan",
-      role: "AI Research Director",
-      bio: "PhD in Natural Language Processing, specializing in large language models.",
-      image: "AH"
-    },
-    {
-      name: "David Park",
-      role: "Business Strategy Lead",
-      bio: "Former consultant helping enterprises adopt AI solutions strategically.",
-      image: "DP"
-    }
-  ];
+  // const team = [
+  //   {
+  //     name: "Dr. Sarah Chen",
+  //     role: "Chief Technology Officer",
+  //     bio: "Leading AI researcher with 15+ years experience in machine learning and computer vision.",
+  //     image: "SC"
+  //   },
+  //   {
+  //     name: "Marcus Johnson",
+  //     role: "Head of Data Engineering",
+  //     bio: "Expert in building scalable data infrastructure and MLOps pipelines.",
+  //     image: "MJ"
+  //   },
+  //   {
+  //     name: "Dr. Amira Hassan",
+  //     role: "AI Research Director",
+  //     bio: "PhD in Natural Language Processing, specializing in large language models.",
+  //     image: "AH"
+  //   },
+  //   {
+  //     name: "David Park",
+  //     role: "Business Strategy Lead",
+  //     bio: "Former consultant helping enterprises adopt AI solutions strategically.",
+  //     image: "DP"
+  //   }
+  // ];
 
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      
+
       {/* Hero Section */}
       <section className="pt-24 pb-16 bg-gradient-secondary">
         <div className="container mx-auto px-6">
@@ -89,11 +89,12 @@ const About = () => {
             <div>
               <h2 className="text-4xl font-bold mb-6">Our Vision</h2>
               <p className="text-lg text-muted-foreground mb-6">
-                To be the leading global provider of data-centric AI solutions, creating a future where intelligent systems seamlessly integrate with human creativity and decision-making.
+                We live in an exciting time when AI research and technology are delivering extraordinary advances.
+In the coming years, AI — and ultimately artificial general intelligence (AGI) — has the potential to drive one of the greatest transformations in history.
               </p>
               <p className="text-muted-foreground">
-                We envision a world where AI amplifies human potential, making complex problems solvable and opening new frontiers of innovation.
-              </p>
+
+We’re a team of scientists, engineers, ethicists and more, working to build the next generation of AI systems safely and responsibly.              </p>
             </div>
           </div>
         </div>
@@ -105,7 +106,7 @@ const About = () => {
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-4">Our Values</h2>
             <p className="text-xl text-muted-foreground">
-              The principles that guide everything we do
+            By solving some of the hardest scientific and engineering challenges of our time, we’re working to create breakthrough technologies that could advance science, transform work, serve diverse communities — and improve billions of people’s lives.
             </p>
           </div>
 
@@ -146,7 +147,7 @@ const About = () => {
       </section>
 
       {/* Team */}
-      <section className="py-20 bg-card">
+      {/* <section className="py-20 bg-card">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-4">Meet Our Team</h2>
@@ -170,22 +171,22 @@ const About = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Stats */}
       <section className="py-20">
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <div>
-              <div className="text-4xl font-bold text-primary mb-2">50+</div>
+              <div className="text-4xl font-bold text-primary mb-2">20+</div>
               <p className="text-muted-foreground">Projects Delivered</p>
             </div>
             <div>
-              <div className="text-4xl font-bold text-primary mb-2">25+</div>
+              <div className="text-4xl font-bold text-primary mb-2">09+</div>
               <p className="text-muted-foreground">Team Members</p>
             </div>
             <div>
-              <div className="text-4xl font-bold text-primary mb-2">15+</div>
+              <div className="text-4xl font-bold text-primary mb-2">6+</div>
               <p className="text-muted-foreground">Countries Served</p>
             </div>
             <div>
@@ -204,15 +205,15 @@ const About = () => {
             Ready to be part of the AI revolution? Let's build the future together.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button 
-              size="lg" 
+            <Button
+              size="lg"
               onClick={() => window.location.href = '/careers'}
               className="bg-primary hover:bg-primary/90 text-primary-foreground"
             >
               Explore Careers
             </Button>
-            <Button 
-              variant="outline" 
+            <Button
+              variant="outline"
               size="lg"
               onClick={() => window.location.href = '/contact'}
             >

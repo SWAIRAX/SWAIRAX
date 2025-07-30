@@ -1,4 +1,4 @@
-import { Github, Linkedin, Twitter } from "lucide-react";
+import { Github, Instagram, Linkedin, Twitter } from "lucide-react";
 import { Link } from "react-router-dom";
 import Logo from "@/components/Logo";
 
@@ -19,7 +19,7 @@ const Footer = () => {
               />
             </picture>
             <div className="text-2xl font-bold text-foreground">
-              
+
             </div>
             </Link>
             <div className="text-xl font-bold text-foreground">Quantum Intelligence</div>
@@ -29,7 +29,7 @@ const Footer = () => {
           {/* Social Links */}
           <div className="flex items-center space-x-6">
             <a
-              href="https://github.com"
+              href="https://github.com/quantum-intelligence-africa"
               target="_blank"
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-primary transition-colors"
@@ -37,7 +37,7 @@ const Footer = () => {
               <Github className="h-5 w-5" />
             </a>
             <a
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/company/quantum-intelligence-africa/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-primary transition-colors"
@@ -45,12 +45,20 @@ const Footer = () => {
               <Linkedin className="h-5 w-5" />
             </a>
             <a
-              href="https://twitter.com"
+              href="https://x.com/1ntelligencelab"
               target="_blank"
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-primary transition-colors"
             >
               <Twitter className="h-5 w-5" />
+            </a>
+            <a
+              href="https://www.instagram.com/qintelligencelab"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-muted-foreground hover:text-primary transition-colors"
+            >
+              <Instagram className="h-5 w-5" />
             </a>
           </div>
 

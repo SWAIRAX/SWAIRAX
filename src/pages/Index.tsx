@@ -55,7 +55,7 @@ const Index = () => {
       content: "Drawing inspiration from the profound words of British Mathematician Clive Humby that 'Data is the new oil', we embark on a journey to discover the secrets of successful AI development, where data takes center stage.\n\nIn the modern era of artificial intelligence, data has emerged as the fundamental building block of innovation. Just as oil powered the industrial revolution, data is now the driving force behind the AI revolution that's transforming industries across the globe.\n\nThe parallels between oil and data are striking. Both require extraction, refinement, and careful processing to unlock their true value. Raw data, like crude oil, needs to be cleaned, structured, and analyzed before it can fuel intelligent systems and drive meaningful insights.\n\nAt Quantum Intelligence, we understand that successful AI implementation begins with understanding your data landscape. Our data-centric approach ensures that every AI solution we develop is built on a foundation of high-quality, well-understood data that delivers measurable business value.",
       author: "Quantum Intelligence Team",
       readTime: "5 min read",
-      imageUrl: "blog.jpg",
+      imageUrl: "blog1.jpg",
       tags: ["Data Science", "AI Development", "Digital Transformation"],
       cta: "Read More"
     },
@@ -66,9 +66,9 @@ const Index = () => {
       title: "Overcoming the Barriers: A Look at the Challenges of Implementing AI in Africa.",
       excerpt: "Implementing AI in Africa is not without its challenges. In this article, we will explore some of the key challenges of implementing AI in Africa, and we will discuss how these challenges can be addressed in order to realize the full potential of AI in the region.",
       content: "Implementing AI in Africa is not without its challenges. In this article, we will explore some of the key challenges of implementing AI in Africa, and we will discuss how these challenges can be addressed in order to realize the full potential of AI in the region.\n\nAfrica presents a unique landscape for AI implementation, with both significant opportunities and distinct challenges. The continent's rapidly growing digital infrastructure and young, tech-savvy population create fertile ground for AI innovation, yet several barriers must be addressed to unlock this potential.\n\nKey challenges include limited access to quality data, insufficient technical infrastructure, and a shortage of skilled AI professionals. Additionally, regulatory frameworks are still evolving, and there's a need for greater investment in research and development.\n\nDespite these challenges, we're seeing remarkable progress across various sectors. From mobile banking solutions in Kenya to agricultural AI applications in Nigeria, African entrepreneurs and organizations are finding innovative ways to leverage AI for local challenges.\n\nThe path forward requires collaborative efforts between governments, private sector, and international partners to build sustainable AI ecosystems that benefit local communities while contributing to global AI advancement.",
-      author: "Dr. Sarah Makena",
+      author: "Quantum Intelligence Team",
       readTime: "8 min read",
-      imageUrl: "blog1.jpg",
+      imageUrl: "blog2.png",
       tags: ["AI in Africa", "Digital Transformation", "Tech Innovation"],
       cta: "Read More"
     },
@@ -79,9 +79,9 @@ const Index = () => {
       title: "What is Retrieval Augmented Generation (RAG) in AI?",
       excerpt: "Think of RAG like having a super-smart assistant who can help you find just the right information you need, exactly when you need it Here we will teach you how to build one.",
       content: "Think of RAG like having a super-smart assistant who can help you find just the right information you need, exactly when you need it. Here we will teach you how to build one.\n\nRetrieval Augmented Generation (RAG) represents a breakthrough in how AI systems access and utilize information. Unlike traditional language models that rely solely on their training data, RAG systems can dynamically retrieve relevant information from external knowledge bases to enhance their responses.\n\nThis approach combines the generative capabilities of large language models with the precision of information retrieval systems. When you ask a RAG system a question, it first searches through relevant documents or databases to find pertinent information, then uses this context to generate more accurate and up-to-date responses.\n\nThe benefits of RAG are particularly evident in enterprise applications where accuracy and currency of information are critical. For example, a RAG system can access the latest company policies, product specifications, or market data to provide responses that are both contextually relevant and factually current.\n\nBuilding an effective RAG system involves several key components: a robust document retrieval mechanism, efficient embedding strategies, and careful prompt engineering to ensure the retrieved information is properly utilized in the generation process.",
-      author: "Ahmed Hassan",
+      author: "Quantum Intelligence Team",
       readTime: "6 min read",
-      imageUrl: "blog2.png",
+      imageUrl: "blog.jpg",
       tags: ["RAG", "Machine Learning", "NLP", "AI Architecture"],
       cta: "Read More"
     }
@@ -222,7 +222,7 @@ const Index = () => {
             <div>
               <p className="text-primary text-sm font-semibold mb-4">MLOps</p>
               <h2 className="text-4xl md:text-5xl font-bold mb-8">
-                From Model to Value—Deploy AI with Confidence
+                Machine Learning + Devops
               </h2>
               <p className="text-muted-foreground mb-6">
                 You have the data and the model, but you still can't see the return on investment for your AI
@@ -248,22 +248,22 @@ const Index = () => {
                   </div>
                   <span className="text-sm text-muted-foreground">Dataset</span>
                 </div>
-                
+
                 <div className="animate-pulse">
                   <ArrowRight className="w-6 h-6 text-primary" />
                 </div>
-                
+
                 <div className="flex flex-col items-center space-y-4 animate-fade-in" style={{ animationDelay: '0.2s' }}>
                   <div className="w-16 h-16 bg-primary/20 rounded-lg flex items-center justify-center group hover:bg-primary/30 transition-colors duration-300">
                     <Cog className="w-8 h-8 text-primary group-hover:scale-110 transition-transform animate-spin-slow" />
                   </div>
                   <span className="text-sm text-muted-foreground">Model</span>
                 </div>
-                
+
                 <div className="animate-pulse" style={{ animationDelay: '0.4s' }}>
                   <ArrowRight className="w-6 h-6 text-primary" />
                 </div>
-                
+
                 <div className="flex flex-col items-center space-y-4 animate-fade-in" style={{ animationDelay: '0.4s' }}>
                   <div className="w-16 h-16 bg-primary/20 rounded-lg flex items-center justify-center group hover:bg-primary/30 transition-colors duration-300">
                     <Cloud className="w-8 h-8 text-primary group-hover:scale-110 transition-transform" />
@@ -271,7 +271,7 @@ const Index = () => {
                   <span className="text-sm text-muted-foreground">Deploy</span>
                 </div>
               </div>
-              
+
               {/* Background glow effect */}
               <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-primary/5 rounded-lg -z-10"></div>
             </div>
@@ -296,9 +296,9 @@ const Index = () => {
                     <div className="space-y-2">
                       {[60, 80, 45, 90].map((height, i) => (
                         <div key={i} className="flex items-end space-x-1">
-                          <div 
+                          <div
                             className="bg-primary/70 w-6 rounded-sm transition-all duration-1000 hover:bg-primary"
-                            style={{ 
+                            style={{
                               height: `${height * 0.4}px`,
                               animationDelay: `${i * 0.2}s`
                             }}
@@ -307,7 +307,7 @@ const Index = () => {
                       ))}
                     </div>
                   </div>
-                  
+
                   {/* Pie Chart */}
                   <div className="bg-background/80 p-4 rounded-lg border group hover:shadow-lg transition-all duration-300">
                     <div className="flex items-center justify-between mb-3">
@@ -319,7 +319,7 @@ const Index = () => {
                       <div className="absolute inset-0 rounded-full border-4 border-primary border-t-transparent animate-spin-slow"></div>
                     </div>
                   </div>
-                  
+
                   {/* KPI Widgets */}
                   <div className="bg-background/80 p-4 rounded-lg border group hover:shadow-lg transition-all duration-300">
                     <TrendingUp className="w-5 h-5 text-primary mb-2" />
@@ -328,7 +328,7 @@ const Index = () => {
                     </div>
                     <span className="text-xs text-muted-foreground">Customer Growth</span>
                   </div>
-                  
+
                   <div className="bg-background/80 p-4 rounded-lg border group hover:shadow-lg transition-all duration-300">
                     <CheckCircle className="w-5 h-5 text-primary mb-2" />
                     <div className="text-2xl font-bold text-primary">
@@ -337,7 +337,7 @@ const Index = () => {
                     <span className="text-xs text-muted-foreground">Data Quality</span>
                   </div>
                 </div>
-                
+
                 {/* Floating Analytics Icons */}
                 <div className="absolute -top-4 -right-4 w-8 h-8 bg-primary/20 rounded-full flex items-center justify-center animate-bounce">
                   <span className="text-xs">📊</span>
@@ -381,8 +381,8 @@ const Index = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {products.map((product, index) => (
-              <Card 
-                key={index} 
+              <Card
+                key={index}
                 className="bg-secondary border-border hover:shadow-lg hover:scale-105 transition-all duration-300 group"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
@@ -390,28 +390,28 @@ const Index = () => {
                   {/* Animated SVG background */}
                   <div className="absolute inset-0 opacity-5">
                     <svg className="w-full h-full" viewBox="0 0 100 100">
-                      <circle 
-                        cx="50" 
-                        cy="50" 
-                        r="30" 
-                        fill="none" 
-                        stroke="currentColor" 
+                      <circle
+                        cx="50"
+                        cy="50"
+                        r="30"
+                        fill="none"
+                        stroke="currentColor"
                         strokeWidth="1"
                         className="animate-spin-slow"
                       />
-                      <circle 
-                        cx="50" 
-                        cy="50" 
-                        r="20" 
-                        fill="none" 
-                        stroke="currentColor" 
+                      <circle
+                        cx="50"
+                        cy="50"
+                        r="20"
+                        fill="none"
+                        stroke="currentColor"
                         strokeWidth="0.5"
                         className="animate-spin-slow"
                         style={{ animationDirection: 'reverse' }}
                       />
                     </svg>
                   </div>
-                  
+
                   <div className="flex items-center justify-between mb-6 relative z-10">
                     <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center group-hover:bg-primary/30 transition-colors duration-300">
                       <div className="w-6 h-6 bg-primary rounded group-hover:animate-pulse"></div>
@@ -429,7 +429,7 @@ const Index = () => {
                   <Button asChild variant="ghost" className="text-foreground hover:text-primary p-0 relative z-10 group-hover:translate-x-1 transition-transform duration-300">
                     <Link to="/try-now">{product.cta} <ArrowRight className="ml-2 h-4 w-4" /></Link>
                   </Button>
-                  
+
                   {/* Sparkle effect on hover */}
                   <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <div className="w-2 h-2 bg-primary rounded-full animate-ping"></div>
