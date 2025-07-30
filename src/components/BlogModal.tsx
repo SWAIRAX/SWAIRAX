@@ -25,9 +25,22 @@ interface BlogModalProps {
 const BlogModal = ({ post, isOpen, onClose }: BlogModalProps) => {
   if (!post) return null;
 
+  // Handle keyboard events
+  const handleKeyDown = (event: React.KeyboardEvent) => {
+    if (event.key === 'Escape') {
+      onClose();
+    }
+  };
+
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
+      <DialogContent 
+        className="max-w-4xl max-h-[90vh] overflow-y-auto animate-scale-in" 
+        onKeyDown={handleKeyDown}
+        role="dialog"
+        aria-labelledby="modal-title"
+        aria-describedby="modal-description"
+      >
         <DialogHeader className="space-y-4">
           <div className="flex items-center justify-between">
             <Badge variant="secondary" className="text-xs">
@@ -37,13 +50,15 @@ const BlogModal = ({ post, isOpen, onClose }: BlogModalProps) => {
               variant="ghost"
               size="sm"
               onClick={onClose}
-              className="h-8 w-8 p-0"
+              className="h-8 w-8 p-0 hover:bg-destructive hover:text-destructive-foreground"
+              aria-label="Close modal"
+              role="button"
             >
               <X className="h-4 w-4" />
             </Button>
           </div>
           
-          <DialogTitle className="text-2xl md:text-3xl font-bold leading-tight">
+          <DialogTitle id="modal-title" className="text-2xl md:text-3xl font-bold leading-tight">
             {post.title}
           </DialogTitle>
           
@@ -62,7 +77,7 @@ const BlogModal = ({ post, isOpen, onClose }: BlogModalProps) => {
             </div>
           </div>
           
-          <p className="text-lg text-muted-foreground leading-relaxed">
+          <p id="modal-description" className="text-lg text-muted-foreground leading-relaxed">
             {post.excerpt}
           </p>
         </DialogHeader>
