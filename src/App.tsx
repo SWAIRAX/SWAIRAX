@@ -11,8 +11,14 @@ import Careers from "./pages/Careers";
 import Resources from "./pages/Resources";
 import Blog from "./pages/Blog";
 import NotFound from "./pages/NotFound";
-import Client from '@/pages/clients';
 import Clients from '@/pages/clients';
+import Industries from '@/pages/Industries';
+import FinancialServices from '@/pages/industries/FinancialServices';
+import Telecommunications from '@/pages/industries/Telecommunications';
+import EducationServices from '@/pages/industries/EducationServices';
+import Utilities from '@/pages/industries/Utilities';
+import RetailLogistics from '@/pages/industries/RetailLogistics';
+import HealthcarePharmacy from '@/pages/industries/HealthcarePharmacy';
 
 const queryClient = new QueryClient();
 
@@ -26,6 +32,13 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/services" element={<Services />} />
           <Route path="/clients" element={<Clients />} />
+          <Route path="/industries" element={<Industries />} />
+          <Route path="/industries/financial-services" element={<FinancialServices />} />
+          <Route path="/industries/telecommunications" element={<Telecommunications />} />
+          <Route path="/industries/education-services" element={<EducationServices />} />
+          <Route path="/industries/utilities" element={<Utilities />} />
+          <Route path="/industries/retail-logistics" element={<RetailLogistics />} />
+          <Route path="/industries/healthcare-pharmacy" element={<HealthcarePharmacy />} />
           <Route path="/careers" element={<Careers />} />
           <Route path="/resources" element={<Resources />} />
           <Route path="/blog" element={<Blog />} />
