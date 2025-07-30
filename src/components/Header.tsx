@@ -98,11 +98,14 @@ const Header = () => {
               <img
               src="/uploads/logo.png"
               alt="Quantum Intelligence Logo"
-              className="h-10 w-auto object-contain"
+              className="h-8 w-auto object-contain"
               style={{ maxWidth: "160px" }}
               />
             </picture>
-            <div className="text-2xl font-bold text-foreground">
+            <div
+              className="text-lg sm:text-xl md:text-2xl text-foreground whitespace-nowrap"
+              // style={{ fontFamily: '"Times New Roman", Times, serif', fontWeight: 400 }}
+            >
               Quantum Intelligence
             </div>
             </Link>
