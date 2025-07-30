@@ -11,6 +11,7 @@ interface Client {
 id: string;
 name: string;
 title: string;
+description: string;
 details: string;
 industry: string;
 logoUrl?: string;
@@ -28,6 +29,7 @@ const clients = [
     {
     id: "1",
     title: "PAL Africa",
+    description: "Transforming education through innovative STEAM programs that celebrate African culture and creativity.",
     details: `PAL Africa is an African initiative dedicated to transforming education through innovative STEAM (Science, Technology, Engineering, Arts, and Mathematics) programs that celebrate African culture and creativity.
 
 We believe in teaching mindset, not just subject matter. Our approach combines traditional African storytelling with modern educational techniques to create engaging, memorable learning experiences.
@@ -48,6 +50,7 @@ A heartwarming session where children and their parents, guardians or siblings t
     {
     id: "2",
     title: "Overcoming the Barriers: AI Implementation in Africa",
+    description: "Comprehensive analysis of AI implementation challenges in Africa and strategies to unlock the continent's potential.",
     details: `Implementing AI in Africa is not without its challenges. In this comprehensive analysis, we explore the key challenges of implementing AI in Africa and discuss how these challenges can be addressed to realize the full potential of AI in the region.
 
 Africa represents one of the most promising frontiers for AI adoption and innovation. With a young, tech-savvy population and rapidly growing economies, the continent is poised to benefit significantly from AI technologies.
@@ -68,6 +71,7 @@ The path forward requires collaboration between governments, private sector, edu
     {
     id: "3",
     title: "What is Retrieval Augmented Generation (RAG) in AI?",
+    description: "Exploring RAG technology that combines language models with external knowledge retrieval for enhanced AI capabilities.",
     details: `Retrieval Augmented Generation (RAG) represents a significant advancement in AI technology, combining the power of large language models with external knowledge retrieval systems.
 
 Think of RAG like having a super-smart assistant who can help you find just the right information you need, exactly when you need it. Unlike traditional language models that rely solely on their training data, RAG systems can access and incorporate real-time information from external sources.
@@ -88,6 +92,7 @@ The implementation of RAG systems has numerous practical applications, from cust
     {
     id: "4",
     title: "The Future of MLOps: Bridging AI and Production",
+    description: "How MLOps transforms machine learning from research to reliable production systems with DevOps principles.",
     details: `Machine Learning Operations (MLOps) has emerged as a critical discipline for organizations looking to successfully deploy and manage AI systems in production environments.
 
 The traditional approach to machine learning development often resulted in models that performed well in research settings but failed to deliver value in real-world applications. MLOps addresses this challenge by applying DevOps principles to machine learning workflows.
@@ -108,6 +113,7 @@ Looking ahead, MLOps will continue to evolve with advances in automation, edge c
     {
     id: "5",
     title: "Computer Vision in Healthcare: Revolutionizing Diagnosis",
+    description: "AI-powered vision systems transforming medical diagnosis through advanced image analysis and pattern recognition.",
     details: `Computer vision technology is revolutionizing healthcare by enabling more accurate, efficient, and accessible medical diagnosis. From analyzing medical images to assisting in surgical procedures, AI-powered vision systems are transforming how healthcare professionals work.
 
 In radiology, computer vision algorithms can detect subtle patterns in X-rays, MRIs, and CT scans that might be missed by human eyes. These systems can identify early signs of diseases such as cancer, helping to improve patient outcomes through earlier intervention.
@@ -128,6 +134,7 @@ The future of computer vision in healthcare is bright, with emerging application
     {
     id: "6",
     title: "Natural Language Processing: The Evolution of Human-AI Communication",
+    description: "From keyword matching to sophisticated language models that understand context, emotion, and nuance in human communication.",
     details: `Natural Language Processing (NLP) has undergone remarkable evolution, transforming from simple keyword matching systems to sophisticated models that can understand context, emotion, and nuance in human communication.
 
 The journey of NLP began with rule-based systems that relied on manually crafted linguistic rules. While effective for specific tasks, these systems lacked the flexibility to handle the complexity and variability of natural language.
@@ -145,7 +152,6 @@ However, challenges remain. Bias in language models, ensuring factual accuracy, 
 Looking forward, NLP will continue to evolve with advances in multimodal AI, enabling systems that can understand both text and visual information. The future promises more natural and intuitive human-AI interactions.`,
     name: "Prof. David Rodriguez",
     industry: "NLP",
-
     tags: ["nlp", "natural-language-processing", "chatbots", "transformers", "communication"]
     }
 ];
@@ -216,22 +222,23 @@ return (
     </section>
 
       {/* Company Values */}
-    <section className="py-16">
-        <div className="container mx-auto px-6">
-        <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Your Ambition, Our Intelligence</h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            We combine data-driven insights with visionary strategy to help our clients achieve measurable impact.
-            Your business goals are our blueprint.
+    <section className="py-20 bg-card/30">
+        <div className="container mx-auto px-6 max-w-6xl">
+        <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-5xl font-bold mb-6">
+            How our clients are <span className="text-primary">leading the change</span>
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            We have helped 600+ companies accelerate their business with top-notch technology solutions.
             </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {values.map((value, index) => (
-            <Card key={index} className="bg-card border-border text-center">
+            <Card key={index} className="bg-card border-border text-center hover:shadow-lg transition-all duration-300 hover-scale">
                 <CardContent className="p-6">
                 <h3 className="text-xl font-bold mb-3">{value.title}</h3>
-                <p className="text-muted-foreground text-sm">{value.description}</p>
+                <p className="text-muted-foreground text-sm leading-relaxed">{value.description}</p>
                 </CardContent>
             </Card>
             ))}
@@ -241,93 +248,103 @@ return (
 
 
 
-    {/* Clients Section */}
-    <section className="py-16">
-    <div className="container mx-auto px-6">
-        <div className="text-center mb-12">
-        <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Clients</h2>
-        <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Discover how we help organizations unlock the power of data and AI.
+    {/* Client Stories Section */}
+    <section className="py-20">
+    <div className="container mx-auto px-6 max-w-6xl">
+        <div className="text-center mb-16">
+        <h2 className="text-3xl md:text-4xl font-bold mb-6">Client Success Stories</h2>
+        <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+            Discover how we help organizations unlock the power of data and AI through innovative solutions.
         </p>
         </div>
+        
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {clients.map((client, idx) => (
             <Card
                 key={client.id}
-                className="bg-card border-border hover:shadow-card transition-all duration-300 cursor-pointer"
+                className="bg-card border-border hover:shadow-xl transition-all duration-500 cursor-pointer group hover-scale animate-fade-in"
+                style={{ animationDelay: `${idx * 100}ms` }}
                 onClick={() => {
                     setSelectedClient(client);
                     setIsModalOpen(true);
                 }}
             >
-                <CardContent className="p-6">
-                    {/* Main Card Image Section */}
+                <CardContent className="p-0">
+                    {/* Header with industry badge */}
+                    <div className="p-6 pb-4">
+                        <div className="flex items-center justify-between mb-4">
+                            <Badge variant="outline" className="text-xs font-medium">
+                                {client.industry}
+                            </Badge>
+                            <div className="text-xs text-muted-foreground">
+                                by {client.name}
+                            </div>
+                        </div>
+                        
+                        <h3 className="text-xl font-bold mb-3 leading-tight group-hover:text-primary transition-colors duration-300">
+                            {client.title}
+                        </h3>
+                        
+                        <p className="text-muted-foreground text-sm mb-4 leading-relaxed line-clamp-3">
+                            {client.description}
+                        </p>
+                    </div>
+
+                    {/* Main Image Section */}
                     {client.imageUrl && (
-                        <div className="flex flex-col items-center mb-4">
-                            <img
-                                src={`/uploads/${client.imageUrl.replace(/^\/+/,'')}`}
-                                alt={client.title + ' main image'}
-                                className="w-full h-40 object-cover rounded mb-2 border"
-                            />
+                        <div className="px-6 pb-4">
+                            <div className="relative overflow-hidden rounded-lg">
+                                <img
+                                    src={`/uploads/${client.imageUrl.replace(/^\/+/,'')}`}
+                                    alt={client.title}
+                                    className="w-full h-32 object-cover group-hover:scale-105 transition-transform duration-500"
+                                />
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent"></div>
+                            </div>
                         </div>
                     )}
-                    {/* Logo Section (clickable if logoLinkUrl) */}
-                    <div className="flex flex-col items-center mb-4">
-                        {client.logoUrl && client.logoLinkUrl ? (
-                            <a href={client.logoLinkUrl} target="_blank" rel="noopener noreferrer">
-                                <img
-                                    src={`/uploads/${client.logoUrl.replace(/^\/+/,'')}`}
-                                    alt={client.name || client.title + ' logo'}
-                                    className="h-20 w-20 object-contain rounded mb-2 border hover:scale-105 transition-transform"
-                                    style={{ cursor: 'pointer' }}
-                                />
-                            </a>
-                        ) : client.logoUrl ? (
-                            <img
-                                src={`/uploads/${client.logoUrl.replace(/^\/+/,'')}`}
-                                alt={client.name || client.title + ' logo'}
-                                className="h-20 w-20 object-contain rounded mb-2 border"
-                            />
-                        ) : null}
-                    </div>
-                    <div className="flex items-center gap-4 mb-4">
-                        <div>
-                            <h3 className="text-xl font-bold mb-1">{client.title}</h3>
-                            <Badge variant="secondary">{client.industry}</Badge>
+
+                    {/* Footer with tags and CTA */}
+                    <div className="p-6 pt-2">
+                        <div className="flex flex-wrap gap-2 mb-4">
+                            {client.tags.slice(0, 3).map((tag, tagIdx) => (
+                                <Badge key={tagIdx} variant="outline" className="text-xs">
+                                    #{tag}
+                                </Badge>
+                            ))}
+                            {client.tags.length > 3 && (
+                                <Badge variant="outline" className="text-xs">
+                                    +{client.tags.length - 3} more
+                                </Badge>
+                            )}
                         </div>
+                        
+                        <Button variant="ghost" size="sm" className="text-primary p-0 h-auto font-medium group-hover:translate-x-1 transition-transform duration-300">
+                            Read Story <ArrowRight className="ml-2 h-4 w-4" />
+                        </Button>
                     </div>
-                    <p className="text-muted-foreground mb-4 line-clamp-3">{client.details.slice(0, 120)}...</p>
-                    <div className="flex flex-wrap gap-2">
-                        {client.tags.map((tag, tagIdx) => (
-                            <Badge key={tagIdx} variant="outline" className="text-xs">
-                                #{tag}
-                            </Badge>
-                        ))}
-                    </div>
-                    <Button variant="ghost" className="mt-4 text-primary">
-                        Learn More <ArrowRight className="ml-2 h-4 w-4" />
-                    </Button>
                 </CardContent>
             </Card>
         ))}
         </div>
+        
         {/* Modal for client details */}
         <ClientModal client={selectedClient} isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </div>
     </section>
 
       {/* CTA Section */}
-    <section className="py-16 bg-card text-center">
-        <div className="container mx-auto px-6">
-        <div className="max-w-2xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Don't see the right fit?
+    <section className="py-20 bg-card/50 text-center">
+        <div className="container mx-auto px-6 max-w-4xl">
+        <div className="space-y-6">
+            <h2 className="text-3xl md:text-5xl font-bold mb-6">
+            Want to be our next <span className="text-primary">success story?</span>
             </h2>
-            <p className="text-lg text-muted-foreground mb-8">
-            Ready to shape your future with intelligent strategy?
+            <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
+            Ready to transform your business with intelligent solutions? Let's collaborate to turn your vision into reality.
             </p>
-            <Button size="lg" variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground">
-            Book a consultation
+            <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 hover-scale">
+            Estimate Project
             </Button>
         </div>
         </div>
