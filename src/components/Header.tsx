@@ -222,18 +222,36 @@ const Header = () => {
         {isMenuOpen && (
           <div className="lg:hidden mt-4 pb-4 border-t border-border">
             <nav className="flex flex-col space-y-4 mt-4">
-              {navItems.map((item) => (
-                <Link
-                  key={item.name}
-                  to={item.path}
-                  className={`text-sm font-medium transition-colors hover:text-primary ${
-                    isActive(item.path) ? "text-primary" : "text-muted-foreground"
-                  }`}
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  {item.name}
-                </Link>
-              ))}
+              {navItems.map((item) => {
+                // Skip the company dropdown in mobile, show direct About Us link instead
+                if (item.name === 'company') {
+                  return (
+                    <Link
+                      key="about-mobile"
+                      to="/about"
+                      className={`text-sm font-medium transition-colors hover:text-primary ${
+                        isActive("/about") ? "text-primary" : "text-muted-foreground"
+                      }`}
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      About Us
+                    </Link>
+                  );
+                }
+                
+                return (
+                  <Link
+                    key={item.name}
+                    to={item.path}
+                    className={`text-sm font-medium transition-colors hover:text-primary ${
+                      isActive(item.path) ? "text-primary" : "text-muted-foreground"
+                    }`}
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    {item.name}
+                  </Link>
+                );
+              })}
               <Link to="/contact">
                 <Button
                   variant="outline"

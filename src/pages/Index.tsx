@@ -1,14 +1,19 @@
 
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import Cube3D from "@/components/3DCube";
 import AnimatedCounter from "@/components/AnimatedCounter";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import BlogModal from "@/components/BlogModal";
 import { ArrowRight, CheckCircle } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Index = () => {
+  const [selectedBlog, setSelectedBlog] = useState<any>(null);
+  const [isBlogModalOpen, setIsBlogModalOpen] = useState(false);
+
   const stats = [
     { value: "40x", label: "More productivity for data scientists" },
     { value: "20%", label: "Faster to deliver AI models" },
@@ -41,27 +46,52 @@ const Index = () => {
 
   const articles = [
     {
+      id: "1",
       date: "June 3, 2023",
       category: "Blog",
       title: "Digital Data is the new software code",
-      description: "Drawing inspiration from the profound words of British Mathematician Clive Humby that 'Data is the new oil', we embark on a journey to discover the secrets of successful AI development, where data takes center stage.",
+      excerpt: "Drawing inspiration from the profound words of British Mathematician Clive Humby that 'Data is the new oil', we embark on a journey to discover the secrets of successful AI development, where data takes center stage.",
+      content: "Drawing inspiration from the profound words of British Mathematician Clive Humby that 'Data is the new oil', we embark on a journey to discover the secrets of successful AI development, where data takes center stage.\n\nIn the modern era of artificial intelligence, data has emerged as the fundamental building block of innovation. Just as oil powered the industrial revolution, data is now the driving force behind the AI revolution that's transforming industries across the globe.\n\nThe parallels between oil and data are striking. Both require extraction, refinement, and careful processing to unlock their true value. Raw data, like crude oil, needs to be cleaned, structured, and analyzed before it can fuel intelligent systems and drive meaningful insights.\n\nAt Quantum Intelligence, we understand that successful AI implementation begins with understanding your data landscape. Our data-centric approach ensures that every AI solution we develop is built on a foundation of high-quality, well-understood data that delivers measurable business value.",
+      author: "Quantum Intelligence Team",
+      readTime: "5 min read",
+      tags: ["Data Science", "AI Development", "Digital Transformation"],
       cta: "Read More"
     },
     {
+      id: "2",
       date: "May 3, 2023",
       category: "Life On Data",
       title: "Overcoming the Barriers: A Look at the Challenges of Implementing AI in Africa.",
-      description: "Implementing AI in Africa is not without its challenges. In this article, we will explore some of the key challenges of implementing AI in Africa, and we will discuss how these challenges can be addressed in order to realize the full potential of AI in the region.",
+      excerpt: "Implementing AI in Africa is not without its challenges. In this article, we will explore some of the key challenges of implementing AI in Africa, and we will discuss how these challenges can be addressed in order to realize the full potential of AI in the region.",
+      content: "Implementing AI in Africa is not without its challenges. In this article, we will explore some of the key challenges of implementing AI in Africa, and we will discuss how these challenges can be addressed in order to realize the full potential of AI in the region.\n\nAfrica presents a unique landscape for AI implementation, with both significant opportunities and distinct challenges. The continent's rapidly growing digital infrastructure and young, tech-savvy population create fertile ground for AI innovation, yet several barriers must be addressed to unlock this potential.\n\nKey challenges include limited access to quality data, insufficient technical infrastructure, and a shortage of skilled AI professionals. Additionally, regulatory frameworks are still evolving, and there's a need for greater investment in research and development.\n\nDespite these challenges, we're seeing remarkable progress across various sectors. From mobile banking solutions in Kenya to agricultural AI applications in Nigeria, African entrepreneurs and organizations are finding innovative ways to leverage AI for local challenges.\n\nThe path forward requires collaborative efforts between governments, private sector, and international partners to build sustainable AI ecosystems that benefit local communities while contributing to global AI advancement.",
+      author: "Dr. Sarah Makena",
+      readTime: "8 min read",
+      tags: ["AI in Africa", "Digital Transformation", "Tech Innovation"],
       cta: "Read More"
     },
     {
+      id: "3",
       date: "April 4, 2023",
       category: "Case Study",
       title: "What is Retrieval Augmented Generation (RAG) in AI?",
-      description: "Think of RAG like having a super-smart assistant who can help you find just the right information you need, exactly when you need it Here we will teach you how to build one.",
+      excerpt: "Think of RAG like having a super-smart assistant who can help you find just the right information you need, exactly when you need it Here we will teach you how to build one.",
+      content: "Think of RAG like having a super-smart assistant who can help you find just the right information you need, exactly when you need it. Here we will teach you how to build one.\n\nRetrieval Augmented Generation (RAG) represents a breakthrough in how AI systems access and utilize information. Unlike traditional language models that rely solely on their training data, RAG systems can dynamically retrieve relevant information from external knowledge bases to enhance their responses.\n\nThis approach combines the generative capabilities of large language models with the precision of information retrieval systems. When you ask a RAG system a question, it first searches through relevant documents or databases to find pertinent information, then uses this context to generate more accurate and up-to-date responses.\n\nThe benefits of RAG are particularly evident in enterprise applications where accuracy and currency of information are critical. For example, a RAG system can access the latest company policies, product specifications, or market data to provide responses that are both contextually relevant and factually current.\n\nBuilding an effective RAG system involves several key components: a robust document retrieval mechanism, efficient embedding strategies, and careful prompt engineering to ensure the retrieved information is properly utilized in the generation process.",
+      author: "Ahmed Hassan",
+      readTime: "6 min read",
+      tags: ["RAG", "Machine Learning", "NLP", "AI Architecture"],
       cta: "Read More"
     }
   ];
+
+  const handleBlogClick = (article: any) => {
+    setSelectedBlog(article);
+    setIsBlogModalOpen(true);
+  };
+
+  const closeBlogModal = () => {
+    setIsBlogModalOpen(false);
+    setSelectedBlog(null);
+  };
 
   return (
     <div className="min-h-screen bg-background">
@@ -358,7 +388,11 @@ const Index = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {articles.map((article, index) => (
-              <Card key={index} className="bg-card border-border hover:shadow-card transition-all duration-300 overflow-hidden">
+              <Card 
+                key={index} 
+                className="bg-card border-border hover:shadow-card transition-all duration-300 overflow-hidden cursor-pointer hover-scale"
+                onClick={() => handleBlogClick(article)}
+              >
                 <div className="aspect-video bg-gradient-secondary"></div>
                 <CardContent className="p-6">
                   <div className="flex items-center justify-between mb-4">
@@ -370,7 +404,7 @@ const Index = () => {
 
                   <h3 className="text-xl font-bold mb-4">{article.title}</h3>
                   <p className="text-muted-foreground mb-6 text-sm leading-relaxed">
-                    {article.description}
+                    {article.excerpt}
                   </p>
 
                   <Button variant="ghost" className="text-foreground hover:text-primary p-0">
@@ -380,10 +414,29 @@ const Index = () => {
               </Card>
             ))}
           </div>
+
+          <div className="text-center mt-12">
+            <Link to="/blog">
+              <Button
+                variant="outline"
+                size="lg"
+                className="border-primary text-primary hover:bg-primary hover:text-primary-foreground px-8"
+              >
+                View All Blogs <ArrowRight className="ml-2 h-4 w-4" />
+              </Button>
+            </Link>
+          </div>
         </div>
       </section>
 
       <Footer />
+      
+      {/* Blog Modal */}
+      <BlogModal 
+        post={selectedBlog} 
+        isOpen={isBlogModalOpen} 
+        onClose={closeBlogModal} 
+      />
     </div>
   );
 };
