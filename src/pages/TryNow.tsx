@@ -89,7 +89,11 @@ const TryNow = () => {
                     ))}
                   </ul>
                   
-                  <Button className="w-full" variant="outline">
+                  <Button 
+                    className="w-full" 
+                    variant="outline"
+                    onClick={() => window.location.href = '/contact'}
+                  >
                     {platform.cta} <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
                 </CardContent>

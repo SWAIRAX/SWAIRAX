@@ -109,7 +109,11 @@ const Resources = () => {
               Access comprehensive guides, tools, and insights to accelerate your AI journey. 
               Everything you need to build successful AI solutions.
             </p>
-            <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground px-8">
+            <Button 
+              size="lg" 
+              onClick={() => document.getElementById('featured')?.scrollIntoView({ behavior: 'smooth' })}
+              className="bg-primary hover:bg-primary/90 text-primary-foreground px-8"
+            >
               Explore Resources
             </Button>
           </div>
@@ -117,7 +121,7 @@ const Resources = () => {
       </section>
 
       {/* Featured Resources */}
-      <section className="py-16">
+      <section id="featured" className="py-16">
         <div className="container mx-auto px-6">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Featured Resources</h2>
@@ -140,7 +144,10 @@ const Resources = () => {
                     {resource.description}
                   </p>
                   
-                  <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">
+                  <Button 
+                    onClick={() => window.location.href = '/contact'}
+                    className="w-full bg-primary hover:bg-primary/90 text-primary-foreground"
+                  >
                     <Download className="mr-2 h-4 w-4" />
                     Download
                   </Button>
@@ -182,14 +189,22 @@ const Resources = () => {
                           <p className="font-medium">{item.name}</p>
                           <p className="text-sm text-muted-foreground">{item.type} • {item.size}</p>
                         </div>
-                        <Button size="sm" variant="outline">
+                        <Button 
+                          size="sm" 
+                          variant="outline"
+                          onClick={() => window.location.href = '/contact'}
+                        >
                           <ExternalLink className="h-4 w-4" />
                         </Button>
                       </div>
                     ))}
                   </div>
                   
-                  <Button variant="ghost" className="w-full mt-4 text-primary hover:text-primary">
+                  <Button 
+                    variant="ghost" 
+                    onClick={() => window.location.href = '/contact'}
+                    className="w-full mt-4 text-primary hover:text-primary"
+                  >
                     View All in {category.title}
                   </Button>
                 </CardContent>
@@ -223,7 +238,10 @@ const Resources = () => {
                           <span>Presenter: {webinar.presenter}</span>
                         </div>
                       </div>
-                      <Button className="bg-primary hover:bg-primary/90 text-primary-foreground">
+                      <Button 
+                        onClick={() => window.location.href = '/contact'}
+                        className="bg-primary hover:bg-primary/90 text-primary-foreground"
+                      >
                         Register Now
                       </Button>
                     </div>
@@ -251,7 +269,10 @@ const Resources = () => {
                 placeholder="Enter your email"
                 className="flex-1 px-4 py-3 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
               />
-              <Button className="bg-primary hover:bg-primary/90 text-primary-foreground px-6">
+              <Button 
+                onClick={() => window.location.href = '/contact'}
+                className="bg-primary hover:bg-primary/90 text-primary-foreground px-6"
+              >
                 Subscribe
               </Button>
             </div>

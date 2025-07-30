@@ -113,7 +113,11 @@ const Careers = () => {
             <p className="text-xl text-muted-foreground mb-8">
               Be part of a team that's transforming businesses through cutting-edge AI and data science solutions.
             </p>
-            <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground px-8">
+            <Button 
+              size="lg" 
+              onClick={() => document.getElementById('positions')?.scrollIntoView({ behavior: 'smooth' })}
+              className="bg-primary hover:bg-primary/90 text-primary-foreground px-8"
+            >
               View Open Positions
             </Button>
           </div>
@@ -166,7 +170,7 @@ const Careers = () => {
       </section>
 
       {/* Open Positions */}
-      <section className="py-16">
+      <section id="positions" className="py-16">
         <div className="container mx-auto px-6">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Open Positions</h2>
@@ -208,7 +212,10 @@ const Careers = () => {
                       </div>
                     </div>
                     
-                    <Button className="bg-primary hover:bg-primary/90 text-primary-foreground">
+                    <Button 
+                      onClick={() => window.location.href = '/contact'}
+                      className="bg-primary hover:bg-primary/90 text-primary-foreground"
+                    >
                       Apply Now <ArrowRight className="ml-2 h-4 w-4" />
                     </Button>
                   </div>
@@ -229,7 +236,12 @@ const Careers = () => {
             <p className="text-lg text-muted-foreground mb-8">
               We're always looking for talented individuals. Send us your resume and tell us how you'd like to contribute.
             </p>
-            <Button size="lg" variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground">
+            <Button 
+              size="lg" 
+              variant="outline" 
+              onClick={() => window.location.href = '/contact'}
+              className="border-primary text-primary hover:bg-primary hover:text-primary-foreground"
+            >
               Get in Touch
             </Button>
           </div>

@@ -204,10 +204,18 @@ const About = () => {
             Ready to be part of the AI revolution? Let's build the future together.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground">
+            <Button 
+              size="lg" 
+              onClick={() => window.location.href = '/careers'}
+              className="bg-primary hover:bg-primary/90 text-primary-foreground"
+            >
               Explore Careers
             </Button>
-            <Button variant="outline" size="lg">
+            <Button 
+              variant="outline" 
+              size="lg"
+              onClick={() => window.location.href = '/contact'}
+            >
               Partner With Us
             </Button>
           </div>

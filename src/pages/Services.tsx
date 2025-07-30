@@ -46,7 +46,11 @@ const Services = () => {
             <p className="text-xl text-muted-foreground mb-8">
               Comprehensive AI and data solutions designed to accelerate your digital transformation journey.
             </p>
-            <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground">
+            <Button 
+              size="lg" 
+              onClick={() => window.location.href = '/contact'}
+              className="bg-primary hover:bg-primary/90 text-primary-foreground"
+            >
               Get Started Today
             </Button>
           </div>
@@ -85,7 +89,21 @@ const Services = () => {
                     ))}
                   </ul>
                   
-                  <Button variant="ghost" className="text-foreground hover:text-primary p-0">
+                  <Button 
+                    variant="ghost" 
+                    onClick={() => {
+                      if (service.title === "MLOps & DevOps") {
+                        window.location.href = '/mlops';
+                      } else if (service.title === "Business Intelligence") {
+                        window.location.href = '/business-analysis';
+                      } else if (service.title === "AI Solutions Development") {
+                        window.location.href = '/ai-studio';
+                      } else {
+                        window.location.href = '/contact';
+                      }
+                    }}
+                    className="text-foreground hover:text-primary p-0"
+                  >
                     Learn More <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
                 </CardContent>
@@ -131,7 +149,11 @@ const Services = () => {
           <p className="text-xl text-muted-foreground mb-8">
             Let's discuss how our AI solutions can drive your success
           </p>
-          <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground">
+          <Button 
+            size="lg" 
+            onClick={() => window.location.href = '/contact'}
+            className="bg-primary hover:bg-primary/90 text-primary-foreground"
+          >
             Contact Us Today
           </Button>
         </div>

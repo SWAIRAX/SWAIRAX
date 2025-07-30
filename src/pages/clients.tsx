@@ -214,8 +214,12 @@ return (
             Whether you're a startup aiming to scale or a global enterprise seeking tech solutions,
             we tailor every project to your goals. Your success is our mission—and our measure.
             </p>
-            <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground px-8">
-            Explore our Solutions
+            <Button 
+              size="lg" 
+              onClick={() => window.location.href = '/services'}
+              className="bg-primary hover:bg-primary/90 text-primary-foreground px-8"
+            >
+              Explore our Solutions
             </Button>
         </div>
         </div>
@@ -298,8 +302,16 @@ return (
                             )}
                         </div>
 
-                        <Button variant="ghost" size="sm" className="text-primary p-0 h-auto font-medium group-hover:translate-x-1 transition-transform duration-300">
-                            Read Story <ArrowRight className="ml-2 h-4 w-4" />
+                        <Button 
+                          variant="ghost" 
+                          size="sm" 
+                          onClick={() => {
+                            setSelectedClient(client);
+                            setIsModalOpen(true);
+                          }}
+                          className="text-primary p-0 h-auto font-medium group-hover:translate-x-1 transition-transform duration-300"
+                        >
+                          Read Story <ArrowRight className="ml-2 h-4 w-4" />
                         </Button>
                     </div>
                 </CardContent>
@@ -322,8 +334,12 @@ return (
             <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
             Ready to transform your business with intelligent solutions? Let's collaborate to turn your vision into reality.
             </p>
-            <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 hover-scale">
-            Estimate Project
+            <Button 
+              size="lg" 
+              onClick={() => window.location.href = '/contact'}
+              className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 hover-scale"
+            >
+              Estimate Project
             </Button>
         </div>
         </div>

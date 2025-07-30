@@ -256,7 +256,11 @@ Looking forward, NLP will continue to evolve with advances in multimodal AI, ena
                     </div>
                   </div>
                   
-                  <Button variant="ghost" className="text-foreground hover:text-primary p-0">
+                  <Button 
+                    variant="ghost" 
+                    onClick={() => handlePostClick(post)}
+                    className="text-foreground hover:text-primary p-0"
+                  >
                     Read More <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
                 </CardContent>
