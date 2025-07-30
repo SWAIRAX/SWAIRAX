@@ -37,46 +37,73 @@ const ClientModal = ({ client, isOpen, onClose }: ClientModalProps) => {
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
     <DialogContent 
-        className="max-w-3xl max-h-[90vh] overflow-y-auto animate-scale-in" 
+        className="max-w-4xl max-h-[90vh] overflow-y-auto animate-scale-in bg-gradient-to-br from-slate-900 to-slate-800 border-slate-700/50" 
         onKeyDown={handleKeyDown}
         role="dialog"
         aria-labelledby="modal-title"
         aria-describedby="modal-description"
     >
         <DialogHeader className="space-y-4">
-        <div className="flex items-center justify-start">
+        <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
             {client.logoUrl && (
-                <img src={`/uploads/${client.logoUrl}`} alt={client.name} className="h-10 w-10 object-contain rounded" />
+                <div 
+                    className="bg-white/90 p-3 rounded-lg hover:bg-white hover:scale-105 transition-all duration-300 cursor-pointer"
+                    onClick={() => {
+                        if (client.logoLinkUrl) {
+                            window.open(client.logoLinkUrl, '_blank');
+                        }
+                    }}
+                    title={`Visit ${client.name} website`}
+                >
+                    <img 
+                        src={`/uploads/${client.logoUrl.replace(/^\/+/,'')}`} 
+                        alt={`${client.name} logo`} 
+                        className="h-12 w-12 object-contain" 
+                    />
+                </div>
             )}
-            <Badge variant="secondary" className="text-xs">
+            <Badge className="bg-primary/90 text-primary-foreground border-0 text-sm font-medium px-4 py-2">
                 {client.industry}
             </Badge>
             </div>
+            
+            {client.logoLinkUrl && (
+                <Button
+                    variant="outline"
+                    size="sm"
+                    onClick={() => window.open(client.logoLinkUrl, '_blank')}
+                    className="border-slate-600 text-slate-300 hover:bg-primary hover:text-primary-foreground hover:border-primary"
+                >
+                    Visit Website
+                </Button>
+            )}
         </div>
 
-        <DialogTitle id="modal-title" className="text-2xl md:text-3xl font-bold leading-tight">
+        <DialogTitle id="modal-title" className="text-3xl md:text-4xl font-bold leading-tight text-white">
             {client.name}
         </DialogTitle>
 
-        <p id="modal-description" className="text-lg text-muted-foreground leading-relaxed">
+        <p id="modal-description" className="text-lg text-slate-300 leading-relaxed">
             {client.description}
         </p>
         </DialogHeader>
 
-        <div className="mt-8 space-y-6">
+        <div className="mt-8 space-y-8">
         {client.imageUrl && (
-            <div className="aspect-video bg-gradient-secondary rounded-lg mb-8 overflow-hidden">
+            <div className="aspect-video rounded-xl overflow-hidden relative group">
                 <img 
                     src={`/uploads/${client.imageUrl.replace(/^\/+/,'')}`} 
                     alt={client.name} 
-                    className="w-full h-full object-cover" 
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
+                    loading="lazy"
                 />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/20 to-transparent"></div>
             </div>
         )}
 
         <div className="prose prose-lg max-w-none">
-            <div className="text-foreground leading-relaxed space-y-4">
+            <div className="text-slate-300 leading-relaxed space-y-6">
             {client.details.split('\n\n').map((paragraph, index) => (
                 <p key={index} className="text-base leading-7">
                 {paragraph}
@@ -85,10 +112,10 @@ const ClientModal = ({ client, isOpen, onClose }: ClientModalProps) => {
             </div>
         </div>
 
-        <div className="flex flex-wrap gap-2 pt-6 border-t border-border">
+        <div className="flex flex-wrap gap-3 pt-8 border-t border-slate-700/50">
             {client.tags.map((tag, index) => (
-            <Badge key={index} variant="outline" className="text-xs">
-                #{tag}
+            <Badge key={index} variant="outline" className="text-sm bg-slate-800/50 border-slate-600 text-slate-300 hover:border-primary/50 px-4 py-2">
+                {tag}
             </Badge>
             ))}
         </div>

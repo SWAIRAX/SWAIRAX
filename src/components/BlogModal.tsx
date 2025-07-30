@@ -75,7 +75,14 @@ const BlogModal = ({ post, isOpen, onClose }: BlogModalProps) => {
         </DialogHeader>
 
         <div className="mt-8 space-y-6">
-          <div className="aspect-video bg-gradient-secondary rounded-lg mb-8"></div>
+          {post.imageUrl && (
+            <img
+              src={`/uploads/${post.imageUrl.replace(/^\/+/,'')}`}
+              alt={post.title}
+              className="w-full aspect-video object-cover rounded-lg mb-8 animate-scale-in"
+              loading="lazy"
+            />
+          )}
 
           <div className="prose prose-lg max-w-none">
             <div className="text-foreground leading-relaxed space-y-4">

@@ -398,7 +398,14 @@ const Index = () => {
                 className="bg-card border-border hover:shadow-card transition-all duration-300 overflow-hidden cursor-pointer hover-scale"
                 onClick={() => handleBlogClick(article)}
               >
-                <div className="aspect-video bg-gradient-secondary"></div>
+                {article.imageUrl && (
+                  <img
+                    src={`/uploads/${article.imageUrl.replace(/^\/+/,'')}`}
+                    alt={article.title}
+                    className="w-full aspect-video object-cover"
+                    loading="lazy"
+                  />
+                )}
                 <CardContent className="p-6">
                   <div className="flex items-center justify-between mb-4">
                     <span className="text-sm text-muted-foreground">{article.date}</span>

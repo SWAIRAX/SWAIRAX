@@ -248,75 +248,95 @@ return (
         {clients.map((client, idx) => (
             <Card
                 key={client.id}
-                className="bg-card border-border hover:shadow-xl transition-all duration-500 cursor-pointer group hover-scale animate-fade-in"
+                className="relative bg-gradient-to-br from-slate-900 to-slate-800 border-slate-700/50 hover:border-primary/30 overflow-hidden transition-all duration-500 cursor-pointer group hover:shadow-2xl hover:shadow-primary/10 hover:-translate-y-2 animate-fade-in"
                 style={{ animationDelay: `${idx * 100}ms` }}
                 onClick={() => {
                     setSelectedClient(client);
                     setIsModalOpen(true);
                 }}
             >
-                <CardContent className="p-0">
-                    {/* Header with industry badge */}
-                    <div className="p-6 pb-4">
-                        <div className="flex items-center justify-between mb-4">
-                            <Badge variant="outline" className="text-xs font-medium">
-                                {client.industry}
-                            </Badge>
-                            <div className="text-xs text-muted-foreground">
-                                by {client.name}
-                            </div>
-                        </div>
-
-                        <h3 className="text-xl font-bold mb-3 leading-tight group-hover:text-primary transition-colors duration-300">
-                            {client.title}
-                        </h3>
-
-                        <p className="text-muted-foreground text-sm mb-4 leading-relaxed line-clamp-3">
-                            {client.description}
-                        </p>
-                    </div>
-
-                    {/* Main Image Section */}
+                <CardContent className="p-0 relative">
+                    {/* Main Project Image */}
                     {client.imageUrl && (
-                        <div className="px-6 pb-4">
-                            <div className="relative overflow-hidden rounded-lg">
-                                <img
-                                    src={`/uploads/${client.imageUrl.replace(/^\/+/,'')}`}
-                                    alt={client.title}
-                                    className="w-full h-32 object-cover group-hover:scale-105 transition-transform duration-500"
-                                />
-                                <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent"></div>
+                        <div className="relative aspect-[16/10] overflow-hidden">
+                            <img
+                                src={`/uploads/${client.imageUrl.replace(/^\/+/,'')}`}
+                                alt={client.title}
+                                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                                loading="lazy"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/20 to-transparent"></div>
+                            
+                            {/* Industry Badge - Overlay */}
+                            <div className="absolute top-4 left-4">
+                                <Badge className="bg-primary/90 text-primary-foreground border-0 text-xs font-medium px-3 py-1">
+                                    {client.industry}
+                                </Badge>
                             </div>
+
+                            {/* Client Logo - Clickable */}
+                            {client.logoUrl && (
+                                <div 
+                                    className="absolute top-4 right-4 bg-white/90 p-2 rounded-lg hover:bg-white hover:scale-110 transition-all duration-300 cursor-pointer group/logo"
+                                    onClick={(e) => {
+                                        e.stopPropagation();
+                                        if (client.logoLinkUrl) {
+                                            window.open(client.logoLinkUrl, '_blank');
+                                        }
+                                    }}
+                                    title={`Visit ${client.name} website`}
+                                >
+                                    <img
+                                        src={`/uploads/${client.logoUrl.replace(/^\/+/,'')}`}
+                                        alt={`${client.name} logo`}
+                                        className="w-8 h-8 object-contain group-hover/logo:drop-shadow-lg transition-all duration-300"
+                                    />
+                                </div>
+                            )}
                         </div>
                     )}
 
-                    {/* Footer with tags and CTA */}
-                    <div className="p-6 pt-2">
-                        <div className="flex flex-wrap gap-2 mb-4">
+                    {/* Content Section */}
+                    <div className="p-6">
+                        <h3 className="text-xl font-bold mb-3 leading-tight text-white group-hover:text-primary transition-colors duration-300">
+                            {client.title}
+                        </h3>
+
+                        <p className="text-slate-300 text-sm mb-6 leading-relaxed line-clamp-3">
+                            {client.description}
+                        </p>
+
+                        {/* Tags */}
+                        <div className="flex flex-wrap gap-2 mb-6">
                             {client.tags.slice(0, 3).map((tag, tagIdx) => (
-                                <Badge key={tagIdx} variant="outline" className="text-xs">
-                                    #{tag}
+                                <Badge key={tagIdx} variant="outline" className="text-xs bg-slate-800/50 border-slate-600 text-slate-300 hover:border-primary/50">
+                                    {tag}
                                 </Badge>
                             ))}
                             {client.tags.length > 3 && (
-                                <Badge variant="outline" className="text-xs">
-                                    +{client.tags.length - 3} more
+                                <Badge variant="outline" className="text-xs bg-slate-800/50 border-slate-600 text-slate-300">
+                                    +{client.tags.length - 3}
                                 </Badge>
                             )}
                         </div>
 
+                        {/* CTA Button */}
                         <Button
                           variant="ghost"
                           size="sm"
-                          onClick={() => {
+                          onClick={(e) => {
+                            e.stopPropagation();
                             setSelectedClient(client);
                             setIsModalOpen(true);
                           }}
-                          className="text-primary p-0 h-auto font-medium group-hover:translate-x-1 transition-transform duration-300"
+                          className="text-primary hover:text-primary p-0 h-auto font-medium group-hover:translate-x-1 transition-all duration-300 hover:bg-transparent"
                         >
-                          Read Story <ArrowRight className="ml-2 h-4 w-4" />
+                          Read Case Study <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform duration-300" />
                         </Button>
                     </div>
+
+                    {/* Subtle glow effect */}
+                    <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
                 </CardContent>
             </Card>
         ))}
