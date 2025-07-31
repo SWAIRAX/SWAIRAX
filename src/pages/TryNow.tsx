@@ -3,9 +3,10 @@ import { Card, CardContent } from "@/components/ui/card";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { ArrowRight, Zap, Globe, Shield } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const TryNow = () => {
+  const navigate = useNavigate();
   const platforms = [
     {
       name: "SURASOFT",
@@ -33,7 +34,7 @@ const TryNow = () => {
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      
+
       {/* Hero Section */}
       <section className="py-20 bg-card">
         <div className="container mx-auto px-6">
@@ -42,15 +43,23 @@ const TryNow = () => {
               Try Our <span className="text-primary">AI Solutions</span> Today
             </h1>
             <p className="text-xl text-muted-foreground mb-8">
-              Experience the power of our data-centric AI solutions. Get started with free trials, 
+              Experience the power of our data-centric AI solutions. Get started with free trials,
               demos, and developer packages to transform your business operations.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground">
-                <Link to="/contact">Get Started Free</Link>
+              <Button
+                size="lg"
+                className="bg-primary hover:bg-primary/90 text-primary-foreground"
+                onClick={() => navigate("/contact")}
+              >
+                Get Started Free
               </Button>
-              <Button asChild variant="outline" size="lg">
-                <Link to="/contact">Schedule Demo</Link>
+              <Button
+                variant="outline"
+                size="lg"
+                onClick={() => navigate("/contact")}
+              >
+                Schedule Demo
               </Button>
             </div>
           </div>
@@ -66,7 +75,7 @@ const TryNow = () => {
               Select from our suite of AI-powered solutions designed for different business needs
             </p>
           </div>
-          
+
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {platforms.map((platform, index) => (
               <Card key={index} className="bg-card border-border hover:shadow-card transition-all duration-300">
@@ -76,10 +85,10 @@ const TryNow = () => {
                       {platform.type}
                     </span>
                   </div>
-                  
+
                   <h3 className="text-2xl font-bold mb-4">{platform.name}</h3>
                   <p className="text-muted-foreground mb-6">{platform.description}</p>
-                  
+
                   <ul className="space-y-2 mb-8">
                     {platform.features.map((feature, idx) => (
                       <li key={idx} className="flex items-center text-sm">
@@ -88,11 +97,11 @@ const TryNow = () => {
                       </li>
                     ))}
                   </ul>
-                  
-                  <Button 
-                    className="w-full" 
+
+                  <Button
+                    className="w-full"
                     variant="outline"
-                    onClick={() => window.location.href = '/contact'}
+                    onClick={() => navigate("/contact")}
                   >
                     {platform.cta} <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
@@ -116,7 +125,7 @@ const TryNow = () => {
                 Get up and running in minutes with our easy-to-use platforms and comprehensive documentation.
               </p>
             </div>
-            
+
             <div className="text-center">
               <div className="w-16 h-16 bg-primary/20 rounded-lg flex items-center justify-center mx-auto mb-6">
                 <Globe className="h-8 w-8 text-primary" />
@@ -126,7 +135,7 @@ const TryNow = () => {
                 Cloud-native solutions that scale globally with enterprise-grade infrastructure and support.
               </p>
             </div>
-            
+
             <div className="text-center">
               <div className="w-16 h-16 bg-primary/20 rounded-lg flex items-center justify-center mx-auto mb-6">
                 <Shield className="h-8 w-8 text-primary" />
@@ -152,7 +161,7 @@ const TryNow = () => {
                 Connect, profile, understand & orchestrate your data preparation flows to train models more efficiently
               </p>
             </div>
-            
+
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
               <div>
                 <div className="text-3xl font-bold text-primary mb-2">40x</div>
@@ -163,7 +172,7 @@ const TryNow = () => {
                 <p className="text-sm text-muted-foreground">Faster delivery</p>
               </div>
               <div>
-                <div className="text-3xl font-bold text-primary mb-2">100+</div>
+                <div className="text-3xl font-bold text-primary mb-2">20+</div>
                 <p className="text-sm text-muted-foreground">Happy customers</p>
               </div>
               <div>
@@ -184,8 +193,12 @@ const TryNow = () => {
           <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
             Choose your platform and start your AI transformation journey today. No credit card required for trials.
           </p>
-          <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground">
-            <Link to="/contact">Start Your Free Trial</Link>
+          <Button
+            size="lg"
+            className="bg-primary hover:bg-primary/90 text-primary-foreground"
+            onClick={() => navigate("/contact")}
+          >
+            Start Your Free Trial
           </Button>
         </div>
       </section>
