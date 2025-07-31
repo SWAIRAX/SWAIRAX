@@ -63,17 +63,22 @@ const Contact = () => {
 
       if (response.ok) {
         toast({
-          title: "Thank you!",
-          description: "We'll get back to you shortly.",
+          title: "Information successfully submitted!",
+          description: "Redirecting to booking page in 3 seconds...",
         });
         form.reset();
+        
+        // Redirect to Google Calendar after 3 seconds
+        setTimeout(() => {
+          window.open("https://calendar.app.google/Mi86dTYt6XqGnjHv5", "_blank");
+        }, 3000);
       } else {
         throw new Error("Failed to submit form");
       }
     } catch (error) {
       toast({
-        title: "Error",
-        description: "Something went wrong. Please try again.",
+        title: "Submission Failed",
+        description: "Unable to submit your information. Please check your connection and try again.",
         variant: "destructive",
       });
     }
