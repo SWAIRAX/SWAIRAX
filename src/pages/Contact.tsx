@@ -1,4 +1,6 @@
-import { useState } from "react";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import * as z from "zod";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -6,35 +8,101 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+import { useToast } from "@/hooks/use-toast";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { Mail, Phone, MapPin, Globe } from "lucide-react";
+import { Mail, Phone, MapPin, Globe, Send } from "lucide-react";
+
+// Form validation schema
+const contactFormSchema = z.object({
+  firstName: z.string().min(1, "First name is required"),
+  lastName: z.string().min(1, "Last name is required"),
+  email: z.string().email("Please enter a valid email address"),
+  phone: z.string().min(1, "Phone number is required"),
+  company: z.string().optional(),
+  employeeCount: z.string().optional(),
+  helpWith: z.string().min(1, "Please select what we can help you with"),
+  hearAbout: z.string().min(1, "Please tell us how you heard about us"),
+  projectDescription: z.string().min(10, "Please provide more details about your project"),
+  needsNDA: z.enum(["yes", "no"], { required_error: "Please select an option" }),
+  agreeMarketing: z.boolean().default(false)
+});
+
+type ContactFormData = z.infer<typeof contactFormSchema>;
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    phone: "",
-    company: "",
-    hearAbout: "",
-    project: "",
-    needsNDA: "",
-    agreeMarketing: false
+  const { toast } = useToast();
+  const form = useForm<ContactFormData>({
+    resolver: zodResolver(contactFormSchema),
+    defaultValues: {
+      firstName: "",
+      lastName: "",
+      email: "",
+      phone: "",
+      company: "",
+      employeeCount: "",
+      helpWith: "",
+      hearAbout: "",
+      projectDescription: "",
+      needsNDA: undefined,
+      agreeMarketing: false
+    }
   });
 
-  const handleInputChange = (field: string, value: string | boolean) => {
-    setFormData(prev => ({ ...prev, [field]: value }));
+  const onSubmit = async (data: ContactFormData) => {
+    try {
+      const response = await fetch("https://formspree.io/f/xdkonpry", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (response.ok) {
+        toast({
+          title: "Thank you!",
+          description: "We'll get back to you shortly.",
+        });
+        form.reset();
+      } else {
+        throw new Error("Failed to submit form");
+      }
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "Something went wrong. Please try again.",
+        variant: "destructive",
+      });
+    }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log("Form submitted:", formData);
-    // Handle form submission logic here
-  };
+  const helpOptions = [
+    "General AI Development",
+    "MVP Development", 
+    "Research Project",
+    "Staff Augmentation",
+    "Data Analytics",
+    "Rapid Prototyping"
+  ];
 
-  const partnerLogos = [
+  const hearAboutOptions = [
+    "Internet",
+    "Referral",
+    "Social Media",
+    "Advertisement",
+    "Event / Conference",
+    "Other"
+  ];
 
+  const employeeCountOptions = [
+    "1-10",
+    "11-50",
+    "51-200",
+    "201-500",
+    "500+"
   ];
 
   return (
@@ -69,132 +137,267 @@ const Contact = () => {
       <section className="py-16 bg-card">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto">
-            {/* Partner Logos */}
-            <div className="flex flex-wrap items-center justify-center gap-8 mb-12 opacity-60">
-              {partnerLogos.map((partner, index) => (
-                <div key={index} className="text-2xl font-bold text-muted-foreground">
-                  {partner.logo}
+            <Form {...form}>
+              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8" role="form">
+                {/* Name and Email Row */}
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  <FormField
+                    control={form.control}
+                    name="firstName"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>First Name*</FormLabel>
+                        <FormControl>
+                          <Input 
+                            {...field} 
+                            autoComplete="given-name"
+                            aria-label="First Name"
+                            className="bg-background border-border focus:border-primary transition-colors"
+                          />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                  <FormField
+                    control={form.control}
+                    name="lastName"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Last Name*</FormLabel>
+                        <FormControl>
+                          <Input 
+                            {...field} 
+                            autoComplete="family-name"
+                            aria-label="Last Name"
+                            className="bg-background border-border focus:border-primary transition-colors"
+                          />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                  <FormField
+                    control={form.control}
+                    name="email"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Email Address*</FormLabel>
+                        <FormControl>
+                          <Input 
+                            {...field} 
+                            type="email"
+                            autoComplete="email"
+                            aria-label="Email Address"
+                            className="bg-background border-border focus:border-primary transition-colors"
+                          />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
                 </div>
-              ))}
-            </div>
 
-            <form onSubmit={handleSubmit} className="space-y-8">
-              {/* ...existing form fields... */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div>
-                  <Label htmlFor="firstName">First Name*</Label>
-                  <Input
-                    id="firstName"
-                    value={formData.firstName}
-                    onChange={(e) => handleInputChange("firstName", e.target.value)}
-                    required
-                    className="mt-2"
+                {/* Phone, Company, Employee Count Row */}
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  <FormField
+                    control={form.control}
+                    name="phone"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Phone Number*</FormLabel>
+                        <FormControl>
+                          <Input 
+                            {...field} 
+                            type="tel"
+                            autoComplete="tel"
+                            aria-label="Phone Number"
+                            placeholder="+255 XXX XXX XXX"
+                            className="bg-background border-border focus:border-primary transition-colors"
+                          />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                  <FormField
+                    control={form.control}
+                    name="company"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Company Name</FormLabel>
+                        <FormControl>
+                          <Input 
+                            {...field} 
+                            autoComplete="organization"
+                            aria-label="Company Name"
+                            className="bg-background border-border focus:border-primary transition-colors"
+                          />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                  <FormField
+                    control={form.control}
+                    name="employeeCount"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Number of Employees</FormLabel>
+                        <Select onValueChange={field.onChange} defaultValue={field.value}>
+                          <FormControl>
+                            <SelectTrigger className="bg-background border-border focus:border-primary transition-colors">
+                              <SelectValue placeholder="Select range" />
+                            </SelectTrigger>
+                          </FormControl>
+                          <SelectContent>
+                            {employeeCountOptions.map((option) => (
+                              <SelectItem key={option} value={option}>
+                                {option}
+                              </SelectItem>
+                            ))}
+                          </SelectContent>
+                        </Select>
+                        <FormMessage />
+                      </FormItem>
+                    )}
                   />
                 </div>
-                <div>
-                  <Label htmlFor="lastName">Last Name*</Label>
-                  <Input
-                    id="lastName"
-                    value={formData.lastName}
-                    onChange={(e) => handleInputChange("lastName", e.target.value)}
-                    required
-                    className="mt-2"
-                  />
-                </div>
-                <div>
-                  <Label htmlFor="email">Email*</Label>
-                  <Input
-                    id="email"
-                    type="email"
-                    value={formData.email}
-                    onChange={(e) => handleInputChange("email", e.target.value)}
-                    required
-                    className="mt-2"
-                  />
-                </div>
-              </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div>
-                  <Label htmlFor="phone">Phone Number</Label>
-                  <Input
-                    id="phone"
-                    value={formData.phone}
-                    onChange={(e) => handleInputChange("phone", e.target.value)}
-                    className="mt-2"
+                {/* Help With and Hear About Row */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <FormField
+                    control={form.control}
+                    name="helpWith"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>What Can We Help You With?*</FormLabel>
+                        <Select onValueChange={field.onChange} defaultValue={field.value}>
+                          <FormControl>
+                            <SelectTrigger className="bg-background border-border focus:border-primary transition-colors">
+                              <SelectValue placeholder="Select service" />
+                            </SelectTrigger>
+                          </FormControl>
+                          <SelectContent>
+                            {helpOptions.map((option) => (
+                              <SelectItem key={option} value={option}>
+                                {option}
+                              </SelectItem>
+                            ))}
+                          </SelectContent>
+                        </Select>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                  <FormField
+                    control={form.control}
+                    name="hearAbout"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>How Did You Hear About Us?*</FormLabel>
+                        <Select onValueChange={field.onChange} defaultValue={field.value}>
+                          <FormControl>
+                            <SelectTrigger className="bg-background border-border focus:border-primary transition-colors">
+                              <SelectValue placeholder="Select option" />
+                            </SelectTrigger>
+                          </FormControl>
+                          <SelectContent>
+                            {hearAboutOptions.map((option) => (
+                              <SelectItem key={option} value={option}>
+                                {option}
+                              </SelectItem>
+                            ))}
+                          </SelectContent>
+                        </Select>
+                        <FormMessage />
+                      </FormItem>
+                    )}
                   />
                 </div>
-                <div>
-                  <Label htmlFor="company">Company name</Label>
-                  <Input
-                    id="company"
-                    value={formData.company}
-                    onChange={(e) => handleInputChange("company", e.target.value)}
-                    className="mt-2"
-                  />
-                </div>
-                <div>
-                  <Label htmlFor="hearAbout">How did you hear about us?*</Label>
-                  <Input
-                    id="hearAbout"
-                    value={formData.hearAbout}
-                    onChange={(e) => handleInputChange("hearAbout", e.target.value)}
-                    required
-                    className="mt-2"
-                  />
-                </div>
-              </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                  <Label htmlFor="project">Tell us more about your project*</Label>
-                  <Textarea
-                    id="project"
-                    value={formData.project}
-                    onChange={(e) => handleInputChange("project", e.target.value)}
-                    required
-                    className="mt-2 min-h-32"
-                    placeholder="Describe your project, goals, and requirements..."
+                {/* Project Description and NDA Row */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <FormField
+                    control={form.control}
+                    name="projectDescription"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Project Description*</FormLabel>
+                        <FormControl>
+                          <Textarea 
+                            {...field} 
+                            placeholder="Describe your project, goals, and requirements..."
+                            className="min-h-32 bg-background border-border focus:border-primary transition-colors resize-none"
+                            aria-label="Project Description"
+                          />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                  <FormField
+                    control={form.control}
+                    name="needsNDA"
+                    render={({ field }) => (
+                      <FormItem className="space-y-3">
+                        <FormLabel>Do You Need an NDA First?*</FormLabel>
+                        <FormControl>
+                          <RadioGroup
+                            onValueChange={field.onChange}
+                            defaultValue={field.value}
+                            className="flex flex-col space-y-2"
+                          >
+                            <div className="flex items-center space-x-2">
+                              <RadioGroupItem value="yes" id="nda-yes" />
+                              <Label htmlFor="nda-yes">Yes</Label>
+                            </div>
+                            <div className="flex items-center space-x-2">
+                              <RadioGroupItem value="no" id="nda-no" />
+                              <Label htmlFor="nda-no">No</Label>
+                            </div>
+                          </RadioGroup>
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
                   />
                 </div>
-                <div>
-                  <Label className="text-base font-medium">Do you need an NDA first?</Label>
-                  <RadioGroup
-                    value={formData.needsNDA}
-                    onValueChange={(value) => handleInputChange("needsNDA", value)}
-                    className="mt-4"
-                  >
-                    <div className="flex items-center space-x-2">
-                      <RadioGroupItem value="yes" id="nda-yes" />
-                      <Label htmlFor="nda-yes">Yes</Label>
-                    </div>
-                    <div className="flex items-center space-x-2">
-                      <RadioGroupItem value="no" id="nda-no" />
-                      <Label htmlFor="nda-no">No</Label>
-                    </div>
-                  </RadioGroup>
-                </div>
-              </div>
 
-              <div className="flex items-center space-x-2">
-                <Checkbox
-                  id="marketing"
-                  checked={formData.agreeMarketing}
-                  onCheckedChange={(checked) => handleInputChange("agreeMarketing", checked as boolean)}
+                {/* Marketing Consent */}
+                <FormField
+                  control={form.control}
+                  name="agreeMarketing"
+                  render={({ field }) => (
+                    <FormItem className="flex flex-row items-start space-x-3 space-y-0">
+                      <FormControl>
+                        <Checkbox
+                          checked={field.value}
+                          onCheckedChange={field.onChange}
+                          aria-label="Marketing consent"
+                        />
+                      </FormControl>
+                      <div className="space-y-1 leading-none">
+                        <FormLabel className="text-sm font-normal">
+                          I agree to receive marketing communication from Quantum Intelligence.
+                        </FormLabel>
+                      </div>
+                    </FormItem>
+                  )}
                 />
-                <Label htmlFor="marketing" className="text-sm">
-                  I agree to receive marketing communication from Quantum Intelligence.
-                </Label>
-              </div>
 
-              <Button
-                type="submit"
-                size="lg"
-                className="w-full bg-primary hover:bg-primary/90 text-primary-foreground py-4 text-lg"
-              >
-                Request Free Estimate
-              </Button>
-            </form>
+                {/* Submit Button */}
+                <Button
+                  type="submit"
+                  size="lg"
+                  disabled={form.formState.isSubmitting}
+                  className="w-full group relative overflow-hidden bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white py-4 text-lg font-semibold rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200"
+                >
+                  <Send className="w-5 h-5 mr-2 group-hover:translate-x-1 transition-transform duration-200" />
+                  {form.formState.isSubmitting ? "Sending..." : "Request Free Estimate"}
+                </Button>
+              </form>
+            </Form>
           </div>
         </div>
       </section>
@@ -204,7 +407,7 @@ const Contact = () => {
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
             <Card className="bg-card border-border">
-              <CardContent className="p-1 text-center">
+              <CardContent className="p-6 text-center">
                 <Mail className="h-8 w-8 text-primary mx-auto mb-4" />
                 <h3 className="font-semibold mb-2">Email</h3>
                 <p className="text-muted-foreground text-sm">
