@@ -33,16 +33,16 @@ const Header = () => {
         { name: "Healthcare & Pharmacy", desc: "Health sector covered", path: "/industries/healthcare-pharmacy" }
       ]
     },
-    {
-      name: "Clients",
-      path: "/clients",
-      // dropdown: [
-      //   { name: "Client for enterprise", desc: "Take full advantage of core workflows on existing solutions", path: "/client-enterprise" },
-      //   { name: "Actionable custom AI solutions", desc: "Adopt a Data approach towards the AI development", path: "/custom-ai" },
-      //   { name: "Machine Learning + DevOps", desc: "MLOps to bridge the gap on data and IT Operation teams", path: "/mlops" },
-      //   { name: "Capacity Building", desc: "Awareness, mentoring capacity and strategy guide on AI", path: "/capacity-building" }
-      // ]
-    },
+    // {
+    //   name: "Clients",
+    //   path: "/clients",
+    //   dropdown: [
+    //     { name: "Client for enterprise", desc: "Take full advantage of core workflows on existing solutions", path: "/client-enterprise" },
+    //     { name: "Actionable custom AI solutions", desc: "Adopt a Data approach towards the AI development", path: "/custom-ai" },
+    //     { name: "Machine Learning + DevOps", desc: "MLOps to bridge the gap on data and IT Operation teams", path: "/mlops" },
+    //     { name: "Capacity Building", desc: "Awareness, mentoring capacity and strategy guide on AI", path: "/capacity-building" }
+    //   ]
+    // },
     {
       name: "Resources",
       path: "/resources",
