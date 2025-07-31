@@ -204,11 +204,11 @@ const Contact = () => {
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
             <Card className="bg-card border-border">
-              <CardContent className="p-6 text-center">
+              <CardContent className="p-1 text-center">
                 <Mail className="h-8 w-8 text-primary mx-auto mb-4" />
                 <h3 className="font-semibold mb-2">Email</h3>
                 <p className="text-muted-foreground text-sm">
-                  communications@quantumintelligence.co.tz
+                communications@quantumintelligence.co.tz
                 </p>
               </CardContent>
             </Card>

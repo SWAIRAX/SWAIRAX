@@ -9,12 +9,13 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import BlogModal from "@/components/BlogModal";
 import { ArrowRight, CheckCircle, Database, Cog, Cloud, BarChart3, PieChart, TrendingUp, ChevronDown, ChevronUp } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate} from "react-router-dom";
 
 const Index = () => {
   const [selectedBlog, setSelectedBlog] = useState<any>(null);
   const [isBlogModalOpen, setIsBlogModalOpen] = useState(false);
   const [expandedSections, setExpandedSections] = useState<{[key: string]: boolean}>({});
+  const navigate = useNavigate();
 
   const toggleSection = (sectionId: string) => {
     setExpandedSections(prev => ({
@@ -215,7 +216,7 @@ const Index = () => {
                   We are working on computer vision, NLP, LLMs, Generative AI and more. We help you to
                   reduce development timeline, cheap and faster.
                 </p>
-                
+
                 <Collapsible open={expandedSections['ai-studio']} onOpenChange={() => toggleSection('ai-studio')}>
                   <CollapsibleTrigger asChild>
                     <Button
@@ -265,7 +266,7 @@ const Index = () => {
                         </div>
                       </div>
                       <p className="text-sm text-muted-foreground">
-                        Our team delivers end-to-end AI solutions with 40% faster deployment compared to traditional approaches, 
+                        Our team delivers end-to-end AI solutions with 40% faster deployment compared to traditional approaches,
                         ensuring your AI projects reach production quickly and efficiently.
                       </p>
                     </div>
@@ -726,14 +727,13 @@ const Index = () => {
               Contact us to know more!
             </p>
             <Button
-              variant="outline"
-              size="lg"
-              className="border-foreground text-foreground hover:bg-foreground hover:text-background"
-            >
-
-            <a href="/contact" >Contact us</a>
-
-            </Button>
+            variant="outline"
+            size="lg"
+            className="border-foreground text-foreground hover:bg-foreground hover:text-background"
+            onClick={() => navigate("/contact")}
+          >
+            Contact us
+          </Button>
           </div>
         </div>
       </section>
