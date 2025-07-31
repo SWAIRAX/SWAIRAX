@@ -47,7 +47,7 @@ const Header = () => {
       name: "Resources",
       path: "#",
       dropdown: [
-        { name: "Comming Soon", desc: "Comprehensive guides and API docs", path: "/resources" },
+        { name: "Comming Soon", desc: "Comprehensive guides and API docs", path: "#" },
       //   { name: "Whitepapers", desc: "In-depth research and industry insights", path: "/resources" },
       //   { name: "Video Tutorials", desc: "Step-by-step guides and webinars", path: "/resources" }
       ]
