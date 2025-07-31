@@ -1,6 +1,7 @@
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -10,10 +11,11 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { useToast } from "@/hooks/use-toast";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { Mail, Phone, MapPin, Globe, Send } from "lucide-react";
+import { Mail, Phone, MapPin, Globe, Send, Calendar, X } from "lucide-react";
 
 // Form validation schema
 const contactFormSchema = z.object({
@@ -34,6 +36,8 @@ type ContactFormData = z.infer<typeof contactFormSchema>;
 
 const Contact = () => {
   const { toast } = useToast();
+  const [showBookingModal, setShowBookingModal] = useState(false);
+  
   const form = useForm<ContactFormData>({
     resolver: zodResolver(contactFormSchema),
     defaultValues: {
@@ -64,14 +68,10 @@ const Contact = () => {
       if (response.ok) {
         toast({
           title: "Information successfully submitted!",
-          description: "Redirecting to booking page in 3 seconds...",
+          description: "Your submission has been received successfully.",
         });
         form.reset();
-        
-        // Redirect to Google Calendar after 3 seconds
-        setTimeout(() => {
-          window.open("https://calendar.app.google/Mi86dTYt6XqGnjHv5", "_blank");
-        }, 3000);
+        setShowBookingModal(true);
       } else {
         throw new Error("Failed to submit form");
       }
@@ -82,6 +82,19 @@ const Contact = () => {
         variant: "destructive",
       });
     }
+  };
+
+  const handleBookNow = () => {
+    window.open("https://calendar.app.google/Mi86dTYt6XqGnjHv5", "_blank");
+    setShowBookingModal(false);
+  };
+
+  const handleMaybeLater = () => {
+    setShowBookingModal(false);
+    toast({
+      title: "Thank you!",
+      description: "We'll be in touch soon. You can always book a meeting later.",
+    });
   };
 
   const helpOptions = [
@@ -452,6 +465,41 @@ const Contact = () => {
       </section>
 
       <Footer />
+
+      {/* Booking Confirmation Modal */}
+      <Dialog open={showBookingModal} onOpenChange={setShowBookingModal}>
+        <DialogContent className="sm:max-w-md animate-scale-in" role="dialog" aria-labelledby="booking-modal-title" aria-describedby="booking-modal-description">
+          <DialogHeader className="text-center">
+            <DialogTitle id="booking-modal-title" className="text-2xl font-bold text-primary mb-2">
+              Information Successfully Submitted!
+            </DialogTitle>
+            <DialogDescription id="booking-modal-description" className="text-lg text-muted-foreground">
+              Would you like to book a meeting with Quantum Intelligence now?
+            </DialogDescription>
+          </DialogHeader>
+          
+          <div className="flex flex-col sm:flex-row gap-3 mt-6">
+            <Button
+              onClick={handleBookNow}
+              className="flex-1 bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white py-3 text-base font-semibold rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200"
+              aria-label="Book a meeting now"
+            >
+              <Calendar className="w-5 h-5 mr-2" />
+              Yes, book now
+            </Button>
+            
+            <Button
+              onClick={handleMaybeLater}
+              variant="outline"
+              className="flex-1 py-3 text-base font-semibold rounded-lg border-2 border-border hover:bg-accent hover:text-accent-foreground transition-all duration-200"
+              aria-label="Maybe book later"
+            >
+              <X className="w-5 h-5 mr-2" />
+              No, maybe later
+            </Button>
+          </div>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 };
