@@ -20,46 +20,34 @@ const Header = () => {
         { name: "Customized Machine Learning Models", desc: "Improve your ML development flow", path: "/ml-models" }
       ]
     },
-    {
-      name: "Products",
-      path: "/services",
-      dropdown: [
-        { name: "SURASOFT", desc: "AI security platform with biometric verification", path: "/surasoft" },
-        { name: "AI Proctoring", desc: "Powered by AI for safe online assessments", path: "/ai-proctoring" },
-        { name: "Askari LLM", desc: "Policy guardrails for language models", path: "/askari-llm" }
-      ]
-    },
-    {
-      name: "Industries",
-      path: "/industries",
-      dropdown: [
-        { name: "Healthcare & Pharmacy", desc: "AI solutions for medical and pharmaceutical sectors", path: "/industries/healthcare-pharmacy" },
-        { name: "Financial Services", desc: "Secure AI implementations for banking and finance", path: "/industries/financial-services" },
-        { name: "Education Services", desc: "Educational technology and learning platforms", path: "/industries/education-services" },
-        { name: "Retail & Logistics", desc: "Supply chain optimization and customer analytics", path: "/industries/retail-logistics" },
-        { name: "Telecommunications", desc: "Network optimization and customer service automation", path: "/industries/telecommunications" },
-        { name: "Utilities", desc: "Smart grid and energy management solutions", path: "/industries/utilities" }
-      ]
-    },
-    {
-      name: "Clients",
-      path: "/clients",
-      dropdown: [
-        { name: "Client for enterprise", desc: "Take full advantage of core workflows on existing solutions", path: "/client-enterprise" },
-        { name: "Actionable custom AI solutions", desc: "Adopt a Data approach towards the AI development", path: "/custom-ai" },
-        { name: "Machine Learning + DevOps", desc: "MLOps to bridge the gap on data and IT Operation teams", path: "/mlops" },
-        { name: "Capacity Building", desc: "Awareness, mentoring capacity and strategy guide on AI", path: "/capacity-building" }
-      ]
-    },
-    {
-      name: "Careers",
-      path: "/careers",
-      dropdown: [
-        { name: "Open Positions", desc: "Join our team of AI innovators", path: "/careers" },
-        { name: "Culture & Values", desc: "Learn about our company culture", path: "/careers" },
-        { name: "Benefits", desc: "Comprehensive benefits and growth opportunities", path: "/careers" }
-      ]
-    },
+    // {
+    //   name: "Products",
+    //   path: "/services",
+    //   dropdown: [
+    //     { name: "SURASOFT", desc: "AI security platform with biometric verification", path: "/surasoft" },
+    //     { name: "AI Proctoring", desc: "Powered by AI for safe online assessments", path: "/ai-proctoring" },
+    //     { name: "Askari LLM", desc: "Policy guardrails for language models", path: "/askari-llm" }
+    //   ]
+    // },
+    // {
+    //   name: "Clients",
+    //   path: "/clients",
+    //   dropdown: [
+    //     { name: "Client for enterprise", desc: "Take full advantage of core workflows on existing solutions", path: "/client-enterprise" },
+    //     { name: "Actionable custom AI solutions", desc: "Adopt a Data approach towards the AI development", path: "/custom-ai" },
+    //     { name: "Machine Learning + DevOps", desc: "MLOps to bridge the gap on data and IT Operation teams", path: "/mlops" },
+    //     { name: "Capacity Building", desc: "Awareness, mentoring capacity and strategy guide on AI", path: "/capacity-building" }
+    //   ]
+    // },
+    // {
+    //   name: "Careers",
+    //   path: "/careers",
+    //   dropdown: [
+    //     { name: "Open Positions", desc: "Join our team of AI innovators", path: "/careers" },
+    //     { name: "Culture & Values", desc: "Learn about our company culture", path: "/careers" },
+    //     { name: "Benefits", desc: "Comprehensive benefits and growth opportunities", path: "/careers" }
+    //   ]
+    // },
     {
       name: "Resources",
       path: "/resources",
@@ -70,15 +58,32 @@ const Header = () => {
       ]
     },
     {
-      name: "Company",
+      name: "Blog",
+      path: "/blog",
+      dropdown: [
+        { name: "Latest Articles", desc: "Stay updated with our latest insights", path: "/blog" },
+        { name: "AI & Data Science", desc: "Technical articles and tutorials", path: "/blog" },
+        { name: "Case Studies", desc: "Real-world AI implementation stories", path: "/blog" }
+      ]
+    },
+    {
+      name: "About Us",
       path: "/about",
       dropdown: [
-        { name: "About Us", desc: "Learn about our mission and vision", path: "/about" },
+        { name: "Our Story", desc: "Learn about our mission and vision", path: "/about" },
         { name: "Our Team", desc: "Meet the people behind Quantum Intelligence", path: "/about" },
-        { name: "Partners", desc: "Innovative partners building the future of AI", path: "/about" },
-        { name: "Blog", desc: "Latest insights and industry updates", path: "/blog" }
+        { name: "Partners", desc: "Innovative partners building the future of AI", path: "/about" }
       ]
-    }
+    },
+    {
+      name: "Contact Us",
+      path: "/contact",
+      dropdown: [
+        { name: "Get in Touch", desc: "We would love to hear from you!", path: "/contact" },
+        { name: "Support", desc: "Technical support and assistance", path: "/contact" },
+        { name: "Partnerships", desc: "Explore partnership opportunities", path: "/contact" }
+      ]
+    },
   ];
 
   const isActive = (path: string) => location.pathname === path;
