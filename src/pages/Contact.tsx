@@ -37,7 +37,7 @@ type ContactFormData = z.infer<typeof contactFormSchema>;
 const Contact = () => {
   const { toast } = useToast();
   const [showBookingModal, setShowBookingModal] = useState(false);
-  
+
   const form = useForm<ContactFormData>({
     resolver: zodResolver(contactFormSchema),
     defaultValues: {
@@ -99,7 +99,7 @@ const Contact = () => {
 
   const helpOptions = [
     "General AI Development",
-    "MVP Development", 
+    "MVP Development",
     "Research Project",
     "Staff Augmentation",
     "Data Analytics",
@@ -166,8 +166,8 @@ const Contact = () => {
                       <FormItem>
                         <FormLabel>First Name*</FormLabel>
                         <FormControl>
-                          <Input 
-                            {...field} 
+                          <Input
+                            {...field}
                             autoComplete="given-name"
                             aria-label="First Name"
                             className="bg-background border-border focus:border-primary transition-colors"
@@ -184,8 +184,8 @@ const Contact = () => {
                       <FormItem>
                         <FormLabel>Last Name*</FormLabel>
                         <FormControl>
-                          <Input 
-                            {...field} 
+                          <Input
+                            {...field}
                             autoComplete="family-name"
                             aria-label="Last Name"
                             className="bg-background border-border focus:border-primary transition-colors"
@@ -202,8 +202,8 @@ const Contact = () => {
                       <FormItem>
                         <FormLabel>Email Address*</FormLabel>
                         <FormControl>
-                          <Input 
-                            {...field} 
+                          <Input
+                            {...field}
                             type="email"
                             autoComplete="email"
                             aria-label="Email Address"
@@ -225,8 +225,8 @@ const Contact = () => {
                       <FormItem>
                         <FormLabel>Phone Number*</FormLabel>
                         <FormControl>
-                          <Input 
-                            {...field} 
+                          <Input
+                            {...field}
                             type="tel"
                             autoComplete="tel"
                             aria-label="Phone Number"
@@ -245,8 +245,8 @@ const Contact = () => {
                       <FormItem>
                         <FormLabel>Company Name</FormLabel>
                         <FormControl>
-                          <Input 
-                            {...field} 
+                          <Input
+                            {...field}
                             autoComplete="organization"
                             aria-label="Company Name"
                             className="bg-background border-border focus:border-primary transition-colors"
@@ -343,8 +343,8 @@ const Contact = () => {
                       <FormItem>
                         <FormLabel>Project Description*</FormLabel>
                         <FormControl>
-                          <Textarea 
-                            {...field} 
+                          <Textarea
+                            {...field}
                             placeholder="Describe your project, goals, and requirements..."
                             className="min-h-32 bg-background border-border focus:border-primary transition-colors resize-none"
                             aria-label="Project Description"
@@ -477,7 +477,7 @@ const Contact = () => {
               Would you like to book a meeting with Quantum Intelligence now?
             </DialogDescription>
           </DialogHeader>
-          
+
           <div className="flex flex-col sm:flex-row gap-3 mt-6">
             <Button
               onClick={handleBookNow}
@@ -487,7 +487,7 @@ const Contact = () => {
               <Calendar className="w-5 h-5 mr-2" />
               Yes, book now
             </Button>
-            
+
             <Button
               onClick={handleMaybeLater}
               variant="outline"
