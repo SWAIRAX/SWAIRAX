@@ -76,7 +76,7 @@ const Header = () => {
       dropdown: [
         { name: "About Us", desc: "Learn about our mission and vision", path: "/about" },
         { name: "Contact Us", desc: "Technical support and assistance", path: "/contact" },
-        { name: "Partnerships", desc: "Explore partnership opportunities", path: "/contact" }
+        { name: "Partnerships", desc: "Explore partnership opportunities", path: "/partnerships" }
       ]
     },
   ];
