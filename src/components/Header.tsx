@@ -48,6 +48,7 @@ const Header = () => {
       path: "#",
       dropdown: [
         { name: "Comming Soon", desc: "Comprehensive guides and API docs", path: "#" },
+        {name: "Research", desc: "Explore Quantum Intelligence’s evolving journey through innovation.", path: "/Research"},
       //   { name: "Whitepapers", desc: "In-depth research and industry insights", path: "/resources" },
       //   { name: "Video Tutorials", desc: "Step-by-step guides and webinars", path: "/resources" }
       ]
