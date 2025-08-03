@@ -166,8 +166,8 @@ const Index = () => {
 
               <div className="grid grid-cols-2 gap-8">
                 {stats.map((stat, index) => (
-                  <div key={index} className="text-center">
-                    <div className="text-4xl md:text-5xl font-bold mb-2">
+                  <div key={index} className="metric-card text-center p-4 rounded-lg border border-primary/10 animate-slide-in-bottom" style={{ animationDelay: `${index * 0.1}s` }}>
+                    <div className="metric-value text-4xl md:text-5xl font-bold mb-2 animate-counter-up" style={{ animationDelay: `${index * 0.15}s` }}>
                       <AnimatedCounter value={stat.value} />
                     </div>
                     <p className="text-sm text-muted-foreground">{stat.label}</p>
@@ -563,8 +563,8 @@ const Index = () => {
             {products.map((product, index) => (
               <Card
                 key={index}
-                className="bg-secondary border-border hover:shadow-lg hover:scale-105 transition-all duration-300 group"
-                style={{ animationDelay: `${index * 0.1}s` }}
+                className="solution-card bg-secondary border-border animate-slide-in-bottom group relative overflow-hidden"
+                style={{ animationDelay: `${index * 0.2}s` }}
               >
                 <CardContent className="p-8 relative overflow-hidden">
                   {/* Animated SVG background */}

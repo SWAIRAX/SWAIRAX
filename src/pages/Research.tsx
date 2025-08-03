@@ -151,7 +151,7 @@ const Research = () => {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
             {filteredSolutions.map((solution, index) => (
-              <Card key={index} className="bg-card border-border hover:shadow-card transition-all duration-300 animate-fade-in">
+              <Card key={index} className="research-card bg-card border-primary/10 animate-slide-in-left group relative overflow-hidden" style={{ animationDelay: `${index * 0.15}s` }}>
                 <CardHeader>
                   <div className="flex items-center justify-between mb-4">
                     <div className="flex items-center space-x-3">
