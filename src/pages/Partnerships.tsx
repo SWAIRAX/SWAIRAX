@@ -1,3 +1,6 @@
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import React from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { ExternalLink } from "lucide-react";
 
@@ -18,7 +21,7 @@ const Partnerships = () => {
       logo: "/uploads/costech.png",
       description: "Tanzania's national science and technology commission, advising on innovation policy and research funding.",
       mission: "Coordinating and promoting technology development for Tanzania's socio-economic growth.",
-      link: "https://unitedrepublicoftanzania.com/government-of-tanzania-and-the-society/costech-tz-commission-for-science-and-technology/",
+      link: "https://costech.or.tz/",
       animationDelay: "0.2s"
     },
     {
@@ -60,8 +63,8 @@ const Partnerships = () => {
       <section className="container mx-auto px-6 pb-20">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
           {partners.map((partner) => (
-            <Card 
-              key={partner.id} 
+            <Card
+              key={partner.id}
               className="group bg-card border-border hover:border-primary/50 transition-all duration-500 animate-slide-in-bottom partner-card"
               style={{ animationDelay: partner.animationDelay }}
             >
@@ -69,8 +72,8 @@ const Partnerships = () => {
                 {/* Logo and Header */}
                 <div className="flex items-start gap-6 mb-6">
                   <div className="flex-shrink-0">
-                    <img 
-                      src={partner.logo} 
+                    <img
+                      src={partner.logo}
                       alt={`${partner.name} logo`}
                       className="w-16 h-16 object-contain rounded-lg bg-muted/30 p-2 transition-transform duration-300 group-hover:scale-110"
                     />
