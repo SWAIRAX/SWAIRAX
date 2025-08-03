@@ -9,25 +9,25 @@ const TryNow = () => {
   const navigate = useNavigate();
   const platforms = [
     {
-      name: "SURASOFT",
-      type: "AI Security Platform",
-      description: "Advanced video analytics and biometric verification for real-time crime prevention.",
-      features: ["Real-time monitoring", "Biometric verification", "Instant alerts", "Affordable pricing"],
-      cta: "Start Free Trial"
+      name: "Quantum Analytics",
+      type: "Data Platform",
+      description: "Data-centric platform leveraging Machine Learning & RLHF to help organizations understand impact, learn from their data, measure progress, and make smarter decisions.",
+      features: ["Machine Learning & RLHF", "Impact Measurement", "Progress Tracking", "Smart Decision Making"],
+      cta: "Get Started"
     },
     {
-      name: "AI Proctoring",
-      type: "Online Assessment",
-      description: "AI-powered proctoring system for secure online examinations and interviews.",
-      features: ["Real-time monitoring", "Automated detection", "Secure assessments", "Easy integration"],
+      name: "Quantum Annotate",
+      type: "Annotation Service",
+      description: "Robust annotation solution supported by a full workforce, offering industry-grade labeling for text, image, audio, and video datasets.",
+      features: ["Multi-modal Annotation", "Professional Workforce", "Industry-Grade Quality", "Scalable Solutions"],
       cta: "Request Demo"
     },
     {
-      name: "Askari LLM",
-      type: "Policy Guardrails",
-      description: "Python package for enforcing ethical and operational boundaries in AI systems.",
-      features: ["Policy enforcement", "Easy integration", "Customizable rules", "Open source"],
-      cta: "Download Package"
+      name: "Quantum GenAI",
+      type: "AI Enhancement",
+      description: "Enhance generative AI model accuracy, reliability, and speed through in-house data expertise and fine-tuning techniques.",
+      features: ["Model Fine-tuning", "Data Expertise", "Performance Enhancement", "Speed Optimization"],
+      cta: "Learn More"
     }
   ];
 

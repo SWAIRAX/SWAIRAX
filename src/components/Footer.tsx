@@ -67,6 +67,9 @@ const Footer = () => {
             <Link to="/contact" className="hover:text-primary transition-colors">
               Contact Us
             </Link>
+            <Link to="/research" className="hover:text-primary transition-colors">
+              Research
+            </Link>
             <Link to="/privacy" className="hover:text-primary transition-colors">
               Privacy Policy
             </Link>

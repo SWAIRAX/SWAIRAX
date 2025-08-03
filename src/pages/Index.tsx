@@ -35,22 +35,22 @@ const Index = () => {
 
   const products = [
     {
-      title: "SURASOFT",
-      category: "SaaS",
-      description: "Surasoft is an AI security platform that analyzes video footage in existing camera networks, offering affordable biometric verification and instant alerts to prevent crimes for businesses and homes.",
-      cta: "Try now"
+      title: "Quantum Analytics",
+      category: "Data Platform",
+      description: "Data-centric platform leveraging Machine Learning & RLHF to help organizations understand impact, learn from their data, measure progress, and make smarter decisions.",
+      cta: "Get Started"
     },
     {
-      title: "AI Proctoring",
-      category: "SaaS",
-      description: "A Proctoring System Powered by Artificial Intelligence, this can be used to monitor the students and interviewees for safe and credible online assessment.",
-      cta: "Request today"
+      title: "Quantum Annotate",
+      category: "Annotation Service",
+      description: "Robust annotation solution supported by a full workforce, offering industry-grade labeling for text, image, audio, and video datasets.",
+      cta: "Request Demo"
     },
     {
-      title: "Askari LLM",
-      category: "Self-hosted",
-      description: "A Python package designed to enforce policy guardrails on user input, particularly in the context of language models and other AI systems. It helps ensure that interactions remain within defined ethical and operational boundaries.",
-      cta: "Build today"
+      title: "Quantum GenAI",
+      category: "AI Enhancement",
+      description: "Enhance generative AI model accuracy, reliability, and speed through in-house data expertise and fine-tuning techniques.",
+      cta: "Learn More"
     }
   ];
 
@@ -623,71 +623,85 @@ const Index = () => {
                     </CollapsibleTrigger>
                     <CollapsibleContent className="animate-accordion-down overflow-hidden relative z-10">
                       <div className="bg-background/50 p-4 rounded-lg border border-border/50 mb-4">
-                        {product.title === "SURASOFT" && (
+                        {product.title === "Quantum Analytics" && (
                           <div className="space-y-3">
                             <h4 className="font-semibold text-primary">Key Features:</h4>
                             <div className="space-y-2">
                               <div className="flex items-start space-x-3">
                                 <CheckCircle className="w-4 h-4 text-primary mt-0.5" />
                                 <div>
-                                  <h5 className="font-medium text-sm">Real-time Threat Detection</h5>
-                                  <p className="text-xs text-muted-foreground">AI-powered analysis of video feeds for instant alerts</p>
+                                  <h5 className="font-medium text-sm">Machine Learning & RLHF</h5>
+                                  <p className="text-xs text-muted-foreground">Advanced ML algorithms with human feedback integration</p>
                                 </div>
                               </div>
                               <div className="flex items-start space-x-3">
                                 <CheckCircle className="w-4 h-4 text-primary mt-0.5" />
                                 <div>
-                                  <h5 className="font-medium text-sm">Biometric Verification</h5>
-                                  <p className="text-xs text-muted-foreground">Advanced facial recognition and identity verification</p>
+                                  <h5 className="font-medium text-sm">Impact Measurement</h5>
+                                  <p className="text-xs text-muted-foreground">Track and measure organizational impact and progress</p>
                                 </div>
                               </div>
                               <div className="flex items-start space-x-3">
                                 <CheckCircle className="w-4 h-4 text-primary mt-0.5" />
                                 <div>
-                                  <h5 className="font-medium text-sm">Easy Integration</h5>
-                                  <p className="text-xs text-muted-foreground">Works with existing camera networks</p>
+                                  <h5 className="font-medium text-sm">Smart Decision Making</h5>
+                                  <p className="text-xs text-muted-foreground">Data-driven insights for better business decisions</p>
                                 </div>
                               </div>
                             </div>
                           </div>
                         )}
-                        {product.title === "AI Proctoring" && (
+                        {product.title === "Quantum Annotate" && (
                           <div className="space-y-3">
                             <h4 className="font-semibold text-primary">Capabilities:</h4>
                             <div className="space-y-2">
                               <div className="flex items-start space-x-3">
                                 <CheckCircle className="w-4 h-4 text-primary mt-0.5" />
                                 <div>
-                                  <h5 className="font-medium text-sm">Automated Monitoring</h5>
-                                  <p className="text-xs text-muted-foreground">AI monitors student behavior during exams</p>
+                                  <h5 className="font-medium text-sm">Multi-modal Annotation</h5>
+                                  <p className="text-xs text-muted-foreground">Text, image, audio, and video dataset labeling</p>
                                 </div>
                               </div>
                               <div className="flex items-start space-x-3">
                                 <CheckCircle className="w-4 h-4 text-primary mt-0.5" />
                                 <div>
-                                  <h5 className="font-medium text-sm">Integrity Analytics</h5>
-                                  <p className="text-xs text-muted-foreground">Detailed reports on assessment integrity</p>
+                                  <h5 className="font-medium text-sm">Industry-Grade Quality</h5>
+                                  <p className="text-xs text-muted-foreground">Professional workforce ensuring high-quality annotations</p>
+                                </div>
+                              </div>
+                              <div className="flex items-start space-x-3">
+                                <CheckCircle className="w-4 h-4 text-primary mt-0.5" />
+                                <div>
+                                  <h5 className="font-medium text-sm">Scalable Solutions</h5>
+                                  <p className="text-xs text-muted-foreground">Handle large-scale annotation projects efficiently</p>
                                 </div>
                               </div>
                             </div>
                           </div>
                         )}
-                        {product.title === "Askari LLM" && (
+                        {product.title === "Quantum GenAI" && (
                           <div className="space-y-3">
                             <h4 className="font-semibold text-primary">Features:</h4>
                             <div className="space-y-2">
                               <div className="flex items-start space-x-3">
                                 <CheckCircle className="w-4 h-4 text-primary mt-0.5" />
                                 <div>
-                                  <h5 className="font-medium text-sm">Policy Guardrails</h5>
-                                  <p className="text-xs text-muted-foreground">Enforce ethical AI usage policies</p>
+                                  <h5 className="font-medium text-sm">Model Fine-tuning</h5>
+                                  <p className="text-xs text-muted-foreground">Enhance AI model performance through expert fine-tuning</p>
                                 </div>
                               </div>
                               <div className="flex items-start space-x-3">
                                 <CheckCircle className="w-4 h-4 text-primary mt-0.5" />
                                 <div>
-                                  <h5 className="font-medium text-sm">Input Validation</h5>
-                                  <p className="text-xs text-muted-foreground">Filter and validate user inputs for safety</p>
+                                  <h5 className="font-medium text-sm">Data Expertise</h5>
+                                  <p className="text-xs text-muted-foreground">In-house data specialists for optimal model training</p>
+                                </div>
+                              </div>
+                              <div className="flex items-start space-x-3">
+                                <CheckCircle className="w-4 h-4 text-primary mt-0.5" />
+                                <div>
+                                  <h5 className="font-medium text-sm">Speed & Reliability</h5>
+                                  <p className="text-xs text-muted-foreground">Improved accuracy and speed for generative AI models</p>
                                 </div>
                               </div>
                             </div>

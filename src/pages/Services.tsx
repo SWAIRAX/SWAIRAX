@@ -19,27 +19,27 @@ const Services = () => {
   const services = [
     {
       icon: <Brain className="h-8 w-8" />,
-      title: "AI Solutions Development",
-      description: "Custom AI-powered solutions tailored to your business needs, from computer vision to natural language processing.",
-      features: ["Computer Vision", "NLP & LLMs", "Generative AI", "Custom AI Models"]
+      title: "Quantum Analytics",
+      description: "Data-centric platform leveraging Machine Learning & RLHF to help organizations understand impact, learn from their data, measure progress, and make smarter decisions.",
+      features: ["Machine Learning & RLHF", "Impact Measurement", "Progress Tracking", "Smart Decision Making"]
     },
     {
       icon: <Database className="h-8 w-8" />,
-      title: "Data Engineering",
-      description: "Build robust data pipelines and infrastructure to support your data-driven decision making.",
-      features: ["Data Pipeline Design", "ETL Processes", "Data Lake Architecture", "Real-time Processing"]
+      title: "Quantum Annotate",
+      description: "Robust annotation solution supported by a full workforce, offering industry-grade labeling for text, image, audio, and video datasets.",
+      features: ["Multi-modal Annotation", "Professional Workforce", "Industry-Grade Quality", "Scalable Solutions"]
     },
     {
       icon: <Cog className="h-8 w-8" />,
-      title: "MLOps & DevOps",
-      description: "Bridge the gap between data science and production with our MLOps expertise.",
-      features: ["Model Deployment", "CI/CD for ML", "Model Monitoring", "Infrastructure as Code"]
+      title: "Quantum GenAI",
+      description: "Enhance generative AI model accuracy, reliability, and speed through in-house data expertise and fine-tuning techniques.",
+      features: ["Model Fine-tuning", "Data Expertise", "Performance Enhancement", "Speed Optimization"]
     },
     {
       icon: <BarChart3 className="h-8 w-8" />,
-      title: "Business Intelligence",
-      description: "Transform your data into actionable insights with our BI and analytics solutions.",
-      features: ["Data Visualization", "Business Analytics", "Reporting Dashboards", "Predictive Analytics"]
+      title: "MLOps & DevOps",
+      description: "Bridge the gap between data science and production with our MLOps expertise and deployment solutions.",
+      features: ["Model Deployment", "CI/CD for ML", "Model Monitoring", "Infrastructure as Code"]
     }
   ];
 
@@ -117,50 +117,71 @@ const Services = () => {
                     </CollapsibleTrigger>
                     <CollapsibleContent className="animate-accordion-down overflow-hidden">
                       <div className="bg-background/50 p-6 rounded-lg border border-border/50 mb-4">
-                        {service.title === "AI Solutions Development" && (
+                        {service.title === "Quantum Analytics" && (
                           <>
                             <h4 className="text-lg font-semibold mb-4 text-primary">Detailed Capabilities:</h4>
                             <div className="space-y-3">
                               <div className="flex items-start space-x-3">
                                 <CheckCircle className="w-5 h-5 text-primary mt-0.5" />
                                 <div>
-                                  <h5 className="font-medium">Custom AI Models</h5>
-                                  <p className="text-sm text-muted-foreground">Tailored machine learning models for specific business needs</p>
+                                  <h5 className="font-medium">Machine Learning & RLHF</h5>
+                                  <p className="text-sm text-muted-foreground">Advanced ML algorithms with human feedback integration</p>
                                 </div>
                               </div>
                               <div className="flex items-start space-x-3">
                                 <CheckCircle className="w-5 h-5 text-primary mt-0.5" />
                                 <div>
-                                  <h5 className="font-medium">Computer Vision</h5>
-                                  <p className="text-sm text-muted-foreground">Image recognition, object detection, and visual analytics</p>
+                                  <h5 className="font-medium">Impact Measurement</h5>
+                                  <p className="text-sm text-muted-foreground">Track and measure organizational impact and progress</p>
                                 </div>
                               </div>
                               <div className="flex items-start space-x-3">
                                 <CheckCircle className="w-5 h-5 text-primary mt-0.5" />
                                 <div>
-                                  <h5 className="font-medium">Natural Language Processing</h5>
-                                  <p className="text-sm text-muted-foreground">Text analysis, chatbots, and language understanding</p>
+                                  <h5 className="font-medium">Smart Decision Making</h5>
+                                  <p className="text-sm text-muted-foreground">Data-driven insights for better business decisions</p>
                                 </div>
                               </div>
                             </div>
                           </>
                         )}
-                        {service.title === "Data Engineering" && (
+                        {service.title === "Quantum Annotate" && (
                           <>
-                            <h4 className="text-lg font-semibold mb-4 text-primary">Data Infrastructure:</h4>
+                            <h4 className="text-lg font-semibold mb-4 text-primary">Annotation Excellence:</h4>
                             <div className="space-y-3">
                               <div className="flex items-start space-x-3">
                                 <CheckCircle className="w-5 h-5 text-primary mt-0.5" />
                                 <div>
-                                  <h5 className="font-medium">Scalable Pipelines</h5>
-                                  <p className="text-sm text-muted-foreground">Automated data processing with cloud-native architecture</p>
+                                  <h5 className="font-medium">Multi-modal Support</h5>
+                                  <p className="text-sm text-muted-foreground">Text, image, audio, and video dataset labeling</p>
                                 </div>
                               </div>
                               <div className="flex items-start space-x-3">
                                 <CheckCircle className="w-5 h-5 text-primary mt-0.5" />
                                 <div>
-                                  <h5 className="font-medium">Real-time Processing</h5>
-                                  <p className="text-sm text-muted-foreground">Stream processing for live data analytics</p>
+                                  <h5 className="font-medium">Professional Workforce</h5>
+                                  <p className="text-sm text-muted-foreground">Industry-grade quality with dedicated annotation specialists</p>
+                                </div>
+                              </div>
+                            </div>
+                          </>
+                        )}
+                        {service.title === "Quantum GenAI" && (
+                          <>
+                            <h4 className="text-lg font-semibold mb-4 text-primary">AI Enhancement:</h4>
+                            <div className="space-y-3">
+                              <div className="flex items-start space-x-3">
+                                <CheckCircle className="w-5 h-5 text-primary mt-0.5" />
+                                <div>
+                                  <h5 className="font-medium">Model Fine-tuning</h5>
+                                  <p className="text-sm text-muted-foreground">Expert fine-tuning for enhanced model performance</p>
+                                </div>
+                              </div>
+                              <div className="flex items-start space-x-3">
+                                <CheckCircle className="w-5 h-5 text-primary mt-0.5" />
+                                <div>
+                                  <h5 className="font-medium">Data Expertise</h5>
+                                  <p className="text-sm text-muted-foreground">In-house specialists for optimal training strategies</p>
                                 </div>
                               </div>
                             </div>
@@ -187,27 +208,6 @@ const Services = () => {
                             </div>
                           </>
                         )}
-                        {service.title === "Business Intelligence" && (
-                          <>
-                            <h4 className="text-lg font-semibold mb-4 text-primary">Analytics Solutions:</h4>
-                            <div className="space-y-3">
-                              <div className="flex items-start space-x-3">
-                                <CheckCircle className="w-5 h-5 text-primary mt-0.5" />
-                                <div>
-                                  <h5 className="font-medium">Interactive Dashboards</h5>
-                                  <p className="text-sm text-muted-foreground">Real-time data visualization and KPI tracking</p>
-                                </div>
-                              </div>
-                              <div className="flex items-start space-x-3">
-                                <CheckCircle className="w-5 h-5 text-primary mt-0.5" />
-                                <div>
-                                  <h5 className="font-medium">Predictive Analytics</h5>
-                                  <p className="text-sm text-muted-foreground">AI-powered forecasting and trend analysis</p>
-                                </div>
-                              </div>
-                            </div>
-                          </>
-                        )}
                         <div className="mt-4 p-3 bg-primary/10 rounded-lg">
                           <p className="text-sm text-primary font-medium">
                             ✓ Free consultation • ✓ 30-day trial available • ✓ Custom implementation
@@ -222,10 +222,6 @@ const Services = () => {
                     onClick={() => {
                       if (service.title === "MLOps & DevOps") {
                         window.location.href = '/mlops';
-                      } else if (service.title === "Business Intelligence") {
-                        window.location.href = '/business-analysis';
-                      } else if (service.title === "AI Solutions Development") {
-                        window.location.href = '/ai-studio';
                       } else {
                         window.location.href = '/contact';
                       }
@@ -267,6 +263,24 @@ const Services = () => {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Legacy Solutions Section */}
+      <section className="py-16 bg-muted/50">
+        <div className="container mx-auto px-6 text-center">
+          <h2 className="text-3xl font-bold mb-4">Explore Our Legacy</h2>
+          <p className="text-lg text-muted-foreground mb-6">
+            Discover our archived innovations and past products that shaped our AI evolution
+          </p>
+          <Button 
+            size="lg" 
+            variant="outline"
+            onClick={() => window.location.href = '/research'}
+            className="border-primary text-primary hover:bg-primary hover:text-primary-foreground"
+          >
+            View Archived Solutions <ArrowRight className="ml-2 h-4 w-4" />
+          </Button>
         </div>
       </section>
 
