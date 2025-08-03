@@ -45,7 +45,8 @@ const Partnerships = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-background pt-20">
+    <div className="min-h-screen bg-background">
+      <Header />
       {/* Header Section */}
       <section className="container mx-auto px-6 py-16 text-center">
         <div className="max-w-4xl mx-auto animate-fade-in">
@@ -135,6 +136,7 @@ const Partnerships = () => {
           </div>
         </div>
       </section>
+      <Footer />
     </div>
   );
 };
