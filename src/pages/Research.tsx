@@ -204,7 +204,7 @@ const Research = () => {
                     <Button
                       size="sm"
                       variant="ghost"
-                      onClick={() => window.location.href = `/research/${solution.title.toLowerCase().replace(/\s+/g, '-')}`}
+                      onClick={() => window.location.href = '/contact'}
                       className="flex-1"
                     >
                       <ExternalLink className="w-4 h-4 mr-2" />
