@@ -36,7 +36,7 @@ const Index = () => {
   const products = [
     {
       title: "Quantum Analytics",
-      category: "Data Platform",
+      category: "Saas",
       description: "Data-centric platform leveraging Machine Learning & RLHF to help organizations understand impact, learn from their data, measure progress, and make smarter decisions.",
       cta: "Get Started"
     },
