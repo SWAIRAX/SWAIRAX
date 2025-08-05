@@ -82,13 +82,13 @@ return (
 <div className="container mx-auto px-6">
 <div className="max-w-4xl mx-auto text-center">
 <h1 className="text-5xl md:text-6xl font-bold mb-6 animate-fade-in">
-Archived Innovations & <span className="text-primary">Past Products</span>
+Rese<span className="text-primary">arch</span>
 </h1>
 <p className="text-xl text-muted-foreground mb-8">
-Honoring our legacy products that shaped Quantum Intelligence's evolution. These innovations paved the way for our current cutting-edge solutions.
+Explore a selection of our recent research on some of the most complex and interesting challenges in AI.
 </p>
 <div className="flex flex-col sm:flex-row gap-4 justify-center">
-<Button
+{/* <Button
 size="lg"
 onClick={() => window.location.href = '/services'}
 className="bg-primary hover:bg-primary/90 text-primary-foreground"
@@ -101,7 +101,7 @@ variant="outline"
 onClick={() => window.location.href = '/contact'}
 >
 Discuss Legacy Migration
-</Button>
+</Button> */}
 </div>
 </div>
 </div>
@@ -142,10 +142,11 @@ setSelectedTags([...selectedTags, tag]);
 <section className="py-20">
 <div className="container mx-auto px-6">
 <div className="text-center mb-16">
-<h2 className="text-4xl font-bold mb-4">Looking Back, Moving Forward</h2>
+<h2 className="text-4xl font-bold mb-4">Impossible? Let’s see.</h2>
 <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-These products represent important milestones in our journey to develop sophisticated AI solutions.
-While retired, they continue to inform our approach to innovation and customer-centric product development.
+Whether we're shaping the future of sustainability, or optimizing algorithms,
+or even exploring epidemiological studies, Our Research strives to continuously progress science,
+advance society.
 </p>
 </div>
 
@@ -203,9 +204,8 @@ While retired, they continue to inform our approach to innovation and customer-c
 <div className="flex space-x-2 pt-4 border-t border-border">
 <Button
 size="sm"
-variant="ghost"
-                      onClick={() => window.location.href = '/contact'}
-                      onClick={() => window.location.href = `/research/${solution.title.toLowerCase().replace(/\s+/g, '-')}`}
+  variant="destructive" // makes the button red by default
+onClick={() => window.location.href = `/research/${solution.title.toLowerCase().replace(/\s+/g, '-')}`}
 className="flex-1"
 >
 <ExternalLink className="w-4 h-4 mr-2" />

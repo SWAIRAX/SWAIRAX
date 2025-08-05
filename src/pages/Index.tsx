@@ -48,7 +48,7 @@ const Index = () => {
     },
     {
       title: "Quantum GenAI",
-      category: "AI Enhancement",
+      category: "Self hosted",
       description: "Enhance generative AI model accuracy, reliability, and speed through in-house data expertise and fine-tuning techniques.",
       cta: "Learn More"
     }
