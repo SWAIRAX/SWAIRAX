@@ -39,7 +39,7 @@ keyFeatures: [
 "Integration with learning platforms",
 "Detailed reporting and analytics"
 ],
-tags: ["Education", "AI Monitoring"],
+tags: ["Education", "AI Monitoring","SaaS"],
 icon: <Users className="w-6 h-6" />,
 demoLink: "#",
 caseStudyLink: "#"
