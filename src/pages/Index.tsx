@@ -131,7 +131,7 @@ const Index = () => {
         <div className="container mx-auto px-6 text-center relative z-10">
           <div className="max-w-4xl mx-auto animate-fade-in">
             <h1 className="text-5xl md:text-7xl font-bold mb-6">
-             AI-powered Automation <br /> 
+             AI-powered Automation <br />
              {/* <span className="text-blue-400">AI-powered Automation</span>  */}
                <span className="text-primary"> For every decision</span>
             </h1>
@@ -139,17 +139,24 @@ const Index = () => {
               Adopting data-centric operations and building AI solutions has never been easier, we are working on that.
             </p>
             <Button
-              size="lg"
-              className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-4 text-lg animate-glow-pulse"
-            >
-              <Link to="/contact">Scroll to Explore</Link>
-            </Button>
+  size="lg"
+  className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-4 text-lg animate-glow-pulse"
+  onClick={() => {
+    const target = document.getElementById("why-quantum");
+    if (target) {
+      target.scrollIntoView({ behavior: "smooth" });
+    }
+  }}
+>
+  Scroll to Explore
+</Button>
           </div>
         </div>
       </section>
 
       {/* Why Quantum Intelligence Section */}
-      <section className="py-20 bg-card">
+
+      <section id="why-quantum" className="py-20 bg-card">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
             <p className="text-primary text-sm font-semibold mb-4">Why Quantum Intelligence?</p>
