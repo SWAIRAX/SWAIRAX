@@ -220,8 +220,14 @@ const Services = () => {
                   <Button
                     variant="ghost"
                     onClick={() => {
-                      if (service.title === "MLOps & DevOps") {
-                        window.location.href = '/mlops';
+                      if (service.title === "Quantum Analytics") {
+                        window.location.href = '/quantum-analytics';
+                      } else if (service.title === "Quantum Annotate") {
+                        window.location.href = '/quantum-annotate';
+                      } else if (service.title === "Quantum GenAI") {
+                        window.location.href = '/quantum-genai';
+                      } else if (service.title === "MLOps & DevOps") {
+                        window.location.href = '/mlops-devops';
                       } else {
                         window.location.href = '/contact';
                       }

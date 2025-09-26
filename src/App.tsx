@@ -21,6 +21,10 @@ import RetailLogistics from '@/pages/industries/RetailLogistics';
 import HealthcarePharmacy from '@/pages/industries/HealthcarePharmacy';
 import AIStudio from '@/pages/AIStudio';
 import MLOps from '@/pages/MLOps';
+import MLOpsDevOps from '@/pages/MLOpsDevOps';
+import QuantumGenAI from '@/pages/QuantumGenAI';
+import QuantumAnalytics from '@/pages/QuantumAnalytics';
+import QuantumAnnotate from '@/pages/QuantumAnnotate';
 import BusinessAnalysis from '@/pages/BusinessAnalysis';
 import TryNow from '@/pages/TryNow';
 import Privacy from '@/pages/Privacy';
@@ -57,6 +61,10 @@ const App = () => (
           <Route path="/contact" element={<Contact />} />
           <Route path="/ai-studio" element={<AIStudio />} />
           <Route path="/mlops" element={<MLOps />} />
+          <Route path="/mlops-devops" element={<MLOpsDevOps />} />
+          <Route path="/quantum-genai" element={<QuantumGenAI />} />
+          <Route path="/quantum-analytics" element={<QuantumAnalytics />} />
+          <Route path="/quantum-annotate" element={<QuantumAnnotate />} />
           <Route path="/business-analysis" element={<BusinessAnalysis />} />
           <Route path="/try-now" element={<TryNow />} />
           <Route path="/privacy" element={<Privacy />} />
