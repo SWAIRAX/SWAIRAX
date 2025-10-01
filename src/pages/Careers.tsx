@@ -102,7 +102,7 @@ const Careers = () => {
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      
+
       {/* Hero Section */}
       <section className="pt-24 pb-16 bg-card">
         <div className="container mx-auto px-6">
@@ -113,8 +113,8 @@ const Careers = () => {
             <p className="text-xl text-muted-foreground mb-8">
               Be part of a team that's transforming businesses through cutting-edge AI and data science solutions.
             </p>
-            <Button 
-              size="lg" 
+            <Button
+              size="lg"
               onClick={() => document.getElementById('positions')?.scrollIntoView({ behavior: 'smooth' })}
               className="bg-primary hover:bg-primary/90 text-primary-foreground px-8"
             >
@@ -189,9 +189,9 @@ const Careers = () => {
                         <h3 className="text-xl font-bold">{position.title}</h3>
                         <Badge variant="secondary">{position.department}</Badge>
                       </div>
-                      
+
                       <p className="text-muted-foreground mb-4">{position.description}</p>
-                      
+
                       <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground mb-4">
                         <div className="flex items-center gap-1">
                           <MapPin className="h-4 w-4" />
@@ -202,7 +202,7 @@ const Careers = () => {
                           {position.type}
                         </div>
                       </div>
-                      
+
                       <div className="flex flex-wrap gap-2">
                         {position.requirements.map((req, reqIndex) => (
                           <Badge key={reqIndex} variant="outline" className="text-xs">
@@ -211,10 +211,15 @@ const Careers = () => {
                         ))}
                       </div>
                     </div>
-                    
-                    <Button 
-                      onClick={() => window.location.href = '/contact'}
-                      className="bg-primary hover:bg-primary/90 text-primary-foreground"
+
+                    <Button
+                    variant="outline"
+  className="bg-primary hover:bg-primary/90 text-primary-foreground"  onClick={() =>
+    window.open(
+      'mailto:communications@quantumintelligence.co.tz?subject=Work Application&body=Please provide your details and attach your CV (PDF or DOCX) to this email.',
+      '_blank'
+    )
+  }
                     >
                       Apply Now <ArrowRight className="ml-2 h-4 w-4" />
                     </Button>
@@ -231,16 +236,21 @@ const Careers = () => {
         <div className="container mx-auto px-6">
           <div className="max-w-2xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Don't see the right fit?
+              Not Just an Internship—A Creative Adventure
             </h2>
             <p className="text-lg text-muted-foreground mb-8">
               We're always looking for talented individuals. Send us your resume and tell us how you'd like to contribute.
             </p>
-            <Button 
-              size="lg" 
-              variant="outline" 
-              onClick={() => window.location.href = '/contact'}
+            <Button
+              size="lg"
               className="border-primary text-primary hover:bg-primary hover:text-primary-foreground"
+              variant="outline"
+    onClick={() =>
+    window.open(
+      'mailto:communications@quantumintelligence.co.tz?subject=Internship Application&body=Please provide your details and attach your CV (PDF or DOCX) to this email.',
+      '_blank'
+    )
+  }
             >
               Get in Touch
             </Button>

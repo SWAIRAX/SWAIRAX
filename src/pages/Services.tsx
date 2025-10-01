@@ -46,7 +46,7 @@ const Services = () => {
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      
+
       {/* Hero Section */}
       <section className="pt-24 pb-16 bg-gradient-secondary">
         <div className="container mx-auto px-6">
@@ -57,13 +57,13 @@ const Services = () => {
             <p className="text-xl text-muted-foreground mb-8">
               Comprehensive AI and data solutions designed to accelerate your digital transformation journey.
             </p>
-            <Button 
-              size="lg" 
+            {/* <Button
+              size="lg"
               onClick={() => window.location.href = '/contact'}
               className="bg-primary hover:bg-primary/90 text-primary-foreground"
             >
               Get Started Today
-            </Button>
+            </Button> */}
           </div>
         </div>
       </section>
@@ -88,9 +88,9 @@ const Services = () => {
                     </div>
                     <h3 className="text-2xl font-bold">{service.title}</h3>
                   </div>
-                  
+
                   <p className="text-muted-foreground mb-6">{service.description}</p>
-                  
+
                   <ul className="space-y-2 mb-6">
                     {service.features.map((feature, featureIndex) => (
                       <li key={featureIndex} className="flex items-center text-sm">
@@ -99,7 +99,7 @@ const Services = () => {
                       </li>
                     ))}
                   </ul>
-                  
+
                   <Collapsible open={expandedServices[service.title]} onOpenChange={() => toggleService(service.title)}>
                     <CollapsibleTrigger asChild>
                       <Button
@@ -217,11 +217,17 @@ const Services = () => {
                     </CollapsibleContent>
                   </Collapsible>
 
-                  <Button 
-                    variant="ghost" 
+                  <Button
+                    variant="ghost"
                     onClick={() => {
-                      if (service.title === "MLOps & DevOps") {
-                        window.location.href = '/mlops';
+                      if (service.title === "Quantum Analytics") {
+                        window.location.href = '/quantum-analytics';
+                      } else if (service.title === "Quantum Annotate") {
+                        window.location.href = '/quantum-annotate';
+                      } else if (service.title === "Quantum GenAI") {
+                        window.location.href = '/quantum-genai';
+                      } else if (service.title === "MLOps & DevOps") {
+                        window.location.href = '/mlops-devops';
                       } else {
                         window.location.href = '/contact';
                       }
@@ -273,8 +279,8 @@ const Services = () => {
           <p className="text-lg text-muted-foreground mb-6">
             Discover our archived innovations and past products that shaped our AI evolution
           </p>
-          <Button 
-            size="lg" 
+          <Button
+            size="lg"
             variant="outline"
             onClick={() => window.location.href = '/research'}
             className="border-primary text-primary hover:bg-primary hover:text-primary-foreground"
@@ -291,8 +297,8 @@ const Services = () => {
           <p className="text-xl text-muted-foreground mb-8">
             Let's discuss how our AI solutions can drive your success
           </p>
-          <Button 
-            size="lg" 
+          <Button
+            size="lg"
             onClick={() => window.location.href = '/contact'}
             className="bg-primary hover:bg-primary/90 text-primary-foreground"
           >
