@@ -78,7 +78,7 @@ const About = () => {
               About <span className="text-primary">Quantum Intelligence</span>
             </h1>
             <p className="text-xl text-muted-foreground mb-8">
-             Quantum Intelligence is an AI research and deployment company.
+              We're a team of passionate AI researchers, data scientists, and engineers committed to making artificial intelligence accessible and beneficial for everyone.
             </p>
           </div>
         </div>
@@ -130,7 +130,7 @@ We’re a team of scientists, engineers, ethicists and more, working to build th
                   </div>
                   <h3 className="text-xl font-bold mb-3">{value.title}</h3>
                   <p className="text-muted-foreground text-sm mb-4">{value.description}</p>
-
+                  
                   <Collapsible open={expandedValues[value.title]} onOpenChange={() => toggleValue(value.title)}>
                     <CollapsibleTrigger asChild>
                       <Button
@@ -230,23 +230,14 @@ We’re a team of scientists, engineers, ethicists and more, working to build th
             <h2 className="text-4xl font-bold mb-8 text-center">Our Story</h2>
             <div className="space-y-6 text-lg text-muted-foreground">
               <p>
-                Founded in 2020 by a group of dreamers, builders, and researchers, Quantum Intelligence was born from a simple but powerful belief:
-Artificial intelligence should serve humanity—not just optimize it.
-
+                Founded in 2020 by a team of AI researchers and data scientists, Quantum Intelligence emerged from a shared vision to make artificial intelligence more accessible and impactful for businesses of all sizes.
               </p>
               <p>
-                We started small—with curiosity, conviction, and a deep respect for what AI could become. Not just a tool for efficiency, but a way to solve meaningful problems, spark new ideas, and build a better future.
-                As we grew, so did our purpose. We listened more. Learned faster. Built with intention. And always stayed close to the people behind the data—the teams, the communities, the individuals who inspire everything we do.
+                Our journey began in the labs of leading universities, where our founders were pioneering research in machine learning, computer vision, and natural language processing. Recognizing the gap between cutting-edge research and practical business applications, we set out to bridge this divide.
               </p>
               <p>
-                Today, Quantum Intelligence is shaped by that same spirit.
-We’re here to create, to collaborate, and to make every interaction—every insight—count.
-
+                Today, we serve clients across industries, from startups to Fortune 500 companies, helping them harness the power of AI to solve complex challenges and drive innovation. Our commitment to ethical AI practices and inclusive development has earned us recognition as a trusted partner in the AI ecosystem.
               </p>
-              <p>
-                Because for us, it’s not just about what AI can do.
-It’s about what it can do for you.
-</p>
             </div>
           </div>
         </div>

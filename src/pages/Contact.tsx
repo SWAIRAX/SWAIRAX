@@ -132,13 +132,14 @@ const Contact = () => {
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              Contact Our Development Team
+              You need a partner.
             </h1>
             <h2 className="text-3xl md:text-5xl font-bold text-primary mb-8">
-
+              We're here to help.
             </h2>
             <p className="text-xl text-muted-foreground mb-8">
-              We are happy to onboard you, including connecting you with helpful resources, exploring use cases for your team, and discussing your potential options.{" "}
+              We would like to understand your needs. Before we start, please
+              fill in the form or send your RFP or inquiry via{" "}
               <a href="mailto:communications@quantumintelligence.co.tz" className="text-primary underline">
                 communications@quantumintelligence.co.tz
               </a>
@@ -424,7 +425,7 @@ const Contact = () => {
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
             <Card className="bg-card border-border">
-              <CardContent className="p-4 text-center">
+              <CardContent className="p-6 text-center">
                 <Mail className="h-8 w-8 text-primary mx-auto mb-4" />
                 <h3 className="font-semibold mb-2">Email</h3>
                 <p className="text-muted-foreground text-sm">

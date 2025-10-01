@@ -39,7 +39,7 @@ keyFeatures: [
 "Integration with learning platforms",
 "Detailed reporting and analytics"
 ],
-tags: ["Education", "AI Monitoring","SaaS"],
+tags: ["Education", "AI Monitoring"],
 icon: <Users className="w-6 h-6" />,
 demoLink: "#",
 caseStudyLink: "#"
@@ -220,7 +220,7 @@ Learn More
 </section>
 
 {/* Evolution Timeline */}
-{/* <section className="py-20 bg-card">
+<section className="py-20 bg-card">
 <div className="container mx-auto px-6">
 <div className="text-center mb-16">
 <h2 className="text-4xl font-bold mb-4">Our Innovation Journey</h2>
@@ -264,7 +264,7 @@ From security solutions to advanced AI platforms - our evolution continues
 </div>
 </div>
 </div>
-</section> */}
+</section>
 
 {/* CTA Section */}
 <section className="py-20">
