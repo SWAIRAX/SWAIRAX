@@ -107,37 +107,37 @@ const ResearchDetail = () => {
       <Header />
 
       {/* Hero Section */}
-      <section className="pt-24 pb-16 bg-gradient-to-br from-primary/5 via-secondary/10 to-background">
+      <section className="pt-24 pb-8 bg-gradient-to-br from-primary/5 via-secondary/10 to-background">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto">
             <Button
               variant="ghost"
               onClick={() => navigate('/research')}
-              className="mb-6 group"
+              className="mb-4 group text-xs"
             >
-              <ArrowLeft className="w-4 h-4 mr-2 group-hover:-translate-x-1 transition-transform" />
+              <ArrowLeft className="w-3 h-3 mr-1 group-hover:-translate-x-1 transition-transform" />
               View All Research
             </Button>
-            
-            <div className="flex items-center space-x-4 mb-6">
-              <div className="w-16 h-16 bg-primary/20 rounded-xl flex items-center justify-center text-primary">
+
+            <div className="flex items-center space-x-3 mb-4">
+              <div className="w-10 h-10 bg-primary/20 rounded-lg flex items-center justify-center text-primary">
                 {solution.icon}
               </div>
               <div>
-                <h1 className="text-4xl md:text-5xl font-bold mb-2 animate-fade-in">
+                <h1 className="text-xl font-bold mb-1 animate-fade-in">
                   {solution.title}
                 </h1>
-                <p className="text-xl text-primary font-medium">{solution.tagline}</p>
+                <p className="text-sm text-primary font-medium">{solution.tagline}</p>
               </div>
             </div>
 
-            <div className="flex items-center space-x-4 mb-8">
-              <Badge variant="secondary">{solution.category}</Badge>
-              <Badge variant="outline" className="text-muted-foreground">
+            <div className="flex items-center space-x-3 mb-6">
+              <Badge variant="secondary" className="text-xs">{solution.category}</Badge>
+              <Badge variant="outline" className="text-muted-foreground text-xs">
                 <Calendar className="w-3 h-3 mr-1" />
                 {solution.launchDate}
               </Badge>
-              <Badge variant="destructive" className="bg-red-500/20 text-red-600 border-red-200">
+              <Badge variant="destructive" className="bg-red-500/20 text-red-600 border-red-200 text-xs">
                 {solution.status}
               </Badge>
             </div>
@@ -146,16 +146,16 @@ const ResearchDetail = () => {
       </section>
 
       {/* About Section */}
-      <section className="py-16">
+      <section className="py-8">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto">
             <Card className="animate-slide-up">
-              <CardContent className="p-8">
-                <h2 className="text-3xl font-bold mb-6 flex items-center">
-                  <Lightbulb className="w-8 h-8 mr-3 text-primary" />
+              <CardContent className="p-4">
+                <h2 className="text-lg font-bold mb-4 flex items-center">
+                  <Lightbulb className="w-5 h-5 mr-2 text-primary" />
                   About the Solution
                 </h2>
-                <p className="text-lg text-muted-foreground leading-relaxed">
+                <p className="text-sm text-muted-foreground leading-relaxed">
                   {solution.description}
                 </p>
               </CardContent>
@@ -165,16 +165,16 @@ const ResearchDetail = () => {
       </section>
 
       {/* Problem Statement */}
-      <section className="py-16 bg-card">
+      <section className="py-8 bg-card">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto">
             <Card className="animate-slide-up" style={{ animationDelay: '0.1s' }}>
-              <CardContent className="p-8">
-                <h2 className="text-3xl font-bold mb-6 flex items-center">
-                  <Target className="w-8 h-8 mr-3 text-primary" />
+              <CardContent className="p-4">
+                <h2 className="text-lg font-bold mb-4 flex items-center">
+                  <Target className="w-5 h-5 mr-2 text-primary" />
                   Problem It Addresses
                 </h2>
-                <p className="text-lg text-muted-foreground leading-relaxed">
+                <p className="text-sm text-muted-foreground leading-relaxed">
                   {solution.problem}
                 </p>
               </CardContent>
@@ -184,17 +184,17 @@ const ResearchDetail = () => {
       </section>
 
       {/* Methodology & Technologies */}
-      <section className="py-16">
+      <section className="py-8">
         <div className="container mx-auto px-6">
-          <div className="max-w-4xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div className="max-w-4xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-4">
             <Card className="animate-slide-up" style={{ animationDelay: '0.2s' }}>
-              <CardContent className="p-8">
-                <h3 className="text-2xl font-bold mb-6">Methodology</h3>
-                <ul className="space-y-3">
+              <CardContent className="p-4">
+                <h3 className="text-lg font-bold mb-4">Methodology</h3>
+                <ul className="space-y-2">
                   {solution.methodology.map((item, index) => (
-                    <li key={index} className="flex items-start space-x-3">
-                      <CheckCircle className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
-                      <span className="text-muted-foreground">{item}</span>
+                    <li key={index} className="flex items-start space-x-2">
+                      <CheckCircle className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
+                      <span className="text-muted-foreground text-sm">{item}</span>
                     </li>
                   ))}
                 </ul>
@@ -202,11 +202,11 @@ const ResearchDetail = () => {
             </Card>
 
             <Card className="animate-slide-up" style={{ animationDelay: '0.3s' }}>
-              <CardContent className="p-8">
-                <h3 className="text-2xl font-bold mb-6">Technologies Used</h3>
+              <CardContent className="p-4">
+                <h3 className="text-lg font-bold mb-4">Technologies Used</h3>
                 <div className="flex flex-wrap gap-2">
                   {solution.technologies.map((tech, index) => (
-                    <Badge key={index} variant="outline" className="px-3 py-1">
+                    <Badge key={index} variant="outline" className="px-2 py-1 text-xs">
                       {tech}
                     </Badge>
                   ))}
@@ -218,29 +218,29 @@ const ResearchDetail = () => {
       </section>
 
       {/* Results & Impact */}
-      <section className="py-16 bg-card">
+      <section className="py-8 bg-card">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto">
             <Card className="animate-slide-up" style={{ animationDelay: '0.4s' }}>
-              <CardContent className="p-8">
-                <h2 className="text-3xl font-bold mb-8">Results & Impact</h2>
-                
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+              <CardContent className="p-4">
+                <h2 className="text-lg font-bold mb-6">Results & Impact</h2>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                   <div>
-                    <h3 className="text-xl font-semibold mb-4">Key Results</h3>
-                    <ul className="space-y-3">
+                    <h3 className="text-sm font-semibold mb-3">Key Results</h3>
+                    <ul className="space-y-2">
                       {solution.results.map((result, index) => (
-                        <li key={index} className="flex items-start space-x-3">
-                          <CheckCircle className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
-                          <span className="text-muted-foreground">{result}</span>
+                        <li key={index} className="flex items-start space-x-2">
+                          <CheckCircle className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
+                          <span className="text-muted-foreground text-sm">{result}</span>
                         </li>
                       ))}
                     </ul>
                   </div>
-                  
+
                   <div>
-                    <h3 className="text-xl font-semibold mb-4">Overall Impact</h3>
-                    <p className="text-muted-foreground leading-relaxed">
+                    <h3 className="text-sm font-semibold mb-3">Overall Impact</h3>
+                    <p className="text-muted-foreground leading-relaxed text-sm">
                       {solution.impact}
                     </p>
                   </div>
@@ -252,22 +252,22 @@ const ResearchDetail = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20">
+      <section className="py-8">
         <div className="container mx-auto px-6 text-center">
-          <h2 className="text-4xl font-bold mb-4">Inspired by Our Research?</h2>
-          <p className="text-xl text-muted-foreground mb-8">
+          <h2 className="text-xl font-bold mb-3">Inspired by Our Research?</h2>
+          <p className="text-sm text-muted-foreground mb-6">
             Let's discuss how we can bring similar innovation to your organization
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Button
-              size="lg"
+              size="sm"
               onClick={() => navigate('/contact')}
               className="bg-primary hover:bg-primary/90 text-primary-foreground"
             >
               Work With Us
             </Button>
             <Button
-              size="lg"
+              size="sm"
               variant="outline"
               onClick={() => navigate('/research')}
             >

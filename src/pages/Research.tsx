@@ -1,4 +1,5 @@
 import React from "react";
+import{ useNavigate } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -7,6 +8,7 @@ import { Badge } from "@/components/ui/badge";
 import { ArrowRight, Calendar, Shield, Users, FileText, ExternalLink } from "lucide-react";
 
 const Research = () => {
+  const navigate = useNavigate(); 
 const archivedSolutions = [
 {
 title: "SURASOFT",
@@ -78,13 +80,13 @@ return (
 <Header />
 
 {/* Hero Section */}
-<section className="pt-24 pb-16 bg-gradient-secondary">
+<section className="pt-20 pb-6 bg-gradient-secondary">
 <div className="container mx-auto px-6">
 <div className="max-w-4xl mx-auto text-center">
-<h1 className="text-5xl md:text-6xl font-bold mb-6 animate-fade-in">
+<h1 className="text-2xl font-bold mb-3 animate-fade-in">
 Rese<span className="text-primary">arch</span>
 </h1>
-<p className="text-xl text-muted-foreground mb-8">
+<p className="text-sm text-muted-foreground mb-4">
 Explore a selection of our recent research on some of the most complex and interesting challenges in AI.
 </p>
 <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -108,13 +110,14 @@ Discuss Legacy Migration
 </section>
 
 {/* Filter Section */}
-<section className="py-8 border-b border-border">
+<section className="py-3 border-b border-border">
 <div className="container mx-auto px-6">
-<div className="flex flex-wrap gap-2 justify-center">
+<div className="flex flex-wrap gap-1 justify-center">
 <Button
 size="sm"
 variant={selectedTags.length === 0 ? "default" : "outline"}
 onClick={() => setSelectedTags([])}
+className="text-xs"
 >
 All Products
 </Button>
@@ -130,6 +133,7 @@ setSelectedTags(selectedTags.filter(t => t !== tag));
 setSelectedTags([...selectedTags, tag]);
 }
 }}
+className="text-xs"
 >
 {tag}
 </Button>
@@ -139,54 +143,54 @@ setSelectedTags([...selectedTags, tag]);
 </section>
 
 {/* Archived Solutions Grid */}
-<section className="py-20">
+<section className="py-6">
 <div className="container mx-auto px-6">
-<div className="text-center mb-16">
-<h2 className="text-4xl font-bold mb-4">Impossible? Let’s see.</h2>
-<p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+<div className="text-center mb-6">
+<h2 className="text-lg font-bold mb-2">Impossible? Let's see.</h2>
+<p className="text-xs text-muted-foreground max-w-3xl mx-auto">
 Whether we're shaping the future of sustainability, or optimizing algorithms,
 or even exploring epidemiological studies, Our Research strives to continuously progress science,
 advance society.
 </p>
 </div>
 
-<div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
+<div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4">
 {filteredSolutions.map((solution, index) => (
 <Card key={index} className="research-card bg-card border-primary/10 animate-slide-in-left group relative overflow-hidden" style={{ animationDelay: `${index * 0.15}s` }}>
-<CardHeader>
-<div className="flex items-center justify-between mb-4">
-<div className="flex items-center space-x-3">
-<div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center text-primary">
+<CardHeader className="pb-3">
+<div className="flex items-center justify-between mb-2">
+<div className="flex items-center space-x-2">
+<div className="w-6 h-6 bg-primary/20 rounded-lg flex items-center justify-center text-primary">
 {solution.icon}
 </div>
 <div>
-<CardTitle className="text-xl">{solution.title}</CardTitle>
-<div className="flex items-center space-x-2 mt-1">
-<Badge variant="secondary">{solution.category}</Badge>
-<Badge variant="outline" className="text-muted-foreground">
-<Calendar className="w-3 h-3 mr-1" />
+<CardTitle className="text-xs">{solution.title}</CardTitle>
+<div className="flex items-center space-x-1 mt-1">
+<Badge variant="secondary" className="text-xs">{solution.category}</Badge>
+<Badge variant="outline" className="text-muted-foreground text-xs">
+<Calendar className="w-2 h-2 mr-1" />
 {solution.launchDate}
 </Badge>
 </div>
 </div>
 </div>
-<Badge variant="destructive" className="bg-red-500/20 text-red-600 border-red-200">
+<Badge variant="destructive" className="bg-red-500/20 text-red-600 border-red-200 text-xs">
 {solution.status}
 </Badge>
 </div>
 </CardHeader>
 
-<CardContent className="space-y-6">
-<p className="text-muted-foreground leading-relaxed">
+<CardContent className="space-y-2">
+<p className="text-muted-foreground leading-relaxed text-xs">
 {solution.description}
 </p>
 
 <div>
-<h4 className="font-semibold text-primary mb-3">Key Features:</h4>
-<ul className="space-y-2">
+<h4 className="font-semibold text-primary mb-1 text-xs">Key Features:</h4>
+<ul className="space-y-1">
 {solution.keyFeatures.map((feature, featureIndex) => (
-<li key={featureIndex} className="flex items-start space-x-2 text-sm">
-<div className="w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0"></div>
+<li key={featureIndex} className="flex items-start space-x-1 text-xs">
+<div className="w-1 h-1 bg-primary rounded-full mt-1.5 flex-shrink-0"></div>
 <span>{feature}</span>
 </li>
 ))}
@@ -201,14 +205,14 @@ advance society.
 ))}
 </div>
 
-<div className="flex space-x-2 pt-4 border-t border-border">
+<div className="flex space-x-1 pt-2 border-t border-border">
 <Button
 size="sm"
   variant="destructive" // makes the button red by default
 onClick={() => window.location.href = `/research/${solution.title.toLowerCase().replace(/\s+/g, '-')}`}
-className="flex-1"
+className="flex-1 text-xs"
 >
-<ExternalLink className="w-4 h-4 mr-2" />
+<ExternalLink className="w-3 h-3 mr-1" />
 Learn More
 </Button>
 </div>

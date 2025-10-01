@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -7,6 +8,7 @@ import { ArrowRight, Database, Image, Volume2, Video, CheckCircle, Sparkles, Tar
 import { Link } from "react-router-dom";
 
 const QuantumAnnotate = () => {
+  const navigate = useNavigate();
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -91,7 +93,7 @@ const QuantumAnnotate = () => {
       <Header />
 
       {/* Hero Section */}
-      <section className="pt-24 pb-16 bg-gradient-secondary relative overflow-hidden">
+      <section className="pt-24 pb-8 bg-gradient-secondary relative overflow-hidden">
         <div className="absolute inset-0">
           <div className="absolute top-20 left-10 w-20 h-20 bg-primary/10 rounded-full animate-pulse"></div>
           <div className="absolute top-40 right-20 w-16 h-16 bg-primary/5 rounded-full animate-bounce" style={{ animationDelay: '1s' }}></div>
@@ -101,21 +103,21 @@ const QuantumAnnotate = () => {
         <div className="container mx-auto px-6 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
             <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-              <div className="flex items-center justify-center mb-6">
-                <div className="w-16 h-16 bg-primary/20 rounded-lg flex items-center justify-center text-primary mr-4 animate-pulse">
-                  <Database className="h-8 w-8" />
+              <div className="flex items-center justify-center mb-3">
+                <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center text-primary mr-3 animate-pulse">
+                  <Database className="h-6 w-6" />
                 </div>
-                <h1 className="text-5xl md:text-6xl font-bold">
+                <h1 className="text-2xl md:text-3xl font-bold">
                   Quantum <span className="text-primary">Annotate</span>
                 </h1>
               </div>
-              <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
+              <p className="text-sm text-muted-foreground mb-4 max-w-3xl mx-auto">
                 Robust annotation solution supported by a full workforce, offering industry-grade labeling for text, image, audio, and video datasets.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <div className="flex flex-col sm:flex-row gap-3 justify-center">
                 <Button
-                  size="lg"
-                  className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-4 text-lg group"
+                  size="sm"
+                  className="bg-primary hover:bg-primary/90 text-primary-foreground px-4 py-2 text-sm group"
                   onClick={() => {
                     const target = document.getElementById("features");
                     if (target) {
@@ -123,12 +125,12 @@ const QuantumAnnotate = () => {
                     }
                   }}
                 >
-                  Explore Services <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                  Explore Services <ArrowRight className="ml-1 h-3 w-3 group-hover:translate-x-1 transition-transform" />
                 </Button>
                 <Button
-                  size="lg"
+                  size="sm"
                   variant="outline"
-                  className="border-primary text-primary hover:bg-primary hover:text-primary-foreground px-8 py-4 text-lg"
+                  className="border-primary text-primary hover:bg-primary hover:text-primary-foreground px-4 py-2 text-sm"
                   asChild
                 >
                   <Link to="/contact">Get Started</Link>
@@ -140,22 +142,22 @@ const QuantumAnnotate = () => {
       </section>
 
       {/* Stats Section */}
-      <section className="py-16 bg-card">
+      <section className="py-8 bg-card">
         <div className="container mx-auto px-6">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {stats.map((stat, index) => (
               <div
                 key={index}
-                className={`text-center p-6 rounded-lg border border-border/50 hover:shadow-lg transition-all duration-500 ${
+                className={`text-center p-4 rounded-lg border border-border/50 hover:shadow-lg transition-all duration-500 ${
                   isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
                 }`}
                 style={{ transitionDelay: `${index * 0.1}s` }}
               >
-                <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center text-primary mx-auto mb-4 group-hover:scale-110 transition-transform">
+                <div className="w-8 h-8 bg-primary/20 rounded-lg flex items-center justify-center text-primary mx-auto mb-3 group-hover:scale-110 transition-transform">
                   {stat.icon}
                 </div>
-                <div className="text-3xl font-bold text-primary mb-2">{stat.value}</div>
-                <p className="text-sm text-muted-foreground">{stat.label}</p>
+                <div className="text-xl font-bold text-primary mb-1">{stat.value}</div>
+                <p className="text-xs text-muted-foreground">{stat.label}</p>
               </div>
             ))}
           </div>
@@ -163,18 +165,18 @@ const QuantumAnnotate = () => {
       </section>
 
       {/* Features Section */}
-      <section id="features" className="py-20">
+      <section id="features" className="py-8">
         <div className="container mx-auto px-6">
-          <div className="text-center mb-16">
+          <div className="text-center mb-8">
             <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-8'}`}>
-              <h2 className="text-4xl md:text-5xl font-bold mb-4">Comprehensive Annotation Services</h2>
-              <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              <h2 className="text-xl font-bold mb-3">Comprehensive Annotation Services</h2>
+              <p className="text-sm text-muted-foreground max-w-3xl mx-auto">
                 Professional data annotation services that deliver high-quality, consistent results across all data modalities.
               </p>
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {features.map((feature, index) => (
               <Card
                 key={index}
@@ -183,23 +185,23 @@ const QuantumAnnotate = () => {
                 }`}
                 style={{ transitionDelay: `${index * 0.1}s` }}
               >
-                <CardContent className="p-8">
-                  <div className="w-16 h-16 bg-primary/20 rounded-lg flex items-center justify-center text-primary mb-6 group-hover:bg-primary/30 group-hover:scale-110 transition-all duration-300">
+                <CardContent className="p-4">
+                  <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center text-primary mb-4 group-hover:bg-primary/30 group-hover:scale-110 transition-all duration-300">
                     {feature.icon}
                   </div>
 
-                  <h3 className="text-2xl font-bold mb-4 group-hover:text-primary transition-colors">
+                  <h3 className="text-sm font-bold mb-3 group-hover:text-primary transition-colors">
                     {feature.title}
                   </h3>
 
-                  <p className="text-muted-foreground mb-6 leading-relaxed">
+                  <p className="text-muted-foreground mb-4 leading-relaxed text-xs">
                     {feature.description}
                   </p>
 
-                  <ul className="space-y-3">
+                  <ul className="space-y-2">
                     {feature.benefits.map((benefit, benefitIndex) => (
-                      <li key={benefitIndex} className="flex items-center text-sm group-hover:text-foreground transition-colors">
-                        <div className="w-2 h-2 bg-primary rounded-full mr-3 group-hover:scale-125 transition-transform"></div>
+                      <li key={benefitIndex} className="flex items-center text-xs group-hover:text-foreground transition-colors">
+                        <div className="w-1.5 h-1.5 bg-primary rounded-full mr-2 group-hover:scale-125 transition-transform"></div>
                         {benefit}
                       </li>
                     ))}
@@ -212,18 +214,18 @@ const QuantumAnnotate = () => {
       </section>
 
       {/* Process Section */}
-      <section className="py-20 bg-card">
+      <section className="py-8 bg-card">
         <div className="container mx-auto px-6">
-          <div className="text-center mb-16">
+          <div className="text-center mb-8">
             <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-8'}`}>
-              <h2 className="text-4xl md:text-5xl font-bold mb-4">Our Annotation Process</h2>
-              <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              <h2 className="text-xl font-bold mb-3">Our Annotation Process</h2>
+              <p className="text-sm text-muted-foreground max-w-3xl mx-auto">
                 A systematic approach to delivering high-quality annotated data that meets your specific requirements.
               </p>
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
             {processSteps.map((step, index) => (
               <div
                 key={index}
@@ -261,10 +263,10 @@ const QuantumAnnotate = () => {
       <section className="py-20 bg-gradient-secondary">
         <div className="container mx-auto px-6 text-center">
           <div className={`max-w-4xl mx-auto transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+            <h2 className="text-3xl md:text-3xl font-bold mb-3">
               Ready to Annotate Your Data?
             </h2>
-            <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
+            <p className="text-sm text-muted-foreground mb-6 max-w-3xl mx-auto">
               Let's discuss how our professional annotation services can help you create high-quality training data for your machine learning models.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

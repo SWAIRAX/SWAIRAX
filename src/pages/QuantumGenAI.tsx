@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -7,6 +8,7 @@ import { ArrowRight, Brain, Cog, Database, Zap, CheckCircle, Sparkles, Target, T
 import { Link } from "react-router-dom";
 
 const QuantumGenAI = () => {
+  const navigate = useNavigate();
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -91,7 +93,7 @@ const QuantumGenAI = () => {
       <Header />
 
       {/* Hero Section */}
-      <section className="pt-24 pb-16 bg-gradient-secondary relative overflow-hidden">
+      <section className="pt-24 pb-8 bg-gradient-secondary relative overflow-hidden">
         {/* Animated background elements */}
         <div className="absolute inset-0">
           <div className="absolute top-20 left-10 w-20 h-20 bg-primary/10 rounded-full animate-pulse"></div>
@@ -102,21 +104,21 @@ const QuantumGenAI = () => {
         <div className="container mx-auto px-6 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
             <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-              <div className="flex items-center justify-center mb-6">
-                <div className="w-16 h-16 bg-primary/20 rounded-lg flex items-center justify-center text-primary mr-4 animate-pulse">
-                  <Brain className="h-8 w-8" />
+              <div className="flex items-center justify-center mb-3">
+                <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center text-primary mr-3 animate-pulse">
+                  <Brain className="h-6 w-6" />
                 </div>
-                <h1 className="text-5xl md:text-6xl font-bold">
+                <h1 className="text-2xl md:text-3xl font-bold">
                   Quantum <span className="text-primary">GenAI</span>
                 </h1>
               </div>
-              <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
+              <p className="text-sm text-muted-foreground mb-4 max-w-3xl mx-auto">
                 Enhance generative AI model accuracy, reliability, and speed through our in-house data expertise and advanced fine-tuning techniques.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <div className="flex flex-col sm:flex-row gap-3 justify-center">
                 <Button
-                  size="lg"
-                  className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-4 text-lg group"
+                  size="sm"
+                  className="bg-primary hover:bg-primary/90 text-primary-foreground px-4 py-2 text-sm group"
                   onClick={() => {
                     const target = document.getElementById("features");
                     if (target) {
@@ -124,12 +126,12 @@ const QuantumGenAI = () => {
                     }
                   }}
                 >
-                  Explore Features <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                  Explore Features <ArrowRight className="ml-1 h-3 w-3 group-hover:translate-x-1 transition-transform" />
                 </Button>
                 <Button
-                  size="lg"
+                  size="sm"
                   variant="outline"
-                  className="border-primary text-primary hover:bg-primary hover:text-primary-foreground px-8 py-4 text-lg"
+                  className="border-primary text-primary hover:bg-primary hover:text-primary-foreground px-4 py-2 text-sm"
                   asChild
                 >
                   <Link to="/contact">Get Started</Link>
@@ -141,22 +143,22 @@ const QuantumGenAI = () => {
       </section>
 
       {/* Stats Section */}
-      <section className="py-16 bg-card">
+      <section className="py-8 bg-card">
         <div className="container mx-auto px-6">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {stats.map((stat, index) => (
               <div
                 key={index}
-                className={`text-center p-6 rounded-lg border border-border/50 hover:shadow-lg transition-all duration-500 ${
+                className={`text-center p-4 rounded-lg border border-border/50 hover:shadow-lg transition-all duration-500 ${
                   isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
                 }`}
                 style={{ transitionDelay: `${index * 0.1}s` }}
               >
-                <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center text-primary mx-auto mb-4 group-hover:scale-110 transition-transform">
+                <div className="w-8 h-8 bg-primary/20 rounded-lg flex items-center justify-center text-primary mx-auto mb-3 group-hover:scale-110 transition-transform">
                   {stat.icon}
                 </div>
-                <div className="text-3xl font-bold text-primary mb-2">{stat.value}</div>
-                <p className="text-sm text-muted-foreground">{stat.label}</p>
+                <div className="text-xl font-bold text-primary mb-1">{stat.value}</div>
+                <p className="text-xs text-muted-foreground">{stat.label}</p>
               </div>
             ))}
           </div>
@@ -164,18 +166,18 @@ const QuantumGenAI = () => {
       </section>
 
       {/* Features Section */}
-      <section id="features" className="py-20">
+      <section id="features" className="py-8">
         <div className="container mx-auto px-6">
-          <div className="text-center mb-16">
+          <div className="text-center mb-8">
             <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-8'}`}>
-              <h2 className="text-4xl md:text-5xl font-bold mb-4">Powerful AI Capabilities</h2>
-              <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              <h2 className="text-xl font-bold mb-3">Powerful AI Capabilities</h2>
+              <p className="text-sm text-muted-foreground max-w-3xl mx-auto">
                 Our comprehensive suite of AI services delivers measurable improvements in model performance, speed, and reliability.
               </p>
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {features.map((feature, index) => (
               <Card
                 key={index}
@@ -184,23 +186,23 @@ const QuantumGenAI = () => {
                 }`}
                 style={{ transitionDelay: `${index * 0.1}s` }}
               >
-                <CardContent className="p-8">
-                  <div className="w-16 h-16 bg-primary/20 rounded-lg flex items-center justify-center text-primary mb-6 group-hover:bg-primary/30 group-hover:scale-110 transition-all duration-300">
+                <CardContent className="p-4">
+                  <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center text-primary mb-4 group-hover:bg-primary/30 group-hover:scale-110 transition-all duration-300">
                     {feature.icon}
                   </div>
 
-                  <h3 className="text-2xl font-bold mb-4 group-hover:text-primary transition-colors">
+                  <h3 className="text-sm font-bold mb-3 group-hover:text-primary transition-colors">
                     {feature.title}
                   </h3>
 
-                  <p className="text-muted-foreground mb-6 leading-relaxed">
+                  <p className="text-muted-foreground mb-4 leading-relaxed text-xs">
                     {feature.description}
                   </p>
 
-                  <ul className="space-y-3">
+                  <ul className="space-y-2">
                     {feature.benefits.map((benefit, benefitIndex) => (
-                      <li key={benefitIndex} className="flex items-center text-sm group-hover:text-foreground transition-colors">
-                        <div className="w-2 h-2 bg-primary rounded-full mr-3 group-hover:scale-125 transition-transform"></div>
+                      <li key={benefitIndex} className="flex items-center text-xs group-hover:text-foreground transition-colors">
+                        <div className="w-1.5 h-1.5 bg-primary rounded-full mr-2 group-hover:scale-125 transition-transform"></div>
                         {benefit}
                       </li>
                     ))}
@@ -213,18 +215,18 @@ const QuantumGenAI = () => {
       </section>
 
       {/* Process Section */}
-      <section className="py-20 bg-card">
+      <section className="py-8 bg-card">
         <div className="container mx-auto px-6">
-          <div className="text-center mb-16">
+          <div className="text-center mb-8">
             <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-8'}`}>
-              <h2 className="text-4xl md:text-5xl font-bold mb-4">Our Development Process</h2>
-              <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              <h2 className="text-xl font-bold mb-3">Our Development Process</h2>
+              <p className="text-sm text-muted-foreground max-w-3xl mx-auto">
                 A proven methodology that ensures your AI solutions are delivered on time, within budget, and exceed expectations.
               </p>
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
             {processSteps.map((step, index) => (
               <div
                 key={index}
@@ -233,24 +235,24 @@ const QuantumGenAI = () => {
                 }`}
                 style={{ transitionDelay: `${index * 0.1}s` }}
               >
-                <div className="relative mb-6">
-                  <div className="w-20 h-20 bg-primary rounded-full flex items-center justify-center text-primary-foreground font-bold text-xl mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                <div className="relative mb-4">
+                  <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-primary-foreground font-bold text-sm mx-auto mb-3 group-hover:scale-110 transition-transform duration-300">
                     {step.step}
                   </div>
-                  <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center text-primary mx-auto group-hover:bg-primary/30 transition-colors">
+                  <div className="w-8 h-8 bg-primary/20 rounded-lg flex items-center justify-center text-primary mx-auto group-hover:bg-primary/30 transition-colors">
                     {step.icon}
                   </div>
 
                   {/* Connecting line */}
                   {index < processSteps.length - 1 && (
-                    <div className="hidden md:block absolute top-10 left-full w-full h-0.5 bg-gradient-to-r from-primary/50 to-transparent transform -translate-y-1/2"></div>
+                    <div className="hidden md:block absolute top-6 left-full w-full h-0.5 bg-gradient-to-r from-primary/50 to-transparent transform -translate-y-1/2"></div>
                   )}
                 </div>
 
-                <h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors">
+                <h3 className="text-sm font-bold mb-2 group-hover:text-primary transition-colors">
                   {step.title}
                 </h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">
+                <p className="text-muted-foreground text-xs leading-relaxed">
                   {step.description}
                 </p>
               </div>
@@ -260,18 +262,18 @@ const QuantumGenAI = () => {
       </section>
 
       {/* Technology Stack */}
-      <section className="py-20">
+      <section className="py-8">
         <div className="container mx-auto px-6">
-          <div className="text-center mb-16">
+          <div className="text-center mb-8">
             <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-8'}`}>
-              <h2 className="text-4xl md:text-5xl font-bold mb-4">Cutting-Edge Technology</h2>
-              <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              <h2 className="text-xl font-bold mb-3">Cutting-Edge Technology</h2>
+              <p className="text-sm text-muted-foreground max-w-3xl mx-auto">
                 We leverage the latest AI frameworks, tools, and methodologies to deliver state-of-the-art solutions.
               </p>
             </div>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {[
               { name: "PyTorch", description: "Deep Learning Framework" },
               { name: "TensorFlow", description: "ML Platform" },
@@ -284,16 +286,16 @@ const QuantumGenAI = () => {
             ].map((tech, index) => (
               <div
                 key={index}
-                className={`text-center p-6 rounded-lg border border-border/50 hover:shadow-lg hover:border-primary/50 transition-all duration-300 group ${
+                className={`text-center p-4 rounded-lg border border-border/50 hover:shadow-lg hover:border-primary/50 transition-all duration-300 group ${
                   isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
                 }`}
                 style={{ transitionDelay: `${index * 0.05}s` }}
               >
-                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-4 group-hover:bg-primary/20 group-hover:scale-110 transition-all duration-300">
-                  <Sparkles className="h-6 w-6 text-primary" />
+                <div className="w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-3 group-hover:bg-primary/20 group-hover:scale-110 transition-all duration-300">
+                  <Sparkles className="h-4 w-4 text-primary" />
                 </div>
-                <h3 className="font-bold mb-2 group-hover:text-primary transition-colors">{tech.name}</h3>
-                <p className="text-sm text-muted-foreground">{tech.description}</p>
+                <h3 className="font-bold mb-1 text-sm group-hover:text-primary transition-colors">{tech.name}</h3>
+                <p className="text-xs text-muted-foreground">{tech.description}</p>
               </div>
             ))}
           </div>
@@ -301,29 +303,29 @@ const QuantumGenAI = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-secondary">
+      <section className="py-8 bg-gradient-secondary">
         <div className="container mx-auto px-6 text-center">
           <div className={`max-w-4xl mx-auto transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+            <h2 className="text-xl font-bold mb-3">
               Ready to Transform Your AI Capabilities?
             </h2>
-            <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
+            <p className="text-sm text-muted-foreground mb-4 max-w-3xl mx-auto">
               Let's discuss how our Quantum GenAI services can enhance your AI models and drive better business outcomes.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <Button
-                size="lg"
-                className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-4 text-lg group"
+                size="sm"
+                className="bg-primary hover:bg-primary/90 text-primary-foreground px-4 py-2 text-sm group"
                 asChild
               >
                 <Link to="/contact">
-                  Start Your Project <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                  Start Your Project <ArrowRight className="ml-1 h-3 w-3 group-hover:translate-x-1 transition-transform" />
                 </Link>
               </Button>
               <Button
-                size="lg"
+                size="sm"
                 variant="outline"
-                className="border-primary text-primary hover:bg-primary hover:text-primary-foreground px-8 py-4 text-lg"
+                className="border-primary text-primary hover:bg-primary hover:text-primary-foreground px-4 py-2 text-sm"
                 asChild
               >
                 <Link to="/services">View All Services</Link>

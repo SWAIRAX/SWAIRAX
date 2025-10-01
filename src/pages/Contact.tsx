@@ -128,16 +128,13 @@ const Contact = () => {
       <Header />
 
       {/* Hero Section */}
-      <section className="pt-24 pb-16 bg-card">
+      <section className="pt-20 pb-8 bg-card">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
+            <h1 className="text-xl md:text-2xl font-bold mb-2">
               Contact Our Development Team
             </h1>
-            <h2 className="text-3xl md:text-5xl font-bold text-primary mb-8">
-
-            </h2>
-            <p className="text-xl text-muted-foreground mb-8">
+            <p className="text-xs text-muted-foreground mb-3">
               We are happy to onboard you, including connecting you with helpful resources, exploring use cases for your team, and discussing your potential options.{" "}
               <a href="mailto:communications@quantumintelligence.co.tz" className="text-primary underline">
                 communications@quantumintelligence.co.tz
@@ -151,25 +148,25 @@ const Contact = () => {
       {/* Contact Information (moved below) */}
 
       {/* Contact Form */}
-      <section className="py-16 bg-card">
+      <section className="py-8 bg-card">
         <div className="container mx-auto px-6">
-          <div className="max-w-4xl mx-auto">
+          <div className="max-w-5xl mx-auto">
             <Form {...form}>
-              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8" role="form">
+              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4" role="form">
                 {/* Name and Email Row */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                   <FormField
                     control={form.control}
                     name="firstName"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>First Name*</FormLabel>
+                        <FormLabel className="text-sm">First Name*</FormLabel>
                         <FormControl>
                           <Input
                             {...field}
                             autoComplete="given-name"
                             aria-label="First Name"
-                            className="bg-background border-border focus:border-primary transition-colors"
+                            className="h-9 bg-background border-border focus:border-primary transition-colors"
                           />
                         </FormControl>
                         <FormMessage />
@@ -181,13 +178,13 @@ const Contact = () => {
                     name="lastName"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Last Name*</FormLabel>
+                        <FormLabel className="text-sm">Last Name*</FormLabel>
                         <FormControl>
                           <Input
                             {...field}
                             autoComplete="family-name"
                             aria-label="Last Name"
-                            className="bg-background border-border focus:border-primary transition-colors"
+                            className="h-9 bg-background border-border focus:border-primary transition-colors"
                           />
                         </FormControl>
                         <FormMessage />
@@ -199,14 +196,14 @@ const Contact = () => {
                     name="email"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Email Address*</FormLabel>
+                        <FormLabel className="text-sm">Email Address*</FormLabel>
                         <FormControl>
                           <Input
                             {...field}
                             type="email"
                             autoComplete="email"
                             aria-label="Email Address"
-                            className="bg-background border-border focus:border-primary transition-colors"
+                            className="h-9 bg-background border-border focus:border-primary transition-colors"
                           />
                         </FormControl>
                         <FormMessage />
@@ -216,13 +213,13 @@ const Contact = () => {
                 </div>
 
                 {/* Phone, Company, Employee Count Row */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                   <FormField
                     control={form.control}
                     name="phone"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Phone Number*</FormLabel>
+                        <FormLabel className="text-sm">Phone Number*</FormLabel>
                         <FormControl>
                           <Input
                             {...field}
@@ -230,7 +227,7 @@ const Contact = () => {
                             autoComplete="tel"
                             aria-label="Phone Number"
                             placeholder="+255 XXX XXX XXX"
-                            className="bg-background border-border focus:border-primary transition-colors"
+                            className="h-9 bg-background border-border focus:border-primary transition-colors"
                           />
                         </FormControl>
                         <FormMessage />
@@ -242,13 +239,13 @@ const Contact = () => {
                     name="company"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Company Name</FormLabel>
+                        <FormLabel className="text-sm">Company Name</FormLabel>
                         <FormControl>
                           <Input
                             {...field}
                             autoComplete="organization"
                             aria-label="Company Name"
-                            className="bg-background border-border focus:border-primary transition-colors"
+                            className="h-9 bg-background border-border focus:border-primary transition-colors"
                           />
                         </FormControl>
                         <FormMessage />
@@ -260,10 +257,10 @@ const Contact = () => {
                     name="employeeCount"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Number of Employees</FormLabel>
+                        <FormLabel className="text-sm">Number of Employees</FormLabel>
                         <Select onValueChange={field.onChange} defaultValue={field.value}>
                           <FormControl>
-                            <SelectTrigger className="bg-background border-border focus:border-primary transition-colors">
+                            <SelectTrigger className="h-9 bg-background border-border focus:border-primary transition-colors">
                               <SelectValue placeholder="Select range" />
                             </SelectTrigger>
                           </FormControl>
@@ -282,16 +279,16 @@ const Contact = () => {
                 </div>
 
                 {/* Help With and Hear About Row */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <FormField
                     control={form.control}
                     name="helpWith"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>What Can We Help You With?*</FormLabel>
+                        <FormLabel className="text-sm">What Can We Help You With?*</FormLabel>
                         <Select onValueChange={field.onChange} defaultValue={field.value}>
                           <FormControl>
-                            <SelectTrigger className="bg-background border-border focus:border-primary transition-colors">
+                            <SelectTrigger className="h-9 bg-background border-border focus:border-primary transition-colors">
                               <SelectValue placeholder="Select service" />
                             </SelectTrigger>
                           </FormControl>
@@ -312,10 +309,10 @@ const Contact = () => {
                     name="hearAbout"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>How Did You Hear About Us?*</FormLabel>
+                        <FormLabel className="text-sm">How Did You Hear About Us?*</FormLabel>
                         <Select onValueChange={field.onChange} defaultValue={field.value}>
                           <FormControl>
-                            <SelectTrigger className="bg-background border-border focus:border-primary transition-colors">
+                            <SelectTrigger className="h-9 bg-background border-border focus:border-primary transition-colors">
                               <SelectValue placeholder="Select option" />
                             </SelectTrigger>
                           </FormControl>
@@ -334,18 +331,18 @@ const Contact = () => {
                 </div>
 
                 {/* Project Description and NDA Row */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <FormField
                     control={form.control}
                     name="projectDescription"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Project Description*</FormLabel>
+                        <FormLabel className="text-sm">Project Description*</FormLabel>
                         <FormControl>
                           <Textarea
                             {...field}
                             placeholder="Describe your project, goals, and requirements..."
-                            className="min-h-32 bg-background border-border focus:border-primary transition-colors resize-none"
+                            className="min-h-20 bg-background border-border focus:border-primary transition-colors resize-none"
                             aria-label="Project Description"
                           />
                         </FormControl>
@@ -358,12 +355,12 @@ const Contact = () => {
                     name="needsNDA"
                     render={({ field }) => (
                       <FormItem className="space-y-3">
-                        <FormLabel>Do You Need an NDA First?*</FormLabel>
+                        <FormLabel className="text-sm">Do You Need an NDA First?*</FormLabel>
                         <FormControl>
                           <RadioGroup
                             onValueChange={field.onChange}
                             defaultValue={field.value}
-                            className="flex flex-col space-y-2"
+                            className="flex flex-col space-y-1"
                           >
                             <div className="flex items-center space-x-2">
                               <RadioGroupItem value="yes" id="nda-yes" />
@@ -395,7 +392,7 @@ const Contact = () => {
                         />
                       </FormControl>
                       <div className="space-y-1 leading-none">
-                        <FormLabel className="text-sm font-normal">
+                        <FormLabel className="text-xs font-normal">
                           I agree to receive marketing communication from Quantum Intelligence.
                         </FormLabel>
                       </div>
@@ -408,9 +405,9 @@ const Contact = () => {
                   type="submit"
                   size="lg"
                   disabled={form.formState.isSubmitting}
-                  className="w-full group relative overflow-hidden bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white py-4 text-lg font-semibold rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200"
+                  className="w-full group relative overflow-hidden bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white py-3 text-base font-semibold rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200"
                 >
-                  <Send className="w-5 h-5 mr-2 group-hover:translate-x-1 transition-transform duration-200" />
+                  <Send className="w-4 h-4 mr-2 group-hover:translate-x-1 transition-transform duration-200" />
                   {form.formState.isSubmitting ? "Sending..." : "Request Free Estimate"}
                 </Button>
               </form>
@@ -420,41 +417,41 @@ const Contact = () => {
       </section>
 
       {/* Contact Information (moved below) */}
-      <section className="py-16 bg-background">
+      <section className="py-8 bg-background">
         <div className="container mx-auto px-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
             <Card className="bg-card border-border">
               <CardContent className="p-4 text-center">
-                <Mail className="h-8 w-8 text-primary mx-auto mb-4" />
-                <h3 className="font-semibold mb-2">Email</h3>
-                <p className="text-muted-foreground text-sm">
+                <Mail className="h-6 w-6 text-primary mx-auto mb-2" />
+                <h3 className="font-semibold mb-1 text-sm">Email</h3>
+                <p className="text-muted-foreground text-xs">
                 communications@quantumintelligence.co.tz
                 </p>
               </CardContent>
             </Card>
             <Card className="bg-card border-border">
-              <CardContent className="p-6 text-center">
-                <Phone className="h-8 w-8 text-primary mx-auto mb-4" />
-                <h3 className="font-semibold mb-2">Phone</h3>
-                <p className="text-muted-foreground text-sm">
+              <CardContent className="p-4 text-center">
+                <Phone className="h-6 w-6 text-primary mx-auto mb-2" />
+                <h3 className="font-semibold mb-1 text-sm">Phone</h3>
+                <p className="text-muted-foreground text-xs">
                   +255 689 726 060
                 </p>
               </CardContent>
             </Card>
             <Card className="bg-card border-border">
-              <CardContent className="p-6 text-center">
-                <MapPin className="h-8 w-8 text-primary mx-auto mb-4" />
-                <h3 className="font-semibold mb-2">Location</h3>
-                <p className="text-muted-foreground text-sm">
+              <CardContent className="p-4 text-center">
+                <MapPin className="h-6 w-6 text-primary mx-auto mb-2" />
+                <h3 className="font-semibold mb-1 text-sm">Location</h3>
+                <p className="text-muted-foreground text-xs">
                   Dar es Salaam, Tanzania
                 </p>
               </CardContent>
             </Card>
             <Card className="bg-card border-border">
-              <CardContent className="p-6 text-center">
-                <Globe className="h-8 w-8 text-primary mx-auto mb-4" />
-                <h3 className="font-semibold mb-2">Services</h3>
-                <p className="text-muted-foreground text-sm">
+              <CardContent className="p-4 text-center">
+                <Globe className="h-6 w-6 text-primary mx-auto mb-2" />
+                <h3 className="font-semibold mb-1 text-sm">Services</h3>
+                <p className="text-muted-foreground text-xs">
                   Global AI Solutions
                 </p>
               </CardContent>

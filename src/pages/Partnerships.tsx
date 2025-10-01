@@ -48,12 +48,12 @@ const Partnerships = () => {
     <div className="min-h-screen bg-background">
       <Header />
       {/* Header Section */}
-      <section className="container mx-auto px-6 pt-32 pb-16 text-center">
+      <section className="container mx-auto px-6 pt-20 pb-6 text-center">
         <div className="max-w-4xl mx-auto animate-fade-in">
-          <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-6">
+          <h1 className="text-2xl md:text-3xl font-bold text-foreground mb-3">
             Our Partners in Innovation
           </h1>
-          <p className="text-xl text-muted-foreground mb-8">
+          <p className="text-sm text-muted-foreground mb-4">
             Quantum Intelligence proudly collaborates with leading institutions driving tech, research, and entrepreneurship in Tanzania.
           </p>
           <div className="w-32 h-1 bg-gradient-to-r from-primary to-accent mx-auto rounded-full shimmer-effect"></div>
@@ -61,37 +61,37 @@ const Partnerships = () => {
       </section>
 
       {/* Partners Grid */}
-      <section className="container mx-auto px-6 pb-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+      <section className="container mx-auto px-6 pb-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-6xl mx-auto">
           {partners.map((partner) => (
             <Card
               key={partner.id}
               className="group bg-card border-border hover:border-primary/50 transition-all duration-500 animate-slide-in-bottom partner-card"
               style={{ animationDelay: partner.animationDelay }}
             >
-              <CardContent className="p-8">
+              <CardContent className="p-4">
                 {/* Logo and Header */}
-                <div className="flex items-start gap-6 mb-6">
+                <div className="flex items-start gap-4 mb-4">
                   <div className="flex-shrink-0">
                     <img
                       src={partner.logo}
                       alt={`${partner.name} logo`}
-                      className="w-16 h-16 object-contain rounded-lg bg-muted/30 p-2 transition-transform duration-300 group-hover:scale-110"
+                      className="w-12 h-12 object-contain rounded-lg bg-muted/30 p-1 transition-transform duration-300 group-hover:scale-110"
                     />
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
+                    <h3 className="text-sm font-bold text-foreground mb-1 group-hover:text-primary transition-colors">
                       {partner.name}
                     </h3>
-                    <p className="text-sm text-muted-foreground leading-relaxed">
+                    <p className="text-xs text-muted-foreground leading-relaxed">
                       {partner.description}
                     </p>
                   </div>
                 </div>
 
                 {/* Mission Statement */}
-                <div className="mb-6 p-4 bg-muted/30 rounded-lg border-l-4 border-primary/30">
-                  <p className="text-sm font-medium text-foreground italic">
+                <div className="mb-4 p-3 bg-muted/30 rounded-lg border-l-4 border-primary/30">
+                  <p className="text-xs font-medium text-foreground italic">
                     "{partner.mission}"
                   </p>
                 </div>
@@ -103,10 +103,10 @@ const Partnerships = () => {
                       href={partner.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:text-primary/80 transition-colors group/link"
+                      className="inline-flex items-center gap-1 text-xs font-medium text-primary hover:text-primary/80 transition-colors group/link"
                     >
                       Visit Partner Site
-                      <ExternalLink className="w-4 h-4 transition-transform group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5" />
+                      <ExternalLink className="w-3 h-3 transition-transform group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5" />
                     </a>
                   </div>
                 )}
@@ -117,21 +117,21 @@ const Partnerships = () => {
       </section>
 
       {/* Call to Action */}
-      <section className="container mx-auto px-6 pb-20">
+      <section className="container mx-auto px-6 pb-8">
         <div className="max-w-4xl mx-auto text-center">
-          <div className="bg-gradient-to-r from-primary/10 to-accent/10 rounded-2xl p-8 border border-primary/20">
-            <h2 className="text-2xl font-bold text-foreground mb-4">
+          <div className="bg-gradient-to-r from-primary/10 to-accent/10 rounded-2xl p-4 border border-primary/20">
+            <h2 className="text-lg font-bold text-foreground mb-3">
               Ready to Partner with Quantum Intelligence?
             </h2>
-            <p className="text-muted-foreground mb-6">
+            <p className="text-sm text-muted-foreground mb-4">
               Join our ecosystem of innovation and help shape the future of AI in Tanzania and beyond.
             </p>
             <a
               href="/contact"
-              className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-lg font-medium hover:bg-primary/90 transition-colors"
+              className="inline-flex items-center gap-1 bg-primary text-primary-foreground px-4 py-2 rounded-lg text-sm font-medium hover:bg-primary/90 transition-colors"
             >
               Get In Touch
-              <ExternalLink className="w-4 h-4" />
+              <ExternalLink className="w-3 h-3" />
             </a>
           </div>
         </div>

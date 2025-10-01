@@ -71,13 +71,13 @@ const About = () => {
       <Header />
 
       {/* Hero Section */}
-      <section className="pt-24 pb-16 bg-gradient-secondary">
+      <section className="pt-20 pb-8 bg-gradient-secondary">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-5xl md:text-6xl font-bold mb-6 animate-fade-in">
+            <h1 className="text-2xl md:text-3xl font-bold mb-3 animate-fade-in">
               About <span className="text-primary">Quantum Intelligence</span>
             </h1>
-            <p className="text-xl text-muted-foreground mb-8">
+            <p className="text-sm text-muted-foreground mb-4">
              Quantum Intelligence is an AI research and deployment company.
             </p>
           </div>
@@ -85,51 +85,51 @@ const About = () => {
       </section>
 
       {/* Mission & Vision */}
-      <section className="py-20">
+      <section className="py-8">
         <div className="container mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             <div>
-              <h2 className="text-4xl font-bold mb-6">Our Mission</h2>
-              <p className="text-lg text-muted-foreground mb-6">
+              <h2 className="text-xl font-bold mb-3">Our Mission</h2>
+              <p className="text-sm text-muted-foreground mb-3">
                 To democratize artificial intelligence by building innovative, ethical, and accessible AI solutions that empower businesses and individuals to unlock the full potential of their data.
               </p>
-              <p className="text-muted-foreground">
+              <p className="text-xs text-muted-foreground">
                 We believe that AI should be a force for good, driving positive change across industries while maintaining the highest standards of ethics and transparency.
               </p>
             </div>
             <div>
-              <h2 className="text-4xl font-bold mb-6">Our Vision</h2>
-              <p className="text-lg text-muted-foreground mb-6">
+              <h2 className="text-xl font-bold mb-3">Our Vision</h2>
+              <p className="text-sm text-muted-foreground mb-3">
                 We live in an exciting time when AI research and technology are delivering extraordinary advances.
 In the coming years, AI — and ultimately artificial general intelligence (AGI) — has the potential to drive one of the greatest transformations in history.
               </p>
-              <p className="text-muted-foreground">
+              <p className="text-xs text-muted-foreground">
 
-We’re a team of scientists, engineers, ethicists and more, working to build the next generation of AI systems safely and responsibly.              </p>
+We're a team of scientists, engineers, ethicists and more, working to build the next generation of AI systems safely and responsibly.              </p>
             </div>
           </div>
         </div>
       </section>
 
       {/* Values */}
-      <section className="py-20 bg-card">
+      <section className="py-8 bg-card">
         <div className="container mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4">Our Values</h2>
-            <p className="text-xl text-muted-foreground">
-            By solving some of the hardest scientific and engineering challenges of our time, we’re working to create breakthrough technologies that could advance science, transform work, serve diverse communities — and improve billions of people’s lives.
+          <div className="text-center mb-8">
+            <h2 className="text-xl font-bold mb-3">Our Values</h2>
+            <p className="text-sm text-muted-foreground">
+            By solving some of the hardest scientific and engineering challenges of our time, we're working to create breakthrough technologies that could advance science, transform work, serve diverse communities — and improve billions of people's lives.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             {values.map((value, index) => (
               <Card key={index} className="bg-background border-border text-center hover:shadow-card transition-all duration-300">
-                <CardContent className="p-6">
-                  <div className="w-16 h-16 bg-primary/20 rounded-lg flex items-center justify-center text-primary mx-auto mb-4">
+                <CardContent className="p-4">
+                  <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center text-primary mx-auto mb-3">
                     {value.icon}
                   </div>
-                  <h3 className="text-xl font-bold mb-3">{value.title}</h3>
-                  <p className="text-muted-foreground text-sm mb-4">{value.description}</p>
+                  <h3 className="text-sm font-bold mb-2">{value.title}</h3>
+                  <p className="text-muted-foreground text-xs mb-3">{value.description}</p>
 
                   <Collapsible open={expandedValues[value.title]} onOpenChange={() => toggleValue(value.title)}>
                     <CollapsibleTrigger asChild>
@@ -224,11 +224,11 @@ We’re a team of scientists, engineers, ethicists and more, working to build th
       </section>
 
       {/* Company Story */}
-      <section className="py-20">
+      <section className="py-8">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-4xl font-bold mb-8 text-center">Our Story</h2>
-            <div className="space-y-6 text-lg text-muted-foreground">
+            <h2 className="text-xl font-bold mb-4 text-center">Our Story</h2>
+            <div className="space-y-3 text-sm text-muted-foreground">
               <p>
                 Founded in 2020 by a group of dreamers, builders, and researchers, Quantum Intelligence was born from a simple but powerful belief:
 Artificial intelligence should serve humanity—not just optimize it.
@@ -280,39 +280,39 @@ It’s about what it can do for you.
       </section> */}
 
       {/* Stats */}
-      <section className="py-20">
+      <section className="py-8">
         <div className="container mx-auto px-6">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
             <div>
-              <div className="text-4xl font-bold text-primary mb-2">20+</div>
-              <p className="text-muted-foreground">Projects Delivered</p>
+              <div className="text-2xl font-bold text-primary mb-1">20+</div>
+              <p className="text-xs text-muted-foreground">Projects Delivered</p>
             </div>
             <div>
-              <div className="text-4xl font-bold text-primary mb-2">09+</div>
-              <p className="text-muted-foreground">Team Members</p>
+              <div className="text-2xl font-bold text-primary mb-1">09+</div>
+              <p className="text-xs text-muted-foreground">Team Members</p>
             </div>
             <div>
-              <div className="text-4xl font-bold text-primary mb-2">6+</div>
-              <p className="text-muted-foreground">Countries Served</p>
+              <div className="text-2xl font-bold text-primary mb-1">6+</div>
+              <p className="text-xs text-muted-foreground">Countries Served</p>
             </div>
             <div>
-              <div className="text-4xl font-bold text-primary mb-2">99%</div>
-              <p className="text-muted-foreground">Client Satisfaction</p>
+              <div className="text-2xl font-bold text-primary mb-1">99%</div>
+              <p className="text-xs text-muted-foreground">Client Satisfaction</p>
             </div>
           </div>
         </div>
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-card">
+      <section className="py-8 bg-card">
         <div className="container mx-auto px-6 text-center">
-          <h2 className="text-4xl font-bold mb-4">Join Our Journey</h2>
-          <p className="text-xl text-muted-foreground mb-8">
+          <h2 className="text-xl font-bold mb-3">Join Our Journey</h2>
+          <p className="text-sm text-muted-foreground mb-4">
             Ready to be part of the AI revolution? Let's build the future together.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Button
-              size="lg"
+              size="sm"
               onClick={() => window.location.href = '/careers'}
               className="bg-primary hover:bg-primary/90 text-primary-foreground"
             >
@@ -320,7 +320,7 @@ It’s about what it can do for you.
             </Button>
             <Button
               variant="outline"
-              size="lg"
+              size="sm"
               onClick={() => window.location.href = '/contact'}
             >
               Partner With Us

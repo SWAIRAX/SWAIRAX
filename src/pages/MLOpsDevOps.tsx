@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -7,6 +8,7 @@ import { ArrowRight, BarChart3, Cog, Cloud, Database, CheckCircle, Zap, Target, 
 import { Link } from "react-router-dom";
 
 const MLOpsDevOps = () => {
+  const navigate = useNavigate();
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -106,7 +108,7 @@ const MLOpsDevOps = () => {
       <Header />
 
       {/* Hero Section */}
-      <section className="pt-24 pb-16 bg-gradient-secondary relative overflow-hidden">
+      <section className="pt-24 pb-8 bg-gradient-secondary relative overflow-hidden">
         {/* Animated background elements */}
         <div className="absolute inset-0">
           <div className="absolute top-20 left-10 w-20 h-20 bg-primary/10 rounded-full animate-pulse"></div>
@@ -117,21 +119,21 @@ const MLOpsDevOps = () => {
         <div className="container mx-auto px-6 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
             <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-              <div className="flex items-center justify-center mb-6">
-                <div className="w-16 h-16 bg-primary/20 rounded-lg flex items-center justify-center text-primary mr-4 animate-pulse">
-                  <BarChart3 className="h-8 w-8" />
+              <div className="flex items-center justify-center mb-3">
+                <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center text-primary mr-3 animate-pulse">
+                  <BarChart3 className="h-6 w-6" />
                 </div>
-                <h1 className="text-5xl md:text-6xl font-bold">
+                <h1 className="text-2xl md:text-3xl font-bold">
                   MLOps & <span className="text-primary">DevOps</span>
                 </h1>
               </div>
-              <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
+              <p className="text-sm text-muted-foreground mb-4 max-w-3xl mx-auto">
                 Bridge the gap between data science and production with our MLOps expertise and deployment solutions. Transform your AI models into reliable, scalable business applications.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <div className="flex flex-col sm:flex-row gap-3 justify-center">
                 <Button
-                  size="lg"
-                  className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-4 text-lg group"
+                  size="sm"
+                  className="bg-primary hover:bg-primary/90 text-primary-foreground px-4 py-2 text-sm group"
                   onClick={() => {
                     const target = document.getElementById("features");
                     if (target) {
@@ -139,12 +141,12 @@ const MLOpsDevOps = () => {
                     }
                   }}
                 >
-                  Explore Solutions <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                  Explore Solutions <ArrowRight className="ml-1 h-3 w-3 group-hover:translate-x-1 transition-transform" />
                 </Button>
                 <Button
-                  size="lg"
+                  size="sm"
                   variant="outline"
-                  className="border-primary text-primary hover:bg-primary hover:text-primary-foreground px-8 py-4 text-lg"
+                  className="border-primary text-primary hover:bg-primary hover:text-primary-foreground px-4 py-2 text-sm"
                   asChild
                 >
                   <Link to="/contact">Get Started</Link>
@@ -156,22 +158,22 @@ const MLOpsDevOps = () => {
       </section>
 
       {/* Stats Section */}
-      <section className="py-16 bg-card">
+      <section className="py-8 bg-card">
         <div className="container mx-auto px-6">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {stats.map((stat, index) => (
               <div
                 key={index}
-                className={`text-center p-6 rounded-lg border border-border/50 hover:shadow-lg transition-all duration-500 ${
+                className={`text-center p-4 rounded-lg border border-border/50 hover:shadow-lg transition-all duration-500 ${
                   isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
                 }`}
                 style={{ transitionDelay: `${index * 0.1}s` }}
               >
-                <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center text-primary mx-auto mb-4 group-hover:scale-110 transition-transform">
+                <div className="w-8 h-8 bg-primary/20 rounded-lg flex items-center justify-center text-primary mx-auto mb-3 group-hover:scale-110 transition-transform">
                   {stat.icon}
                 </div>
-                <div className="text-3xl font-bold text-primary mb-2">{stat.value}</div>
-                <p className="text-sm text-muted-foreground">{stat.label}</p>
+                <div className="text-xl font-bold text-primary mb-1">{stat.value}</div>
+                <p className="text-xs text-muted-foreground">{stat.label}</p>
               </div>
             ))}
           </div>
@@ -179,18 +181,18 @@ const MLOpsDevOps = () => {
       </section>
 
       {/* Features Section */}
-      <section id="features" className="py-20">
+      <section id="features" className="py-8">
         <div className="container mx-auto px-6">
-          <div className="text-center mb-16">
+          <div className="text-center mb-8">
             <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-8'}`}>
-              <h2 className="text-4xl md:text-5xl font-bold mb-4">Comprehensive MLOps Solutions</h2>
-              <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              <h2 className="text-xl font-bold mb-3">Comprehensive MLOps Solutions</h2>
+              <p className="text-sm text-muted-foreground max-w-3xl mx-auto">
                 Our end-to-end MLOps platform ensures your machine learning models are deployed, monitored, and maintained with enterprise-grade reliability.
               </p>
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {features.map((feature, index) => (
               <Card
                 key={index}
@@ -199,23 +201,23 @@ const MLOpsDevOps = () => {
                 }`}
                 style={{ transitionDelay: `${index * 0.1}s` }}
               >
-                <CardContent className="p-8">
-                  <div className="w-16 h-16 bg-primary/20 rounded-lg flex items-center justify-center text-primary mb-6 group-hover:bg-primary/30 group-hover:scale-110 transition-all duration-300">
+                <CardContent className="p-4">
+                  <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center text-primary mb-4 group-hover:bg-primary/30 group-hover:scale-110 transition-all duration-300">
                     {feature.icon}
                   </div>
 
-                  <h3 className="text-2xl font-bold mb-4 group-hover:text-primary transition-colors">
+                  <h3 className="text-sm font-bold mb-3 group-hover:text-primary transition-colors">
                     {feature.title}
                   </h3>
 
-                  <p className="text-muted-foreground mb-6 leading-relaxed">
+                  <p className="text-muted-foreground mb-4 leading-relaxed text-xs">
                     {feature.description}
                   </p>
 
-                  <ul className="space-y-3">
+                  <ul className="space-y-2">
                     {feature.benefits.map((benefit, benefitIndex) => (
-                      <li key={benefitIndex} className="flex items-center text-sm group-hover:text-foreground transition-colors">
-                        <div className="w-2 h-2 bg-primary rounded-full mr-3 group-hover:scale-125 transition-transform"></div>
+                      <li key={benefitIndex} className="flex items-center text-xs group-hover:text-foreground transition-colors">
+                        <div className="w-1.5 h-1.5 bg-primary rounded-full mr-2 group-hover:scale-125 transition-transform"></div>
                         {benefit}
                       </li>
                     ))}
@@ -228,18 +230,18 @@ const MLOpsDevOps = () => {
       </section>
 
       {/* Process Section */}
-      <section className="py-20 bg-card">
+      <section className="py-8 bg-card">
         <div className="container mx-auto px-6">
-          <div className="text-center mb-16">
+          <div className="text-center mb-8">
             <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-8'}`}>
-              <h2 className="text-4xl md:text-5xl font-bold mb-4">Our MLOps Implementation Process</h2>
-              <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              <h2 className="text-xl font-bold mb-3">Our MLOps Implementation Process</h2>
+              <p className="text-sm text-muted-foreground max-w-3xl mx-auto">
                 A systematic approach to implementing MLOps that ensures smooth deployment and long-term success of your machine learning initiatives.
               </p>
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
             {processSteps.map((step, index) => (
               <div
                 key={index}
@@ -248,24 +250,24 @@ const MLOpsDevOps = () => {
                 }`}
                 style={{ transitionDelay: `${index * 0.1}s` }}
               >
-                <div className="relative mb-6">
-                  <div className="w-20 h-20 bg-primary rounded-full flex items-center justify-center text-primary-foreground font-bold text-xl mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                <div className="relative mb-4">
+                  <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-primary-foreground font-bold text-sm mx-auto mb-3 group-hover:scale-110 transition-transform duration-300">
                     {step.step}
                   </div>
-                  <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center text-primary mx-auto group-hover:bg-primary/30 transition-colors">
+                  <div className="w-8 h-8 bg-primary/20 rounded-lg flex items-center justify-center text-primary mx-auto group-hover:bg-primary/30 transition-colors">
                     {step.icon}
                   </div>
 
                   {/* Connecting line */}
                   {index < processSteps.length - 1 && (
-                    <div className="hidden md:block absolute top-10 left-full w-full h-0.5 bg-gradient-to-r from-primary/50 to-transparent transform -translate-y-1/2"></div>
+                    <div className="hidden md:block absolute top-6 left-full w-full h-0.5 bg-gradient-to-r from-primary/50 to-transparent transform -translate-y-1/2"></div>
                   )}
                 </div>
 
-                <h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors">
+                <h3 className="text-sm font-bold mb-2 group-hover:text-primary transition-colors">
                   {step.title}
                 </h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">
+                <p className="text-muted-foreground text-xs leading-relaxed">
                   {step.description}
                 </p>
               </div>
@@ -275,31 +277,31 @@ const MLOpsDevOps = () => {
       </section>
 
       {/* Technology Stack */}
-      <section className="py-20">
+      <section className="py-8">
         <div className="container mx-auto px-6">
-          <div className="text-center mb-16">
+          <div className="text-center mb-8">
             <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-8'}`}>
-              <h2 className="text-4xl md:text-5xl font-bold mb-4">Enterprise-Grade Tools & Technologies</h2>
-              <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              <h2 className="text-xl font-bold mb-3">Enterprise-Grade Tools & Technologies</h2>
+              <p className="text-sm text-muted-foreground max-w-3xl mx-auto">
                 We use industry-leading tools and technologies to build robust, scalable MLOps solutions that meet enterprise requirements.
               </p>
             </div>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {tools.map((tool, index) => (
               <div
                 key={index}
-                className={`text-center p-6 rounded-lg border border-border/50 hover:shadow-lg hover:border-primary/50 transition-all duration-300 group ${
+                className={`text-center p-4 rounded-lg border border-border/50 hover:shadow-lg hover:border-primary/50 transition-all duration-300 group ${
                   isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
                 }`}
                 style={{ transitionDelay: `${index * 0.05}s` }}
               >
-                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-4 group-hover:bg-primary/20 group-hover:scale-110 transition-all duration-300">
-                  <Cog className="h-6 w-6 text-primary" />
+                <div className="w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-3 group-hover:bg-primary/20 group-hover:scale-110 transition-all duration-300">
+                  <Cog className="h-4 w-4 text-primary" />
                 </div>
-                <h3 className="font-bold mb-2 group-hover:text-primary transition-colors">{tool.name}</h3>
-                <p className="text-sm text-muted-foreground mb-2">{tool.description}</p>
+                <h3 className="font-bold mb-1 text-sm group-hover:text-primary transition-colors">{tool.name}</h3>
+                <p className="text-xs text-muted-foreground mb-2">{tool.description}</p>
                 <span className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">
                   {tool.category}
                 </span>
@@ -310,58 +312,58 @@ const MLOpsDevOps = () => {
       </section>
 
       {/* Benefits Section */}
-      <section className="py-20 bg-card">
+      <section className="py-8 bg-card">
         <div className="container mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
             <div>
               <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}`}>
-                <h2 className="text-4xl md:text-5xl font-bold mb-6">
+                <h2 className="text-xl font-bold mb-4">
                   Why Choose Our MLOps Solutions?
                 </h2>
-                <p className="text-xl text-muted-foreground mb-8">
+                <p className="text-sm text-muted-foreground mb-6">
                   Our MLOps expertise helps organizations overcome the "last-mile" deployment problem that prevents 50-90% of AI models from reaching production.
                 </p>
               </div>
             </div>
 
-            <div className="space-y-6">
+            <div className="space-y-4">
               {[
                 {
                   title: "Faster Time to Market",
                   description: "Reduce deployment time from months to weeks with our automated pipelines and proven methodologies.",
-                  icon: <Zap className="h-6 w-6" />
+                  icon: <Zap className="h-4 w-4" />
                 },
                 {
                   title: "Improved Model Performance",
                   description: "Continuous monitoring and retraining ensure your models maintain peak performance in production.",
-                  icon: <TrendingUp className="h-6 w-6" />
+                  icon: <TrendingUp className="h-4 w-4" />
                 },
                 {
                   title: "Reduced Operational Costs",
                   description: "Automated scaling and resource optimization minimize infrastructure costs while maximizing efficiency.",
-                  icon: <Target className="h-6 w-6" />
+                  icon: <Target className="h-4 w-4" />
                 },
                 {
                   title: "Enhanced Reliability",
                   description: "Built-in redundancy, monitoring, and automated failover ensure 99.9% uptime for your ML services.",
-                  icon: <Shield className="h-6 w-6" />
+                  icon: <Shield className="h-4 w-4" />
                 }
               ].map((benefit, index) => (
                 <div
                   key={index}
-                  className={`flex items-start space-x-4 p-4 rounded-lg hover:bg-background/50 transition-all duration-300 ${
+                  className={`flex items-start space-x-3 p-3 rounded-lg hover:bg-background/50 transition-all duration-300 ${
                     isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'
                   }`}
                   style={{ transitionDelay: `${index * 0.1}s` }}
                 >
-                  <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center text-primary group-hover:bg-primary/30 transition-colors">
+                  <div className="w-8 h-8 bg-primary/20 rounded-lg flex items-center justify-center text-primary group-hover:bg-primary/30 transition-colors">
                     {benefit.icon}
                   </div>
                   <div>
-                    <h3 className="text-lg font-bold mb-2 group-hover:text-primary transition-colors">
+                    <h3 className="text-sm font-bold mb-1 group-hover:text-primary transition-colors">
                       {benefit.title}
                     </h3>
-                    <p className="text-muted-foreground text-sm leading-relaxed">
+                    <p className="text-muted-foreground text-xs leading-relaxed">
                       {benefit.description}
                     </p>
                   </div>
@@ -373,29 +375,29 @@ const MLOpsDevOps = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-secondary">
+      <section className="py-8 bg-gradient-secondary">
         <div className="container mx-auto px-6 text-center">
           <div className={`max-w-4xl mx-auto transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+            <h2 className="text-xl font-bold mb-3">
               Ready to Deploy Your AI Models?
             </h2>
-            <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
+            <p className="text-sm text-muted-foreground mb-4 max-w-3xl mx-auto">
               Let's discuss how our MLOps solutions can help you bridge the gap between data science and production, ensuring your AI models deliver real business value.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <Button
-                size="lg"
-                className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-4 text-lg group"
+                size="sm"
+                className="bg-primary hover:bg-primary/90 text-primary-foreground px-4 py-2 text-sm group"
                 asChild
               >
                 <Link to="/contact">
-                  Start Your MLOps Journey <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                  Start Your MLOps Journey <ArrowRight className="ml-1 h-3 w-3 group-hover:translate-x-1 transition-transform" />
                 </Link>
               </Button>
               <Button
-                size="lg"
+                size="sm"
                 variant="outline"
-                className="border-primary text-primary hover:bg-primary hover:text-primary-foreground px-8 py-4 text-lg"
+                className="border-primary text-primary hover:bg-primary hover:text-primary-foreground px-4 py-2 text-sm"
                 asChild
               >
                 <Link to="/services">View All Services</Link>
