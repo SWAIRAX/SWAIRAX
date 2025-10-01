@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { useNavigationWithScroll } from "@/utils/navigation";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -9,6 +10,7 @@ import { Link } from "react-router-dom";
 
 const QuantumAnnotate = () => {
   const navigate = useNavigate();
+  const { navigateToTop, scrollToSection } = useNavigationWithScroll();
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -118,12 +120,7 @@ const QuantumAnnotate = () => {
                 <Button
                   size="sm"
                   className="bg-primary hover:bg-primary/90 text-primary-foreground px-4 py-2 text-sm group"
-                  onClick={() => {
-                    const target = document.getElementById("features");
-                    if (target) {
-                      target.scrollIntoView({ behavior: "smooth" });
-                    }
-                  }}
+                  onClick={() => scrollToSection("features")}
                 >
                   Explore Services <ArrowRight className="ml-1 h-3 w-3 group-hover:translate-x-1 transition-transform" />
                 </Button>
@@ -131,9 +128,9 @@ const QuantumAnnotate = () => {
                   size="sm"
                   variant="outline"
                   className="border-primary text-primary hover:bg-primary hover:text-primary-foreground px-4 py-2 text-sm"
-                  asChild
+                  onClick={() => navigateToTop('/contact')}
                 >
-                  <Link to="/contact">Get Started</Link>
+                  Get Started
                 </Button>
               </div>
             </div>
@@ -273,19 +270,17 @@ const QuantumAnnotate = () => {
               <Button
                 size="lg"
                 className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-4 text-lg group"
-                asChild
+                onClick={() => navigateToTop('/contact')}
               >
-                <Link to="/contact">
-                  Start Your Project <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                </Link>
+                Start Your Project <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </Button>
               <Button
                 size="lg"
                 variant="outline"
                 className="border-primary text-primary hover:bg-primary hover:text-primary-foreground px-8 py-4 text-lg"
-                asChild
+                onClick={() => navigateToTop('/services')}
               >
-                <Link to="/services">View All Services</Link>
+                View All Services
               </Button>
             </div>
           </div>

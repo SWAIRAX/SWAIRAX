@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { useNavigationWithScroll } from "@/utils/navigation";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -9,6 +10,7 @@ import { Link } from "react-router-dom";
 
 const MLOpsDevOps = () => {
   const navigate = useNavigate();
+  const { navigateToTop, scrollToSection } = useNavigationWithScroll();
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -134,12 +136,7 @@ const MLOpsDevOps = () => {
                 <Button
                   size="sm"
                   className="bg-primary hover:bg-primary/90 text-primary-foreground px-4 py-2 text-sm group"
-                  onClick={() => {
-                    const target = document.getElementById("features");
-                    if (target) {
-                      target.scrollIntoView({ behavior: "smooth" });
-                    }
-                  }}
+                  onClick={() => scrollToSection("features")}
                 >
                   Explore Solutions <ArrowRight className="ml-1 h-3 w-3 group-hover:translate-x-1 transition-transform" />
                 </Button>
@@ -147,9 +144,9 @@ const MLOpsDevOps = () => {
                   size="sm"
                   variant="outline"
                   className="border-primary text-primary hover:bg-primary hover:text-primary-foreground px-4 py-2 text-sm"
-                  asChild
+                  onClick={() => navigateToTop('/contact')}
                 >
-                  <Link to="/contact">Get Started</Link>
+                  Get Started
                 </Button>
               </div>
             </div>
@@ -388,19 +385,17 @@ const MLOpsDevOps = () => {
               <Button
                 size="sm"
                 className="bg-primary hover:bg-primary/90 text-primary-foreground px-4 py-2 text-sm group"
-                asChild
+                onClick={() => navigateToTop('/contact')}
               >
-                <Link to="/contact">
-                  Start Your MLOps Journey <ArrowRight className="ml-1 h-3 w-3 group-hover:translate-x-1 transition-transform" />
-                </Link>
+                Start Your MLOps Journey <ArrowRight className="ml-1 h-3 w-3 group-hover:translate-x-1 transition-transform" />
               </Button>
               <Button
                 size="sm"
                 variant="outline"
                 className="border-primary text-primary hover:bg-primary hover:text-primary-foreground px-4 py-2 text-sm"
-                asChild
+                onClick={() => navigateToTop('/services')}
               >
-                <Link to="/services">View All Services</Link>
+                View All Services
               </Button>
             </div>
           </div>

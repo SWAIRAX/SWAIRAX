@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useNavigationWithScroll } from "@/utils/navigation";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -9,6 +10,7 @@ import { ArrowRight, Brain, Database, Cog, BarChart3, ChevronDown, ChevronUp, Ch
 
 const Services = () => {
   const navigate = useNavigate();
+  const { navigateToTop } = useNavigationWithScroll();
   const [expandedServices, setExpandedServices] = useState<{[key: string]: boolean}>({});
 
   const toggleService = (serviceId: string) => {
@@ -61,7 +63,7 @@ const Services = () => {
             </p>
             {/* <Button
               size="lg"
-              onClick={() => window.location.href = '/contact'}
+              onClick={() => navigateToTop('/contact')}
               className="bg-primary hover:bg-primary/90 text-primary-foreground"
             >
               Get Started Today
@@ -224,15 +226,15 @@ const Services = () => {
   variant="ghost"
   onClick={() => {
     if (service.title === "Quantum Analytics") {
-      navigate('/quantum-analytics');
+      navigateToTop('/quantum-analytics');
     } else if (service.title === "Quantum Annotate") {
-      navigate('/quantum-annotate');
+      navigateToTop('/quantum-annotate');
     } else if (service.title === "Quantum GenAI") {
-      navigate('/quantum-genai');
+      navigateToTop('/quantum-genai');
     } else if (service.title === "MLOps & DevOps") {
-      navigate('/mlops-devops');
+      navigateToTop('/mlops-devops');
     } else {
-      navigate('/contact');
+      navigateToTop('/contact');
     }
   }}
   className="text-foreground hover:text-primary p-0 text-xs"
@@ -285,7 +287,7 @@ const Services = () => {
           <Button
             size="sm"
             variant="outline"
-            onClick={() => window.location.href = '/research'}
+            onClick={() => navigateToTop('/research')}
             className="border-primary text-primary hover:bg-primary hover:text-primary-foreground"
           >
             View Archived Solutions <ArrowRight className="ml-1 h-3 w-3" />
@@ -302,7 +304,7 @@ const Services = () => {
           </p>
           <Button
             size="sm"
-            onClick={() => window.location.href = '/contact'}
+            onClick={() => navigateToTop('/contact')}
             className="bg-primary hover:bg-primary/90 text-primary-foreground"
           >
             Contact Us Today

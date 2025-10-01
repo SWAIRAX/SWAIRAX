@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import { useNavigationWithScroll } from "@/utils/navigation";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import Header from "@/components/Header";
@@ -16,6 +17,7 @@ import {
 
 const FinancialServices = () => {
   const navigate = useNavigate();
+  const { navigateToTop, scrollToSection } = useNavigationWithScroll();
 
   const solutions = [
     {
@@ -88,7 +90,7 @@ const FinancialServices = () => {
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <Button
                 size="sm"
-                onClick={() => navigate('/contact')}
+                onClick={() => navigateToTop('/contact')}
                 className="bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700"
               >
                 Get Started
@@ -194,7 +196,7 @@ const FinancialServices = () => {
           </p>
           <Button
             size="lg"
-            onClick={() => navigate('/contact')}
+            onClick={() => navigateToTop('/contact')}
             className="bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700"
           >
             Estimate Project

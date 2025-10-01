@@ -1,5 +1,7 @@
 
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useNavigationWithScroll } from "@/utils/navigation";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
@@ -12,10 +14,11 @@ import { ArrowRight, CheckCircle, Database, Cog, Cloud, BarChart3, PieChart, Tre
 import { Link, useNavigate} from "react-router-dom";
 
 const Index = () => {
+  const navigate = useNavigate();
+  const { navigateToTop, scrollToSection } = useNavigationWithScroll();
   const [selectedBlog, setSelectedBlog] = useState<any>(null);
   const [isBlogModalOpen, setIsBlogModalOpen] = useState(false);
   const [expandedSections, setExpandedSections] = useState<{[key: string]: boolean}>({});
-  const navigate = useNavigate();
 
   const toggleSection = (sectionId: string) => {
     setExpandedSections(prev => ({
@@ -141,12 +144,7 @@ const Index = () => {
             <Button
   size="lg"
   className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-4 text-lg animate-glow-pulse"
-  onClick={() => {
-    const target = document.getElementById("why-quantum");
-    if (target) {
-      target.scrollIntoView({ behavior: "smooth" });
-    }
-  }}
+    onClick={() => scrollToSection("why-quantum")}
 >
   Scroll to Explore
 </Button>
@@ -632,7 +630,7 @@ const Index = () => {
                     <CollapsibleContent className="animate-accordion-down overflow-hidden relative z-10">
                       <div className="bg-background/50 p-3 rounded-lg border border-border/50 mb-3">
                         {product.title === "Quantum Analytics" && (
-                          <div className="space-y-2">
+                            <div className="space-y-2">
                             <h4 className="font-semibold text-primary text-xs">Key Features:</h4>
                             <div className="space-y-1">
                               <div className="flex items-start space-x-2">

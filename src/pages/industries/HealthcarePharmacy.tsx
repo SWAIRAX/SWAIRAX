@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import { useNavigationWithScroll } from "@/utils/navigation";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import Header from "@/components/Header";
@@ -16,6 +17,7 @@ import {
 
 const HealthcarePharmacy = () => {
   const navigate = useNavigate();
+  const { navigateToTop, scrollToSection } = useNavigationWithScroll();
 
   const solutions = [
     {
@@ -87,7 +89,7 @@ const HealthcarePharmacy = () => {
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <Button
                 size="sm"
-                onClick={() => navigate('/contact')}
+                onClick={() => navigateToTop('/contact')}
                 className="bg-gradient-to-r from-teal-500 to-cyan-600 hover:from-teal-600 hover:to-cyan-700"
               >
                 Get Started
@@ -193,7 +195,7 @@ const HealthcarePharmacy = () => {
           </p>
           <Button
             size="lg"
-            onClick={() => navigate('/contact')}
+            onClick={() => navigateToTop('/contact')}
             className="bg-gradient-to-r from-teal-500 to-cyan-600 hover:from-teal-600 hover:to-cyan-700"
           >
             Estimate Project

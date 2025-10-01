@@ -1,5 +1,6 @@
 import React from "react";
-import{ useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { useNavigationWithScroll } from "@/utils/navigation";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -8,7 +9,8 @@ import { Badge } from "@/components/ui/badge";
 import { ArrowRight, Calendar, Shield, Users, FileText, ExternalLink } from "lucide-react";
 
 const Research = () => {
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
+  const { navigateToTop } = useNavigationWithScroll();
 const archivedSolutions = [
 {
 title: "SURASOFT",
@@ -92,7 +94,7 @@ Explore a selection of our recent research on some of the most complex and inter
 <div className="flex flex-col sm:flex-row gap-4 justify-center">
 {/* <Button
 size="lg"
-onClick={() => window.location.href = '/services'}
+onClick={() => navigateToTop('/services')}
 className="bg-primary hover:bg-primary/90 text-primary-foreground"
 >
 View Current Solutions <ArrowRight className="ml-2 h-4 w-4" />
@@ -100,7 +102,7 @@ View Current Solutions <ArrowRight className="ml-2 h-4 w-4" />
 <Button
 size="lg"
 variant="outline"
-onClick={() => window.location.href = '/contact'}
+onClick={() => navigateToTop('/contact')}
 >
 Discuss Legacy Migration
 </Button> */}
@@ -209,7 +211,7 @@ advance society.
 <Button
 size="sm"
   variant="destructive" // makes the button red by default
-onClick={() => window.location.href = `/research/${solution.title.toLowerCase().replace(/\s+/g, '-')}`}
+onClick={() => navigateToTop(`/research/${solution.title.toLowerCase().replace(/\s+/g, '-')}`)}
 className="flex-1 text-xs"
 >
 <ExternalLink className="w-3 h-3 mr-1" />
@@ -280,7 +282,7 @@ Discover our current cutting-edge AI solutions built on years of innovation
 <div className="flex flex-col sm:flex-row gap-4 justify-center">
 <Button
 size="lg"
-onClick={() => window.location.href = '/services'}
+onClick={() => navigateToTop('/services')}
 className="bg-primary hover:bg-primary/90 text-primary-foreground"
 >
 Explore Current Solutions
@@ -288,7 +290,7 @@ Explore Current Solutions
 <Button
 size="lg"
 variant="outline"
-onClick={() => window.location.href = '/contact'}
+onClick={() => navigateToTop('/contact')}
 >
 Discuss Migration Options
 </Button>

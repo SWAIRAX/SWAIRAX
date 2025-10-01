@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useNavigationWithScroll } from "@/utils/navigation";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -7,6 +9,8 @@ import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/component
 import { Users, Target, Eye, Award, ChevronDown, ChevronUp, CheckCircle } from "lucide-react";
 
 const About = () => {
+  const navigate = useNavigate();
+  const { navigateToTop } = useNavigationWithScroll();
   const [expandedValues, setExpandedValues] = useState<{[key: string]: boolean}>({});
 
   const toggleValue = (valueId: string) => {
@@ -313,7 +317,7 @@ It’s about what it can do for you.
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Button
               size="sm"
-              onClick={() => window.location.href = '/careers'}
+              onClick={() => navigateToTop('/careers')}
               className="bg-primary hover:bg-primary/90 text-primary-foreground"
             >
               Explore Careers
@@ -321,7 +325,7 @@ It’s about what it can do for you.
             <Button
               variant="outline"
               size="sm"
-              onClick={() => window.location.href = '/contact'}
+              onClick={() => navigateToTop('/contact')}
             >
               Partner With Us
             </Button>

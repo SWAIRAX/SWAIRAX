@@ -1,10 +1,13 @@
 import { useState, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X, ChevronDown } from "lucide-react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useNavigationWithScroll } from "@/utils/navigation";
 import Logo from "@/components/Logo";
 
 const Header = () => {
+  const navigate = useNavigate();
+  const { navigateToTop } = useNavigationWithScroll();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const dropdownTimeout = useRef<NodeJS.Timeout | null>(null);
@@ -89,7 +92,10 @@ const Header = () => {
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-            <Link to="/" className="flex items-center space-x-3">
+            <button
+              onClick={() => navigateToTop('/')}
+              className="flex items-center space-x-3 hover:opacity-80 transition-opacity"
+            >
             <picture>
               <img
               src="/uploads/logo.png"
@@ -104,7 +110,7 @@ const Header = () => {
             >
               Quantum Intelligence
             </div>
-            </Link>
+            </button>
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-8">
@@ -137,21 +143,21 @@ const Header = () => {
                   }}
                 >
                   <span className="flex items-center">
-                    <Link
-                      to={item.path}
+                    <button
+                      onClick={() => {
+                        if (item.dropdown) {
+                          setActiveDropdown(item.name);
+                        } else {
+                          navigateToTop(item.path);
+                        }
+                      }}
                       className={`flex items-center text-sm font-medium transition-colors hover:text-primary ${
                         isActive(item.path) ? "text-primary" : "text-muted-foreground"
                       }`}
                       style={{ paddingRight: item.dropdown ? 0 : undefined }}
-                      onClick={e => {
-                        if (item.dropdown) {
-                          e.preventDefault();
-                          setActiveDropdown(item.name);
-                        }
-                      }}
                     >
                       {item.name}
-                    </Link>
+                    </button>
                     {item.dropdown && (
                       <button
                         type="button"
@@ -180,15 +186,17 @@ const Header = () => {
                     >
                       <div className="p-4 space-y-3">
                         {item.dropdown.map((dropdownItem) => (
-                          <Link
+                          <button
                             key={dropdownItem.name}
-                            to={dropdownItem.path}
-                            className="block p-3 rounded-lg hover:bg-muted transition-colors"
-                            onClick={() => setActiveDropdown(null)}
+                            onClick={() => {
+                              navigateToTop(dropdownItem.path);
+                              setActiveDropdown(null);
+                            }}
+                            className="block w-full text-left p-3 rounded-lg hover:bg-muted transition-colors"
                           >
                             <div className="font-medium text-foreground mb-1">{dropdownItem.name}</div>
                             <div className="text-sm text-muted-foreground">{dropdownItem.desc}</div>
-                          </Link>
+                          </button>
                         ))}
                       </div>
                     </div>
@@ -200,14 +208,13 @@ const Header = () => {
 
           {/* CTA Button */}
           <div className="hidden lg:flex">
-            <Link to="/contact">
-              <Button
-                variant="outline"
-                className="border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300"
-              >
-                Estimate Project
-              </Button>
-            </Link>
+            <Button
+              variant="outline"
+              onClick={() => navigateToTop('/contact')}
+              className="border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300"
+            >
+              Estimate Project
+            </Button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -227,41 +234,46 @@ const Header = () => {
                 // Skip the company dropdown in mobile, show direct About Us link instead
                 if (item.name === 'company') {
                   return (
-                    <Link
+                    <button
                       key="about-mobile"
-                      to="/about"
+                      onClick={() => {
+                        navigateToTop('/about');
+                        setIsMenuOpen(false);
+                      }}
                       className={`text-sm font-medium transition-colors hover:text-primary ${
                         isActive("/about") ? "text-primary" : "text-muted-foreground"
                       }`}
-                      onClick={() => setIsMenuOpen(false)}
                     >
                       About Us
-                    </Link>
+                    </button>
                   );
                 }
 
                 return (
-                  <Link
+                  <button
                     key={item.name}
-                    to={item.path}
+                    onClick={() => {
+                      navigateToTop(item.path);
+                      setIsMenuOpen(false);
+                    }}
                     className={`text-sm font-medium transition-colors hover:text-primary ${
                       isActive(item.path) ? "text-primary" : "text-muted-foreground"
                     }`}
-                    onClick={() => setIsMenuOpen(false)}
                   >
                     {item.name}
-                  </Link>
+                  </button>
                 );
               })}
-              <Link to="/contact">
-                <Button
-                  variant="outline"
-                  className="border-primary text-primary hover:bg-primary hover:text-primary-foreground w-fit"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  Estimate Project
-                </Button>
-              </Link>
+              <Button
+                variant="outline"
+                onClick={() => {
+                  navigateToTop('/contact');
+                  setIsMenuOpen(false);
+                }}
+                className="border-primary text-primary hover:bg-primary hover:text-primary-foreground w-fit"
+              >
+                Estimate Project
+              </Button>
             </nav>
           </div>
         )}

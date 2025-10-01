@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import { useNavigationWithScroll } from "@/utils/navigation";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import Header from "@/components/Header";
@@ -16,6 +17,7 @@ import {
 
 const EducationServices = () => {
   const navigate = useNavigate();
+  const { navigateToTop, scrollToSection } = useNavigationWithScroll();
 
   const solutions = [
     {
@@ -88,7 +90,7 @@ const EducationServices = () => {
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <Button
                 size="sm"
-                onClick={() => navigate('/contact')}
+                onClick={() => navigateToTop('/contact')}
                 className="bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700"
               >
                 Get Started
@@ -97,7 +99,7 @@ const EducationServices = () => {
               <Button
                 size="sm"
                 variant="outline"
-                onClick={() => document.getElementById('solutions')?.scrollIntoView({ behavior: 'smooth' })}
+                onClick={() => scrollToSection('solutions')}
               >
                 View Solutions
               </Button>
@@ -194,7 +196,7 @@ const EducationServices = () => {
           </p>
           <Button
             size="lg"
-            onClick={() => navigate('/contact')}
+            onClick={() => navigateToTop('/contact')}
             className="bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700"
           >
             Estimate Project

@@ -1,5 +1,6 @@
 import React from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import { useNavigationWithScroll } from "@/utils/navigation";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -10,6 +11,7 @@ import { ArrowLeft, Shield, Users, FileText, Calendar, Target, Lightbulb, CheckC
 const ResearchDetail = () => {
   const { solutionName } = useParams();
   const navigate = useNavigate();
+  const { navigateToTop } = useNavigationWithScroll();
 
   const researchData = {
     "surasoft": {
@@ -112,7 +114,7 @@ const ResearchDetail = () => {
           <div className="max-w-4xl mx-auto">
             <Button
               variant="ghost"
-              onClick={() => navigate('/research')}
+              onClick={() => navigateToTop('/research')}
               className="mb-4 group text-xs"
             >
               <ArrowLeft className="w-3 h-3 mr-1 group-hover:-translate-x-1 transition-transform" />
@@ -261,7 +263,7 @@ const ResearchDetail = () => {
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Button
               size="sm"
-              onClick={() => navigate('/contact')}
+              onClick={() => navigateToTop('/contact')}
               className="bg-primary hover:bg-primary/90 text-primary-foreground"
             >
               Work With Us
@@ -269,7 +271,7 @@ const ResearchDetail = () => {
             <Button
               size="sm"
               variant="outline"
-              onClick={() => navigate('/research')}
+              onClick={() => navigateToTop('/research')}
             >
               Explore More Research
             </Button>
