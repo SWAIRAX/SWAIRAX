@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useNavigationWithScroll } from "@/utils/navigation";
@@ -11,7 +10,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import BlogModal from "@/components/BlogModal";
 import { ArrowRight, CheckCircle, Database, Cog, Cloud, BarChart3, PieChart, TrendingUp, ChevronDown, ChevronUp } from "lucide-react";
-import { Link, useNavigate} from "react-router-dom";
+
 
 const Index = () => {
   const navigate = useNavigate();
@@ -51,7 +50,7 @@ const Index = () => {
     },
     {
       title: "Quantum GenAI",
-      category: "Self hosted",
+      category: "AI Enhancement",
       description: "Enhance generative AI model accuracy, reliability, and speed through in-house data expertise and fine-tuning techniques.",
       cta: "Learn More"
     }
@@ -116,8 +115,8 @@ const Index = () => {
 
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        {/* Background Video */}
-        <div className="absolute inset-0 w-full h-full">
+       {/* Background Video */}
+       <div className="absolute inset-0 w-full h-full">
           <video
             autoPlay
             loop
@@ -142,54 +141,53 @@ const Index = () => {
               Adopting data-centric operations and building AI solutions has never been easier, we are working on that.
             </p>
             <Button
-  size="lg"
-  className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-4 text-lg animate-glow-pulse"
-    onClick={() => scrollToSection("why-quantum")}
->
-  Scroll to Explore
-</Button>
+              size="lg"
+              className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-4 text-lg animate-glow-pulse"
+              onClick={() => scrollToSection("why-quantum")}
+            >
+              Scroll to Explore
+            </Button>
           </div>
         </div>
       </section>
 
       {/* Why Quantum Intelligence Section */}
-
-      <section id="why-quantum" className="py-8 bg-card">
+      <section id="why-quantum" className="py-20 bg-card">
         <div className="container mx-auto px-6">
-          <div className="text-center mb-8">
-            <p className="text-primary text-xs font-semibold mb-3">Why Quantum Intelligence?</p>
-            <h2 className="text-xl font-bold mb-4">
+          <div className="text-center mb-16">
+            <p className="text-primary text-sm font-semibold mb-4">Why Quantum Intelligence?</p>
+            <h2 className="text-4xl md:text-5xl font-bold mb-8">
               We help Business & Data Scientists to unlock<br />
               data & artificial intelligence full potential.
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
             <div>
-              <p className="text-sm text-muted-foreground mb-6">
+              <p className="text-lg text-muted-foreground mb-8">
                 Through measurable <span className="text-primary">performance</span> & improvements we offer services as follows.
               </p>
 
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-2 gap-8">
                 {stats.map((stat, index) => (
-                  <div key={index} className="metric-card text-center p-3 rounded-lg border border-primary/10 animate-slide-in-bottom" style={{ animationDelay: `${index * 0.1}s` }}>
-                    <div className="metric-value text-xl font-bold mb-1 animate-counter-up" style={{ animationDelay: `${index * 0.15}s` }}>
+                  <div key={index} className="metric-card text-center p-4 rounded-lg border border-primary/10 animate-slide-in-bottom" style={{ animationDelay: `${index * 0.1}s` }}>
+                    <div className="metric-value text-4xl md:text-5xl font-bold mb-2 animate-counter-up" style={{ animationDelay: `${index * 0.15}s` }}>
                       <AnimatedCounter value={stat.value} />
                     </div>
-                    <p className="text-xs text-muted-foreground">{stat.label}</p>
+                    <p className="text-sm text-muted-foreground">{stat.label}</p>
                   </div>
                 ))}
               </div>
             </div>
 
             <div className="text-center">
-              <p className="text-sm text-muted-foreground mb-6">
+              <p className="text-lg text-muted-foreground mb-8">
                 And trusted by the <span className="text-primary">community</span> with
               </p>
-              <div className="text-3xl font-bold mb-3">
+              <div className="text-6xl font-bold mb-4">
                 <AnimatedCounter value="100+" />
               </div>
-              <p className="text-xs text-muted-foreground">
+              <p className="text-muted-foreground">
                 Data scientists and software Developers using our products.
               </p>
             </div>
@@ -198,27 +196,27 @@ const Index = () => {
       </section>
 
       {/* Data-Centric Solutions Section */}
-      <section className="py-8">
+      <section className="py-20">
         <div className="container mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
-              <p className="text-primary text-xs font-semibold mb-3">What do we do?</p>
-              <h2 className="text-xl font-bold mb-4">
+              <p className="text-primary text-sm font-semibold mb-4">What do we do?</p>
+              <h2 className="text-4xl md:text-5xl font-bold mb-8">
                 Data-Centric and AI solutions
               </h2>
             </div>
 
             <div>
-              <div className="bg-card p-4 rounded-lg border">
-                <p className="text-primary text-xs font-semibold mb-3">AI STUDIO & IDEAS</p>
-                <h3 className="text-sm font-bold mb-3">
+              <div className="bg-card p-8 rounded-lg border">
+                <p className="text-primary text-sm font-semibold mb-4">AI STUDIO & IDEAS</p>
+                <h3 className="text-2xl font-bold mb-4">
                   Get Customized AI powered solution for a research or business.
                 </h3>
-                <p className="text-muted-foreground mb-4 text-xs">
+                <p className="text-muted-foreground mb-6">
                   Tell us a bit about your research and business challenge and our AI Team with combination
                   of expert data scientists, developers, and business strategists — will come up with a few solutions.
                 </p>
-                <p className="text-muted-foreground mb-4 text-xs">
+                <p className="text-muted-foreground mb-6">
                   We are working on computer vision, NLP, LLMs, Generative AI and more. We help you to
                   reduce development timeline, cheap and faster.
                 </p>
@@ -227,51 +225,51 @@ const Index = () => {
                   <CollapsibleTrigger asChild>
                     <Button
                       variant="ghost"
-                      className="text-foreground hover:text-primary p-0 mb-3 text-xs"
+                      className="text-foreground hover:text-primary p-0 mb-4"
                       aria-expanded={expandedSections['ai-studio']}
                     >
                       Show More Details
                       {expandedSections['ai-studio'] ? (
-                        <ChevronUp className="ml-1 h-3 w-3" />
+                        <ChevronUp className="ml-2 h-4 w-4" />
                       ) : (
-                        <ChevronDown className="ml-1 h-3 w-3" />
+                        <ChevronDown className="ml-2 h-4 w-4" />
                       )}
                     </Button>
                   </CollapsibleTrigger>
                   <CollapsibleContent className="animate-accordion-down overflow-hidden">
-                    <div className="bg-background/50 p-4 rounded-lg border border-border/50 mb-3">
-                      <h4 className="text-sm font-semibold mb-3 text-primary">Our AI Capabilities Include:</h4>
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-3">
-                        <div className="flex items-start space-x-2">
-                          <CheckCircle className="w-3 h-3 text-primary mt-0.5" />
+                    <div className="bg-background/50 p-6 rounded-lg border border-border/50 mb-4">
+                      <h4 className="text-lg font-semibold mb-4 text-primary">Our AI Capabilities Include:</h4>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                        <div className="flex items-start space-x-3">
+                          <CheckCircle className="w-5 h-5 text-primary mt-0.5" />
                           <div>
-                            <h5 className="font-medium text-xs">Computer Vision</h5>
-                            <p className="text-xs text-muted-foreground">Object detection, image classification, facial recognition</p>
+                            <h5 className="font-medium">Computer Vision</h5>
+                            <p className="text-sm text-muted-foreground">Object detection, image classification, facial recognition</p>
                           </div>
                         </div>
-                        <div className="flex items-start space-x-2">
-                          <CheckCircle className="w-3 h-3 text-primary mt-0.5" />
+                        <div className="flex items-start space-x-3">
+                          <CheckCircle className="w-5 h-5 text-primary mt-0.5" />
                           <div>
-                            <h5 className="font-medium text-xs">Natural Language Processing</h5>
-                            <p className="text-xs text-muted-foreground">Text analysis, sentiment analysis, chatbots</p>
+                            <h5 className="font-medium">Natural Language Processing</h5>
+                            <p className="text-sm text-muted-foreground">Text analysis, sentiment analysis, chatbots</p>
                           </div>
                         </div>
-                        <div className="flex items-start space-x-2">
-                          <CheckCircle className="w-3 h-3 text-primary mt-0.5" />
+                        <div className="flex items-start space-x-3">
+                          <CheckCircle className="w-5 h-5 text-primary mt-0.5" />
                           <div>
-                            <h5 className="font-medium text-xs">Generative AI</h5>
-                            <p className="text-xs text-muted-foreground">Content creation, code generation, image synthesis</p>
+                            <h5 className="font-medium">Generative AI</h5>
+                            <p className="text-sm text-muted-foreground">Content creation, code generation, image synthesis</p>
                           </div>
                         </div>
-                        <div className="flex items-start space-x-2">
-                          <CheckCircle className="w-3 h-3 text-primary mt-0.5" />
+                        <div className="flex items-start space-x-3">
+                          <CheckCircle className="w-5 h-5 text-primary mt-0.5" />
                           <div>
-                            <h5 className="font-medium text-xs">Predictive Analytics</h5>
-                            <p className="text-xs text-muted-foreground">Forecasting, risk assessment, trend analysis</p>
+                            <h5 className="font-medium">Predictive Analytics</h5>
+                            <p className="text-sm text-muted-foreground">Forecasting, risk assessment, trend analysis</p>
                           </div>
                         </div>
                       </div>
-                      <p className="text-xs text-muted-foreground">
+                      <p className="text-sm text-muted-foreground">
                         Our team delivers end-to-end AI solutions with 40% faster deployment compared to traditional approaches,
                         ensuring your AI projects reach production quickly and efficiently.
                       </p>
@@ -279,8 +277,8 @@ const Index = () => {
                   </CollapsibleContent>
                 </Collapsible>
 
-                {/* <Button asChild variant="ghost" className="text-foreground hover:text-primary p-0 text-xs">
-                  <Link to="/ai-studio">Know More <ArrowRight className="ml-1 h-3 w-3" /></Link>
+                {/* <Button asChild variant="ghost" className="text-foreground hover:text-primary p-0">
+                  <Link to="/ai-studio">Know More <ArrowRight className="ml-2 h-4 w-4" /></Link>
                 </Button> */}
               </div>
             </div>
@@ -289,20 +287,20 @@ const Index = () => {
       </section>
 
       {/* MLOps Section */}
-      <section className="py-8 bg-card">
+      <section className="py-20 bg-card">
         <div className="container mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
-              <p className="text-primary text-xs font-semibold mb-3">MLOps</p>
-              <h2 className="text-xl font-bold mb-4">
+              <p className="text-primary text-sm font-semibold mb-4">MLOps</p>
+              <h2 className="text-4xl md:text-5xl font-bold mb-8">
                 Machine Learning + Devops
               </h2>
-              <p className="text-muted-foreground mb-4 text-xs">
+              <p className="text-muted-foreground mb-6">
                 You have the data and the model, but you still can't see the return on investment for your AI
                 projects. Research shows that 50 - 90% of AI models are never commercialized because of
                 the "last-mile" deployment problem.
               </p>
-              <p className="text-muted-foreground mb-6 text-xs">
+              <p className="text-muted-foreground mb-8">
                 We practices Machine Learning Operations (MLOps) by bridging the gap between data and
                 IT Ops teams. We help you convert your data to business value by deploying your models
                 into production.
@@ -311,51 +309,51 @@ const Index = () => {
                 <CollapsibleTrigger asChild>
                   <Button
                     variant="ghost"
-                    className="text-foreground hover:text-primary p-0 mb-3 text-xs"
+                    className="text-foreground hover:text-primary p-0 mb-4"
                     aria-expanded={expandedSections['mlops']}
                   >
                     Show MLOps Process
                     {expandedSections['mlops'] ? (
-                      <ChevronUp className="ml-1 h-3 w-3" />
+                      <ChevronUp className="ml-2 h-4 w-4" />
                     ) : (
-                      <ChevronDown className="ml-1 h-3 w-3" />
+                      <ChevronDown className="ml-2 h-4 w-4" />
                     )}
                   </Button>
                 </CollapsibleTrigger>
                 <CollapsibleContent className="animate-accordion-down overflow-hidden">
-                  <div className="bg-background/50 p-4 rounded-lg border border-border/50 mb-3">
-                    <h4 className="text-sm font-semibold mb-3 text-primary">MLOps Pipeline Steps:</h4>
-                    <div className="space-y-3">
-                      <div className="flex items-center space-x-3 p-2 bg-card/50 rounded-lg">
-                        <div className="w-6 h-6 bg-primary/20 rounded-full flex items-center justify-center text-primary font-bold text-xs">
+                  <div className="bg-background/50 p-6 rounded-lg border border-border/50 mb-4">
+                    <h4 className="text-lg font-semibold mb-4 text-primary">MLOps Pipeline Steps:</h4>
+                    <div className="space-y-4">
+                      <div className="flex items-center space-x-4 p-3 bg-card/50 rounded-lg">
+                        <div className="w-8 h-8 bg-primary/20 rounded-full flex items-center justify-center text-primary font-bold text-sm">
                           1
                         </div>
                         <div>
-                          <h5 className="font-medium text-xs">Data Pipeline Setup</h5>
-                          <p className="text-xs text-muted-foreground">Automated data ingestion and preprocessing</p>
+                          <h5 className="font-medium">Data Pipeline Setup</h5>
+                          <p className="text-sm text-muted-foreground">Automated data ingestion and preprocessing</p>
                         </div>
                       </div>
-                      <div className="flex items-center space-x-3 p-2 bg-card/50 rounded-lg">
-                        <div className="w-6 h-6 bg-primary/20 rounded-full flex items-center justify-center text-primary font-bold text-xs">
+                      <div className="flex items-center space-x-4 p-3 bg-card/50 rounded-lg">
+                        <div className="w-8 h-8 bg-primary/20 rounded-full flex items-center justify-center text-primary font-bold text-sm">
                           2
                         </div>
                         <div>
-                          <h5 className="font-medium text-xs">Model Training & Validation</h5>
-                          <p className="text-xs text-muted-foreground">Continuous integration for ML models</p>
+                          <h5 className="font-medium">Model Training & Validation</h5>
+                          <p className="text-sm text-muted-foreground">Continuous integration for ML models</p>
                         </div>
                       </div>
-                      <div className="flex items-center space-x-3 p-2 bg-card/50 rounded-lg">
-                        <div className="w-6 h-6 bg-primary/20 rounded-full flex items-center justify-center text-primary font-bold text-xs">
+                      <div className="flex items-center space-x-4 p-3 bg-card/50 rounded-lg">
+                        <div className="w-8 h-8 bg-primary/20 rounded-full flex items-center justify-center text-primary font-bold text-sm">
                           3
                         </div>
                         <div>
-                          <h5 className="font-medium text-xs">Deployment & Monitoring</h5>
-                          <p className="text-xs text-muted-foreground">Real-time performance tracking and alerts</p>
+                          <h5 className="font-medium">Deployment & Monitoring</h5>
+                          <p className="text-sm text-muted-foreground">Real-time performance tracking and alerts</p>
                         </div>
                       </div>
                     </div>
-                    <div className="mt-3 p-2 bg-primary/10 rounded-lg">
-                      <p className="text-xs text-primary font-medium">
+                    <div className="mt-4 p-3 bg-primary/10 rounded-lg">
+                      <p className="text-sm text-primary font-medium">
                         ✓ 20% faster deployment • ✓ 50% reduced errors • ✓ Automated scaling
                       </p>
                     </div>
@@ -363,41 +361,41 @@ const Index = () => {
                 </CollapsibleContent>
               </Collapsible>
 
-              {/* <Button asChild variant="ghost" className="text-foreground hover:text-primary p-0 text-xs">
-                <Link to="/mlops">Learn more <ArrowRight className="ml-1 h-3 w-3" /></Link>
+              {/* <Button asChild variant="ghost" className="text-foreground hover:text-primary p-0">
+                <Link to="/mlops">Learn more <ArrowRight className="ml-2 h-4 w-4" /></Link>
               </Button> */}
             </div>
 
             <div className="relative">
               {/* Animated Pipeline Flow */}
-              <div className="flex items-center justify-center space-x-4">
-                <div className="flex flex-col items-center space-y-2 animate-fade-in">
-                  <div className="w-10 h-10 bg-primary/20 rounded-lg flex items-center justify-center group hover:bg-primary/30 transition-colors duration-300">
-                    <Database className="w-5 h-5 text-primary group-hover:scale-110 transition-transform" />
+              <div className="flex items-center justify-center space-x-8">
+                <div className="flex flex-col items-center space-y-4 animate-fade-in">
+                  <div className="w-16 h-16 bg-primary/20 rounded-lg flex items-center justify-center group hover:bg-primary/30 transition-colors duration-300">
+                    <Database className="w-8 h-8 text-primary group-hover:scale-110 transition-transform" />
                   </div>
-                  <span className="text-xs text-muted-foreground">Dataset</span>
+                  <span className="text-sm text-muted-foreground">Dataset</span>
                 </div>
 
                 <div className="animate-pulse">
-                  <ArrowRight className="w-4 h-4 text-primary" />
+                  <ArrowRight className="w-6 h-6 text-primary" />
                 </div>
 
-                <div className="flex flex-col items-center space-y-2 animate-fade-in" style={{ animationDelay: '0.2s' }}>
-                  <div className="w-10 h-10 bg-primary/20 rounded-lg flex items-center justify-center group hover:bg-primary/30 transition-colors duration-300">
-                    <Cog className="w-5 h-5 text-primary group-hover:scale-110 transition-transform animate-spin-slow" />
+                <div className="flex flex-col items-center space-y-4 animate-fade-in" style={{ animationDelay: '0.2s' }}>
+                  <div className="w-16 h-16 bg-primary/20 rounded-lg flex items-center justify-center group hover:bg-primary/30 transition-colors duration-300">
+                    <Cog className="w-8 h-8 text-primary group-hover:scale-110 transition-transform animate-spin-slow" />
                   </div>
-                  <span className="text-xs text-muted-foreground">Model</span>
+                  <span className="text-sm text-muted-foreground">Model</span>
                 </div>
 
                 <div className="animate-pulse" style={{ animationDelay: '0.4s' }}>
-                  <ArrowRight className="w-4 h-4 text-primary" />
+                  <ArrowRight className="w-6 h-6 text-primary" />
                 </div>
 
-                <div className="flex flex-col items-center space-y-2 animate-fade-in" style={{ animationDelay: '0.4s' }}>
-                  <div className="w-10 h-10 bg-primary/20 rounded-lg flex items-center justify-center group hover:bg-primary/30 transition-colors duration-300">
-                    <Cloud className="w-5 h-5 text-primary group-hover:scale-110 transition-transform" />
+                <div className="flex flex-col items-center space-y-4 animate-fade-in" style={{ animationDelay: '0.4s' }}>
+                  <div className="w-16 h-16 bg-primary/20 rounded-lg flex items-center justify-center group hover:bg-primary/30 transition-colors duration-300">
+                    <Cloud className="w-8 h-8 text-primary group-hover:scale-110 transition-transform" />
                   </div>
-                  <span className="text-xs text-muted-foreground">Deploy</span>
+                  <span className="text-sm text-muted-foreground">Deploy</span>
                 </div>
               </div>
 
@@ -409,26 +407,26 @@ const Index = () => {
       </section>
 
       {/* Business Analysis Section */}
-      <section className="py-8">
+      <section className="py-20">
         <div className="container mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div className="relative">
               {/* Interactive Dashboard Illustration */}
-              <div className="bg-card/50 p-4 rounded-lg border border-border/50 backdrop-blur-sm">
-                <div className="grid grid-cols-2 gap-3">
+              <div className="bg-card/50 p-8 rounded-lg border border-border/50 backdrop-blur-sm">
+                <div className="grid grid-cols-2 gap-6">
                   {/* Bar Chart */}
-                  <div className="bg-background/80 p-3 rounded-lg border group hover:shadow-lg transition-all duration-300">
-                    <div className="flex items-center justify-between mb-2">
-                      <BarChart3 className="w-4 h-4 text-primary" />
+                  <div className="bg-background/80 p-4 rounded-lg border group hover:shadow-lg transition-all duration-300">
+                    <div className="flex items-center justify-between mb-3">
+                      <BarChart3 className="w-5 h-5 text-primary" />
                       <span className="text-xs text-muted-foreground">Revenue</span>
                     </div>
-                    <div className="space-y-1">
+                    <div className="space-y-2">
                       {[60, 80, 45, 90].map((height, i) => (
                         <div key={i} className="flex items-end space-x-1">
                           <div
-                            className="bg-primary/70 w-4 rounded-sm transition-all duration-1000 hover:bg-primary"
+                            className="bg-primary/70 w-6 rounded-sm transition-all duration-1000 hover:bg-primary"
                             style={{
-                              height: `${height * 0.3}px`,
+                              height: `${height * 0.4}px`,
                               animationDelay: `${i * 0.2}s`
                             }}
                           ></div>
@@ -438,29 +436,29 @@ const Index = () => {
                   </div>
 
                   {/* Pie Chart */}
-                  <div className="bg-background/80 p-3 rounded-lg border group hover:shadow-lg transition-all duration-300">
-                    <div className="flex items-center justify-between mb-2">
-                      <PieChart className="w-4 h-4 text-primary" />
+                  <div className="bg-background/80 p-4 rounded-lg border group hover:shadow-lg transition-all duration-300">
+                    <div className="flex items-center justify-between mb-3">
+                      <PieChart className="w-5 h-5 text-primary" />
                       <span className="text-xs text-muted-foreground">Growth</span>
                     </div>
-                    <div className="relative w-12 h-12 mx-auto">
-                      <div className="absolute inset-0 rounded-full border-3 border-primary/30"></div>
-                      <div className="absolute inset-0 rounded-full border-3 border-primary border-t-transparent animate-spin-slow"></div>
+                    <div className="relative w-16 h-16 mx-auto">
+                      <div className="absolute inset-0 rounded-full border-4 border-primary/30"></div>
+                      <div className="absolute inset-0 rounded-full border-4 border-primary border-t-transparent animate-spin-slow"></div>
                     </div>
                   </div>
 
                   {/* KPI Widgets */}
-                  <div className="bg-background/80 p-3 rounded-lg border group hover:shadow-lg transition-all duration-300">
-                    <TrendingUp className="w-4 h-4 text-primary mb-1" />
-                    <div className="text-lg font-bold text-primary">
+                  <div className="bg-background/80 p-4 rounded-lg border group hover:shadow-lg transition-all duration-300">
+                    <TrendingUp className="w-5 h-5 text-primary mb-2" />
+                    <div className="text-2xl font-bold text-primary">
                       <AnimatedCounter value="24%" />
                     </div>
                     <span className="text-xs text-muted-foreground">Customer Growth</span>
                   </div>
 
-                  <div className="bg-background/80 p-3 rounded-lg border group hover:shadow-lg transition-all duration-300">
-                    <CheckCircle className="w-4 h-4 text-primary mb-1" />
-                    <div className="text-lg font-bold text-primary">
+                  <div className="bg-background/80 p-4 rounded-lg border group hover:shadow-lg transition-all duration-300">
+                    <CheckCircle className="w-5 h-5 text-primary mb-2" />
+                    <div className="text-2xl font-bold text-primary">
                       <AnimatedCounter value="98%" />
                     </div>
                     <span className="text-xs text-muted-foreground">Data Quality</span>
@@ -468,25 +466,25 @@ const Index = () => {
                 </div>
 
                 {/* Floating Analytics Icons */}
-                <div className="absolute -top-2 -right-2 w-6 h-6 bg-primary/20 rounded-full flex items-center justify-center animate-bounce">
+                <div className="absolute -top-4 -right-4 w-8 h-8 bg-primary/20 rounded-full flex items-center justify-center animate-bounce">
                   <span className="text-xs">📊</span>
                 </div>
-                <div className="absolute -bottom-1 -left-1 w-4 h-4 bg-primary/20 rounded-full flex items-center justify-center animate-pulse">
+                <div className="absolute -bottom-2 -left-2 w-6 h-6 bg-primary/20 rounded-full flex items-center justify-center animate-pulse">
                   <span className="text-xs">🎯</span>
                 </div>
               </div>
             </div>
 
             <div>
-              <p className="text-primary text-xs font-semibold mb-3">Business Analysis</p>
-              <h2 className="text-xl font-bold mb-4">
+              <p className="text-primary text-sm font-semibold mb-4">Business Analysis</p>
+              <h2 className="text-4xl md:text-5xl font-bold mb-8">
                 Turn Insight Into Strategy
               </h2>
-              <p className="text-muted-foreground mb-4 text-xs">
+              <p className="text-muted-foreground mb-6">
                 A free SaaS option to start with Data analysis and visualization with AI with drag and drop a
                 dataset in a minute. We help to you to see opportunities from your data.
               </p>
-              <p className="text-muted-foreground mb-6 text-xs">
+              <p className="text-muted-foreground mb-8">
                 In the digital age of data we can Quickly understand human better, our needs,
                 and business science overall.
               </p>
@@ -494,52 +492,52 @@ const Index = () => {
                 <CollapsibleTrigger asChild>
                   <Button
                     variant="ghost"
-                    className="text-foreground hover:text-primary p-0 mb-3 text-xs"
+                    className="text-foreground hover:text-primary p-0 mb-4"
                     aria-expanded={expandedSections['business-analysis']}
                   >
                     View Analytics Features
                     {expandedSections['business-analysis'] ? (
-                      <ChevronUp className="ml-1 h-3 w-3" />
+                      <ChevronUp className="ml-2 h-4 w-4" />
                     ) : (
-                      <ChevronDown className="ml-1 h-3 w-3" />
+                      <ChevronDown className="ml-2 h-4 w-4" />
                     )}
                   </Button>
                 </CollapsibleTrigger>
                 <CollapsibleContent className="animate-accordion-down overflow-hidden">
-                  <div className="bg-background/50 p-4 rounded-lg border border-border/50 mb-3">
-                    <h4 className="text-sm font-semibold mb-3 text-primary">Business Intelligence Features:</h4>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                      <div className="flex items-start space-x-2">
-                        <CheckCircle className="w-3 h-3 text-primary mt-0.5" />
+                  <div className="bg-background/50 p-6 rounded-lg border border-border/50 mb-4">
+                    <h4 className="text-lg font-semibold mb-4 text-primary">Business Intelligence Features:</h4>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div className="flex items-start space-x-3">
+                        <CheckCircle className="w-5 h-5 text-primary mt-0.5" />
                         <div>
-                          <h5 className="font-medium text-xs">Real-time Dashboards</h5>
-                          <p className="text-xs text-muted-foreground">Live data visualization and KPI tracking</p>
+                          <h5 className="font-medium">Real-time Dashboards</h5>
+                          <p className="text-sm text-muted-foreground">Live data visualization and KPI tracking</p>
                         </div>
                       </div>
-                      <div className="flex items-start space-x-2">
-                        <CheckCircle className="w-3 h-3 text-primary mt-0.5" />
+                      <div className="flex items-start space-x-3">
+                        <CheckCircle className="w-5 h-5 text-primary mt-0.5" />
                         <div>
-                          <h5 className="font-medium text-xs">Predictive Analytics</h5>
-                          <p className="text-xs text-muted-foreground">AI-powered forecasting and trend analysis</p>
+                          <h5 className="font-medium">Predictive Analytics</h5>
+                          <p className="text-sm text-muted-foreground">AI-powered forecasting and trend analysis</p>
                         </div>
                       </div>
-                      <div className="flex items-start space-x-2">
-                        <CheckCircle className="w-3 h-3 text-primary mt-0.5" />
+                      <div className="flex items-start space-x-3">
+                        <CheckCircle className="w-5 h-5 text-primary mt-0.5" />
                         <div>
-                          <h5 className="font-medium text-xs">Data Mining</h5>
-                          <p className="text-xs text-muted-foreground">Pattern discovery and anomaly detection</p>
+                          <h5 className="font-medium">Data Mining</h5>
+                          <p className="text-sm text-muted-foreground">Pattern discovery and anomaly detection</p>
                         </div>
                       </div>
-                      <div className="flex items-start space-x-2">
-                        <CheckCircle className="w-3 h-3 text-primary mt-0.5" />
+                      <div className="flex items-start space-x-3">
+                        <CheckCircle className="w-5 h-5 text-primary mt-0.5" />
                         <div>
-                          <h5 className="font-medium text-xs">Custom Reports</h5>
-                          <p className="text-xs text-muted-foreground">Automated report generation and distribution</p>
+                          <h5 className="font-medium">Custom Reports</h5>
+                          <p className="text-sm text-muted-foreground">Automated report generation and distribution</p>
                         </div>
                       </div>
                     </div>
-                    <div className="mt-3 p-2 bg-primary/10 rounded-lg">
-                      <p className="text-xs text-primary font-medium">
+                    <div className="mt-4 p-3 bg-primary/10 rounded-lg">
+                      <p className="text-sm text-primary font-medium">
                         Free SaaS trial available • Drag & drop interface • AI-powered insights
                       </p>
                     </div>
@@ -547,8 +545,8 @@ const Index = () => {
                 </CollapsibleContent>
               </Collapsible>
 
-              {/* <Button asChild variant="ghost" className="text-foreground hover:text-primary p-0 text-xs">
-                <Link to="/business-analysis">Explore how <ArrowRight className="ml-1 h-3 w-3" /></Link>
+              {/* <Button asChild variant="ghost" className="text-foreground hover:text-primary p-0">
+                <Link to="/business-analysis">Explore how <ArrowRight className="ml-2 h-4 w-4" /></Link>
               </Button> */}
             </div>
           </div>
@@ -556,23 +554,23 @@ const Index = () => {
       </section>
 
       {/* Products Section */}
-      <section className="py-8 bg-card">
+      <section className="py-20 bg-card">
         <div className="container mx-auto px-6">
-          <div className="text-center mb-8">
-            <p className="text-primary text-xs font-semibold mb-3">Ready to start?</p>
-            <h2 className="text-xl font-bold">
+          <div className="text-center mb-16">
+            <p className="text-primary text-sm font-semibold mb-4">Ready to start?</p>
+            <h2 className="text-4xl md:text-5xl font-bold">
               Solutions Built to Scale
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {products.map((product, index) => (
               <Card
                 key={index}
                 className="solution-card bg-secondary border-border animate-slide-in-bottom group relative overflow-hidden"
                 style={{ animationDelay: `${index * 0.2}s` }}
               >
-                <CardContent className="p-4 relative overflow-hidden">
+                <CardContent className="p-8 relative overflow-hidden">
                   {/* Animated SVG background */}
                   <div className="absolute inset-0 opacity-5">
                     <svg className="w-full h-full" viewBox="0 0 100 100">
@@ -598,17 +596,17 @@ const Index = () => {
                     </svg>
                   </div>
 
-                  <div className="flex items-center justify-between mb-4 relative z-10">
-                    <div className="w-8 h-8 bg-primary/20 rounded-lg flex items-center justify-center group-hover:bg-primary/30 transition-colors duration-300">
-                      <div className="w-4 h-4 bg-primary rounded group-hover:animate-pulse"></div>
+                  <div className="flex items-center justify-between mb-6 relative z-10">
+                    <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center group-hover:bg-primary/30 transition-colors duration-300">
+                      <div className="w-6 h-6 bg-primary rounded group-hover:animate-pulse"></div>
                     </div>
-                    <span className="text-xs px-2 py-1 rounded-full bg-muted text-muted-foreground group-hover:bg-primary/20 transition-colors duration-300">
+                    <span className="text-xs px-3 py-1 rounded-full bg-muted text-muted-foreground group-hover:bg-primary/20 transition-colors duration-300">
                       {product.category}
                     </span>
                   </div>
 
-                  <h3 className="text-sm font-bold mb-3 relative z-10">{product.title}</h3>
-                  <p className="text-muted-foreground mb-4 text-xs leading-relaxed relative z-10">
+                  <h3 className="text-2xl font-bold mb-4 relative z-10">{product.title}</h3>
+                  <p className="text-muted-foreground mb-6 text-sm leading-relaxed relative z-10">
                     {product.description}
                   </p>
 
@@ -616,41 +614,41 @@ const Index = () => {
                     <CollapsibleTrigger asChild>
                       <Button
                         variant="ghost"
-                        className="text-foreground hover:text-primary p-0 mb-3 relative z-10 text-xs"
+                        className="text-foreground hover:text-primary p-0 mb-4 relative z-10"
                         aria-expanded={expandedSections[product.title]}
                       >
                         Show Details
                         {expandedSections[product.title] ? (
-                          <ChevronUp className="ml-1 h-3 w-3" />
+                          <ChevronUp className="ml-2 h-4 w-4" />
                         ) : (
-                          <ChevronDown className="ml-1 h-3 w-3" />
+                          <ChevronDown className="ml-2 h-4 w-4" />
                         )}
                       </Button>
                     </CollapsibleTrigger>
                     <CollapsibleContent className="animate-accordion-down overflow-hidden relative z-10">
-                      <div className="bg-background/50 p-3 rounded-lg border border-border/50 mb-3">
+                      <div className="bg-background/50 p-4 rounded-lg border border-border/50 mb-4">
                         {product.title === "Quantum Analytics" && (
+                          <div className="space-y-3">
+                            <h4 className="font-semibold text-primary">Key Features:</h4>
                             <div className="space-y-2">
-                            <h4 className="font-semibold text-primary text-xs">Key Features:</h4>
-                            <div className="space-y-1">
-                              <div className="flex items-start space-x-2">
-                                <CheckCircle className="w-3 h-3 text-primary mt-0.5" />
+                              <div className="flex items-start space-x-3">
+                                <CheckCircle className="w-4 h-4 text-primary mt-0.5" />
                                 <div>
-                                  <h5 className="font-medium text-xs">Machine Learning & RLHF</h5>
+                                  <h5 className="font-medium text-sm">Machine Learning & RLHF</h5>
                                   <p className="text-xs text-muted-foreground">Advanced ML algorithms with human feedback integration</p>
                                 </div>
                               </div>
-                              <div className="flex items-start space-x-2">
-                                <CheckCircle className="w-3 h-3 text-primary mt-0.5" />
+                              <div className="flex items-start space-x-3">
+                                <CheckCircle className="w-4 h-4 text-primary mt-0.5" />
                                 <div>
-                                  <h5 className="font-medium text-xs">Impact Measurement</h5>
+                                  <h5 className="font-medium text-sm">Impact Measurement</h5>
                                   <p className="text-xs text-muted-foreground">Track and measure organizational impact and progress</p>
                                 </div>
                               </div>
-                              <div className="flex items-start space-x-2">
-                                <CheckCircle className="w-3 h-3 text-primary mt-0.5" />
+                              <div className="flex items-start space-x-3">
+                                <CheckCircle className="w-4 h-4 text-primary mt-0.5" />
                                 <div>
-                                  <h5 className="font-medium text-xs">Smart Decision Making</h5>
+                                  <h5 className="font-medium text-sm">Smart Decision Making</h5>
                                   <p className="text-xs text-muted-foreground">Data-driven insights for better business decisions</p>
                                 </div>
                               </div>
@@ -717,8 +715,12 @@ const Index = () => {
                     </CollapsibleContent>
                   </Collapsible>
 
-                  <Button asChild variant="ghost" className="text-foreground hover:text-primary p-0 relative z-10 group-hover:translate-x-1 transition-transform duration-300">
-                    <Link to="/try-now">{product.cta} <ArrowRight className="ml-2 h-4 w-4" /></Link>
+                  <Button
+                    variant="ghost"
+                    className="text-foreground hover:text-primary p-0 relative z-10 group-hover:translate-x-1 transition-transform duration-300"
+                    onClick={() => navigateToTop('/contact')}
+                  >
+                    {product.cta} <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
 
                   {/* Sparkle effect on hover */}
@@ -733,24 +735,24 @@ const Index = () => {
       </section>
 
       {/* Infrastructure Section */}
-      <section className="py-8">
+      <section className="py-20">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl">
-            <h2 className="text-xl font-bold mb-4">
+            <h2 className="text-4xl md:text-5xl font-bold mb-8">
               Want to develop AI and data related solutions on-premises?
             </h2>
-            <p className="text-sm text-muted-foreground mb-4">
+            <p className="text-xl text-muted-foreground mb-8">
               Quantum Intelligence offers AI related solutions that can be deployed in any infrastructure for
               anyone eager to enter in the industry.
             </p>
-            <p className="text-sm text-muted-foreground mb-6">
+            <p className="text-lg text-muted-foreground mb-8">
               Contact us to know more!
             </p>
             <Button
             variant="outline"
-            size="sm"
+            size="lg"
             className="border-foreground text-foreground hover:bg-foreground hover:text-background"
-            onClick={() => navigate("/contact")}
+            onClick={() => navigateToTop("/contact")}
           >
             Contact us
           </Button>
@@ -759,41 +761,41 @@ const Index = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-8 bg-card text-center">
+      <section className="py-20 bg-card text-center">
         <div className="container mx-auto px-6">
-          <h2 className="text-xl font-bold mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold mb-8">
             Join the <span className="text-primary">Data-Centric AI</span> movement!
           </h2>
-          <p className="text-sm text-muted-foreground mb-6 max-w-3xl mx-auto">
+          <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
             Connect, profile, understand & orchestrate your data preparation flows to train models more
             efficiently! Improve AI initiatives performance in a iterative way.
           </p>
-          <div className="flex flex-col sm:flex-row gap-3 justify-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button
-              asChild
-              size="sm"
-              className="bg-primary hover:bg-primary/90 text-primary-foreground px-4"
+              size="lg"
+              className="bg-primary hover:bg-primary/90 text-primary-foreground px-8"
+              onClick={() => navigateToTop('/contact')}
             >
-              <Link to="/try-now">Try now</Link>
+              Try now
             </Button>
             <Button
-              asChild
+              size="lg"
               variant="outline"
-              size="sm"
-              className="border-foreground text-foreground hover:bg-foreground hover:text-background px-4"
+              className="border-foreground text-foreground hover:bg-foreground hover:text-background px-8"
+              onClick={() => navigateToTop('/contact')}
             >
-              <Link to="/contact">Estimate Project</Link>
+              Estimate Project
             </Button>
           </div>
         </div>
       </section>
 
       {/* Featured Articles Section */}
-      <section className="py-8">
+      <section className="py-20">
         <div className="container mx-auto px-6">
-          <h2 className="text-xl font-bold mb-8">Our Featured Articles</h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-16">Our Featured Articles</h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {articles.map((article, index) => (
               <Card
                 key={index}
@@ -808,37 +810,36 @@ const Index = () => {
                     loading="lazy"
                   />
                 )}
-                <CardContent className="p-4">
-                  <div className="flex items-center justify-between mb-3">
-                    <span className="text-xs text-muted-foreground">{article.date}</span>
-                    <span className="text-xs px-2 py-1 rounded-full bg-muted text-muted-foreground">
+                <CardContent className="p-6">
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="text-sm text-muted-foreground">{article.date}</span>
+                    <span className="text-xs px-3 py-1 rounded-full bg-muted text-muted-foreground">
                       {article.category}
                     </span>
                   </div>
 
-                  <h3 className="text-sm font-bold mb-3">{article.title}</h3>
-                  <p className="text-muted-foreground mb-4 text-xs leading-relaxed">
+                  <h3 className="text-xl font-bold mb-4">{article.title}</h3>
+                  <p className="text-muted-foreground mb-6 text-sm leading-relaxed">
                     {article.excerpt}
                   </p>
 
-                  <Button variant="ghost" className="text-foreground hover:text-primary p-0 text-xs" onClick={() => handleBlogClick(article)}>
-                    {article.cta} <ArrowRight className="ml-1 h-3 w-3" />
+                  <Button variant="ghost" className="text-foreground hover:text-primary p-0" onClick={() => handleBlogClick(article)}>
+                    {article.cta} <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
                 </CardContent>
               </Card>
             ))}
           </div>
 
-          <div className="text-center mt-6">
-            <Link to="/blog">
-              <Button
-                variant="outline"
-                size="sm"
-                className="border-primary text-primary hover:bg-primary hover:text-primary-foreground px-4"
-              >
-                View All Blogs <ArrowRight className="ml-1 h-3 w-3" />
-              </Button>
-            </Link>
+          <div className="text-center mt-12">
+            <Button
+              variant="outline"
+              size="lg"
+              className="border-primary text-primary hover:bg-primary hover:text-primary-foreground px-8"
+              onClick={() => navigateToTop('/blog')}
+            >
+              View All Blogs <ArrowRight className="ml-2 h-4 w-4" />
+            </Button>
           </div>
         </div>
       </section>

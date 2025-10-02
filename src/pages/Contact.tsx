@@ -128,13 +128,13 @@ const Contact = () => {
       <Header />
 
       {/* Hero Section */}
-      <section className="pt-20 pb-8 bg-card">
+      <section className="pt-24 pb-8 bg-card">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-xl md:text-2xl font-bold mb-2">
+            <h1 className="text-xl md:text-2xl font-bold mb-3">
               Contact Our Development Team
             </h1>
-            <p className="text-xs text-muted-foreground mb-3">
+            <p className="text-sm text-muted-foreground mb-3">
               We are happy to onboard you, including connecting you with helpful resources, exploring use cases for your team, and discussing your potential options.{" "}
               <a href="mailto:communications@quantumintelligence.co.tz" className="text-primary underline">
                 communications@quantumintelligence.co.tz
