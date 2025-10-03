@@ -128,19 +128,28 @@ const Contact = () => {
       <Header />
 
       {/* Hero Section */}
-      <section className="pt-24 pb-8 bg-card">
+      <section className="pt-32 pb-16 bg-gradient-to-b from-background to-card/50">
         <div className="container mx-auto px-6">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-xl md:text-2xl font-bold mb-3">
-              Contact Our Development Team
+          <div className="max-w-4xl mx-auto text-center space-y-6">
+            <div className="inline-block">
+              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium border border-primary/20">
+                <Mail className="h-4 w-4" />
+                Let's Build Together
+              </span>
+            </div>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
+              Contact Our <span className="text-primary">Development Team</span>
             </h1>
-            <p className="text-sm text-muted-foreground mb-3">
-              We are happy to onboard you, including connecting you with helpful resources, exploring use cases for your team, and discussing your potential options.{" "}
-              <a href="mailto:communications@quantumintelligence.co.tz" className="text-primary underline">
-                communications@quantumintelligence.co.tz
-              </a>
-              .
+            <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+              We are happy to onboard you, including connecting you with helpful resources, exploring use cases for your team, and discussing your potential options.
             </p>
+            <a 
+              href="mailto:communications@quantumintelligence.co.tz" 
+              className="inline-flex items-center gap-2 text-primary hover:text-primary/80 font-medium transition-colors group"
+            >
+              <Mail className="h-5 w-5 group-hover:scale-110 transition-transform" />
+              communications@quantumintelligence.co.tz
+            </a>
           </div>
         </div>
       </section>
@@ -148,270 +157,362 @@ const Contact = () => {
       {/* Contact Information (moved below) */}
 
       {/* Contact Form */}
-      <section className="py-8 bg-card">
+      <section className="py-16 bg-background">
         <div className="container mx-auto px-6">
           <div className="max-w-5xl mx-auto">
-            <Form {...form}>
-              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4" role="form">
-                {/* Name and Email Row */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                  <FormField
-                    control={form.control}
-                    name="firstName"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel className="text-sm">First Name*</FormLabel>
-                        <FormControl>
-                          <Input
-                            {...field}
-                            autoComplete="given-name"
-                            aria-label="First Name"
-                            className="h-9 bg-background border-border focus:border-primary transition-colors"
-                          />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-                  <FormField
-                    control={form.control}
-                    name="lastName"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel className="text-sm">Last Name*</FormLabel>
-                        <FormControl>
-                          <Input
-                            {...field}
-                            autoComplete="family-name"
-                            aria-label="Last Name"
-                            className="h-9 bg-background border-border focus:border-primary transition-colors"
-                          />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-                  <FormField
-                    control={form.control}
-                    name="email"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel className="text-sm">Email Address*</FormLabel>
-                        <FormControl>
-                          <Input
-                            {...field}
-                            type="email"
-                            autoComplete="email"
-                            aria-label="Email Address"
-                            className="h-9 bg-background border-border focus:border-primary transition-colors"
-                          />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-                </div>
+            <div className="bg-card border border-border rounded-2xl shadow-xl p-8 md:p-12">
+              <div className="mb-10">
+                <h2 className="text-2xl md:text-3xl font-bold mb-3">Project Inquiry Form</h2>
+                <p className="text-muted-foreground">
+                  Please provide details about your project. Fields marked with <span className="text-destructive">*</span> are required.
+                </p>
+              </div>
 
-                {/* Phone, Company, Employee Count Row */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                  <FormField
-                    control={form.control}
-                    name="phone"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel className="text-sm">Phone Number*</FormLabel>
-                        <FormControl>
-                          <Input
-                            {...field}
-                            type="tel"
-                            autoComplete="tel"
-                            aria-label="Phone Number"
-                            placeholder="+255 XXX XXX XXX"
-                            className="h-9 bg-background border-border focus:border-primary transition-colors"
-                          />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-                  <FormField
-                    control={form.control}
-                    name="company"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel className="text-sm">Company Name</FormLabel>
-                        <FormControl>
-                          <Input
-                            {...field}
-                            autoComplete="organization"
-                            aria-label="Company Name"
-                            className="h-9 bg-background border-border focus:border-primary transition-colors"
-                          />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-                  <FormField
-                    control={form.control}
-                    name="employeeCount"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel className="text-sm">Number of Employees</FormLabel>
-                        <Select onValueChange={field.onChange} defaultValue={field.value}>
+              <Form {...form}>
+                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8" role="form" aria-label="Project inquiry form">
+                  {/* Personal Information Section */}
+                  <div className="space-y-6">
+                    <div className="flex items-center gap-2 pb-2 border-b border-border">
+                      <div className="h-8 w-1 bg-primary rounded-full"></div>
+                      <h3 className="text-lg font-semibold">Personal Information</h3>
+                    </div>
+                    
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                      <FormField
+                        control={form.control}
+                        name="firstName"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel className="text-sm font-medium flex items-center gap-1">
+                              First Name<span className="text-destructive">*</span>
+                            </FormLabel>
+                            <FormControl>
+                              <Input
+                                {...field}
+                                autoComplete="given-name"
+                                aria-label="First Name"
+                                aria-required="true"
+                                placeholder="John"
+                                className="h-11 bg-background border-border focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all"
+                              />
+                            </FormControl>
+                            <FormMessage className="text-xs" />
+                          </FormItem>
+                        )}
+                      />
+                      <FormField
+                        control={form.control}
+                        name="lastName"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel className="text-sm font-medium flex items-center gap-1">
+                              Last Name<span className="text-destructive">*</span>
+                            </FormLabel>
+                            <FormControl>
+                              <Input
+                                {...field}
+                                autoComplete="family-name"
+                                aria-label="Last Name"
+                                aria-required="true"
+                                placeholder="Doe"
+                                className="h-11 bg-background border-border focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all"
+                              />
+                            </FormControl>
+                            <FormMessage className="text-xs" />
+                          </FormItem>
+                        )}
+                      />
+                      <FormField
+                        control={form.control}
+                        name="email"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel className="text-sm font-medium flex items-center gap-1">
+                              Email Address<span className="text-destructive">*</span>
+                            </FormLabel>
+                            <FormControl>
+                              <Input
+                                {...field}
+                                type="email"
+                                autoComplete="email"
+                                aria-label="Email Address"
+                                aria-required="true"
+                                placeholder="john.doe@example.com"
+                                className="h-11 bg-background border-border focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all"
+                              />
+                            </FormControl>
+                            <FormMessage className="text-xs" />
+                          </FormItem>
+                        )}
+                      />
+                    </div>
+                  </div>
+
+                  {/* Company Information Section */}
+                  <div className="space-y-6">
+                    <div className="flex items-center gap-2 pb-2 border-b border-border">
+                      <div className="h-8 w-1 bg-primary rounded-full"></div>
+                      <h3 className="text-lg font-semibold">Company Information</h3>
+                    </div>
+                    
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                      <FormField
+                        control={form.control}
+                        name="phone"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel className="text-sm font-medium flex items-center gap-1">
+                              Phone Number<span className="text-destructive">*</span>
+                            </FormLabel>
+                            <FormControl>
+                              <Input
+                                {...field}
+                                type="tel"
+                                autoComplete="tel"
+                                aria-label="Phone Number"
+                                aria-required="true"
+                                placeholder="+255 XXX XXX XXX"
+                                className="h-11 bg-background border-border focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all"
+                              />
+                            </FormControl>
+                            <FormMessage className="text-xs" />
+                          </FormItem>
+                        )}
+                      />
+                      <FormField
+                        control={form.control}
+                        name="company"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel className="text-sm font-medium">Company Name</FormLabel>
+                            <FormControl>
+                              <Input
+                                {...field}
+                                autoComplete="organization"
+                                aria-label="Company Name"
+                                placeholder="Your Company Ltd."
+                                className="h-11 bg-background border-border focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all"
+                              />
+                            </FormControl>
+                            <FormMessage className="text-xs" />
+                          </FormItem>
+                        )}
+                      />
+                      <FormField
+                        control={form.control}
+                        name="employeeCount"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel className="text-sm font-medium">Number of Employees</FormLabel>
+                            <Select onValueChange={field.onChange} defaultValue={field.value}>
+                              <FormControl>
+                                <SelectTrigger className="h-11 bg-background border-border focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all">
+                                  <SelectValue placeholder="Select range" />
+                                </SelectTrigger>
+                              </FormControl>
+                              <SelectContent className="bg-card border-border">
+                                {employeeCountOptions.map((option) => (
+                                  <SelectItem key={option} value={option}>
+                                    {option}
+                                  </SelectItem>
+                                ))}
+                              </SelectContent>
+                            </Select>
+                            <FormMessage className="text-xs" />
+                          </FormItem>
+                        )}
+                      />
+                    </div>
+                  </div>
+
+                  {/* Project Details Section */}
+                  <div className="space-y-6">
+                    <div className="flex items-center gap-2 pb-2 border-b border-border">
+                      <div className="h-8 w-1 bg-primary rounded-full"></div>
+                      <h3 className="text-lg font-semibold">Project Details</h3>
+                    </div>
+                    
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <FormField
+                        control={form.control}
+                        name="helpWith"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel className="text-sm font-medium flex items-center gap-1">
+                              What Can We Help You With?<span className="text-destructive">*</span>
+                            </FormLabel>
+                            <Select onValueChange={field.onChange} defaultValue={field.value}>
+                              <FormControl>
+                                <SelectTrigger 
+                                  className="h-11 bg-background border-border focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all"
+                                  aria-required="true"
+                                >
+                                  <SelectValue placeholder="Select service" />
+                                </SelectTrigger>
+                              </FormControl>
+                              <SelectContent className="bg-card border-border">
+                                {helpOptions.map((option) => (
+                                  <SelectItem key={option} value={option}>
+                                    {option}
+                                  </SelectItem>
+                                ))}
+                              </SelectContent>
+                            </Select>
+                            <FormMessage className="text-xs" />
+                          </FormItem>
+                        )}
+                      />
+                      <FormField
+                        control={form.control}
+                        name="hearAbout"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel className="text-sm font-medium flex items-center gap-1">
+                              How Did You Hear About Us?<span className="text-destructive">*</span>
+                            </FormLabel>
+                            <Select onValueChange={field.onChange} defaultValue={field.value}>
+                              <FormControl>
+                                <SelectTrigger 
+                                  className="h-11 bg-background border-border focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all"
+                                  aria-required="true"
+                                >
+                                  <SelectValue placeholder="Select option" />
+                                </SelectTrigger>
+                              </FormControl>
+                              <SelectContent className="bg-card border-border">
+                                {hearAboutOptions.map((option) => (
+                                  <SelectItem key={option} value={option}>
+                                    {option}
+                                  </SelectItem>
+                                ))}
+                              </SelectContent>
+                            </Select>
+                            <FormMessage className="text-xs" />
+                          </FormItem>
+                        )}
+                      />
+                    </div>
+                  </div>
+
+                  {/* Detailed Description Section */}
+                  <div className="space-y-6">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <FormField
+                        control={form.control}
+                        name="projectDescription"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel className="text-sm font-medium flex items-center gap-1">
+                              Project Description<span className="text-destructive">*</span>
+                            </FormLabel>
+                            <FormControl>
+                              <Textarea
+                                {...field}
+                                placeholder="Describe your project, goals, and requirements..."
+                                className="min-h-[140px] bg-background border-border focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all resize-none"
+                                aria-label="Project Description"
+                                aria-required="true"
+                              />
+                            </FormControl>
+                            <FormMessage className="text-xs" />
+                          </FormItem>
+                        )}
+                      />
+                      <FormField
+                        control={form.control}
+                        name="needsNDA"
+                        render={({ field }) => (
+                          <FormItem className="space-y-4">
+                            <FormLabel className="text-sm font-medium flex items-center gap-1">
+                              Do You Need an NDA First?<span className="text-destructive">*</span>
+                            </FormLabel>
+                            <FormControl>
+                              <RadioGroup
+                                onValueChange={field.onChange}
+                                defaultValue={field.value}
+                                className="flex flex-col space-y-3"
+                                aria-required="true"
+                              >
+                                <div className="flex items-center space-x-3 p-4 rounded-lg border border-border hover:border-primary hover:bg-accent/50 transition-all cursor-pointer">
+                                  <RadioGroupItem value="yes" id="nda-yes" />
+                                  <Label htmlFor="nda-yes" className="cursor-pointer flex-1">
+                                    <span className="font-medium">Yes</span>
+                                    <p className="text-xs text-muted-foreground mt-1">I require a Non-Disclosure Agreement before discussing details</p>
+                                  </Label>
+                                </div>
+                                <div className="flex items-center space-x-3 p-4 rounded-lg border border-border hover:border-primary hover:bg-accent/50 transition-all cursor-pointer">
+                                  <RadioGroupItem value="no" id="nda-no" />
+                                  <Label htmlFor="nda-no" className="cursor-pointer flex-1">
+                                    <span className="font-medium">No</span>
+                                    <p className="text-xs text-muted-foreground mt-1">I'm comfortable sharing project details without an NDA</p>
+                                  </Label>
+                                </div>
+                              </RadioGroup>
+                            </FormControl>
+                            <FormMessage className="text-xs" />
+                          </FormItem>
+                        )}
+                      />
+                    </div>
+                  </div>
+
+                  {/* Consent & Submission Section */}
+                  <div className="space-y-6 pt-4">
+                    <FormField
+                      control={form.control}
+                      name="agreeMarketing"
+                      render={({ field }) => (
+                        <FormItem className="flex flex-row items-start space-x-3 space-y-0 p-4 rounded-lg bg-accent/30 border border-border">
                           <FormControl>
-                            <SelectTrigger className="h-9 bg-background border-border focus:border-primary transition-colors">
-                              <SelectValue placeholder="Select range" />
-                            </SelectTrigger>
+                            <Checkbox
+                              checked={field.value}
+                              onCheckedChange={field.onChange}
+                              aria-label="Marketing consent"
+                              className="mt-1"
+                            />
                           </FormControl>
-                          <SelectContent>
-                            {employeeCountOptions.map((option) => (
-                              <SelectItem key={option} value={option}>
-                                {option}
-                              </SelectItem>
-                            ))}
-                          </SelectContent>
-                        </Select>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-                </div>
+                          <div className="space-y-1 leading-none">
+                            <FormLabel className="text-sm font-normal text-foreground cursor-pointer">
+                              I agree to receive marketing communication from Quantum Intelligence.
+                            </FormLabel>
+                            <p className="text-xs text-muted-foreground">
+                              You can unsubscribe at any time. See our Privacy Policy for details.
+                            </p>
+                          </div>
+                        </FormItem>
+                      )}
+                    />
 
-                {/* Help With and Hear About Row */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <FormField
-                    control={form.control}
-                    name="helpWith"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel className="text-sm">What Can We Help You With?*</FormLabel>
-                        <Select onValueChange={field.onChange} defaultValue={field.value}>
-                          <FormControl>
-                            <SelectTrigger className="h-9 bg-background border-border focus:border-primary transition-colors">
-                              <SelectValue placeholder="Select service" />
-                            </SelectTrigger>
-                          </FormControl>
-                          <SelectContent>
-                            {helpOptions.map((option) => (
-                              <SelectItem key={option} value={option}>
-                                {option}
-                              </SelectItem>
-                            ))}
-                          </SelectContent>
-                        </Select>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-                  <FormField
-                    control={form.control}
-                    name="hearAbout"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel className="text-sm">How Did You Hear About Us?*</FormLabel>
-                        <Select onValueChange={field.onChange} defaultValue={field.value}>
-                          <FormControl>
-                            <SelectTrigger className="h-9 bg-background border-border focus:border-primary transition-colors">
-                              <SelectValue placeholder="Select option" />
-                            </SelectTrigger>
-                          </FormControl>
-                          <SelectContent>
-                            {hearAboutOptions.map((option) => (
-                              <SelectItem key={option} value={option}>
-                                {option}
-                              </SelectItem>
-                            ))}
-                          </SelectContent>
-                        </Select>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-                </div>
+                    {/* Submit Button */}
+                    <Button
+                      type="submit"
+                      size="lg"
+                      disabled={form.formState.isSubmitting}
+                      className="w-full h-14 group relative overflow-hidden bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary text-primary-foreground text-lg font-semibold rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                    >
+                      {form.formState.isSubmitting ? (
+                        <>
+                          <div className="h-5 w-5 mr-3 animate-spin rounded-full border-2 border-primary-foreground border-t-transparent" />
+                          Processing...
+                        </>
+                      ) : (
+                        <>
+                          <Send className="w-5 h-5 mr-3 group-hover:translate-x-1 transition-transform duration-200" />
+                          Request Free Estimate
+                        </>
+                      )}
+                    </Button>
 
-                {/* Project Description and NDA Row */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <FormField
-                    control={form.control}
-                    name="projectDescription"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel className="text-sm">Project Description*</FormLabel>
-                        <FormControl>
-                          <Textarea
-                            {...field}
-                            placeholder="Describe your project, goals, and requirements..."
-                            className="min-h-20 bg-background border-border focus:border-primary transition-colors resize-none"
-                            aria-label="Project Description"
-                          />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-                  <FormField
-                    control={form.control}
-                    name="needsNDA"
-                    render={({ field }) => (
-                      <FormItem className="space-y-3">
-                        <FormLabel className="text-sm">Do You Need an NDA First?*</FormLabel>
-                        <FormControl>
-                          <RadioGroup
-                            onValueChange={field.onChange}
-                            defaultValue={field.value}
-                            className="flex flex-col space-y-1"
-                          >
-                            <div className="flex items-center space-x-2">
-                              <RadioGroupItem value="yes" id="nda-yes" />
-                              <Label htmlFor="nda-yes">Yes</Label>
-                            </div>
-                            <div className="flex items-center space-x-2">
-                              <RadioGroupItem value="no" id="nda-no" />
-                              <Label htmlFor="nda-no">No</Label>
-                            </div>
-                          </RadioGroup>
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-                </div>
-
-                {/* Marketing Consent */}
-                <FormField
-                  control={form.control}
-                  name="agreeMarketing"
-                  render={({ field }) => (
-                    <FormItem className="flex flex-row items-start space-x-3 space-y-0">
-                      <FormControl>
-                        <Checkbox
-                          checked={field.value}
-                          onCheckedChange={field.onChange}
-                          aria-label="Marketing consent"
-                        />
-                      </FormControl>
-                      <div className="space-y-1 leading-none">
-                        <FormLabel className="text-xs font-normal">
-                          I agree to receive marketing communication from Quantum Intelligence.
-                        </FormLabel>
-                      </div>
-                    </FormItem>
-                  )}
-                />
-
-                {/* Submit Button */}
-                <Button
-                  type="submit"
-                  size="lg"
-                  disabled={form.formState.isSubmitting}
-                  className="w-full group relative overflow-hidden bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white py-3 text-base font-semibold rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200"
-                >
-                  <Send className="w-4 h-4 mr-2 group-hover:translate-x-1 transition-transform duration-200" />
-                  {form.formState.isSubmitting ? "Sending..." : "Request Free Estimate"}
-                </Button>
-              </form>
-            </Form>
+                    <p className="text-center text-xs text-muted-foreground">
+                      By submitting this form, you agree to our{" "}
+                      <a href="/terms" className="text-primary hover:underline">Terms of Service</a>
+                      {" "}and{" "}
+                      <a href="/privacy" className="text-primary hover:underline">Privacy Policy</a>
+                    </p>
+                  </div>
+                </form>
+              </Form>
+            </div>
           </div>
         </div>
       </section>
