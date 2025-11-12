@@ -11,11 +11,24 @@ import Footer from "@/components/Footer";
 import BlogModal from "@/components/BlogModal";
 import { ArrowRight, CheckCircle, Database, Cog, Cloud, BarChart3, PieChart, TrendingUp, ChevronDown, ChevronUp } from "lucide-react";
 
+interface Article {
+  id: string;
+  date: string;
+  category: string;
+  title: string;
+  excerpt: string;
+  content: string;
+  author: string;
+  readTime: string;
+  imageUrl: string;
+  tags: string[];
+  cta: string;
+}
 
 const Index = () => {
   const navigate = useNavigate();
   const { navigateToTop, scrollToSection } = useNavigationWithScroll();
-  const [selectedBlog, setSelectedBlog] = useState<any>(null);
+  const [selectedBlog, setSelectedBlog] = useState<Article | null>(null);
   const [isBlogModalOpen, setIsBlogModalOpen] = useState(false);
   const [expandedSections, setExpandedSections] = useState<{[key: string]: boolean}>({});
 
@@ -99,7 +112,7 @@ const Index = () => {
     }
   ];
 
-  const handleBlogClick = (article: any) => {
+  const handleBlogClick = (article: Article) => {
     setSelectedBlog(article);
     setIsBlogModalOpen(true);
   };
@@ -771,13 +784,13 @@ const Index = () => {
             efficiently! Improve AI initiatives performance in a iterative way.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button
+            {/* <Button
               size="lg"
               className="bg-primary hover:bg-primary/90 text-primary-foreground px-8"
               onClick={() => navigateToTop('/contact')}
             >
               Try now
-            </Button>
+            </Button> */}
             <Button
               size="lg"
               variant="outline"

@@ -172,7 +172,7 @@ const Contact = () => {
                         <FormItem>
                           <FormLabel className="text-xs">Last Name<span className="text-destructive">*</span></FormLabel>
                           <FormControl>
-                            <Input {...field} placeholder="Doe" className="h-9" aria-required="true" />
+                            <Input {...field} placeholder="sway" className="h-9" aria-required="true" />
                           </FormControl>
                           <FormMessage className="text-xs" />
                         </FormItem>
@@ -185,7 +185,7 @@ const Contact = () => {
                         <FormItem>
                           <FormLabel className="text-xs">Email<span className="text-destructive">*</span></FormLabel>
                           <FormControl>
-                            <Input {...field} type="email" placeholder="john@example.com" className="h-9" aria-required="true" />
+                            <Input {...field} type="email" placeholder="sway@example.com" className="h-9" aria-required="true" />
                           </FormControl>
                           <FormMessage className="text-xs" />
                         </FormItem>
