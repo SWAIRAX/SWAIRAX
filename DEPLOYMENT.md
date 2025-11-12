@@ -26,13 +26,23 @@ vercel deploy
 3. The `_redirects` file will automatically redirect all routes to `index.html`
 
 ### Apache Server
-✅ **Already configured!** Copy the `.htaccess` file to your server's root directory (same location as `index.html`).
+✅ **Already configured!** The `.htaccess` file is in the `public` folder and will be automatically copied to `dist` during build.
 
 **Steps:**
 1. Build your project: `npm run build`
-2. Upload the contents of the `dist` folder to your Apache server
-3. Make sure `.htaccess` is in the root directory (where `index.html` is)
-4. Ensure `mod_rewrite` is enabled on your Apache server
+2. Upload the **entire contents** of the `dist` folder to your Apache server's web root directory
+3. The `.htaccess` file will be in the same directory as `index.html` (this is correct!)
+4. Ensure `mod_rewrite` is enabled on your Apache server:
+   ```bash
+   sudo a2enmod rewrite
+   sudo systemctl restart apache2
+   ```
+5. Make sure your Apache virtual host allows `.htaccess` overrides:
+   ```apache
+   <Directory /var/www/html>
+       AllowOverride All
+   </Directory>
+   ```
 
 ### Nginx Server
 ✅ **Configuration example provided!** Use `nginx.conf.example` as a reference.
@@ -91,17 +101,22 @@ Then try navigating directly to routes like `http://localhost:4173/contact` to v
 ## Troubleshooting
 
 1. **Routes still not working after deployment:**
-   - Verify the configuration file is in the correct location
+   - **For Apache:** Verify `.htaccess` is in the `dist` folder after build and uploaded to your server
+   - **For Netlify:** Check that `_redirects` is in the `dist` folder (it should be automatically)
+   - **For Vercel:** Verify `vercel.json` is in your project root
    - Check that the file was included in your build output
    - Clear your browser cache and try again
+   - Check server error logs for any configuration issues
 
-2. **Netlify:**
+2. **Apache-specific issues:**
+   - Ensure `mod_rewrite` is enabled: `sudo a2enmod rewrite && sudo systemctl restart apache2`
+   - Check that `.htaccess` file permissions allow reading: `chmod 644 .htaccess`
+   - Verify your Apache virtual host allows `.htaccess` overrides with `AllowOverride All`
+   - Check Apache error logs: `sudo tail -f /var/log/apache2/error.log`
+
+3. **Netlify:**
    - Ensure `_redirects` is in the `public` folder (it will be copied to `dist` during build)
    - Check Netlify's deploy logs for any errors
-
-3. **Apache:**
-   - Verify `mod_rewrite` is enabled: `a2enmod rewrite`
-   - Check Apache error logs if issues persist
 
 4. **Vercel:**
    - The `vercel.json` should be in the root of your project
