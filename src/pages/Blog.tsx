@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -15,46 +14,19 @@ const Blog = () => {
     navigateToTop(`/blog/${postId}`);
   };
 
-  const categories = ["All", "AI & Data", "AI Implementation", "Technical Deep Dive", "MLOps", "Computer Vision", "NLP"];
-  const [selectedCategory, setSelectedCategory] = useState("All");
-
-  const filteredPosts = selectedCategory === "All"
-    ? blogPosts
-    : blogPosts.filter(post => post.category === selectedCategory);
-
   return (
     <div className="min-h-screen bg-background">
       <Header />
 
-      {/* Hero Section */}
-      <section className="pt-24 pb-16 bg-card">
+      {/* Blog Heading */}
+      <section className="pt-32 pb-12 bg-gradient-to-br from-primary/5 via-secondary/5 to-background border-b border-border">
         <div className="container mx-auto px-6">
-          <div className="text-center max-w-4xl mx-auto">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              Insights & <span className="text-primary">Innovations</span>
+          <div className="w-full">
+            <h1 className="text-3xl md:text-4xl font-bold mb-4 tracking-tight text-left">
+              <span className="text-foreground">Insights & </span>
+              <span className="text-primary">Innovation</span>
             </h1>
-            <p className="text-xl text-muted-foreground mb-8">
-              Explore the latest trends, research, and insights in AI, data science, and technology from our expert team.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Category Filter */}
-      <section className="py-8 bg-background border-b border-border">
-        <div className="container mx-auto px-6">
-          <div className="flex flex-wrap gap-2 justify-center">
-            {categories.map((category) => (
-              <Button
-                key={category}
-                variant={selectedCategory === category ? "default" : "outline"}
-                size="sm"
-                onClick={() => setSelectedCategory(category)}
-                className="transition-all duration-200"
-              >
-                {category}
-              </Button>
-            ))}
+            <div className="h-1 w-24 bg-primary rounded-full"></div>
           </div>
         </div>
       </section>
@@ -63,7 +35,7 @@ const Blog = () => {
       <section className="py-16">
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredPosts.map((post) => (
+            {blogPosts.map((post) => (
               <Card
                 key={post.id}
                 className="bg-card border-border hover:shadow-card transition-all duration-300 overflow-hidden cursor-pointer hover-scale"

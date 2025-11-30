@@ -448,6 +448,138 @@ To stay focused, we guide teams to follow five rules:
     tags: ["analytics", "metrics", "kpi", "digital-analytics", "business-intelligence", "data-driven"]
   },
   {
+    id: "3",
+    title: "Beyond Dashboards: How Knowledge Graphs and Machine Learning Unlock Hidden Growth Paths",
+    excerpt: "Most companies today don't suffer from a data shortage. They suffer from a connections shortage. That's where Knowledge Graphs + Machine Learning come in to move you from raw data to a connected, intelligent view of your business.",
+    content: `Most companies today don't suffer from a data shortage.
+
+**They suffer from a connections shortage.**
+
+You have data in:
+• Sales systems
+• CRM
+• Mobile apps
+• WhatsApp / SMS
+• Finance tools
+• IoT devices and sensors
+
+But these systems rarely "talk" to each other in a smart way.
+
+**That's where Knowledge Graphs + Machine Learning come in.** It's one of the advanced capabilities we use at Quantum Intelligence to move you from raw data to a connected, intelligent view of your business.
+
+---
+
+## What is a Knowledge Graph? (Simple Version)
+
+Think of a knowledge graph as a map of your business.
+
+**Nodes = things** (customers, products, branches, invoices, machines, agents, campaigns)
+
+**Edges = relationships between them** (bought, referred, works at, located in, part of, paid for)
+
+**Example:**
+• Customer A → bought → Product X
+• Customer A → served by → Agent John
+• Agent John → works at → Branch Tanga
+• Branch Tanga → belongs to → Region Coastal
+
+Instead of storing data as isolated rows in tables, a knowledge graph stores how everything is connected in real life.
+
+---
+
+## Why Knowledge Graphs Matter More Than Just Tables
+
+Traditional analytics answers questions like:
+• "How many sales did we have this month?"
+• "What is our churn rate?"
+
+**Knowledge graphs help answer deeper, relationship questions, like:**
+• "Which type of customers, in which locations, using which channels, are most likely to churn next?"
+• "Which product combinations tend to appear together in successful, long-term customers?"
+• "Which suppliers, distributors, and branches are critical nodes in our network (and therefore high risk if they fail)?"
+
+Because we see your data as a network, not just as separate lists, we can detect patterns that are invisible in normal tables.
+
+---
+
+## How Machine Learning Uses Knowledge Graphs
+
+Machine Learning becomes much more powerful when it understands context.
+
+At Quantum Intelligence, we typically use knowledge graphs with ML in three steps:
+
+### 1. Unify and connect your data
+
+**We:**
+• Bring data from your different systems into a single graph model
+• Clean and match entities (e.g. same customer across multiple platforms)
+• Define the main relationships that matter for your business
+
+**Result:** a living map of your operations.
+
+---
+
+### 2. Generate "graph features" for ML
+
+We go beyond simple fields like age, city, or order count, and add graph-aware features, such as:
+• How central a customer is in their network (referrals, teams, branches)
+• How similar a new customer is to past high-value or high-risk customers
+• How "tight" or "fragile" a supply chain looks across nodes
+
+**These features give your models much richer understanding of your real world.**
+
+---
+
+### 3. Predict, Recommend, and Detect
+
+Once the graph is in place, we apply ML to:
+
+**Predict churn** — Who is likely to leave soon based on behavior + network connections?
+
+**Recommend actions** — Which customers should your team call today? Which products should you suggest next?
+
+**Detect anomalies & risk** — Unusual transactions in a payment graph, suspicious patterns in logistics or inventory
+
+**Improve forecasting** — Forecast impact not just by time, but by connections (region → branch → agent → customer).
+
+---
+
+## What This Means for You as a Client
+
+When we say we use Knowledge Graphs + Machine Learning, it's not just buzzwords.
+
+**It means we can help you:**
+• Move from flat reports to a connected view of your business
+• See who is linked to whom, how, and why it matters
+• Build smarter AI models that understand context, make better predictions, and give more explainable insights to your team
+
+For your leadership, this becomes:
+
+**"Show me the most important relationships driving growth, risk, and opportunity in my business – and what we should do about them."**
+
+---
+
+## How Quantum Intelligence Uses These Skills
+
+In our projects, we:
+
+**Design your knowledge graph** around your real-world entities (customers, products, branches, partners, devices).
+
+**Ingest and clean data** from your existing tools and databases.
+
+**Build graph-based ML models** for churn, revenue, risk, and recommendations.
+
+**Expose all this in simple dashboards and alerts** your team can understand and act on.
+
+At Quantum Intelligence, we don't just talk about knowledge graphs and ML — **we design, build, and deploy these models end-to-end**, so your organization gets enterprise-level intelligence, delivered in a clean, usable way for your teams every single day.`,
+    author: "Quantum Intelligence Team",
+    date: "December 3, 2024",
+    category: "Machine Learning",
+    readTime: "12 min read",
+    imageUrl: "blog4.png",
+    tags: ["knowledge-graphs", "machine-learning", "data-science", "business-intelligence", "ai", "graph-analytics"]
+  },
+  {
     id: "1",
     title: "Digital Data is the new software code",
     excerpt: "Drawing inspiration from the profound words of British Mathematician Clive Humby that 'Data is the new oil', we embark on a journey to discover the secrets of successful AI development.",
@@ -554,80 +686,6 @@ Organizations that invest in MLOps capabilities today will be better positioned 
     readTime: "10 min read",
     imageUrl: "blog4.png",
     tags: ["mlops", "devops", "machine-learning", "production", "automation"]
-  },
-  {
-    id: "5",
-    title: "Computer Vision in Healthcare: Revolutionizing Diagnosis",
-    excerpt: "Explore how computer vision and AI are transforming medical diagnosis, from radiology to pathology, improving accuracy and accessibility of healthcare.",
-    content: `Computer vision technology is revolutionizing healthcare by enabling more accurate, efficient, and accessible medical diagnosis. From analyzing medical images to assisting in surgical procedures, **AI-powered vision systems are transforming how healthcare professionals work.**
-
----
-
-## Transforming Medical Imaging
-
-### Radiology: Early Detection and Diagnosis
-
-In radiology, computer vision algorithms can detect subtle patterns in X-rays, MRIs, and CT scans that might be missed by human eyes. These systems can identify early signs of diseases such as cancer, helping to improve patient outcomes through earlier intervention.
-
-**The impact:** Faster diagnosis, reduced human error, and the ability to process large volumes of medical images efficiently.
-
----
-
-### Pathology: Precision in Tissue Analysis
-
-Pathology is another area where computer vision is making significant impact. AI systems can analyze tissue samples and identify malignant cells with remarkable accuracy, supporting pathologists in making critical diagnoses.
-
-**Key advantages:**
-• Consistent analysis across samples
-• Ability to detect patterns invisible to the human eye
-• Faster processing times
-
----
-
-### Ophthalmology: Accessible Eye Care
-
-Ophthalmology has seen particularly impressive advances, with AI systems capable of detecting diabetic retinopathy, glaucoma, and other eye conditions from retinal photographs. **This technology is especially valuable in areas with limited access to specialist care.**
-
-The democratization of healthcare through AI is becoming a reality, bringing expert-level diagnostic capabilities to underserved communities.
-
----
-
-## Implementation Considerations
-
-The implementation of computer vision in healthcare requires careful consideration of:
-• **Regulatory requirements** and compliance standards
-• **Data privacy** and patient confidentiality
-• **Integration** with existing clinical workflows
-
-Successful deployments often involve close collaboration between AI developers and healthcare professionals, ensuring that technology serves the needs of both practitioners and patients.
-
----
-
-## Challenges and Opportunities
-
-Despite the promise of this technology, challenges remain:
-• Ensuring AI systems work effectively across diverse populations
-• Maintaining data privacy and security
-• Gaining trust from healthcare professionals
-
-**However, these challenges are being addressed** through rigorous testing, transparent development processes, and ongoing collaboration with the medical community.
-
----
-
-## The Future of AI in Healthcare
-
-The future of computer vision in healthcare is bright, with emerging applications in areas such as:
-• Surgical robotics and assistance
-• Personalized treatment planning
-• Remote patient monitoring
-
-As these technologies mature, they promise to make healthcare more effective, accessible, and affordable worldwide. **The revolution in medical AI is just beginning.**`,
-    author: "Quantum Intelligence Team",
-    date: "February 14, 2024",
-    category: "Computer Vision",
-    readTime: "7 min read",
-    imageUrl: "blog5.jpg",
-    tags: ["computer-vision", "healthcare", "medical-ai", "diagnosis", "radiology"]
   },
   {
     id: "6",
