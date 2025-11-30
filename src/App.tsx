@@ -33,6 +33,7 @@ import FAQ from '@/pages/FAQ';
 import Glossary from '@/pages/Glossary';
 import Research from '@/pages/Research';
 import ResearchDetail from '@/pages/ResearchDetail';
+import BlogDetail from '@/pages/BlogDetail';
 import Partnerships from '@/pages/Partnerships';
 
 const queryClient = new QueryClient();
@@ -57,6 +58,7 @@ const App = () => (
           <Route path="/careers" element={<Careers />} />
           <Route path="/resources" element={<Resources />} />
           <Route path="/blog" element={<Blog />} />
+          <Route path="/blog/:id" element={<BlogDetail />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/ai-studio" element={<AIStudio />} />

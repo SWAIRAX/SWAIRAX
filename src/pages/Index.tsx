@@ -8,7 +8,6 @@ import Cube3D from "@/components/3DCube";
 import AnimatedCounter from "@/components/AnimatedCounter";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import BlogModal from "@/components/BlogModal";
 import { ArrowRight, CheckCircle, Database, Cog, Cloud, BarChart3, PieChart, TrendingUp, ChevronDown, ChevronUp } from "lucide-react";
 
 interface Article {
@@ -28,8 +27,6 @@ interface Article {
 const Index = () => {
   const navigate = useNavigate();
   const { navigateToTop, scrollToSection } = useNavigationWithScroll();
-  const [selectedBlog, setSelectedBlog] = useState<Article | null>(null);
-  const [isBlogModalOpen, setIsBlogModalOpen] = useState(false);
   const [expandedSections, setExpandedSections] = useState<{[key: string]: boolean}>({});
 
   const toggleSection = (sectionId: string) => {
@@ -71,10 +68,35 @@ const Index = () => {
 
   const articles = [
     {
+      id: "0",
+      date: "December 1, 2024",
+      category: "Data Science",
+      title: "As a Data Scientist, You Need to Understand People as Deeply as You Understand Data",
+      excerpt: "Behind every row of data, there is a real human being trying to get something done. If we forget that, it doesn't matter how advanced our models are or how beautiful the charts look — we will optimize the wrong things.",
+      content: "Every dashboard we build at Quantum Intelligence starts with a simple reminder: Behind every row of data, there is a real human being trying to get something done. If we forget that, it doesn't matter how advanced our models are or how beautiful the charts look — we will optimize the wrong things.\n\nYes, data science is about algorithms, pipelines, and statistics. But the real impact comes when you understand people's needs, motivations, fears, and constraints just as clearly as you understand SQL, Python, or XGBoost.\n\nThat's the heart of how we work at Quantum Intelligence: we don't just analyze data — we empower organizations to serve people better using data.\n\nAt Quantum Intelligence, we see analytics as a continuous loop, not a one-time report. We listen, define questions, instrument and collect, analyze and model, translate into action, teach and empower, and iterate. Data science is a relationship, not a report.\n\nWhen you combine deep human understanding with strong data practice, you get products that fit real lives, marketing that speaks to true motivations, operations guided by evidence, and leadership that can see clearly where to invest, protect, or pivot.\n\nLet's not just make your organization data-driven. Let's make it people-centered and data-powered.",
+      author: "Mgasa Lucas – Quantum Intelligence",
+      readTime: "15 min read",
+      imageUrl: "data.jpg",
+      tags: ["Data Science", "Human-Centered Design", "Analytics"],
+      cta: "Read More"
+    },
+    {
+      id: "2",
+      date: "December 2, 2024",
+      category: "Analytics",
+      title: "The 20 Digital Analytics Metrics That Matter Most",
+      excerpt: "Every business today has data. Very few have clarity. You can have Google Analytics, dashboards, reports, and exports… and still not know which marketing channels are really working, which users will stay and which will leave.",
+      content: "Every business today has data. Very few have clarity. You can have Google Analytics, dashboards, reports, and exports… and still not know which marketing channels are really working, which users will stay and which will leave, which features bring real value, or where money is leaking in your funnels.\n\nAt Quantum Intelligence, we help organizations turn data into decisions. This starts with one simple idea: You do not need 200 metrics. You need the right 20.\n\nBelow are the 20 digital analytics metrics we believe matter most for modern products and businesses — from acquisition, to engagement, to revenue, to experimentation. The language is simple on purpose. You should be able to share this with your CEO, your sales lead, your product manager, and your team in one meeting.\n\nFrom Channel Performance and CTR to Retention Rate, Churn Rate, LTV, and MRR — these metrics help you focus on what truly matters. We guide teams to start from goals, pick 1–2 North Star metrics, attach supporting metrics, kill vanity metrics, and build one simple view per team.",
+      author: "Mgasa – Quantum Intelligence",
+      readTime: "18 min read",
+      imageUrl: "analytics.jpg",
+      tags: ["Analytics", "Metrics", "KPI", "Digital Analytics"],
+      cta: "Read More"
+    },
+    {
       id: "1",
       date: "June 3, 2023",
       category: "Blog",
-
       title: "Digital Data is the new software code",
       excerpt: "Drawing inspiration from the profound words of British Mathematician Clive Humby that 'Data is the new oil', we embark on a journey to discover the secrets of successful AI development, where data takes center stage.",
       content: "Drawing inspiration from the profound words of British Mathematician Clive Humby that 'Data is the new oil', we embark on a journey to discover the secrets of successful AI development, where data takes center stage.\n\nIn the modern era of artificial intelligence, data has emerged as the fundamental building block of innovation. Just as oil powered the industrial revolution, data is now the driving force behind the AI revolution that's transforming industries across the globe.\n\nThe parallels between oil and data are striking. Both require extraction, refinement, and careful processing to unlock their true value. Raw data, like crude oil, needs to be cleaned, structured, and analyzed before it can fuel intelligent systems and drive meaningful insights.\n\nAt Quantum Intelligence, we understand that successful AI implementation begins with understanding your data landscape. Our data-centric approach ensures that every AI solution we develop is built on a foundation of high-quality, well-understood data that delivers measurable business value.",
@@ -83,43 +105,11 @@ const Index = () => {
       imageUrl: "blog1.jpg",
       tags: ["Data Science", "AI Development", "Digital Transformation"],
       cta: "Read More"
-    },
-    {
-      id: "2",
-      date: "May 3, 2023",
-      category: "Life On Data",
-      title: "Overcoming the Barriers: A Look at the Challenges of Implementing AI in Africa.",
-      excerpt: "Implementing AI in Africa is not without its challenges. In this article, we will explore some of the key challenges of implementing AI in Africa, and we will discuss how these challenges can be addressed in order to realize the full potential of AI in the region.",
-      content: "Implementing AI in Africa is not without its challenges. In this article, we will explore some of the key challenges of implementing AI in Africa, and we will discuss how these challenges can be addressed in order to realize the full potential of AI in the region.\n\nAfrica presents a unique landscape for AI implementation, with both significant opportunities and distinct challenges. The continent's rapidly growing digital infrastructure and young, tech-savvy population create fertile ground for AI innovation, yet several barriers must be addressed to unlock this potential.\n\nKey challenges include limited access to quality data, insufficient technical infrastructure, and a shortage of skilled AI professionals. Additionally, regulatory frameworks are still evolving, and there's a need for greater investment in research and development.\n\nDespite these challenges, we're seeing remarkable progress across various sectors. From mobile banking solutions in Kenya to agricultural AI applications in Nigeria, African entrepreneurs and organizations are finding innovative ways to leverage AI for local challenges.\n\nThe path forward requires collaborative efforts between governments, private sector, and international partners to build sustainable AI ecosystems that benefit local communities while contributing to global AI advancement.",
-      author: "Quantum Intelligence Team",
-      readTime: "8 min read",
-      imageUrl: "blog2.png",
-      tags: ["AI in Africa", "Digital Transformation", "Tech Innovation"],
-      cta: "Read More"
-    },
-    {
-      id: "3",
-      date: "April 4, 2023",
-      category: "Case Study",
-      title: "What is Retrieval Augmented Generation (RAG) in AI?",
-      excerpt: "Think of RAG like having a super-smart assistant who can help you find just the right information you need, exactly when you need it Here we will teach you how to build one.",
-      content: "Think of RAG like having a super-smart assistant who can help you find just the right information you need, exactly when you need it. Here we will teach you how to build one.\n\nRetrieval Augmented Generation (RAG) represents a breakthrough in how AI systems access and utilize information. Unlike traditional language models that rely solely on their training data, RAG systems can dynamically retrieve relevant information from external knowledge bases to enhance their responses.\n\nThis approach combines the generative capabilities of large language models with the precision of information retrieval systems. When you ask a RAG system a question, it first searches through relevant documents or databases to find pertinent information, then uses this context to generate more accurate and up-to-date responses.\n\nThe benefits of RAG are particularly evident in enterprise applications where accuracy and currency of information are critical. For example, a RAG system can access the latest company policies, product specifications, or market data to provide responses that are both contextually relevant and factually current.\n\nBuilding an effective RAG system involves several key components: a robust document retrieval mechanism, efficient embedding strategies, and careful prompt engineering to ensure the retrieved information is properly utilized in the generation process.",
-      author: "Quantum Intelligence Team",
-      readTime: "6 min read",
-      imageUrl: "blog.jpg",
-      tags: ["RAG", "Machine Learning", "NLP", "AI Architecture"],
-      cta: "Read More"
     }
   ];
 
   const handleBlogClick = (article: Article) => {
-    setSelectedBlog(article);
-    setIsBlogModalOpen(true);
-  };
-
-  const closeBlogModal = () => {
-    setIsBlogModalOpen(false);
-    setSelectedBlog(null);
+    navigateToTop(`/blog/${article.id}`);
   };
 
   return (
@@ -858,13 +848,6 @@ const Index = () => {
       </section>
 
       <Footer />
-
-      {/* Blog Modal */}
-      <BlogModal
-        post={selectedBlog}
-        isOpen={isBlogModalOpen}
-        onClose={closeBlogModal}
-      />
     </div>
   );
 };
