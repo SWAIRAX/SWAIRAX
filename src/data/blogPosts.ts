@@ -191,7 +191,7 @@ If you want a partner who can help you move from "we have data" to "we truly und
     date: "December 1, 2024",
     category: "Data Science",
     readTime: "15 min read",
-    imageUrl: "data.jpg",
+    imageUrl: "image.png",
     tags: ["data-science", "human-centered-design", "analytics", "business-intelligence", "customer-insights"]
   },
   {

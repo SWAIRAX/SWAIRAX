@@ -76,7 +76,7 @@ const Index = () => {
       content: "Every dashboard we build at Quantum Intelligence starts with a simple reminder: Behind every row of data, there is a real human being trying to get something done. If we forget that, it doesn't matter how advanced our models are or how beautiful the charts look — we will optimize the wrong things.\n\nYes, data science is about algorithms, pipelines, and statistics. But the real impact comes when you understand people's needs, motivations, fears, and constraints just as clearly as you understand SQL, Python, or XGBoost.\n\nThat's the heart of how we work at Quantum Intelligence: we don't just analyze data — we empower organizations to serve people better using data.\n\nAt Quantum Intelligence, we see analytics as a continuous loop, not a one-time report. We listen, define questions, instrument and collect, analyze and model, translate into action, teach and empower, and iterate. Data science is a relationship, not a report.\n\nWhen you combine deep human understanding with strong data practice, you get products that fit real lives, marketing that speaks to true motivations, operations guided by evidence, and leadership that can see clearly where to invest, protect, or pivot.\n\nLet's not just make your organization data-driven. Let's make it people-centered and data-powered.",
       author: "Mgasa Lucas – Quantum Intelligence",
       readTime: "15 min read",
-      imageUrl: "data.jpg",
+      imageUrl: "image.png",
       tags: ["Data Science", "Human-Centered Design", "Analytics"],
       cta: "Read More"
     },
