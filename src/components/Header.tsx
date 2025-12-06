@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useNavigationWithScroll } from "@/utils/navigation";
 import Logo from "@/components/Logo";
@@ -41,15 +41,7 @@ const Header = () => {
     },
     {
       name: "Industries",
-      path: "/industries",
-      dropdown: [
-        { name: "Financial Services", desc: "Getting easy with the payment sector", path: "/industries/financial-services" },
-        { name: "Telecommunications", desc: "Everything that involves communication", path: "/industries/telecommunications" },
-        { name: "Education Services", desc: "Everything that involves Learning and students", path: "/industries/education-services" },
-        { name: "Utilities", desc: "From electricity, to water supplies to public services", path: "/industries/utilities" },
-        { name: "Retail & Logistics", desc: "Great brands who chose secure data", path: "/industries/retail-logistics" },
-        { name: "Healthcare & Pharmacy", desc: "Health sector covered", path: "/industries/healthcare-pharmacy" }
-      ]
+      path: "/industries"
     },
     // {
     //   name: "Clients",
@@ -131,11 +123,11 @@ const Header = () => {
               <img
                 src="/uploads/logo.png"
                 alt="Quantum Intelligence Logo"
-                className="h-9 w-auto object-contain"
+                className="h-10 w-auto object-contain"
                 style={{ maxWidth: "168px" }}
               />
             </picture>
-            <div className="hidden md:block leading-tight text-[18px] sm:text-[20px] font-semibold text-foreground">
+            <div className="leading-tight text-lg md:text-xl font-semibold text-foreground">
               <div>Quantum</div>
               <div>Intelligence</div>
             </div>
@@ -187,18 +179,6 @@ const Header = () => {
                     >
                       {item.name}
                     </button>
-                    {item.dropdown && (
-                      <button
-                        type="button"
-                        className="ml-1 flex items-center bg-transparent border-none outline-none p-0"
-                        onClick={() => setActiveDropdown(activeDropdown === item.name ? null : item.name)}
-                        aria-haspopup="true"
-                        aria-expanded={activeDropdown === item.name}
-                        tabIndex={-1}
-                      >
-                        <ChevronDown className="h-3 w-3" />
-                      </button>
-                    )}
                   </span>
 
                   {/* Dropdown Menu */}

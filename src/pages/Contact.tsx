@@ -105,60 +105,74 @@ const Contact = () => {
         {/* Hero */}
         <section className="relative pt-20 pb-10">
           <div className="container mx-auto px-5 max-w-5xl">
-            <div className="text-center space-y-2">
-              <p className="text-[10px] uppercase tracking-[0.3em] text-primary/80">Contact Us</p>
-              <h1 className="text-[22px] md:text-[28px] font-bold leading-tight">
+            <div className="text-center space-y-3">
+              <h1 className="text-[20px] md:text-[24px] font-bold leading-tight">
                 Let&apos;s Get In <span className="text-primary">Touch</span>
               </h1>
-              <p className="text-[12px] md:text-sm text-muted-foreground">
-                Tell us a bit about your project and we&apos;ll reach out soon.
-                You can also email us at{" "}
-                <a href="mailto:communications@quantumintelligence.co.tz" className="text-primary hover:underline">
-                  communications@quantumintelligence.co.tz
-                </a>
+              <p className="text-[13px] md:text-sm text-muted-foreground max-w-2xl mx-auto">
+                Tell us a bit about your project and we&apos;ll reach out soon. We respond within one business day.
               </p>
             </div>
           </div>
-        </section>
+      </section>
 
         {/* Main layout */}
         <section className="relative pb-10">
-          <div className="container mx-auto px-5 max-w-5xl">
-            <div className="grid lg:grid-cols-2 gap-7 items-start">
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-background via-background/85 to-background/60" />
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_10%,hsl(var(--primary))/10,transparent_45%)]" />
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,hsl(var(--primary))/8,transparent_50%)]" />
+          <div className="container mx-auto px-5 max-w-5xl relative">
+            <div className="grid lg:grid-cols-2 gap-8 items-start">
               {/* Left info panel */}
-              <div className="relative bg-card/60 border border-border/60 rounded-2xl p-5 md:p-6 backdrop-blur shadow-card">
-                <div className="absolute -left-6 top-6 h-12 w-1 bg-primary rounded-full" />
-                <p className="text-[10px] uppercase tracking-[0.2em] text-primary/80 mb-2">Contact Details</p>
-                <h2 className="text-lg md:text-xl font-bold mb-2">We&apos;re ready to build with you.</h2>
-                <p className="text-[12px] md:text-[13px] text-muted-foreground mb-5 leading-relaxed">
-                  Share your goals and we&apos;ll align the right team to your project. Expect a quick reply from our development team.
-                </p>
-                <div className="space-y-4">
-                  <div className="flex items-start gap-3">
-                    <div className="mt-1 h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
-                      <Mail className="h-4 w-4" />
-                    </div>
-                    <div>
-                      <p className="text-[10px] uppercase text-muted-foreground">Email</p>
-                      <p className="text-[12px] md:text-sm font-semibold">communications@quantumintelligence.co.tz</p>
-                    </div>
+              <div className="relative overflow-hidden rounded-2xl border border-primary/15 bg-gradient-to-br from-[#0f111c]/95 via-[#0c0d18]/90 to-background/85 backdrop-blur shadow-[0_25px_70px_-30px_rgba(0,0,0,0.65)]">
+                <div className="absolute -left-10 -top-10 h-32 w-32 rounded-full bg-primary/10 blur-3xl" />
+                <div className="absolute -right-16 top-10 h-36 w-36 rounded-full bg-primary/5 blur-3xl" />
+                <div className="relative p-5 md:p-6 space-y-5">
+                  <div className="flex items-center gap-2 text-primary text-[11px] font-semibold uppercase tracking-[0.2em]">
+                    <span className="h-1.5 w-1.5 rounded-full bg-primary"></span>
+                    Contact Details
                   </div>
-                  <div className="flex items-start gap-3">
-                    <div className="mt-1 h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
-                      <Phone className="h-4 w-4" />
+                  <h2 className="text-xl md:text-2xl font-bold">We&apos;re ready to build with you.</h2>
+                  <p className="text-[12px] md:text-[13px] text-muted-foreground leading-relaxed">
+                    Share your goals and we&apos;ll align the right team to your project. Expect a quick reply from our development team.
+                  </p>
+                  <div className="space-y-3">
+                    <div className="flex items-start gap-3 rounded-xl px-3 py-3">
+                      <div className="mt-1 h-10 w-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
+                        <Mail className="h-5 w-5" />
+                      </div>
+                      <div>
+                        <p className="text-[10px] uppercase text-muted-foreground">Email</p>
+                        <a
+                          href="mailto:communications@quantumintelligence.co.tz"
+                          className="text-[12px] md:text-sm font-semibold text-primary hover:underline"
+                        >
+                          communications@quantumintelligence.co.tz
+                        </a>
+                      </div>
                     </div>
-                    <div>
-                      <p className="text-[10px] uppercase text-muted-foreground">Phone</p>
-                      <p className="text-[12px] md:text-sm font-semibold">+255 689 726 060</p>
+                    <div className="flex items-start gap-3 rounded-xl px-3 py-3">
+                      <div className="mt-1 h-10 w-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
+                        <Phone className="h-5 w-5" />
+                      </div>
+                      <div>
+                        <p className="text-[10px] uppercase text-muted-foreground">Phone</p>
+                        <a
+                          href="tel:+255689726060"
+                          className="text-[12px] md:text-sm font-semibold text-primary hover:underline"
+                        >
+                          +255 689 726 060
+                        </a>
+                      </div>
                     </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <div className="mt-1 h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
-                      <MapPin className="h-4 w-4" />
-                    </div>
-                    <div>
-                      <p className="text-[10px] uppercase text-muted-foreground">Location</p>
-                      <p className="text-[12px] md:text-sm font-semibold">Dar es Salaam, TZ — Global AI</p>
+                    <div className="flex items-start gap-3 rounded-xl px-3 py-3">
+                      <div className="mt-1 h-10 w-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
+                        <MapPin className="h-5 w-5" />
+                      </div>
+                      <div>
+                        <p className="text-[10px] uppercase text-muted-foreground">Location</p>
+                        <p className="text-[12px] md:text-sm font-semibold">Dar es Salaam, Tanzania</p>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -167,23 +181,28 @@ const Contact = () => {
               {/* Form panel */}
               <div className="relative">
                 <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-primary/20 via-transparent to-primary/5 blur-3xl" />
-                <div className="relative bg-card/80 border border-border/60 rounded-2xl shadow-2xl p-5 md:p-6 backdrop-blur">
+                <div className="relative overflow-hidden rounded-2xl border border-border/40 bg-gradient-to-br from-[#0d0f1a]/92 via-[#0c0d18]/90 to-background/88 shadow-[0_25px_70px_-28px_rgba(0,0,0,0.6)] p-5 md:p-6 backdrop-blur">
+                  <div className="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-primary/8 blur-3xl" />
                   <div className="pointer-events-none absolute inset-2 rounded-xl border border-primary/50" />
-                  <Form {...form}>
-                    <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-3.5" role="form" aria-label="Project inquiry form">
-                      <FormField
-                        control={form.control}
-                        name="fullName"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel className="text-[10px] font-medium">Full Name<span className="text-destructive">*</span></FormLabel>
-                            <FormControl>
-                              <Input {...field} placeholder="Enter your full name" className="h-10 rounded-lg bg-background/60 border-border text-xs focus-visible:ring-2 focus-visible:ring-primary/70" aria-required="true" />
-                            </FormControl>
-                            <FormMessage className="text-[11px]" />
-                          </FormItem>
-                        )}
-                      />
+                  <div className="relative space-y-3">
+                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-[11px] font-semibold uppercase tracking-[0.2em]">
+                      Project inquiry
+                    </div>
+                    <Form {...form}>
+                      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-3.5" role="form" aria-label="Project inquiry form">
+                        <FormField
+                          control={form.control}
+                          name="fullName"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel className="text-[10px] font-medium">Full Name<span className="text-destructive">*</span></FormLabel>
+                              <FormControl>
+                                <Input {...field} placeholder="Enter your full name" className="h-10 rounded-lg bg-background/60 border-border text-xs focus-visible:ring-2 focus-visible:ring-primary/70" aria-required="true" />
+                              </FormControl>
+                              <FormMessage className="text-[11px]" />
+                            </FormItem>
+                          )}
+                        />
                       <FormField
                         control={form.control}
                         name="email"
@@ -275,6 +294,7 @@ const Contact = () => {
                   </Form>
                 </div>
               </div>
+            </div>
             </div>
           </div>
         </section>

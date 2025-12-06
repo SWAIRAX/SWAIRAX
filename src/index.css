@@ -459,6 +459,13 @@ All colors MUST be HSL.
     }
 }
 
+/* Mobile-first readability: left-align centered text on small screens */
+@media (max-width: 767px) {
+    .text-center {
+        text-align: left !important;
+    }
+}
+
 /* Interactive elements with animation feedback */
 .solution-card {
     transition: var(--transition-smooth);
