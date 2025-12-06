@@ -5,24 +5,21 @@ import Logo from "@/components/Logo";
 const Footer = () => {
   return (
     <footer className="bg-card border-t border-border">
-      <div className="container mx-auto px-6 py-8">
-        <div className="flex items-center justify-center mb-6">
-          <Link to="/" className="flex items-center space-x-3">
-            {/* Logo */}
-            <Link to="/" className="flex items-center space-x-3">
+      <div className="container mx-auto px-5 py-8">
+        <div className="flex items-center justify-center mb-5">
+          <Link to="/" className="flex items-center gap-3 hover:opacity-90 transition-opacity">
             <picture>
               <img
-              src="/uploads/logo.png"
-              alt="Quantum Intelligence Logo"
-              className="h-10 w-auto object-contain"
-              style={{ maxWidth: "160px" }}
+                src="/uploads/logo.png"
+                alt="Quantum Intelligence Logo"
+                className="h-10 w-auto object-contain"
+                style={{ maxWidth: "168px" }}
               />
             </picture>
-            <div className="text-2xl font-bold text-foreground">
-
+            <div className="leading-tight text-lg md:text-xl font-semibold text-foreground">
+              <div>Quantum</div>
+              <div>Intelligence</div>
             </div>
-            </Link>
-            <div className="text-xl font-bold text-foreground">Quantum Intelligence</div>
           </Link>
         </div>
         <div className="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">
