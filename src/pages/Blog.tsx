@@ -49,22 +49,15 @@ const Blog = () => {
                   />
                 )}
                 <CardContent className="p-6">
-                  <div className="flex items-center justify-between mb-4">
+                  <div className="flex items-center justify-between mb-3">
                     <Badge variant="secondary" className="text-xs">
                       {post.category}
                     </Badge>
-                    <div className="flex items-center gap-1 text-xs text-muted-foreground">
-                      <Clock className="h-3 w-3" />
-                      {post.readTime}
-                    </div>
                   </div>
 
                   <h3 className="text-xl font-bold mb-3 leading-tight">{post.title}</h3>
-                  <p className="text-muted-foreground mb-4 text-sm leading-relaxed line-clamp-3">
-                    {post.excerpt}
-                  </p>
 
-                  <div className="flex items-center justify-between text-xs text-muted-foreground mb-4">
+                  <div className="flex items-center gap-4 text-xs text-muted-foreground mb-4">
                     <div className="flex items-center gap-1">
                       <User className="h-3 w-3" />
                       {post.author}
@@ -72,6 +65,10 @@ const Blog = () => {
                     <div className="flex items-center gap-1">
                       <Calendar className="h-3 w-3" />
                       {post.date}
+                    </div>
+                    <div className="flex items-center gap-1">
+                      <Clock className="h-3 w-3" />
+                      {post.readTime}
                     </div>
                   </div>
 

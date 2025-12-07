@@ -8,7 +8,7 @@ import Cube3D from "@/components/3DCube";
 import AnimatedCounter from "@/components/AnimatedCounter";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { ArrowRight, CheckCircle, Database, Cog, Cloud, BarChart3, PieChart, TrendingUp, ChevronDown, ChevronUp } from "lucide-react";
+import { ArrowRight, CheckCircle, Database, Cog, Cloud, BarChart3, PieChart, TrendingUp, ChevronDown, ChevronUp, User, Clock } from "lucide-react";
 
 interface Article {
   id: string;
@@ -814,17 +814,17 @@ const Index = () => {
                   />
                 )}
                 <CardContent className="p-6">
-                  <div className="flex items-center justify-between mb-4">
-                    <span className="text-sm text-muted-foreground">{article.date}</span>
-                    <span className="text-xs px-3 py-1 rounded-full bg-muted text-muted-foreground">
-                      {article.category}
-                    </span>
+                  <h3 className="text-xl font-bold mb-3 leading-snug">{article.title}</h3>
+                  <div className="flex items-center gap-4 text-xs text-muted-foreground mb-4">
+                    <div className="flex items-center gap-2">
+                      <User className="h-3 w-3" />
+                      {article.author}
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Clock className="h-3 w-3" />
+                      {article.readTime}
+                    </div>
                   </div>
-
-                  <h3 className="text-xl font-bold mb-4">{article.title}</h3>
-                  <p className="text-muted-foreground mb-6 text-sm leading-relaxed">
-                    {article.excerpt}
-                  </p>
 
                   <Button variant="ghost" className="text-foreground hover:text-primary p-0" onClick={() => handleBlogClick(article)}>
                     {article.cta} <ArrowRight className="ml-2 h-4 w-4" />
