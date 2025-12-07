@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useNavigationWithScroll } from "@/utils/navigation";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import ScrollReveal from "@/components/ScrollReveal";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
@@ -92,7 +93,7 @@ const About = () => {
       <section className="py-8">
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            <div>
+            <ScrollReveal>
               <h2 className="text-xl font-bold mb-3">Our Mission</h2>
               <p className="text-sm text-muted-foreground mb-3">
                 To democratize artificial intelligence by building innovative, ethical, and accessible AI solutions that empower businesses and individuals to unlock the full potential of their data.
@@ -100,8 +101,8 @@ const About = () => {
               <p className="text-xs text-muted-foreground">
                 We believe that AI should be a force for good, driving positive change across industries while maintaining the highest standards of ethics and transparency.
               </p>
-            </div>
-            <div>
+            </ScrollReveal>
+            <ScrollReveal delay={100}>
               <h2 className="text-xl font-bold mb-3">Our Vision</h2>
               <p className="text-sm text-muted-foreground mb-3">
                 We live in an exciting time when AI research and technology are delivering extraordinary advances.
@@ -110,7 +111,7 @@ In the coming years, AI — and ultimately artificial general intelligence (AGI)
               <p className="text-xs text-muted-foreground">
 
 We're a team of scientists, engineers, ethicists and more, working to build the next generation of AI systems safely and responsibly.              </p>
-            </div>
+            </ScrollReveal>
           </div>
         </div>
       </section>
@@ -118,12 +119,12 @@ We're a team of scientists, engineers, ethicists and more, working to build the 
       {/* Values */}
       <section className="py-8 bg-card">
         <div className="container mx-auto px-6">
-          <div className="text-center mb-8">
+          <ScrollReveal className="text-center mb-8">
             <h2 className="text-xl font-bold mb-3">Our Values</h2>
             <p className="text-sm text-muted-foreground">
             By solving some of the hardest scientific and engineering challenges of our time, we're working to create breakthrough technologies that could advance science, transform work, serve diverse communities — and improve billions of people's lives.
             </p>
-          </div>
+          </ScrollReveal>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             {values.map((value, index) => (
@@ -230,7 +231,7 @@ We're a team of scientists, engineers, ethicists and more, working to build the 
       {/* Company Story */}
       <section className="py-8">
         <div className="container mx-auto px-6">
-          <div className="max-w-4xl mx-auto">
+          <ScrollReveal className="max-w-4xl mx-auto">
             <h2 className="text-xl font-bold mb-4 text-center">Our Story</h2>
             <div className="space-y-3 text-sm text-muted-foreground">
               <p>
@@ -252,7 +253,7 @@ We’re here to create, to collaborate, and to make every interaction—every in
 It’s about what it can do for you.
 </p>
             </div>
-          </div>
+          </ScrollReveal>
         </div>
       </section>
 
@@ -286,7 +287,7 @@ It’s about what it can do for you.
       {/* Stats */}
       <section className="py-8">
         <div className="container mx-auto px-6">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+          <ScrollReveal className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
             <div>
               <div className="text-2xl font-bold text-primary mb-1">20+</div>
               <p className="text-xs text-muted-foreground">Projects Delivered</p>
@@ -303,7 +304,7 @@ It’s about what it can do for you.
               <div className="text-2xl font-bold text-primary mb-1">99%</div>
               <p className="text-xs text-muted-foreground">Client Satisfaction</p>
             </div>
-          </div>
+          </ScrollReveal>
         </div>
       </section>
 
