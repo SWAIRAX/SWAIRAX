@@ -498,11 +498,62 @@ All colors MUST be HSL.
 }
 
 .research-card:hover {
-    transform: translateX(8px);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-glow);
+}
+
+/* ============================================
+   SCROLL REVEAL ANIMATION SYSTEM
+   
+   Usage Options:
+   
+   1. CSS Class + data attribute (no JS needed after init):
+      <div data-scroll-reveal className="scroll-reveal">Content</div>
+   
+   2. React Hook:
+      const { ref, isVisible } = useScrollReveal();
+      <div ref={ref} className={isVisible ? 'scroll-reveal-visible' : 'scroll-reveal'}>
+   
+   3. React Component:
+      <ScrollReveal>Content</ScrollReveal>
+      <ScrollReveal delay={100}>Delayed content</ScrollReveal>
+   
+   ============================================ */
+
+/* Initial hidden state */
+.scroll-reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 350ms ease-out, transform 350ms ease-out;
+}
+
+/* Visible state after scroll trigger */
+.scroll-reveal-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Staggered delay utilities for grouped elements */
+.scroll-reveal-delay-100 { transition-delay: 100ms; }
+.scroll-reveal-delay-200 { transition-delay: 200ms; }
+.scroll-reveal-delay-300 { transition-delay: 300ms; }
+.scroll-reveal-delay-400 { transition-delay: 400ms; }
+
+/* Respect reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    .scroll-reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
 }
 
 .research-card:hover .legacy-tag {
     animation: shimmer 1s ease-in-out;
+}
+
+.research-card:hover .arrow-icon {
+    transform: translateX(8px);
 }
 
 /* Mobile-optimized animations */

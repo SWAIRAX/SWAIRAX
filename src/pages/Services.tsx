@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useNavigationWithScroll } from "@/utils/navigation";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import ScrollReveal from "@/components/ScrollReveal";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
@@ -75,12 +76,12 @@ const Services = () => {
       {/* Services Grid */}
       <section className="py-8">
         <div className="container mx-auto px-6">
-          <div className="text-center mb-8">
+          <ScrollReveal className="text-center mb-8">
             <h2 className="text-xl font-bold mb-3">Our Core Services</h2>
             <p className="text-sm text-muted-foreground">
               End-to-end solutions for your AI and data needs
             </p>
-          </div>
+          </ScrollReveal>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {services.map((service, index) => (
@@ -251,12 +252,12 @@ const Services = () => {
       {/* Process Section */}
       <section className="py-8 bg-card">
         <div className="container mx-auto px-6">
-          <div className="text-center mb-8">
+          <ScrollReveal className="text-center mb-8">
             <h2 className="text-xl font-bold mb-3">Our Process</h2>
             <p className="text-sm text-muted-foreground">
               A proven methodology for delivering successful AI projects
             </p>
-          </div>
+          </ScrollReveal>
 
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
             {[
@@ -280,35 +281,39 @@ const Services = () => {
       {/* Legacy Solutions Section */}
       <section className="py-8 bg-muted/50">
         <div className="container mx-auto px-6 text-center">
-          <h2 className="text-xl font-bold mb-3">Explore Our Legacy</h2>
-          <p className="text-sm text-muted-foreground mb-4">
-            Discover our archived innovations and past products that shaped our AI evolution
-          </p>
-          <Button
-            size="sm"
-            variant="outline"
-            onClick={() => navigateToTop('/research')}
-            className="border-primary text-primary hover:bg-primary hover:text-primary-foreground"
-          >
-            View Archived Solutions <ArrowRight className="ml-1 h-3 w-3" />
-          </Button>
+          <ScrollReveal>
+            <h2 className="text-xl font-bold mb-3">Explore Our Legacy</h2>
+            <p className="text-sm text-muted-foreground mb-4">
+              Discover our archived innovations and past products that shaped our AI evolution
+            </p>
+            <Button
+              size="sm"
+              variant="outline"
+              onClick={() => navigateToTop('/research')}
+              className="border-primary text-primary hover:bg-primary hover:text-primary-foreground"
+            >
+              View Archived Solutions <ArrowRight className="ml-1 h-3 w-3" />
+            </Button>
+          </ScrollReveal>
         </div>
       </section>
 
       {/* CTA Section */}
       <section className="py-8">
         <div className="container mx-auto px-6 text-center">
-          <h2 className="text-xl font-bold mb-3">Ready to Transform Your Business?</h2>
-          <p className="text-sm text-muted-foreground mb-4">
-            Let's discuss how our AI solutions can drive your success
-          </p>
-          <Button
-            size="sm"
-            onClick={() => navigateToTop('/contact')}
-            className="bg-primary hover:bg-primary/90 text-primary-foreground"
-          >
-            Contact Us Today
-          </Button>
+          <ScrollReveal>
+            <h2 className="text-xl font-bold mb-3">Ready to Transform Your Business?</h2>
+            <p className="text-sm text-muted-foreground mb-4">
+              Let's discuss how our AI solutions can drive your success
+            </p>
+            <Button
+              size="sm"
+              onClick={() => navigateToTop('/contact')}
+              className="bg-primary hover:bg-primary/90 text-primary-foreground"
+            >
+              Contact Us Today
+            </Button>
+          </ScrollReveal>
         </div>
       </section>
 

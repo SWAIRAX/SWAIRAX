@@ -8,6 +8,7 @@ import Cube3D from "@/components/3DCube";
 import AnimatedCounter from "@/components/AnimatedCounter";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import ScrollReveal from "@/components/ScrollReveal";
 import { ArrowRight, CheckCircle, Database, Cog, Cloud, BarChart3, PieChart, TrendingUp, ChevronDown, ChevronUp, User, Clock } from "lucide-react";
 
 interface Article {
@@ -157,13 +158,13 @@ const Index = () => {
       {/* Why Quantum Intelligence Section */}
       <section id="why-quantum" className="py-20 bg-card">
         <div className="container mx-auto px-6">
-          <div className="text-center mb-16">
+          <ScrollReveal className="text-center mb-16">
             <p className="text-primary text-sm font-semibold mb-4">Why Quantum Intelligence?</p>
             <h2 className="text-4xl md:text-5xl font-bold mb-8">
               We help Business & Data Scientists to unlock<br />
               data & artificial intelligence full potential.
             </h2>
-          </div>
+          </ScrollReveal>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
             <div>
@@ -202,14 +203,14 @@ const Index = () => {
       <section className="py-20">
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div>
+            <ScrollReveal>
               <p className="text-primary text-sm font-semibold mb-4">What do we do?</p>
               <h2 className="text-4xl md:text-5xl font-bold mb-8">
                 Data-Centric and AI solutions
               </h2>
-            </div>
+            </ScrollReveal>
 
-            <div>
+            <ScrollReveal delay={150}>
               <div className="bg-card p-8 rounded-lg border">
                 <p className="text-primary text-sm font-semibold mb-4">AI STUDIO & IDEAS</p>
                 <h3 className="text-2xl font-bold mb-4">
@@ -284,7 +285,7 @@ const Index = () => {
                   <Link to="/ai-studio">Know More <ArrowRight className="ml-2 h-4 w-4" /></Link>
                 </Button> */}
               </div>
-            </div>
+            </ScrollReveal>
           </div>
         </div>
       </section>
@@ -293,7 +294,7 @@ const Index = () => {
       <section className="py-20 bg-card">
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div>
+            <ScrollReveal>
               <p className="text-primary text-sm font-semibold mb-4">MLOps</p>
               <h2 className="text-4xl md:text-5xl font-bold mb-8">
                 Machine Learning + Devops
@@ -367,9 +368,9 @@ const Index = () => {
               {/* <Button asChild variant="ghost" className="text-foreground hover:text-primary p-0">
                 <Link to="/mlops">Learn more <ArrowRight className="ml-2 h-4 w-4" /></Link>
               </Button> */}
-            </div>
+            </ScrollReveal>
 
-            <div className="relative">
+            <ScrollReveal delay={150} className="relative">
               {/* Animated Pipeline Flow */}
               <div className="flex items-center justify-center space-x-8">
                 <div className="flex flex-col items-center space-y-4 animate-fade-in">
@@ -404,7 +405,7 @@ const Index = () => {
 
               {/* Background glow effect */}
               <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-primary/5 rounded-lg -z-10"></div>
-            </div>
+            </ScrollReveal>
           </div>
         </div>
       </section>
@@ -413,7 +414,7 @@ const Index = () => {
       <section className="py-20">
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div className="relative">
+            <ScrollReveal className="relative">
               {/* Interactive Dashboard Illustration */}
               <div className="bg-card/50 p-8 rounded-lg border border-border/50 backdrop-blur-sm">
                 <div className="grid grid-cols-2 gap-6">
@@ -476,9 +477,9 @@ const Index = () => {
                   <span className="text-xs">🎯</span>
                 </div>
               </div>
-            </div>
+            </ScrollReveal>
 
-            <div>
+            <ScrollReveal delay={150}>
               <p className="text-primary text-sm font-semibold mb-4">Business Analysis</p>
               <h2 className="text-4xl md:text-5xl font-bold mb-8">
                 Turn Insight Into Strategy
@@ -551,7 +552,7 @@ const Index = () => {
               {/* <Button asChild variant="ghost" className="text-foreground hover:text-primary p-0">
                 <Link to="/business-analysis">Explore how <ArrowRight className="ml-2 h-4 w-4" /></Link>
               </Button> */}
-            </div>
+            </ScrollReveal>
           </div>
         </div>
       </section>
@@ -559,12 +560,12 @@ const Index = () => {
       {/* Products Section */}
       <section className="py-20 bg-card">
         <div className="container mx-auto px-6">
-          <div className="text-center mb-16">
+          <ScrollReveal className="text-center mb-16">
             <p className="text-primary text-sm font-semibold mb-4">Ready to start?</p>
             <h2 className="text-4xl md:text-5xl font-bold">
               Solutions Built to Scale
             </h2>
-          </div>
+          </ScrollReveal>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {products.map((product, index) => (
@@ -740,7 +741,7 @@ const Index = () => {
       {/* Infrastructure Section */}
       <section className="py-20">
         <div className="container mx-auto px-6">
-          <div className="max-w-4xl">
+          <ScrollReveal className="max-w-4xl">
             <h2 className="text-4xl md:text-5xl font-bold mb-8">
               Want to develop AI and data related solutions on-premises?
             </h2>
@@ -759,20 +760,22 @@ const Index = () => {
           >
             Contact us
           </Button>
-          </div>
+          </ScrollReveal>
         </div>
       </section>
 
       {/* CTA Section */}
       <section className="py-20 bg-card text-center">
         <div className="container mx-auto px-6">
-          <h2 className="text-4xl md:text-5xl font-bold mb-8">
-            Join the <span className="text-primary">Data-Centric AI</span> movement!
-          </h2>
-          <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
-            Connect, profile, understand & orchestrate your data preparation flows to train models more
-            efficiently! Improve AI initiatives performance in a iterative way.
-          </p>
+          <ScrollReveal>
+            <h2 className="text-4xl md:text-5xl font-bold mb-8">
+              Join the <span className="text-primary">Data-Centric AI</span> movement!
+            </h2>
+            <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
+              Connect, profile, understand & orchestrate your data preparation flows to train models more
+              efficiently! Improve AI initiatives performance in a iterative way.
+            </p>
+          </ScrollReveal>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             {/* <Button
               size="lg"
@@ -796,7 +799,9 @@ const Index = () => {
       {/* Featured Articles Section */}
       <section className="py-20">
         <div className="container mx-auto px-6">
-          <h2 className="text-4xl md:text-5xl font-bold mb-16">Our Featured Articles</h2>
+          <ScrollReveal>
+            <h2 className="text-4xl md:text-5xl font-bold mb-16">Our Featured Articles</h2>
+          </ScrollReveal>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {articles.map((article, index) => (
