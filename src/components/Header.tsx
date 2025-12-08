@@ -128,7 +128,7 @@ const Header = () => {
               />
             </picture>
             <div
-              className={`${isMenuOpen ? "flex" : "hidden md:flex"} flex-col items-start leading-tight text-lg md:text-xl font-semibold text-foreground`}
+              className={`${isMenuOpen ? "flex" : "hidden md:flex"} flex-col items-start justify-center leading-tight text-lg md:text-xl font-semibold text-foreground`}
               style={{ lineHeight: 1.05 }}
             >
               <span>Quantum</span>
@@ -252,11 +252,18 @@ const Header = () => {
               <div className="flex items-center justify-between border-b border-border/70 pb-4 mb-6">
                 <button
                   onClick={() => handleNavClick('/')}
-                  className="flex items-center gap-2 md:gap-3 hover:opacity-90 transition-opacity"
+                  className="flex items-center gap-1.5 md:gap-2 hover:opacity-90 transition-opacity"
                   aria-label="Go to home"
                 >
-                  <Logo size="default" className="w-10 h-10" />
-                  <div className="flex flex-col leading-tight text-lg font-semibold text-foreground" style={{ lineHeight: 1.05 }}>
+                  <picture>
+                    <img
+                      src="/uploads/logo.png"
+                      alt="Quantum Intelligence Logo"
+                      className="h-10 w-auto object-contain"
+                      style={{ maxWidth: "168px" }}
+                    />
+                  </picture>
+                  <div className="flex flex-col items-start justify-center leading-tight text-lg md:text-xl font-semibold text-foreground" style={{ lineHeight: 1.05 }}>
                     <span>Quantum</span>
                     <span>Intelligence</span>
                   </div>
