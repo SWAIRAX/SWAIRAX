@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useMemo, useState, type CSSProperties } from "react";
 import { useNavigate } from "react-router-dom";
 import { useNavigationWithScroll } from "@/utils/navigation";
 import { Button } from "@/components/ui/button";
@@ -108,6 +108,25 @@ const Index = () => {
       cta: "Read More"
     }
   ];
+
+  const revenueSeries = useMemo(() => [18, 22, 19, 26, 31, 29, 37, 45], []);
+  const revenuePath = useMemo(() => {
+    const max = Math.max(...revenueSeries);
+    const min = Math.min(...revenueSeries);
+    const range = Math.max(1, max - min);
+    const points = revenueSeries.map((value, i) => {
+      const x = (i / (revenueSeries.length - 1)) * 100;
+      const y = 90 - ((value - min) / range) * 70;
+      return `${i === 0 ? "M" : "L"}${x},${y}`;
+    });
+    return points.join(" ");
+  }, [revenueSeries]);
+
+  const growthPercent = 0.86; // 86%
+  const gaugeStyle = useMemo(
+    () => ({ "--gauge-percent": growthPercent } as CSSProperties),
+    [growthPercent]
+  );
 
   const handleBlogClick = (article: Article) => {
     navigateToTop(`/blog/${article.id}`);
@@ -418,36 +437,105 @@ const Index = () => {
               {/* Interactive Dashboard Illustration */}
               <div className="bg-card/50 p-8 rounded-lg border border-border/50 backdrop-blur-sm">
                 <div className="grid grid-cols-2 gap-6">
-                  {/* Bar Chart */}
+                  {/* Revenue Sparkline */}
                   <div className="bg-background/80 p-4 rounded-lg border group hover:shadow-lg transition-all duration-300">
                     <div className="flex items-center justify-between mb-3">
                       <BarChart3 className="w-5 h-5 text-primary" />
-                      <span className="text-xs text-muted-foreground">Revenue</span>
+                      <div className="flex items-center gap-2">
+                        <span className="text-xs text-muted-foreground">Revenue</span>
+                        <span className="text-[10px] px-2 py-1 rounded-full bg-primary/10 text-primary font-semibold">+12.4%</span>
+                      </div>
                     </div>
-                    <div className="space-y-2">
-                      {[60, 80, 45, 90].map((height, i) => (
-                        <div key={i} className="flex items-end space-x-1">
-                          <div
-                            className="bg-primary/70 w-6 rounded-sm transition-all duration-1000 hover:bg-primary"
-                            style={{
-                              height: `${height * 0.4}px`,
-                              animationDelay: `${i * 0.2}s`
-                            }}
-                          ></div>
-                        </div>
-                      ))}
+                    <div className="relative">
+                      <svg viewBox="0 0 100 100" className="w-full h-28 overflow-visible">
+                        <defs>
+                          <linearGradient id="revenue-gradient" x1="0" x2="0" y1="0" y2="1">
+                            <stop offset="0%" stopColor="hsl(var(--primary))" stopOpacity="0.28" />
+                            <stop offset="100%" stopColor="hsl(var(--primary))" stopOpacity="0" />
+                          </linearGradient>
+                        </defs>
+                        <path
+                          d={`${revenuePath} L100,100 L0,100 Z`}
+                          fill="url(#revenue-gradient)"
+                          className="sparkline-fill"
+                        />
+                        <path
+                          d={revenuePath}
+                          fill="none"
+                          stroke="hsl(var(--primary))"
+                          strokeWidth="2.5"
+                          className="sparkline-line"
+                          pathLength={400}
+                        />
+                        <circle r="2.8" fill="hsl(var(--primary))" className="sparkline-glow" >
+                          <animateMotion
+                            dur="4s"
+                            repeatCount="indefinite"
+                            path={revenuePath}
+                            keyTimes="0;1"
+                            keySplines="0.16 1 0.3 1"
+                          />
+                        </circle>
+                      </svg>
                     </div>
                   </div>
 
-                  {/* Pie Chart */}
+                  {/* Growth Gauge */}
                   <div className="bg-background/80 p-4 rounded-lg border group hover:shadow-lg transition-all duration-300">
                     <div className="flex items-center justify-between mb-3">
                       <PieChart className="w-5 h-5 text-primary" />
                       <span className="text-xs text-muted-foreground">Growth</span>
                     </div>
-                    <div className="relative w-16 h-16 mx-auto">
-                      <div className="absolute inset-0 rounded-full border-4 border-primary/30"></div>
-                      <div className="absolute inset-0 rounded-full border-4 border-primary border-t-transparent animate-spin-slow"></div>
+                    <div
+                      className="relative w-24 h-24 mx-auto radial-gauge"
+                      style={gaugeStyle}
+                    >
+                      <svg viewBox="0 0 120 120" className="w-full h-full">
+                        <defs>
+                          <linearGradient id="growth-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" stopColor="hsl(var(--primary))" />
+                            <stop offset="100%" stopColor="hsl(var(--primary) / 0.3)" />
+                          </linearGradient>
+                        </defs>
+                        <circle
+                          cx="60"
+                          cy="60"
+                          r="44"
+                          stroke="hsl(var(--primary) / 0.16)"
+                          strokeWidth="10"
+                          fill="none"
+                        />
+                        <circle
+                          cx="60"
+                          cy="60"
+                          r="44"
+                          stroke="url(#growth-gradient)"
+                          strokeWidth="10"
+                          fill="none"
+                          className="gauge-progress"
+                          pathLength={276}
+                        />
+                        <circle
+                          cx="60"
+                          cy="60"
+                          r="44"
+                          fill="none"
+                          stroke="none"
+                        >
+                          <animateTransform
+                            attributeName="transform"
+                            type="rotate"
+                            from="0 60 60"
+                            to="360 60 60"
+                            dur="5s"
+                            repeatCount="indefinite"
+                          />
+                        </circle>
+                      </svg>
+                      <div className="absolute inset-0 flex flex-col items-center justify-center">
+                        <div className="text-2xl font-bold text-primary">{Math.round(growthPercent * 100)}%</div>
+                        <span className="text-[10px] uppercase tracking-wide text-muted-foreground">Growth</span>
+                      </div>
                     </div>
                   </div>
 
@@ -831,8 +919,13 @@ const Index = () => {
                     </div>
                   </div>
 
-                  <Button variant="ghost" className="text-foreground hover:text-primary p-0" onClick={() => handleBlogClick(article)}>
-                    {article.cta} <ArrowRight className="ml-2 h-4 w-4" />
+                  <Button
+                    variant="ghost"
+                    className="group inline-flex items-center gap-2 px-4 py-2 rounded-full border border-transparent text-primary hover:text-primary hover:border-primary/50 hover:bg-transparent active:bg-transparent transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/60 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                    onClick={() => handleBlogClick(article)}
+                  >
+                    {article.cta}
+                    <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
                   </Button>
                 </CardContent>
               </Card>

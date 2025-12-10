@@ -504,20 +504,20 @@ All colors MUST be HSL.
 
 /* ============================================
    SCROLL REVEAL ANIMATION SYSTEM
-   
+
    Usage Options:
-   
+
    1. CSS Class + data attribute (no JS needed after init):
       <div data-scroll-reveal className="scroll-reveal">Content</div>
-   
+
    2. React Hook:
       const { ref, isVisible } = useScrollReveal();
       <div ref={ref} className={isVisible ? 'scroll-reveal-visible' : 'scroll-reveal'}>
-   
+
    3. React Component:
       <ScrollReveal>Content</ScrollReveal>
       <ScrollReveal delay={100}>Delayed content</ScrollReveal>
-   
+
    ============================================ */
 
 /* Initial hidden state */
@@ -570,5 +570,66 @@ All colors MUST be HSL.
 
     .research-card:hover {
         transform: translateX(4px);
+    }
+}
+
+/* Dashboard sparkline + radial gauge styling */
+.sparkline-line {
+    stroke-dasharray: 400;
+    stroke-dashoffset: 400;
+    animation: sparkline-draw 1.4s ease-out forwards;
+    filter: drop-shadow(0 0 8px hsl(var(--primary) / 0.3));
+}
+
+.sparkline-fill {
+    opacity: 0;
+    animation: sparkline-fill 1.2s ease-out forwards;
+}
+
+.sparkline-glow {
+    filter: drop-shadow(0 0 10px hsl(var(--primary)));
+}
+
+@keyframes sparkline-draw {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes sparkline-fill {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.radial-gauge .gauge-progress {
+    stroke-dasharray: 276;
+    stroke-dashoffset: 276;
+    transform: rotate(-90deg);
+    transform-origin: 50% 50%;
+    animation: gauge-fill 1.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.radial-gauge {
+    --gauge-percent: 0.8;
+}
+
+.radial-gauge .gauge-progress {
+    stroke-dashoffset: calc(276 * (1 - var(--gauge-percent)));
+}
+
+@keyframes gauge-fill {
+    from {
+        stroke-dashoffset: 276;
+    }
+
+    to {
+        stroke-dashoffset: calc(276 * (1 - var(--gauge-percent)));
     }
 }
