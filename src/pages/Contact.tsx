@@ -103,18 +103,20 @@ const Contact = () => {
         <Header />
 
         {/* Hero */}
-        <section className="relative pt-20 pb-10">
-          <div className="container mx-auto px-5 max-w-5xl">
-            <div className="text-center space-y-3">
-              <h1 className="text-[20px] md:text-[24px] font-bold leading-tight">
+        <section className="relative pt-20 pb-10 overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-secondary/5 to-accent/5" />
+          <div className="absolute inset-0 bg-[url('/uploads/Hero%20Illustration%20F1.svg')] bg-cover bg-center opacity-10" />
+          <div className="container mx-auto px-5 max-w-5xl relative z-10">
+            <div className="text-center space-y-4">
+              <h1 className="text-3xl md:text-4xl font-bold leading-tight">
                 Let&apos;s Get In <span className="text-primary">Touch</span>
               </h1>
-              <p className="text-[13px] md:text-sm text-muted-foreground max-w-2xl mx-auto">
+              <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
                 Tell us a bit about your project and we&apos;ll reach out soon. We respond within one business day.
               </p>
             </div>
           </div>
-      </section>
+        </section>
 
         {/* Main layout */}
         <section className="relative pb-10">
