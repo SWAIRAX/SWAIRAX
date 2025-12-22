@@ -1,5 +1,6 @@
 export interface BlogPost {
   id: string;
+  slug: string;
   title: string;
   excerpt: string;
   content: string;
@@ -14,6 +15,7 @@ export interface BlogPost {
 export const blogPosts: BlogPost[] = [
   {
     id: "0",
+    slug: "as-a-data-scientist-understand-people-and-data",
     title: "As a Data Scientist, You Need to Understand People as Deeply as You Understand Data",
     excerpt: "Behind every row of data, there is a real human being trying to get something done. If we forget that, it doesn't matter how advanced our models are or how beautiful the charts look — we will optimize the wrong things.",
     content: `Every dashboard we build at Quantum Intelligence starts with a simple reminder:
@@ -196,6 +198,7 @@ If you want a partner who can help you move from "we have data" to "we truly und
   },
   {
     id: "2",
+    slug: "the-20-digital-analytics-metrics-that-matter-most",
     title: "The 20 Digital Analytics Metrics That Matter Most",
     excerpt: "Every business today has data. Very few have clarity. You can have Google Analytics, dashboards, reports, and exports… and still not know which marketing channels are really working, which users will stay and which will leave.",
     content: `Every business today has data.
@@ -449,6 +452,7 @@ To stay focused, we guide teams to follow five rules:
   },
   {
     id: "3",
+    slug: "beyond-dashboards-knowledge-graphs-and-machine-learning",
     title: "Beyond Dashboards: How Knowledge Graphs and Machine Learning Unlock Hidden Growth Paths",
     excerpt: "Most companies today don't suffer from a data shortage. They suffer from a connections shortage. That's where Knowledge Graphs + Machine Learning come in to move you from raw data to a connected, intelligent view of your business.",
     content: `Most companies today don't suffer from a data shortage.
@@ -581,6 +585,7 @@ At Quantum Intelligence, we don't just talk about knowledge graphs and ML — **
   },
   {
     id: "1",
+    slug: "digital-data-is-the-new-software-code",
     title: "Digital Data is the new software code",
     excerpt: "Drawing inspiration from the profound words of British Mathematician Clive Humby that 'Data is the new oil', we embark on a journey to discover the secrets of successful AI development.",
     content: `Drawing inspiration from the profound words of British Mathematician Clive Humby that **'Data is the new oil'**, we embark on a journey to discover the secrets of successful AI development, where data takes center stage.
@@ -622,6 +627,7 @@ The future belongs to organizations that can transform raw data into actionable 
   },
   {
     id: "4",
+    slug: "the-future-of-mlops-bridging-ai-and-production",
     title: "The Future of MLOps: Bridging AI and Production",
     excerpt: "MLOps is transforming how organizations deploy and manage machine learning models in production environments. Discover the latest trends and best practices.",
     content: `Machine Learning Operations (MLOps) has emerged as a critical discipline for organizations looking to successfully deploy and manage AI systems in production environments.
@@ -689,6 +695,7 @@ Organizations that invest in MLOps capabilities today will be better positioned 
   },
   {
     id: "6",
+    slug: "natural-language-processing-the-evolution-of-human-ai-communication",
     title: "Natural Language Processing: The Evolution of Human-AI Communication",
     excerpt: "Discover how NLP is evolving to enable more natural and intuitive interactions between humans and AI systems, from chatbots to voice assistants.",
     content: `Natural Language Processing (NLP) has undergone remarkable evolution, transforming from simple keyword matching systems to sophisticated models that can understand context, emotion, and nuance in human communication.

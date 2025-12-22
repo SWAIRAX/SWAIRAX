@@ -10,8 +10,8 @@ import { useNavigationWithScroll } from "@/utils/navigation";
 const Blog = () => {
   const { navigateToTop } = useNavigationWithScroll();
 
-  const handlePostClick = (postId: string) => {
-    navigateToTop(`/blog/${postId}`);
+  const handlePostClick = (slug: string) => {
+    navigateToTop(`/blog/${slug}`);
   };
 
   return (
@@ -37,9 +37,9 @@ const Blog = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {blogPosts.map((post) => (
               <Card
-                key={post.id}
+                key={post.slug}
                 className="bg-card border-border hover:shadow-card transition-all duration-300 overflow-hidden cursor-pointer hover-scale"
-                onClick={() => handlePostClick(post.id)}
+                onClick={() => handlePostClick(post.slug)}
               >
                 {post.imageUrl && (
                   <img
@@ -76,7 +76,7 @@ const Blog = () => {
                     variant="ghost"
                     onClick={(e) => {
                       e.stopPropagation();
-                      handlePostClick(post.id);
+                      handlePostClick(post.slug);
                     }}
                     className="text-foreground hover:text-primary p-0"
                   >

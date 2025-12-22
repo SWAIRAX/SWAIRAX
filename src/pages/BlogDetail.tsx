@@ -9,10 +9,10 @@ import { Calendar, Clock, User, ArrowLeft, Share2, Tag, BookOpen } from "lucide-
 import { blogPosts, BlogPost } from "@/data/blogPosts";
 
 const BlogDetail = () => {
-  const { id } = useParams<{ id: string }>();
+  const { slug } = useParams<{ slug: string }>();
   const { navigateToTop } = useNavigationWithScroll();
 
-  const post = blogPosts.find((p) => p.id === id);
+  const post = blogPosts.find((p) => p.slug === slug);
 
   if (!post) {
     navigateToTop('/blog');
@@ -21,7 +21,7 @@ const BlogDetail = () => {
 
   // Get related posts (exclude current post)
   const relatedPosts = blogPosts
-    .filter((p) => p.id !== id)
+    .filter((p) => p.slug !== slug)
     .slice(0, 3);
 
   const handleShare = async () => {
@@ -293,9 +293,9 @@ const BlogDetail = () => {
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {relatedPosts.map((relatedPost) => (
                   <Card
-                    key={relatedPost.id}
+                    key={relatedPost.slug}
                     className="bg-card border-border hover:shadow-lg transition-all duration-300 overflow-hidden cursor-pointer group"
-                    onClick={() => navigateToTop(`/blog/${relatedPost.id}`)}
+                    onClick={() => navigateToTop(`/blog/${relatedPost.slug}`)}
                   >
                     {relatedPost.imageUrl && (
                       <div className="relative overflow-hidden">
