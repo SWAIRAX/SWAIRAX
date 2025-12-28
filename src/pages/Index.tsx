@@ -10,20 +10,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
 import { ArrowRight, CheckCircle, Database, Cog, Cloud, BarChart3, PieChart, TrendingUp, ChevronDown, ChevronUp, User, Clock } from "lucide-react";
-
-interface Article {
-  id: string;
-  date: string;
-  category: string;
-  title: string;
-  excerpt: string;
-  content: string;
-  author: string;
-  readTime: string;
-  imageUrl: string;
-  tags: string[];
-  cta: string;
-}
+import { blogPosts, BlogPost } from "@/data/blogPosts";
 
 const Index = () => {
   const navigate = useNavigate();
@@ -67,47 +54,8 @@ const Index = () => {
     }
   ];
 
-  const articles = [
-    {
-      id: "0",
-      date: "December 1, 2024",
-      category: "Data Science",
-      title: "As a Data Scientist, You Need to Understand People as Deeply as You Understand Data",
-      excerpt: "Behind every row of data, there is a real human being trying to get something done. If we forget that, it doesn't matter how advanced our models are or how beautiful the charts look — we will optimize the wrong things.",
-      content: "Every dashboard we build at Quantum Intelligence starts with a simple reminder: Behind every row of data, there is a real human being trying to get something done. If we forget that, it doesn't matter how advanced our models are or how beautiful the charts look — we will optimize the wrong things.\n\nYes, data science is about algorithms, pipelines, and statistics. But the real impact comes when you understand people's needs, motivations, fears, and constraints just as clearly as you understand SQL, Python, or XGBoost.\n\nThat's the heart of how we work at Quantum Intelligence: we don't just analyze data — we empower organizations to serve people better using data.\n\nAt Quantum Intelligence, we see analytics as a continuous loop, not a one-time report. We listen, define questions, instrument and collect, analyze and model, translate into action, teach and empower, and iterate. Data science is a relationship, not a report.\n\nWhen you combine deep human understanding with strong data practice, you get products that fit real lives, marketing that speaks to true motivations, operations guided by evidence, and leadership that can see clearly where to invest, protect, or pivot.\n\nLet's not just make your organization data-driven. Let's make it people-centered and data-powered.",
-      author: "Mgasa Lucas – Quantum Intelligence",
-      readTime: "15 min read",
-      imageUrl: "image.png",
-      tags: ["Data Science", "Human-Centered Design", "Analytics"],
-      cta: "Read More"
-    },
-    {
-      id: "2",
-      date: "December 2, 2024",
-      category: "Analytics",
-      title: "The 20 Digital Analytics Metrics That Matter Most",
-      excerpt: "Every business today has data. Very few have clarity. You can have Google Analytics, dashboards, reports, and exports… and still not know which marketing channels are really working, which users will stay and which will leave.",
-      content: "Every business today has data. Very few have clarity. You can have Google Analytics, dashboards, reports, and exports… and still not know which marketing channels are really working, which users will stay and which will leave, which features bring real value, or where money is leaking in your funnels.\n\nAt Quantum Intelligence, we help organizations turn data into decisions. This starts with one simple idea: You do not need 200 metrics. You need the right 20.\n\nBelow are the 20 digital analytics metrics we believe matter most for modern products and businesses — from acquisition, to engagement, to revenue, to experimentation. The language is simple on purpose. You should be able to share this with your CEO, your sales lead, your product manager, and your team in one meeting.\n\nFrom Channel Performance and CTR to Retention Rate, Churn Rate, LTV, and MRR — these metrics help you focus on what truly matters. We guide teams to start from goals, pick 1–2 North Star metrics, attach supporting metrics, kill vanity metrics, and build one simple view per team.",
-      author: "Mgasa – Quantum Intelligence",
-      readTime: "18 min read",
-      imageUrl: "analytics.jpg",
-      tags: ["Analytics", "Metrics", "KPI", "Digital Analytics"],
-      cta: "Read More"
-    },
-    {
-      id: "1",
-      date: "June 3, 2023",
-      category: "Blog",
-      title: "Digital Data is the new software code",
-      excerpt: "Drawing inspiration from the profound words of British Mathematician Clive Humby that 'Data is the new oil', we embark on a journey to discover the secrets of successful AI development, where data takes center stage.",
-      content: "Drawing inspiration from the profound words of British Mathematician Clive Humby that 'Data is the new oil', we embark on a journey to discover the secrets of successful AI development, where data takes center stage.\n\nIn the modern era of artificial intelligence, data has emerged as the fundamental building block of innovation. Just as oil powered the industrial revolution, data is now the driving force behind the AI revolution that's transforming industries across the globe.\n\nThe parallels between oil and data are striking. Both require extraction, refinement, and careful processing to unlock their true value. Raw data, like crude oil, needs to be cleaned, structured, and analyzed before it can fuel intelligent systems and drive meaningful insights.\n\nAt Quantum Intelligence, we understand that successful AI implementation begins with understanding your data landscape. Our data-centric approach ensures that every AI solution we develop is built on a foundation of high-quality, well-understood data that delivers measurable business value.",
-      author: "Quantum Intelligence Team",
-      readTime: "5 min read",
-      imageUrl: "blog1.jpg",
-      tags: ["Data Science", "AI Development", "Digital Transformation"],
-      cta: "Read More"
-    }
-  ];
+  // Get featured articles from blog posts (first 3)
+  const featuredArticles = blogPosts.slice(0, 3);
 
   const revenueSeries = useMemo(() => [18, 22, 19, 26, 31, 29, 37, 45], []);
   const revenuePath = useMemo(() => {
@@ -128,8 +76,8 @@ const Index = () => {
     [growthPercent]
   );
 
-  const handleBlogClick = (article: Article) => {
-    navigateToTop(`/blog/${article.id}`);
+  const handleBlogClick = (article: BlogPost) => {
+    navigateToTop(`/blog/${article.slug}`);
   };
 
   return (
@@ -892,9 +840,9 @@ const Index = () => {
           </ScrollReveal>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {articles.map((article, index) => (
+            {featuredArticles.map((article, index) => (
               <Card
-                key={index}
+                key={article.slug}
                 className="bg-card border-border hover:shadow-card transition-all duration-300 overflow-hidden cursor-pointer hover-scale"
                 onClick={() => handleBlogClick(article)}
               >
@@ -924,7 +872,7 @@ const Index = () => {
                     className="group inline-flex items-center gap-2 px-4 py-2 rounded-full border border-transparent text-primary hover:text-primary hover:border-primary/50 hover:bg-transparent active:bg-transparent transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/60 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                     onClick={() => handleBlogClick(article)}
                   >
-                    {article.cta}
+                    Read More
                     <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
                   </Button>
                 </CardContent>
