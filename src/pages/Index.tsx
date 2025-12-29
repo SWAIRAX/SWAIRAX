@@ -30,7 +30,7 @@ const Index = () => {
     { value: "100+", label: "Data scientists and software Developers using our products." },
     { value: "10x", label: "Boost" },
     { value: "40%", label: "Model performance boost through improved" },
-    { value: "2k+", label: "Downloads & Interactions" }
+    { value: "5+", label: "Products & Tools" }
   ];
 
   const products = [
