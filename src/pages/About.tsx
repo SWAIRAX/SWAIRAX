@@ -75,16 +75,76 @@ const About = () => {
     <div className="min-h-screen bg-background">
       <Header />
 
-      {/* Hero Section */}
-      <section className="pt-20 pb-8 bg-gradient-secondary">
+      {/* Hero Section - Split Layout */}
+      <section className="pt-20 pb-8 bg-background">
         <div className="container mx-auto px-6">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-2xl md:text-3xl font-bold mb-3 animate-fade-in">
-              About <span className="text-primary">Quantum Intelligence</span>
-            </h1>
-            <p className="text-sm text-muted-foreground mb-4">
-             Quantum Intelligence is an AI research and deployment company.
-            </p>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+            {/* Left Side - Text Content */}
+            <ScrollReveal className="flex flex-col justify-center">
+              <h1 className="text-2xl md:text-3xl font-bold mb-3 animate-fade-in">
+                <span className="text-foreground">Quantum </span>
+                <span className="text-primary">Intelligence</span>
+              </h1>
+              <p className="text-sm text-muted-foreground mb-3">
+                Make AI work for humanity.
+              </p>
+              <p className="text-sm text-muted-foreground mb-8">
+                We're an AI research and deployment company building innovative, ethical, and accessible AI solutions that empower businesses and individuals to unlock the full potential of their data.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-3">
+                <Button
+                  size="sm"
+                  onClick={() => navigateToTop('/contact')}
+                  className="bg-primary hover:bg-primary/90 text-primary-foreground"
+                >
+                  Get Started
+                </Button>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={() => navigateToTop('/careers')}
+                >
+                  Join Our Team
+                </Button>
+              </div>
+            </ScrollReveal>
+
+            {/* Right Side - Image with Overlay Cards */}
+            <ScrollReveal delay={200} className="relative">
+              <div className="relative overflow-hidden rounded-2xl shadow-2xl h-[400px] lg:h-[450px]">
+                <img
+                  src="/uploads/TEAM.jpeg"
+                  alt="Quantum Intelligence Team"
+                  className="w-full h-full object-cover"
+                  loading="eager"
+                />
+                {/* Gradient Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent pointer-events-none" />
+
+                {/* Overlay Stat Cards */}
+                <div className="absolute top-48 right-4 space-y-3">
+                  <div className="bg-background/95 backdrop-blur-sm rounded-lg p-4 shadow-xl border border-border/50 min-w-[150px]">
+                    <div className="text-2xl font-bold text-primary mb-1">20+</div>
+                    <div className="text-xs text-muted-foreground">Projects Delivered</div>
+                  </div>
+                  <div className="bg-background/95 backdrop-blur-sm rounded-lg p-4 shadow-xl border border-border/50 min-w-[150px]">
+                    <div className="text-2xl font-bold text-primary mb-1">09+</div>
+                    <div className="text-xs text-muted-foreground">Team Members</div>
+                  </div>
+                </div>
+
+                <div className="absolute bottom-4 left-4 space-y-3">
+                  <div className="bg-background/95 backdrop-blur-sm rounded-lg p-4 shadow-xl border border-border/50 min-w-[150px]">
+                    <div className="text-2xl font-bold text-primary mb-1">6+</div>
+                    <div className="text-xs text-muted-foreground">Countries Served</div>
+                  </div>
+                  <div className="bg-background/95 backdrop-blur-sm rounded-lg p-4 shadow-xl border border-border/50 min-w-[150px]">
+                    <div className="text-2xl font-bold text-primary mb-1">99%</div>
+                    <div className="text-xs text-muted-foreground">Client Satisfaction</div>
+                  </div>
+                </div>
+              </div>
+            </ScrollReveal>
           </div>
         </div>
       </section>
@@ -257,97 +317,6 @@ It’s about what it can do for you.
         </div>
       </section>
 
-      {/* Team */}
-      <section className="py-12 bg-card">
-        <div className="container mx-auto px-6">
-  <ScrollReveal className="text-center mb-10">
-    <h2 className="text-2xl md:text-3xl font-bold mb-3">Meet Our Team</h2>
-    <p className="text-base text-muted-foreground max-w-2xl mx-auto">
-      The brilliant minds behind Quantum Intelligence - a diverse team of scientists, engineers, and innovators
-    </p>
-  </ScrollReveal>
-
-          <ScrollReveal delay={200} className="max-w-5xl mx-auto">
-            <div className="relative overflow-hidden rounded-2xl shadow-2xl">
-              <img
-                src="/uploads/TEAM.jpeg"
-                alt="Quantum Intelligence Team"
-                className="w-full h-auto object-cover"
-                style={{ maxHeight: '500px' }}
-                loading="lazy"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-background/40 via-transparent to-transparent pointer-events-none" />
-        {/* Overlay text */}
-        <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-background/90 to-transparent">
-          <div className="text-center">
-            <h3 className="text-lg md:text-xl font-bold text-foreground mb-2">
-              Collaborative Excellence
-            </h3>
-            <p className="text-xs md:text-sm text-muted-foreground max-w-2xl mx-auto">
-              Our team combines deep expertise in AI, data science, and business strategy to deliver
-              innovative solutions that transform industries and drive meaningful impact.
-            </p>
-          </div>
-        </div>
-            </div>
-
-      {/* Team highlights */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8">
-        <div className="text-center p-4 bg-background/50 rounded-lg border border-border/50">
-          <div className="w-10 h-10 bg-primary/20 rounded-lg flex items-center justify-center text-primary mx-auto mb-3">
-            <Users className="w-5 h-5" />
-          </div>
-          <h4 className="text-base font-bold mb-2">Expert Team</h4>
-          <p className="text-xs text-muted-foreground">
-            PhD researchers, software engineers, and AI specialists working together
-          </p>
-        </div>
-        <div className="text-center p-4 bg-background/50 rounded-lg border border-border/50">
-          <div className="w-10 h-10 bg-primary/20 rounded-lg flex items-center justify-center text-primary mx-auto mb-3">
-            <Target className="w-5 h-5" />
-          </div>
-          <h4 className="text-base font-bold mb-2">Innovation Focus</h4>
-          <p className="text-xs text-muted-foreground">
-            Pushing boundaries of AI research and real-world applications
-          </p>
-        </div>
-        <div className="text-center p-4 bg-background/50 rounded-lg border border-border/50">
-          <div className="w-10 h-10 bg-primary/20 rounded-lg flex items-center justify-center text-primary mx-auto mb-3">
-            <Award className="w-5 h-5" />
-          </div>
-          <h4 className="text-base font-bold mb-2">Global Impact</h4>
-          <p className="text-xs text-muted-foreground">
-            Serving clients across Africa and beyond with cutting-edge solutions
-          </p>
-        </div>
-      </div>
-          </ScrollReveal>
-        </div>
-      </section>
-
-      {/* Stats */}
-      <section className="py-8">
-        <div className="container mx-auto px-6">
-          <ScrollReveal className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
-            <div>
-              <div className="text-2xl font-bold text-primary mb-1">20+</div>
-              <p className="text-xs text-muted-foreground">Projects Delivered</p>
-            </div>
-            <div>
-              <div className="text-2xl font-bold text-primary mb-1">09+</div>
-              <p className="text-xs text-muted-foreground">Team Members</p>
-            </div>
-            <div>
-              <div className="text-2xl font-bold text-primary mb-1">6+</div>
-              <p className="text-xs text-muted-foreground">Countries Served</p>
-            </div>
-            <div>
-              <div className="text-2xl font-bold text-primary mb-1">99%</div>
-              <p className="text-xs text-muted-foreground">Client Satisfaction</p>
-            </div>
-          </ScrollReveal>
-        </div>
-      </section>
 
       {/* CTA */}
       <section className="py-8 bg-card">
