@@ -258,31 +258,72 @@ It’s about what it can do for you.
       </section>
 
       {/* Team */}
-      {/* <section className="py-20 bg-card">
+      <section className="py-12 bg-card">
         <div className="container mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4">Meet Our Team</h2>
-            <p className="text-xl text-muted-foreground">
-              The brilliant minds behind Quantum Intelligence
+  <ScrollReveal className="text-center mb-10">
+    <h2 className="text-2xl md:text-3xl font-bold mb-3">Meet Our Team</h2>
+    <p className="text-base text-muted-foreground max-w-2xl mx-auto">
+      The brilliant minds behind Quantum Intelligence - a diverse team of scientists, engineers, and innovators
+    </p>
+  </ScrollReveal>
+
+          <ScrollReveal delay={200} className="max-w-5xl mx-auto">
+            <div className="relative overflow-hidden rounded-2xl shadow-2xl">
+              <img
+                src="/uploads/TEAM.jpeg"
+                alt="Quantum Intelligence Team"
+                className="w-full h-auto object-cover"
+                style={{ maxHeight: '500px' }}
+                loading="lazy"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-background/40 via-transparent to-transparent pointer-events-none" />
+        {/* Overlay text */}
+        <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-background/90 to-transparent">
+          <div className="text-center">
+            <h3 className="text-lg md:text-xl font-bold text-foreground mb-2">
+              Collaborative Excellence
+            </h3>
+            <p className="text-xs md:text-sm text-muted-foreground max-w-2xl mx-auto">
+              Our team combines deep expertise in AI, data science, and business strategy to deliver
+              innovative solutions that transform industries and drive meaningful impact.
             </p>
           </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {team.map((member, index) => (
-              <Card key={index} className="bg-background border-border text-center">
-                <CardContent className="p-6">
-                  <div className="w-20 h-20 bg-primary rounded-full flex items-center justify-center text-primary-foreground font-bold text-lg mx-auto mb-4">
-                    {member.image}
-                  </div>
-                  <h3 className="text-xl font-bold mb-1">{member.name}</h3>
-                  <p className="text-primary text-sm mb-3">{member.role}</p>
-                  <p className="text-muted-foreground text-sm">{member.bio}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
         </div>
-      </section> */}
+            </div>
+
+      {/* Team highlights */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8">
+        <div className="text-center p-4 bg-background/50 rounded-lg border border-border/50">
+          <div className="w-10 h-10 bg-primary/20 rounded-lg flex items-center justify-center text-primary mx-auto mb-3">
+            <Users className="w-5 h-5" />
+          </div>
+          <h4 className="text-base font-bold mb-2">Expert Team</h4>
+          <p className="text-xs text-muted-foreground">
+            PhD researchers, software engineers, and AI specialists working together
+          </p>
+        </div>
+        <div className="text-center p-4 bg-background/50 rounded-lg border border-border/50">
+          <div className="w-10 h-10 bg-primary/20 rounded-lg flex items-center justify-center text-primary mx-auto mb-3">
+            <Target className="w-5 h-5" />
+          </div>
+          <h4 className="text-base font-bold mb-2">Innovation Focus</h4>
+          <p className="text-xs text-muted-foreground">
+            Pushing boundaries of AI research and real-world applications
+          </p>
+        </div>
+        <div className="text-center p-4 bg-background/50 rounded-lg border border-border/50">
+          <div className="w-10 h-10 bg-primary/20 rounded-lg flex items-center justify-center text-primary mx-auto mb-3">
+            <Award className="w-5 h-5" />
+          </div>
+          <h4 className="text-base font-bold mb-2">Global Impact</h4>
+          <p className="text-xs text-muted-foreground">
+            Serving clients across Africa and beyond with cutting-edge solutions
+          </p>
+        </div>
+      </div>
+          </ScrollReveal>
+        </div>
+      </section>
 
       {/* Stats */}
       <section className="py-8">
