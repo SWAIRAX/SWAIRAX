@@ -1,90 +1,210 @@
-import { Github, Instagram, Linkedin, Twitter } from "lucide-react";
+import { Github, Instagram, Linkedin, Twitter, Mail, Phone, MapPin } from "lucide-react";
 import { Link } from "react-router-dom";
-import Logo from "@/components/Logo";
 
 const Footer = () => {
+  const currentYear = new Date().getFullYear();
+
   return (
     <footer className="bg-card border-t border-border">
-      <div className="container mx-auto px-5 py-8">
-        <div className="flex items-center justify-center mb-5">
-          <Link to="/" className="flex items-center gap-3 hover:opacity-90 transition-opacity">
-            <picture>
-              <img
-                src="/uploads/logo.png"
-                alt="Quantum Intelligence Logo"
-                className="h-10 w-auto object-contain"
-                style={{ maxWidth: "168px" }}
-              />
-            </picture>
-            <div className="leading-tight text-lg md:text-xl font-semibold text-foreground">
-              <div>Quantum</div>
-              <div>Intelligence</div>
+      <div className="container mx-auto px-6 py-12">
+        {/* Main Footer Content */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-8">
+          {/* Company Info - Left Column */}
+          <div className="lg:col-span-2">
+            <Link to="/" className="flex items-center gap-3 mb-4 hover:opacity-90 transition-opacity">
+              <picture>
+                <img
+                  src="/uploads/logo.png"
+                  alt="Quantum Intelligence Logo"
+                  className="h-10 w-auto object-contain"
+                  style={{ maxWidth: "168px" }}
+                />
+              </picture>
+              <div className="leading-tight text-lg md:text-xl font-semibold text-foreground">
+                <div>Quantum</div>
+                <div>Intelligence</div>
+              </div>
+            </Link>
+            <p className="text-sm text-muted-foreground mb-4 max-w-sm">
+              Making AI work for humanity. We're an AI research and deployment company building innovative, ethical, and accessible AI solutions.
+            </p>
+
+            {/* Contact Info */}
+            <div className="space-y-2 mb-6">
+              <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                <Mail className="h-4 w-4" />
+                <a href="mailto:communications@quantumintelligence.co.tz" className="hover:text-primary transition-colors">
+                  communications@quantumintelligence.co.tz
+                </a>
+              </div>
+              <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                <Phone className="h-4 w-4" />
+                <a href="tel:+255689726060" className="hover:text-primary transition-colors">
+                  +255 689 726 060
+                </a>
+              </div>
+              <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                <MapPin className="h-4 w-4" />
+                <span>Dar es Salaam, Tanzania</span>
+              </div>
             </div>
-          </Link>
+
+            {/* Social Links */}
+            <div className="flex items-center space-x-4">
+              <a
+                href="https://github.com/quantum-intelligence-africa"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-muted-foreground hover:text-primary transition-colors"
+                aria-label="GitHub"
+              >
+                <Github className="h-5 w-5" />
+              </a>
+              <a
+                href="https://www.linkedin.com/company/quantum-intelligence-africa/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-muted-foreground hover:text-primary transition-colors"
+                aria-label="LinkedIn"
+              >
+                <Linkedin className="h-5 w-5" />
+              </a>
+              <a
+                href="https://x.com/1ntelligencelab"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-muted-foreground hover:text-primary transition-colors"
+                aria-label="Twitter"
+              >
+                <Twitter className="h-5 w-5" />
+              </a>
+              <a
+                href="https://www.instagram.com/qintelligencelab"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-muted-foreground hover:text-primary transition-colors"
+                aria-label="Instagram"
+              >
+                <Instagram className="h-5 w-5" />
+              </a>
+            </div>
+          </div>
+
+          {/* Products & Services */}
+          <div>
+            <h3 className="text-sm font-semibold text-foreground mb-4">Products & Services</h3>
+            <ul className="space-y-2">
+              <li>
+                <Link to="/services" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                  All Services
+                </Link>
+              </li>
+              <li>
+                <Link to="/quantum-analytics" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                  Quantum Analytics
+                </Link>
+              </li>
+              <li>
+                <Link to="/quantum-annotate" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                  Quantum Annotate
+                </Link>
+              </li>
+              <li>
+                <Link to="/quantum-genai" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                  Quantum GenAI
+                </Link>
+              </li>
+              <li>
+                <Link to="/mlops-devops" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                  MLOps & DevOps
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Company */}
+          <div>
+            <h3 className="text-sm font-semibold text-foreground mb-4">Company</h3>
+            <ul className="space-y-2">
+              <li>
+                <Link to="/about" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                  About Us
+                </Link>
+              </li>
+              <li>
+                <Link to="/industries" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                  Industries
+                </Link>
+              </li>
+              <li>
+                <Link to="/partnerships" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                  Partnerships
+                </Link>
+              </li>
+              <li>
+                <Link to="/careers" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                  Careers
+                </Link>
+              </li>
+              <li>
+                <Link to="/contact" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                  Contact Us
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Resources & Legal */}
+          <div>
+            <h3 className="text-sm font-semibold text-foreground mb-4">Resources</h3>
+            <ul className="space-y-2">
+              <li>
+                <Link to="/research" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                  Research
+                </Link>
+              </li>
+              <li>
+                <Link to="/blog" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                  Blog
+                </Link>
+              </li>
+              <li>
+                <Link to="/resources" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                  Resources
+                </Link>
+              </li>
+              <li>
+                <Link to="/faq" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                  FAQ
+                </Link>
+              </li>
+              <li>
+                <Link to="/glossary" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                  Glossary
+                </Link>
+              </li>
+              <li>
+                <Link to="/privacy" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                  Privacy Policy
+                </Link>
+              </li>
+              <li>
+                <Link to="/terms" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                  Terms & Conditions
+                </Link>
+              </li>
+            </ul>
+          </div>
         </div>
-        <div className="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">
-          {/* Social Links */}
-          <div className="flex items-center space-x-6">
-            <a
-              href="https://github.com/quantum-intelligence-africa"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-muted-foreground hover:text-primary transition-colors"
-            >
-              <Github className="h-5 w-5" />
-            </a>
-            <a
-              href="https://www.linkedin.com/company/quantum-intelligence-africa/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-muted-foreground hover:text-primary transition-colors"
-            >
-              <Linkedin className="h-5 w-5" />
-            </a>
-            <a
-              href="https://x.com/1ntelligencelab"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-muted-foreground hover:text-primary transition-colors"
-            >
-              <Twitter className="h-5 w-5" />
-            </a>
-            <a
-              href="https://www.instagram.com/qintelligencelab"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-muted-foreground hover:text-primary transition-colors"
-            >
-              <Instagram className="h-5 w-5" />
-            </a>
-          </div>
 
-          {/* Footer Links */}
-          <div className="flex flex-wrap items-center justify-center space-x-6 text-sm text-muted-foreground">
-            <Link to="/contact" className="hover:text-primary transition-colors">
-              Contact Us
-            </Link>
-            <Link to="/research" className="hover:text-primary transition-colors">
-              Research
-            </Link>
-            <Link to="/privacy" className="hover:text-primary transition-colors">
-              Privacy Policy
-            </Link>
-            <Link to="/terms" className="hover:text-primary transition-colors">
-              Terms & Conditions
-            </Link>
-            <Link to="/faq" className="hover:text-primary transition-colors">
-              FAQ
-            </Link>
-            <Link to="/glossary" className="hover:text-primary transition-colors">
-              Glossary
-            </Link>
-          </div>
-
-          {/* Location */}
-          <div className="text-sm text-muted-foreground">
-            Dar es salaam, Tanzania
-          </div>
+        {/* Bottom Bar */}
+        <div className="border-t border-border pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+          <p className="text-sm text-muted-foreground text-center md:text-left">
+            © {currentYear} Quantum Intelligence. All rights reserved.
+          </p>
+          <p className="text-sm text-muted-foreground text-center md:text-right">
+            Making AI work for humanity.
+          </p>
         </div>
       </div>
     </footer>

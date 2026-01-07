@@ -7,7 +7,8 @@ import ScrollReveal from "@/components/ScrollReveal";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
-import { Users, Target, Eye, Award, ChevronDown, ChevronUp, CheckCircle } from "lucide-react";
+import { Users, Target, Eye, Award, ChevronDown, ChevronUp, CheckCircle, ArrowRight } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
 
 const About = () => {
   const navigate = useNavigate();
@@ -85,10 +86,10 @@ const About = () => {
                 <span className="text-foreground">Quantum </span>
                 <span className="text-primary">Intelligence</span>
               </h1>
-              <p className="text-sm text-muted-foreground mb-3">
+              <p className="text-base text-muted-foreground mb-3">
                 Make AI work for humanity.
               </p>
-              <p className="text-sm text-muted-foreground mb-8">
+              <p className="text-base text-muted-foreground mb-8">
                 We're an AI research and deployment company building innovative, ethical, and accessible AI solutions that empower businesses and individuals to unlock the full potential of their data.
               </p>
               <div className="flex flex-col sm:flex-row gap-3">
@@ -150,25 +151,42 @@ const About = () => {
       </section>
 
       {/* Mission & Vision */}
-      <section className="py-8">
-        <div className="container mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+      <section className="relative py-16 overflow-hidden">
+        {/* Decorative Background */}
+        <div className="absolute inset-0 bg-gradient-to-b from-background via-background/95 to-background" />
+        <div className="absolute top-0 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-secondary/5 rounded-full blur-3xl" />
+
+        <div className="container mx-auto px-6 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <ScrollReveal>
-              <h2 className="text-xl font-bold mb-3">Our Mission</h2>
-              <p className="text-sm text-muted-foreground mb-3">
-                To democratize artificial intelligence by building innovative, ethical, and accessible AI solutions that empower businesses and individuals to unlock the full potential of their data.
-              </p>
-              <p className="text-xs text-muted-foreground">
-                We believe that AI should be a force for good, driving positive change across industries while maintaining the highest standards of ethics and transparency.
-              </p>
+              <div className="inline-flex items-center gap-2 mb-4">
+                <div className="h-px w-8 bg-gradient-to-r from-transparent to-primary" />
+                <Badge variant="outline" className="px-3 py-1 text-xs font-semibold border-primary/30 bg-primary/5">
+                  Mission
+                </Badge>
+              </div>
+              <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent">Our Mission</h2>
+              <p className="text-base text-muted-foreground mb-3">
+                  To democratize artificial intelligence by building innovative, ethical, and accessible AI solutions that empower businesses and individuals to unlock the full potential of their data.
+                </p>
+              <p className="text-sm text-muted-foreground">
+                  We believe that AI should be a force for good, driving positive change across industries while maintaining the highest standards of ethics and transparency.
+                </p>
             </ScrollReveal>
             <ScrollReveal delay={100}>
-              <h2 className="text-xl font-bold mb-3">Our Vision</h2>
-              <p className="text-sm text-muted-foreground mb-3">
-                We live in an exciting time when AI research and technology are delivering extraordinary advances.
-In the coming years, AI — and ultimately artificial general intelligence (AGI) — has the potential to drive one of the greatest transformations in history.
-              </p>
-              <p className="text-xs text-muted-foreground">
+              <div className="inline-flex items-center gap-2 mb-4">
+                <div className="h-px w-8 bg-gradient-to-r from-transparent to-primary" />
+                <Badge variant="outline" className="px-3 py-1 text-xs font-semibold border-primary/30 bg-primary/5">
+                  Vision
+                </Badge>
+              </div>
+              <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent">Our Vision</h2>
+              <p className="text-base text-muted-foreground mb-3">
+                  We live in an exciting time when AI research and technology are delivering extraordinary advances.
+                  In the coming years, AI — and ultimately artificial general intelligence (AGI) — has the potential to drive one of the greatest transformations in history.
+                </p>
+              <p className="text-sm text-muted-foreground">
 
 We're a team of scientists, engineers, ethicists and more, working to build the next generation of AI systems safely and responsibly.              </p>
             </ScrollReveal>
@@ -177,24 +195,40 @@ We're a team of scientists, engineers, ethicists and more, working to build the 
       </section>
 
       {/* Values */}
-      <section className="py-8 bg-card">
-        <div className="container mx-auto px-6">
-          <ScrollReveal className="text-center mb-8">
-            <h2 className="text-xl font-bold mb-3">Our Values</h2>
-            <p className="text-sm text-muted-foreground">
-            By solving some of the hardest scientific and engineering challenges of our time, we're working to create breakthrough technologies that could advance science, transform work, serve diverse communities — and improve billions of people's lives.
+      <section className="relative py-16 bg-gradient-to-br from-card via-card/50 to-background overflow-hidden">
+        {/* Decorative Elements */}
+        <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 left-0 w-64 h-64 bg-secondary/5 rounded-full blur-3xl" />
+
+        <div className="container mx-auto px-6 relative z-10">
+          <ScrollReveal className="text-center mb-12">
+            <div className="inline-flex items-center gap-2 mb-4">
+              <div className="h-px w-12 bg-gradient-to-r from-transparent to-primary" />
+              <Badge variant="outline" className="px-4 py-1 text-xs font-semibold border-primary/30 bg-primary/5">
+                Values
+              </Badge>
+              <div className="h-px w-12 bg-gradient-to-l from-transparent to-primary" />
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent">Our Values</h2>
+            <p className="text-base md:text-lg text-muted-foreground max-w-3xl mx-auto">
+              By solving some of the hardest scientific and engineering challenges of our time, we're working to create breakthrough technologies that could advance science, transform work, serve diverse communities — and improve billions of people's lives.
             </p>
           </ScrollReveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {values.map((value, index) => (
-              <Card key={index} className="bg-background border-border text-center hover:shadow-card transition-all duration-300">
-                <CardContent className="p-4">
-                  <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center text-primary mx-auto mb-3">
+              <Card
+                key={index}
+                className="group relative bg-gradient-to-br from-background to-card/50 border border-border/50 hover:border-primary/50 text-center overflow-hidden transition-all duration-500 hover:shadow-2xl hover:shadow-primary/10 hover:-translate-y-2 animate-fade-in"
+                style={{ animationDelay: `${index * 100}ms` }}
+              >
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <CardContent className="p-6 relative z-10">
+                  <div className="w-14 h-14 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-xl flex items-center justify-center text-primary mx-auto mb-4 group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300 shadow-lg">
                     {value.icon}
                   </div>
-                  <h3 className="text-sm font-bold mb-2">{value.title}</h3>
-                  <p className="text-muted-foreground text-xs mb-3">{value.description}</p>
+                  <h3 className="text-lg font-bold mb-2 group-hover:text-primary transition-colors">{value.title}</h3>
+                  <p className="text-muted-foreground text-sm mb-3 group-hover:text-foreground transition-colors">{value.description}</p>
 
                   <Collapsible open={expandedValues[value.title]} onOpenChange={() => toggleValue(value.title)}>
                     <CollapsibleTrigger asChild>
@@ -213,9 +247,9 @@ We're a team of scientists, engineers, ethicists and more, working to build the 
                       </Button>
                     </CollapsibleTrigger>
                     <CollapsibleContent className="animate-accordion-down overflow-hidden">
-                      <div className="bg-card/50 p-4 rounded-lg border border-border/30 mt-3">
+                      <div className="bg-gradient-to-br from-card/80 to-primary/5 p-4 rounded-xl border border-primary/20 mt-3 backdrop-blur-sm shadow-lg">
                         {value.title === "Innovation First" && (
-                          <div className="text-left text-sm space-y-2">
+                          <div className="text-left text-base space-y-2">
                             <div className="flex items-start space-x-2">
                               <CheckCircle className="w-4 h-4 text-primary mt-0.5" />
                               <span>Research-driven AI development</span>
@@ -231,7 +265,7 @@ We're a team of scientists, engineers, ethicists and more, working to build the 
                           </div>
                         )}
                         {value.title === "Inclusive Culture" && (
-                          <div className="text-left text-sm space-y-2">
+                          <div className="text-left text-base space-y-2">
                             <div className="flex items-start space-x-2">
                               <CheckCircle className="w-4 h-4 text-primary mt-0.5" />
                               <span>Diverse team of experts</span>
@@ -247,7 +281,7 @@ We're a team of scientists, engineers, ethicists and more, working to build the 
                           </div>
                         )}
                         {value.title === "Transparency" && (
-                          <div className="text-left text-sm space-y-2">
+                          <div className="text-left text-base space-y-2">
                             <div className="flex items-start space-x-2">
                               <CheckCircle className="w-4 h-4 text-primary mt-0.5" />
                               <span>Open source contributions</span>
@@ -263,7 +297,7 @@ We're a team of scientists, engineers, ethicists and more, working to build the 
                           </div>
                         )}
                         {value.title === "Excellence" && (
-                          <div className="text-left text-sm space-y-2">
+                          <div className="text-left text-base space-y-2">
                             <div className="flex items-start space-x-2">
                               <CheckCircle className="w-4 h-4 text-primary mt-0.5" />
                               <span>Quality-first approach</span>
@@ -289,29 +323,43 @@ We're a team of scientists, engineers, ethicists and more, working to build the 
       </section>
 
       {/* Company Story */}
-      <section className="py-8">
-        <div className="container mx-auto px-6">
-          <ScrollReveal className="max-w-4xl mx-auto">
-            <h2 className="text-xl font-bold mb-4 text-center">Our Story</h2>
-            <div className="space-y-3 text-sm text-muted-foreground">
-              <p>
-                Founded in 2020 by a group of dreamers, builders, and researchers, Quantum Intelligence was born from a simple but powerful belief:
-Artificial intelligence should serve humanity—not just optimize it.
+      <section className="relative py-16 overflow-hidden">
+        {/* Decorative Pattern */}
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute inset-0" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, hsl(var(--primary)) 1px, transparent 0)', backgroundSize: '40px 40px' }} />
+        </div>
 
-              </p>
-              <p>
-                We started small—with curiosity, conviction, and a deep respect for what AI could become. Not just a tool for efficiency, but a way to solve meaningful problems, spark new ideas, and build a better future.
-                As we grew, so did our purpose. We listened more. Learned faster. Built with intention. And always stayed close to the people behind the data—the teams, the communities, the individuals who inspire everything we do.
-              </p>
-              <p>
-                Today, Quantum Intelligence is shaped by that same spirit.
+        <div className="container mx-auto px-6 relative z-10">
+          <ScrollReveal className="max-w-4xl mx-auto">
+            <div className="text-center mb-8">
+              <div className="inline-flex items-center gap-2 mb-4">
+                <div className="h-px w-12 bg-gradient-to-r from-transparent to-primary" />
+                <Badge variant="outline" className="px-4 py-1 text-xs font-semibold border-primary/30 bg-primary/5">
+                  Story
+                </Badge>
+                <div className="h-px w-12 bg-gradient-to-l from-transparent to-primary" />
+              </div>
+              <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent">Our Story</h2>
+            </div>
+            <div className="space-y-3 text-base text-muted-foreground">
+                <p>
+                  Founded in 2020 by a group of dreamers, builders, and researchers, Quantum Intelligence was born from a simple but powerful belief:
+                  Artificial intelligence should serve humanity—not just optimize it.
+
+                </p>
+                <p>
+                  We started small—with curiosity, conviction, and a deep respect for what AI could become. Not just a tool for efficiency, but a way to solve meaningful problems, spark new ideas, and build a better future.
+                  As we grew, so did our purpose. We listened more. Learned faster. Built with intention. And always stayed close to the people behind the data—the teams, the communities, the individuals who inspire everything we do.
+                </p>
+                <p>
+                  Today, Quantum Intelligence is shaped by that same spirit.
 We’re here to create, to collaborate, and to make every interaction—every insight—count.
 
-              </p>
-              <p>
+                </p>
+                <p>
                 Because for us, it’s not just about what AI can do.
 It’s about what it can do for you.
-</p>
+                </p>
             </div>
           </ScrollReveal>
         </div>
@@ -319,27 +367,33 @@ It’s about what it can do for you.
 
 
       {/* CTA */}
-      <section className="py-8 bg-card">
+      <section className="py-20 bg-gradient-to-r from-primary/10 via-secondary/10 to-primary/10">
         <div className="container mx-auto px-6 text-center">
-          <h2 className="text-xl font-bold mb-3">Join Our Journey</h2>
-          <p className="text-sm text-muted-foreground mb-4">
-            Ready to be part of the AI revolution? Let's build the future together.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <Button
-              size="sm"
-              onClick={() => navigateToTop('/careers')}
-              className="bg-primary hover:bg-primary/90 text-primary-foreground"
-            >
-              Explore Careers
-            </Button>
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={() => navigateToTop('/contact')}
-            >
-              Partner With Us
-            </Button>
+          <div className="max-w-3xl mx-auto">
+            <h2 className="text-3xl md:text-5xl font-bold mb-4">
+              Join Our Journey
+            </h2>
+            <p className="text-base md:text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
+              Ready to be part of the AI revolution? Let's build the future together.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button
+                size="lg"
+                onClick={() => navigateToTop('/careers')}
+                className="bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90 text-primary-foreground px-8 py-6 text-base font-semibold shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300"
+              >
+                Explore Careers
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
+              <Button
+                variant="outline"
+                size="lg"
+                onClick={() => navigateToTop('/contact')}
+                className="px-8 py-6 text-base font-semibold border-2 hover:bg-primary/10 hover:border-primary transition-all duration-300"
+              >
+                Partner With Us
+              </Button>
+            </div>
           </div>
         </div>
       </section>

@@ -2,6 +2,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import React from "react";
 import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 import { ExternalLink } from "lucide-react";
 
 const Partnerships = () => {
@@ -47,51 +48,85 @@ const Partnerships = () => {
   return (
     <div className="min-h-screen bg-background">
       <Header />
+
       {/* Header Section */}
-      <section className="container mx-auto px-6 pt-20 pb-6 text-center">
-        <div className="max-w-4xl mx-auto animate-fade-in">
-          <h1 className="text-2xl md:text-3xl font-bold text-foreground mb-3">
+      <section className="relative pt-32 pb-16 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-secondary/5 to-accent/5" />
+        <div className="absolute inset-0 bg-[url('/uploads/Hero%20Illustration%20F1.svg')] bg-cover bg-center opacity-10" />
+
+        <div className="container mx-auto px-6 relative z-10">
+          <div className="max-w-4xl mx-auto text-center">
+            <Badge variant="outline" className="mb-3 text-xs font-medium">
+              Partnerships
+            </Badge>
+            <h1 className="text-2xl md:text-3xl font-bold mb-3 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
             Our Partners in Innovation
           </h1>
-          <p className="text-sm text-muted-foreground mb-4">
+            <p className="text-base text-muted-foreground mb-4 max-w-2xl mx-auto">
             Quantum Intelligence proudly collaborates with leading institutions driving tech, research, and entrepreneurship in Tanzania.
           </p>
-          <div className="w-32 h-1 bg-gradient-to-r from-primary to-accent mx-auto rounded-full shimmer-effect"></div>
+          </div>
         </div>
       </section>
 
       {/* Partners Grid */}
-      <section className="container mx-auto px-6 pb-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-6xl mx-auto">
+      <section className="relative py-16 overflow-hidden">
+        {/* Decorative Background Elements */}
+        <div className="absolute inset-0 bg-gradient-to-b from-background via-background/95 to-background" />
+        <div className="absolute top-1/4 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-secondary/5 rounded-full blur-3xl" />
+
+        <div className="container mx-auto px-6 relative z-10">
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center gap-2 mb-4">
+              <div className="h-px w-12 bg-gradient-to-r from-transparent to-primary" />
+              <Badge variant="outline" className="px-4 py-1 text-xs font-semibold border-primary/30 bg-primary/5">
+                Partners
+              </Badge>
+              <div className="h-px w-12 bg-gradient-to-l from-transparent to-primary" />
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent">
+              Our Innovation Partners
+            </h2>
+            <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
+              Collaborating with leading institutions to drive tech innovation
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-6xl mx-auto">
           {partners.map((partner) => (
             <Card
               key={partner.id}
-              className="group bg-card border-border hover:border-primary/50 transition-all duration-500 animate-slide-in-bottom partner-card"
+                className="group relative bg-gradient-to-br from-card to-card/50 border border-border/50 hover:border-primary/50 overflow-hidden transition-all duration-500 hover:shadow-2xl hover:shadow-primary/20 hover:-translate-y-2 animate-fade-in partner-card"
               style={{ animationDelay: partner.animationDelay }}
             >
-              <CardContent className="p-4">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute -inset-0.5 bg-gradient-to-r from-primary/20 via-secondary/20 to-primary/20 rounded-lg opacity-0 group-hover:opacity-100 blur-sm transition-opacity duration-500 -z-10" />
+                <CardContent className="p-6 relative z-10">
                 {/* Logo and Header */}
                 <div className="flex items-start gap-4 mb-4">
                   <div className="flex-shrink-0">
+                      <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-primary/10 to-secondary/10 p-2 flex items-center justify-center group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300 shadow-lg">
                     <img
                       src={partner.logo}
                       alt={`${partner.name} logo`}
-                      className="w-12 h-12 object-contain rounded-lg bg-muted/30 p-1 transition-transform duration-300 group-hover:scale-110"
+                          className="w-full h-full object-contain"
                     />
+                      </div>
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-sm font-bold text-foreground mb-1 group-hover:text-primary transition-colors">
+                      <h3 className="text-lg font-bold text-foreground mb-1 group-hover:text-primary transition-colors">
                       {partner.name}
                     </h3>
-                    <p className="text-xs text-muted-foreground leading-relaxed">
+                      <p className="text-sm text-muted-foreground leading-relaxed group-hover:text-foreground transition-colors">
                       {partner.description}
                     </p>
                   </div>
                 </div>
 
                 {/* Mission Statement */}
-                <div className="mb-4 p-3 bg-muted/30 rounded-lg border-l-4 border-primary/30">
-                  <p className="text-xs font-medium text-foreground italic">
+                  <div className="mb-4 p-4 bg-gradient-to-r from-primary/10 via-secondary/10 to-primary/10 rounded-xl border-l-4 border-primary/50 shadow-md">
+                    <p className="text-sm font-medium text-foreground italic">
                     "{partner.mission}"
                   </p>
                 </div>
@@ -103,36 +138,39 @@ const Partnerships = () => {
                       href={partner.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1 text-xs font-medium text-primary hover:text-primary/80 transition-colors group/link"
+                        className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:text-primary/80 transition-all group/link px-4 py-2 rounded-lg hover:bg-primary/10"
                     >
                       Visit Partner Site
-                      <ExternalLink className="w-3 h-3 transition-transform group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5" />
+                        <ExternalLink className="w-4 h-4 transition-transform group-hover/link:translate-x-1 group-hover/link:-translate-y-1" />
                     </a>
                   </div>
                 )}
               </CardContent>
             </Card>
           ))}
+          </div>
         </div>
       </section>
 
       {/* Call to Action */}
-      <section className="container mx-auto px-6 pb-8">
+      <section className="py-20 bg-gradient-to-r from-primary/10 via-secondary/10 to-accent/10">
+        <div className="container mx-auto px-6 text-center">
         <div className="max-w-4xl mx-auto text-center">
-          <div className="bg-gradient-to-r from-primary/10 to-accent/10 rounded-2xl p-4 border border-primary/20">
-            <h2 className="text-lg font-bold text-foreground mb-3">
+            <div className="bg-gradient-to-br from-primary/10 via-secondary/10 to-accent/10 rounded-3xl p-8 md:p-12 border border-primary/20 shadow-2xl backdrop-blur-sm">
+              <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-4">
               Ready to Partner with Quantum Intelligence?
             </h2>
-            <p className="text-sm text-muted-foreground mb-4">
+              <p className="text-base md:text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
               Join our ecosystem of innovation and help shape the future of AI in Tanzania and beyond.
             </p>
             <a
               href="/contact"
-              className="inline-flex items-center gap-1 bg-primary text-primary-foreground px-4 py-2 rounded-lg text-sm font-medium hover:bg-primary/90 transition-colors"
+                className="inline-flex items-center gap-2 bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90 text-primary-foreground px-8 py-6 rounded-lg text-base font-semibold shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300"
             >
               Get In Touch
-              <ExternalLink className="w-3 h-3" />
+                <ExternalLink className="w-5 h-5" />
             </a>
+            </div>
           </div>
         </div>
       </section>

@@ -64,7 +64,7 @@ const RetailLogistics = () => {
       <Header />
 
       {/* Hero Section */}
-      <section className="relative pt-24 pb-8 overflow-hidden">
+      <section className="relative pt-20 pb-12 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-red-500/10 via-pink-500/5 to-primary/10" />
 
         <div className="container mx-auto px-6 relative z-10">
@@ -77,12 +77,12 @@ const RetailLogistics = () => {
               Retail & Logistics
             </Badge>
 
-            <h1 className="text-2xl md:text-3xl font-bold mb-3">
+            <h1 className="text-3xl md:text-4xl font-bold mb-4">
               Great brands who chose
               <span className="bg-gradient-to-r from-red-500 to-pink-600 bg-clip-text text-transparent"> Secure Data</span>
             </h1>
 
-            <p className="text-sm text-muted-foreground mb-4 max-w-3xl mx-auto">
+            <p className="text-lg text-muted-foreground mb-4 max-w-3xl mx-auto">
               Transform your retail and logistics operations with AI-powered inventory prediction,
               delivery optimization, and personalized e-commerce experiences that drive growth.
             </p>
@@ -109,13 +109,25 @@ const RetailLogistics = () => {
       </section>
 
       {/* Solutions Section */}
-      <section id="solutions" className="py-8">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-8">
-            <h2 className="text-xl font-bold mb-3">
+      <section id="solutions" className="relative py-12 overflow-hidden">
+        {/* Decorative Background Elements */}
+        <div className="absolute inset-0 bg-gradient-to-b from-background via-background/95 to-background" />
+        <div className="absolute top-1/4 left-0 w-96 h-96 bg-red-500/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-pink-600/5 rounded-full blur-3xl" />
+
+        <div className="container mx-auto px-6 relative z-10">
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center gap-2 mb-4">
+              <div className="h-px w-12 bg-gradient-to-r from-transparent to-red-500" />
+              <Badge variant="outline" className="px-4 py-1 text-xs font-semibold border-red-500/30 bg-red-500/5">
+                Solutions
+              </Badge>
+              <div className="h-px w-12 bg-gradient-to-l from-transparent to-red-500" />
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-foreground via-red-500 to-foreground bg-clip-text text-transparent">
               AI Solutions for Retail & Logistics
             </h2>
-            <p className="text-sm text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
               Comprehensive AI solutions designed to optimize retail operations and logistics efficiency
             </p>
           </div>
@@ -126,27 +138,29 @@ const RetailLogistics = () => {
               return (
                 <Card
                   key={solution.title}
-                  className="group hover:shadow-xl transition-all duration-500 border-0 bg-gradient-to-br from-card to-card/50"
+                  className="group relative overflow-hidden border border-border/50 hover:border-primary/50 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/20 hover:-translate-y-2 bg-gradient-to-br from-card to-card/50 animate-fade-in"
                   style={{ animationDelay: `${index * 100}ms` }}
                 >
-                  <CardContent className="p-4">
-                    <div className="w-8 h-8 rounded-lg bg-gradient-to-r from-red-500 to-pink-600 flex items-center justify-center mb-4">
-                      <Icon className="h-4 w-4 text-white" />
+                  <div className="absolute inset-0 bg-gradient-to-br from-background/10 via-background/10 to-background/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="absolute -inset-0.5 bg-gradient-to-r from-background/20 via-background/20 to-background/20 rounded-lg opacity-0 group-hover:opacity-100 blur-sm transition-opacity duration-500 -z-10" />
+                  <CardContent className="p-6 relative z-10">
+                    <div className="w-12 h-12 rounded-xl bg-gradient-to-r from-red-500 to-pink-600 flex items-center justify-center mb-4 group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300 shadow-lg">
+                      <Icon className="h-6 w-6 text-white" />
                     </div>
 
-                    <h3 className="text-sm font-bold mb-2">
+                    <h3 className="text-lg font-bold mb-2 group-hover:text-primary transition-colors">
                       {solution.title}
                     </h3>
 
-                    <p className="text-muted-foreground mb-4 text-xs">
+                    <p className="text-muted-foreground mb-4 text-sm group-hover:text-foreground transition-colors">
                       {solution.description}
                     </p>
 
-                    <div className="space-y-1">
+                    <div className="space-y-2">
                       {solution.features.map((feature) => (
                         <div key={feature} className="flex items-center gap-2">
-                          <CheckCircle className="h-3 w-3 text-green-500" />
-                          <span className="text-xs">{feature}</span>
+                          <CheckCircle className="h-4 w-4 text-green-500 group-hover:scale-110 transition-transform" />
+                          <span className="text-sm text-muted-foreground group-hover:text-foreground transition-colors">{feature}</span>
                         </div>
                       ))}
                     </div>
@@ -159,24 +173,42 @@ const RetailLogistics = () => {
       </section>
 
       {/* Case Studies */}
-      <section className="py-8 bg-muted/30">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-8">
-            <h2 className="text-xl font-bold mb-3">
+      <section className="relative py-20 bg-gradient-to-br from-muted/30 via-muted/20 to-background overflow-hidden">
+        {/* Decorative Pattern */}
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute inset-0" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, hsl(var(--primary)) 1px, transparent 0)', backgroundSize: '40px 40px' }} />
+        </div>
+
+        <div className="container mx-auto px-6 relative z-10">
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center gap-2 mb-4">
+              <div className="h-px w-12 bg-gradient-to-r from-transparent to-red-500" />
+              <Badge variant="outline" className="px-4 py-1 text-xs font-semibold border-red-500/30 bg-red-500/5">
+                Case Studies
+              </Badge>
+              <div className="h-px w-12 bg-gradient-to-l from-transparent to-red-500" />
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-foreground via-red-500 to-foreground bg-clip-text text-transparent">
               Success Stories
             </h2>
-            <p className="text-sm text-muted-foreground">
+            <p className="text-base md:text-lg text-muted-foreground">
               Real results from our retail and logistics clients
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-4 max-w-4xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
             {caseStudies.map((study, index) => (
-              <Card key={study.title} className="border-0 bg-card">
-                <CardContent className="p-4 text-center">
-                  <h3 className="text-sm font-bold mb-2">{study.title}</h3>
-                  <div className="text-xl font-bold text-red-600 mb-3">{study.result}</div>
-                  <p className="text-muted-foreground text-xs">{study.description}</p>
+              <Card
+                key={study.title}
+                className="group relative overflow-hidden border border-border/50 hover:border-primary/50 bg-gradient-to-br from-card to-card/50 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/20 hover:-translate-y-2 animate-fade-in"
+                style={{ animationDelay: `${index * 150}ms` }}
+              >
+                <div className="absolute inset-0 bg-gradient-to-br from-background/10 via-background/10 to-background/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute -inset-0.5 bg-gradient-to-r from-background/20 via-background/20 to-background/20 rounded-lg opacity-0 group-hover:opacity-100 blur-sm transition-opacity duration-500 -z-10" />
+                <CardContent className="p-6 text-center relative z-10">
+                  <h3 className="text-lg font-bold mb-3 group-hover:text-primary transition-colors">{study.title}</h3>
+                  <div className="text-2xl font-bold bg-gradient-to-r from-red-600 to-pink-600 bg-clip-text text-transparent mb-3 group-hover:scale-110 transition-transform duration-300">{study.result}</div>
+                  <p className="text-muted-foreground text-sm group-hover:text-foreground transition-colors">{study.description}</p>
                 </CardContent>
               </Card>
             ))}
@@ -185,22 +217,35 @@ const RetailLogistics = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-8 bg-gradient-to-r from-red-500/10 via-pink-500/10 to-primary/10">
+      <section className="py-20 bg-gradient-to-r from-red-500/10 via-pink-500/10 to-primary/10">
         <div className="container mx-auto px-6 text-center">
-          <h2 className="text-xl font-bold mb-3">
-            Partner with Quantum Intelligence in transforming your industry
-          </h2>
-          <p className="text-sm text-muted-foreground mb-4 max-w-2xl mx-auto">
-            Ready to optimize your retail and logistics operations with AI? Let's discuss how we can
-            help you improve efficiency, reduce costs, and enhance customer experiences.
-          </p>
-          <Button
-            size="sm"
-            onClick={() => navigateToTop('/contact')}
-            className="bg-gradient-to-r from-red-500 to-pink-600 hover:from-red-600 hover:to-pink-700"
-          >
-            Estimate Project
-          </Button>
+          <div className="max-w-3xl mx-auto">
+            <h2 className="text-3xl md:text-5xl font-bold mb-4">
+              Partner with Quantum Intelligence in transforming your industry
+            </h2>
+            <p className="text-base md:text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
+              Ready to optimize your retail and logistics operations with AI? Let's discuss how we can
+              help you improve efficiency, reduce costs, and enhance customer experiences.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button
+                size="lg"
+                onClick={() => navigateToTop('/contact')}
+                className="bg-gradient-to-r from-red-500 to-pink-600 hover:from-red-600 hover:to-pink-700 text-white px-8 py-6 text-base font-semibold shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300"
+              >
+                Estimate Project
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
+              <Button
+                size="lg"
+                variant="outline"
+                onClick={() => scrollToSection('solutions')}
+                className="px-8 py-6 text-base font-semibold border-2 hover:bg-primary/10 hover:border-primary transition-all duration-300"
+              >
+                View Solutions
+              </Button>
+            </div>
+          </div>
         </div>
       </section>
 
