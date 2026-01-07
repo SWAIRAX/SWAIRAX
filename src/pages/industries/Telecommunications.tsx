@@ -5,6 +5,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Badge } from "@/components/ui/badge";
+import { SectionHeading, SectionLead } from "@/components/typography";
 import {
   Radio,
   Network,
@@ -78,15 +79,15 @@ const Telecommunications = () => {
               Telecommunications
             </Badge>
 
-            <h1 className="text-3xl md:text-4xl font-bold mb-4">
+            <SectionHeading>
               Everything that involves
               <span className="bg-gradient-to-r from-purple-500 to-violet-600 bg-clip-text text-transparent"> Communication</span>
-            </h1>
+            </SectionHeading>
 
-            <p className="text-lg text-muted-foreground mb-4 max-w-3xl mx-auto">
+            <SectionLead className="max-w-3xl">
               Revolutionize your telecommunications infrastructure with AI-powered network optimization,
               intelligent customer support, and real-time data routing for seamless connectivity.
-            </p>
+            </SectionLead>
 
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <Button

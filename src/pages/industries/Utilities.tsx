@@ -5,6 +5,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Badge } from "@/components/ui/badge";
+import { SectionHeading, SectionLead } from "@/components/typography";
 import {
   Zap,
   Grid3X3,
@@ -78,15 +79,15 @@ const Utilities = () => {
               Utilities
             </Badge>
 
-            <h1 className="text-3xl md:text-4xl font-bold mb-4">
+            <SectionHeading>
               From electricity, to water supplies to
               <span className="bg-gradient-to-r from-yellow-500 to-orange-600 bg-clip-text text-transparent"> Public Services</span>
-            </h1>
+            </SectionHeading>
 
-            <p className="text-lg text-muted-foreground mb-4 max-w-3xl mx-auto">
+            <SectionLead className="max-w-3xl">
               Optimize your utility operations with AI-powered smart grid management,
               predictive maintenance, and intelligent resource allocation for essential services.
-            </p>
+            </SectionLead>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button

@@ -5,6 +5,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Badge } from "@/components/ui/badge";
+import { SectionHeading, SectionLead } from "@/components/typography";
 import {
   Banknote,
   Shield,
@@ -78,15 +79,15 @@ const FinancialServices = () => {
               Financial Services
             </Badge>
 
-            <h1 className="text-3xl md:text-4xl font-bold mb-4">
+            <SectionHeading>
               Getting Easy with the
               <span className="bg-gradient-to-r from-blue-500 to-indigo-600 bg-clip-text text-transparent"> Payment Sector</span>
-            </h1>
+            </SectionHeading>
 
-            <p className="text-lg text-muted-foreground mb-4 max-w-3xl mx-auto">
+            <SectionLead className="max-w-3xl">
               Transform your financial services with intelligent automation, advanced fraud detection,
               and AI-powered analytics that deliver secure, efficient, and customer-centric solutions.
-            </p>
+            </SectionLead>
 
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <Button

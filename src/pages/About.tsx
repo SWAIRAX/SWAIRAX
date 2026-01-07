@@ -9,6 +9,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import { Users, Target, Eye, Award, ChevronDown, ChevronUp, CheckCircle, ArrowRight } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
+import { SectionHeading, SectionLead } from "@/components/typography";
 
 const About = () => {
   const navigate = useNavigate();
@@ -83,13 +84,13 @@ const About = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 xl:gap-12 items-center max-w-6xl mx-auto">
             {/* Left Side - Text Content */}
             <ScrollReveal className="flex flex-col justify-center relative z-10">
-              <h1 className="text-2xl md:text-3xl font-bold mb-3 animate-fade-in">
+              <SectionHeading>
                 <span className="text-foreground">Quantum </span>
                 <span className="text-primary">Intelligence</span>
-              </h1>
-              <p className="text-base text-muted-foreground mb-3">
+              </SectionHeading>
+              <SectionLead className="mb-3">
                 Make AI work for humanity.
-              </p>
+              </SectionLead>
               <p className="text-base text-muted-foreground mb-8">
                 We're an AI research and deployment company building innovative, ethical, and accessible AI solutions that empower businesses and individuals to unlock the full potential of their data.
               </p>
@@ -236,7 +237,7 @@ We're a team of scientists, engineers, ethicists and more, working to build the 
                       <Button
                         variant="ghost"
                         size="sm"
-                        className="text-primary hover:text-primary/80 p-0"
+                        className="p-0 text-white hover:text-red-400 hover:bg-transparent bg-transparent focus-visible:ring-0"
                         aria-expanded={expandedValues[value.title]}
                       >
                         Learn More

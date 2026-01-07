@@ -1,16 +1,19 @@
-import React from "react";
+import React, { useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { useNavigationWithScroll } from "@/utils/navigation";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import ScrollReveal from "@/components/ScrollReveal";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { ArrowRight, Calendar, Shield, Users, FileText, ExternalLink } from "lucide-react";
+import { SectionHeading, SectionLead } from "@/components/typography";
+import { ArrowRight, Calendar, Shield, Users, FileText, ExternalLink, Sparkles, Play } from "lucide-react";
 
 const Research = () => {
   const navigate = useNavigate();
   const { navigateToTop } = useNavigationWithScroll();
+  const showreelRef = useRef<HTMLDivElement | null>(null);
 
   const archivedSolutions = [
     {
@@ -78,48 +81,55 @@ const Research = () => {
         selectedTags.some(tag => solution.tags.includes(tag))
       );
 
+  const showreel = "https://cdn.coverr.co/videos/coverr-abstract-technology-10926/1080p.mp4";
+
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-black text-white">
       <Header />
 
-      {/* Hero Section */}
-      <section className="relative pt-24 md:pt-28 pb-10 md:pb-10 overflow-hidden">
-        <div className="absolute inset-x-0 top-0 h-[280px] md:h-[300px] bg-gradient-to-b from-primary/10 via-primary/20 to-transparent pointer-events-none" />
-        <div className="absolute inset-0 bg-[url('/uploads/Hero%20Illustration%20F1.svg')] bg-cover bg-center opacity-10" />
+      {/* Hero Section with asymmetric layout */}
+      <section className="relative overflow-hidden pt-24 md:pt-28 pb-12">
+        <div className="absolute inset-0 bg-gradient-to-br from-black via-[#0d0d12] to-black" />
+        <div className="absolute -left-20 top-10 w-80 h-80 bg-red-500/15 rounded-full blur-3xl" />
+        <div className="absolute right-0 -top-10 w-[520px] h-[520px] rotate-6 bg-gradient-to-br from-white/10 via-transparent to-red-500/20 opacity-60 animate-pan-slow" />
+        <div className="absolute inset-0 holo-grid opacity-20" />
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-10 relative z-10">
-          <div className="max-w-4xl mx-auto text-center">
-            <Badge variant="outline" className="mb-3 text-xs font-medium">
-              Research & Innovation
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+            <div className="space-y-4">
+              <div className="inline-flex items-center gap-2">
+                <Badge className="bg-white/10 text-white border-white/10">Research & Innovation</Badge>
+                <Badge variant="outline" className="border-red-500/40 text-red-200">
+                  Proof to product
             </Badge>
-            <h1 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-              Research
-            </h1>
-            <p className="text-lg text-muted-foreground mb-4 max-w-2xl mx-auto">
-              Explore a selection of our recent research on some of the most complex and interesting challenges in AI.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              {/* <Button
-                size="lg"
-                onClick={() => navigateToTop('/services')}
-                className="bg-primary hover:bg-primary/90 text-primary-foreground"
-              >
-                View Current Solutions <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                onClick={() => navigateToTop('/contact')}
-              >
-                Discuss Legacy Migration
-              </Button> */}
+              </div>
+              <SectionHeading className="text-4xl md:text-5xl font-black leading-tight bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent">
+                Research that feeds production AI.
+            </SectionHeading>
+              <SectionLead className="text-muted-foreground max-w-3xl text-base md:text-lg">
+                Explore archived experiments shaping Quantum Analytics, Annotate, GenAI, and MLOps—built with ethics, evals, and observability from day one.
+            </SectionLead>
+              <div className="h-4" />
+            </div>
+
+            <div className="relative max-w-xl mx-auto">
+              <div className="absolute -inset-6 bg-gradient-to-r from-red-500/15 via-transparent to-white/10 blur-2xl" />
+              <div className="relative overflow-hidden rounded-3xl border border-white/10 shadow-[0_30px_100px_-60px_rgba(255,0,0,0.6)]">
+                <img
+                  src="/uploads/RESEARCH.jpg"
+                  alt="Research spotlight"
+                  className="h-full w-full object-cover"
+                />
+                <div />
+
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Filter Section */}
-      <section className="py-4 border-b border-border/70 bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/70 shadow-sm">
+      <section className="py-4 border-b border-white/10 bg-black/70 backdrop-blur supports-[backdrop-filter]:bg-black/60 shadow-sm">
         <div className="container mx-auto px-4 sm:px-6 lg:px-10">
           <div className="flex flex-wrap gap-2 justify-center items-center">
             <span className="text-[0.6rem] tracking-[0.4em] text-muted-foreground uppercase">Filter</span>
@@ -154,22 +164,23 @@ const Research = () => {
 
       {/* Archived Solutions Grid */}
       <section className="relative py-12 overflow-hidden -mt-4">
-        {/* Decorative Background Elements */}
-        <div className="absolute inset-0 bg-gradient-to-b from-background via-background/95 to-background" />
-        <div className="absolute top-1/4 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-secondary/5 rounded-full blur-3xl" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black via-black/90 to-black" />
+        <div className="absolute top-1/4 left-0 w-96 h-96 bg-red-500/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-white/5 rounded-full blur-3xl" />
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-10 relative z-10">
           <div className="text-center mb-8">
             <div className="inline-flex items-center gap-2 mb-4">
-              <div className="h-px w-12 bg-gradient-to-r from-transparent to-primary" />
-              <Badge variant="outline" className="px-4 py-1 text-xs font-semibold border-primary/30 bg-primary/5">
+              <div className="h-px w-12 bg-gradient-to-r from-transparent to-red-500" />
+              <Badge variant="outline" className="px-4 py-1 text-xs font-semibold border-red-400/40 bg-red-500/10 text-white">
                 Research
               </Badge>
-              <div className="h-px w-12 bg-gradient-to-l from-transparent to-primary" />
+              <div className="h-px w-12 bg-gradient-to-l from-transparent to-red-500" />
             </div>
-            <h2 className="text-2xl md:text-3xl font-semibold mb-3 bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent">Impossible? Let's see.</h2>
-            <p className="text-sm md:text-base text-muted-foreground max-w-3xl mx-auto">
+            <h2 className="text-2xl md:text-3xl font-semibold mb-3 bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent">
+              Impossible? Let's see.
+            </h2>
+            <p className="text-base md:text-lg text-muted-foreground max-w-3xl mx-auto">
               Whether we're shaping the future of sustainability, or optimizing algorithms,
               or even exploring epidemiological studies, Our Research strives to continuously progress science,
               advance society.
@@ -178,43 +189,46 @@ const Research = () => {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4">
             {filteredSolutions.map((solution, index) => (
-              <Card key={index} className="group relative research-card bg-gradient-to-br from-card to-card/50 border border-primary/20 hover:border-primary/50 overflow-hidden transition-all duration-500 hover:shadow-2xl hover:shadow-primary/20 hover:-translate-y-2 animate-fade-in" style={{ animationDelay: `${index * 0.1}s` }}>
-                <div className="absolute inset-0 bg-gradient-to-br from-background/10 via-background/10 to-background/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                <div className="absolute -inset-0.5 bg-gradient-to-r from-background/20 via-background/20 to-background/20 rounded-lg opacity-0 group-hover:opacity-100 blur-sm transition-opacity duration-500 -z-10" />
+              <Card
+                key={index}
+                className="group relative research-card bg-gradient-to-br from-neutral-900/80 via-neutral-900/60 to-black border border-red-500/20 hover:border-red-400/50 overflow-hidden transition-all duration-500 hover:shadow-[0_25px_80px_-40px_rgba(255,0,0,0.6)] hover:-translate-y-2 animate-fade-in"
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                <div className="absolute inset-0 bg-gradient-to-br from-red-500/10 via-transparent to-red-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 <CardHeader className="pb-3 relative z-10">
                   <div className="flex items-center justify-between mb-2">
                     <div className="flex items-center space-x-2">
-                      <div className="w-10 h-10 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-xl flex items-center justify-center text-primary group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300 shadow-lg">
+                      <div className="w-10 h-10 bg-gradient-to-br from-red-500/30 to-white/10 rounded-xl flex items-center justify-center text-red-200 group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300 shadow-lg">
                         {solution.icon}
                       </div>
                       <div>
-                        <CardTitle className="text-lg group-hover:text-primary transition-colors">{solution.title}</CardTitle>
+                        <CardTitle className="text-lg group-hover:text-red-300 transition-colors">{solution.title}</CardTitle>
                         <div className="flex items-center space-x-1 mt-1">
-                          <Badge variant="secondary" className="text-xs">{solution.category}</Badge>
-                          <Badge variant="outline" className="text-muted-foreground text-xs">
+                          <Badge variant="secondary" className="text-xs bg-white/10 text-white border-white/10">{solution.category}</Badge>
+                          <Badge variant="outline" className="text-white/70 border-white/20 text-xs">
                             <Calendar className="w-2 h-2 mr-1" />
                             {solution.launchDate}
                           </Badge>
                         </div>
                       </div>
                     </div>
-                    <Badge variant="destructive" className="bg-red-500/20 text-red-600 border-red-200 text-xs">
+                    <Badge variant="destructive" className="bg-red-500/20 text-red-200 border-red-200 text-xs">
                       {solution.status}
                     </Badge>
                   </div>
                 </CardHeader>
 
                 <CardContent className="space-y-3 relative z-10">
-                  <p className="text-muted-foreground leading-relaxed text-sm group-hover:text-foreground transition-colors">
+                  <p className="text-muted-foreground leading-relaxed text-sm group-hover:text-white transition-colors">
                     {solution.description}
                   </p>
 
                   <div>
-                    <h4 className="font-semibold text-primary mb-1 text-sm">Key Features:</h4>
+                    <h4 className="font-semibold text-red-200 mb-1 text-sm">Key Features:</h4>
                     <ul className="space-y-1">
                       {solution.keyFeatures.map((feature, featureIndex) => (
                         <li key={featureIndex} className="flex items-start space-x-1 text-sm">
-                          <div className="w-1.5 h-1.5 bg-primary rounded-full mt-1.5 flex-shrink-0"></div>
+                          <div className="w-1.5 h-1.5 bg-red-400 rounded-full mt-1.5 flex-shrink-0"></div>
                           <span>{feature}</span>
                         </li>
                       ))}
@@ -223,7 +237,7 @@ const Research = () => {
 
                   <div className="flex flex-wrap gap-1">
                     {solution.tags.map((tag, tagIndex) => (
-                      <Badge key={tagIndex} variant="outline" className="text-xs">
+                      <Badge key={tagIndex} variant="outline" className="text-xs border-white/20 text-white/80">
                         {tag}
                       </Badge>
                     ))}
@@ -234,7 +248,7 @@ const Research = () => {
                       size="sm"
                       variant="outline"
                       onClick={() => navigateToTop(`/research/${solution.title.toLowerCase().replace(/\s+/g, '-')}`)}
-                      className="flex-1 text-sm font-medium hover:bg-primary hover:text-primary-foreground transition-all group/btn"
+                      className="flex-1 text-sm font-medium border-white/20 text-white hover:bg-red-600 hover:text-white transition-all group/btn"
                     >
                       <ExternalLink className="w-4 h-4 mr-1 group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform" />
                       Learn More
@@ -295,32 +309,52 @@ From security solutions to advanced AI platforms - our evolution continues
 </section> */}
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-primary/10 via-secondary/10 to-accent/10">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-10 text-center">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-5xl font-bold mb-4">
-              Ready for the Next Generation?
+      {/* CTA with live reel */}
+      <section ref={showreelRef} className="py-16 bg-gradient-to-r from-red-600/20 via-black to-red-500/15">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-10 grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+          <ScrollReveal className="space-y-4">
+            <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1 text-xs uppercase tracking-[0.08em]">
+              <Sparkles className="h-4 w-4 text-red-300" />
+              Live experience
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold leading-tight bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent">
+              Research in motion: security, education, guardrails.
             </h2>
-            <p className="text-base md:text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-              Discover our current cutting-edge AI solutions built on years of innovation
+            <p className="text-muted-foreground text-sm md:text-base max-w-xl">
+              See how SURASOFT, AI Proctoring, and Askari LLM experiments flow into today’s production-grade analytics, annotation, GenAI, and MLOps. Real footage, AI overlays, and production guardrails together.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex gap-3">
               <Button
-                size="lg"
-                onClick={() => navigateToTop('/services')}
-                className="bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90 text-primary-foreground px-8 py-6 text-base font-semibold shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300"
+                className="bg-red-600 hover:bg-red-500 text-white"
+                onClick={() => navigateToTop("/services")}
               >
-                Explore Current Solutions
-                <ArrowRight className="ml-2 h-5 w-5" />
+                Explore current solutions
               </Button>
               <Button
-                size="lg"
                 variant="outline"
-                onClick={() => navigateToTop('/contact')}
-                className="px-8 py-6 text-base font-semibold border-2 hover:bg-primary/10 hover:border-primary transition-all duration-300"
+                className="border-white/20 text-white hover:bg-white/10"
+                onClick={() => navigateToTop("/contact")}
               >
-                Discuss Migration Options
+                Discuss migration
               </Button>
+            </div>
+          </ScrollReveal>
+
+          <div className="relative group overflow-hidden rounded-2xl border border-red-500/20 bg-gradient-to-br from-neutral-900 via-neutral-900/70 to-black shadow-[0_30px_100px_-60px_rgba(255,0,0,0.6)]">
+            <div className="absolute -inset-12 bg-gradient-to-r from-red-500/20 via-transparent to-red-500/20 blur-3xl opacity-40 group-hover:opacity-60 transition-opacity duration-700" />
+            <div className="relative">
+              <video
+                className="h-full w-full object-cover animate-pan-slow"
+                autoPlay
+                loop
+                muted
+                playsInline
+                poster="/uploads/Quantum.png"
+              >
+                <source src={showreel} type="video/mp4" />
+              </video>
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent" />
+
             </div>
           </div>
         </div>

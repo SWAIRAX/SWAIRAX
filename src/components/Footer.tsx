@@ -1,7 +1,10 @@
 import { Github, Instagram, Linkedin, Twitter, Mail, Phone, MapPin } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useNavigationWithScroll } from "@/utils/navigation";
 
 const Footer = () => {
+  const navigate = useNavigate();
+  const { navigateToTop } = useNavigationWithScroll();
   const currentYear = new Date().getFullYear();
 
   return (
@@ -95,29 +98,44 @@ const Footer = () => {
             <h3 className="text-sm font-semibold text-foreground mb-4">Products & Services</h3>
             <ul className="space-y-2">
               <li>
-                <Link to="/services" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                <button
+                  onClick={() => navigateToTop("/services")}
+                  className="text-sm text-muted-foreground hover:text-primary transition-colors text-left"
+                >
                   All Services
-                </Link>
+                </button>
               </li>
               <li>
-                <Link to="/quantum-analytics" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                <button
+                  onClick={() => navigateToTop("/quantum-analytics")}
+                  className="text-sm text-muted-foreground hover:text-primary transition-colors text-left"
+                >
                   Quantum Analytics
-                </Link>
+                </button>
               </li>
               <li>
-                <Link to="/quantum-annotate" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                <button
+                  onClick={() => navigateToTop("/quantum-annotate")}
+                  className="text-sm text-muted-foreground hover:text-primary transition-colors text-left"
+                >
                   Quantum Annotate
-                </Link>
+                </button>
               </li>
               <li>
-                <Link to="/quantum-genai" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                <button
+                  onClick={() => navigateToTop("/quantum-genai")}
+                  className="text-sm text-muted-foreground hover:text-primary transition-colors text-left"
+                >
                   Quantum GenAI
-                </Link>
+                </button>
               </li>
               <li>
-                <Link to="/mlops-devops" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                <button
+                  onClick={() => navigateToTop("/mlops-devops")}
+                  className="text-sm text-muted-foreground hover:text-primary transition-colors text-left"
+                >
                   MLOps & DevOps
-                </Link>
+                </button>
               </li>
             </ul>
           </div>
@@ -127,74 +145,48 @@ const Footer = () => {
             <h3 className="text-sm font-semibold text-foreground mb-4">Company</h3>
             <ul className="space-y-2">
               <li>
-                <Link to="/about" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                <button
+                  onClick={() => navigateToTop("/about")}
+                  className="text-sm text-muted-foreground hover:text-primary transition-colors text-left"
+                >
                   About Us
-                </Link>
+                </button>
               </li>
               <li>
-                <Link to="/industries" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                <button
+                  onClick={() => navigateToTop("/industries")}
+                  className="text-sm text-muted-foreground hover:text-primary transition-colors text-left"
+                >
                   Industries
-                </Link>
+                </button>
               </li>
               <li>
-                <Link to="/partnerships" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                <button
+                  onClick={() => navigateToTop("/partnerships")}
+                  className="text-sm text-muted-foreground hover:text-primary transition-colors text-left"
+                >
                   Partnerships
-                </Link>
+                </button>
               </li>
               <li>
-                <Link to="/careers" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                <button
+                  onClick={() => navigateToTop("/careers")}
+                  className="text-sm text-muted-foreground hover:text-primary transition-colors text-left"
+                >
                   Careers
-                </Link>
+                </button>
               </li>
               <li>
-                <Link to="/contact" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                <button
+                  onClick={() => navigateToTop("/contact")}
+                  className="text-sm text-muted-foreground hover:text-primary transition-colors text-left"
+                >
                   Contact Us
-                </Link>
+                </button>
               </li>
             </ul>
           </div>
 
-          {/* Resources & Legal */}
-          <div>
-            <h3 className="text-sm font-semibold text-foreground mb-4">Resources</h3>
-            <ul className="space-y-2">
-              <li>
-                <Link to="/research" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                  Research
-                </Link>
-              </li>
-              <li>
-                <Link to="/blog" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                  Blog
-                </Link>
-              </li>
-              <li>
-                <Link to="/resources" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                  Resources
-                </Link>
-              </li>
-              <li>
-                <Link to="/faq" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                  FAQ
-                </Link>
-              </li>
-              <li>
-                <Link to="/glossary" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                  Glossary
-                </Link>
-              </li>
-              <li>
-                <Link to="/privacy" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                  Privacy Policy
-                </Link>
-              </li>
-              <li>
-                <Link to="/terms" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                  Terms & Conditions
-                </Link>
-              </li>
-            </ul>
-          </div>
         </div>
 
         {/* Bottom Bar */}

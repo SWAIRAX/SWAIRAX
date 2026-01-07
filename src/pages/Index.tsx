@@ -126,7 +126,7 @@ const Index = () => {
       <section id="why-quantum" className="py-20 bg-card">
         <div className="container mx-auto px-6">
           <ScrollReveal className="text-center mb-16">
-            <p className="text-primary text-sm font-semibold mb-4">Why Quantum Intelligence?</p>
+            <p className="text-primary text-base md:text-lg font-semibold mb-4">Why Quantum Intelligence?</p>
             <h2 className="text-4xl md:text-5xl font-bold mb-8">
               We help Business & Data Scientists to unlock<br />
               data & artificial intelligence full potential.
@@ -151,17 +151,19 @@ const Index = () => {
               </div>
             </div>
 
-            <div className="text-center">
-              <p className="text-lg text-muted-foreground mb-8">
-                And trusted by the <span className="text-primary">community</span> with
-              </p>
-              <div className="text-6xl font-bold mb-4">
-                <AnimatedCounter value="100+" />
+            <ScrollReveal delay={120}>
+              <div className="rounded-2xl border border-border/30 bg-card/60 p-10 md:p-12 text-center shadow-[0_25px_70px_-50px_rgba(0,0,0,0.5)]">
+                <p className="text-lg md:text-xl text-muted-foreground">
+                  And trusted by the <span className="text-primary">community</span> with
+                </p>
+                <div className="text-6xl md:text-7xl font-bold my-6 text-foreground">
+                  100+
+                </div>
+                <p className="text-base md:text-lg text-muted-foreground">
+                  Data scientists and software Developers using our products.
+                </p>
               </div>
-              <p className="text-muted-foreground">
-                Data scientists and software Developers using our products.
-              </p>
-            </div>
+            </ScrollReveal>
           </div>
         </div>
       </section>
@@ -171,7 +173,7 @@ const Index = () => {
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <ScrollReveal>
-              <p className="text-primary text-sm font-semibold mb-4">What do we do?</p>
+              <p className="text-primary text-base md:text-lg font-semibold mb-4">What do we do?</p>
               <h2 className="text-4xl md:text-5xl font-bold mb-8">
                 Data-Centric and AI solutions
               </h2>
@@ -196,7 +198,7 @@ const Index = () => {
                   <CollapsibleTrigger asChild>
                     <Button
                       variant="ghost"
-                      className="text-foreground hover:text-primary p-0 mb-4"
+                      className="text-foreground hover:text-red-400 bg-transparent hover:bg-transparent p-0 mb-4 focus-visible:ring-0"
                       aria-expanded={expandedSections['ai-studio']}
                     >
                       Show More Details
@@ -262,7 +264,7 @@ const Index = () => {
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <ScrollReveal>
-              <p className="text-primary text-sm font-semibold mb-4">MLOps</p>
+              <p className="text-primary text-base md:text-lg font-semibold mb-4">MLOps</p>
               <h2 className="text-4xl md:text-5xl font-bold mb-8">
                 Machine Learning + Devops
               </h2>
@@ -280,7 +282,7 @@ const Index = () => {
                 <CollapsibleTrigger asChild>
                   <Button
                     variant="ghost"
-                    className="text-foreground hover:text-primary p-0 mb-4"
+                    className="text-foreground hover:text-red-400 bg-transparent hover:bg-transparent p-0 mb-4 focus-visible:ring-0"
                     aria-expanded={expandedSections['mlops']}
                   >
                     Show MLOps Process
@@ -516,7 +518,7 @@ const Index = () => {
             </ScrollReveal>
 
             <ScrollReveal delay={150}>
-              <p className="text-primary text-sm font-semibold mb-4">Business Analysis</p>
+              <p className="text-primary text-base md:text-lg font-semibold mb-4">Business Analysis</p>
               <h2 className="text-4xl md:text-5xl font-bold mb-8">
                 Turn Insight Into Strategy
               </h2>
@@ -532,7 +534,7 @@ const Index = () => {
                 <CollapsibleTrigger asChild>
                   <Button
                     variant="ghost"
-                    className="text-foreground hover:text-primary p-0 mb-4"
+                    className="text-foreground hover:text-red-400 bg-transparent hover:bg-transparent p-0 mb-4 focus-visible:ring-0"
                     aria-expanded={expandedSections['business-analysis']}
                   >
                     View Analytics Features
@@ -597,7 +599,7 @@ const Index = () => {
       <section className="py-20 bg-card">
         <div className="container mx-auto px-6">
           <ScrollReveal className="text-center mb-16">
-            <p className="text-primary text-sm font-semibold mb-4">Ready to start?</p>
+            <p className="text-primary text-base md:text-lg font-semibold mb-4">Ready to start?</p>
             <h2 className="text-4xl md:text-5xl font-bold">
               Solutions Built to Scale
             </h2>
@@ -654,7 +656,7 @@ const Index = () => {
                     <CollapsibleTrigger asChild>
                       <Button
                         variant="ghost"
-                        className="text-foreground hover:text-primary p-0 mb-4 relative z-10"
+                        className="text-foreground hover:text-red-400 bg-transparent hover:bg-transparent p-0 mb-4 relative z-10 focus-visible:ring-0"
                         aria-expanded={expandedSections[product.title]}
                       >
                         Show Details
@@ -757,7 +759,7 @@ const Index = () => {
 
                   <Button
                     variant="ghost"
-                    className="text-foreground hover:text-primary p-0 relative z-10 group-hover:translate-x-1 transition-transform duration-300"
+                    className="text-foreground hover:text-red-400 bg-transparent hover:bg-transparent p-0 relative z-10 group-hover:translate-x-1 transition-transform duration-300 focus-visible:ring-0"
                     onClick={() => navigateToTop('/contact')}
                   >
                     {product.cta} <ArrowRight className="ml-2 h-4 w-4" />

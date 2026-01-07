@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import React from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { SectionHeading, SectionLead } from "@/components/typography";
 import { ExternalLink } from "lucide-react";
 
 const Partnerships = () => {
@@ -59,12 +60,12 @@ const Partnerships = () => {
             <Badge variant="outline" className="mb-3 text-xs font-medium">
               Partnerships
             </Badge>
-            <h1 className="text-2xl md:text-3xl font-bold mb-3 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-            Our Partners in Innovation
-          </h1>
-            <p className="text-base text-muted-foreground mb-4 max-w-2xl mx-auto">
-            Quantum Intelligence proudly collaborates with leading institutions driving tech, research, and entrepreneurship in Tanzania.
-          </p>
+            <SectionHeading className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+              Our Partners in Innovation
+            </SectionHeading>
+            <SectionLead>
+              Quantum Intelligence proudly collaborates with leading institutions driving tech, research, and entrepreneurship in Tanzania.
+            </SectionLead>
           </div>
         </div>
       </section>

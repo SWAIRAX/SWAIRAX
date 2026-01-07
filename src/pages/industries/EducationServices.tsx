@@ -5,6 +5,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Badge } from "@/components/ui/badge";
+import { SectionHeading, SectionLead } from "@/components/typography";
 import {
   GraduationCap,
   Brain,
@@ -78,15 +79,15 @@ const EducationServices = () => {
               Education Services
             </Badge>
 
-            <h1 className="text-3xl md:text-4xl font-bold mb-4">
+            <SectionHeading>
               Everything that involves
               <span className="bg-gradient-to-r from-green-500 to-emerald-600 bg-clip-text text-transparent"> Learning and Students</span>
-            </h1>
+            </SectionHeading>
 
-            <p className="text-lg text-muted-foreground mb-4 max-w-3xl mx-auto">
+            <SectionLead className="max-w-3xl">
               Transform education with AI-powered adaptive learning platforms, intelligent tutoring systems,
               and automated assessment tools that enhance learning outcomes for every student.
-            </p>
+            </SectionLead>
 
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <Button

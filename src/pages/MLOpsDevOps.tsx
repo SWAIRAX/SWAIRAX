@@ -110,40 +110,43 @@ const MLOpsDevOps = () => {
       <Header />
 
       {/* Hero Section */}
-      <section className="pt-24 pb-8 bg-gradient-secondary relative overflow-hidden">
-        {/* Animated background elements */}
+      <section className="relative overflow-hidden pt-24 md:pt-28 pb-14 bg-black text-white">
         <div className="absolute inset-0">
-          <div className="absolute top-20 left-10 w-20 h-20 bg-primary/10 rounded-full animate-pulse"></div>
-          <div className="absolute top-40 right-20 w-16 h-16 bg-primary/5 rounded-full animate-bounce" style={{ animationDelay: '1s' }}></div>
-          <div className="absolute bottom-20 left-1/4 w-12 h-12 bg-primary/15 rounded-full animate-ping"></div>
+          <div
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-85"
+            style={{ backgroundImage: "url(\"/uploads/MLOPS&DEVOPS.webp\")" }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/75 to-black/90" />
+          <div className="absolute inset-0 holo-grid opacity-15" />
+          <div className="absolute -left-10 top-10 w-64 h-64 aurora-glow opacity-60" />
+          <div className="absolute -right-12 bottom-12 w-72 h-72 aurora-glow opacity-60 delay-300" />
         </div>
 
         <div className="container mx-auto px-6 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
             <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
               <div className="flex items-center justify-center mb-3">
-                <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center text-primary mr-3 animate-pulse">
+                <div className="w-12 h-12 bg-white/10 rounded-lg flex items-center justify-center text-primary mr-3 shadow-inner shadow-red-500/20">
                   <BarChart3 className="h-6 w-6" />
                 </div>
-                <h1 className="text-2xl md:text-3xl font-bold">
+                <h1 className="text-4xl md:text-5xl font-black leading-tight bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent">
                   MLOps & <span className="text-primary">DevOps</span>
                 </h1>
               </div>
-              <p className="text-sm text-muted-foreground mb-4 max-w-3xl mx-auto">
+              <p className="text-base md:text-lg text-muted-foreground mb-4 max-w-3xl mx-auto">
                 Bridge the gap between data science and production with our MLOps expertise and deployment solutions. Transform your AI models into reliable, scalable business applications.
               </p>
               <div className="flex flex-col sm:flex-row gap-3 justify-center">
                 <Button
-                  size="sm"
-                  className="bg-primary hover:bg-primary/90 text-primary-foreground px-4 py-2 text-sm group"
+                  size="lg"
+                  className="bg-gradient-to-r from-red-600 via-red-500 to-red-400 hover:from-red-500 hover:to-red-500 text-white px-6 md:px-8 py-4 text-base font-semibold shadow-[0_20px_60px_-30px_rgba(255,0,0,0.75)]"
                   onClick={() => scrollToSection("features")}
                 >
-                  Explore Solutions <ArrowRight className="ml-1 h-3 w-3 group-hover:translate-x-1 transition-transform" />
+                  Explore Solutions <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
                 <Button
-                  size="sm"
                   variant="outline"
-                  className="border-primary text-primary hover:bg-primary hover:text-primary-foreground px-4 py-2 text-sm"
+                  className="border-white/30 text-white hover:bg-white/10"
                   onClick={() => navigateToTop('/contact')}
                 >
                   Get Started
@@ -180,10 +183,10 @@ const MLOpsDevOps = () => {
       {/* Features Section */}
       <section id="features" className="py-8">
         <div className="container mx-auto px-6">
-          <div className="text-center mb-8">
+            <div className="text-center mb-8">
             <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-8'}`}>
-              <h2 className="text-xl font-bold mb-3">Comprehensive MLOps Solutions</h2>
-              <p className="text-sm text-muted-foreground max-w-3xl mx-auto">
+              <h2 className="text-3xl md:text-4xl font-bold mb-3 bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent">Comprehensive MLOps Solutions</h2>
+              <p className="text-base md:text-lg text-muted-foreground max-w-3xl mx-auto">
                 Our end-to-end MLOps platform ensures your machine learning models are deployed, monitored, and maintained with enterprise-grade reliability.
               </p>
             </div>
@@ -207,7 +210,7 @@ const MLOpsDevOps = () => {
                     {feature.title}
                   </h3>
 
-                  <p className="text-muted-foreground mb-4 leading-relaxed text-xs">
+                  <p className="text-muted-foreground mb-4 leading-relaxed text-sm">
                     {feature.description}
                   </p>
 
@@ -229,10 +232,10 @@ const MLOpsDevOps = () => {
       {/* Process Section */}
       <section className="py-8 bg-card">
         <div className="container mx-auto px-6">
-          <div className="text-center mb-8">
+            <div className="text-center mb-8">
             <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-8'}`}>
-              <h2 className="text-xl font-bold mb-3">Our MLOps Implementation Process</h2>
-              <p className="text-sm text-muted-foreground max-w-3xl mx-auto">
+              <h2 className="text-3xl md:text-4xl font-bold mb-3 bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent">Our MLOps Implementation Process</h2>
+              <p className="text-base md:text-lg text-muted-foreground max-w-3xl mx-auto">
                 A systematic approach to implementing MLOps that ensures smooth deployment and long-term success of your machine learning initiatives.
               </p>
             </div>

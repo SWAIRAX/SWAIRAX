@@ -348,6 +348,44 @@ All colors MUST be HSL.
     }
 }
 
+@keyframes aurora-shift {
+    0% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-12px) rotate(4deg);
+    }
+
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
+}
+
+@keyframes orbit {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes pan-slow {
+    0% {
+        transform: scale(1.02) translate3d(0, 0, 0);
+    }
+
+    50% {
+        transform: scale(1.04) translate3d(-6px, -4px, 0);
+    }
+
+    100% {
+        transform: scale(1.02) translate3d(0, 0, 0);
+    }
+}
+
 /* Animation utilities */
 .animate-spin-slow {
     animation: spin-slow 3s linear infinite;
@@ -397,6 +435,30 @@ All colors MUST be HSL.
 
 .animate-grow-bar {
     animation: grow-bar 0.8s ease-out;
+}
+
+.animate-orbit {
+    animation: orbit 6s linear infinite;
+}
+
+.animate-pan-slow {
+    animation: pan-slow 18s ease-in-out infinite;
+}
+
+.aurora-glow {
+    background: radial-gradient(circle at 30% 30%, rgba(255, 0, 0, 0.35), transparent 45%);
+    filter: blur(60px);
+    animation: aurora-shift 12s ease-in-out infinite;
+    opacity: 0.45;
+}
+
+.holo-grid {
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 140px 140px;
+    mix-blend-mode: screen;
+    opacity: 0.12;
 }
 
 .animate-slide-in-left {
@@ -522,9 +584,10 @@ All colors MUST be HSL.
 
 /* Initial hidden state */
 .scroll-reveal {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 350ms ease-out, transform 350ms ease-out;
+    opacity: 0.12;
+    transform: translateY(28px);
+    transition: opacity 450ms cubic-bezier(0.16, 1, 0.3, 1), transform 450ms cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: transform, opacity;
 }
 
 /* Visible state after scroll trigger */
@@ -534,10 +597,21 @@ All colors MUST be HSL.
 }
 
 /* Staggered delay utilities for grouped elements */
-.scroll-reveal-delay-100 { transition-delay: 100ms; }
-.scroll-reveal-delay-200 { transition-delay: 200ms; }
-.scroll-reveal-delay-300 { transition-delay: 300ms; }
-.scroll-reveal-delay-400 { transition-delay: 400ms; }
+.scroll-reveal-delay-100 {
+    transition-delay: 100ms;
+}
+
+.scroll-reveal-delay-200 {
+    transition-delay: 200ms;
+}
+
+.scroll-reveal-delay-300 {
+    transition-delay: 300ms;
+}
+
+.scroll-reveal-delay-400 {
+    transition-delay: 400ms;
+}
 
 /* Respect reduced motion preferences */
 @media (prefers-reduced-motion: reduce) {

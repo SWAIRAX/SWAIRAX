@@ -5,6 +5,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Badge } from "@/components/ui/badge";
+import { SectionHeading, SectionLead } from "@/components/typography";
 import {
   Heart,
   Scan,
@@ -78,14 +79,14 @@ const HealthcarePharmacy = () => {
               Healthcare & Pharmacy
             </Badge>
 
-            <h1 className="text-3xl md:text-4xl font-bold mb-4">
+            <SectionHeading>
               <span className="bg-gradient-to-r from-teal-500 to-cyan-600 bg-clip-text text-transparent">Health Sector</span> Covered
-            </h1>
+            </SectionHeading>
 
-            <p className="text-lg text-muted-foreground mb-4 max-w-3xl mx-auto">
+            <SectionLead className="max-w-3xl">
               Revolutionize healthcare with AI-powered diagnostic imaging, intelligent patient data systems,
               and advanced pharmaceutical research tools that improve patient outcomes and save lives.
-            </p>
+            </SectionLead>
 
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <Button

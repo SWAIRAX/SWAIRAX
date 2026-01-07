@@ -5,6 +5,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Badge } from "@/components/ui/badge";
+import { SectionHeading, SectionLead } from "@/components/typography";
 import {
   Package,
   TrendingUp,
@@ -78,15 +79,15 @@ const RetailLogistics = () => {
               Retail & Logistics
             </Badge>
 
-            <h1 className="text-3xl md:text-4xl font-bold mb-4">
+            <SectionHeading>
               Great brands who chose
               <span className="bg-gradient-to-r from-red-500 to-pink-600 bg-clip-text text-transparent"> Secure Data</span>
-            </h1>
+            </SectionHeading>
 
-            <p className="text-lg text-muted-foreground mb-4 max-w-3xl mx-auto">
+            <SectionLead className="max-w-3xl">
               Transform your retail and logistics operations with AI-powered inventory prediction,
               delivery optimization, and personalized e-commerce experiences that drive growth.
-            </p>
+            </SectionLead>
 
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <Button
