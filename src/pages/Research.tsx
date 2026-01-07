@@ -83,11 +83,11 @@ const Research = () => {
       <Header />
 
       {/* Hero Section */}
-      <section className="relative pt-20 pb-12 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-secondary/5 to-accent/5" />
+      <section className="relative pt-24 md:pt-28 pb-10 md:pb-10 overflow-hidden">
+        <div className="absolute inset-x-0 top-0 h-[280px] md:h-[300px] bg-gradient-to-b from-primary/10 via-primary/20 to-transparent pointer-events-none" />
         <div className="absolute inset-0 bg-[url('/uploads/Hero%20Illustration%20F1.svg')] bg-cover bg-center opacity-10" />
 
-        <div className="container mx-auto px-6 relative z-10">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-10 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
             <Badge variant="outline" className="mb-3 text-xs font-medium">
               Research & Innovation
@@ -120,7 +120,7 @@ const Research = () => {
 
       {/* Filter Section */}
       <section className="py-4 border-b border-border/70 bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/70 shadow-sm">
-        <div className="container mx-auto px-6 lg:px-10">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-10">
           <div className="flex flex-wrap gap-2 justify-center items-center">
             <span className="text-[0.6rem] tracking-[0.4em] text-muted-foreground uppercase">Filter</span>
             <Button
@@ -159,7 +159,7 @@ const Research = () => {
         <div className="absolute top-1/4 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
         <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-secondary/5 rounded-full blur-3xl" />
 
-        <div className="container mx-auto px-6 relative z-10">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-10 relative z-10">
           <div className="text-center mb-8">
             <div className="inline-flex items-center gap-2 mb-4">
               <div className="h-px w-12 bg-gradient-to-r from-transparent to-primary" />
@@ -168,8 +168,8 @@ const Research = () => {
               </Badge>
               <div className="h-px w-12 bg-gradient-to-l from-transparent to-primary" />
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent">Impossible? Let's see.</h2>
-            <p className="text-base md:text-lg text-muted-foreground max-w-3xl mx-auto">
+            <h2 className="text-2xl md:text-3xl font-semibold mb-3 bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent">Impossible? Let's see.</h2>
+            <p className="text-sm md:text-base text-muted-foreground max-w-3xl mx-auto">
               Whether we're shaping the future of sustainability, or optimizing algorithms,
               or even exploring epidemiological studies, Our Research strives to continuously progress science,
               advance society.
@@ -249,7 +249,7 @@ const Research = () => {
 
 {/* Evolution Timeline */}
 {/* <section className="py-20 bg-card">
-<div className="container mx-auto px-6">
+<div className="container mx-auto px-4 sm:px-6 lg:px-10">
 <div className="text-center mb-16">
 <h2 className="text-4xl font-bold mb-4">Our Innovation Journey</h2>
 <p className="text-xl text-muted-foreground">
@@ -296,7 +296,7 @@ From security solutions to advanced AI platforms - our evolution continues
 
       {/* CTA Section */}
       <section className="py-20 bg-gradient-to-r from-primary/10 via-secondary/10 to-accent/10">
-        <div className="container mx-auto px-6 text-center">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-10 text-center">
           <div className="max-w-3xl mx-auto">
             <h2 className="text-3xl md:text-5xl font-bold mb-4">
               Ready for the Next Generation?

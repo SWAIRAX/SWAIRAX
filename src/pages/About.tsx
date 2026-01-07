@@ -77,11 +77,12 @@ const About = () => {
       <Header />
 
       {/* Hero Section - Split Layout */}
-      <section className="pt-20 pb-8 bg-background">
-        <div className="container mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+      <section className="relative pt-16 pb-8 md:pt-18 md:pb-8 bg-background overflow-hidden">
+        <div className="absolute inset-x-0 top-0 h-[280px] md:h-[300px] bg-gradient-to-b from-background via-background/90 to-transparent pointer-events-none" />
+        <div className="container mx-auto px-4 sm:px-6 lg:px-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 xl:gap-12 items-center max-w-6xl mx-auto">
             {/* Left Side - Text Content */}
-            <ScrollReveal className="flex flex-col justify-center">
+            <ScrollReveal className="flex flex-col justify-center relative z-10">
               <h1 className="text-2xl md:text-3xl font-bold mb-3 animate-fade-in">
                 <span className="text-foreground">Quantum </span>
                 <span className="text-primary">Intelligence</span>
@@ -112,7 +113,7 @@ const About = () => {
 
             {/* Right Side - Image with Overlay Cards */}
             <ScrollReveal delay={200} className="relative">
-              <div className="relative overflow-hidden rounded-2xl shadow-2xl h-[400px] lg:h-[450px]">
+            <div className="relative overflow-hidden rounded-2xl shadow-2xl h-[400px] lg:h-[450px] hidden md:block">
                 <img
                   src="/uploads/TEAM.jpeg"
                   alt="Quantum Intelligence Team"
@@ -151,14 +152,14 @@ const About = () => {
       </section>
 
       {/* Mission & Vision */}
-      <section className="relative py-16 overflow-hidden">
+      <section className="relative py-12 md:py-16 overflow-hidden">
         {/* Decorative Background */}
         <div className="absolute inset-0 bg-gradient-to-b from-background via-background/95 to-background" />
         <div className="absolute top-0 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
         <div className="absolute bottom-0 right-0 w-96 h-96 bg-secondary/5 rounded-full blur-3xl" />
 
-        <div className="container mx-auto px-6 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-10 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 xl:gap-12 max-w-6xl mx-auto">
             <ScrollReveal>
               <div className="inline-flex items-center gap-2 mb-4">
                 <div className="h-px w-8 bg-gradient-to-r from-transparent to-primary" />
@@ -195,12 +196,12 @@ We're a team of scientists, engineers, ethicists and more, working to build the 
       </section>
 
       {/* Values */}
-      <section className="relative py-16 bg-gradient-to-br from-card via-card/50 to-background overflow-hidden">
+      <section className="relative py-12 md:py-16 bg-gradient-to-br from-card via-card/50 to-background overflow-hidden">
         {/* Decorative Elements */}
         <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl" />
         <div className="absolute bottom-0 left-0 w-64 h-64 bg-secondary/5 rounded-full blur-3xl" />
 
-        <div className="container mx-auto px-6 relative z-10">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-10 relative z-10">
           <ScrollReveal className="text-center mb-12">
             <div className="inline-flex items-center gap-2 mb-4">
               <div className="h-px w-12 bg-gradient-to-r from-transparent to-primary" />
@@ -323,13 +324,13 @@ We're a team of scientists, engineers, ethicists and more, working to build the 
       </section>
 
       {/* Company Story */}
-      <section className="relative py-16 overflow-hidden">
+      <section className="relative py-12 md:py-16 overflow-hidden">
         {/* Decorative Pattern */}
         <div className="absolute inset-0 opacity-5">
           <div className="absolute inset-0" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, hsl(var(--primary)) 1px, transparent 0)', backgroundSize: '40px 40px' }} />
         </div>
 
-        <div className="container mx-auto px-6 relative z-10">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-10 relative z-10">
           <ScrollReveal className="max-w-4xl mx-auto">
             <div className="text-center mb-8">
               <div className="inline-flex items-center gap-2 mb-4">
@@ -368,7 +369,7 @@ It’s about what it can do for you.
 
       {/* CTA */}
       <section className="py-20 bg-gradient-to-r from-primary/10 via-secondary/10 to-primary/10">
-        <div className="container mx-auto px-6 text-center">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-10 text-center">
           <div className="max-w-3xl mx-auto">
             <h2 className="text-3xl md:text-5xl font-bold mb-4">
               Join Our Journey

@@ -64,10 +64,11 @@ const RetailLogistics = () => {
       <Header />
 
       {/* Hero Section */}
-      <section className="relative pt-20 pb-12 overflow-hidden">
+      <section className="relative pt-24 md:pt-28 pb-10 md:pb-10 overflow-hidden">
+        <div className="absolute inset-x-0 top-0 h-[280px] md:h-[300px] bg-gradient-to-b from-red-500/10 via-red-500/30 to-transparent pointer-events-none" />
         <div className="absolute inset-0 bg-gradient-to-br from-red-500/10 via-pink-500/5 to-primary/10" />
 
-        <div className="container mx-auto px-6 relative z-10">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-10 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
             <div className="w-12 h-12 mx-auto mb-3 rounded-xl bg-gradient-to-r from-red-500 to-pink-600 flex items-center justify-center">
               <Package className="h-6 w-6 text-white" />
@@ -115,7 +116,7 @@ const RetailLogistics = () => {
         <div className="absolute top-1/4 left-0 w-96 h-96 bg-red-500/5 rounded-full blur-3xl" />
         <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-pink-600/5 rounded-full blur-3xl" />
 
-        <div className="container mx-auto px-6 relative z-10">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-10 relative z-10">
           <div className="text-center mb-12">
             <div className="inline-flex items-center gap-2 mb-4">
               <div className="h-px w-12 bg-gradient-to-r from-transparent to-red-500" />
@@ -179,7 +180,7 @@ const RetailLogistics = () => {
           <div className="absolute inset-0" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, hsl(var(--primary)) 1px, transparent 0)', backgroundSize: '40px 40px' }} />
         </div>
 
-        <div className="container mx-auto px-6 relative z-10">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-10 relative z-10">
           <div className="text-center mb-12">
             <div className="inline-flex items-center gap-2 mb-4">
               <div className="h-px w-12 bg-gradient-to-r from-transparent to-red-500" />
@@ -218,7 +219,7 @@ const RetailLogistics = () => {
 
       {/* CTA Section */}
       <section className="py-20 bg-gradient-to-r from-red-500/10 via-pink-500/10 to-primary/10">
-        <div className="container mx-auto px-6 text-center">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-10 text-center">
           <div className="max-w-3xl mx-auto">
             <h2 className="text-3xl md:text-5xl font-bold mb-4">
               Partner with Quantum Intelligence in transforming your industry

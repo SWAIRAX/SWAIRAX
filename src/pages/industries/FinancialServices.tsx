@@ -64,10 +64,11 @@ const FinancialServices = () => {
       <Header />
 
       {/* Hero Section */}
-      <section className="relative pt-20 pb-12 overflow-hidden">
+      <section className="relative pt-24 md:pt-28 pb-10 md:pb-10 overflow-hidden">
+        <div className="absolute inset-x-0 top-0 h-[280px] md:h-[300px] bg-gradient-to-b from-blue-500/10 via-blue-500/30 to-transparent pointer-events-none" />
         <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 via-indigo-500/5 to-primary/10" />
 
-        <div className="container mx-auto px-6 relative z-10">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-10 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
             <div className="w-12 h-12 mx-auto mb-3 rounded-xl bg-gradient-to-r from-blue-500 to-indigo-600 flex items-center justify-center">
               <Banknote className="h-6 w-6 text-white" />
@@ -115,7 +116,7 @@ const FinancialServices = () => {
         <div className="absolute top-1/4 left-0 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl" />
         <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-indigo-600/5 rounded-full blur-3xl" />
 
-        <div className="container mx-auto px-6 relative z-10">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-10 relative z-10">
           <div className="text-center mb-12">
             <div className="inline-flex items-center gap-2 mb-4">
               <div className="h-px w-12 bg-gradient-to-r from-transparent to-blue-500" />
@@ -142,7 +143,7 @@ const FinancialServices = () => {
                   style={{ animationDelay: `${index * 100}ms` }}
                 >
                   <div className="absolute inset-0 bg-gradient-to-br from-background/10 via-background/10 to-background/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                  <CardContent className="p-6 relative z-10">
+                  <CardContent className="p-5 sm:p-6 relative z-10">
                     <div className="w-12 h-12 rounded-xl bg-gradient-to-r from-blue-500 to-indigo-600 flex items-center justify-center mb-4 group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300 shadow-lg">
                       <Icon className="h-6 w-6 text-white" />
                     </div>
@@ -178,7 +179,7 @@ const FinancialServices = () => {
           <div className="absolute inset-0" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, hsl(var(--primary)) 1px, transparent 0)', backgroundSize: '40px 40px' }} />
         </div>
 
-        <div className="container mx-auto px-6 relative z-10">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-10 relative z-10">
           <div className="text-center mb-16">
             <div className="inline-flex items-center gap-2 mb-4">
               <div className="h-px w-12 bg-gradient-to-r from-transparent to-blue-500" />
@@ -216,7 +217,7 @@ const FinancialServices = () => {
 
       {/* CTA Section */}
       <section className="py-20 bg-gradient-to-r from-blue-500/10 via-indigo-500/10 to-primary/10">
-        <div className="container mx-auto px-6 text-center">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-10 text-center">
           <div className="max-w-3xl mx-auto">
             <h2 className="text-3xl md:text-5xl font-bold mb-4">
               Partner with Quantum Intelligence in transforming your industry

@@ -54,11 +54,11 @@ const Services = () => {
       <Header />
 
       {/* Hero Section */}
-      <section className="relative pt-32 pb-16 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-secondary/5 to-accent/5" />
+      <section className="relative pt-24 md:pt-28 pb-10 md:pb-10 overflow-hidden">
+        <div className="absolute inset-x-0 top-0 h-[280px] md:h-[300px] bg-gradient-to-b from-primary/10 via-primary/20 to-transparent pointer-events-none" />
         <div className="absolute inset-0 bg-[url('/uploads/Hero%20Illustration%20F1.svg')] bg-cover bg-center opacity-10" />
 
-        <div className="container mx-auto px-6 relative z-10">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-10 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
             <Badge variant="outline" className="mb-3 text-xs font-medium">
               Products & Services
@@ -87,7 +87,7 @@ const Services = () => {
         <div className="absolute top-4 left-1/4 w-72 h-72 bg-primary/5 rounded-full blur-3xl" />
         <div className="absolute bottom-4 right-1/4 w-72 h-72 bg-secondary/5 rounded-full blur-3xl" />
 
-        <div className="container mx-auto px-6 relative z-10">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-10 relative z-10">
           <ScrollReveal className="text-center mb-6">
             <div className="inline-flex items-center gap-2 mb-4">
               <div className="h-px w-12 bg-gradient-to-r from-transparent to-primary" />
@@ -281,7 +281,7 @@ const Services = () => {
         <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl" />
         <div className="absolute bottom-0 left-0 w-64 h-64 bg-secondary/5 rounded-full blur-3xl" />
 
-        <div className="container mx-auto px-6 relative z-10">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-10 relative z-10">
           <ScrollReveal className="text-center mb-12">
             <div className="inline-flex items-center gap-2 mb-4">
               <div className="h-px w-12 bg-gradient-to-r from-transparent to-primary" />
@@ -330,7 +330,7 @@ const Services = () => {
           <div className="absolute inset-0" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, hsl(var(--primary)) 1px, transparent 0)', backgroundSize: '40px 40px' }} />
         </div>
 
-        <div className="container mx-auto px-6 text-center relative z-10">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-10 text-center relative z-10">
           <ScrollReveal>
             <div className="inline-flex items-center gap-2 mb-4">
               <div className="h-px w-12 bg-gradient-to-r from-transparent to-primary" />
@@ -359,7 +359,7 @@ const Services = () => {
 
       {/* CTA Section */}
       <section className="py-20 bg-gradient-to-r from-primary/10 via-secondary/10 to-accent/10">
-        <div className="container mx-auto px-6 text-center">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-10 text-center">
           <div className="max-w-3xl mx-auto">
             <h2 className="text-3xl md:text-5xl font-bold mb-4">
               Ready to Transform Your Business?

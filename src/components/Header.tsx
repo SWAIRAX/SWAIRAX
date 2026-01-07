@@ -94,7 +94,7 @@ const Header = () => {
 
   // Mobile-only simplified menu (no dropdowns)
   const mobileNavItems = [
-    { name: "Home", path: "/" },
+    { name: "Services", path: "/services" },
     { name: "Industries", path: "/industries" },
     { name: "Research", path: "/research" },
     { name: "About Us", path: "/about" },
@@ -128,7 +128,7 @@ const Header = () => {
               />
             </picture>
             <div
-              className={`${isMenuOpen ? "flex" : "hidden md:flex"} flex-col items-start justify-center leading-tight text-lg md:text-xl font-semibold text-foreground`}
+              className="flex flex-col items-start justify-center leading-tight text-lg md:text-xl font-semibold text-foreground"
               style={{ lineHeight: 1.05 }}
             >
               <span>Quantum</span>
@@ -263,7 +263,7 @@ const Header = () => {
                       style={{ maxWidth: "168px" }}
                     />
                   </picture>
-                  <div className="flex flex-col items-start justify-center leading-tight text-lg md:text-xl font-semibold text-foreground" style={{ lineHeight: 1.05 }}>
+                  <div className="hidden" style={{ lineHeight: 1.05 }}>
                     <span>Quantum</span>
                     <span>Intelligence</span>
                   </div>
