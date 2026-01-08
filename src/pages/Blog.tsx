@@ -78,9 +78,10 @@ const Blog = () => {
                       e.stopPropagation();
                       handlePostClick(post.slug);
                     }}
-                    className="text-foreground hover:text-primary p-0"
+                    className="group inline-flex items-center gap-2 px-4 py-2 rounded-full border border-transparent text-primary hover:text-primary hover:border-primary/50 hover:bg-transparent active:bg-transparent transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/60 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                   >
-                    Read More <ArrowRight className="ml-2 h-4 w-4" />
+                    Read More
+                    <ArrowRight className="ml-1 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
                   </Button>
                 </CardContent>
               </Card>

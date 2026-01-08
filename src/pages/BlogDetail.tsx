@@ -131,7 +131,7 @@ const BlogDetail = () => {
         <div className="container mx-auto px-6">
           <div className="max-w-3xl mx-auto">
             <article className="prose prose-lg prose-slate dark:prose-invert max-w-none">
-              <div className="text-foreground leading-relaxed space-y-6">
+              <div className="text-foreground/90 leading-relaxed space-y-6">
                 {post.content.split('\n\n').map((paragraph, index) => {
                   // Handle horizontal rules
                   if (paragraph.trim() === '---') {
@@ -168,7 +168,7 @@ const BlogDetail = () => {
                           // Process bold text in list items
                           const parts = text.split(/(\*\*.*?\*\*)/g);
                           return (
-                            <li key={itemIndex} className="flex items-start gap-2 text-base md:text-lg leading-7 text-muted-foreground">
+                            <li key={itemIndex} className="flex items-start gap-2 text-base md:text-lg leading-7 text-foreground/90">
                               <span className="text-primary mt-2">•</span>
                               <span>
                                 {parts.map((part, partIndex) => {
@@ -190,7 +190,7 @@ const BlogDetail = () => {
                   return (
                     <p
                       key={index}
-                      className="text-base md:text-lg leading-8 text-muted-foreground font-normal"
+                      className="text-base md:text-lg leading-8 text-foreground/90 font-normal"
                     >
                       {parts.map((part, partIndex) => {
                         if (part.startsWith('**') && part.endsWith('**')) {
