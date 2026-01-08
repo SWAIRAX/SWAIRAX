@@ -180,11 +180,11 @@ const Research = () => {
             <h2 className="text-2xl md:text-3xl font-semibold mb-3 bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent">
               Impossible? Let's see.
             </h2>
-            <p className="text-base md:text-lg text-muted-foreground max-w-3xl mx-auto">
+            {/* <p className="text-base md:text-lg text-muted-foreground max-w-3xl mx-auto">
               Whether we're shaping the future of sustainability, or optimizing algorithms,
               or even exploring epidemiological studies, Our Research strives to continuously progress science,
               advance society.
-            </p>
+            </p> */}
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4">

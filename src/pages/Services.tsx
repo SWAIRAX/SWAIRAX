@@ -1,4 +1,4 @@
-import { useRef } from "react";
+// React imports removed (no hooks needed here)
 import { useNavigate } from "react-router-dom";
 import { useNavigationWithScroll } from "@/utils/navigation";
 import Header from "@/components/Header";
@@ -23,7 +23,6 @@ import {
 const Services = () => {
   const navigate = useNavigate();
   const { navigateToTop } = useNavigationWithScroll();
-  const showreelRef = useRef<HTMLDivElement | null>(null);
 
   const heroHighlights = [
     {
