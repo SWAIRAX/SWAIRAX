@@ -100,7 +100,7 @@ const Index = () => {
 
         <div className="container mx-auto px-6 text-center relative z-10">
           <div className="max-w-4xl mx-auto animate-fade-in">
-            <h1 className="text-5xl md:text-7xl font-bold mb-6">
+            <h1 className="text-4xl md:text-6xl font-bold mb-6">
              AI-powered Automation <br />
              {/* <span className="text-blue-400">AI-powered Automation</span>  */}
                <span className="text-primary"> For every decision</span>

@@ -126,8 +126,8 @@ const BlogDetail = () => {
       <section className="py-12 bg-background">
         <div className="container mx-auto px-6">
           <div className="max-w-3xl mx-auto">
-            <article className="prose prose-lg prose-slate dark:prose-invert max-w-none">
-              <div className="text-foreground/90 leading-relaxed space-y-6">
+            <article className="space-y-10 text-base md:text-lg leading-relaxed text-foreground max-w-3xl">
+              <div className="text-foreground/90 space-y-8">
                 {post.content.split('\n\n').map((paragraph, index) => {
                   // Handle horizontal rules
                   if (paragraph.trim() === '---') {
@@ -158,22 +158,19 @@ const BlogDetail = () => {
                   if (paragraph.trim().startsWith('•')) {
                     const items = paragraph.split('\n').filter(line => line.trim().startsWith('•'));
                     return (
-                      <ul key={index} className="list-none space-y-2 my-4">
+                      <ul key={index} className="list-disc pl-6 space-y-2 my-4 text-foreground/90 marker:text-primary">
                         {items.map((item, itemIndex) => {
                           const text = item.replace(/^•\s*/, '').trim();
                           // Process bold text in list items
                           const parts = text.split(/(\*\*.*?\*\*)/g);
                           return (
-                            <li key={itemIndex} className="flex items-start gap-2 text-base md:text-lg leading-7 text-foreground/90">
-                              <span className="text-primary mt-2">•</span>
-                              <span>
-                                {parts.map((part, partIndex) => {
-                                  if (part.startsWith('**') && part.endsWith('**')) {
-                                    return <strong key={partIndex} className="font-semibold text-foreground">{part.slice(2, -2)}</strong>;
-                                  }
-                                  return <span key={partIndex}>{part}</span>;
-                                })}
-                              </span>
+                            <li key={itemIndex} className="text-base md:text-lg leading-relaxed text-foreground/90">
+                              {parts.map((part, partIndex) => {
+                                if (part.startsWith('**') && part.endsWith('**')) {
+                                  return <strong key={partIndex} className="font-semibold text-foreground">{part.slice(2, -2)}</strong>;
+                                }
+                                return <span key={partIndex}>{part}</span>;
+                              })}
                             </li>
                           );
                         })}
@@ -186,7 +183,7 @@ const BlogDetail = () => {
                   return (
                     <p
                       key={index}
-                      className="text-base md:text-lg leading-8 text-foreground/90 font-normal"
+                      className="text-base md:text-lg leading-relaxed text-foreground/90 font-normal"
                     >
                       {parts.map((part, partIndex) => {
                         if (part.startsWith('**') && part.endsWith('**')) {
@@ -231,9 +228,7 @@ const BlogDetail = () => {
                   </div>
                   <div className="flex-1">
                     <h3 className="text-lg font-semibold mb-1">{post.author}</h3>
-                    <p className="text-sm text-muted-foreground mb-3">
-                      Published on {post.date} • {post.readTime}
-                    </p>
+                    {/* Publish date and read time removed per request */}
                     <p className="text-sm text-muted-foreground leading-relaxed">
                       Expert insights and analysis from our team of AI and data science professionals.
                     </p>

@@ -88,9 +88,7 @@ const About = () => {
                 <span className="text-foreground">Quantum </span>
                 <span className="text-primary">Intelligence</span>
               </SectionHeading>
-              <SectionLead className="mb-3 text-left mx-0 max-w-3xl">
-                Make AI work for humanity.
-              </SectionLead>
+              
               <p className="text-base text-muted-foreground mb-8 max-w-3xl">
                 We're an AI research and deployment company building innovative, ethical, and accessible AI solutions that empower businesses and individuals to unlock the full potential of their data.
               </p>
