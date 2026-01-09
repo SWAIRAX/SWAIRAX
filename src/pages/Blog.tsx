@@ -63,10 +63,6 @@ const Blog = () => {
                       {post.author}
                     </div>
                     <div className="flex items-center gap-1">
-                      <Calendar className="h-3 w-3" />
-                      {post.date}
-                    </div>
-                    <div className="flex items-center gap-1">
                       <Clock className="h-3 w-3" />
                       {post.readTime}
                     </div>

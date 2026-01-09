@@ -85,10 +85,6 @@ const BlogDetail = () => {
                 <span className="font-medium">{post.author}</span>
               </div>
               <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                <Calendar className="h-4 w-4" />
-                <span>{post.date}</span>
-              </div>
-              <div className="flex items-center gap-2 text-sm text-muted-foreground">
                 <Clock className="h-4 w-4" />
                 <span>{post.readTime}</span>
               </div>

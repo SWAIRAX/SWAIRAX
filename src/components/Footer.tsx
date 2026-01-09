@@ -1,4 +1,4 @@
-import { Github, Instagram, Linkedin, Twitter, Mail, Phone, MapPin, ArrowRight } from "lucide-react";
+import { Github, Instagram, Linkedin, Twitter, Youtube, Mail, Phone, MapPin, ArrowRight } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import { useNavigationWithScroll } from "@/utils/navigation";
 
@@ -71,45 +71,6 @@ const Footer = () => {
               </div>
             </div>
 
-            {/* Social Links */}
-            <div className="flex items-center space-x-3">
-              <a
-                href="https://github.com/quantum-intelligence-africa"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-2 rounded-full border border-border text-muted-foreground hover:text-primary hover:border-primary transition-colors"
-                aria-label="GitHub"
-              >
-                <Github className="h-5 w-5" />
-              </a>
-              <a
-                href="https://www.linkedin.com/company/quantum-intelligence-africa/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-2 rounded-full border border-border text-muted-foreground hover:text-primary hover:border-primary transition-colors"
-                aria-label="LinkedIn"
-              >
-                <Linkedin className="h-5 w-5" />
-              </a>
-              <a
-                href="https://x.com/1ntelligencelab"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-2 rounded-full border border-border text-muted-foreground hover:text-primary hover:border-primary transition-colors"
-                aria-label="Twitter"
-              >
-                <Twitter className="h-5 w-5" />
-              </a>
-              <a
-                href="https://www.instagram.com/qintelligencelab"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-2 rounded-full border border-border text-muted-foreground hover:text-primary hover:border-primary transition-colors"
-                aria-label="Instagram"
-              >
-                <Instagram className="h-5 w-5" />
-              </a>
-            </div>
           </div>
 
           {/* Products & Services */}
@@ -189,66 +150,71 @@ const Footer = () => {
             </li>
               <li>
                 <button
+                  onClick={() => navigateToTop("/industries")}
+                  className="text-sm text-muted-foreground hover:text-primary transition-colors text-left"
+                >
+                  Industries
+                </button>
+              </li>
+              <li>
+                <button
                   onClick={() => navigateToTop("/privacy")}
                   className="text-sm text-muted-foreground hover:text-primary transition-colors text-left"
                 >
                   Privacy Policy
                 </button>
               </li>
+            
             </ul>
           </div>
 
-          {/* Industries */}
+          {/* Social */}
           <div>
-            <h3 className="text-sm font-semibold text-foreground mb-4">Industries</h3>
-            <ul className="space-y-2">
+            <h3 className="text-sm font-semibold text-foreground mb-4">Social</h3>
+            <ul className="space-y-3">
               <li>
-                <button
-                  onClick={() => navigateToTop("/industries/financial-services")}
-                  className="text-sm text-muted-foreground hover:text-primary transition-colors text-left"
+                <a
+                  href="https://www.instagram.com/qintelligencelab"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-3 text-sm text-muted-foreground hover:text-primary transition-colors"
                 >
-                  Financial Services
-                </button>
+                  <Instagram className="h-5 w-5" />
+                  Instagram
+                </a>
               </li>
               <li>
-                <button
-                  onClick={() => navigateToTop("/industries/telecommunications")}
-                  className="text-sm text-muted-foreground hover:text-primary transition-colors text-left"
+                <a
+                  href="https://x.com/1ntelligencelab"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-3 text-sm text-muted-foreground hover:text-primary transition-colors"
                 >
-                  Telecommunications
-                </button>
+                  <Twitter className="h-5 w-5" />
+                  X
+                </a>
               </li>
               <li>
-                <button
-                  onClick={() => navigateToTop("/industries/education-services")}
-                  className="text-sm text-muted-foreground hover:text-primary transition-colors text-left"
+                <a
+                  href="https://www.linkedin.com/company/quantum-intelligence-africa/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-3 text-sm text-muted-foreground hover:text-primary transition-colors"
                 >
-                  Education Services
-                </button>
+                  <Linkedin className="h-5 w-5" />
+                  LinkedIn
+                </a>
               </li>
               <li>
-                <button
-                  onClick={() => navigateToTop("/industries/utilities")}
-                  className="text-sm text-muted-foreground hover:text-primary transition-colors text-left"
+                <a
+                  href="https://github.com/quantum-intelligence-africa"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-3 text-sm text-muted-foreground hover:text-primary transition-colors"
                 >
-                  Utilities
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => navigateToTop("/industries/retail-logistics")}
-                  className="text-sm text-muted-foreground hover:text-primary transition-colors text-left"
-                >
-                  Retail & Logistics
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => navigateToTop("/industries/healthcare-pharmacy")}
-                  className="text-sm text-muted-foreground hover:text-primary transition-colors text-left"
-                >
-                  Healthcare & Pharmacy
-                </button>
+                  <Github className="h-5 w-5" />
+                  GitHub
+                </a>
               </li>
             </ul>
           </div>

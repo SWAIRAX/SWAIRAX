@@ -237,7 +237,7 @@ const Services = () => {
                     ))}
                   </div>
 
-                  <div className="flex items-center justify-between pt-1">
+                  <div className="flex items-center pt-1">
                     <Button
                       variant="ghost"
                       className="p-0 text-white hover:text-red-400 hover:bg-transparent bg-transparent focus-visible:ring-0"
@@ -245,12 +245,6 @@ const Services = () => {
                     >
                       Dive deeper <ArrowRight className="ml-1 h-4 w-4" />
                     </Button>
-                    <div className="relative">
-                      <span className="absolute inset-0 rounded-full border border-red-500/30 animate-orbit" />
-                      <div className="relative flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-white/5">
-                        <Sparkles className="h-4 w-4 text-red-200" />
-                      </div>
-                    </div>
                   </div>
                 </CardContent>
               </Card>
@@ -335,7 +329,11 @@ const Services = () => {
               >
                 <source src={showreel} type="video/mp4" />
               </video>
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent" />
+              <div
+                className="absolute inset-0 bg-center bg-cover"
+                style={{ backgroundImage: "url('/uploads/CTA%20GIF.gif')" }}
+                aria-hidden="true"
+              />
 
             </div>
           </div>

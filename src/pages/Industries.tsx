@@ -177,16 +177,11 @@ const Industries = () => {
                     </p>
 
                     <div className="flex flex-wrap gap-1 mb-4">
-                      {industry.features.slice(0, 2).map((feature) => (
+                      {industry.features.map((feature) => (
                         <Badge key={feature} variant="secondary" className="text-xs bg-white/10 text-white border-white/10">
                           {feature}
                         </Badge>
                       ))}
-                      {industry.features.length > 2 && (
-                        <Badge variant="outline" className="text-xs border-white/20 text-white/80">
-                          +{industry.features.length - 2} more
-                        </Badge>
-                      )}
                     </div>
 
                     <Button
@@ -246,7 +241,11 @@ const Industries = () => {
               >
                 <source src={showreel} type="video/mp4" />
               </video>
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent" />
+              <div
+                className="absolute inset-0 bg-center bg-cover"
+                style={{ backgroundImage: "url('/uploads/CTA%20GIF.gif')" }}
+                aria-hidden="true"
+              />
 
             </div>
           </div>

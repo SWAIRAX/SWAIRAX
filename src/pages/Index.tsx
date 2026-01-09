@@ -45,6 +45,12 @@ const Index = () => {
     }
   ];
 
+  const productIcons = [
+    <Database className="h-6 w-6" />,
+    <Cog className="h-6 w-6" />,
+    <Cloud className="h-6 w-6" />
+  ];
+
   // Get featured articles from blog posts (first 3)
   const featuredArticles = blogPosts.slice(0, 3);
 
@@ -461,8 +467,8 @@ const Index = () => {
                   </div>
 
                   <div className="flex items-center justify-between mb-6 relative z-10">
-                    <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center group-hover:bg-primary/30 transition-colors duration-300">
-                      <div className="w-6 h-6 bg-primary rounded group-hover:animate-pulse"></div>
+                    <div className="rounded-xl bg-white/10 p-3 text-red-200 shadow-inner shadow-red-500/20">
+                      {productIcons[index % productIcons.length]}
                     </div>
                     <span className="text-xs px-3 py-1 rounded-full bg-muted text-muted-foreground group-hover:bg-primary/20 transition-colors duration-300">
                       {product.category}

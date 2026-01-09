@@ -72,14 +72,7 @@ const Research = () => {
     }
   ];
 
-  const [selectedTags, setSelectedTags] = React.useState<string[]>([]);
-  const allTags = Array.from(new Set(archivedSolutions.flatMap(solution => solution.tags)));
-
-  const filteredSolutions = selectedTags.length === 0
-    ? archivedSolutions
-    : archivedSolutions.filter(solution =>
-        selectedTags.some(tag => solution.tags.includes(tag))
-      );
+  const filteredSolutions = archivedSolutions;
 
   const showreel = "https://cdn.coverr.co/videos/coverr-abstract-technology-10926/1080p.mp4";
 
@@ -128,39 +121,6 @@ const Research = () => {
         </div>
       </section>
 
-      {/* Filter Section */}
-      <section className="py-4 border-b border-white/10 bg-black/70 backdrop-blur supports-[backdrop-filter]:bg-black/60 shadow-sm">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-10">
-          <div className="flex flex-wrap gap-2 justify-center items-center">
-            <Button
-              size="sm"
-              variant={selectedTags.length === 0 ? "default" : "outline"}
-              onClick={() => setSelectedTags([])}
-              className="text-xs px-4 py-2"
-            >
-              All Products
-            </Button>
-            {allTags.map((tag) => (
-              <Button
-                key={tag}
-                size="sm"
-                variant={selectedTags.includes(tag) ? "default" : "outline"}
-                onClick={() => {
-                  if (selectedTags.includes(tag)) {
-                    setSelectedTags(selectedTags.filter(t => t !== tag));
-                  } else {
-                    setSelectedTags([...selectedTags, tag]);
-                  }
-                }}
-                className="text-xs px-4 py-2"
-              >
-                {tag}
-              </Button>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Archived Solutions Grid */}
       <section className="relative py-12 overflow-hidden -mt-4">
         <div className="absolute inset-0 bg-gradient-to-b from-background via-background/90 to-background" />
@@ -188,7 +148,7 @@ const Research = () => {
               >
                 <div className="absolute inset-0 bg-gradient-to-br from-red-500/10 via-transparent to-red-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 <CardHeader className="pb-3 relative z-10">
-                  <div className="flex items-center justify-between mb-2">
+                    <div className="flex items-center justify-between mb-2">
                     <div className="flex items-center space-x-2">
                       <div className="w-10 h-10 bg-gradient-to-br from-red-500/30 to-white/10 rounded-xl flex items-center justify-center text-red-200 group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300 shadow-lg">
                         {solution.icon}
@@ -204,9 +164,6 @@ const Research = () => {
                         </div>
                       </div>
                     </div>
-                    <Badge variant="destructive" className="bg-red-500/20 text-red-200 border-red-200 text-xs">
-                      {solution.status}
-                    </Badge>
                   </div>
                 </CardHeader>
 
@@ -341,7 +298,11 @@ From security solutions to advanced AI platforms - our evolution continues
               >
                 <source src={showreel} type="video/mp4" />
               </video>
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent" />
+              <div
+                className="absolute inset-0 bg-center bg-cover"
+                style={{ backgroundImage: "url('/uploads/CTA%20GIF.gif')" }}
+                aria-hidden="true"
+              />
 
             </div>
           </div>
