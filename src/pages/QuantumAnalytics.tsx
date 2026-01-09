@@ -148,7 +148,7 @@ const QuantumAnalytics = () => {
                   <Brain className="h-6 w-6" />
                 </div>
                 <h1 className="text-4xl md:text-5xl font-black leading-tight bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent">
-                  Quantum <span className="text-primary">Analytics</span>
+                  Deep <span className="text-primary">Operator</span>
                 </h1>
               </div>
               <p className="text-base md:text-lg text-muted-foreground mb-4 max-w-3xl mx-auto">
@@ -338,7 +338,7 @@ const QuantumAnalytics = () => {
             <div>
               <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}`}>
                 <h2 className="text-xl font-bold mb-4">
-                  Why Choose Quantum Analytics?
+                  Why Choose Deep Operator?
                 </h2>
                 <p className="text-sm text-muted-foreground mb-6">
                   Our data-centric approach helps organizations unlock the full potential of their data, driving smarter decisions and measurable business impact.
@@ -402,7 +402,7 @@ const QuantumAnalytics = () => {
               Ready to Transform Your Data into Insights?
             </h2>
             <p className="text-sm text-muted-foreground mb-4 max-w-3xl mx-auto">
-              Let's discuss how our Quantum Analytics platform can help you understand your data, measure impact, and make smarter business decisions.
+              Let's discuss how our Deep Operator platform can help you understand your data, measure impact, and make smarter business decisions.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <Button

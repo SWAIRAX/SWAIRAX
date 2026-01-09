@@ -1,28 +1,19 @@
-import { useMemo, useState, type CSSProperties } from "react";
+import { useMemo, type CSSProperties } from "react";
 import { useNavigate } from "react-router-dom";
 import { useNavigationWithScroll } from "@/utils/navigation";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import Cube3D from "@/components/3DCube";
 import AnimatedCounter from "@/components/AnimatedCounter";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
-import { ArrowRight, CheckCircle, Database, Cog, Cloud, BarChart3, PieChart, TrendingUp, ChevronDown, ChevronUp, User, Clock } from "lucide-react";
+import { ArrowRight, CheckCircle, Database, Cog, Cloud, BarChart3, PieChart, TrendingUp, User, Clock } from "lucide-react";
 import { blogPosts, BlogPost } from "@/data/blogPosts";
 
 const Index = () => {
   const navigate = useNavigate();
   const { navigateToTop, scrollToSection } = useNavigationWithScroll();
-  const [expandedSections, setExpandedSections] = useState<{[key: string]: boolean}>({});
-
-  const toggleSection = (sectionId: string) => {
-    setExpandedSections(prev => ({
-      ...prev,
-      [sectionId]: !prev[sectionId]
-    }));
-  };
 
   const stats = [
     { value: "40x", label: "More productivity for data scientists" },
@@ -35,7 +26,7 @@ const Index = () => {
 
   const products = [
     {
-      title: "Quantum Analytics",
+      title: "Deep Operator",
       category: "Saas",
       description: "Data-centric platform leveraging Machine Learning & RLHF to help organizations understand impact, learn from their data, measure progress, and make smarter decisions.",
       cta: "Get Started"
@@ -194,62 +185,6 @@ const Index = () => {
                   reduce development timeline, cheap and faster.
                 </p>
 
-                <Collapsible open={expandedSections['ai-studio']} onOpenChange={() => toggleSection('ai-studio')}>
-                  <CollapsibleTrigger asChild>
-                    <Button
-                      variant="ghost"
-                      className="text-foreground hover:text-red-400 bg-transparent hover:bg-transparent p-0 mb-4 focus-visible:ring-0"
-                      aria-expanded={expandedSections['ai-studio']}
-                    >
-                      Show More Details
-                      {expandedSections['ai-studio'] ? (
-                        <ChevronUp className="ml-2 h-4 w-4" />
-                      ) : (
-                        <ChevronDown className="ml-2 h-4 w-4" />
-                      )}
-                    </Button>
-                  </CollapsibleTrigger>
-                  <CollapsibleContent className="animate-accordion-down overflow-hidden">
-                    <div className="bg-background/50 p-6 rounded-lg border border-border/50 mb-4">
-                      <h4 className="text-lg font-semibold mb-4 text-primary">Our AI Capabilities Include:</h4>
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-                        <div className="flex items-start space-x-3">
-                          <CheckCircle className="w-5 h-5 text-primary mt-0.5" />
-                          <div>
-                            <h5 className="font-medium">Computer Vision</h5>
-                            <p className="text-sm text-muted-foreground">Object detection, image classification, facial recognition</p>
-                          </div>
-                        </div>
-                        <div className="flex items-start space-x-3">
-                          <CheckCircle className="w-5 h-5 text-primary mt-0.5" />
-                          <div>
-                            <h5 className="font-medium">Natural Language Processing</h5>
-                            <p className="text-sm text-muted-foreground">Text analysis, sentiment analysis, chatbots</p>
-                          </div>
-                        </div>
-                        <div className="flex items-start space-x-3">
-                          <CheckCircle className="w-5 h-5 text-primary mt-0.5" />
-                          <div>
-                            <h5 className="font-medium">Generative AI</h5>
-                            <p className="text-sm text-muted-foreground">Content creation, code generation, image synthesis</p>
-                          </div>
-                        </div>
-                        <div className="flex items-start space-x-3">
-                          <CheckCircle className="w-5 h-5 text-primary mt-0.5" />
-                          <div>
-                            <h5 className="font-medium">Predictive Analytics</h5>
-                            <p className="text-sm text-muted-foreground">Forecasting, risk assessment, trend analysis</p>
-                          </div>
-                        </div>
-                      </div>
-                      <p className="text-sm text-muted-foreground">
-                        Our team delivers end-to-end AI solutions with 40% faster deployment compared to traditional approaches,
-                        ensuring your AI projects reach production quickly and efficiently.
-                      </p>
-                    </div>
-                  </CollapsibleContent>
-                </Collapsible>
-
                 {/* <Button asChild variant="ghost" className="text-foreground hover:text-primary p-0">
                   <Link to="/ai-studio">Know More <ArrowRight className="ml-2 h-4 w-4" /></Link>
                 </Button> */}
@@ -278,62 +213,6 @@ const Index = () => {
                 IT Ops teams. We help you convert your data to business value by deploying your models
                 into production.
               </p>
-              <Collapsible open={expandedSections['mlops']} onOpenChange={() => toggleSection('mlops')}>
-                <CollapsibleTrigger asChild>
-                  <Button
-                    variant="ghost"
-                    className="text-foreground hover:text-red-400 bg-transparent hover:bg-transparent p-0 mb-4 focus-visible:ring-0"
-                    aria-expanded={expandedSections['mlops']}
-                  >
-                    Show MLOps Process
-                    {expandedSections['mlops'] ? (
-                      <ChevronUp className="ml-2 h-4 w-4" />
-                    ) : (
-                      <ChevronDown className="ml-2 h-4 w-4" />
-                    )}
-                  </Button>
-                </CollapsibleTrigger>
-                <CollapsibleContent className="animate-accordion-down overflow-hidden">
-                  <div className="bg-background/50 p-6 rounded-lg border border-border/50 mb-4">
-                    <h4 className="text-lg font-semibold mb-4 text-primary">MLOps Pipeline Steps:</h4>
-                    <div className="space-y-4">
-                      <div className="flex items-center space-x-4 p-3 bg-card/50 rounded-lg">
-                        <div className="w-8 h-8 bg-primary/20 rounded-full flex items-center justify-center text-primary font-bold text-sm">
-                          1
-                        </div>
-                        <div>
-                          <h5 className="font-medium">Data Pipeline Setup</h5>
-                          <p className="text-sm text-muted-foreground">Automated data ingestion and preprocessing</p>
-                        </div>
-                      </div>
-                      <div className="flex items-center space-x-4 p-3 bg-card/50 rounded-lg">
-                        <div className="w-8 h-8 bg-primary/20 rounded-full flex items-center justify-center text-primary font-bold text-sm">
-                          2
-                        </div>
-                        <div>
-                          <h5 className="font-medium">Model Training & Validation</h5>
-                          <p className="text-sm text-muted-foreground">Continuous integration for ML models</p>
-                        </div>
-                      </div>
-                      <div className="flex items-center space-x-4 p-3 bg-card/50 rounded-lg">
-                        <div className="w-8 h-8 bg-primary/20 rounded-full flex items-center justify-center text-primary font-bold text-sm">
-                          3
-                        </div>
-                        <div>
-                          <h5 className="font-medium">Deployment & Monitoring</h5>
-                          <p className="text-sm text-muted-foreground">Real-time performance tracking and alerts</p>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="mt-4 p-3 bg-primary/10 rounded-lg">
-                      <p className="text-sm text-primary font-medium">
-                        ✓ 20% faster deployment • ✓ 50% reduced errors • ✓ Automated scaling
-                      </p>
-                    </div>
-                  </div>
-                </CollapsibleContent>
-              </Collapsible>
-
               {/* <Button asChild variant="ghost" className="text-foreground hover:text-primary p-0">
                 <Link to="/mlops">Learn more <ArrowRight className="ml-2 h-4 w-4" /></Link>
               </Button> */}
@@ -530,63 +409,6 @@ const Index = () => {
                 In the digital age of data we can Quickly understand human better, our needs,
                 and business science overall.
               </p>
-              <Collapsible open={expandedSections['business-analysis']} onOpenChange={() => toggleSection('business-analysis')}>
-                <CollapsibleTrigger asChild>
-                  <Button
-                    variant="ghost"
-                    className="text-foreground hover:text-red-400 bg-transparent hover:bg-transparent p-0 mb-4 focus-visible:ring-0"
-                    aria-expanded={expandedSections['business-analysis']}
-                  >
-                    View Analytics Features
-                    {expandedSections['business-analysis'] ? (
-                      <ChevronUp className="ml-2 h-4 w-4" />
-                    ) : (
-                      <ChevronDown className="ml-2 h-4 w-4" />
-                    )}
-                  </Button>
-                </CollapsibleTrigger>
-                <CollapsibleContent className="animate-accordion-down overflow-hidden">
-                  <div className="bg-background/50 p-6 rounded-lg border border-border/50 mb-4">
-                    <h4 className="text-lg font-semibold mb-4 text-primary">Business Intelligence Features:</h4>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      <div className="flex items-start space-x-3">
-                        <CheckCircle className="w-5 h-5 text-primary mt-0.5" />
-                        <div>
-                          <h5 className="font-medium">Real-time Dashboards</h5>
-                          <p className="text-sm text-muted-foreground">Live data visualization and KPI tracking</p>
-                        </div>
-                      </div>
-                      <div className="flex items-start space-x-3">
-                        <CheckCircle className="w-5 h-5 text-primary mt-0.5" />
-                        <div>
-                          <h5 className="font-medium">Predictive Analytics</h5>
-                          <p className="text-sm text-muted-foreground">AI-powered forecasting and trend analysis</p>
-                        </div>
-                      </div>
-                      <div className="flex items-start space-x-3">
-                        <CheckCircle className="w-5 h-5 text-primary mt-0.5" />
-                        <div>
-                          <h5 className="font-medium">Data Mining</h5>
-                          <p className="text-sm text-muted-foreground">Pattern discovery and anomaly detection</p>
-                        </div>
-                      </div>
-                      <div className="flex items-start space-x-3">
-                        <CheckCircle className="w-5 h-5 text-primary mt-0.5" />
-                        <div>
-                          <h5 className="font-medium">Custom Reports</h5>
-                          <p className="text-sm text-muted-foreground">Automated report generation and distribution</p>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="mt-4 p-3 bg-primary/10 rounded-lg">
-                      <p className="text-sm text-primary font-medium">
-                        Free SaaS trial available • Drag & drop interface • AI-powered insights
-                      </p>
-                    </div>
-                  </div>
-                </CollapsibleContent>
-              </Collapsible>
-
               {/* <Button asChild variant="ghost" className="text-foreground hover:text-primary p-0">
                 <Link to="/business-analysis">Explore how <ArrowRight className="ml-2 h-4 w-4" /></Link>
               </Button> */}
@@ -651,111 +473,6 @@ const Index = () => {
                   <p className="text-muted-foreground mb-6 text-sm leading-relaxed relative z-10">
                     {product.description}
                   </p>
-
-                  <Collapsible open={expandedSections[product.title]} onOpenChange={() => toggleSection(product.title)}>
-                    <CollapsibleTrigger asChild>
-                      <Button
-                        variant="ghost"
-                        className="text-foreground hover:text-red-400 bg-transparent hover:bg-transparent p-0 mb-4 relative z-10 focus-visible:ring-0"
-                        aria-expanded={expandedSections[product.title]}
-                      >
-                        Show Details
-                        {expandedSections[product.title] ? (
-                          <ChevronUp className="ml-2 h-4 w-4" />
-                        ) : (
-                          <ChevronDown className="ml-2 h-4 w-4" />
-                        )}
-                      </Button>
-                    </CollapsibleTrigger>
-                    <CollapsibleContent className="animate-accordion-down overflow-hidden relative z-10">
-                      <div className="bg-background/50 p-4 rounded-lg border border-border/50 mb-4">
-                        {product.title === "Quantum Analytics" && (
-                          <div className="space-y-3">
-                            <h4 className="font-semibold text-primary">Key Features:</h4>
-                            <div className="space-y-2">
-                              <div className="flex items-start space-x-3">
-                                <CheckCircle className="w-4 h-4 text-primary mt-0.5" />
-                                <div>
-                                  <h5 className="font-medium text-sm">Machine Learning & RLHF</h5>
-                                  <p className="text-xs text-muted-foreground">Advanced ML algorithms with human feedback integration</p>
-                                </div>
-                              </div>
-                              <div className="flex items-start space-x-3">
-                                <CheckCircle className="w-4 h-4 text-primary mt-0.5" />
-                                <div>
-                                  <h5 className="font-medium text-sm">Impact Measurement</h5>
-                                  <p className="text-xs text-muted-foreground">Track and measure organizational impact and progress</p>
-                                </div>
-                              </div>
-                              <div className="flex items-start space-x-3">
-                                <CheckCircle className="w-4 h-4 text-primary mt-0.5" />
-                                <div>
-                                  <h5 className="font-medium text-sm">Smart Decision Making</h5>
-                                  <p className="text-xs text-muted-foreground">Data-driven insights for better business decisions</p>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        )}
-                        {product.title === "Quantum Annotate" && (
-                          <div className="space-y-3">
-                            <h4 className="font-semibold text-primary">Capabilities:</h4>
-                            <div className="space-y-2">
-                              <div className="flex items-start space-x-3">
-                                <CheckCircle className="w-4 h-4 text-primary mt-0.5" />
-                                <div>
-                                  <h5 className="font-medium text-sm">Multi-modal Annotation</h5>
-                                  <p className="text-xs text-muted-foreground">Text, image, audio, and video dataset labeling</p>
-                                </div>
-                              </div>
-                              <div className="flex items-start space-x-3">
-                                <CheckCircle className="w-4 h-4 text-primary mt-0.5" />
-                                <div>
-                                  <h5 className="font-medium text-sm">Industry-Grade Quality</h5>
-                                  <p className="text-xs text-muted-foreground">Professional workforce ensuring high-quality annotations</p>
-                                </div>
-                              </div>
-                              <div className="flex items-start space-x-3">
-                                <CheckCircle className="w-4 h-4 text-primary mt-0.5" />
-                                <div>
-                                  <h5 className="font-medium text-sm">Scalable Solutions</h5>
-                                  <p className="text-xs text-muted-foreground">Handle large-scale annotation projects efficiently</p>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        )}
-                        {product.title === "Quantum GenAI" && (
-                          <div className="space-y-3">
-                            <h4 className="font-semibold text-primary">Features:</h4>
-                            <div className="space-y-2">
-                              <div className="flex items-start space-x-3">
-                                <CheckCircle className="w-4 h-4 text-primary mt-0.5" />
-                                <div>
-                                  <h5 className="font-medium text-sm">Model Fine-tuning</h5>
-                                  <p className="text-xs text-muted-foreground">Enhance AI model performance through expert fine-tuning</p>
-                                </div>
-                              </div>
-                              <div className="flex items-start space-x-3">
-                                <CheckCircle className="w-4 h-4 text-primary mt-0.5" />
-                                <div>
-                                  <h5 className="font-medium text-sm">Data Expertise</h5>
-                                  <p className="text-xs text-muted-foreground">In-house data specialists for optimal model training</p>
-                                </div>
-                              </div>
-                              <div className="flex items-start space-x-3">
-                                <CheckCircle className="w-4 h-4 text-primary mt-0.5" />
-                                <div>
-                                  <h5 className="font-medium text-sm">Speed & Reliability</h5>
-                                  <p className="text-xs text-muted-foreground">Improved accuracy and speed for generative AI models</p>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        )}
-                      </div>
-                    </CollapsibleContent>
-                  </Collapsible>
 
                   <Button
                     variant="ghost"

@@ -46,11 +46,11 @@ const Services = () => {
     {
       id: "analytics",
       icon: <Brain className="h-8 w-8" />,
-      title: "Quantum Analytics",
+      title: "Deep Operator",
       description:
         "Data-centric platform leveraging Machine Learning & RLHF to help organizations understand impact, learn from their data, measure progress, and make smarter decisions.",
       outcomes: ["Machine Learning & RLHF", "Impact Measurement", "Progress Tracking", "Smart Decision Making"],
-      href: "/quantum-analytics",
+      href: "/deep-operator",
       timeline: "4-6 weeks to first lift",
       badge: "Analytics",
     },
@@ -177,8 +177,8 @@ const Services = () => {
       </section>
 
       {/* Services */}
-      <section className="relative py-12">
-        <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-red-500/5 to-transparent" />
+      <section className="relative py-12 bg-background">
+        <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-background to-transparent" />
         <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-10">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 mb-8">
             <div>
@@ -264,9 +264,6 @@ const Services = () => {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_10%_20%,rgba(255,0,0,0.08),transparent_30%),radial-gradient(circle_at_90%_10%,rgba(255,255,255,0.05),transparent_25%)]" />
         <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-10">
           <ScrollReveal className="text-center mb-10">
-            <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1 text-xs uppercase tracking-[0.08em]">
-              Methodology
-            </div>
             <h2 className="mt-3 text-3xl md:text-4xl font-bold bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent">
               How we keep motion & reliability aligned
             </h2>
@@ -302,10 +299,6 @@ const Services = () => {
       <section className="py-16 bg-gradient-to-r from-red-600/20 via-black to-red-500/15">
         <div className="container mx-auto px-4 sm:px-6 lg:px-10 grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
           <ScrollReveal className="space-y-4">
-            <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1 text-xs uppercase tracking-[0.08em]">
-              <Sparkles className="h-4 w-4 text-red-300" />
-              Live experience
-            </div>
             <h2 className="text-3xl md:text-4xl font-bold leading-tight bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent">
               Motion that sells your core: Analytics, Annotate, GenAI, MLOps.
             </h2>

@@ -119,13 +119,6 @@ const Utilities = () => {
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-10 relative z-10">
           <div className="text-center mb-12">
-            <div className="inline-flex items-center gap-2 mb-4">
-              <div className="h-px w-12 bg-gradient-to-r from-transparent to-yellow-500" />
-              <Badge variant="outline" className="px-4 py-1 text-xs font-semibold border-yellow-500/30 bg-yellow-500/5">
-                Solutions
-              </Badge>
-              <div className="h-px w-12 bg-gradient-to-l from-transparent to-yellow-500" />
-            </div>
             <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-foreground via-yellow-500 to-foreground bg-clip-text text-transparent">
               AI Solutions for Utilities
             </h2>
@@ -183,13 +176,6 @@ const Utilities = () => {
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-10 relative z-10">
           <div className="text-center mb-12">
-            <div className="inline-flex items-center gap-2 mb-4">
-              <div className="h-px w-12 bg-gradient-to-r from-transparent to-yellow-500" />
-              <Badge variant="outline" className="px-4 py-1 text-xs font-semibold border-yellow-500/30 bg-yellow-500/5">
-                Case Studies
-              </Badge>
-              <div className="h-px w-12 bg-gradient-to-l from-transparent to-yellow-500" />
-            </div>
             <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-foreground via-yellow-500 to-foreground bg-clip-text text-transparent">
               Success Stories
             </h2>

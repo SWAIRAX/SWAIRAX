@@ -162,12 +162,6 @@ const About = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-10 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 xl:gap-12 max-w-6xl mx-auto">
             <ScrollReveal>
-              <div className="inline-flex items-center gap-2 mb-4">
-                <div className="h-px w-8 bg-gradient-to-r from-transparent to-primary" />
-                <Badge variant="outline" className="px-3 py-1 text-xs font-semibold border-primary/30 bg-primary/5">
-                  Mission
-                </Badge>
-              </div>
               <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent">Our Mission</h2>
               <p className="text-base text-muted-foreground mb-3">
                   To democratize artificial intelligence by building innovative, ethical, and accessible AI solutions that empower businesses and individuals to unlock the full potential of their data.
@@ -177,12 +171,6 @@ const About = () => {
                 </p>
             </ScrollReveal>
             <ScrollReveal delay={100}>
-              <div className="inline-flex items-center gap-2 mb-4">
-                <div className="h-px w-8 bg-gradient-to-r from-transparent to-primary" />
-                <Badge variant="outline" className="px-3 py-1 text-xs font-semibold border-primary/30 bg-primary/5">
-                  Vision
-                </Badge>
-              </div>
               <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent">Our Vision</h2>
               <p className="text-base text-muted-foreground mb-3">
                   We live in an exciting time when AI research and technology are delivering extraordinary advances.
@@ -204,13 +192,6 @@ We're a team of scientists, engineers, ethicists and more, working to build the 
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-10 relative z-10">
           <ScrollReveal className="text-center mb-12">
-            <div className="inline-flex items-center gap-2 mb-4">
-              <div className="h-px w-12 bg-gradient-to-r from-transparent to-primary" />
-              <Badge variant="outline" className="px-4 py-1 text-xs font-semibold border-primary/30 bg-primary/5">
-                Values
-              </Badge>
-              <div className="h-px w-12 bg-gradient-to-l from-transparent to-primary" />
-            </div>
             <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent">Our Values</h2>
             <p className="text-base md:text-lg text-muted-foreground max-w-3xl mx-auto">
               By solving some of the hardest scientific and engineering challenges of our time, we're working to create breakthrough technologies that could advance science, transform work, serve diverse communities — and improve billions of people's lives.
@@ -334,13 +315,6 @@ We're a team of scientists, engineers, ethicists and more, working to build the 
         <div className="container mx-auto px-4 sm:px-6 lg:px-10 relative z-10">
           <ScrollReveal className="max-w-4xl mx-auto">
             <div className="text-center mb-8">
-              <div className="inline-flex items-center gap-2 mb-4">
-                <div className="h-px w-12 bg-gradient-to-r from-transparent to-primary" />
-                <Badge variant="outline" className="px-4 py-1 text-xs font-semibold border-primary/30 bg-primary/5">
-                  Story
-                </Badge>
-                <div className="h-px w-12 bg-gradient-to-l from-transparent to-primary" />
-              </div>
               <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent">Our Story</h2>
             </div>
             <div className="space-y-3 text-base text-muted-foreground">

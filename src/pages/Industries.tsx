@@ -133,19 +133,12 @@ const Industries = () => {
 
       {/* Industries Grid */}
       <section id="sectors" className="relative py-12 overflow-hidden -mt-6">
-        <div className="absolute inset-0 bg-gradient-to-b from-black via-black/90 to-black" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background via-background/90 to-background" />
         <div className="absolute top-1/4 left-0 w-96 h-96 bg-red-500/10 rounded-full blur-3xl" />
         <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-white/5 rounded-full blur-3xl" />
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-10 relative z-10">
           <div className="text-center mb-8">
-            <div className="inline-flex items-center gap-2 mb-4">
-              <div className="h-px w-12 bg-gradient-to-r from-transparent to-red-500" />
-              <Badge variant="outline" className="px-4 py-1 text-xs font-semibold border-red-400/40 bg-red-500/10 text-white">
-                Industries
-              </Badge>
-              <div className="h-px w-12 bg-gradient-to-l from-transparent to-red-500" />
-            </div>
             <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent">
               Transforming Industries with AI
             </h2>
@@ -217,10 +210,6 @@ const Industries = () => {
       <section ref={showreelRef} className="py-16 bg-gradient-to-r from-red-600/20 via-black to-red-500/15">
         <div className="container mx-auto px-4 sm:px-6 lg:px-10 grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
           <div className="space-y-4">
-            <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1 text-xs uppercase tracking-[0.08em]">
-              <Sparkles className="h-4 w-4 text-red-300" />
-              Live industry reel
-            </div>
             <h2 className="text-3xl md:text-4xl font-bold leading-tight">
               See AI in action across every sector we serve.
             </h2>

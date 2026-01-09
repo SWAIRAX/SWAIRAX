@@ -77,7 +77,7 @@ const AppRoutes = () => {
       <Route path="/mlops" element={<MLOps />} />
       <Route path="/mlops-devops" element={<MLOpsDevOps />} />
       <Route path="/quantum-genai" element={<QuantumGenAI />} />
-      <Route path="/quantum-analytics" element={<QuantumAnalytics />} />
+      <Route path="/deep-operator" element={<QuantumAnalytics />} />
       <Route path="/quantum-annotate" element={<QuantumAnnotate />} />
       <Route path="/business-analysis" element={<BusinessAnalysis />} />
       <Route path="/try-now" element={<TryNow />} />

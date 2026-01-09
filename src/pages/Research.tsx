@@ -107,7 +107,7 @@ const Research = () => {
                 Research that feeds production AI.
             </SectionHeading>
               <SectionLead className="text-muted-foreground max-w-3xl text-base md:text-lg">
-                Explore archived experiments shaping Quantum Analytics, Annotate, GenAI, and MLOps—built with ethics, evals, and observability from day one.
+              Explore archived experiments shaping Deep Operator, Annotate, GenAI, and MLOps—built with ethics, evals, and observability from day one.
             </SectionLead>
               <div className="h-4" />
             </div>
@@ -132,7 +132,6 @@ const Research = () => {
       <section className="py-4 border-b border-white/10 bg-black/70 backdrop-blur supports-[backdrop-filter]:bg-black/60 shadow-sm">
         <div className="container mx-auto px-4 sm:px-6 lg:px-10">
           <div className="flex flex-wrap gap-2 justify-center items-center">
-            <span className="text-[0.6rem] tracking-[0.4em] text-muted-foreground uppercase">Filter</span>
             <Button
               size="sm"
               variant={selectedTags.length === 0 ? "default" : "outline"}
@@ -164,19 +163,12 @@ const Research = () => {
 
       {/* Archived Solutions Grid */}
       <section className="relative py-12 overflow-hidden -mt-4">
-        <div className="absolute inset-0 bg-gradient-to-b from-black via-black/90 to-black" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background via-background/90 to-background" />
         <div className="absolute top-1/4 left-0 w-96 h-96 bg-red-500/10 rounded-full blur-3xl" />
         <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-white/5 rounded-full blur-3xl" />
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-10 relative z-10">
           <div className="text-center mb-8">
-            <div className="inline-flex items-center gap-2 mb-4">
-              <div className="h-px w-12 bg-gradient-to-r from-transparent to-red-500" />
-              <Badge variant="outline" className="px-4 py-1 text-xs font-semibold border-red-400/40 bg-red-500/10 text-white">
-                Research
-              </Badge>
-              <div className="h-px w-12 bg-gradient-to-l from-transparent to-red-500" />
-            </div>
             <h2 className="text-2xl md:text-3xl font-semibold mb-3 bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent">
               Impossible? Let's see.
             </h2>
@@ -313,10 +305,6 @@ From security solutions to advanced AI platforms - our evolution continues
       <section ref={showreelRef} className="py-16 bg-gradient-to-r from-red-600/20 via-black to-red-500/15">
         <div className="container mx-auto px-4 sm:px-6 lg:px-10 grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
           <ScrollReveal className="space-y-4">
-            <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1 text-xs uppercase tracking-[0.08em]">
-              <Sparkles className="h-4 w-4 text-red-300" />
-              Live experience
-            </div>
             <h2 className="text-3xl md:text-4xl font-bold leading-tight bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent">
               Research in motion: security, education, guardrails.
             </h2>

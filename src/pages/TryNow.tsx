@@ -9,7 +9,7 @@ const TryNow = () => {
   const navigate = useNavigate();
   const platforms = [
     {
-      name: "Quantum Analytics",
+      name: "Deep Operator",
       type: "Data Platform",
       description: "Data-centric platform leveraging Machine Learning & RLHF to help organizations understand impact, learn from their data, measure progress, and make smarter decisions.",
       features: ["Machine Learning & RLHF", "Impact Measurement", "Progress Tracking", "Smart Decision Making"],
