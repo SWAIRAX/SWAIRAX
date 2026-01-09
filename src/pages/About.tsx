@@ -83,15 +83,15 @@ const About = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 xl:gap-12 items-center max-w-6xl mx-auto">
             {/* Left Side - Text Content */}
-            <ScrollReveal className="flex flex-col justify-center relative z-10">
-              <SectionHeading>
+            <ScrollReveal className="flex flex-col justify-center relative z-10 text-left">
+              <SectionHeading className="text-left">
                 <span className="text-foreground">Quantum </span>
                 <span className="text-primary">Intelligence</span>
               </SectionHeading>
-              <SectionLead className="mb-3">
+              <SectionLead className="mb-3 text-left mx-0 max-w-3xl">
                 Make AI work for humanity.
               </SectionLead>
-              <p className="text-base text-muted-foreground mb-8">
+              <p className="text-base text-muted-foreground mb-8 max-w-3xl">
                 We're an AI research and deployment company building innovative, ethical, and accessible AI solutions that empower businesses and individuals to unlock the full potential of their data.
               </p>
               <div className="flex flex-col sm:flex-row gap-3">

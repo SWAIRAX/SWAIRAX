@@ -47,31 +47,41 @@ const Telecommunications = () => {
     }
   ];
 
-  const caseStudies = [
+  const outcomes = [
     {
-      title: "Telecom Network Optimization",
-      result: "40% reduction in network downtime",
-      description: "Implemented AI-powered predictive maintenance for a major telecom provider"
+      title: "Network Uptime",
+      result: "Less downtime",
+      description: "Predictive maintenance will prevent outages before they spread."
     },
     {
-      title: "Customer Support Automation",
-      result: "60% faster response times",
-      description: "Deployed intelligent chatbot system handling 80% of customer inquiries"
+      title: "Smart Routing",
+      result: "Stable QoS",
+      description: "Traffic will auto-balance to keep latency and jitter in check."
+    },
+    {
+      title: "Support Automation",
+      result: "Faster answers",
+      description: "Bots will resolve routine tickets and hand off cleanly when needed."
+    },
+    {
+      title: "5G & Edge",
+      result: "Ready for scale",
+      description: "Edge and slicing will adapt capacity to real-time demand."
     }
   ];
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-black text-white">
       <Header />
 
       {/* Hero Section */}
       <section className="relative pt-24 md:pt-28 pb-10 md:pb-10 overflow-hidden">
-        <div className="absolute inset-x-0 top-0 h-[280px] md:h-[300px] bg-gradient-to-b from-purple-500/10 via-purple-500/30 to-transparent pointer-events-none" />
-        <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 via-violet-500/5 to-primary/10" />
+        <div className="absolute inset-x-0 top-0 h-[280px] md:h-[300px] bg-gradient-to-b from-red-600/15 via-red-500/20 to-transparent pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-br from-red-700/10 via-red-600/10 to-transparent" />
 
-        <div className="container mx-auto px-4 sm:px-6 lg:px-10 relative z-10">
-          <div className="max-w-4xl mx-auto text-center">
-            <div className="w-12 h-12 mx-auto mb-3 rounded-xl bg-gradient-to-r from-purple-500 to-violet-600 flex items-center justify-center">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-10 relative z-10">
+          <div className="max-w-4xl mx-auto text-left">
+            <div className="w-12 h-12 mb-3 rounded-xl bg-gradient-to-r from-red-600 to-red-400 flex items-center justify-center shadow-lg shadow-red-600/40">
               <Radio className="h-6 w-6 text-white" />
             </div>
 
@@ -79,12 +89,12 @@ const Telecommunications = () => {
               Telecommunications
             </Badge>
 
-            <SectionHeading>
+            <SectionHeading className="text-white text-left">
               Everything that involves
-              <span className="bg-gradient-to-r from-purple-500 to-violet-600 bg-clip-text text-transparent"> Communication</span>
+              <span className="bg-gradient-to-r from-red-600 to-red-400 bg-clip-text text-transparent"> Communication</span>
             </SectionHeading>
 
-            <SectionLead className="max-w-3xl">
+            <SectionLead className="max-w-3xl text-muted-foreground text-left mx-0">
               Revolutionize your telecommunications infrastructure with AI-powered network optimization,
               intelligent customer support, and real-time data routing for seamless connectivity.
             </SectionLead>
@@ -93,7 +103,7 @@ const Telecommunications = () => {
               <Button
                 size="sm"
                 onClick={() => navigateToTop('/contact')}
-                className="bg-gradient-to-r from-purple-500 to-violet-600 hover:from-purple-600 hover:to-violet-700"
+                className="bg-gradient-to-r from-red-600 to-red-400 hover:from-red-500 hover:to-red-300 text-white"
               >
                 Get Started
                 <ArrowRight className="ml-1 h-3 w-3" />
@@ -102,6 +112,7 @@ const Telecommunications = () => {
                 size="sm"
                 variant="outline"
                 onClick={() => scrollToSection('solutions')}
+                className="border-white/20 text-white hover:bg-white/10"
               >
                 View Solutions
               </Button>
@@ -114,61 +125,26 @@ const Telecommunications = () => {
       <section id="solutions" className="relative py-12 overflow-hidden">
         {/* Decorative Background Elements */}
         <div className="absolute inset-0 bg-gradient-to-b from-background via-background/95 to-background" />
-        <div className="absolute top-1/4 left-0 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-violet-600/5 rounded-full blur-3xl" />
+        <div className="absolute top-1/4 left-0 w-96 h-96 bg-red-600/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-red-500/10 rounded-full blur-3xl" />
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-10 relative z-10">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-foreground via-purple-500 to-foreground bg-clip-text text-transparent">
-              AI Solutions for Telecommunications
+          <div className="text-left mb-10 max-w-4xl mx-auto space-y-4">
+            <h2 className="text-3xl md:text-4xl font-bold mb-2 bg-gradient-to-r from-white via-red-500 to-white bg-clip-text text-transparent">
+              AI for Telecommunications, tuned for reliability
             </h2>
-            <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
-              Advanced AI technologies designed to enhance communication networks and customer experiences
+            <p className="text-base md:text-lg text-muted-foreground">
+              We build network-aware AI for telcos—predictive uptime, self-tuning traffic, and customer care that answers before queues form.
             </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-4">
-            {solutions.map((solution, index) => {
-              const Icon = solution.icon;
-              return (
-                <Card
-                  key={solution.title}
-                  className="group relative overflow-hidden border border-border/50 hover:border-primary/50 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/20 hover:-translate-y-2 bg-gradient-to-br from-card to-card/50 animate-fade-in"
-                  style={{ animationDelay: `${index * 100}ms` }}
-                >
-                  <div className="absolute inset-0 bg-gradient-to-br from-background/10 via-background/10 to-background/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                  <div className="absolute -inset-0.5 bg-gradient-to-r from-background/20 via-background/20 to-background/20 rounded-lg opacity-0 group-hover:opacity-100 blur-sm transition-opacity duration-500 -z-10" />
-                  <CardContent className="p-6 relative z-10">
-                    <div className="w-12 h-12 rounded-xl bg-gradient-to-r from-purple-500 to-violet-600 flex items-center justify-center mb-4 group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300 shadow-lg">
-                      <Icon className="h-6 w-6 text-white" />
-                    </div>
-
-                    <h3 className="text-lg font-bold mb-2 group-hover:text-primary transition-colors">
-                      {solution.title}
-                    </h3>
-
-                    <p className="text-muted-foreground mb-4 text-sm group-hover:text-foreground transition-colors">
-                      {solution.description}
-                    </p>
-
-                    <div className="space-y-2">
-                      {solution.features.map((feature) => (
-                        <div key={feature} className="flex items-center gap-2">
-                          <CheckCircle className="h-4 w-4 text-green-500 group-hover:scale-110 transition-transform" />
-                          <span className="text-sm text-muted-foreground group-hover:text-foreground transition-colors">{feature}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </CardContent>
-                </Card>
-              );
-            })}
+            <p className="text-sm md:text-base text-muted-foreground">
+              We will focus on uptime, traffic routing, and support automation where they matter most. Some capabilities may be phased or co-developed—let's prioritize what keeps QoS stable and customers happy.
+            </p>
           </div>
         </div>
       </section>
 
-      {/* Case Studies */}
-      <section className="relative py-20 bg-gradient-to-br from-muted/30 via-muted/20 to-background overflow-hidden">
+      {/* Future Outcomes */}
+      <section className="relative py-20 bg-gradient-to-br from-neutral-900 via-neutral-900/80 to-black overflow-hidden">
         {/* Decorative Pattern */}
         <div className="absolute inset-0 opacity-5">
           <div className="absolute inset-0" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, hsl(var(--primary)) 1px, transparent 0)', backgroundSize: '40px 40px' }} />
@@ -176,36 +152,26 @@ const Telecommunications = () => {
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-10 relative z-10">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-foreground via-purple-500 to-foreground bg-clip-text text-transparent">
-              Success Stories
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-white via-red-500 to-white bg-clip-text text-transparent">
+              What AI will do for Telecommunications
             </h2>
             <p className="text-base md:text-lg text-muted-foreground">
-              Real results from our telecommunications clients
+              Future-state outcomes you can expect as we deploy AI across your network
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-            {caseStudies.map((study, index) => (
-              <Card
-                key={study.title}
-                className="group relative overflow-hidden border border-border/50 hover:border-primary/50 bg-gradient-to-br from-card to-card/50 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/20 hover:-translate-y-2 animate-fade-in"
-                style={{ animationDelay: `${index * 150}ms` }}
-              >
-                <div className="absolute inset-0 bg-gradient-to-br from-background/10 via-background/10 to-background/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                <div className="absolute -inset-0.5 bg-gradient-to-r from-background/20 via-background/20 to-background/20 rounded-lg opacity-0 group-hover:opacity-100 blur-sm transition-opacity duration-500 -z-10" />
-                <CardContent className="p-6 text-center relative z-10">
-                  <h3 className="text-lg font-bold mb-3 group-hover:text-primary transition-colors">{study.title}</h3>
-                  <div className="text-2xl font-bold bg-gradient-to-r from-purple-600 to-violet-600 bg-clip-text text-transparent mb-3 group-hover:scale-110 transition-transform duration-300">{study.result}</div>
-                  <p className="text-muted-foreground text-sm group-hover:text-foreground transition-colors">{study.description}</p>
-                </CardContent>
-              </Card>
+          <div className="max-w-3xl mx-auto space-y-4 text-left text-muted-foreground">
+            {outcomes.map((item, index) => (
+              <p key={item.title} className="text-sm md:text-base leading-relaxed animate-fade-in" style={{ animationDelay: `${index * 120}ms` }}>
+                <span className="text-white font-semibold">{item.title}:</span> {item.result}. {item.description}
+              </p>
             ))}
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-purple-500/10 via-violet-500/10 to-primary/10">
+      <section className="py-20 bg-gradient-to-r from-red-700/15 via-red-600/10 to-red-500/10">
         <div className="container mx-auto px-4 sm:px-6 lg:px-10 text-center">
           <div className="max-w-3xl mx-auto">
             <h2 className="text-3xl md:text-5xl font-bold mb-4">
@@ -219,7 +185,7 @@ const Telecommunications = () => {
               <Button
                 size="lg"
                 onClick={() => navigateToTop('/contact')}
-                className="bg-gradient-to-r from-purple-500 to-violet-600 hover:from-purple-600 hover:to-violet-700 text-white px-8 py-6 text-base font-semibold shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300"
+                className="bg-gradient-to-r from-red-600 to-red-400 hover:from-red-500 hover:to-red-300 text-white px-8 py-6 text-base font-semibold shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300"
               >
                 Estimate Project
                 <ArrowRight className="ml-2 h-5 w-5" />
@@ -228,7 +194,7 @@ const Telecommunications = () => {
                 size="lg"
                 variant="outline"
                 onClick={() => scrollToSection('solutions')}
-                className="px-8 py-6 text-base font-semibold border-2 hover:bg-primary/10 hover:border-primary transition-all duration-300"
+                className="px-8 py-6 text-base font-semibold border-2 border-white/20 text-white hover:bg-white/10 hover:border-white/30 transition-all duration-300"
               >
                 View Solutions
               </Button>

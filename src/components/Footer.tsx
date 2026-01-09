@@ -187,6 +187,14 @@ const Footer = () => {
                 Blog
               </button>
             </li>
+              <li>
+                <button
+                  onClick={() => navigateToTop("/privacy")}
+                  className="text-sm text-muted-foreground hover:text-primary transition-colors text-left"
+                >
+                  Privacy Policy
+                </button>
+              </li>
             </ul>
           </div>
 

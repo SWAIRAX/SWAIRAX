@@ -140,10 +140,10 @@ const Services = () => {
                 Built for bold teams
               </Badge>
             </div>
-            <SectionHeading className="mt-4 text-4xl md:text-5xl font-black leading-tight bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent">
+            <SectionHeading className="mt-4 text-left text-4xl md:text-5xl font-black leading-tight bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent">
               AI-powered automation for every decision, safely in production.
             </SectionHeading>
-            <SectionLead className="mt-4 text-muted-foreground max-w-3xl text-base md:text-lg">
+            <SectionLead className="mt-4 text-left mx-0 max-w-3xl text-muted-foreground text-base md:text-lg">
               From our home and about pages: we’re the data-centric, ethical AI team that blends human talent with resilient MLOps so automation, copilots, and analytics reach production safely and lift business outcomes.
             </SectionLead>
 
