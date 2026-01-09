@@ -114,7 +114,7 @@ const About = () => {
 
             {/* Right Side - Image with Overlay Cards */}
             <ScrollReveal delay={200} className="relative">
-            <div className="relative overflow-hidden rounded-2xl shadow-2xl h-[400px] lg:h-[450px] hidden md:block">
+            <div className="relative overflow-hidden rounded-2xl shadow-2xl h-[400px] lg:h-[450px] hidden md:block mt-6 lg:mt-10">
                 <img
                   src="/uploads/TEAM.jpeg"
                   alt="Quantum Intelligence Team"

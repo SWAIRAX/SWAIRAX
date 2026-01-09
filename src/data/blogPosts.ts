@@ -580,7 +580,7 @@ At Quantum Intelligence, we don't just talk about knowledge graphs and ML — **
     date: "December 3, 2024",
     category: "Machine Learning",
     readTime: "12 min read",
-    imageUrl: "machine learning.jpg",
+    imageUrl: "BLOG 2.jpeg",
     tags: ["knowledge-graphs", "machine-learning", "data-science", "business-intelligence", "ai", "graph-analytics"]
   },
   {
