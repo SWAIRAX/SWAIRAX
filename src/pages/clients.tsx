@@ -20,6 +20,8 @@ imageUrl?: string; // Main card image (not logo)
 tags: string[];
 }
 
+
+
 import { useState } from "react";
 
 const Clients = () => {
