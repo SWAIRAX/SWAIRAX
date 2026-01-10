@@ -128,7 +128,7 @@ const Header = () => {
               />
             </picture>
             <div
-              className="flex flex-col items-start justify-center leading-tight text-lg md:text-xl font-semibold text-foreground"
+              className="hidden md:flex flex-col items-start justify-center leading-tight text-lg md:text-xl font-semibold text-foreground"
               style={{ lineHeight: 1.05 }}
             >
               <span>Quantum</span>
@@ -263,7 +263,7 @@ const Header = () => {
                       style={{ maxWidth: "168px" }}
                     />
                   </picture>
-                  <div className="hidden" style={{ lineHeight: 1.05 }}>
+                  <div className="flex flex-col items-start justify-center leading-tight text-lg font-semibold text-foreground" style={{ lineHeight: 1.05 }}>
                     <span>Quantum</span>
                     <span>Intelligence</span>
                   </div>

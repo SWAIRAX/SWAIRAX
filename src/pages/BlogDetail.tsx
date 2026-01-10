@@ -125,8 +125,8 @@ const BlogDetail = () => {
       {/* Blog Content */}
       <section className="py-12 bg-background">
         <div className="container mx-auto px-6">
-          <div className="max-w-3xl mx-auto">
-            <article className="space-y-10 text-base md:text-lg leading-relaxed text-foreground max-w-3xl">
+          <div className="max-w-4xl mx-auto">
+            <article className="space-y-10 text-base md:text-lg leading-8 text-foreground max-w-4xl mx-auto">
               <div className="text-foreground/90 space-y-8">
                 {post.content.split('\n\n').map((paragraph, index) => {
                   // Handle horizontal rules
@@ -138,7 +138,7 @@ const BlogDetail = () => {
                   if (paragraph.startsWith('## ')) {
                     const text = paragraph.replace('## ', '');
                     return (
-                      <h2 key={index} className="text-2xl md:text-3xl font-bold mt-12 mb-6 text-foreground">
+                      <h2 key={index} className="text-2xl md:text-3xl font-bold mt-12 mb-6 text-foreground tracking-tight">
                         {text}
                       </h2>
                     );
@@ -148,7 +148,7 @@ const BlogDetail = () => {
                   if (paragraph.startsWith('### ')) {
                     const text = paragraph.replace('### ', '');
                     return (
-                      <h3 key={index} className="text-xl md:text-2xl font-semibold mt-8 mb-4 text-foreground">
+                      <h3 key={index} className="text-xl md:text-2xl font-semibold mt-8 mb-4 text-foreground tracking-tight">
                         {text}
                       </h3>
                     );
@@ -183,7 +183,7 @@ const BlogDetail = () => {
                   return (
                     <p
                       key={index}
-                      className="text-base md:text-lg leading-relaxed text-foreground/90 font-normal"
+                      className="text-base md:text-lg leading-8 text-foreground/90 font-normal tracking-normal"
                     >
                       {parts.map((part, partIndex) => {
                         if (part.startsWith('**') && part.endsWith('**')) {
