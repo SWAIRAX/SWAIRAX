@@ -176,7 +176,8 @@ const BlogDetail = () => {
       )}
 
       {/* Blog Content */}
-      <section className="py-16 bg-background">
+      <section className="py-20 bg-gradient-to-br from-card/30 to-background border-t border-border relative overflow-hidden">
+        <div className="absolute inset-0 holo-grid opacity-20" />
 
         <div className="container mx-auto px-6 relative">
           <div className="max-w-4xl mx-auto">
