@@ -201,9 +201,9 @@ If you want a partner who can help you move from "we have data" to "we truly und
     slug: "the-20-digital-analytics-metrics-that-matter-most",
     title: "The 20 Digital Analytics Metrics That Matter Most",
     excerpt: "Every business today has data. Very few have clarity. You can have Google Analytics, dashboards, reports, and exports… and still not know which marketing channels are really working, which users will stay and which will leave.",
-    content: `Every business today has data.
+    content: `Every dashboard we build at Quantum Intelligence starts with a simple reminder:
 
-**Very few have clarity.**
+**Every business today has data. Very few have clarity.**
 
 You can have Google Analytics, dashboards, reports, and exports… and still not know:
 • Which marketing channels are really working
@@ -221,9 +221,7 @@ The language is simple on purpose. You should be able to share this with your CE
 
 ---
 
-## A. Acquisition – Are we bringing in the right people?
-
-### 1. Channel Performance (Traffic + Conversion by Channel)
+## 1. Channel Performance (Traffic + Conversion by Channel)
 
 **What it is:** Visitors and conversions split by source (Search, Social, Email, WhatsApp, Referrals, etc.).
 
@@ -233,7 +231,7 @@ The language is simple on purpose. You should be able to share this with your CE
 
 ---
 
-### 2. Click-Through Rate (CTR)
+## 2. Click-Through Rate (CTR)
 
 **What it is:** % of people who click after seeing your ad, email, or link.
 
@@ -243,7 +241,7 @@ The language is simple on purpose. You should be able to share this with your CE
 
 ---
 
-### 3. Cost Per Click (CPC)
+## 3. Cost Per Click (CPC)
 
 **What it is:** Ad spend / number of clicks.
 
@@ -253,7 +251,7 @@ The language is simple on purpose. You should be able to share this with your CE
 
 ---
 
-### 4. Cost Per Acquisition (CPA)
+## 4. Cost Per Acquisition (CPA)
 
 **What it is:** Ad spend / number of conversions (sign-ups, purchases, etc.).
 
@@ -263,7 +261,7 @@ The language is simple on purpose. You should be able to share this with your CE
 
 ---
 
-### 5. Customer Acquisition Cost (CAC)
+## 5. Customer Acquisition Cost (CAC)
 
 **What it is:** All costs to get customers (marketing, sales, salaries, tools) / number of new customers.
 
@@ -273,9 +271,7 @@ The language is simple on purpose. You should be able to share this with your CE
 
 ---
 
-## B. Engagement – Are people actually using and valuing the product?
-
-### 6. Feature Adoption Rate
+## 6. Feature Adoption Rate
 
 **What it is:** % of users who use a specific feature in a period.
 
@@ -285,7 +281,7 @@ The language is simple on purpose. You should be able to share this with your CE
 
 ---
 
-### 7. Session Duration
+## 7. Session Duration
 
 **What it is:** Average time spent per visit in your app/site.
 
@@ -295,7 +291,7 @@ The language is simple on purpose. You should be able to share this with your CE
 
 ---
 
-### 8. Pages / Screens Per Session
+## 8. Pages / Screens Per Session
 
 **What it is:** Average number of pages or screens viewed per session.
 
@@ -305,7 +301,7 @@ The language is simple on purpose. You should be able to share this with your CE
 
 ---
 
-### 9. Bounce Rate
+## 9. Bounce Rate
 
 **What it is:** % of people who leave after only one page or without doing anything meaningful.
 
@@ -315,7 +311,7 @@ The language is simple on purpose. You should be able to share this with your CE
 
 ---
 
-### 10. Active Users (DAU, WAU, MAU) and Stickiness (DAU/MAU)
+## 10. Active Users (DAU, WAU, MAU) and Stickiness (DAU/MAU)
 
 **What they are:**
 • **DAU:** Daily Active Users
@@ -329,9 +325,7 @@ The language is simple on purpose. You should be able to share this with your CE
 
 ---
 
-## C. Retention & Revenue – Are we keeping customers and making money sustainably?
-
-### 11. Conversion Rate
+## 11. Conversion Rate
 
 **What it is:** % of users who complete a key step (sign-up, first purchase, renewal, etc.).
 
@@ -341,7 +335,7 @@ The language is simple on purpose. You should be able to share this with your CE
 
 ---
 
-### 12. Retention Rate
+## 12. Retention Rate
 
 **What it is:** % of users still active after a certain time (e.g. 30/60/90 days).
 
@@ -351,7 +345,7 @@ The language is simple on purpose. You should be able to share this with your CE
 
 ---
 
-### 13. Churn Rate
+## 13. Churn Rate
 
 **What it is:** % of users who stop using or cancel in a period.
 
@@ -361,7 +355,7 @@ The language is simple on purpose. You should be able to share this with your CE
 
 ---
 
-### 14. Customer Lifetime Value (LTV)
+## 14. Customer Lifetime Value (LTV)
 
 **What it is:** Total revenue a customer brings over their whole relationship.
 
@@ -371,7 +365,7 @@ The language is simple on purpose. You should be able to share this with your CE
 
 ---
 
-### 15. Purchase Frequency / Repeat Purchase
+## 15. Purchase Frequency / Repeat Purchase
 
 **What it is:** How often a customer buys from you in a given time.
 
@@ -381,7 +375,7 @@ The language is simple on purpose. You should be able to share this with your CE
 
 ---
 
-### 16. Average Order Value (AOV) / Average Revenue Per User (ARPU)
+## 16. Average Order Value (AOV) / Average Revenue Per User (ARPU)
 
 **What they are:**
 • **AOV:** Average amount spent per order.
@@ -393,7 +387,7 @@ The language is simple on purpose. You should be able to share this with your CE
 
 ---
 
-### 17. Monthly Recurring Revenue (MRR)
+## 17. Monthly Recurring Revenue (MRR)
 
 **What it is:** Predictable subscription or contract revenue per month.
 
@@ -403,9 +397,7 @@ The language is simple on purpose. You should be able to share this with your CE
 
 ---
 
-## D. Experiments – Can we trust our changes?
-
-### 18. Conversion Lift (A/B Tests)
+## 18. Conversion Lift (A/B Tests)
 
 **What it is:** % change in conversion versus the original (control).
 
@@ -415,7 +407,7 @@ The language is simple on purpose. You should be able to share this with your CE
 
 ---
 
-### 19–20. Statistical Significance & Confidence Interval
+## 19–20. Statistical Significance & Confidence Interval
 
 **What they are:**
 • **Statistical significance / p-value:** How likely the result is not random.
@@ -455,9 +447,9 @@ To stay focused, we guide teams to follow five rules:
     slug: "beyond-dashboards-knowledge-graphs-and-machine-learning",
     title: "Beyond Dashboards: How Knowledge Graphs and Machine Learning Unlock Hidden Growth Paths",
     excerpt: "Most companies today don't suffer from a data shortage. They suffer from a connections shortage. That's where Knowledge Graphs + Machine Learning come in to move you from raw data to a connected, intelligent view of your business.",
-    content: `Most companies today don't suffer from a data shortage.
+    content: `Every dashboard we build at Quantum Intelligence starts with a simple reminder:
 
-**They suffer from a connections shortage.**
+**Most companies today don't suffer from a data shortage. They suffer from a connections shortage.**
 
 You have data in:
 • Sales systems
@@ -473,7 +465,7 @@ But these systems rarely "talk" to each other in a smart way.
 
 ---
 
-## What is a Knowledge Graph? (Simple Version)
+## 1. What is a Knowledge Graph? (Simple Version)
 
 Think of a knowledge graph as a map of your business.
 
@@ -491,7 +483,7 @@ Instead of storing data as isolated rows in tables, a knowledge graph stores how
 
 ---
 
-## Why Knowledge Graphs Matter More Than Just Tables
+## 2. Why Knowledge Graphs Matter More Than Just Tables
 
 Traditional analytics answers questions like:
 • "How many sales did we have this month?"
@@ -506,7 +498,7 @@ Because we see your data as a network, not just as separate lists, we can detect
 
 ---
 
-## How Machine Learning Uses Knowledge Graphs
+## 3. How Machine Learning Uses Knowledge Graphs
 
 Machine Learning becomes much more powerful when it understands context.
 
@@ -548,7 +540,7 @@ Once the graph is in place, we apply ML to:
 
 ---
 
-## What This Means for You as a Client
+## 4. What This Means for You as a Client
 
 When we say we use Knowledge Graphs + Machine Learning, it's not just buzzwords.
 
@@ -580,7 +572,7 @@ At Quantum Intelligence, we don't just talk about knowledge graphs and ML — **
     date: "December 3, 2024",
     category: "Machine Learning",
     readTime: "12 min read",
-    imageUrl: "machine learning.jpg",
+    imageUrl: "BLOG 2.jpeg",
     tags: ["knowledge-graphs", "machine-learning", "data-science", "business-intelligence", "ai", "graph-analytics"]
   },
   {
@@ -588,11 +580,13 @@ At Quantum Intelligence, we don't just talk about knowledge graphs and ML — **
     slug: "digital-data-is-the-new-software-code",
     title: "Digital Data is the new software code",
     excerpt: "Drawing inspiration from the profound words of British Mathematician Clive Humby that 'Data is the new oil', we embark on a journey to discover the secrets of successful AI development.",
-    content: `Drawing inspiration from the profound words of British Mathematician Clive Humby that **'Data is the new oil'**, we embark on a journey to discover the secrets of successful AI development, where data takes center stage.
+    content: `Every dashboard we build at Quantum Intelligence starts with a simple reminder:
+
+**Drawing inspiration from the profound words of British Mathematician Clive Humby that 'Data is the new oil', we embark on a journey to discover the secrets of successful AI development, where data takes center stage.**
 
 ---
 
-## The Data Revolution
+## 1. The Data Revolution
 
 In today's rapidly evolving technological landscape, data has become the cornerstone of innovation. Just as software code revolutionized the digital age, data now serves as the fundamental building block for artificial intelligence and machine learning applications.
 
@@ -613,7 +607,7 @@ These factors directly impact the performance of AI systems. Clean, well-labeled
 
 ---
 
-## The Path Forward
+## 3. The Path Forward
 
 As we move forward, the ability to collect, process, and analyze data effectively will become increasingly important. **Data engineering, data science, and MLOps will continue to be critical disciplines** for organizations looking to leverage AI successfully.
 
@@ -630,11 +624,13 @@ The future belongs to organizations that can transform raw data into actionable 
     slug: "the-future-of-mlops-bridging-ai-and-production",
     title: "The Future of MLOps: Bridging AI and Production",
     excerpt: "MLOps is transforming how organizations deploy and manage machine learning models in production environments. Discover the latest trends and best practices.",
-    content: `Machine Learning Operations (MLOps) has emerged as a critical discipline for organizations looking to successfully deploy and manage AI systems in production environments.
+    content: `Every dashboard we build at Quantum Intelligence starts with a simple reminder:
+
+**Machine Learning Operations (MLOps) has emerged as a critical discipline for organizations looking to successfully deploy and manage AI systems in production environments.**
 
 ---
 
-## The Challenge: From Research to Reality
+## 1. The Challenge: From Research to Reality
 
 The traditional approach to machine learning development often resulted in models that performed well in research settings but failed to deliver value in real-world applications. **MLOps addresses this challenge by applying DevOps principles to machine learning workflows.**
 
@@ -698,11 +694,13 @@ Organizations that invest in MLOps capabilities today will be better positioned 
     slug: "natural-language-processing-the-evolution-of-human-ai-communication",
     title: "Natural Language Processing: The Evolution of Human-AI Communication",
     excerpt: "Discover how NLP is evolving to enable more natural and intuitive interactions between humans and AI systems, from chatbots to voice assistants.",
-    content: `Natural Language Processing (NLP) has undergone remarkable evolution, transforming from simple keyword matching systems to sophisticated models that can understand context, emotion, and nuance in human communication.
+    content: `Every dashboard we build at Quantum Intelligence starts with a simple reminder:
+
+**Natural Language Processing (NLP) has undergone remarkable evolution, transforming from simple keyword matching systems to sophisticated models that can understand context, emotion, and nuance in human communication.**
 
 ---
 
-## The Evolution of NLP
+## 1. The Evolution of NLP
 
 ### Rule-Based Beginnings
 
@@ -745,7 +743,7 @@ Current NLP applications span a wide range of domains:
 
 ---
 
-## The Large Language Model Era
+## 3. The Large Language Model Era
 
 The emergence of large language models like GPT has opened new possibilities for human-AI interaction. These models can:
 • Engage in complex conversations
@@ -769,7 +767,7 @@ These are ongoing areas of research and development, with the AI community worki
 
 ---
 
-## The Future of Human-AI Communication
+## 5. The Future of Human-AI Communication
 
 Looking forward, NLP will continue to evolve with advances in:
 • **Multimodal AI** — Systems that understand both text and visual information

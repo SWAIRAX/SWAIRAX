@@ -14,10 +14,10 @@ import {
   Brain,
   Cog,
   Database,
+  Lightbulb,
   Play,
   Rocket,
   ShieldCheck,
-  Sparkles,
 } from "lucide-react";
 
 const Services = () => {
@@ -93,7 +93,7 @@ const Services = () => {
     {
       title: "Discovery Sprint",
       description: "Shape the smallest valuable AI slice with measurable success criteria.",
-      icon: <Sparkles className="h-5 w-5" />,
+      icon: <Lightbulb className="h-5 w-5" />,
     },
     {
       title: "Co-Create & Validate",
@@ -136,14 +136,11 @@ const Services = () => {
           <div className="max-w-5xl">
             <div className="flex items-center gap-3">
               <Badge className="bg-white/10 text-white border-white/10">AI for every decision</Badge>
-              <Badge variant="outline" className="border-red-500/40 text-red-200">
-                Built for bold teams
-              </Badge>
             </div>
             <SectionHeading className="mt-4 text-left text-4xl md:text-5xl font-black leading-tight bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent">
               AI-powered automation for every decision, safely in production.
             </SectionHeading>
-            <SectionLead className="mt-4 text-left mx-0 max-w-3xl text-muted-foreground text-base md:text-lg">
+            <SectionLead className="mt-4 text-left mx-0 max-w-none text-muted-foreground text-base md:text-lg">
               From our home and about pages: we’re the data-centric, ethical AI team that blends human talent with resilient MLOps so automation, copilots, and analytics reach production safely and lift business outcomes.
             </SectionLead>
 
@@ -218,7 +215,7 @@ const Services = () => {
                       </div>
                       <div>
                         <h3 className="text-xl font-semibold">{service.title}</h3>
-                        <p className="text-xs text-white/60">{service.timeline}</p>
+                        {/* timeline removed per request */}
                       </div>
                     </div>
                     <Badge className="bg-white/10 text-white border-white/10">{service.badge}</Badge>

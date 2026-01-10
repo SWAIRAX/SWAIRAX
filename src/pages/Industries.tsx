@@ -184,14 +184,7 @@ const Industries = () => {
                       ))}
                     </div>
 
-                    <Button
-                      variant="ghost"
-                      size="sm"
-                      className="w-full border border-transparent text-white group-hover:border-red-400 group-hover:bg-gradient-to-r group-hover:from-red-600 group-hover:to-red-400 group-hover:text-white transition-all duration-300 font-medium"
-                    >
-                      Explore Solutions
-                      <ArrowRight className="ml-1 h-3 w-3 group-hover:translate-x-2 transition-transform" />
-                    </Button>
+                    {/* Button temporarily hidden per request */}
                   </CardContent>
                 </Card>
               );

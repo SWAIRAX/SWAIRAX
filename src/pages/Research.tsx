@@ -92,9 +92,6 @@ const Research = () => {
             <div className="space-y-4">
               <div className="inline-flex items-center gap-2">
                 <Badge className="bg-white/10 text-white border-white/10">Research & Innovation</Badge>
-                <Badge variant="outline" className="border-red-500/40 text-red-200">
-                  Proof to product
-            </Badge>
               </div>
               <SectionHeading className="text-4xl md:text-5xl font-black leading-tight bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent">
                 Research that feeds production AI.
@@ -155,13 +152,10 @@ const Research = () => {
                       </div>
                       <div>
                         <CardTitle className="text-lg group-hover:text-red-300 transition-colors">{solution.title}</CardTitle>
-                        <div className="flex items-center space-x-1 mt-1">
-                          <Badge variant="secondary" className="text-xs bg-white/10 text-white border-white/10">{solution.category}</Badge>
-                          <Badge variant="outline" className="text-white/70 border-white/20 text-xs">
-                            <Calendar className="w-2 h-2 mr-1" />
-                            {solution.launchDate}
-                          </Badge>
-                        </div>
+                <div className="flex items-center space-x-1 mt-1">
+                  <Badge variant="secondary" className="text-xs bg-white/10 text-white border-white/10">{solution.category}</Badge>
+                  {/* launch date removed per request */}
+                </div>
                       </div>
                     </div>
                   </div>
