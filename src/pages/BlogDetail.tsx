@@ -162,7 +162,7 @@ const BlogDetail = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-background/30 via-transparent to-background/10 pointer-events-none" />
 
                 {/* Image Caption */}
-                <div className="absolute bottom-6 left-6 right-6">
+                <div className="absolute bottom-6 left-6 right-6 hidden lg:block">
                   <div className="bg-background/90 backdrop-blur-md border border-border/50 rounded-xl px-4 py-3">
                     <p className="text-sm text-muted-foreground font-medium">
                       Featured illustration: {post.title.toLowerCase()}
@@ -176,9 +176,7 @@ const BlogDetail = () => {
       )}
 
       {/* Blog Content */}
-      <section className="py-16 bg-background relative overflow-hidden">
-        {/* Background Pattern */}
-        <div className="absolute inset-0 holo-grid opacity-30" />
+      <section className="py-16 bg-background">
 
         <div className="container mx-auto px-6 relative">
           <div className="max-w-4xl mx-auto">
