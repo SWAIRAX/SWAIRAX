@@ -181,7 +181,7 @@ const BlogDetail = () => {
         <div className="container mx-auto px-6 relative">
           <div className="max-w-4xl mx-auto">
             <article className="space-y-12 text-base md:text-lg leading-8 text-foreground max-w-4xl mx-auto">
-              <div className="text-foreground/90 space-y-10 scroll-reveal-visible" data-scroll-reveal="false">
+              <div className="text-foreground/90 space-y-10" style={{ opacity: 1, transform: 'none' }}>
                 {post.content.split('\n\n').map((paragraph, index) => {
                   // Handle horizontal rules
                   if (paragraph.trim() === '---') {
