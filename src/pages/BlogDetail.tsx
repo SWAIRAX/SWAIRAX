@@ -405,7 +405,7 @@ const BlogDetail = () => {
 
       {/* Enhanced Related Articles Section */}
       {relatedPosts.length > 0 && (
-        <section className="py-20 bg-gradient-to-br from-card/30 to-background border-t border-border relative overflow-hidden">
+        <section className="py-20 bg-gradient-to-br from-card/30 to-background border-t border-border relative overflow-hidden" style={{ opacity: 1, transform: 'none' }}>
           {/* Background Elements */}
           <div className="absolute inset-0 holo-grid opacity-20" />
 

@@ -3,17 +3,17 @@ import { cn } from '@/lib/utils';
 
 /**
  * ScrollReveal - A wrapper component for scroll-based reveal animations
- * 
+ *
  * Usage:
  * <ScrollReveal>
  *   <YourContent />
  * </ScrollReveal>
- * 
+ *
  * With delay:
  * <ScrollReveal delay={100}>
  *   <YourContent />
  * </ScrollReveal>
- * 
+ *
  * With custom className:
  * <ScrollReveal className="my-custom-class">
  *   <YourContent />
@@ -25,15 +25,25 @@ interface ScrollRevealProps {
   delay?: number; // Delay in milliseconds (0, 100, 200, 300, etc.)
 }
 
-export function ScrollReveal({ 
-  children, 
-  className, 
+export function ScrollReveal({
+  children,
+  className,
   delay = 0
 }: ScrollRevealProps) {
   const ref = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
 
+  // Disable scroll reveal for BlogDetail and Privacy pages
+  const currentPath = typeof window !== 'undefined' ? window.location.pathname : '';
+  const isDisabledPage = currentPath.includes('/blog/') || currentPath.includes('/privacy');
+
   useEffect(() => {
+    // Skip scroll reveal logic for disabled pages
+    if (isDisabledPage) {
+      setIsVisible(true);
+      return;
+    }
+
     const element = ref.current;
     if (!element) return;
 
@@ -57,14 +67,15 @@ export function ScrollReveal({
     observer.observe(element);
 
     return () => observer.disconnect();
-  }, []);
+  }, [isDisabledPage]);
 
   return (
     <div
       ref={ref}
       className={cn(
-        'scroll-reveal',
-        isVisible && 'scroll-reveal-visible',
+        // Skip scroll-reveal classes for disabled pages
+        !isDisabledPage && 'scroll-reveal',
+        !isDisabledPage && isVisible && 'scroll-reveal-visible',
         className
       )}
       style={{ transitionDelay: delay ? `${delay}ms` : undefined }}
