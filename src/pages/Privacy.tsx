@@ -146,7 +146,7 @@ const Privacy = () => {
       <Header />
 
       <main className="py-20">
-        <div className="container mx-auto px-6 max-w-5xl">
+        <div className="container mx-auto px-6 max-w-5xl scroll-reveal-visible" data-scroll-reveal="false">
           <div className="mb-14">
             <h1 className="text-3xl md:text-4xl font-semibold text-foreground mb-6">
               Website Privacy Policy
