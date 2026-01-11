@@ -65,6 +65,11 @@ export function useScrollReveal<T extends HTMLElement = HTMLDivElement>(
 export function initScrollReveal(options: ScrollObserverOptions & { selector?: string; autoAttach?: boolean } = {}) {
   if (typeof window === 'undefined') return;
 
+  // Skip scroll reveal for BlogDetail and Privacy pages
+  const currentPath = window.location.pathname;
+  const isDisabledPage = currentPath.includes('/blog/') || currentPath.includes('/privacy');
+  if (isDisabledPage) return;
+
   const {
     threshold = DEFAULT_THRESHOLD,
     rootMargin = DEFAULT_ROOT_MARGIN,

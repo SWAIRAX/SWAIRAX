@@ -181,7 +181,7 @@ const BlogDetail = () => {
         <div className="container mx-auto px-6 relative">
           <div className="max-w-4xl mx-auto">
             <article className="space-y-12 text-base md:text-lg leading-8 text-foreground max-w-4xl mx-auto">
-              <div className="text-foreground/90 space-y-10">
+              <div className="text-foreground/90 space-y-10" style={{ opacity: 1, transform: 'none' }}>
                 {post.content.split('\n\n').map((paragraph, index) => {
                   // Handle horizontal rules
                   if (paragraph.trim() === '---') {
@@ -405,7 +405,7 @@ const BlogDetail = () => {
 
       {/* Enhanced Related Articles Section */}
       {relatedPosts.length > 0 && (
-        <section className="py-20 bg-gradient-to-br from-card/30 to-background border-t border-border relative overflow-hidden">
+        <section className="py-20 bg-gradient-to-br from-card/30 to-background border-t border-border relative overflow-hidden" style={{ opacity: 1, transform: 'none' }}>
           {/* Background Elements */}
           <div className="absolute inset-0 holo-grid opacity-20" />
 
