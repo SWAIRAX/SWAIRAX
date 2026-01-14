@@ -5,7 +5,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { ArrowRight, Brain, Database, TrendingUp, CheckCircle, Sparkles, Target, BarChart3, PieChart, Activity, Shield, Clock, Zap } from "lucide-react";
+import { ArrowRight, Brain, Database, TrendingUp, CheckCircle, Sparkles, Target, BarChart3, PieChart, Activity, Shield, Clock, Zap, ChevronRight, Network, ArrowUp, Users, Settings, AlertTriangle, Calendar } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const QuantumAnalytics = () => {
@@ -327,6 +327,438 @@ const QuantumAnalytics = () => {
                 </p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Problem Solving Approach Section */}
+      <section className="py-16 bg-black text-white relative overflow-hidden">
+        {/* Decorative elements */}
+        <div className="absolute inset-0 bg-gradient-to-br from-black via-black to-red-900/10" />
+        <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-red-500 to-transparent" />
+
+        <div className="container mx-auto px-6 relative z-10">
+          <div className="max-w-4xl mx-auto text-center">
+            {/* Red accent line animation */}
+            <div className="mb-8">
+              <div className={`h-0.5 bg-red-500 mx-auto transition-all duration-1000 ${isVisible ? 'w-24' : 'w-0'}`} />
+            </div>
+
+            {/* Main headline */}
+            <div className={`transition-all duration-1000 delay-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-8'}`}>
+              <h2 className="text-3xl md:text-4xl font-bold mb-8 bg-gradient-to-r from-white via-red-100 to-white bg-clip-text text-transparent">
+                How do we approach problem solving?
+              </h2>
+            </div>
+
+            {/* Body text with sequential fade-in */}
+            <div className="space-y-4 text-lg md:text-xl leading-relaxed max-w-3xl mx-auto">
+              <div className={`transition-all duration-1000 delay-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
+                <p>We approach problem solving by first understanding what is happening,</p>
+              </div>
+              <div className={`transition-all duration-1000 delay-1200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
+                <p>then why it is happening,</p>
+              </div>
+              <div className={`transition-all duration-1000 delay-1400 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
+                <p>before guiding action that drives growth,</p>
+              </div>
+              <div className={`transition-all duration-1000 delay-1600 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
+                <p>improves customer outcomes,</p>
+              </div>
+              <div className={`transition-all duration-1000 delay-1800 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
+                <p>and strengthens long-term business performance.</p>
+              </div>
+            </div>
+
+            {/* Animated red underline */}
+            <div className={`mt-8 transition-all duration-1000 delay-2000 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
+              <div className={`h-0.5 bg-red-500 mx-auto transition-all duration-2000 delay-2000 ${isVisible ? 'w-32' : 'w-0'}`} />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Analytics Evolution Section */}
+      <section className="py-16 bg-gradient-to-br from-background via-background to-card">
+        <div className="container mx-auto px-6">
+          <div className="text-center mb-12">
+            <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-8'}`}>
+              <h2 className="text-2xl md:text-3xl font-bold mb-4 bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent">
+                From Questions to Decisions
+              </h2>
+              <p className="text-muted-foreground max-w-2xl mx-auto">
+                The evolution of data analytics maturity across four transformative stages
+              </p>
+            </div>
+          </div>
+
+          {/* Analytics Evolution Panels */}
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 max-w-6xl mx-auto">
+            {/* Panel 1 - Descriptive Analytics */}
+            <div className={`group transition-all duration-1000 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}`}>
+              <Card className="h-full bg-gradient-to-br from-background to-background/50 border-border/50 hover:border-primary/30 transition-all duration-500 hover:shadow-lg">
+                <CardContent className="p-6 text-center">
+                  <div className="w-16 h-16 bg-gradient-to-br from-blue-500/10 to-blue-600/10 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                    <PieChart className="h-8 w-8 text-blue-600" />
+                  </div>
+                  <h3 className="text-lg font-bold mb-2 text-foreground">What happened?</h3>
+                  <p className="text-sm font-semibold text-primary mb-3">DESCRIPTIVE ANALYTICS</p>
+                  <p className="text-xs text-muted-foreground leading-relaxed">
+                    Understanding historical data patterns and current business states through comprehensive reporting and dashboards.
+                  </p>
+                </CardContent>
+              </Card>
+            </div>
+
+            {/* Panel 2 - Diagnostic Analytics */}
+            <div className={`group transition-all duration-1000 delay-200 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}`}>
+              <Card className="h-full bg-gradient-to-br from-background/80 to-background/60 border-border/50 hover:border-primary/30 transition-all duration-500 hover:shadow-lg">
+                <CardContent className="p-6 text-center">
+                  <div className="w-16 h-16 bg-gradient-to-br from-green-500/10 to-green-600/10 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                    <BarChart3 className="h-8 w-8 text-green-600" />
+                  </div>
+                  <h3 className="text-lg font-bold mb-2 text-foreground">Why did it happen?</h3>
+                  <p className="text-sm font-semibold text-primary mb-3">DIAGNOSTIC ANALYTICS</p>
+                  <p className="text-xs text-muted-foreground leading-relaxed">
+                    Investigating root causes and correlations to understand the drivers behind observed patterns and outcomes.
+                  </p>
+                </CardContent>
+              </Card>
+            </div>
+
+            {/* Panel 3 - Predictive Analytics */}
+            <div className={`group transition-all duration-1000 delay-400 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}`}>
+              <Card className="h-full bg-gradient-to-br from-primary/5 to-primary/10 border-border/50 hover:border-primary/50 transition-all duration-500 hover:shadow-lg">
+                <CardContent className="p-6 text-center">
+                  <div className="w-16 h-16 bg-gradient-to-br from-orange-500/10 to-orange-600/10 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                    <Network className="h-8 w-8 text-orange-600" />
+                  </div>
+                  <h3 className="text-lg font-bold mb-2 text-foreground">What might happen?</h3>
+                  <p className="text-sm font-semibold text-primary mb-3">PREDICTIVE ANALYTICS</p>
+                  <p className="text-xs text-muted-foreground leading-relaxed">
+                    Forecasting future trends and scenarios using statistical models and machine learning algorithms.
+                  </p>
+                </CardContent>
+              </Card>
+            </div>
+
+            {/* Panel 4 - Prescriptive Analytics */}
+            <div className={`group transition-all duration-1000 delay-600 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}`}>
+              <Card className="h-full bg-gradient-to-br from-primary/10 to-primary/20 border-primary/50 hover:border-primary/70 transition-all duration-500 hover:shadow-lg">
+                <CardContent className="p-6 text-center">
+                  <div className="w-16 h-16 bg-gradient-to-br from-red-500/10 to-red-600/10 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                    <ArrowUp className="h-8 w-8 text-red-600" />
+                  </div>
+                  <h3 className="text-lg font-bold mb-2 text-white">How can we make it happen?</h3>
+                  <p className="text-sm font-semibold text-primary mb-3">PRESCRIPTIVE ANALYTICS</p>
+                  <p className="text-xs text-white/80 leading-relaxed">
+                    Recommending optimal actions and strategies to achieve desired outcomes and maximize business value.
+                  </p>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+
+          {/* Flow indicator */}
+          <div className="flex justify-center items-center mt-8 space-x-4">
+            <div className={`transition-all duration-1000 delay-800 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}`}>
+              <ChevronRight className="h-5 w-5 text-primary animate-pulse" />
+            </div>
+            <div className={`transition-all duration-1000 delay-1000 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}`}>
+              <ChevronRight className="h-5 w-5 text-primary animate-pulse" />
+            </div>
+            <div className={`transition-all duration-1000 delay-1200 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}`}>
+              <ChevronRight className="h-5 w-5 text-primary animate-pulse" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Business Problems to Growth Results Section */}
+      <section className="py-20 bg-gradient-to-br from-background via-card/30 to-background relative overflow-hidden">
+        {/* Decorative Background Elements */}
+        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/3 to-transparent" />
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-red-500/5 rounded-full blur-3xl animate-pulse" />
+        <div className="container mx-auto px-6">
+          <div className="text-center">
+            
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent leading-tight">
+              From Business Problems<br />to Growth Results
+            </h2>
+            <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed mb-8">
+              We bridge insight to impact, converting real business challenges into clear growth outcomes through intelligence.
+            </p>
+
+            {/* Executive Table */}
+            <div className="relative w-full max-w-7xl mx-auto px-1 sm:px-2 md:px-4 lg:px-6">
+              {/* Table Glow Effect - Responsive blur and inset */}
+              <div className="absolute -inset-0.5 sm:-inset-1 bg-gradient-to-r from-primary/20 via-red-500/20 to-primary/20 rounded-xl sm:rounded-2xl blur-sm sm:blur-md opacity-20 sm:opacity-25" />
+
+              <div className="relative overflow-hidden rounded-2xl border border-border/60 shadow-2xl bg-card/80 backdrop-blur-md">
+                {/* Table Header - Visible on all screens */}
+                <div className="grid grid-cols-3 bg-gradient-to-r from-primary/15 via-primary/8 to-primary/15 border-b border-border/60">
+                  <div className="p-2 sm:p-3 md:p-4 lg:p-6">
+                    <h3 className="text-xs sm:text-sm md:text-base lg:text-lg font-bold text-foreground flex items-center space-x-1 sm:space-x-2 md:space-x-3">
+                      <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 md:w-3 md:h-3 bg-primary rounded-full animate-pulse" />
+                      <span>Area</span>
+                    </h3>
+                  </div>
+                  <div className="p-2 sm:p-3 md:p-4 lg:p-6 border-l border-border/60">
+                    <h3 className="text-xs sm:text-sm md:text-base lg:text-lg font-bold text-foreground flex items-center space-x-1 sm:space-x-2 md:space-x-3">
+                      <AlertTriangle className="h-3 w-3 sm:h-3.5 sm:w-3.5 md:h-4 md:w-4 text-orange-500" />
+                      <span className="hidden xs:inline">If the problem is…</span>
+                      <span className="xs:hidden">Problem</span>
+                    </h3>
+                  </div>
+                  <div className="p-2 sm:p-3 md:p-4 lg:p-6 border-l border-border/60 bg-gradient-to-r from-primary/10 via-primary/15 to-primary/10">
+                    <h3 className="text-xs sm:text-sm md:text-base lg:text-lg font-bold text-primary flex items-center space-x-1 sm:space-x-2 md:space-x-3">
+                      <CheckCircle className="h-3 w-3 sm:h-3.5 sm:w-3.5 md:h-4 md:w-4" />
+                      <span className="hidden xs:inline">We enable…</span>
+                      <span className="xs:hidden">Solution</span>
+                    </h3>
+                  </div>
+                </div>
+
+                {/* Table Rows - Visible on all screens */}
+                <div className="grid grid-cols-3 border-b border-border/40 hover:bg-background/30 transition-all duration-1000">
+                  <div className="p-2 sm:p-3 md:p-4 lg:p-6 bg-gradient-to-r from-blue-500/20 to-blue-600/20 text-white relative overflow-hidden">
+                    <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/40 to-black/60" />
+                    <div className="relative flex items-center space-x-1 sm:space-x-2 md:space-x-3">
+                      <div className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 bg-white/10 backdrop-blur-sm rounded-lg flex items-center justify-center border border-white/20">
+                        <Brain className="h-3 w-3 sm:h-4 sm:w-4 md:h-5 md:w-5 text-white" />
+                      </div>
+                      <div>
+                        <h4 className="text-sm sm:text-base md:text-lg font-bold leading-tight">Decisions</h4>
+                        <div className="w-3 h-0.5 sm:w-4 md:w-6 bg-white/60 rounded-full mt-0.5 sm:mt-1" />
+                      </div>
+                    </div>
+                  </div>
+                  <div className="p-2 sm:p-3 md:p-4 lg:p-6 border-l border-border/60 bg-gradient-to-r from-background/80 to-background/60">
+                    <div className="flex items-start space-x-1 sm:space-x-2 md:space-x-3">
+                      <div className="flex-shrink-0 mt-1">
+                        <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-orange-500 rounded-full animate-pulse" />
+                      </div>
+                      <p className="text-foreground/80 leading-relaxed text-xs sm:text-sm md:text-base break-words">Decisions are slow and based on outdated reports</p>
+                    </div>
+                  </div>
+                  <div className="p-2 sm:p-3 md:p-4 lg:p-6 border-l border-border/60 bg-gradient-to-r from-primary/8 via-primary/12 to-primary/8">
+                    <div className="flex items-start space-x-1 sm:space-x-2 md:space-x-3">
+                      <div className="flex-shrink-0 mt-1">
+                        <div className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 bg-primary/20 rounded-lg flex items-center justify-center">
+                          <ArrowRight className="h-2 w-2 sm:h-2.5 sm:w-2.5 md:h-3 md:w-3 text-primary" />
+                        </div>
+                      </div>
+                      <p className="text-foreground font-semibold leading-relaxed text-xs sm:text-sm md:text-base break-words">Faster decisions using what is happening now</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-3 border-b border-border/40 hover:bg-background/30 transition-all duration-1000">
+                  <div className="p-2 sm:p-3 md:p-4 lg:p-6 bg-gradient-to-r from-green-500/20 to-green-600/20 text-white relative overflow-hidden">
+                    <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/40 to-black/60" />
+                    <div className="relative flex items-center space-x-1 sm:space-x-2 md:space-x-3">
+                      <div className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 bg-white/10 backdrop-blur-sm rounded-lg flex items-center justify-center border border-white/20">
+                        <Users className="h-3 w-3 sm:h-4 sm:w-4 md:h-5 md:w-5 text-white" />
+                      </div>
+                      <div>
+                        <h4 className="text-sm sm:text-base md:text-lg font-bold leading-tight">Customers</h4>
+                        <div className="w-3 h-0.5 sm:w-4 md:w-6 bg-white/60 rounded-full mt-0.5 sm:mt-1" />
+                      </div>
+                    </div>
+                  </div>
+                  <div className="p-2 sm:p-3 md:p-4 lg:p-6 border-l border-border/60 bg-gradient-to-r from-background/80 to-background/60">
+                    <div className="flex items-start space-x-1 sm:space-x-2 md:space-x-3">
+                      <div className="flex-shrink-0 mt-1">
+                        <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-orange-500 rounded-full animate-pulse" />
+                      </div>
+                      <p className="text-foreground/80 leading-relaxed text-xs sm:text-sm md:text-base break-words">Teams do not clearly understand customer needs or behavior</p>
+                    </div>
+                  </div>
+                  <div className="p-2 sm:p-3 md:p-4 lg:p-6 border-l border-border/60 bg-gradient-to-r from-primary/8 via-primary/12 to-primary/8">
+                    <div className="flex items-start space-x-1 sm:space-x-2 md:space-x-3">
+                      <div className="flex-shrink-0 mt-1">
+                        <div className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 bg-primary/20 rounded-lg flex items-center justify-center">
+                          <ArrowRight className="h-2 w-2 sm:h-2.5 sm:w-2.5 md:h-3 md:w-3 text-primary" />
+                        </div>
+                      </div>
+                      <p className="text-foreground font-semibold leading-relaxed text-xs sm:text-sm md:text-base break-words">A clear view of customer behavior and value</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-3 border-b border-border/40 hover:bg-background/30 transition-all duration-1000">
+                  <div className="p-2 sm:p-3 md:p-4 lg:p-6 bg-gradient-to-r from-purple-500/20 to-purple-600/20 text-white relative overflow-hidden">
+                    <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/40 to-black/60" />
+                    <div className="relative flex items-center space-x-1 sm:space-x-2 md:space-x-3">
+                      <div className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 bg-white/10 backdrop-blur-sm rounded-lg flex items-center justify-center border border-white/20">
+                        <Settings className="h-3 w-3 sm:h-4 sm:w-4 md:h-5 md:w-5 text-white" />
+                      </div>
+                      <div>
+                        <h4 className="text-sm sm:text-base md:text-lg font-bold leading-tight">Operations</h4>
+                        <div className="w-3 h-0.5 sm:w-4 md:w-6 bg-white/60 rounded-full mt-0.5 sm:mt-1" />
+                      </div>
+                    </div>
+                  </div>
+                  <div className="p-2 sm:p-3 md:p-4 lg:p-6 border-l border-border/60 bg-gradient-to-r from-background/80 to-background/60">
+                    <div className="flex items-start space-x-1 sm:space-x-2 md:space-x-3">
+                      <div className="flex-shrink-0 mt-1">
+                        <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-orange-500 rounded-full animate-pulse" />
+                      </div>
+                      <p className="text-foreground/80 leading-relaxed text-xs sm:text-sm md:text-base break-words">Teams rely on spreadsheets and manual updates to run daily work</p>
+                    </div>
+                  </div>
+                  <div className="p-2 sm:p-3 md:p-4 lg:p-6 border-l border-border/60 bg-gradient-to-r from-primary/8 via-primary/12 to-primary/8">
+                    <div className="flex items-start space-x-1 sm:space-x-2 md:space-x-3">
+                      <div className="flex-shrink-0 mt-1">
+                        <div className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 bg-primary/20 rounded-lg flex items-center justify-center">
+                          <ArrowRight className="h-2 w-2 sm:h-2.5 sm:w-2.5 md:h-3 md:w-3 text-primary" />
+                        </div>
+                      </div>
+                      <p className="text-foreground font-semibold leading-relaxed text-xs sm:text-sm md:text-base break-words">Live operational visibility so teams know what to do next</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-3 border-b border-border/40 hover:bg-background/30 transition-all duration-1000">
+                  <div className="p-2 sm:p-3 md:p-4 lg:p-6 bg-gradient-to-r from-orange-500/20 to-orange-600/20 text-white relative overflow-hidden">
+                    <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/40 to-black/60" />
+                    <div className="relative flex items-center space-x-1 sm:space-x-2 md:space-x-3">
+                      <div className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 bg-white/10 backdrop-blur-sm rounded-lg flex items-center justify-center border border-white/20">
+                        <TrendingUp className="h-3 w-3 sm:h-4 sm:w-4 md:h-5 md:w-5 text-white" />
+                      </div>
+                      <div>
+                        <h4 className="text-sm sm:text-base md:text-lg font-bold leading-tight">Growth & Revenue</h4>
+                        <div className="w-3 h-0.5 sm:w-4 md:w-6 bg-white/60 rounded-full mt-0.5 sm:mt-1" />
+                      </div>
+                    </div>
+                  </div>
+                  <div className="p-2 sm:p-3 md:p-4 lg:p-6 border-l border-border/60 bg-gradient-to-r from-background/80 to-background/60">
+                    <div className="flex items-start space-x-1 sm:space-x-2 md:space-x-3">
+                      <div className="flex-shrink-0 mt-1">
+                        <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-orange-500 rounded-full animate-pulse" />
+                      </div>
+                      <p className="text-foreground/80 leading-relaxed text-xs sm:text-sm md:text-base break-words">Revenue loss or churn is noticed after it has already happened</p>
+                    </div>
+                  </div>
+                  <div className="p-2 sm:p-3 md:p-4 lg:p-6 border-l border-border/60 bg-gradient-to-r from-primary/8 via-primary/12 to-primary/8">
+                    <div className="flex items-start space-x-1 sm:space-x-2 md:space-x-3">
+                      <div className="flex-shrink-0 mt-1">
+                        <div className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 bg-primary/20 rounded-lg flex items-center justify-center">
+                          <ArrowRight className="h-2 w-2 sm:h-2.5 sm:w-2.5 md:h-3 md:w-3 text-primary" />
+                        </div>
+                      </div>
+                      <p className="text-foreground font-semibold leading-relaxed text-xs sm:text-sm md:text-base break-words">Early signals that reveal risk and opportunity in time to act</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-3 hover:bg-background/30 transition-all duration-1000">
+                  <div className="p-2 sm:p-3 md:p-4 lg:p-6 bg-gradient-to-r from-red-500/20 to-red-600/20 text-white relative overflow-hidden">
+                    <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/40 to-black/60" />
+                    <div className="relative flex items-center space-x-1 sm:space-x-2 md:space-x-3">
+                      <div className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 bg-white/10 backdrop-blur-sm rounded-lg flex items-center justify-center border border-white/20">
+                        <Zap className="h-3 w-3 sm:h-4 sm:w-4 md:h-5 md:w-5 text-white" />
+                      </div>
+                      <div>
+                        <h4 className="text-sm sm:text-base md:text-lg font-bold leading-tight">Scaling</h4>
+                        <div className="w-3 h-0.5 sm:w-4 md:w-6 bg-white/60 rounded-full mt-0.5 sm:mt-1" />
+                      </div>
+                    </div>
+                  </div>
+                  <div className="p-2 sm:p-3 md:p-4 lg:p-6 border-l border-border/60 bg-gradient-to-r from-background/80 to-background/60">
+                    <div className="flex items-start space-x-1 sm:space-x-2 md:space-x-3">
+                      <div className="flex-shrink-0 mt-1">
+                        <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-orange-500 rounded-full animate-pulse" />
+                      </div>
+                      <p className="text-foreground/80 leading-relaxed text-xs sm:text-sm md:text-base break-words">Growth increases confusion instead of control</p>
+                    </div>
+                  </div>
+                  <div className="p-2 sm:p-3 md:p-4 lg:p-6 border-l border-border/60 bg-gradient-to-r from-primary/8 via-primary/12 to-primary/8">
+                    <div className="flex items-start space-x-1 sm:space-x-2 md:space-x-3">
+                      <div className="flex-shrink-0 mt-1">
+                        <div className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 bg-primary/20 rounded-lg flex items-center justify-center">
+                          <ArrowRight className="h-2 w-2 sm:h-2.5 sm:w-2.5 md:h-3 md:w-3 text-primary" />
+                        </div>
+                      </div>
+                      <p className="text-foreground font-semibold leading-relaxed text-xs sm:text-sm md:text-base break-words">Systems that keep the business organized and clear as it grows</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Enhanced Transition Statement */}
+            <div className="mt-20 max-w-4xl mx-auto relative">
+              {/* Decorative elements */}
+              <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 w-24 h-24 bg-primary/10 rounded-full blur-xl animate-pulse" />
+
+              {/* Implementation Call-to-Action */}
+              <div className="relative bg-gradient-to-r from-card/60 via-card/80 to-card/60 backdrop-blur-sm rounded-3xl p-8 md:p-12 border border-border/50 shadow-2xl">
+                <div className="grid md:grid-cols-2 gap-8 items-center">
+                  {/* Left Side - Problem Transformation */}
+                  <div className="text-center md:text-left">
+                    <h3 className="text-2xl md:text-3xl font-bold mb-4 bg-gradient-to-r from-foreground to-primary bg-clip-text text-transparent">
+                      From Insight to Action
+                    </h3>
+                    <p className="text-muted-foreground leading-relaxed mb-6">
+                      Transform your business challenges into measurable results with our proven implementation methodology and dedicated support team.
+                    </p>
+                    <div className="flex flex-wrap justify-center md:justify-start gap-3">
+                      <div className="flex items-center space-x-2 bg-primary/5 px-3 py-2 rounded-lg">
+                        <CheckCircle className="h-4 w-4 text-primary" />
+                        <span className="text-sm font-medium">30-Day Implementation</span>
+                      </div>
+                      <div className="flex items-center space-x-2 bg-primary/5 px-3 py-2 rounded-lg">
+                        <CheckCircle className="h-4 w-4 text-primary" />
+                        <span className="text-sm font-medium">Dedicated Success Team</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Right Side - CTA */}
+                  <div className="text-center md:text-right">
+                    <div className="bg-gradient-to-br from-primary/10 via-primary/5 to-red-500/10 rounded-2xl p-6 border border-primary/20 mb-6">
+                      <h4 className="text-xl font-bold mb-2 text-foreground">Ready to Get Started?</h4>
+                      <p className="text-muted-foreground text-sm mb-4">
+                        Schedule a discovery call to see how we can transform your business challenges.
+                      </p>
+                      <div className="flex flex-col sm:flex-row gap-3 justify-center md:justify-end">
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          className="border-primary/50 hover:bg-primary/5"
+                          onClick={() => navigateToTop('/contact')}
+                        >
+                          <Calendar className="h-4 w-4 mr-2" />
+                          Schedule Demo
+                        </Button>
+                        <Button
+                          size="sm"
+                          className="bg-gradient-to-r from-primary to-red-500 hover:from-primary/90 hover:to-red-500/90 text-white shadow-lg"
+                          onClick={() => navigateToTop('/contact')}
+                        >
+                          Start Implementation
+                          <ArrowRight className="h-4 w-4 ml-2" />
+                        </Button>
+                      </div>
+                    </div>
+                    <div className="text-center">
+                      <p className="text-xs text-muted-foreground">
+                        ✓ No long-term contracts<br />
+                        ✓ 30-day money-back guarantee<br />
+                        ✓ Results within 90 days
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Floating accent elements */}
+              <div className="absolute -top-4 -left-4 w-8 h-8 bg-primary/20 rounded-full animate-bounce delay-500" />
+              <div className="absolute -bottom-4 -right-4 w-6 h-6 bg-red-500/20 rounded-full animate-bounce delay-1000" />
+              <div className="absolute top-1/2 -right-8 w-4 h-4 bg-primary/30 rounded-full animate-ping" />
+            </div>
           </div>
         </div>
       </section>
