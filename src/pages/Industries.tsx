@@ -80,9 +80,6 @@ const Industries = () => {
     }
   ];
 
-  const handleExploreIndustry = (industryId: string) => {
-    navigate(`/industries/${industryId}`);
-  };
 
   const showreel = "https://cdn.coverr.co/videos/coverr-abstract-technology-10926/1080p.mp4";
 
@@ -153,9 +150,8 @@ const Industries = () => {
               return (
                 <Card
                   key={industry.id}
-                  className="group relative cursor-pointer overflow-hidden border border-white/10 hover:border-red-400/50 transition-all duration-500 hover:shadow-[0_25px_80px_-40px_rgba(255,0,0,0.6)] hover:-translate-y-2 bg-gradient-to-br from-neutral-900/80 via-neutral-900/60 to-black animate-fade-in"
+                  className="group relative overflow-hidden border border-white/10 hover:border-red-400/50 transition-all duration-500 hover:shadow-[0_25px_80px_-40px_rgba(255,0,0,0.6)] hover:-translate-y-2 bg-gradient-to-br from-neutral-900/80 via-neutral-900/60 to-black animate-fade-in"
                   style={{ animationDelay: `${index * 100}ms` }}
-                  onClick={() => handleExploreIndustry(industry.id)}
                 >
                   <div className={`absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-white/5 opacity-0 group-hover:opacity-10 transition-opacity duration-500`} />
                   <div className={`absolute -inset-0.5 bg-gradient-to-r ${industry.color} rounded-lg opacity-0 group-hover:opacity-25 blur-sm transition-opacity duration-700 -z-10 animate-pan-slow`} />
