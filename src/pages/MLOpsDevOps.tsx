@@ -53,32 +53,20 @@ const MLOpsDevOps = () => {
   const processSteps = [
     {
       step: "01",
-      title: "Infrastructure Assessment",
-      description: "We evaluate your current infrastructure and identify opportunities for optimization and automation.",
+      title: "Assessment & Pipeline Design",
+      description: "Evaluate infrastructure and design MLOps pipelines tailored to your specific use cases and requirements.",
       icon: <Target className="h-6 w-6" />
     },
     {
       step: "02",
-      title: "Pipeline Design",
-      description: "Design and architect MLOps pipelines tailored to your specific use cases and requirements.",
-      icon: <GitBranch className="h-6 w-6" />
-    },
-    {
-      step: "03",
-      title: "Implementation",
-      description: "Build and configure your MLOps infrastructure with best practices and industry standards.",
+      title: "Implementation & Testing",
+      description: "Build and configure MLOps infrastructure with thorough testing to ensure reliability and performance.",
       icon: <Cog className="h-6 w-6" />
     },
     {
-      step: "04",
-      title: "Testing & Validation",
-      description: "Thoroughly test all components to ensure reliability, performance, and security.",
-      icon: <CheckCircle className="h-6 w-6" />
-    },
-    {
-      step: "05",
-      title: "Deployment & Training",
-      description: "Deploy your MLOps solution and provide comprehensive training for your team.",
+      step: "03",
+      title: "Deployment & Team Training",
+      description: "Deploy your complete MLOps solution and provide comprehensive training for successful adoption.",
       icon: <Cloud className="h-6 w-6" />
     }
   ];
@@ -241,7 +229,7 @@ const MLOpsDevOps = () => {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {processSteps.map((step, index) => (
               <div
                 key={index}

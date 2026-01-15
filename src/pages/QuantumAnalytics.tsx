@@ -59,26 +59,14 @@ const QuantumAnalytics = () => {
     },
     {
       step: "02",
-      title: "Platform Setup",
-      description: "Configure and deploy our analytics platform tailored to your specific business needs.",
-      icon: <Target className="h-6 w-6" />
-    },
-    {
-      step: "03",
-      title: "Model Training",
-      description: "Train custom ML models using your data to generate accurate predictions and insights.",
+      title: "AI Model Development",
+      description: "Build and train custom ML models using your data to generate accurate predictions and actionable insights.",
       icon: <Brain className="h-6 w-6" />
     },
     {
-      step: "04",
-      title: "Dashboard Creation",
-      description: "Build interactive dashboards and reports that visualize your data in meaningful ways.",
-      icon: <BarChart3 className="h-6 w-6" />
-    },
-    {
-      step: "05",
-      title: "Deployment & Training",
-      description: "Deploy the solution and provide comprehensive training for your team to maximize value.",
+      step: "03",
+      title: "Deployment & Integration",
+      description: "Deploy the complete analytics solution with interactive dashboards and provide team training for maximum value.",
       icon: <Zap className="h-6 w-6" />
     }
   ];
@@ -296,7 +284,7 @@ const QuantumAnalytics = () => {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {processSteps.map((step, index) => (
               <div
                 key={index}
@@ -482,7 +470,7 @@ const QuantumAnalytics = () => {
         <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-red-500/5 rounded-full blur-3xl animate-pulse" />
         <div className="container mx-auto px-6">
           <div className="text-center">
-            
+
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent leading-tight">
               From Business Problems<br />to Growth Results
             </h2>
@@ -693,71 +681,6 @@ const QuantumAnalytics = () => {
               {/* Decorative elements */}
               <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 w-24 h-24 bg-primary/10 rounded-full blur-xl animate-pulse" />
 
-              {/* Implementation Call-to-Action */}
-              <div className="relative bg-gradient-to-r from-card/60 via-card/80 to-card/60 backdrop-blur-sm rounded-3xl p-8 md:p-12 border border-border/50 shadow-2xl">
-                <div className="grid md:grid-cols-2 gap-8 items-center">
-                  {/* Left Side - Problem Transformation */}
-                  <div className="text-center md:text-left">
-                    <h3 className="text-2xl md:text-3xl font-bold mb-4 bg-gradient-to-r from-foreground to-primary bg-clip-text text-transparent">
-                      From Insight to Action
-                    </h3>
-                    <p className="text-muted-foreground leading-relaxed mb-6">
-                      Transform your business challenges into measurable results with our proven implementation methodology and dedicated support team.
-                    </p>
-                    <div className="flex flex-wrap justify-center md:justify-start gap-3">
-                      <div className="flex items-center space-x-2 bg-primary/5 px-3 py-2 rounded-lg">
-                        <CheckCircle className="h-4 w-4 text-primary" />
-                        <span className="text-sm font-medium">30-Day Implementation</span>
-                      </div>
-                      <div className="flex items-center space-x-2 bg-primary/5 px-3 py-2 rounded-lg">
-                        <CheckCircle className="h-4 w-4 text-primary" />
-                        <span className="text-sm font-medium">Dedicated Success Team</span>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Right Side - CTA */}
-                  <div className="text-center md:text-right">
-                    <div className="bg-gradient-to-br from-primary/10 via-primary/5 to-red-500/10 rounded-2xl p-6 border border-primary/20 mb-6">
-                      <h4 className="text-xl font-bold mb-2 text-foreground">Ready to Get Started?</h4>
-                      <p className="text-muted-foreground text-sm mb-4">
-                        Schedule a discovery call to see how we can transform your business challenges.
-                      </p>
-                      <div className="flex flex-col sm:flex-row gap-3 justify-center md:justify-end">
-                        <Button
-                          variant="outline"
-                          size="sm"
-                          className="border-primary/50 hover:bg-primary/5"
-                          onClick={() => navigateToTop('/contact')}
-                        >
-                          <Calendar className="h-4 w-4 mr-2" />
-                          Schedule Demo
-                        </Button>
-                        <Button
-                          size="sm"
-                          className="bg-gradient-to-r from-primary to-red-500 hover:from-primary/90 hover:to-red-500/90 text-white shadow-lg"
-                          onClick={() => navigateToTop('/contact')}
-                        >
-                          Start Implementation
-                          <ArrowRight className="h-4 w-4 ml-2" />
-                        </Button>
-                      </div>
-                    </div>
-                    <div className="text-center">
-                      <p className="text-xs text-muted-foreground">
-                        ✓ No long-term contracts<br />
-                        ✓ 30-day money-back guarantee<br />
-                        ✓ Results within 90 days
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Floating accent elements */}
-              <div className="absolute -top-4 -left-4 w-8 h-8 bg-primary/20 rounded-full animate-bounce delay-500" />
-              <div className="absolute -bottom-4 -right-4 w-6 h-6 bg-red-500/20 rounded-full animate-bounce delay-1000" />
-              <div className="absolute top-1/2 -right-8 w-4 h-4 bg-primary/30 rounded-full animate-ping" />
             </div>
           </div>
         </div>
