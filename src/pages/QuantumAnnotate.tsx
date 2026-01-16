@@ -20,33 +20,21 @@ const QuantumAnnotate = () => {
   const features = [
     {
       icon: <FileText className="h-8 w-8" />,
-      title: "Multi-modal Annotation",
-      description: "Comprehensive annotation services for text, image, audio, and video datasets. Our platform supports all major data types with specialized tools for each modality.",
-      benefits: ["Text annotation", "Image labeling", "Audio transcription", "Video analysis"]
+      title: "Multi-Modal Data Annotation",
+      description: "Expert annotation services across all data types including text, images, audio, and video with specialized tools and quality assurance for each modality.",
+      benefits: ["Text & image annotation", "Audio/video processing", "Quality validation", "Multi-format support"]
     },
     {
       icon: <Users className="h-8 w-8" />,
-      title: "Professional Workforce",
-      description: "Industry-grade quality delivered by our dedicated team of annotation specialists with expertise across various domains and data types.",
-      benefits: ["Expert annotators", "Domain specialists", "Quality assurance", "Consistent standards"]
-    },
-    {
-      icon: <Shield className="h-8 w-8" />,
-      title: "Industry-Grade Quality",
-      description: "Rigorous quality control processes ensure high accuracy and consistency across all annotation projects, meeting enterprise standards.",
-      benefits: ["Quality control", "Accuracy validation", "Consistency checks", "Enterprise standards"]
-    },
-    {
-      icon: <Zap className="h-8 w-8" />,
-      title: "Scalable Solutions",
-      description: "Handle projects of any size with our scalable infrastructure and flexible workforce that can adapt to your project requirements and timelines.",
-      benefits: ["Flexible scaling", "Rapid deployment", "Custom workflows", "Timeline management"]
+      title: "Expert Annotation Team",
+      description: "Professional annotators with domain expertise ensuring high-quality, consistent results across complex annotation projects and specialized requirements.",
+      benefits: ["Expert annotators", "Domain specialists", "Quality assurance", "Project scalability"]
     },
     {
       icon: <Target className="h-8 w-8" />,
-      title: "Custom Annotation Frameworks",
-      description: "Tailored annotation frameworks designed specifically for your use case, ensuring optimal data quality for your machine learning models.",
-      benefits: ["Custom schemas", "Use-case optimization", "Model-specific labeling", "Flexible guidelines"]
+      title: "Custom Frameworks & Quality Control",
+      description: "Tailored annotation frameworks with rigorous quality control processes, ensuring your data meets the highest standards for machine learning model training.",
+      benefits: ["Custom frameworks", "Quality control", "ML-ready data", "Enterprise standards"]
     }
   ];
 
@@ -59,14 +47,26 @@ const QuantumAnnotate = () => {
     },
     {
       step: "02",
-      title: "Annotation Framework",
-      description: "Create custom guidelines, assign specialized annotators, and establish quality standards for your project.",
+      title: "Framework Design",
+      description: "Create custom annotation guidelines and quality standards tailored to your specific use case.",
       icon: <FileText className="h-6 w-6" />
     },
     {
       step: "03",
-      title: "Quality Delivery",
-      description: "Execute annotation with continuous quality control and deliver high-quality data with ongoing support.",
+      title: "Team Assignment",
+      description: "Assign specialized annotators with relevant domain expertise to your project.",
+      icon: <Users className="h-6 w-6" />
+    },
+    {
+      step: "04",
+      title: "Annotation & Quality Control",
+      description: "Execute the annotation process with continuous quality monitoring and validation.",
+      icon: <CheckCircle className="h-6 w-6" />
+    },
+    {
+      step: "05",
+      title: "Delivery & Support",
+      description: "Deliver high-quality annotated data with ongoing support and iteration capabilities.",
       icon: <Zap className="h-6 w-6" />
     }
   ];
@@ -215,7 +215,7 @@ const QuantumAnnotate = () => {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
             {processSteps.map((step, index) => (
               <div
                 key={index}

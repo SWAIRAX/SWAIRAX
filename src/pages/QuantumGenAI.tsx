@@ -20,33 +20,21 @@ const QuantumGenAI = () => {
   const features = [
     {
       icon: <Brain className="h-8 w-8" />,
-      title: "Advanced Model Fine-tuning",
-      description: "Leverage our expertise in fine-tuning large language models to achieve superior performance on your specific use cases. We optimize models for accuracy, efficiency, and domain-specific requirements.",
-      benefits: ["Custom model architectures", "Domain-specific optimization", "Performance benchmarking", "Continuous improvement"]
+      title: "Advanced AI Model Development",
+      description: "Expert fine-tuning of large language models with domain-specific optimization to achieve superior performance and accuracy for your specific use cases.",
+      benefits: ["Model fine-tuning", "Domain optimization", "Performance enhancement", "Custom architectures"]
     },
     {
       icon: <Database className="h-8 w-8" />,
-      title: "Data Expertise & Curation",
-      description: "Our in-house data specialists ensure your AI models are trained on high-quality, relevant datasets. We handle data preprocessing, augmentation, and quality assurance.",
-      benefits: ["Data quality assessment", "Automated preprocessing", "Data augmentation strategies", "Privacy compliance"]
-    },
-    {
-      icon: <Zap className="h-8 w-8" />,
-      title: "Speed & Performance Optimization",
-      description: "Achieve faster inference times and improved model efficiency through advanced optimization techniques including quantization, pruning, and hardware-specific optimizations.",
-      benefits: ["Model compression", "Inference acceleration", "Memory optimization", "Hardware optimization"]
+      title: "Data Processing & Quality Assurance",
+      description: "Comprehensive data preparation services including preprocessing, augmentation, quality assessment, and privacy-compliant data handling for optimal AI training.",
+      benefits: ["Data preprocessing", "Quality assurance", "Privacy compliance", "Augmentation strategies"]
     },
     {
       icon: <Target className="h-8 w-8" />,
-      title: "Custom AI Solutions",
-      description: "Build tailored generative AI solutions that align with your business objectives. From chatbots to content generation, we create AI systems that deliver measurable results.",
-      benefits: ["Custom AI applications", "Integration services", "API development", "Scalable deployment"]
-    },
-    {
-      icon: <Shield className="h-8 w-8" />,
-      title: "Reliability & Monitoring",
-      description: "Ensure your AI models perform consistently with comprehensive monitoring, error handling, and automated quality assurance systems.",
-      benefits: ["Real-time monitoring", "Error detection", "Performance tracking", "Automated alerts"]
+      title: "Custom AI Solutions & Deployment",
+      description: "End-to-end AI solution development from concept to deployment, including custom applications, API development, and scalable infrastructure setup.",
+      benefits: ["Custom AI solutions", "API development", "Scalable deployment", "Integration services"]
     }
   ];
 

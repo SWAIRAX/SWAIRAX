@@ -78,7 +78,7 @@ const About = () => {
       <Header />
 
       {/* Hero Section - Split Layout */}
-      <section className="relative pt-16 pb-8 md:pt-18 md:pb-8 bg-background overflow-hidden">
+      <section className="relative pt-24 pb-8 md:pt-18 md:pb-8 bg-background overflow-hidden">
         <div className="absolute inset-x-0 top-0 h-[280px] md:h-[300px] bg-gradient-to-b from-background via-background/90 to-transparent pointer-events-none" />
         <div className="container mx-auto px-4 sm:px-6 lg:px-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 xl:gap-12 items-center max-w-6xl mx-auto">
@@ -88,7 +88,7 @@ const About = () => {
                 <span className="text-foreground">Quantum </span>
                 <span className="text-primary">Intelligence</span>
               </SectionHeading>
-              
+
               <p className="text-base text-muted-foreground mb-8 max-w-3xl">
                 We're an AI research and deployment company building innovative, ethical, and accessible AI solutions that empower businesses and individuals to unlock the full potential of their data.
               </p>
