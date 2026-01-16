@@ -59,26 +59,14 @@ const QuantumAnnotate = () => {
     },
     {
       step: "02",
-      title: "Framework Design",
-      description: "Create custom annotation guidelines and quality standards tailored to your specific use case.",
+      title: "Annotation Framework",
+      description: "Create custom guidelines, assign specialized annotators, and establish quality standards for your project.",
       icon: <FileText className="h-6 w-6" />
     },
     {
       step: "03",
-      title: "Team Assignment",
-      description: "Assign specialized annotators with relevant domain expertise to your project.",
-      icon: <Users className="h-6 w-6" />
-    },
-    {
-      step: "04",
-      title: "Annotation & Quality Control",
-      description: "Execute the annotation process with continuous quality monitoring and validation.",
-      icon: <CheckCircle className="h-6 w-6" />
-    },
-    {
-      step: "05",
-      title: "Delivery & Support",
-      description: "Deliver high-quality annotated data with ongoing support and iteration capabilities.",
+      title: "Quality Delivery",
+      description: "Execute annotation with continuous quality control and deliver high-quality data with ongoing support.",
       icon: <Zap className="h-6 w-6" />
     }
   ];
@@ -227,7 +215,7 @@ const QuantumAnnotate = () => {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {processSteps.map((step, index) => (
               <div
                 key={index}

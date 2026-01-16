@@ -53,32 +53,20 @@ const QuantumGenAI = () => {
   const processSteps = [
     {
       step: "01",
-      title: "Discovery & Analysis",
-      description: "We analyze your requirements, existing data, and business objectives to design the optimal AI solution.",
+      title: "Discovery & Data Preparation",
+      description: "We analyze your requirements and prepare your data through cleaning, preprocessing, and optimization for maximum AI performance.",
       icon: <Target className="h-6 w-6" />
     },
     {
       step: "02",
-      title: "Data Preparation",
-      description: "Our experts clean, preprocess, and optimize your data for maximum model performance.",
-      icon: <Database className="h-6 w-6" />
+      title: "AI Model Development & Testing",
+      description: "Fine-tune and optimize models using advanced techniques with rigorous testing to ensure performance benchmarks are met.",
+      icon: <Brain className="h-6 w-6" />
     },
     {
       step: "03",
-      title: "Model Development",
-      description: "We fine-tune and optimize models using cutting-edge techniques and your specific data.",
-      icon: <Cog className="h-6 w-6" />
-    },
-    {
-      step: "04",
-      title: "Testing & Validation",
-      description: "Rigorous testing ensures your AI solution meets performance benchmarks and business requirements.",
-      icon: <CheckCircle className="h-6 w-6" />
-    },
-    {
-      step: "05",
-      title: "Deployment & Support",
-      description: "We deploy your solution and provide ongoing monitoring, maintenance, and optimization support.",
+      title: "Deployment & Ongoing Support",
+      description: "Deploy your AI solution with continuous monitoring, maintenance, and optimization support for long-term success.",
       icon: <Zap className="h-6 w-6" />
     }
   ];
@@ -227,7 +215,7 @@ const QuantumGenAI = () => {
             </div>
           </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {processSteps.map((step, index) => (
               <div
                 key={index}
