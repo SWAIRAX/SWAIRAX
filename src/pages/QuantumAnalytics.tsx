@@ -20,33 +20,21 @@ const QuantumAnalytics = () => {
   const features = [
     {
       icon: <Brain className="h-8 w-8" />,
-      title: "Machine Learning & RLHF",
-      description: "Advanced machine learning algorithms enhanced with Reinforcement Learning from Human Feedback (RLHF) to deliver more accurate and contextually relevant insights from your data.",
-      benefits: ["Advanced ML algorithms", "Human feedback integration", "Contextual learning", "Continuous improvement"]
-    },
-    {
-      icon: <BarChart3 className="h-8 w-8" />,
-      title: "Impact Measurement & Tracking",
-      description: "Comprehensive analytics platform that measures and tracks the real-world impact of your initiatives, providing clear ROI metrics and performance indicators.",
-      benefits: ["ROI measurement", "Performance tracking", "Impact visualization", "Progress monitoring"]
-    },
-    {
-      icon: <TrendingUp className="h-8 w-8" />,
-      title: "Smart Decision Making",
-      description: "Transform raw data into actionable insights with our AI-powered analytics engine that identifies patterns, trends, and opportunities for strategic decision making.",
-      benefits: ["Pattern recognition", "Trend analysis", "Predictive insights", "Strategic recommendations"]
+      title: "Advanced AI & Machine Learning",
+      description: "Leverage cutting-edge AI algorithms and machine learning models to extract meaningful insights from your data and drive intelligent decision-making.",
+      benefits: ["Advanced ML algorithms", "Predictive analytics", "Pattern recognition", "Automated insights"]
     },
     {
       icon: <Database className="h-8 w-8" />,
-      title: "Data-Centric Platform",
-      description: "A comprehensive data platform that centralizes, processes, and analyzes information from multiple sources, ensuring data quality and consistency across your organization.",
-      benefits: ["Data centralization", "Quality assurance", "Multi-source integration", "Real-time processing"]
+      title: "Data Processing & Integration",
+      description: "Comprehensive data platform that centralizes, processes, and analyzes information from multiple sources with enterprise-grade security and performance.",
+      benefits: ["Data centralization", "Multi-source integration", "Real-time processing", "Enterprise security"]
     },
     {
-      icon: <Activity className="h-8 w-8" />,
-      title: "Progress Tracking & Optimization",
-      description: "Monitor and optimize your business processes with real-time dashboards and automated reporting that keeps you informed of key performance metrics.",
-      benefits: ["Real-time dashboards", "Automated reporting", "Process optimization", "Performance alerts"]
+      icon: <BarChart3 className="h-8 w-8" />,
+      title: "Interactive Dashboards & Reporting",
+      description: "Beautiful, interactive dashboards and automated reporting systems that transform complex data into clear, actionable business intelligence.",
+      benefits: ["Interactive dashboards", "Automated reporting", "Real-time visualization", "Custom metrics"]
     }
   ];
 
@@ -59,14 +47,26 @@ const QuantumAnalytics = () => {
     },
     {
       step: "02",
-      title: "AI Model Development",
-      description: "Build and train custom ML models using your data to generate accurate predictions and actionable insights.",
-      icon: <Brain className="h-6 w-6" />
+      title: "Platform Setup",
+      description: "Configure and deploy our analytics platform tailored to your specific business needs.",
+      icon: <Target className="h-6 w-6" />
     },
     {
       step: "03",
-      title: "Deployment & Integration",
-      description: "Deploy the complete analytics solution with interactive dashboards and provide team training for maximum value.",
+      title: "Model Training",
+      description: "Train custom ML models using your data to generate accurate predictions and insights.",
+      icon: <Brain className="h-6 w-6" />
+    },
+    {
+      step: "04",
+      title: "Dashboard Creation",
+      description: "Build interactive dashboards and reports that visualize your data in meaningful ways.",
+      icon: <BarChart3 className="h-6 w-6" />
+    },
+    {
+      step: "05",
+      title: "Deployment & Training",
+      description: "Deploy the solution and provide comprehensive training for your team to maximize value.",
       icon: <Zap className="h-6 w-6" />
     }
   ];
@@ -284,7 +284,7 @@ const QuantumAnalytics = () => {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
             {processSteps.map((step, index) => (
               <div
                 key={index}

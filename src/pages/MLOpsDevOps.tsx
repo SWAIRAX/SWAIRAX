@@ -20,53 +20,53 @@ const MLOpsDevOps = () => {
   const features = [
     {
       icon: <Cloud className="h-8 w-8" />,
-      title: "Model Deployment & Scaling",
-      description: "Deploy your machine learning models to production with automated scaling, load balancing, and high availability. Our solutions ensure your models can handle any traffic load.",
-      benefits: ["Auto-scaling infrastructure", "Load balancing", "High availability", "Multi-cloud deployment"]
+      title: "Model Deployment & Infrastructure",
+      description: "Deploy ML models to production with auto-scaling infrastructure, load balancing, and high availability across multi-cloud environments.",
+      benefits: ["Auto-scaling deployment", "Multi-cloud support", "Load balancing", "High availability"]
     },
     {
       icon: <GitBranch className="h-8 w-8" />,
-      title: "CI/CD for Machine Learning",
-      description: "Implement continuous integration and deployment pipelines specifically designed for ML workflows. Automate testing, validation, and deployment of your models.",
-      benefits: ["Automated testing", "Model validation", "Version control", "Rollback capabilities"]
+      title: "CI/CD Pipelines for ML",
+      description: "Automated continuous integration and deployment pipelines designed specifically for machine learning workflows with model validation and version control.",
+      benefits: ["Automated pipelines", "Model validation", "Version control", "Rollback capabilities"]
     },
     {
       icon: <Monitor className="h-8 w-8" />,
-      title: "Model Monitoring & Observability",
-      description: "Monitor your models in production with real-time performance tracking, drift detection, and automated alerts. Ensure your models maintain accuracy over time.",
-      benefits: ["Real-time monitoring", "Drift detection", "Performance tracking", "Automated alerts"]
-    },
-    {
-      icon: <Settings className="h-8 w-8" />,
-      title: "Infrastructure as Code",
-      description: "Manage your ML infrastructure using code with Terraform, Kubernetes, and other IaC tools. Ensure consistent, reproducible, and scalable deployments.",
-      benefits: ["Terraform automation", "Kubernetes orchestration", "Environment consistency", "Cost optimization"]
-    },
-    {
-      icon: <Database className="h-8 w-8" />,
-      title: "Data Pipeline Automation",
-      description: "Build robust data pipelines that automatically process, validate, and prepare data for your ML models. Ensure data quality and consistency across all stages.",
-      benefits: ["Automated data processing", "Data validation", "Quality checks", "Pipeline orchestration"]
+      title: "Monitoring & Observability",
+      description: "Comprehensive monitoring system with real-time performance tracking, drift detection, automated alerts, and full observability for ML models in production.",
+      benefits: ["Real-time monitoring", "Drift detection", "Performance tracking", "Automated observability"]
     }
   ];
 
   const processSteps = [
     {
       step: "01",
-      title: "Assessment & Pipeline Design",
-      description: "Evaluate infrastructure and design MLOps pipelines tailored to your specific use cases and requirements.",
+      title: "Infrastructure Assessment",
+      description: "We evaluate your current infrastructure and identify opportunities for optimization and automation.",
       icon: <Target className="h-6 w-6" />
     },
     {
       step: "02",
-      title: "Implementation & Testing",
-      description: "Build and configure MLOps infrastructure with thorough testing to ensure reliability and performance.",
-      icon: <Cog className="h-6 w-6" />
+      title: "Pipeline Design",
+      description: "Design and architect MLOps pipelines tailored to your specific use cases and requirements.",
+      icon: <GitBranch className="h-6 w-6" />
     },
     {
       step: "03",
-      title: "Deployment & Team Training",
-      description: "Deploy your complete MLOps solution and provide comprehensive training for successful adoption.",
+      title: "Implementation",
+      description: "Build and configure your MLOps infrastructure with best practices and industry standards.",
+      icon: <Cog className="h-6 w-6" />
+    },
+    {
+      step: "04",
+      title: "Testing & Validation",
+      description: "Thoroughly test all components to ensure reliability, performance, and security.",
+      icon: <CheckCircle className="h-6 w-6" />
+    },
+    {
+      step: "05",
+      title: "Deployment & Training",
+      description: "Deploy your MLOps solution and provide comprehensive training for your team.",
       icon: <Cloud className="h-6 w-6" />
     }
   ];
@@ -229,7 +229,7 @@ const MLOpsDevOps = () => {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
             {processSteps.map((step, index) => (
               <div
                 key={index}
