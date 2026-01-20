@@ -182,7 +182,6 @@ We're a team of scientists, engineers, ethicists and more, working to build the 
         </div>
       </section>
 
-      {/* Values */}
       <section className="relative py-12 md:py-16 bg-gradient-to-br from-card via-card/50 to-background overflow-hidden">
         {/* Decorative Elements */}
         <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl" />
@@ -211,7 +210,7 @@ We're a team of scientists, engineers, ethicists and more, working to build the 
                   <h3 className="text-lg font-bold mb-2 group-hover:text-primary transition-colors">{value.title}</h3>
                   <p className="text-muted-foreground text-sm mb-3 group-hover:text-foreground transition-colors">{value.description}</p>
 
-                  <Collapsible open={expandedValues[value.title]} onOpenChange={() => toggleValue(value.title)}>
+                  {/* <Collapsible open={expandedValues[value.title]} onOpenChange={() => toggleValue(value.title)}>
                     <CollapsibleTrigger asChild>
                       <Button
                         variant="ghost"
@@ -295,7 +294,7 @@ We're a team of scientists, engineers, ethicists and more, working to build the 
                         )}
                       </div>
                     </CollapsibleContent>
-                  </Collapsible>
+                  </Collapsible> */}
                 </CardContent>
               </Card>
             ))}

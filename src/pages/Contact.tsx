@@ -502,7 +502,7 @@ const Contact = () => {
               {/* Form panel */}
               <div className="relative">
                 <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-primary/20 via-transparent to-primary/5 blur-3xl" />
-                <div className="relative overflow-hidden rounded-2xl border border-border/40 bg-gradient-to-br from-[#0d0f1a]/92 via-[#0c0d18]/90 to-background/88 shadow-[0_25px_70px_-28px_rgba(0,0,0,0.6)] p-5 md:p-6 backdrop-blur">
+                <div className="relative overflow-hidden rounded-2xl bg-transparent p-5 md:p-6">
                   <div className="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-primary/8 blur-3xl" />
                   <div className="pointer-events-none absolute inset-2 rounded-xl border border-primary/50" />
                   <div className="relative space-y-3">

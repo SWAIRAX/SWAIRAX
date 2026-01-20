@@ -10,6 +10,7 @@ import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
 import { ArrowRight, CheckCircle, Database, Cog, Cloud, BarChart3, PieChart, TrendingUp, User, Clock } from "lucide-react";
 import { blogPosts, BlogPost } from "@/data/blogPosts";
+import { InfiniteMovingCards } from "@/components/ui/infinite-moving-cards";
 
 const Index = () => {
   const navigate = useNavigate();
@@ -51,8 +52,8 @@ const Index = () => {
     <Cloud className="h-6 w-6" />
   ];
 
-  // Get featured articles from blog posts (first 3)
-  const featuredArticles = blogPosts.slice(0, 3);
+  // Get all blog posts for infinite moving cards
+  const allBlogPosts = blogPosts;
 
   const revenueSeries = useMemo(() => [18, 22, 19, 26, 31, 29, 37, 45], []);
   const revenuePath = useMemo(() => {
@@ -98,19 +99,19 @@ const Index = () => {
           <div className="absolute inset-0 bg-background/60"></div>
         </div>
 
-        <div className="container mx-auto px-6 text-center relative z-10">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <div className="max-w-4xl mx-auto animate-fade-in">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 leading-tight">
              AI-powered Automation <br />
              {/* <span className="text-blue-400">AI-powered Automation</span>  */}
                <span className="text-primary"> For every decision</span>
             </h1>
-            <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto">
+            <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground mb-6 sm:mb-8 max-w-3xl mx-auto leading-relaxed">
               Adopting data-centric operations and building AI solutions has never been easier, we are working on that.
             </p>
             <Button
               size="lg"
-              className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-4 text-lg animate-glow-pulse"
+              className="bg-primary hover:bg-primary/90 text-primary-foreground px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg animate-glow-pulse w-full sm:w-auto"
               onClick={() => scrollToSection("why-quantum")}
             >
               Scroll to Explore
@@ -120,29 +121,29 @@ const Index = () => {
       </section>
 
       {/* Why Quantum Intelligence Section */}
-      <section id="why-quantum" className="py-20 bg-card">
-        <div className="container mx-auto px-6">
-          <ScrollReveal className="text-center mb-16">
-            <p className="text-primary text-base md:text-lg font-semibold mb-4">Why Quantum Intelligence?</p>
-            <h2 className="text-4xl md:text-5xl font-bold mb-8">
+      <section id="why-quantum" className="py-12 sm:py-16 lg:py-20 bg-card">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <ScrollReveal className="text-center mb-8 sm:mb-12 lg:mb-16">
+            <p className="text-primary text-sm sm:text-base md:text-lg font-semibold mb-3 sm:mb-4">Why Quantum Intelligence?</p>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-6 sm:mb-8 leading-tight">
               We help Business & Data Scientists to unlock<br />
               data & artificial intelligence full potential.
             </h2>
           </ScrollReveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
             <div>
               <p className="text-lg text-muted-foreground mb-8">
                 Through measurable <span className="text-primary">performance</span> & improvements we offer services as follows.
               </p>
 
-              <div className="grid grid-cols-2 gap-8">
+              <div className="grid grid-cols-2 gap-4 sm:gap-6 lg:gap-8">
                 {stats.map((stat, index) => (
-                  <div key={index} className="metric-card text-center p-4 rounded-lg border border-primary/10 animate-slide-in-bottom" style={{ animationDelay: `${index * 0.1}s` }}>
-                    <div className="metric-value text-4xl md:text-5xl font-bold mb-2 animate-counter-up" style={{ animationDelay: `${index * 0.15}s` }}>
+                  <div key={index} className="metric-card text-center p-3 sm:p-4 rounded-lg border border-primary/10 animate-slide-in-bottom" style={{ animationDelay: `${index * 0.1}s` }}>
+                    <div className="metric-value text-3xl sm:text-4xl md:text-5xl font-bold mb-1 sm:mb-2 animate-counter-up" style={{ animationDelay: `${index * 0.15}s` }}>
                       <AnimatedCounter value={stat.value} />
                     </div>
-                    <p className="text-sm text-muted-foreground">{stat.label}</p>
+                    <p className="text-xs sm:text-sm text-muted-foreground">{stat.label}</p>
                   </div>
                 ))}
               </div>
@@ -166,12 +167,12 @@ const Index = () => {
       </section>
 
       {/* Data-Centric Solutions Section */}
-      <section className="py-20">
-        <div className="container mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <section className="py-12 sm:py-16 lg:py-20">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
             <ScrollReveal>
-              <p className="text-primary text-base md:text-lg font-semibold mb-4">What do we do?</p>
-              <h2 className="text-4xl md:text-5xl font-bold mb-8">
+              <p className="text-primary text-sm sm:text-base md:text-lg font-semibold mb-3 sm:mb-4">What do we do?</p>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 lg:mb-8 leading-tight">
                 Data-Centric and AI solutions
               </h2>
             </ScrollReveal>
@@ -201,20 +202,20 @@ const Index = () => {
       </section>
 
       {/* MLOps Section */}
-      <section className="py-20 bg-card">
-        <div className="container mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <section className="py-12 sm:py-16 lg:py-20 bg-card">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
             <ScrollReveal>
-              <p className="text-primary text-base md:text-lg font-semibold mb-4">MLOps</p>
-              <h2 className="text-4xl md:text-5xl font-bold mb-8">
+              <p className="text-primary text-sm sm:text-base md:text-lg font-semibold mb-3 sm:mb-4">MLOps</p>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 lg:mb-8 leading-tight">
                 Machine Learning + Devops
               </h2>
-              <p className="text-muted-foreground mb-6">
+              <p className="text-muted-foreground text-sm sm:text-base mb-4 sm:mb-6 leading-relaxed">
                 You have the data and the model, but you still can't see the return on investment for your AI
                 projects. Research shows that 50 - 90% of AI models are never commercialized because of
                 the "last-mile" deployment problem.
               </p>
-              <p className="text-muted-foreground mb-8">
+              <p className="text-muted-foreground text-sm sm:text-base mb-6 sm:mb-8 leading-relaxed">
                 We practices Machine Learning Operations (MLOps) by bridging the gap between data and
                 IT Ops teams. We help you convert your data to business value by deploying your models
                 into production.
@@ -265,9 +266,9 @@ const Index = () => {
       </section>
 
       {/* Business Analysis Section */}
-      <section className="py-20">
-        <div className="container mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <section className="py-12 sm:py-16 lg:py-20">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
             <ScrollReveal className="relative">
               {/* Interactive Dashboard Illustration */}
               <div className="bg-card/50 p-8 rounded-lg border border-border/50 backdrop-blur-sm">
@@ -424,16 +425,16 @@ const Index = () => {
       </section>
 
       {/* Products Section */}
-      <section className="py-20 bg-card">
-        <div className="container mx-auto px-6">
-          <ScrollReveal className="text-center mb-16">
-            <p className="text-primary text-base md:text-lg font-semibold mb-4">Ready to start?</p>
-            <h2 className="text-4xl md:text-5xl font-bold">
+      <section className="py-12 sm:py-16 lg:py-20 bg-card">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <ScrollReveal className="text-center mb-8 sm:mb-12 lg:mb-16">
+            <p className="text-primary text-sm sm:text-base md:text-lg font-semibold mb-3 sm:mb-4">Ready to start?</p>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight">
               Solutions Built to Scale
             </h2>
           </ScrollReveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
             {products.map((product, index) => (
               <Card
                 key={index}
@@ -500,23 +501,23 @@ const Index = () => {
       </section>
 
       {/* Infrastructure Section */}
-      <section className="py-20">
-        <div className="container mx-auto px-6">
+      <section className="py-12 sm:py-16 lg:py-20">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal className="max-w-4xl">
-            <h2 className="text-4xl md:text-5xl font-bold mb-8">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 lg:mb-8 leading-tight">
               Want to develop AI and data related solutions on-premises?
             </h2>
-            <p className="text-xl text-muted-foreground mb-8">
+            <p className="text-base sm:text-lg lg:text-xl text-muted-foreground mb-4 sm:mb-6 lg:mb-8 leading-relaxed">
               Quantum Intelligence offers AI related solutions that can be deployed in any infrastructure for
               anyone eager to enter in the industry.
             </p>
-            <p className="text-lg text-muted-foreground mb-8">
+            <p className="text-sm sm:text-base lg:text-lg text-muted-foreground mb-6 sm:mb-8 leading-relaxed">
               Contact us to know more!
             </p>
             <Button
             variant="outline"
             size="lg"
-            className="border-foreground text-foreground hover:bg-foreground hover:text-background"
+            className="border-foreground text-foreground hover:bg-foreground hover:text-background w-full sm:w-auto"
             onClick={() => navigateToTop("/contact")}
           >
             Contact us
@@ -526,13 +527,13 @@ const Index = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-card text-center">
-        <div className="container mx-auto px-6">
+      <section className="py-12 sm:py-16 lg:py-20 bg-card text-center">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal>
-            <h2 className="text-4xl md:text-5xl font-bold mb-8">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 lg:mb-8 leading-tight">
               Join the <span className="text-primary">Data-Centric AI</span> movement!
             </h2>
-            <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
+            <p className="text-base sm:text-lg lg:text-xl text-muted-foreground mb-6 sm:mb-8 lg:mb-12 max-w-3xl mx-auto leading-relaxed">
               Connect, profile, understand & orchestrate your data preparation flows to train models more
               efficiently! Improve AI initiatives performance in a iterative way.
             </p>
@@ -558,61 +559,41 @@ const Index = () => {
       </section>
 
       {/* Featured Articles Section */}
-      <section className="py-20">
-        <div className="container mx-auto px-6">
+      <section className="py-12 sm:py-16 lg:py-20">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal>
-            <h2 className="text-4xl md:text-5xl font-bold mb-16">Our Featured Articles</h2>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-8 sm:mb-12 lg:mb-16 leading-tight">Our Latest Articles</h2>
           </ScrollReveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {featuredArticles.map((article, index) => (
-              <Card
-                key={article.slug}
-                className="bg-card border-border hover:shadow-card transition-all duration-300 overflow-hidden cursor-pointer hover-scale"
-                onClick={() => handleBlogClick(article)}
-              >
-                {article.imageUrl && (
-                  <img
-                    src={`/uploads/${article.imageUrl.replace(/^\/+/,'')}`}
-                    alt={article.title}
-                    className="w-full aspect-video object-cover"
-                    loading="lazy"
-                  />
-                )}
-                <CardContent className="p-6">
-                  <h3 className="text-xl font-bold mb-3 leading-snug">{article.title}</h3>
-                  <div className="flex items-center gap-4 text-xs text-muted-foreground mb-4">
-                    <div className="flex items-center gap-2">
-                      <User className="h-3 w-3" />
-                      {article.author}
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <Clock className="h-3 w-3" />
-                      {article.readTime}
-                    </div>
-                  </div>
+          <InfiniteMovingCards
+            items={allBlogPosts.map((article) => ({
+              quote: '', // Remove excerpt text from cards
+              name: article.title,
+              title: `${article.author} • ${article.readTime}`,
+              imageUrl: article.imageUrl,
+            }))}
+            direction="left"
+            speed="normal"
+            pauseOnHover={true}
+            className="mt-8"
+            cardType="simple"
+            showImages={true}
+            onLearnMore={(item) => {
+              const article = allBlogPosts.find(a => a.title === item.name);
+              if (article) {
+                navigateToTop(`/blog/${article.slug}`);
+              }
+            }}
+          />
 
-                  <Button
-                    variant="ghost"
-                    className="group inline-flex items-center gap-2 px-4 py-2 rounded-full border border-transparent text-primary hover:text-primary hover:border-primary/50 hover:bg-transparent active:bg-transparent transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/60 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
-                    onClick={() => handleBlogClick(article)}
-                  >
-                    Read More
-                    <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-                  </Button>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-
-          <div className="text-center mt-12">
+          <div className="text-center mt-8 sm:mt-10 lg:mt-12">
             <Button
               variant="outline"
               size="lg"
-              className="border-primary text-primary hover:bg-primary hover:text-primary-foreground px-8"
+              className="border-primary text-primary hover:bg-primary hover:text-primary-foreground px-6 sm:px-8 py-3"
               onClick={() => navigateToTop('/blog')}
             >
-              View All Blogs <ArrowRight className="ml-2 h-4 w-4" />
+              Explore More Articles <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
           </div>
         </div>

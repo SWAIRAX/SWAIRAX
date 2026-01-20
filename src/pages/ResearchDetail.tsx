@@ -3,10 +3,11 @@ import { useParams, useNavigate } from "react-router-dom";
 import { useNavigationWithScroll } from "@/utils/navigation";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import ScrollReveal from "@/components/ScrollReveal";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { ArrowLeft, Shield, Users, FileText, Calendar, Target, Lightbulb, CheckCircle } from "lucide-react";
+import { ArrowLeft, Shield, Users, FileText, Target, Lightbulb, CheckCircle } from "lucide-react";
 
 const ResearchDetail = () => {
   const { solutionName } = useParams();
@@ -105,177 +106,211 @@ const ResearchDetail = () => {
   }
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-black text-white">
       <Header />
 
       {/* Hero Section */}
-      <section className="pt-24 pb-8 bg-gradient-to-br from-primary/5 via-secondary/10 to-background">
-        <div className="container mx-auto px-6">
+      <section className="relative overflow-hidden pt-16 md:pt-20 pb-8">
+        <div className="absolute inset-0 bg-gradient-to-br from-black via-[#0d0d12] to-black" />
+        <div className="absolute -left-20 top-10 w-80 h-80 bg-red-500/15 rounded-full blur-3xl" />
+        <div className="absolute right-0 -top-10 w-[520px] h-[520px] rotate-6 bg-gradient-to-br from-white/10 via-transparent to-red-500/20 opacity-60 animate-pan-slow" />
+        <div className="absolute inset-0 holo-grid opacity-20" />
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-4xl mx-auto">
             <Button
               variant="ghost"
               onClick={() => navigateToTop('/research')}
-              className="mb-4 group text-xs"
+              className="mb-4 group text-xs text-white hover:bg-white/10 hover:text-white"
             >
               <ArrowLeft className="w-3 h-3 mr-1 group-hover:-translate-x-1 transition-transform" />
               View All Research
             </Button>
 
-            <div className="flex items-center space-x-3 mb-4">
-              <div className="w-10 h-10 bg-primary/20 rounded-lg flex items-center justify-center text-primary">
-                {solution.icon}
-              </div>
-              <div>
-                <h1 className="text-xl font-bold mb-1 animate-fade-in">
-                  {solution.title}
-                </h1>
-                <p className="text-sm text-primary font-medium">{solution.tagline}</p>
-              </div>
-            </div>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-center">
+              <div className="space-y-4">
+                <div className="flex items-center space-x-3 mb-4">
+                  <div className="w-12 h-12 bg-gradient-to-br from-red-500/30 to-white/10 rounded-lg flex items-center justify-center text-red-200">
+                    {solution.icon}
+                  </div>
+                  <div>
+                    <h1 className="text-2xl md:text-3xl font-bold mb-1 animate-fade-in">
+                      {solution.title}
+                    </h1>
+                    <p className="text-sm text-red-300 font-medium">{solution.tagline}</p>
+                  </div>
+                </div>
 
-            <div className="flex items-center space-x-3 mb-6">
-              <Badge variant="secondary" className="text-xs">{solution.category}</Badge>
-              <Badge variant="outline" className="text-muted-foreground text-xs">
-                <Calendar className="w-3 h-3 mr-1" />
-                {solution.launchDate}
-              </Badge>
-              <Badge variant="destructive" className="bg-red-500/20 text-red-600 border-red-200 text-xs">
-                {solution.status}
-              </Badge>
+                <div className="flex flex-wrap items-center gap-3 mb-6">
+                  <Badge className="bg-white/10 text-white border-white/10 text-xs">{solution.category}</Badge>
+                </div>
+              </div>
+
+              <div className="relative max-w-md mx-auto">
+                <div className="absolute -inset-6 bg-gradient-to-r from-red-500/15 via-transparent to-white/10 blur-2xl" />
+                <div className="relative overflow-hidden rounded-3xl border border-white/10 shadow-[0_30px_100px_-60px_rgba(255,0,0,0.6)]">
+                  <img
+                    src={solution.heroImage}
+                    alt={`${solution.title} hero`}
+                    className="h-full w-full object-cover"
+                  />
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* About Section */}
-      <section className="py-8">
-        <div className="container mx-auto px-6">
-          <div className="max-w-4xl mx-auto">
-            <Card className="animate-slide-up">
-              <CardContent className="p-4">
-                <h2 className="text-lg font-bold mb-4 flex items-center">
-                  <Lightbulb className="w-5 h-5 mr-2 text-primary" />
+      <section className="relative py-8 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-background via-background/90 to-background" />
+        <div className="absolute top-1/4 left-0 w-96 h-96 bg-red-500/10 rounded-full blur-3xl" />
+
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <ScrollReveal className="max-w-4xl mx-auto">
+            <Card className="bg-gradient-to-br from-neutral-900/80 via-neutral-900/60 to-black border border-red-500/20 animate-slide-up shadow-[0_25px_80px_-40px_rgba(255,0,0,0.6)]">
+              <CardContent className="p-6">
+                <h2 className="text-lg font-bold mb-4 flex items-center text-white">
+                  <Lightbulb className="w-5 h-5 mr-2 text-red-400" />
                   About the Solution
                 </h2>
-                <p className="text-sm text-muted-foreground leading-relaxed">
+                <p className="text-sm text-gray-300 leading-relaxed">
                   {solution.description}
                 </p>
               </CardContent>
             </Card>
-          </div>
+          </ScrollReveal>
         </div>
       </section>
 
       {/* Problem Statement */}
-      <section className="py-8 bg-card">
-        <div className="container mx-auto px-6">
+      <section className="py-8 bg-black">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
-            <Card className="animate-slide-up" style={{ animationDelay: '0.1s' }}>
-              <CardContent className="p-4">
-                <h2 className="text-lg font-bold mb-4 flex items-center">
-                  <Target className="w-5 h-5 mr-2 text-primary" />
-                  Problem It Addresses
-                </h2>
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  {solution.problem}
-                </p>
-              </CardContent>
-            </Card>
+            <ScrollReveal>
+              <Card className="bg-gradient-to-br from-neutral-900/80 via-neutral-900/60 to-black border border-red-500/20 animate-slide-up shadow-[0_25px_80px_-40px_rgba(255,0,0,0.6)]" style={{ animationDelay: '0.1s' }}>
+                <CardContent className="p-6">
+                  <h2 className="text-lg font-bold mb-4 flex items-center text-white">
+                    <Target className="w-5 h-5 mr-2 text-red-400" />
+                    Problem It Addresses
+                  </h2>
+                  <p className="text-sm text-gray-300 leading-relaxed">
+                    {solution.problem}
+                  </p>
+                </CardContent>
+              </Card>
+            </ScrollReveal>
           </div>
         </div>
       </section>
 
       {/* Methodology & Technologies */}
-      <section className="py-8">
-        <div className="container mx-auto px-6">
-          <div className="max-w-4xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-4">
-            <Card className="animate-slide-up" style={{ animationDelay: '0.2s' }}>
-              <CardContent className="p-4">
-                <h3 className="text-lg font-bold mb-4">Methodology</h3>
-                <ul className="space-y-2">
-                  {solution.methodology.map((item, index) => (
-                    <li key={index} className="flex items-start space-x-2">
-                      <CheckCircle className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
-                      <span className="text-muted-foreground text-sm">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </CardContent>
-            </Card>
+      <section className="relative py-8 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-background via-background/90 to-background" />
+        <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-white/5 rounded-full blur-3xl" />
 
-            <Card className="animate-slide-up" style={{ animationDelay: '0.3s' }}>
-              <CardContent className="p-4">
-                <h3 className="text-lg font-bold mb-4">Technologies Used</h3>
-                <div className="flex flex-wrap gap-2">
-                  {solution.technologies.map((tech, index) => (
-                    <Badge key={index} variant="outline" className="px-2 py-1 text-xs">
-                      {tech}
-                    </Badge>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="max-w-4xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <ScrollReveal>
+              <Card className="bg-gradient-to-br from-neutral-900/80 via-neutral-900/60 to-black border border-red-500/20 animate-slide-up shadow-[0_25px_80px_-40px_rgba(255,0,0,0.6)]" style={{ animationDelay: '0.2s' }}>
+                <CardContent className="p-6">
+                  <h3 className="text-lg font-bold mb-4 text-white">Methodology</h3>
+                  <ul className="space-y-3">
+                    {solution.methodology.map((item, index) => (
+                      <li key={index} className="flex items-start space-x-2">
+                        <CheckCircle className="w-4 h-4 text-red-400 mt-0.5 flex-shrink-0" />
+                        <span className="text-gray-300 text-sm">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </CardContent>
+              </Card>
+            </ScrollReveal>
+
+            <ScrollReveal>
+              <Card className="bg-gradient-to-br from-neutral-900/80 via-neutral-900/60 to-black border border-red-500/20 animate-slide-up shadow-[0_25px_80px_-40px_rgba(255,0,0,0.6)]" style={{ animationDelay: '0.3s' }}>
+                <CardContent className="p-6">
+                  <h3 className="text-lg font-bold mb-4 text-white">Technologies Used</h3>
+                  <div className="flex flex-wrap gap-2">
+                    {solution.technologies.map((tech, index) => (
+                      <Badge key={index} className="bg-red-500/20 text-red-300 border-red-500/30 px-2 py-1 text-xs">
+                        {tech}
+                      </Badge>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+            </ScrollReveal>
           </div>
         </div>
       </section>
 
       {/* Results & Impact */}
-      <section className="py-8 bg-card">
-        <div className="container mx-auto px-6">
+      <section className="py-8 bg-black">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
-            <Card className="animate-slide-up" style={{ animationDelay: '0.4s' }}>
-              <CardContent className="p-4">
-                <h2 className="text-lg font-bold mb-6">Results & Impact</h2>
+            <ScrollReveal>
+              <Card className="bg-gradient-to-br from-neutral-900/80 via-neutral-900/60 to-black border border-red-500/20 animate-slide-up shadow-[0_25px_80px_-40px_rgba(255,0,0,0.6)]" style={{ animationDelay: '0.4s' }}>
+                <CardContent className="p-6">
+                  <h2 className="text-lg font-bold mb-6 text-white">Results & Impact</h2>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                  <div>
-                    <h3 className="text-sm font-semibold mb-3">Key Results</h3>
-                    <ul className="space-y-2">
-                      {solution.results.map((result, index) => (
-                        <li key={index} className="flex items-start space-x-2">
-                          <CheckCircle className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
-                          <span className="text-muted-foreground text-sm">{result}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                    <div>
+                      <h3 className="text-sm font-semibold mb-3 text-red-300">Key Results</h3>
+                      <ul className="space-y-3">
+                        {solution.results.map((result, index) => (
+                          <li key={index} className="flex items-start space-x-2">
+                            <CheckCircle className="w-4 h-4 text-red-400 mt-0.5 flex-shrink-0" />
+                            <span className="text-gray-300 text-sm">{result}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
 
-                  <div>
-                    <h3 className="text-sm font-semibold mb-3">Overall Impact</h3>
-                    <p className="text-muted-foreground leading-relaxed text-sm">
-                      {solution.impact}
-                    </p>
+                    <div>
+                      <h3 className="text-sm font-semibold mb-3 text-red-300">Overall Impact</h3>
+                      <p className="text-gray-300 leading-relaxed text-sm">
+                        {solution.impact}
+                      </p>
+                    </div>
                   </div>
-                </div>
-              </CardContent>
-            </Card>
+                </CardContent>
+              </Card>
+            </ScrollReveal>
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-8">
-        <div className="container mx-auto px-6 text-center">
-          <h2 className="text-xl font-bold mb-3">Inspired by Our Research?</h2>
-          <p className="text-sm text-muted-foreground mb-6">
-            Let's discuss how we can bring similar innovation to your organization
-          </p>
-          <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <Button
-              size="sm"
-              onClick={() => navigateToTop('/contact')}
-              className="bg-primary hover:bg-primary/90 text-primary-foreground"
-            >
-              Work With Us
-            </Button>
-            <Button
-              size="sm"
-              variant="outline"
-              onClick={() => navigateToTop('/research')}
-            >
-              Explore More Research
-            </Button>
-          </div>
+      <section className="relative py-12 overflow-hidden bg-gradient-to-r from-red-600/20 via-black to-red-500/15">
+        <div className="absolute inset-0 bg-gradient-to-br from-black via-[#0d0d12] to-black opacity-90" />
+        <div className="absolute -right-20 top-10 w-80 h-80 bg-red-500/15 rounded-full blur-3xl" />
+
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+          <ScrollReveal>
+            <h2 className="text-2xl md:text-3xl font-bold mb-4 bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent">
+              Inspired by Our Research?
+            </h2>
+            <p className="text-sm md:text-base text-gray-300 mb-8 max-w-2xl mx-auto">
+              Let's discuss how we can bring similar innovation to your organization
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button
+                size="lg"
+                onClick={() => navigateToTop('/contact')}
+                className="bg-red-600 hover:bg-red-500 text-white px-8 py-6 text-base font-semibold shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300"
+              >
+                Work With Us
+              </Button>
+              <Button
+                size="lg"
+                variant="outline"
+                onClick={() => navigateToTop('/research')}
+                className="border-white/20 text-white hover:bg-white/10 px-8 py-6 text-base font-semibold hover:scale-105 transition-all duration-300"
+              >
+                Explore More Research
+              </Button>
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 
