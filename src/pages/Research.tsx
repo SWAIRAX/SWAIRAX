@@ -8,6 +8,8 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { SectionHeading, SectionLead } from "@/components/typography";
+import { TextRevealCard } from "@/components/ui/text-reveal-card";
+import { InfiniteMovingCards } from "@/components/ui/infinite-moving-cards";
 import { ArrowRight, Calendar, Shield, Users, FileText, ExternalLink, Sparkles, Play } from "lucide-react";
 
 const Research = () => {
@@ -21,13 +23,11 @@ const Research = () => {
       category: "SaaS",
       status: "Retired",
       launchDate: "2022",
-      description: "AI-powered security SaaS with biometric verification using camera networks. Surasoft analyzed video footage in existing camera infrastructure, offering affordable biometric verification and instant alerts to prevent crimes for businesses and homes.",
+      description: "AI-powered security SaaS using existing camera networks for biometric verification and instant crime prevention alerts.",
       keyFeatures: [
         "Real-time video analysis",
         "Biometric verification",
-        "Instant crime prevention alerts",
-        "Affordable security solution",
-        "Integration with existing cameras"
+        "Instant crime prevention alerts"
       ],
       tags: ["SaaS", "Computer Vision"],
       icon: <Shield className="w-6 h-6" />,
@@ -39,13 +39,11 @@ const Research = () => {
       category: "SaaS",
       status: "Retired",
       launchDate: "2022",
-      description: "Remote integrity solution with intelligent student and interviewee monitoring. A comprehensive proctoring system powered by artificial intelligence, designed to monitor students and interviewees for safe and credible online assessments.",
+      description: "AI-powered proctoring system for secure online assessments with real-time behavior monitoring and automated suspicious activity detection.",
       keyFeatures: [
         "Real-time behavior monitoring",
         "Automated suspicious activity detection",
-        "Secure online assessments",
-        "Integration with learning platforms",
-        "Detailed reporting and analytics"
+        "Secure online assessments"
       ],
       tags: ["Education", "AI Monitoring", "SaaS"],
       icon: <Users className="w-6 h-6" />,
@@ -57,13 +55,11 @@ const Research = () => {
       category: "Self-hosted",
       status: "Retired",
       launchDate: "2023",
-      description: "Python-based policy guardrails package for customizing LLM behavior and compliance. A comprehensive package designed to enforce policy guardrails on user input, particularly in the context of language models and other AI systems, ensuring interactions remain within defined ethical and operational boundaries.",
+      description: "Python package for LLM policy enforcement and compliance. Customizable guardrails ensure ethical AI interactions within defined operational boundaries.",
       keyFeatures: [
         "Policy enforcement for LLMs",
         "Customizable compliance rules",
-        "Easy Python integration",
-        "Ethical AI boundaries",
-        "Real-time content filtering"
+        "Easy Python integration"
       ],
       tags: ["LLM Guardrails"],
       icon: <FileText className="w-6 h-6" />,
@@ -81,25 +77,26 @@ const Research = () => {
       <Header />
 
       {/* Hero Section with asymmetric layout */}
-      <section className="relative overflow-hidden pt-24 md:pt-28 pb-12">
+      <section className="relative overflow-hidden pt-16 md:pt-20 pb-8">
         <div className="absolute inset-0 bg-gradient-to-br from-black via-[#0d0d12] to-black" />
         <div className="absolute -left-20 top-10 w-80 h-80 bg-red-500/15 rounded-full blur-3xl" />
         <div className="absolute right-0 -top-10 w-[520px] h-[520px] rotate-6 bg-gradient-to-br from-white/10 via-transparent to-red-500/20 opacity-60 animate-pan-slow" />
         <div className="absolute inset-0 holo-grid opacity-20" />
 
-        <div className="container mx-auto px-4 sm:px-6 lg:px-10 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-            <div className="space-y-4">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-center">
+            <div className="space-y-3">
               <div className="inline-flex items-center gap-2">
                 <Badge className="bg-white/10 text-white border-white/10">Research & Innovation</Badge>
               </div>
-              <SectionHeading className="text-4xl md:text-5xl font-black leading-tight bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent">
-                Research that feeds production AI.
-            </SectionHeading>
-              <SectionLead className="text-muted-foreground max-w-3xl text-base md:text-lg">
+              <TextRevealCard
+                text="Research that feeds production AI."
+                revealText="Innovation drives implementation"
+                className="bg-transparent border-none w-full p-0"
+              />
+              <SectionLead className="text-muted-foreground max-w-2xl text-sm md:text-base">
               Explore archived experiments shaping Deep Operator, Annotate, GenAI, and MLOps—built with ethics, evals, and observability from day one.
             </SectionLead>
-              <div className="h-4" />
             </div>
 
             <div className="relative max-w-xl mx-auto">
@@ -119,14 +116,14 @@ const Research = () => {
       </section>
 
       {/* Archived Solutions Grid */}
-      <section className="relative py-12 overflow-hidden -mt-4">
+      <section className="relative py-8 overflow-hidden -mt-2">
         <div className="absolute inset-0 bg-gradient-to-b from-background via-background/90 to-background" />
         <div className="absolute top-1/4 left-0 w-96 h-96 bg-red-500/10 rounded-full blur-3xl" />
         <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-white/5 rounded-full blur-3xl" />
 
-        <div className="container mx-auto px-4 sm:px-6 lg:px-10 relative z-10">
-          <div className="text-center mb-8">
-            <h2 className="text-2xl md:text-3xl font-semibold mb-3 bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="text-center mb-6">
+            <h2 className="text-xl md:text-2xl font-semibold mb-2 bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent">
               Impossible? Let's see.
             </h2>
             {/* <p className="text-base md:text-lg text-muted-foreground max-w-3xl mx-auto">
@@ -136,70 +133,92 @@ const Research = () => {
             </p> */}
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4">
-            {filteredSolutions.map((solution, index) => (
-              <Card
-                key={index}
-                className="group relative research-card bg-gradient-to-br from-neutral-900/80 via-neutral-900/60 to-black border border-red-500/20 hover:border-red-400/50 overflow-hidden transition-all duration-500 hover:shadow-[0_25px_80px_-40px_rgba(255,0,0,0.6)] hover:-translate-y-2 animate-fade-in"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                <div className="absolute inset-0 bg-gradient-to-br from-red-500/10 via-transparent to-red-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                <CardHeader className="pb-3 relative z-10">
-                    <div className="flex items-center justify-between mb-2">
-                    <div className="flex items-center space-x-2">
-                      <div className="w-10 h-10 bg-gradient-to-br from-red-500/30 to-white/10 rounded-xl flex items-center justify-center text-red-200 group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300 shadow-lg">
+          {/* Mobile: Static Cards | Desktop: Infinite Moving Cards */}
+          <div className="block md:hidden">
+            {/* Mobile Layout - Static Cards */}
+            <div className="space-y-4">
+              {filteredSolutions.map((solution, index) => (
+                <div
+                  key={index}
+                  className="bg-gradient-to-br from-neutral-900/80 via-neutral-900/60 to-black border border-red-500/20 rounded-lg p-4 hover:border-red-400/50 transition-all duration-300"
+                >
+                  <div className="flex items-start justify-between mb-3">
+                    <div className="flex items-center space-x-3">
+                      <div className="w-8 h-8 bg-gradient-to-br from-red-500/30 to-white/10 rounded-lg flex items-center justify-center text-red-200">
                         {solution.icon}
                       </div>
                       <div>
-                        <CardTitle className="text-lg group-hover:text-red-300 transition-colors">{solution.title}</CardTitle>
-                <div className="flex items-center space-x-1 mt-1">
-                  <Badge variant="secondary" className="text-xs bg-white/10 text-white border-white/10">{solution.category}</Badge>
-                  {/* launch date removed per request */}
-                </div>
+                        <h3 className="text-base font-semibold text-white">{solution.title}</h3>
+                        <p className="text-xs text-gray-400">{solution.category}</p>
                       </div>
                     </div>
                   </div>
-                </CardHeader>
 
-                <CardContent className="space-y-3 relative z-10">
-                  <p className="text-muted-foreground leading-relaxed text-sm group-hover:text-white transition-colors">
+                  <p className="text-sm text-gray-300 leading-relaxed mb-3">
                     {solution.description}
                   </p>
 
-                  <div>
-                    <h4 className="font-semibold text-red-200 mb-1 text-sm">Key Features:</h4>
-                    <ul className="space-y-1">
-                      {solution.keyFeatures.map((feature, featureIndex) => (
-                        <li key={featureIndex} className="flex items-start space-x-1 text-sm">
-                          <div className="w-1.5 h-1.5 bg-red-400 rounded-full mt-1.5 flex-shrink-0"></div>
-                          <span>{feature}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+                  {solution.keyFeatures && solution.keyFeatures.length > 0 && (
+                    <div className="mb-3">
+                      <h4 className="text-xs font-semibold text-red-300 mb-2">Key Features:</h4>
+                      <div className="flex flex-wrap gap-1">
+                        {solution.keyFeatures.map((feature, featureIndex) => (
+                          <span key={featureIndex} className="text-xs bg-red-500/20 text-red-200 px-2 py-1 rounded-full">
+                            {feature}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  )}
 
-                  <div className="flex flex-wrap gap-1">
-                    {solution.tags.map((tag, tagIndex) => (
-                      <Badge key={tagIndex} variant="outline" className="text-xs border-white/20 text-white/80">
-                        {tag}
-                      </Badge>
-                    ))}
-                  </div>
+                  {solution.tags && solution.tags.length > 0 && (
+                    <div className="mb-3">
+                      <div className="flex flex-wrap gap-1">
+                        {solution.tags.map((tag, tagIndex) => (
+                          <span key={tagIndex} className="text-xs bg-gray-500/20 text-gray-300 px-2 py-1 rounded-full">
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  )}
 
-                  <div className="flex space-x-1 pt-3 border-t border-border/50">
-                    <Button
-                      size="sm"
-                      variant="outline"
-                      onClick={() => navigateToTop(`/research/${solution.title.toLowerCase().replace(/\s+/g, '-')}`)}
-                      className="flex-1 text-sm font-medium border-white/20 text-white hover:bg-red-600 hover:text-white transition-all group/btn"
-                    >
-                      <ExternalLink className="w-4 h-4 mr-1 group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform" />
-                      Learn More
-                    </Button>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
+                  <Button
+                    size="sm"
+                    variant="outline"
+                    onClick={() => navigateToTop(`/research/${solution.title.toLowerCase().replace(/\s+/g, '-')}`)}
+                    className="w-full text-xs border-white/20 text-white hover:bg-red-600 hover:text-white"
+                  >
+                    <ExternalLink className="w-3 h-3 mr-1" />
+                    Learn More
+                  </Button>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Desktop/Tablet: Infinite Moving Cards */}
+          <div className="hidden md:block">
+            <InfiniteMovingCards
+              items={filteredSolutions.map((solution) => ({
+                quote: solution.description,
+                name: solution.title,
+                title: solution.category,
+                keyFeatures: solution.keyFeatures,
+                tags: solution.tags,
+              }))}
+              direction="left"
+              speed="normal"
+              pauseOnHover={true}
+              className="mt-4"
+              onLearnMore={(item) => {
+                // Find the original solution by title
+                const solution = filteredSolutions.find(s => s.title === item.name);
+                if (solution) {
+                  navigateToTop(`/research/${solution.title.toLowerCase().replace(/\s+/g, '-')}`);
+                }
+              }}
+            />
           </div>
         </div>
       </section>
@@ -253,25 +272,25 @@ From security solutions to advanced AI platforms - our evolution continues
 
       {/* CTA Section */}
       {/* CTA with live reel */}
-      <section ref={showreelRef} className="py-16 bg-gradient-to-r from-red-600/20 via-black to-red-500/15">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-10 grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+      <section ref={showreelRef} className="py-12 bg-gradient-to-r from-red-600/20 via-black to-red-500/15">
+        <div className="container mx-auto px-3 sm:px-4 lg:px-6 grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6 items-center">
           <ScrollReveal className="space-y-4">
-            <h2 className="text-3xl md:text-4xl font-bold leading-tight bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold leading-tight bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent">
               Research in motion: security, education, guardrails.
             </h2>
-            <p className="text-muted-foreground text-sm md:text-base max-w-xl">
-              See how SURASOFT, AI Proctoring, and Askari LLM experiments flow into today’s production-grade analytics, annotation, GenAI, and MLOps. Real footage, AI overlays, and production guardrails together.
+            <p className="text-muted-foreground text-sm md:text-base max-w-lg lg:max-w-xl">
+              See how SURASOFT, AI Proctoring, and Askari LLM experiments flow into today's production-grade analytics, annotation, GenAI, and MLOps. Real footage, AI overlays, and production guardrails together.
             </p>
-            <div className="flex gap-3">
+            <div className="flex flex-col sm:flex-row gap-3">
               <Button
-                className="bg-red-600 hover:bg-red-500 text-white"
+                className="bg-red-600 hover:bg-red-500 text-white w-full sm:w-auto"
                 onClick={() => navigateToTop("/services")}
               >
                 Explore current solutions
               </Button>
               <Button
                 variant="outline"
-                className="border-white/20 text-white hover:bg-white/10"
+                className="border-white/20 text-white hover:bg-white/10 w-full sm:w-auto"
                 onClick={() => navigateToTop("/contact")}
               >
                 Discuss migration

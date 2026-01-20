@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { SectionHeading, SectionLead } from "@/components/typography";
+import { TextRevealCard } from "@/components/ui/text-reveal-card";
 import {
   ArrowRight,
   BarChart3,
@@ -183,9 +184,11 @@ const Services = () => {
                 <span className="h-2 w-2 rounded-full bg-red-400 animate-pulse" />
                 Our services
               </div>
-              <h2 className="mt-3 text-3xl md:text-4xl font-bold bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent">
-                Built to feel vivid and perform.
-              </h2>
+              <TextRevealCard
+                text="Built to feel vivid and perform."
+                revealText="Design meets functionality"
+                className="bg-transparent border-none w-full p-0 mt-3"
+              />
               <p className="text-base md:text-lg text-muted-foreground max-w-2xl">
                 Select the lane you need. We pair bold visuals with resilient engineering so every interaction feels alive and every release feels safe.
               </p>
@@ -203,31 +206,35 @@ const Services = () => {
             {services.map((service, index) => (
               <Card
                 key={service.id}
-                className="group relative overflow-hidden border border-red-500/15 bg-gradient-to-br from-neutral-900/80 via-neutral-900/60 to-black shadow-[0_20px_70px_-50px_rgba(0,0,0,0.8)] transition-all duration-500 hover:-translate-y-2 hover:border-red-400/40"
+                className="group relative overflow-hidden border border-red-500/15 bg-gradient-to-br from-neutral-900/80 via-neutral-900/60 to-black shadow-[0_20px_70px_-50px_rgba(0,0,0,0.8)] transition-all duration-500 hover:-translate-y-2 hover:border-red-400/40 service-card"
                 style={{ animationDelay: `${index * 120}ms` }}
               >
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-r from-red-500/5 via-transparent to-red-500/10" />
-                <CardContent className="relative z-10 p-6 space-y-4">
-                  <div className="flex items-center justify-between gap-4">
-                    <div className="flex items-center gap-3">
-                      <div className="rounded-xl bg-white/10 p-3 text-red-200 shadow-inner shadow-red-500/20">
+                {/* Corner arrow */}
+                <div className="go-corner">
+                  <div className="go-arrow">→</div>
+                </div>
+                <CardContent className="relative z-10 p-4 sm:p-6 space-y-3 sm:space-y-4">
+                  <div className="flex items-center justify-between gap-2 sm:gap-4">
+                    <div className="flex items-center gap-2 sm:gap-3 min-w-0 flex-1">
+                      <div className="rounded-lg sm:rounded-xl bg-white/10 p-2 sm:p-3 text-red-200 shadow-inner shadow-red-500/20 shrink-0">
                         {service.icon}
                       </div>
-                      <div>
-                        <h3 className="text-xl font-semibold">{service.title}</h3>
+                      <div className="min-w-0 flex-1">
+                        <h3 className="card-title text-base sm:text-lg leading-tight truncate">{service.title}</h3>
                         {/* timeline removed per request */}
                       </div>
                     </div>
-                    <Badge className="bg-white/10 text-white border-white/10">{service.badge}</Badge>
+                    <Badge className="bg-white/10 text-white border-white/10 text-xs shrink-0">{service.badge}</Badge>
                   </div>
 
-                  <p className="text-sm text-muted-foreground leading-relaxed">{service.description}</p>
+                  <p className="small-desc text-sm sm:text-base sm:line-clamp-3 leading-relaxed">{service.description}</p>
 
-                  <div className="flex flex-wrap gap-2">
+                  <div className="flex flex-wrap gap-1.5 sm:gap-2">
                     {service.outcomes.map((item) => (
                       <span
                         key={item}
-                        className="rounded-full border border-red-500/30 bg-red-500/10 px-3 py-1 text-xs text-white/80"
+                        className="rounded-full border border-red-500/30 bg-red-500/10 px-2 sm:px-3 py-0.5 sm:py-1 text-xs text-white/80"
                       >
                         {item}
                       </span>
@@ -237,10 +244,10 @@ const Services = () => {
                   <div className="flex items-center pt-1">
                     <Button
                       variant="ghost"
-                      className="p-0 text-white hover:text-red-400 hover:bg-transparent bg-transparent focus-visible:ring-0"
+                      className="p-0 text-xs sm:text-sm text-white hover:text-red-400 hover:bg-transparent bg-transparent focus-visible:ring-0 group-hover:translate-x-1 transition-transform duration-300"
                       onClick={() => navigateToTop(service.href)}
                     >
-                      Dive deeper <ArrowRight className="ml-1 h-4 w-4" />
+                      Dive deeper <ArrowRight className="ml-1 sm:ml-2 h-3 w-3 sm:h-4 sm:w-4" />
                     </Button>
                   </div>
                 </CardContent>
@@ -255,9 +262,11 @@ const Services = () => {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_10%_20%,rgba(255,0,0,0.08),transparent_30%),radial-gradient(circle_at_90%_10%,rgba(255,255,255,0.05),transparent_25%)]" />
         <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-10">
           <ScrollReveal className="text-center mb-10">
-            <h2 className="mt-3 text-3xl md:text-4xl font-bold bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent">
-              How we keep motion & reliability aligned
-            </h2>
+            <TextRevealCard
+              text="How we keep motion & reliability aligned"
+              revealText="Performance meets dependability"
+              className="bg-transparent border-none w-full p-0 mt-3"
+            />
             <p className="text-base md:text-lg text-muted-foreground max-w-3xl mx-auto">
               Every engagement is co-built with you. Clear checkpoints, minimal noise, and a visual-first approach that still honors governance.
             </p>

@@ -106,9 +106,9 @@ const Industries = () => {
               <Badge variant="outline" className="mb-1 text-xs font-medium border-white/30 text-white">
                 Industry Solutions
               </Badge>
-              <SectionHeading className="text-4xl md:text-5xl font-black leading-tight bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent">
+              <h2 className="text-4xl md:text-5xl font-black leading-tight bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent">
                 Industries we power with AI.
-              </SectionHeading>
+              </h2>
               <SectionLead className="text-muted-foreground text-base md:text-lg">
                 From finance to healthcare, telecom to logistics—we tailor AI, data, and MLOps to each sector’s reality.
               </SectionLead>
