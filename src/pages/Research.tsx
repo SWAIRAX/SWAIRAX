@@ -123,9 +123,22 @@ const Research = () => {
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-6">
-            <h2 className="text-xl md:text-2xl font-semibold mb-2 bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent">
-              Impossible? Let's see.
-            </h2>
+            {/* Desktop: TextRevealCard */}
+            <div className="hidden md:block">
+              <TextRevealCard
+                text="Impossible? Let's see."
+                revealText="Innovation drives implementation"
+                className="bg-transparent border-none w-full p-0 text-center"
+              />
+            </div>
+
+            {/* Mobile: Regular heading */}
+            <div className="block md:hidden">
+              <h2 className="text-xl font-semibold mb-2 bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent">
+                Impossible? Let's see.
+              </h2>
+            </div>
+
             {/* <p className="text-base md:text-lg text-muted-foreground max-w-3xl mx-auto">
               Whether we're shaping the future of sustainability, or optimizing algorithms,
               or even exploring epidemiological studies, Our Research strives to continuously progress science,
