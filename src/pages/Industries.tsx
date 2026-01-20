@@ -200,16 +200,16 @@ const Industries = () => {
             <p className="text-muted-foreground text-sm md:text-base max-w-xl">
               A cinematic mix of financial fraud defense, telecom routing, adaptive learning, smart grids, logistics optimization, and healthcare imaging—paired with the MLOps rigor that keeps them live.
             </p>
-            <div className="flex gap-3">
+            <div className="flex flex-col sm:flex-row gap-3">
               <Button
-                className="bg-red-600 hover:bg-red-500 text-white"
+                className="bg-red-600 hover:bg-red-500 text-white w-full sm:w-auto"
                 onClick={() => navigate("/contact")}
               >
                 Estimate project
               </Button>
               <Button
                 variant="outline"
-                className="border-white/20 text-white hover:bg-white/10"
+                className="border-white/20 text-white hover:bg-white/10 w-full sm:w-auto"
                 onClick={() => navigateToTop("/services")}
               >
                 Explore services
