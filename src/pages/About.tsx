@@ -100,13 +100,13 @@ const About = () => {
                 >
                   Get Started
                 </Button>
-                <Button
+                {/* <Button
                   variant="outline"
                   size="sm"
                   onClick={() => navigateToTop('/careers')}
                 >
                   Join Our Team
-                </Button>
+                </Button> */}
               </div>
             </ScrollReveal>
 

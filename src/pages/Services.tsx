@@ -305,16 +305,16 @@ const Services = () => {
             <p className="text-muted-foreground text-sm md:text-base max-w-xl">
               We choreograph cinematic motion with real product proof: data-centric analytics, human-led annotation, safety-checked GenAI, and production MLOps. Evals, observability, and on-call rituals keep everything calm in production.
             </p>
-            <div className="flex gap-3">
+            <div className="flex flex-col sm:flex-row gap-3">
               <Button
-                className="bg-red-600 hover:bg-red-500 text-white"
+                className="bg-red-600 hover:bg-red-500 text-white w-full sm:w-auto"
                 onClick={() => navigateToTop("/contact")}
               >
                 Start a project
               </Button>
               <Button
                 variant="outline"
-                className="border-white/20 text-white hover:bg-white/10"
+                className="border-white/20 text-white hover:bg-white/10 w-full sm:w-auto"
                 onClick={() => navigateToTop("/careers")}
               >
                 Partner with us

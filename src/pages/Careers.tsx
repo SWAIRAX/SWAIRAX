@@ -8,75 +8,91 @@ import { MapPin, Clock, Users, ArrowRight, Zap, Heart, Globe } from "lucide-reac
 const Careers = () => {
   const openPositions = [
     {
-      title: "Senior AI/ML Engineer",
+      title: "AI Research Scientist",
+      department: "Research",
+      location: "Remote",
+      type: "Full-time",
+      description: "Lead cutting-edge research in generative AI, computer vision, and natural language processing. Publish papers and develop novel algorithms.",
+      requirements: ["PhD in AI/ML/CS", "5+ years research experience", "Strong publication record", "Python/PyTorch expertise"]
+    },
+    {
+      title: "Senior MLOps Engineer",
       department: "Engineering",
       location: "Dar es Salaam / Remote",
       type: "Full-time",
-      description: "Join our AI team to build cutting-edge machine learning solutions for enterprise clients.",
-      requirements: ["5+ years ML experience", "Python/TensorFlow", "MLOps knowledge"]
+      description: "Design and implement production ML pipelines, model deployment, and monitoring systems for enterprise-scale AI solutions.",
+      requirements: ["Kubernetes/Docker", "AWS/Azure/GCP", "Python/Go", "MLflow/Kubeflow experience"]
     },
     {
-      title: "Data Scientist",
-      department: "Data Science",
+      title: "Computer Vision Engineer",
+      department: "AI Development",
       location: "Remote",
       type: "Full-time",
-      description: "Analyze complex datasets and build predictive models to drive business insights.",
-      requirements: ["PhD/Masters in relevant field", "Python/R", "Statistical modeling"]
+      description: "Develop advanced computer vision models for medical imaging, autonomous systems, and industrial applications.",
+      requirements: ["OpenCV/PyTorch", "CNN architectures", "Medical imaging experience", "3+ years CV experience"]
     },
     {
-      title: "Full Stack Developer",
-      department: "Engineering",
-      location: "Dar es Salaam",
+      title: "NLP Engineer",
+      department: "AI Development",
+      location: "Dar es Salaam / Remote",
       type: "Full-time",
-      description: "Develop and maintain web applications for our AI platform and client solutions.",
-      requirements: ["React/TypeScript", "Node.js", "Cloud platforms"]
+      description: "Build and deploy large language models, chatbots, and text analysis systems for enterprise applications.",
+      requirements: ["Transformers/Hugging Face", "BERT/GPT models", "Fine-tuning expertise", "Python/Flask/FastAPI"]
     },
     {
-      title: "DevOps Engineer",
-      department: "Infrastructure",
+      title: "Data Engineering Lead",
+      department: "Data Platform",
       location: "Remote",
       type: "Full-time",
-      description: "Build and maintain scalable infrastructure for AI/ML workloads.",
-      requirements: ["Kubernetes", "AWS/Azure", "CI/CD pipelines"]
+      description: "Architect and build scalable data pipelines, lakes, and warehouses to support AI model training and inference.",
+      requirements: ["Apache Spark", "Airflow/Presto", "SQL/NoSQL databases", "Data modeling expertise"]
     },
     {
-      title: "Product Manager - AI",
+      title: "AI Product Manager",
       department: "Product",
       location: "Dar es Salaam / Remote",
       type: "Full-time",
-      description: "Lead product strategy and development for our AI-powered solutions.",
-      requirements: ["Product management experience", "AI/ML knowledge", "Technical background"]
+      description: "Define product strategy for AI solutions, work with engineering teams, and drive product-market fit for enterprise clients.",
+      requirements: ["5+ years PM experience", "Technical background", "AI/ML knowledge", "Agile/Scrum expertise"]
     },
     {
-      title: "Business Development Representative",
-      department: "Sales",
+      title: "Solutions Architect",
+      department: "Technical Sales",
       location: "Remote",
       type: "Full-time",
-      description: "Drive growth by identifying and developing new business opportunities.",
-      requirements: ["B2B sales experience", "Tech industry knowledge", "Communication skills"]
+      description: "Design comprehensive AI solutions for enterprise clients, provide technical leadership, and drive successful implementations.",
+      requirements: ["Enterprise architecture", "AI/ML consulting", "Cloud platforms", "Client-facing experience"]
+    },
+    {
+      title: "Frontend Developer (React)",
+      department: "Engineering",
+      location: "Remote",
+      type: "Full-time",
+      description: "Build beautiful, responsive web interfaces for AI-powered applications and data visualization dashboards.",
+      requirements: ["React/TypeScript", "Next.js", "D3.js/Chart.js", "UI/UX design sensibility"]
     }
   ];
 
   const benefits = [
     {
       icon: <Globe className="h-8 w-8 text-primary" />,
-      title: "Remote-First Culture",
-      description: "Work from anywhere with flexible hours and async collaboration"
+      title: "Global Remote Work",
+      description: "Work from anywhere in the world with flexible schedules and async-first culture"
     },
     {
       icon: <Zap className="h-8 w-8 text-primary" />,
-      title: "Cutting-Edge Projects",
-      description: "Work on innovative AI solutions that impact businesses globally"
+      title: "AI Innovation Lab",
+      description: "Access to cutting-edge GPUs, unlimited cloud credits, and research publication opportunities"
     },
     {
       icon: <Heart className="h-8 w-8 text-primary" />,
-      title: "Comprehensive Benefits",
-      description: "Health insurance, learning budget, and wellness programs"
+      title: "Premium Benefits",
+      description: "Health insurance, mental wellness support, unlimited PTO, and professional development budget"
     },
     {
       icon: <Users className="h-8 w-8 text-primary" />,
-      title: "Diverse Team",
-      description: "Join a global team of talented individuals from diverse backgrounds"
+      title: "Expert Network",
+      description: "Collaborate with PhD researchers, industry leaders, and AI pioneers from top universities"
     }
   ];
 
@@ -104,33 +120,50 @@ const Careers = () => {
       <Header />
 
       {/* Hero Section */}
-      <section className="pt-24 pb-16 bg-card">
-        <div className="container mx-auto px-6">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              Join the Future of <span className="text-primary">AI Innovation</span>
+      <section className="relative pt-32 pb-20 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-primary/10"></div>
+        <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-1/4 left-1/4 w-64 h-64 bg-primary/5 rounded-full blur-2xl"></div>
+
+        <div className="container mx-auto px-6 relative z-10">
+          <div className="max-w-5xl mx-auto text-center">
+            <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-6">
+              🚀 We're Hiring
+            </div>
+            <h1 className="text-4xl md:text-7xl font-bold mb-6 leading-tight">
+              Shape the Future of <span className="text-primary">Enterprise AI</span>
             </h1>
-            <p className="text-xl text-muted-foreground mb-8">
-              Be part of a team that's transforming businesses through cutting-edge AI and data science solutions.
+            <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto leading-relaxed">
+              Join a world-class team of AI researchers and engineers building the next generation of intelligent systems that transform how businesses operate.
             </p>
-            <Button
-              size="lg"
-              onClick={() => document.getElementById('positions')?.scrollIntoView({ behavior: 'smooth' })}
-              className="bg-primary hover:bg-primary/90 text-primary-foreground px-8"
-            >
-              View Open Positions
-            </Button>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <Button
+                size="lg"
+                onClick={() => document.getElementById('positions')?.scrollIntoView({ behavior: 'smooth' })}
+                className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-4 text-lg shadow-lg hover:shadow-xl transition-all duration-300"
+              >
+                Explore Opportunities <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
+              <Button
+                variant="outline"
+                size="lg"
+                className="border-primary/20 text-primary hover:bg-primary/5 px-8 py-4 text-lg"
+                onClick={() => document.getElementById('values')?.scrollIntoView({ behavior: 'smooth' })}
+              >
+                Our Culture
+              </Button>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Company Values */}
-      <section className="py-16">
+      <section id="values" className="py-20 bg-card">
         <div className="container mx-auto px-6">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Values</h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              These principles guide everything we do and help us build a culture where everyone can thrive.
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-5xl font-bold mb-6">Our Core Values</h2>
+            <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+              These principles drive our innovation and shape how we collaborate, learn, and create impact together.
             </p>
           </div>
 
@@ -148,12 +181,12 @@ const Careers = () => {
       </section>
 
       {/* Benefits Section */}
-      <section className="py-16 bg-card">
+      <section className="py-20">
         <div className="container mx-auto px-6">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Why Join Quantum Intelligence?</h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              We offer competitive benefits and a work environment designed to help you grow and succeed.
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-5xl font-bold mb-6">Why Choose Quantum Intelligence?</h2>
+            <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+              Join a team where innovation meets impact. We provide world-class resources, mentorship, and opportunities to work on projects that matter.
             </p>
           </div>
 
@@ -170,12 +203,15 @@ const Careers = () => {
       </section>
 
       {/* Open Positions */}
-      <section id="positions" className="py-16">
+      <section id="positions" className="py-20 bg-card">
         <div className="container mx-auto px-6">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Open Positions</h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Explore exciting opportunities to make an impact in the AI industry.
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-6">
+              💼 Open Roles
+            </div>
+            <h2 className="text-3xl md:text-5xl font-bold mb-6">Join Our Growing Team</h2>
+            <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+              We're looking for exceptional talent to help us build the future of AI. Each role offers the opportunity to work on groundbreaking projects with global impact.
             </p>
           </div>
 
@@ -232,28 +268,46 @@ const Careers = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-card text-center">
-        <div className="container mx-auto px-6">
-          <div className="max-w-2xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Not Just an Internship—A Creative Adventure
+      <section className="py-20 bg-gradient-to-r from-primary/5 via-primary/10 to-primary/5 text-center relative overflow-hidden">
+        <div className="absolute inset-0 opacity-30" style={{ backgroundImage: 'radial-gradient(circle at 25% 25%, rgba(0,0,0,0.1) 2px, transparent 2px), radial-gradient(circle at 75% 75%, rgba(0,0,0,0.1) 2px, transparent 2px)', backgroundSize: '60px 60px' }}></div>
+        <div className="container mx-auto px-6 relative z-10">
+          <div className="max-w-4xl mx-auto">
+            <div className="inline-flex items-center gap-2 bg-white/10 text-white px-4 py-2 rounded-full text-sm font-medium mb-6">
+              🌟 Always Hiring
+            </div>
+            <h2 className="text-3xl md:text-5xl font-bold mb-6">
+              Ready to Make an Impact?
             </h2>
-            <p className="text-lg text-muted-foreground mb-8">
-              We're always looking for talented individuals. Send us your resume and tell us how you'd like to contribute.
+            <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed">
+              Even if you don't see a perfect match above, we're always interested in connecting with talented individuals who share our vision for AI innovation.
             </p>
-            <Button
-              size="lg"
-              className="border-primary text-primary hover:bg-primary hover:text-primary-foreground"
-              variant="outline"
-    onClick={() =>
-    window.open(
-      'mailto:communications@quantumintelligence.co.tz?subject=Internship Application&body=Please provide your details and attach your CV (PDF or DOCX) to this email.',
-      '_blank'
-    )
-  }
-            >
-              Get in Touch
-            </Button>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <Button
+                size="lg"
+                className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-4 text-lg shadow-lg hover:shadow-xl transition-all duration-300"
+                onClick={() =>
+                  window.open(
+                    'mailto:communications@quantumintelligence.co.tz?subject=Career Opportunity&body=Please provide your details and attach your CV (PDF or DOCX) to this email.',
+                    '_blank'
+                  )
+                }
+              >
+                Apply Now <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
+              <Button
+                variant="outline"
+                size="lg"
+                className="border-white/20 text-white hover:bg-white/10 px-8 py-4 text-lg"
+                onClick={() =>
+                  window.open(
+                    'mailto:communications@quantumintelligence.co.tz?subject=General Inquiry&body=I\'d like to learn more about career opportunities at Quantum Intelligence.',
+                    '_blank'
+                  )
+                }
+              >
+                Learn More
+              </Button>
+            </div>
           </div>
         </div>
       </section>

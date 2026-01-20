@@ -301,13 +301,6 @@ From security solutions to advanced AI platforms - our evolution continues
               >
                 Explore current solutions
               </Button>
-              <Button
-                variant="outline"
-                className="border-white/20 text-white hover:bg-white/10 w-full sm:w-auto"
-                onClick={() => navigateToTop("/contact")}
-              >
-                Discuss migration
-              </Button>
             </div>
           </ScrollReveal>
 

@@ -99,8 +99,8 @@ const Index = () => {
           <div className="absolute inset-0 bg-background/60"></div>
         </div>
 
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-          <div className="max-w-4xl mx-auto animate-fade-in">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-left relative z-10">
+          <div className="max-w-4xl animate-fade-in">
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 leading-tight">
              AI-powered Automation <br />
              {/* <span className="text-blue-400">AI-powered Automation</span>  */}
@@ -110,8 +110,8 @@ const Index = () => {
               Adopting data-centric operations and building AI solutions has never been easier, we are working on that.
             </p>
             <Button
-              size="lg"
-              className="bg-primary hover:bg-primary/90 text-primary-foreground px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg animate-glow-pulse w-full sm:w-auto"
+              size="sm"
+              className="bg-primary hover:bg-primary/90 text-primary-foreground px-4 sm:px-6 py-2 sm:py-3 text-sm animate-glow-pulse w-auto h-9 sm:h-11"
               onClick={() => scrollToSection("why-quantum")}
             >
               Scroll to Explore
@@ -227,34 +227,34 @@ const Index = () => {
 
             <ScrollReveal delay={150} className="relative">
               {/* Animated Pipeline Flow */}
-              <div className="flex items-center justify-center space-x-8">
-                <div className="flex flex-col items-center space-y-4 animate-fade-in">
-                  <div className="w-16 h-16 bg-primary/20 rounded-lg flex items-center justify-center group hover:bg-primary/30 transition-colors duration-300">
-                    <Database className="w-8 h-8 text-primary group-hover:scale-110 transition-transform" />
+              <div className="flex items-center justify-center space-x-4 sm:space-x-8">
+                <div className="flex flex-col items-center space-y-2 sm:space-y-4 animate-fade-in">
+                  <div className="w-12 h-12 sm:w-16 sm:h-16 bg-primary/20 rounded-lg flex items-center justify-center group hover:bg-primary/30 transition-colors duration-300">
+                    <Database className="w-6 h-6 sm:w-8 sm:h-8 text-primary group-hover:scale-110 transition-transform" />
                   </div>
-                  <span className="text-sm text-muted-foreground">Dataset</span>
+                  <span className="text-xs sm:text-sm text-muted-foreground">Dataset</span>
                 </div>
 
                 <div className="animate-pulse">
-                  <ArrowRight className="w-6 h-6 text-primary" />
+                  <ArrowRight className="w-4 h-4 sm:w-6 sm:h-6 text-primary" />
                 </div>
 
-                <div className="flex flex-col items-center space-y-4 animate-fade-in" style={{ animationDelay: '0.2s' }}>
-                  <div className="w-16 h-16 bg-primary/20 rounded-lg flex items-center justify-center group hover:bg-primary/30 transition-colors duration-300">
-                    <Cog className="w-8 h-8 text-primary group-hover:scale-110 transition-transform animate-spin-slow" />
+                <div className="flex flex-col items-center space-y-2 sm:space-y-4 animate-fade-in" style={{ animationDelay: '0.2s' }}>
+                  <div className="w-12 h-12 sm:w-16 sm:h-16 bg-primary/20 rounded-lg flex items-center justify-center group hover:bg-primary/30 transition-colors duration-300">
+                    <Cog className="w-6 h-6 sm:w-8 sm:h-8 text-primary group-hover:scale-110 transition-transform animate-spin-slow" />
                   </div>
-                  <span className="text-sm text-muted-foreground">Model</span>
+                  <span className="text-xs sm:text-sm text-muted-foreground">Model</span>
                 </div>
 
                 <div className="animate-pulse" style={{ animationDelay: '0.4s' }}>
-                  <ArrowRight className="w-6 h-6 text-primary" />
+                  <ArrowRight className="w-4 h-4 sm:w-6 sm:h-6 text-primary" />
                 </div>
 
-                <div className="flex flex-col items-center space-y-4 animate-fade-in" style={{ animationDelay: '0.4s' }}>
-                  <div className="w-16 h-16 bg-primary/20 rounded-lg flex items-center justify-center group hover:bg-primary/30 transition-colors duration-300">
-                    <Cloud className="w-8 h-8 text-primary group-hover:scale-110 transition-transform" />
+                <div className="flex flex-col items-center space-y-2 sm:space-y-4 animate-fade-in" style={{ animationDelay: '0.4s' }}>
+                  <div className="w-12 h-12 sm:w-16 sm:h-16 bg-primary/20 rounded-lg flex items-center justify-center group hover:bg-primary/30 transition-colors duration-300">
+                    <Cloud className="w-6 h-6 sm:w-8 sm:h-8 text-primary group-hover:scale-110 transition-transform" />
                   </div>
-                  <span className="text-sm text-muted-foreground">Deploy</span>
+                  <span className="text-xs sm:text-sm text-muted-foreground">Deploy</span>
                 </div>
               </div>
 
@@ -271,15 +271,15 @@ const Index = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
             <ScrollReveal className="relative">
               {/* Interactive Dashboard Illustration */}
-              <div className="bg-card/50 p-8 rounded-lg border border-border/50 backdrop-blur-sm">
+              <div className="bg-card/50 p-4 sm:p-6 lg:p-8 rounded-lg border border-border/50 backdrop-blur-sm">
                 <div className="grid grid-cols-2 gap-6">
                   {/* Revenue Sparkline */}
-                  <div className="bg-background/80 p-4 rounded-lg border group hover:shadow-lg transition-all duration-300">
-                    <div className="flex items-center justify-between mb-3">
-                      <BarChart3 className="w-5 h-5 text-primary" />
-                      <div className="flex items-center gap-2">
-                        <span className="text-xs text-muted-foreground">Revenue</span>
-                        <span className="text-[10px] px-2 py-1 rounded-full bg-primary/10 text-primary font-semibold">+12.4%</span>
+                  <div className="bg-background/80 p-3 sm:p-4 rounded-lg border group hover:shadow-lg transition-all duration-300">
+                    <div className="flex items-center justify-between mb-2 sm:mb-3">
+                      <BarChart3 className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
+                      <div className="flex items-center gap-1 sm:gap-2">
+                        <span className="text-[10px] sm:text-xs text-muted-foreground">Revenue</span>
+                        <span className="text-[9px] sm:text-[10px] px-1 sm:px-2 py-0.5 sm:py-1 rounded-full bg-primary/10 text-primary font-semibold">+12.4%</span>
                       </div>
                     </div>
                     <div className="relative">
@@ -317,13 +317,13 @@ const Index = () => {
                   </div>
 
                   {/* Growth Gauge */}
-                  <div className="bg-background/80 p-4 rounded-lg border group hover:shadow-lg transition-all duration-300">
-                    <div className="flex items-center justify-between mb-3">
-                      <PieChart className="w-5 h-5 text-primary" />
-                      <span className="text-xs text-muted-foreground">Growth</span>
+                  <div className="bg-background/80 p-3 sm:p-4 rounded-lg border group hover:shadow-lg transition-all duration-300">
+                    <div className="flex items-center justify-between mb-2 sm:mb-3">
+                      <PieChart className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
+                      <span className="text-[10px] sm:text-xs text-muted-foreground">Growth</span>
                     </div>
                     <div
-                      className="relative w-24 h-24 mx-auto radial-gauge"
+                      className="relative w-20 h-20 sm:w-24 sm:h-24 mx-auto radial-gauge"
                       style={gaugeStyle}
                     >
                       <svg viewBox="0 0 120 120" className="w-full h-full">
@@ -369,27 +369,27 @@ const Index = () => {
                         </circle>
                       </svg>
                       <div className="absolute inset-0 flex flex-col items-center justify-center">
-                        <div className="text-2xl font-bold text-primary">{Math.round(growthPercent * 100)}%</div>
-                        <span className="text-[10px] uppercase tracking-wide text-muted-foreground">Growth</span>
+                        <div className="text-lg sm:text-xl lg:text-2xl font-bold text-primary">{Math.round(growthPercent * 100)}%</div>
+                        <span className="text-[9px] sm:text-[10px] uppercase tracking-wide text-muted-foreground">Growth</span>
                       </div>
                     </div>
                   </div>
 
                   {/* KPI Widgets */}
-                  <div className="bg-background/80 p-4 rounded-lg border group hover:shadow-lg transition-all duration-300">
-                    <TrendingUp className="w-5 h-5 text-primary mb-2" />
-                    <div className="text-2xl font-bold text-primary">
+                  <div className="bg-background/80 p-3 sm:p-4 rounded-lg border group hover:shadow-lg transition-all duration-300">
+                    <TrendingUp className="w-4 h-4 sm:w-5 sm:h-5 text-primary mb-1 sm:mb-2" />
+                    <div className="text-lg sm:text-xl lg:text-2xl font-bold text-primary">
                       <AnimatedCounter value="24%" />
                     </div>
-                    <span className="text-xs text-muted-foreground">Customer Growth</span>
+                    <span className="text-[10px] sm:text-xs text-muted-foreground">Customer Growth</span>
                   </div>
 
-                  <div className="bg-background/80 p-4 rounded-lg border group hover:shadow-lg transition-all duration-300">
-                    <CheckCircle className="w-5 h-5 text-primary mb-2" />
-                    <div className="text-2xl font-bold text-primary">
+                  <div className="bg-background/80 p-3 sm:p-4 rounded-lg border group hover:shadow-lg transition-all duration-300">
+                    <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-primary mb-1 sm:mb-2" />
+                    <div className="text-lg sm:text-xl lg:text-2xl font-bold text-primary">
                       <AnimatedCounter value="98%" />
                     </div>
-                    <span className="text-xs text-muted-foreground">Data Quality</span>
+                    <span className="text-[10px] sm:text-xs text-muted-foreground">Data Quality</span>
                   </div>
                 </div>
 
@@ -514,14 +514,6 @@ const Index = () => {
             <p className="text-sm sm:text-base lg:text-lg text-muted-foreground mb-6 sm:mb-8 leading-relaxed">
               Contact us to know more!
             </p>
-            <Button
-            variant="outline"
-            size="lg"
-            className="border-foreground text-foreground hover:bg-foreground hover:text-background w-full sm:w-auto"
-            onClick={() => navigateToTop("/contact")}
-          >
-            Contact us
-          </Button>
           </ScrollReveal>
         </div>
       </section>
