@@ -99,24 +99,28 @@ const Index = () => {
           <div className="absolute inset-0 bg-background/60"></div>
         </div>
 
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-left relative z-10">
-          <div className="max-w-4xl animate-fade-in">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+          <div className="max-w-4xl mx-auto animate-fade-in">
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 leading-tight">
              AI-powered Automation <br />
              {/* <span className="text-blue-400">AI-powered Automation</span>  */}
                <span className="text-primary"> For every decision</span>
             </h1>
-            <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground mb-6 sm:mb-8 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground mb-6 sm:mb-8 leading-relaxed">
               Adopting data-centric operations and building AI solutions has never been easier, we are working on that.
             </p>
-            <Button
-              size="sm"
-              className="bg-primary hover:bg-primary/90 text-primary-foreground px-4 sm:px-6 py-2 sm:py-3 text-sm animate-glow-pulse w-auto h-9 sm:h-11"
-              onClick={() => scrollToSection("why-quantum")}
-            >
-              Scroll to Explore
-            </Button>
           </div>
+        </div>
+
+        {/* Centered button at bottom of hero section */}
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20">
+          <Button
+            size="sm"
+            className="bg-primary hover:bg-primary/90 text-primary-foreground px-6 sm:px-8 py-3 sm:py-4 text-sm animate-glow-pulse shadow-lg hover:shadow-xl transition-all duration-300"
+            onClick={() => scrollToSection("why-quantum")}
+          >
+            Scroll to Explore
+          </Button>
         </div>
       </section>
 
