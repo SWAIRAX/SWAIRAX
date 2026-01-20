@@ -95,7 +95,7 @@ export const TextRevealCard = ({
     >
       {children}
 
-      <div className="h-40  relative flex items-center overflow-hidden">
+      <div className="h-90  relative flex items-center overflow-hidden">
         {isDesktop && (
           <motion.div
             style={{
@@ -118,7 +118,7 @@ export const TextRevealCard = ({
               style={{
                 textShadow: "4px 4px 15px rgba(0,0,0,0.5)",
               }}
-              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black leading-tight bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent"
+              className="text-2xl sm:text-3xl md:text-4xl lg:text-3xl font-black leading-tight bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent"
             >
               {revealText}
             </p>
@@ -132,12 +132,12 @@ export const TextRevealCard = ({
               opacity: widthPercentage > 0 ? 1 : 0,
             }}
             transition={isMouseOver ? { duration: 0 } : { duration: 0.4 }}
-            className="hidden md:block h-40 w-[8px] bg-gradient-to-b from-transparent via-red-500 to-transparent absolute z-50 will-change-transform"
+            className="hidden md:block h-90 w-[8px] bg-gradient-to-b from-transparent via-red-500 to-transparent absolute z-50 will-change-transform"
           ></motion.div>
         )}
 
         <div className=" overflow-hidden [mask-image:linear-gradient(to_bottom,transparent,white,transparent)]">
-          <p className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black leading-tight bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent">
+          <p className="text-2xl sm:text-3xl md:text-4xl lg:text-3xl font-black leading-tight bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent">
             {text}
           </p>
           {isDesktop && <MemoizedStars />}
