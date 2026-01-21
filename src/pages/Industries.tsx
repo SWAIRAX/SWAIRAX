@@ -202,18 +202,17 @@ const Industries = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-3">
               <Button
-                className="bg-red-600 hover:bg-red-500 text-white w-full sm:w-auto"
+                className="hidden bg-red-600 hover:bg-red-500 text-white w-full sm:w-auto"
                 onClick={() => navigate("/contact")}
               >
                 Estimate project
               </Button>
-              <Button
-                variant="outline"
-                className="border-white/20 text-white hover:bg-white/10 w-full sm:w-auto"
+              <button
+                className="cta-btn-3d"
                 onClick={() => navigateToTop("/services")}
               >
                 Explore services
-              </Button>
+              </button>
             </div>
           </div>
 

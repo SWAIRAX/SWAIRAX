@@ -350,22 +350,18 @@ It’s about what it can do for you.
               Ready to be part of the AI revolution? Let's build the future together.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button
-                size="lg"
+              <button
+                className="cta-btn-3d"
                 onClick={() => navigateToTop('/careers')}
-                className="bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90 text-primary-foreground px-8 py-6 text-base font-semibold shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300"
               >
                 Explore Careers
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-              <Button
-                variant="outline"
-                size="lg"
+              </button>
+              <button
+                className="cta-btn-3d"
                 onClick={() => navigateToTop('/contact')}
-                className="px-8 py-6 text-base font-semibold border-2 hover:bg-primary/10 hover:border-primary transition-all duration-300"
               >
                 Partner With Us
-              </Button>
+              </button>
             </div>
           </div>
         </div>

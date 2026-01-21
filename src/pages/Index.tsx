@@ -8,6 +8,7 @@ import AnimatedCounter from "@/components/AnimatedCounter";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
+import { SocialMediaButton } from "@/components/SocialMediaButton";
 import { ArrowRight, CheckCircle, Database, Cog, Cloud, BarChart3, PieChart, TrendingUp, User, Clock } from "lucide-react";
 import { blogPosts, BlogPost } from "@/data/blogPosts";
 import { InfiniteMovingCards } from "@/components/ui/infinite-moving-cards";
@@ -516,9 +517,10 @@ const Index = () => {
               anyone eager to enter in the industry.
             </p>
             <p className="text-sm sm:text-base lg:text-lg text-muted-foreground mb-6 sm:mb-8 leading-relaxed">
-              Contact us to know more!
+              Follow us to know more!
             </p>
           </ScrollReveal>
+          <SocialMediaButton />
         </div>
       </section>
 
@@ -542,14 +544,12 @@ const Index = () => {
             >
               Try now
             </Button> */}
-            <Button
-              size="lg"
-              variant="outline"
-              className="border-foreground text-foreground hover:bg-foreground hover:text-background px-8"
+            <button
+              className="cta-btn-3d"
               onClick={() => navigateToTop('/contact')}
             >
               Estimate Project
-            </Button>
+            </button>
           </div>
         </div>
       </section>
@@ -583,14 +583,12 @@ const Index = () => {
           />
 
           <div className="text-center mt-8 sm:mt-10 lg:mt-12">
-            <Button
-              variant="outline"
-              size="lg"
-              className="border-primary text-primary hover:bg-primary hover:text-primary-foreground px-6 sm:px-8 py-3"
+            <button
+              className="cta-btn-3d"
               onClick={() => navigateToTop('/blog')}
             >
-              Explore More Articles <ArrowRight className="ml-2 h-4 w-4" />
-            </Button>
+              Explore More Articles
+            </button>
           </div>
         </div>
       </section>
