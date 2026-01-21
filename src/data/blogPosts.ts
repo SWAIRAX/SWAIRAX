@@ -612,7 +612,7 @@ These factors directly impact the performance of AI systems. Clean, well-labeled
 As we move forward, the ability to collect, process, and analyze data effectively will become increasingly important. **Data engineering, data science, and MLOps will continue to be critical disciplines** for organizations looking to leverage AI successfully.
 
 The future belongs to organizations that can transform raw data into actionable insights, turning information into competitive advantage and innovation into reality.`,
-    author: "Quantum Intelligence Team",
+    author: "Florence Sway-Quantum Intelligence",
     date: "June 3, 2024",
     category: "AI & Data",
     readTime: "5 min read",
@@ -775,7 +775,7 @@ Looking forward, NLP will continue to evolve with advances in:
 • **Personalization** — Models that adapt to individual communication styles
 
 **The future promises more natural and intuitive human-AI interactions**, making technology more accessible and useful for everyone. The boundary between human and machine communication continues to blur, opening up unprecedented possibilities for collaboration and innovation.`,
-    author: "Quantum Intelligence Team",
+    author: "Florence Sway-Quantum Intelligence",
     date: "January 30, 2024",
     category: "NLP",
     readTime: "9 min read",

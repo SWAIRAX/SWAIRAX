@@ -102,12 +102,12 @@ const Index = () => {
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <div className="max-w-4xl mx-auto animate-fade-in">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 leading-tight">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-bold mb-4 sm:mb-6 leading-tight">
              AI-powered Automation <br />
              {/* <span className="text-blue-400">AI-powered Automation</span>  */}
                <span className="text-primary"> For every decision</span>
             </h1>
-            <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground mb-6 sm:mb-8 leading-relaxed">
+            <p className="text-lg sm:text-xl md:text-xl lg:text-xl text-muted-foreground mb-6 sm:mb-8 leading-relaxed">
               Adopting data-centric operations and building AI solutions has never been easier, we are working on that.
             </p>
             <Button
@@ -512,9 +512,7 @@ const Index = () => {
               Quantum Intelligence offers AI related solutions that can be deployed in any infrastructure for
               anyone eager to enter in the industry.
             </p>
-            <p className="text-sm sm:text-base lg:text-lg text-muted-foreground mb-6 sm:mb-8 leading-relaxed">
-              Contact us to know more!
-            </p>
+
           </ScrollReveal>
           <button
             className="estimate-project-btn"

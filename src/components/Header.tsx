@@ -220,15 +220,13 @@ const Header = () => {
 
           {/* CTA Button */}
           <div className="hidden lg:flex">
-            <button
+            <Button
+              variant="outline"
               onClick={() => navigateToTop('/contact')}
-              className="estimate-project-btn"
+              className="border-primary text-primary hover:bg-primary hover:text-primary-foreground px-6 py-2 text-sm font-semibold rounded-lg"
             >
-              <span className="circle">
-                <span className="icon arrow"></span>
-              </span>
-              <span className="button-text">Estimate Project</span>
-            </button>
+              Estimate Project
+            </Button>
           </div>
 
           {/* Mobile Menu Button */}
