@@ -223,7 +223,7 @@ const Header = () => {
             <Button
               variant="outline"
               onClick={() => navigateToTop('/contact')}
-              className="border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300"
+              className="border-primary text-primary hover:bg-primary hover:text-primary-foreground px-6 py-2 text-sm font-semibold rounded-lg"
             >
               Estimate Project
             </Button>

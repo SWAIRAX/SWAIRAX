@@ -314,7 +314,7 @@ const Services = () => {
               </Button>
               <Button
                 variant="outline"
-                className="border-white/20 text-white hover:bg-white/10 w-full sm:w-auto"
+                className="hidden border-white/20 text-white hover:bg-white/10 w-full sm:w-auto"
                 onClick={() => navigateToTop("/careers")}
               >
                 Partner with us
