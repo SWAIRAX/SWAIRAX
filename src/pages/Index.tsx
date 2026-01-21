@@ -110,18 +110,14 @@ const Index = () => {
             <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground mb-6 sm:mb-8 leading-relaxed">
               Adopting data-centric operations and building AI solutions has never been easier, we are working on that.
             </p>
+            <Button
+              size="sm"
+              className="bg-primary hover:bg-primary/90 text-primary-foreground px-6 sm:px-8 py-3 sm:py-4 text-sm animate-glow-pulse shadow-lg hover:shadow-xl transition-all duration-300"
+              onClick={() => scrollToSection("why-quantum")}
+            >
+              Scroll to Explore
+            </Button>
           </div>
-        </div>
-
-        {/* Centered button at bottom of hero section */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20">
-          <Button
-            size="sm"
-            className="bg-primary hover:bg-primary/90 text-primary-foreground px-6 sm:px-8 py-3 sm:py-4 text-sm animate-glow-pulse shadow-lg hover:shadow-xl transition-all duration-300"
-            onClick={() => scrollToSection("why-quantum")}
-          >
-            Scroll to Explore
-          </Button>
         </div>
       </section>
 
@@ -517,10 +513,18 @@ const Index = () => {
               anyone eager to enter in the industry.
             </p>
             <p className="text-sm sm:text-base lg:text-lg text-muted-foreground mb-6 sm:mb-8 leading-relaxed">
-              Follow us to know more!
+              Contact us to know more!
             </p>
           </ScrollReveal>
-          <SocialMediaButton />
+          <button
+            className="estimate-project-btn"
+            onClick={() => navigateToTop('/contact')}
+          >
+            <span className="circle">
+              <span className="icon arrow"></span>
+            </span>
+            <span className="button-text">Contact Us</span>
+          </button>
         </div>
       </section>
 
@@ -544,12 +548,14 @@ const Index = () => {
             >
               Try now
             </Button> */}
-            <button
-              className="cta-btn-3d"
+            <Button
+              size="lg"
+              variant="outline"
+              className="border-foreground text-foreground hover:bg-foreground hover:text-background px-8"
               onClick={() => navigateToTop('/contact')}
             >
               Estimate Project
-            </button>
+            </Button>
           </div>
         </div>
       </section>
@@ -583,12 +589,14 @@ const Index = () => {
           />
 
           <div className="text-center mt-8 sm:mt-10 lg:mt-12">
-            <button
-              className="cta-btn-3d"
+            <Button
+              variant="outline"
+              size="lg"
+              className="border-primary text-primary hover:bg-primary hover:text-primary-foreground px-6 sm:px-8 py-3"
               onClick={() => navigateToTop('/blog')}
             >
-              Explore More Articles
-            </button>
+              Explore More Articles <ArrowRight className="ml-2 h-4 w-4" />
+            </Button>
           </div>
         </div>
       </section>

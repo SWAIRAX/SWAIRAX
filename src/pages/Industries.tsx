@@ -207,12 +207,13 @@ const Industries = () => {
               >
                 Estimate project
               </Button>
-              <button
-                className="cta-btn-3d"
+              <Button
+                variant="outline"
+                className="border-white/20 text-white hover:bg-white/10 w-full sm:w-auto"
                 onClick={() => navigateToTop("/services")}
               >
                 Explore services
-              </button>
+              </Button>
             </div>
           </div>
 

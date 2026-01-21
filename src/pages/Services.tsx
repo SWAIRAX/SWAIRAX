@@ -306,12 +306,12 @@ const Services = () => {
               We choreograph cinematic motion with real product proof: data-centric analytics, human-led annotation, safety-checked GenAI, and production MLOps. Evals, observability, and on-call rituals keep everything calm in production.
             </p>
             <div className="flex flex-col sm:flex-row gap-3">
-              <button
-                className="cta-btn-3d"
+              <Button
+                className="bg-red-600 hover:bg-red-500 text-white w-full sm:w-auto"
                 onClick={() => navigateToTop("/contact")}
               >
                 Start a project
-              </button>
+              </Button>
               <Button
                 variant="outline"
                 className="hidden border-white/20 text-white hover:bg-white/10 w-full sm:w-auto"

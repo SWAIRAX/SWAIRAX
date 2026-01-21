@@ -295,12 +295,12 @@ From security solutions to advanced AI platforms - our evolution continues
               See how SURASOFT, AI Proctoring, and Askari LLM experiments flow into today's production-grade analytics, annotation, GenAI, and MLOps. Real footage, AI overlays, and production guardrails together.
             </p>
             <div className="flex flex-col sm:flex-row gap-3">
-              <button
-                className="cta-btn-3d"
+              <Button
+                className="bg-red-600 hover:bg-red-500 text-white w-full sm:w-auto"
                 onClick={() => navigateToTop("/services")}
               >
                 Explore current solutions
-              </button>
+              </Button>
             </div>
           </ScrollReveal>
 
