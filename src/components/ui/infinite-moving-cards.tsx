@@ -1,7 +1,7 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { Button } from "./button";
 import { ExternalLink } from "lucide-react";
 
@@ -33,10 +33,46 @@ export const InfiniteMovingCards = ({
 }) => {
   const containerRef = React.useRef<HTMLDivElement>(null);
   const scrollerRef = React.useRef<HTMLUListElement>(null);
+  const [isDragging, setIsDragging] = useState(false);
+  const [startPos, setStartPos] = useState(0);
+  const [scrollLeft, setScrollLeft] = useState(0);
 
   useEffect(() => {
     addAnimation();
   }, []);
+
+  const handleMouseDown = (e: React.MouseEvent) => {
+    setIsDragging(true);
+    setStartPos(e.pageX - (scrollerRef.current?.offsetLeft || 0));
+    setScrollLeft(scrollerRef.current?.scrollLeft || 0);
+    if (scrollerRef.current) {
+      scrollerRef.current.style.cursor = 'grabbing';
+    }
+  };
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!isDragging) return;
+    e.preventDefault();
+    const x = e.pageX - (scrollerRef.current?.offsetLeft || 0);
+    const walk = (x - startPos) * 2; // Scroll speed multiplier
+    if (scrollerRef.current) {
+      scrollerRef.current.scrollLeft = scrollLeft - walk;
+    }
+  };
+
+  const handleMouseUp = () => {
+    setIsDragging(false);
+    if (scrollerRef.current) {
+      scrollerRef.current.style.cursor = 'grab';
+    }
+  };
+
+  const handleMouseLeave = () => {
+    setIsDragging(false);
+    if (scrollerRef.current) {
+      scrollerRef.current.style.cursor = 'grab';
+    }
+  };
   function addAnimation() {
     if (containerRef.current && scrollerRef.current) {
       const scrollerContent = Array.from(scrollerRef.current.children);
@@ -85,13 +121,24 @@ export const InfiniteMovingCards = ({
         "scroller relative z-20 w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_20%,white_80%,transparent)]",
         className,
       )}
+      style={{ overflowX: 'auto', scrollbarWidth: 'none', msOverflowStyle: 'none' }}
     >
       <ul
         ref={scrollerRef}
         className={cn(
-          "flex w-max min-w-full shrink-0 flex-nowrap gap-1 py-2 animate-scroll xs:gap-1.5 sm:gap-2 md:gap-3",
-          pauseOnHover && "hover:[animation-play-state:paused]",
+          "flex w-max min-w-full shrink-0 flex-nowrap gap-1 py-2 xs:gap-1.5 sm:gap-2 md:gap-3 cursor-grab select-none",
+          pauseOnHover && !isDragging && "animate-scroll hover:[animation-play-state:paused]",
+          isDragging && "cursor-grabbing",
         )}
+        style={{
+          scrollbarWidth: 'none',
+          msOverflowStyle: 'none',
+          '&::-webkit-scrollbar': { display: 'none' }
+        } as React.CSSProperties}
+        onMouseDown={handleMouseDown}
+        onMouseMove={handleMouseMove}
+        onMouseUp={handleMouseUp}
+        onMouseLeave={handleMouseLeave}
       >
         {items.map((item, idx) => (
           <li

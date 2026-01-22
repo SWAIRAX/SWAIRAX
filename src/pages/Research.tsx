@@ -196,15 +196,17 @@ const Research = () => {
                     </div>
                   )}
 
-                  <Button
-                    size="sm"
-                    variant="outline"
-                    onClick={() => navigateToTop(`/research/${solution.title.toLowerCase().replace(/\s+/g, '-')}`)}
-                    className="w-full text-xs border-white/20 text-white hover:bg-red-600 hover:text-white"
-                  >
-                    <ExternalLink className="w-3 h-3 mr-1" />
-                    Learn More
-                  </Button>
+                  <div className="flex justify-center">
+                    <Button
+                      size="sm"
+                      variant="outline"
+                      onClick={() => navigateToTop(`/research/${solution.title.toLowerCase().replace(/\s+/g, '-')}`)}
+                      className="w-auto text-xs border-white/20 text-white hover:bg-red-600 hover:text-white"
+                    >
+                      <ExternalLink className="w-3 h-3 mr-1" />
+                      Learn More
+                    </Button>
+                  </div>
                 </div>
               ))}
             </div>
@@ -294,9 +296,9 @@ From security solutions to advanced AI platforms - our evolution continues
             <p className="text-muted-foreground text-sm md:text-base max-w-lg lg:max-w-xl">
               See how SURASOFT, AI Proctoring, and Askari LLM experiments flow into today's production-grade analytics, annotation, GenAI, and MLOps. Real footage, AI overlays, and production guardrails together.
             </p>
-            <div className="flex flex-col sm:flex-row gap-3">
+            <div className="flex flex-col sm:flex-row items-start gap-3">
               <Button
-                className="bg-red-600 hover:bg-red-500 text-white w-full sm:w-auto"
+                className="bg-red-600 hover:bg-red-500 text-white w-auto h-10 sm:h-12 px-4 sm:px-6 py-2 sm:py-3 text-sm sm:text-base"
                 onClick={() => navigateToTop("/services")}
               >
                 Explore current solutions

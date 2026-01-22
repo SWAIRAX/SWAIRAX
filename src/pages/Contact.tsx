@@ -99,7 +99,7 @@ const patternStyles = `
     line-height: 1.5;
     border-radius: 16px;
     pointer-events: none;
-    transform: translateX(-100%);
+    transform: translateX(0);
     transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
   }
 
@@ -121,19 +121,7 @@ const patternStyles = `
     margin-bottom: 12px;
   }
 
-  .card:hover .content {
-    transform: translateX(0);
-  }
-
-  .card:hover .front-content {
-    transform: translateX(-30%);
-  }
-
-  .card:hover .front-content .title,
-  .card:hover .front-content .subtitle,
-  .card:hover .front-content .icon {
-    opacity: 0;
-  }
+  /* Hover effects removed - content is now visible by default */
 
   @media (max-width: 640px) {
     .card .content a {
@@ -192,12 +180,13 @@ const patternStyles = `
     z-index: -3;
   }
 
-  .social-card:hover::before {
+  /* Background effects now visible by default */
+  .social-card::before {
     opacity: 0.5;
     transform: translateY(-100%);
   }
 
-  .social-card:hover::after {
+  .social-card::after {
     opacity: 0.5;
     transform: translateY(100%);
   }
@@ -213,7 +202,7 @@ const patternStyles = `
     font-family: 'Fira Mono', monospace;
     font-size: 16px;
     font-weight: 700;
-    opacity: 1;
+    opacity: 0;
     transition: opacity 0.25s;
     z-index: 2;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
@@ -369,7 +358,7 @@ const Contact = () => {
           <div className="container mx-auto px-5 max-w-5xl relative z-10">
             <div className="text-center space-y-4">
               <h1 className="text-3xl md:text-4xl font-bold leading-tight">
-                Let&apos;s Get In <span className="text-primary">Touch</span>
+                Contact with our <span className="text-primary">Development team</span>
               </h1>
               <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
                 Tell us a bit about your project and we&apos;ll reach out soon. We respond within one business day.
@@ -390,11 +379,11 @@ const Contact = () => {
               <div className="card-container">
                 <div className="card">
                   {/* Front Content */}
-                  <div className="front-content">
-                    {/* <div className="icon">📞</div> */}
+                  {/* <div className="front-content hidden">
+                    <div className="icon">📞</div>
                     <div className="title">Contact Details</div>
                     <div className="subtitle"> We're ready to build with you</div>
-                  </div>
+                  </div> */}
 
                   {/* Sliding Content */}
                   <div className="content">
@@ -596,19 +585,21 @@ const Contact = () => {
                         )}
                       />
 
-                      <Button type="submit" disabled={form.formState.isSubmitting} className="w-full h-10 rounded-lg bg-gradient-to-r from-primary to-primary/80 shadow-lg shadow-primary/30 hover:shadow-primary/50 transition text-xs">
-                        {form.formState.isSubmitting ? (
-                          <>
-                            <div className="h-4 w-4 mr-2 animate-spin rounded-full border-2 border-primary-foreground border-t-transparent" />
-                            Sending...
-                          </>
-                        ) : (
-                          <>
-                            <Send className="w-4 h-4 mr-2" />
-                            Send Message
-                          </>
-                        )}
-                      </Button>
+                      <div className="flex justify-center">
+                        <Button type="submit" disabled={form.formState.isSubmitting} className="w-auto h-10 rounded-lg bg-gradient-to-r from-primary to-primary/80 shadow-lg shadow-primary/30 hover:shadow-primary/50 transition text-xs">
+                          {form.formState.isSubmitting ? (
+                            <>
+                              <div className="h-4 w-4 mr-2 animate-spin rounded-full border-2 border-primary-foreground border-t-transparent" />
+                              Sending...
+                            </>
+                          ) : (
+                            <>
+                              <Send className="w-4 h-4 mr-2" />
+                              Send Message
+                            </>
+                          )}
+                        </Button>
+                      </div>
 
                       <p className="text-center text-[10px] text-muted-foreground">
                         By submitting, you agree to our <a href="/terms" className="text-primary hover:underline">Terms</a> and <a href="/privacy" className="text-primary hover:underline">Privacy Policy</a>.

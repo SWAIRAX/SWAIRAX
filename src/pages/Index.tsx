@@ -538,7 +538,7 @@ const Index = () => {
               efficiently! Improve AI initiatives performance in a iterative way.
             </p>
           </ScrollReveal>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-4 items-start sm:justify-center">
             {/* <Button
               size="lg"
               className="bg-primary hover:bg-primary/90 text-primary-foreground px-8"
@@ -549,7 +549,7 @@ const Index = () => {
             <Button
               size="lg"
               variant="outline"
-              className="border-foreground text-foreground hover:bg-foreground hover:text-background px-8"
+              className="border-foreground text-foreground hover:bg-foreground hover:text-background px-4 sm:px-8 h-10 sm:h-14 py-2 sm:py-4 text-sm sm:text-lg"
               onClick={() => navigateToTop('/contact')}
             >
               Estimate Project

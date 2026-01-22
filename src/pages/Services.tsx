@@ -178,7 +178,7 @@ const Services = () => {
       <section className="relative py-12 bg-background">
         <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-background to-transparent" />
         <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-10">
-          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 mb-8">
+          <div className="flex flex-col md:flex-row items-end md:items-center md:justify-between gap-6 mb-8">
             <div>
               <div className="inline-flex items-center gap-2 rounded-full border border-red-500/20 bg-red-500/10 px-4 py-1 text-xs uppercase tracking-[0.08em] text-red-100">
                 <span className="h-2 w-2 rounded-full bg-red-400 animate-pulse" />
@@ -305,9 +305,9 @@ const Services = () => {
             <p className="text-muted-foreground text-sm md:text-base max-w-xl">
               We choreograph cinematic motion with real product proof: data-centric analytics, human-led annotation, safety-checked GenAI, and production MLOps. Evals, observability, and on-call rituals keep everything calm in production.
             </p>
-            <div className="flex flex-col sm:flex-row gap-3">
+            <div className="flex flex-col sm:flex-row items-start gap-3">
               <Button
-                className="bg-red-600 hover:bg-red-500 text-white w-full sm:w-auto"
+                className="bg-red-600 hover:bg-red-500 text-white w-auto h-10 sm:h-12 px-4 sm:px-6 py-2 sm:py-3 text-sm sm:text-base"
                 onClick={() => navigateToTop("/contact")}
               >
                 Start a project

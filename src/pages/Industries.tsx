@@ -200,7 +200,7 @@ const Industries = () => {
             <p className="text-muted-foreground text-sm md:text-base max-w-xl">
               A cinematic mix of financial fraud defense, telecom routing, adaptive learning, smart grids, logistics optimization, and healthcare imaging—paired with the MLOps rigor that keeps them live.
             </p>
-            <div className="flex flex-col sm:flex-row gap-3">
+            <div className="flex flex-col sm:flex-row items-start gap-3">
               <Button
                 className="hidden bg-red-600 hover:bg-red-500 text-white w-full sm:w-auto"
                 onClick={() => navigate("/contact")}
@@ -209,7 +209,7 @@ const Industries = () => {
               </Button>
               <Button
                 variant="outline"
-                className="border-white/20 text-white hover:bg-white/10 w-full sm:w-auto"
+                className="border-white/20 text-white hover:bg-white/10 w-auto h-10 sm:h-12 px-4 sm:px-6 py-2 sm:py-3 text-sm sm:text-base"
                 onClick={() => navigateToTop("/services")}
               >
                 Explore services
