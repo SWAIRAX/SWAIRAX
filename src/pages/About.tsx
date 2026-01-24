@@ -350,14 +350,14 @@ It’s about what it can do for you.
               Ready to be part of the AI revolution? Let's build the future together.
             </p>
             <div className="flex flex-col sm:flex-row items-start sm:justify-center gap-4">
-              <Button
+              {/* <Button
                 size="lg"
                 onClick={() => navigateToTop('/careers')}
                 className="bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90 text-primary-foreground px-6 sm:px-8 py-4 sm:py-6 text-sm sm:text-base font-semibold shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 h-12 sm:h-14"
               >
                 Explore Careers
                 <ArrowRight className="ml-2 h-4 sm:h-5 w-4 sm:w-5" />
-              </Button>
+              </Button> */}
               <Button
                 variant="outline"
                 size="lg"

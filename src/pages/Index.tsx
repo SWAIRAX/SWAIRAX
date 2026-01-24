@@ -30,7 +30,7 @@ const Index = () => {
     {
       title: "Deep Operator",
       category: "Saas",
-      description: "Data-centric platform leveraging Machine Learning & RLHF to help organizations understand impact, learn from their data, measure progress, and make smarter decisions.",
+      description: "Data-centric platform leveraging Machine Learning & RLHF to help organizations understand impact of their work, measure progress and make smarter decisions.",
       cta: "Get Started"
     },
     {

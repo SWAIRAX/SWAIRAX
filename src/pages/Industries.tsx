@@ -29,8 +29,7 @@ const Industries = () => {
       name: "Financial Services",
       tagline: "Getting easy with the payment sector",
       description: "Intelligent automation, fraud detection, and financial analytics solutions that transform banking and payment systems.",
-      icon: Banknote,
-      color: "from-blue-500 to-indigo-600",
+      icon: <Banknote className="h-8 w-8" />,
       features: ["Fraud Detection", "Payment Processing", "Risk Analytics", "Digital Banking"]
     },
     {
@@ -38,8 +37,7 @@ const Industries = () => {
       name: "Telecommunications",
       tagline: "Everything that involves communication",
       description: "Network optimization, customer support automation, and real-time data routing for seamless connectivity.",
-      icon: Radio,
-      color: "from-purple-500 to-violet-600",
+      icon: <Radio className="h-8 w-8" />,
       features: ["Network Optimization", "Support Automation", "Data Routing", "5G Infrastructure"]
     },
     {
@@ -47,8 +45,7 @@ const Industries = () => {
       name: "Education Services",
       tagline: "Everything that involves Learning and students",
       description: "Adaptive learning platforms, AI tutors, and automated grading systems for modern education.",
-      icon: GraduationCap,
-      color: "from-green-500 to-emerald-600",
+      icon: <GraduationCap className="h-8 w-8" />,
       features: ["Adaptive Learning", "AI Tutoring", "Grade Automation", "Student Analytics"]
     },
     {
@@ -56,8 +53,7 @@ const Industries = () => {
       name: "Utilities",
       tagline: "From electricity, to water supplies to public services",
       description: "Smart grid management, consumption analytics, and predictive fault detection for essential services.",
-      icon: Zap,
-      color: "from-yellow-500 to-orange-600",
+      icon: <Zap className="h-8 w-8" />,
       features: ["Smart Grids", "Usage Analytics", "Fault Detection", "Resource Management"]
     },
     {
@@ -65,8 +61,7 @@ const Industries = () => {
       name: "Retail & Logistics",
       tagline: "Great brands who chose secure data",
       description: "Inventory prediction, delivery optimization, and personalized e-commerce experiences.",
-      icon: Package,
-      color: "from-red-500 to-pink-600",
+      icon: <Package className="h-8 w-8" />,
       features: ["Inventory Prediction", "Route Optimization", "E-commerce AI", "Supply Chain"]
     },
     {
@@ -74,8 +69,7 @@ const Industries = () => {
       name: "Healthcare & Pharmacy",
       tagline: "Health sector covered",
       description: "Computer vision diagnostics, patient data systems, and prescription automation for better healthcare.",
-      icon: Heart,
-      color: "from-teal-500 to-cyan-600",
+      icon: <Heart className="h-8 w-8" />,
       features: ["Medical Imaging", "Patient Systems", "Drug Discovery", "Clinical Analytics"]
     }
   ];
@@ -146,7 +140,6 @@ const Industries = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
             {industries.map((industry, index) => {
-              const Icon = industry.icon;
               return (
                 <Card
                   key={industry.id}
@@ -154,15 +147,16 @@ const Industries = () => {
                   style={{ animationDelay: `${index * 100}ms` }}
                 >
                   <div className={`absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-white/5 opacity-0 group-hover:opacity-10 transition-opacity duration-500`} />
-                  <div className={`absolute -inset-0.5 bg-gradient-to-r ${industry.color} rounded-lg opacity-0 group-hover:opacity-25 blur-sm transition-opacity duration-700 -z-10 animate-pan-slow`} />
+                  <div className={`absolute -inset-0.5 bg-gradient-to-r from-red-500/5 via-transparent to-red-500/10 rounded-lg opacity-0 group-hover:opacity-25 blur-sm transition-opacity duration-700 -z-10 animate-pan-slow`} />
                   <CardContent className="p-6 relative z-10">
-                    <div className={`w-14 h-14 rounded-xl bg-gradient-to-r ${industry.color} flex items-center justify-center mb-4 group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300 shadow-lg`}>
-                      <Icon className="h-7 w-7 text-white" />
+                    <div className="flex items-center gap-3 mb-2">
+                      <div className="rounded-lg sm:rounded-xl bg-white/10 p-2 sm:p-3 text-red-200 shadow-inner shadow-red-500/20 shrink-0">
+                        {industry.icon}
+                      </div>
+                      <h3 className="text-lg font-bold group-hover:text-red-200 transition-colors">
+                        {industry.name}
+                      </h3>
                     </div>
-
-                    <h3 className="text-lg font-bold mb-2 group-hover:text-red-200 transition-colors">
-                      {industry.name}
-                    </h3>
 
                     <p className="text-sm text-red-200 font-medium mb-3 italic">
                       {industry.tagline}

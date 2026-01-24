@@ -49,7 +49,7 @@ const Services = () => {
       icon: <Brain className="h-8 w-8" />,
       title: "Deep Operator",
       description:
-        "Data-centric platform leveraging Machine Learning & RLHF to help organizations understand impact, learn from their data, measure progress, and make smarter decisions.",
+        "Data-centric platform leveraging Machine Learning & RLHF to help organizations understand impactt of their work, learn from their data, measure progress, and make smarter decisions.",
       outcomes: ["Machine Learning & RLHF", "Impact Measurement", "Progress Tracking", "Smart Decision Making"],
       href: "/deep-operator",
       timeline: "4-6 weeks to first lift",

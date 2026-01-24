@@ -31,8 +31,8 @@ const Footer = () => {
               </div>
             </Link>
             <p className="text-sm md:text-base text-muted-foreground max-w-2xl">
-              Making AI work for humanity. We're an AI research and deployment company building innovative,
-              ethical, and accessible AI solutions.
+             At the heart of this mission we're solving intelligence to advance science and benefit humanity.
+Solving intelligence and use it to solve everything else.
             </p>
           </div>
           <div className="w-full lg:w-auto flex justify-start lg:justify-end">
