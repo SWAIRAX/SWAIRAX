@@ -178,8 +178,8 @@ const Services = () => {
       <section className="relative py-12 bg-background">
         <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-background to-transparent" />
         <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-10">
-          <div className="flex flex-col md:flex-row items-end md:items-center md:justify-between gap-6 mb-8">
-            <div>
+          <div className="flex flex-col md:flex-row items-start md:items-center md:justify-between gap-6 mb-8">
+            <div className="flex-1">
               <div className="inline-flex items-center gap-2 rounded-full border border-red-500/20 bg-red-500/10 px-4 py-1 text-xs uppercase tracking-[0.08em] text-red-100">
                 <span className="h-2 w-2 rounded-full bg-red-400 animate-pulse" />
                 Our services
@@ -192,14 +192,14 @@ const Services = () => {
               <p className="text-base md:text-lg text-muted-foreground max-w-2xl">
                 Select the lane you need. We pair bold visuals with resilient engineering so every interaction feels alive and every release feels safe.
               </p>
+              <Button
+                variant="outline"
+                className="border-white/20 text-white hover:bg-white/10 w-fit mt-4 md:mt-0"
+                onClick={() => navigateToTop("/research")}
+              >
+                View proofs & case notes <ArrowRight className="ml-2 h-4 w-4" />
+              </Button>
             </div>
-            <Button
-              variant="outline"
-              className="border-white/20 text-white hover:bg-white/10"
-              onClick={() => navigateToTop("/research")}
-            >
-              View proofs & case notes <ArrowRight className="ml-2 h-4 w-4" />
-            </Button>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">

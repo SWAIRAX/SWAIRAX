@@ -37,6 +37,7 @@ import ResearchDetail from '@/pages/ResearchDetail';
 import BlogDetail from '@/pages/BlogDetail';
 import Partnerships from '@/pages/Partnerships';
 import { initScrollReveal } from "./hooks/useScrollReveal";
+import { setSEO, pageSEO } from "@/utils/seo";
 
 const queryClient = new QueryClient();
 
@@ -44,6 +45,44 @@ const AppRoutes = () => {
   const location = useLocation();
 
   useEffect(() => {
+    // Set SEO based on current route
+    const pathname = location.pathname;
+
+    if (pathname === "/") {
+      setSEO(pageSEO.home);
+    } else if (pathname === "/services") {
+      setSEO(pageSEO.services);
+    } else if (pathname === "/about") {
+      setSEO(pageSEO.about);
+    } else if (pathname === "/contact") {
+      setSEO(pageSEO.contact);
+    } else if (pathname === "/blog") {
+      setSEO(pageSEO.blog);
+    } else if (pathname === "/careers") {
+      setSEO(pageSEO.careers);
+    } else if (pathname === "/industries") {
+      setSEO(pageSEO.industries);
+    } else if (pathname === "/ai-studio") {
+      setSEO(pageSEO.aiStudio);
+    } else if (pathname === "/mlops") {
+      setSEO(pageSEO.mlops);
+    } else if (pathname === "/quantum-genai") {
+      setSEO(pageSEO.quantumGenAI);
+    } else if (pathname === "/deep-operator") {
+      setSEO(pageSEO.quantumAnalytics);
+    } else if (pathname === "/quantum-annotate") {
+      setSEO(pageSEO.quantumAnnotate);
+    } else if (pathname === "/resources") {
+      setSEO(pageSEO.resources);
+    } else if (pathname === "/privacy") {
+      setSEO(pageSEO.privacy);
+    } else if (pathname === "/terms") {
+      setSEO(pageSEO.terms);
+    } else if (pathname === "/faq") {
+      setSEO(pageSEO.faq);
+    }
+
+    // Scroll reveal
     const stop = initScrollReveal({
       autoAttach: true,
       selector:
