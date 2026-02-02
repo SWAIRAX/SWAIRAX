@@ -316,7 +316,7 @@ We're a team of scientists, engineers, ethicists and more, working to build the 
             </div>
             <div className="space-y-3 text-base text-muted-foreground">
                 <p>
-                  Founded in 2020 by a group of dreamers, builders, and researchers, Quantum Intelligence was born from a simple but powerful belief:
+                  Founded in 2024 by a group of dreamers, builders, and researchers, Quantum Intelligence was born from a simple but powerful belief:
                   Artificial intelligence should serve humanity—not just optimize it.
 
                 </p>
