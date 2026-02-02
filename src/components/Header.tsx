@@ -30,7 +30,7 @@ const Header = () => {
 
   const navItems = [
     {
-      name: "Products&Services",
+      name: "Products & Services",
       path: "/services",
       // dropdown: [
       //   { name: "Data Analysis", desc: "Build better datasets for AI models", path: "/data-analysis" },
