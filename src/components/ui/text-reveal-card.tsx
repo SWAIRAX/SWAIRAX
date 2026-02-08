@@ -89,13 +89,13 @@ export const TextRevealCard = ({
       onTouchMove={isDesktop ? touchMoveHandler : undefined}
       ref={cardRef}
       className={cn(
-        "bg-black/80 border border-red-500/20 rounded-lg p-4 md:p-6 relative overflow-hidden backdrop-blur-sm",
+        "bg-black/80 border border-red-500/20 rounded-lg p-8 relative overflow-hidden backdrop-blur-sm",
         className
       )}
     >
       {children}
 
-      <div className="relative flex items-center overflow-visible py-2">
+      <div className="h-90  relative flex items-center overflow-hidden">
         {isDesktop && (
           <motion.div
             style={{
@@ -118,7 +118,7 @@ export const TextRevealCard = ({
               style={{
                 textShadow: "4px 4px 15px rgba(0,0,0,0.5)",
               }}
-              className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-black leading-relaxed bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent py-1"
+              className="text-2xl sm:text-3xl md:text-4xl lg:text-3xl font-black leading-tight bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent"
             >
               {revealText}
             </p>
@@ -132,12 +132,12 @@ export const TextRevealCard = ({
               opacity: widthPercentage > 0 ? 1 : 0,
             }}
             transition={isMouseOver ? { duration: 0 } : { duration: 0.4 }}
-            className="hidden md:block h-20 w-[8px] bg-gradient-to-b from-transparent via-red-500 to-transparent absolute z-50 will-change-transform"
+            className="hidden md:block h-90 w-[8px] bg-gradient-to-b from-transparent via-red-500 to-transparent absolute z-50 will-change-transform"
           ></motion.div>
         )}
 
-        <div className="overflow-visible">
-          <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-black leading-relaxed bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent py-1">
+        <div className=" overflow-hidden [mask-image:linear-gradient(to_bottom,transparent,white,transparent)]">
+          <p className="text-2xl sm:text-3xl md:text-4xl lg:text-3xl font-black leading-tight bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent">
             {text}
           </p>
           {isDesktop && <MemoizedStars />}
