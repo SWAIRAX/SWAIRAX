@@ -9,6 +9,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { useToast } from "@/hooks/use-toast";
+import { SEOSchema } from "@/components/SEOSchema";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Mail, Phone, MapPin, Globe, Send, Calendar, X } from "lucide-react";
@@ -341,6 +342,12 @@ const Contact = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEOSchema
+        breadcrumbs={[
+          { name: "Home", url: "https://quantumintelligence.co.tz" },
+          { name: "Contact", url: "https://quantumintelligence.co.tz/contact" }
+        ]}
+      />
       <div className="relative overflow-hidden">
         {/* Subtle glow accents inspired by references */}
         <div className="pointer-events-none absolute inset-0">

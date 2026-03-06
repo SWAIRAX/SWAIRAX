@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useNavigationWithScroll } from "@/utils/navigation";
+import { SEOSchema } from "@/components/SEOSchema";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
@@ -75,6 +76,12 @@ const About = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEOSchema
+        breadcrumbs={[
+          { name: "Home", url: "https://quantumintelligence.co.tz" },
+          { name: "About", url: "https://quantumintelligence.co.tz/about" }
+        ]}
+      />
       <Header />
 
       {/* Hero Section - Split Layout */}
