@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { useNavigationWithScroll } from "@/utils/navigation";
+import { SEOSchema } from "@/components/SEOSchema";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
@@ -74,6 +75,12 @@ const Research = () => {
 
   return (
     <div className="min-h-screen bg-black text-white">
+      <SEOSchema
+        breadcrumbs={[
+          { name: "Home", url: "https://quantumintelligence.co.tz" },
+          { name: "Research", url: "https://quantumintelligence.co.tz/research" }
+        ]}
+      />
       <Header />
 
       {/* Hero Section with asymmetric layout */}

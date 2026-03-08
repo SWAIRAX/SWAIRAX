@@ -1,6 +1,7 @@
 // React imports removed (no hooks needed here)
 import { useNavigate } from "react-router-dom";
 import { useNavigationWithScroll } from "@/utils/navigation";
+import { SEOSchema } from "@/components/SEOSchema";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
@@ -118,6 +119,12 @@ const Services = () => {
 
   return (
     <div className="min-h-screen bg-black text-white">
+      <SEOSchema
+        breadcrumbs={[
+          { name: "Home", url: "https://quantumintelligence.co.tz" },
+          { name: "Services", url: "https://quantumintelligence.co.tz/services" }
+        ]}
+      />
       <Header />
 
       {/* Hero */}
