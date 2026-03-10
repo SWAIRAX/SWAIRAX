@@ -107,12 +107,15 @@ const Index = () => {
              {/* <span className="text-blue-400">AI-powered Automation</span>  */}
                <span className="text-primary"> For every decision</span>
             </h1>
-            <p className="text-lg sm:text-xl md:text-xl lg:text-xl text-muted-foreground mb-6 sm:mb-8 leading-relaxed">
-              Adopting data-centric operations and building AI solutions has never been easier, we are working on that.
+            <p className="text-lg sm:text-xl md:text-xl lg:text-xl text-muted-foreground mb-1 sm:mb-1.5 leading-relaxed">
+              Adopting data-centric operations and building AI solutions has never been easier,
+            </p>
+            <p className="text-lg sm:text-xl md:text-xl lg:text-xl text-muted-foreground leading-relaxed font-medium -mt-1 sm:-mt-2">
+              we are working on that.
             </p>
             <Button
               size="sm"
-              className="bg-primary hover:bg-primary/90 text-primary-foreground px-6 sm:px-8 py-3 sm:py-4 text-sm animate-glow-pulse shadow-lg hover:shadow-xl transition-all duration-300"
+              className="bg-primary hover:bg-primary/90 text-primary-foreground px-6 sm:px-8 py-3 sm:py-4 text-sm animate-glow-pulse shadow-lg hover:shadow-xl transition-all duration-300 mt-4 sm:mt-6"
               onClick={() => scrollToSection("why-quantum")}
             >
               Scroll to Explore
