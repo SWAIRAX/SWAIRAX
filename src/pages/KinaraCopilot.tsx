@@ -188,31 +188,32 @@ const KinaraCopilot = () => {
                 {/* Phone container with chat UI inside */}
                 <div className="relative">
                   {/* Chat interface inside phone */}
-                  <div className="absolute top-[8%] left-[17%] right-[17%] bottom-[6%] overflow-hidden rounded-[2.5rem] bg-background">
-                    {/* Realistic status bar */}
-                    <div className="bg-black/90 px-3 py-1.5 flex items-center justify-between text-white">
-                      <div className="flex items-center gap-1.5 text-[10px]">
+                  <div className="absolute top-[7%] left-[17%] right-[17%] bottom-[6%] overflow-hidden rounded-[2.5rem] bg-background">
+                    {/* Status bar – covers top, rounded to match screen */}
+                    <div className="bg-black/95 rounded-t-[2rem] pl-6 pr-5 py-1.5 flex items-center justify-between text-white shrink-0">
+                      <div className="flex items-center gap-2 text-[8px]">
+
                         <span className="font-medium">9:27</span>
-                        <span className="h-3 w-3 rounded-full bg-emerald-400" />
+
                       </div>
-                      <div className="flex items-center gap-1 text-[9px] text-white/80">
+                      <div className="flex items-center gap-1.5 text-[8px] text-white/90">
                         {/* Signal bars */}
-                        <div className="flex items-end gap-[1px]">
-                          <span className="w-[2px] h-1 bg-white/60 rounded-sm" />
-                          <span className="w-[2px] h-2 bg-white/70 rounded-sm" />
-                          <span className="w-[2px] h-3 bg-white/80 rounded-sm" />
-                          <span className="w-[2px] h-3.5 bg-white rounded-sm" />
+                        <div className="flex items-end gap-[0.5px]">
+                          <span className="w-[1.5px] h-0.5 bg-white/60 rounded-sm" />
+                          <span className="w-[1.5px] h-1 bg-white/70 rounded-sm" />
+                          <span className="w-[1.5px] h-1.5 bg-white/80 rounded-sm" />
+                          <span className="w-[1.5px] h-2 bg-white rounded-sm" />
                         </div>
                         {/* WiFi */}
-                        <span className="w-3 h-3 rounded-full border border-white/70 flex items-center justify-center">
-                          <span className="w-1.5 h-1 rounded-full bg-white/80" />
+                        <span className="w-2.5 h-2.5 rounded-full border border-white/70 flex items-center justify-center">
+                          <span className="w-1 h-1 rounded-full bg-white/80" />
                         </span>
                         {/* Battery */}
-                        <div className="flex items-center gap-[1px]">
-                          <div className="w-[14px] h-[7px] rounded-[3px] border border-white/70 flex items-center p-[1px]">
-                            <div className="w-full h-full rounded-[2px] bg-emerald-400" />
+                        <div className="flex items-center gap-[0.5px]">
+                          <div className="w-[11px] h-[5px] rounded-[2px] border border-white/70 flex items-center p-[0.5px]">
+                            <div className="w-full h-full rounded-[1px] bg-emerald-400" />
                           </div>
-                          <div className="w-[2px] h-[4px] rounded-r-[2px] bg-white/70" />
+                          <div className="w-[1.5px] h-[3px] rounded-r-[1px] bg-white/70" />
                         </div>
                       </div>
                     </div>
@@ -299,28 +300,16 @@ const KinaraCopilot = () => {
       {/* Storytelling 2 – teacher & school tools */}
       <section className="py-12 md:py-16 bg-card/30">
         <div className="max-w-[1200px] mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <ScrollReveal className="space-y-4 order-2 lg:order-1">
-              <Badge variant="outline" className="border-primary/20 text-primary">
-                Teachers & schools
-              </Badge>
-              <h2 className="text-3xl md:text-4xl font-bold">Turn questions into insight</h2>
-              <p className="text-muted-foreground">
-                Aggregate data shows which topics learners are struggling with, helping teachers adjust lessons and
-                schools plan interventions without needing extra infrastructure.
-              </p>
-            </ScrollReveal>
-            <ScrollReveal className="order-1 lg:order-2">
-              <div className="relative max-w-sm mx-auto">
-                <img
-                  src="/OUR WORK/desktop cover.png"
-                  alt="Kinara insights"
-                  className="w-full h-auto rounded-2xl shadow-2xl"
-                  draggable={false}
-                />
-              </div>
-            </ScrollReveal>
-          </div>
+          <ScrollReveal className="space-y-4 max-w-2xl">
+            <Badge variant="outline" className="border-primary/20 text-primary">
+              Teachers & schools
+            </Badge>
+            <h2 className="text-3xl md:text-4xl font-bold">Turn questions into insight</h2>
+            <p className="text-muted-foreground">
+              Aggregate data shows which topics learners are struggling with, helping teachers adjust lessons and
+              schools plan interventions without needing extra infrastructure.
+            </p>
+          </ScrollReveal>
         </div>
       </section>
 

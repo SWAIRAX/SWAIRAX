@@ -10,23 +10,8 @@ import { useNavigationWithScroll } from "@/utils/navigation";
 const OurWork = () => {
   const { navigateToTop } = useNavigationWithScroll();
 
+  // Only Kinara Copilot shown for now (Mifumo SMS & Mifumo Labs hidden)
   const products = [
-    {
-      name: "Mifumo Labs",
-      tag: "Product Studio",
-      description:
-        "Mifumo Labs is a human-centered software studio that partners with organizations to design and build impactful digital systems.",
-      image: "/OUR WORK/desktop cover.png",
-      path: "/mfumo-labs",
-    },
-    {
-      name: "Mifumo SMS",
-      tag: "Messaging Platform",
-      description:
-        "An SMS and AI system that helps businesses communicate with thousands of customers instantly and measure real results.",
-      image: "/OUR WORK/mobile cover.png",
-      path: "/mfumo-sms",
-    },
     {
       name: "Kinara Copilot",
       tag: "EdTech · NECTA",
