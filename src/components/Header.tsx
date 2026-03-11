@@ -43,6 +43,27 @@ const Header = () => {
       name: "Industries",
       path: "/industries"
     },
+    {
+      name: "Our Work",
+      path: "/our-work",
+      dropdown: [
+        {
+          name: "Mifumo Labs",
+          desc: "Human-centred software studio for impactful digital systems.",
+          path: "/mfumo-labs",
+        },
+        {
+          name: "Mifumo SMS",
+          desc: "Intelligent messaging platform for campaigns, alerts, and delivery tracking.",
+          path: "/mfumo-sms",
+        },
+        {
+          name: "Kinara Copilot",
+          desc: "SMS & WhatsApp learning assistant aligned with the NECTA curriculum.",
+          path: "/kinara-copilot",
+        },
+      ],
+    },
     // {
     //   name: "Clients",
     //   path: "/clients",
@@ -96,6 +117,7 @@ const Header = () => {
   const mobileNavItems = [
     { name: "Services", path: "/services" },
     { name: "Industries", path: "/industries" },
+    { name: "Our Work", path: "/mfumo-sms" },
     { name: "Research", path: "/research" },
     { name: "About Us", path: "/about" },
     { name: "Partnerships", path: "/partnerships" },

@@ -37,6 +37,10 @@ import Research from '@/pages/Research';
 import ResearchDetail from '@/pages/ResearchDetail';
 import BlogDetail from '@/pages/BlogDetail';
 import Partnerships from '@/pages/Partnerships';
+import OurWork from '@/pages/OurWork';
+import MfumoSMS from '@/pages/MfumoSMS';
+import MifumoLabs from '@/pages/MifumoLabs';
+import KinaraCopilot from '@/pages/KinaraCopilot';
 import { initScrollReveal } from "./hooks/useScrollReveal";
 import { setSEO, pageSEO } from "@/utils/seo";
 
@@ -128,6 +132,10 @@ const AppRoutes = () => {
       <Route path="/research" element={<Research />} />
       <Route path="/research/:solutionName" element={<ResearchDetail />} />
       <Route path="/partnerships" element={<Partnerships />} />
+      <Route path="/our-work" element={<OurWork />} />
+      <Route path="/mfumo-sms" element={<MfumoSMS />} />
+      <Route path="/mfumo-labs" element={<MifumoLabs />} />
+      <Route path="/kinara-copilot" element={<KinaraCopilot />} />
       {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
       <Route path="*" element={<NotFound />} />
     </Routes>
