@@ -2,19 +2,18 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
 import sitemap from "vite-plugin-sitemap";
-// import { componentTagger } from "lovable-tagger";
 
-// https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
+  base: "./", // ⭐⭐⭐ ADD THIS LINE
+
   server: {
     host: "::",
     port: 8080,
   },
+
   plugins: [
     react(),
-    // Temporarily disable componentTagger to fix __WS_TOKEN__ error
-    // mode === 'development' &&
-    // componentTagger(),
+
     sitemap({
       hostname: "https://quantumintelligence.co.tz",
       dynamicRoutes: [
@@ -53,6 +52,7 @@ export default defineConfig(({ mode }) => ({
       lastmod: new Date(),
     }),
   ].filter(Boolean),
+
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
