@@ -9,7 +9,7 @@ import {
   WifiOff,
   Smartphone,
   GraduationCap,
-  Sparkles,
+  Bot,
 } from "lucide-react";
 import Header from "@/components/Header";
 import ScrollReveal from "@/components/ScrollReveal";
@@ -43,7 +43,7 @@ const kinaraFeatures = [
     description: "Insights that help teachers see gaps and support students.",
   },
   {
-    icon: <Sparkles className="h-6 w-6" />,
+    icon: <Bot className="h-6 w-6" />,
     title: "AI tutor",
     description: "Conversational help that explains, quizzes, and encourages.",
   },
@@ -93,93 +93,6 @@ const KinaraCopilot = () => {
             </ScrollReveal>
 
             {/* Device mockup */}
-            <ScrollReveal>
-              <div className="relative max-w-sm mx-auto">
-                <img
-                  src="/OUR WORK/iphone_PNG5735.png"
-                  alt="Kinara Copilot phone"
-                  className="w-full h-auto drop-shadow-2xl"
-                  draggable={false}
-                />
-                <div className="absolute inset-[15%] rounded-2xl overflow-hidden bg-black/95 flex flex-col p-3">
-                  <div className="flex justify-between text-[10px] text-white/80 mb-2">
-                    <span>Kinara</span>
-                    <span>SMS · WhatsApp</span>
-                  </div>
-                  <div className="flex-1 rounded-xl bg-white/10 p-3 text-white text-xs space-y-2">
-                    <div>
-                      <div className="font-semibold">Form 3 Physics · Waves</div>
-                      <p className="text-white/80 text-[11px] mt-1">
-                        Q: A bus horn sounds at 400 Hz. What happens to the pitch as it moves away from you?
-                      </p>
-                    </div>
-                    <div className="rounded-lg bg-black/40 px-2 py-1.5 text-[11px]">
-                      <span className="font-semibold">Kinara:</span>{" "}
-                      The pitch becomes lower because the wavefronts spread out. This is called the Doppler effect.
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </ScrollReveal>
-          </div>
-        </div>
-      </section>
-
-      {/* Desktop dashboard – ContainerScroll (desktop only) */}
-      <section className="relative hidden md:block py-8">
-        <ContainerScroll
-          titleComponent={
-            <div className="text-center space-y-2">
-              <Badge variant="outline" className="border-primary/20 text-primary">
-                School & district view
-              </Badge>
-              <h2 className="text-2xl md:text-4xl font-bold text-foreground">
-                See how learners engage across every topic
-              </h2>
-              <p className="text-muted-foreground max-w-xl mx-auto text-sm md:text-base">
-                Track questions asked, mastery by topic, and engagement across schools from a single dashboard.
-              </p>
-            </div>
-          }
-        >
-          <img
-            src="/OUR WORK/KINARACOVER.png"
-            alt="Kinara Copilot analytics"
-            className="mx-auto h-full w-auto max-w-full object-contain rounded-2xl"
-            draggable={false}
-          />
-        </ContainerScroll>
-      </section>
-
-      {/* Features grid */}
-      <section className="py-12 md:py-16 bg-card/30">
-        <div className="max-w-[1200px] mx-auto px-6">
-          <ScrollReveal className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Designed for Tanzanian classrooms</h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              A learning companion that works in low-connectivity environments, for both students and teachers.
-            </p>
-          </ScrollReveal>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {kinaraFeatures.map((f, i) => (
-              <ScrollReveal key={f.title} delay={i * 60}>
-                <div className="p-6 rounded-2xl bg-background/80 border border-border/50 hover:border-primary/30 hover:shadow-lg transition-all duration-300 group">
-                  <div className="text-primary mb-3 group-hover:scale-110 transition-transform">
-                    {f.icon}
-                  </div>
-                  <h3 className="font-semibold mb-2">{f.title}</h3>
-                  <p className="text-sm text-muted-foreground">{f.description}</p>
-                </div>
-              </ScrollReveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Storytelling 1 – learner journey */}
-      <section className="py-12 md:py-16">
-        <div className="max-w-[1200px] mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <ScrollReveal>
               <div className="relative max-w-sm md:max-w-md mx-auto lg:pl-4">
                 {/* Glow Effect */}
@@ -278,6 +191,93 @@ const KinaraCopilot = () => {
                     <div>
                       <p className="text-xs font-medium text-foreground">Kiswahili & English</p>
                       <p className="text-[10px] text-muted-foreground">Bilingual support</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </ScrollReveal>
+          </div>
+        </div>
+      </section>
+
+      {/* Desktop dashboard – ContainerScroll (desktop only) */}
+      <section className="relative hidden md:block py-8">
+        <ContainerScroll
+          titleComponent={
+            <div className="text-center space-y-2">
+              <Badge variant="outline" className="border-primary/20 text-primary">
+                School & district view
+              </Badge>
+              <h2 className="text-2xl md:text-4xl font-bold text-foreground">
+                See how learners engage across every topic
+              </h2>
+              <p className="text-muted-foreground max-w-xl mx-auto text-sm md:text-base">
+                Track questions asked, mastery by topic, and engagement across schools from a single dashboard.
+              </p>
+            </div>
+          }
+        >
+          <img
+            src="/OUR WORK/KINARACOVER.png"
+            alt="Kinara Copilot analytics"
+            className="mx-auto h-full w-auto max-w-full object-contain rounded-2xl"
+            draggable={false}
+          />
+        </ContainerScroll>
+      </section>
+
+      {/* Features grid */}
+      <section className="py-12 md:py-16 bg-card/30">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <ScrollReveal className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Designed for Tanzanian classrooms</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              A learning companion that works in low-connectivity environments, for both students and teachers.
+            </p>
+          </ScrollReveal>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {kinaraFeatures.map((f, i) => (
+              <ScrollReveal key={f.title} delay={i * 60}>
+                <div className="p-6 rounded-2xl bg-background/80 border border-border/50 hover:border-primary/30 hover:shadow-lg transition-all duration-300 group">
+                  <div className="text-primary mb-3 group-hover:scale-110 transition-transform">
+                    {f.icon}
+                  </div>
+                  <h3 className="font-semibold mb-2">{f.title}</h3>
+                  <p className="text-sm text-muted-foreground">{f.description}</p>
+                </div>
+              </ScrollReveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Storytelling 1 – learner journey */}
+      <section className="py-12 md:py-16">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <ScrollReveal>
+              <div className="relative max-w-sm mx-auto">
+                <img
+                  src="/OUR WORK/iphone_PNG5735.png"
+                  alt="Kinara Copilot phone"
+                  className="w-full h-auto drop-shadow-2xl"
+                  draggable={false}
+                />
+                <div className="absolute inset-[15%] rounded-2xl overflow-hidden bg-black/95 flex flex-col p-3">
+                  <div className="flex justify-between text-[10px] text-white/80 mb-2">
+                    <span>Kinara</span>
+                    <span>SMS · WhatsApp</span>
+                  </div>
+                  <div className="flex-1 rounded-xl bg-white/10 p-3 text-white text-xs space-y-2">
+                    <div>
+                      <div className="font-semibold">Form 3 Physics · Waves</div>
+                      <p className="text-white/80 text-[11px] mt-1">
+                        Q: A bus horn sounds at 400 Hz. What happens to the pitch as it moves away from you?
+                      </p>
+                    </div>
+                    <div className="rounded-lg bg-black/40 px-2 py-1.5 text-[11px]">
+                      <span className="font-semibold">Kinara:</span>{" "}
+                      The pitch becomes lower because the wavefronts spread out. This is called the Doppler effect.
                     </div>
                   </div>
                 </div>

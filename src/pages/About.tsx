@@ -141,11 +141,7 @@ const About = () => {
                   </div>
                 </div>
 
-                <div className="absolute bottom-4 left-4 space-y-3">
-                  <div className="bg-background/95 backdrop-blur-sm rounded-lg p-4 shadow-xl border border-border/50 min-w-[150px]">
-                    <div className="text-2xl font-bold text-primary mb-1">6+</div>
-                    <div className="text-xs text-muted-foreground">Countries Served</div>
-                  </div>
+              <div className="absolute bottom-4 left-4 space-y-3">
                   <div className="bg-background/95 backdrop-blur-sm rounded-lg p-4 shadow-xl border border-border/50 min-w-[150px]">
                     <div className="text-2xl font-bold text-primary mb-1">99%</div>
                     <div className="text-xs text-muted-foreground">Client Satisfaction</div>
