@@ -1,20 +1,41 @@
-import React from "react";
 import { ContainerScroll } from "@/components/ui/container-scroll-animation";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import {
-  ArrowRight,
+  Dialog,
+  DialogContent,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import {
   BookOpen,
   MessageCircle,
   WifiOff,
   Smartphone,
   GraduationCap,
   Bot,
+  PlayCircle,
 } from "lucide-react";
 import Header from "@/components/Header";
 import ScrollReveal from "@/components/ScrollReveal";
 import Footer from "@/components/Footer";
 import { useNavigationWithScroll } from "@/utils/navigation";
+
+const primarySchoolImages = Array.from(
+  { length: 8 },
+  (_, i) => `/kinara/kinara${i + 1}.jpg`,
+);
+
+const secondarySchoolImages = [
+  "/kinara/kinara9.jpg",
+  "/kinara/kinara10.jpg",
+  "/kinara/kinara11.jpg",
+  "/kinara/kinara12.jpg",
+  "/kinara/kinara13.jpg",
+  "/kinara/kinara14.jpg",
+  "/kinara/kinara15.jpg",
+  "/kinara/kinara16.jpg",
+];
 
 const kinaraFeatures = [
   {
@@ -59,8 +80,12 @@ const KinaraCopilot = () => {
       {/* Hero – same style as Mifumo SMS */}
       <section className="relative py-16 md:py-24 overflow-hidden">
         <div
-          className="absolute inset-0 opacity-[0.03] bg-cover bg-center"
-          style={{ backgroundImage: "url('/OUR WORK/KINARA.png')" }}
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: "url('/kinara/kinara15.jpg')" }}
+          aria-hidden
+        />
+        <div
+          className="absolute inset-0 bg-background/85 backdrop-blur-sm"
           aria-hidden
         />
         <div className="max-w-[1200px] mx-auto px-6 relative z-10">
@@ -89,6 +114,30 @@ const KinaraCopilot = () => {
                 >
                   Talk to our education team
                 </Button>
+                <Dialog>
+                  <DialogTrigger asChild>
+                    <Button
+                      size="lg"
+                      variant="outline"
+                      className="border-primary/30 text-foreground hover:bg-primary/10 px-6 py-3"
+                    >
+                      <PlayCircle className="mr-2 h-5 w-5" />
+                      Watch the story
+                    </Button>
+                  </DialogTrigger>
+                  <DialogContent className="max-w-4xl w-[95vw] p-0 overflow-hidden bg-black border-border/50">
+                    <DialogTitle className="sr-only">
+                      Kinara Copilot field interview
+                    </DialogTitle>
+                    <video
+                      src="/kinara/interv1.mp4"
+                      className="w-full h-auto max-h-[80vh] aspect-video bg-black"
+                      controls
+                      autoPlay
+                      playsInline
+                    />
+                  </DialogContent>
+                </Dialog>
               </div>
             </ScrollReveal>
 
@@ -164,7 +213,7 @@ const KinaraCopilot = () => {
 
                   {/* Phone image overlay */}
                   <img
-                    src="/OUR WORK/mobile1.webp"
+                    src="/OUR%20WORK/mobile1.webp"
                     alt="Learner on phone"
                     className="relative z-10 w-full h-auto drop-shadow-2xl"
                     draggable={false}
@@ -218,7 +267,7 @@ const KinaraCopilot = () => {
           }
         >
           <img
-            src="/OUR WORK/KINARACOVER.png"
+            src="/OUR%20WORK/KINARACOVER.png"
             alt="Kinara Copilot analytics"
             className="mx-auto h-full w-auto max-w-full object-contain rounded-2xl"
             draggable={false}
@@ -251,6 +300,85 @@ const KinaraCopilot = () => {
         </div>
       </section>
 
+      {/* Our Work gallery – schools in the field */}
+      <section className="relative py-16 md:py-24 overflow-hidden">
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: "url('/kinara/kinara15.jpg')" }}
+          aria-hidden
+        />
+        <div
+          className="absolute inset-0 bg-background/85 backdrop-blur-sm"
+          aria-hidden
+        />
+        <div className="relative z-10 max-w-[1200px] mx-auto px-6">
+          <ScrollReveal className="text-center mb-12 md:mb-16">
+            <Badge variant="outline" className="border-primary/20 text-primary mb-4">
+              Our Work · In the field
+            </Badge>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Kinara Copilot in schools across Tanzania
+            </h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              From primary classrooms to secondary schools, we are putting an AI learning
+              companion in the hands of every learner.
+            </p>
+          </ScrollReveal>
+
+          {/* Primary schools */}
+          <div className="mb-16">
+            <ScrollReveal className="flex items-center gap-4 mb-6">
+              <span className="h-px flex-1 bg-border" />
+              <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-foreground whitespace-nowrap">
+                Primary Schools
+              </h3>
+              <span className="h-px flex-1 bg-border" />
+            </ScrollReveal>
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
+              {primarySchoolImages.map((src, i) => (
+                <ScrollReveal key={src} delay={i * 50}>
+                  <div className="group relative overflow-hidden rounded-2xl aspect-[4/3] bg-muted border border-border/50 hover:border-primary/30 transition-colors">
+                    <img
+                      src={src}
+                      alt={`Kinara Copilot in primary school ${i + 1}`}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      loading="lazy"
+                      draggable={false}
+                    />
+                  </div>
+                </ScrollReveal>
+              ))}
+            </div>
+          </div>
+
+          {/* Secondary schools */}
+          <div>
+            <ScrollReveal className="flex items-center gap-4 mb-6">
+              <span className="h-px flex-1 bg-border" />
+              <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-foreground whitespace-nowrap">
+                Secondary Schools
+              </h3>
+              <span className="h-px flex-1 bg-border" />
+            </ScrollReveal>
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
+              {secondarySchoolImages.map((src, i) => (
+                <ScrollReveal key={src} delay={i * 50}>
+                  <div className="group relative overflow-hidden rounded-2xl aspect-[4/3] bg-muted border border-border/50 hover:border-primary/30 transition-colors">
+                    <img
+                      src={src}
+                      alt={`Kinara Copilot in secondary school ${i + 1}`}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      loading="lazy"
+                      draggable={false}
+                    />
+                  </div>
+                </ScrollReveal>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Storytelling 1 – learner journey */}
       <section className="py-12 md:py-16">
         <div className="max-w-[1200px] mx-auto px-6">
@@ -258,7 +386,7 @@ const KinaraCopilot = () => {
           <ScrollReveal>
               <div className="relative max-w-sm mx-auto">
                 <img
-                  src="/OUR WORK/iphone_PNG5735.png"
+                  src="/OUR%20WORK/iphone_PNG5735.png"
                   alt="Kinara Copilot phone"
                   className="w-full h-auto drop-shadow-2xl"
                   draggable={false}

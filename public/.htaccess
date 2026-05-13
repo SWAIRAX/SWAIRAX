@@ -1,34 +1,161 @@
+# ============================================================
+#  Quantum Intelligence – Production .htaccess (cPanel / Apache)
+#  - SPA routing (React Router)
+#  - Gzip + Brotli compression
+#  - Long-cache headers for images, video, fonts, JS, CSS
+#  - Correct MIME types for video & modern image formats
+#  - Security headers (helps Google trust signals)
+# ============================================================
+
+# ------------------------------------------------------------
+# 1. SPA ROUTING
+# ------------------------------------------------------------
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
 
+  # Force HTTPS (uncomment after SSL is active in cPanel)
+  # RewriteCond %{HTTPS} off
+  # RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+
   # Allow direct access to index.html
   RewriteRule ^index\.html$ - [L]
 
-  # Allow access to existing files and directories (images, CSS, JS, etc.)
+  # Allow access to real files & folders (images, css, js, video, fonts)
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
 
-  # Handle all SPA routes including blog routes
-  # This ensures /blog, /blog/0, /blog/1, /blog/2, etc. all work correctly
-  # All routes are handled by React Router in index.html
+  # Everything else → SPA entry point
   RewriteRule . /index.html [L]
 </IfModule>
 
-# Enable CORS for API requests (if needed)
-<IfModule mod_headers.c>
-  Header set Access-Control-Allow-Origin "*"
+# ------------------------------------------------------------
+# 2. MIME TYPES (video, modern images, fonts)
+# ------------------------------------------------------------
+<IfModule mod_mime.c>
+  AddType video/mp4                            .mp4 .m4v
+  AddType video/webm                           .webm
+  AddType video/ogg                            .ogv
+  AddType image/webp                           .webp
+  AddType image/avif                           .avif
+  AddType image/svg+xml                        .svg .svgz
+  AddType font/woff                            .woff
+  AddType font/woff2                           .woff2
+  AddType application/manifest+json            .webmanifest
 </IfModule>
 
-# Cache static assets for better performance
+# ------------------------------------------------------------
+# 3. COMPRESSION (Gzip via mod_deflate + Brotli if available)
+# ------------------------------------------------------------
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css
+  AddOutputFilterByType DEFLATE application/javascript application/x-javascript
+  AddOutputFilterByType DEFLATE application/json application/xml application/rss+xml
+  AddOutputFilterByType DEFLATE image/svg+xml
+  AddOutputFilterByType DEFLATE font/ttf font/otf application/font-sfnt
+</IfModule>
+
+<IfModule mod_brotli.c>
+  AddOutputFilterByType BROTLI_COMPRESS text/html text/plain text/css text/xml
+  AddOutputFilterByType BROTLI_COMPRESS application/javascript application/json application/xml
+  AddOutputFilterByType BROTLI_COMPRESS image/svg+xml font/ttf font/otf
+</IfModule>
+
+# ------------------------------------------------------------
+# 4. CACHE HEADERS (Expires)
+# ------------------------------------------------------------
 <IfModule mod_expires.c>
   ExpiresActive On
-  ExpiresByType image/jpg "access plus 1 year"
-  ExpiresByType image/jpeg "access plus 1 year"
-  ExpiresByType image/png "access plus 1 year"
-  ExpiresByType image/gif "access plus 1 year"
-  ExpiresByType image/webp "access plus 1 year"
-  ExpiresByType text/css "access plus 1 month"
-  ExpiresByType application/javascript "access plus 1 month"
+  ExpiresDefault                              "access plus 1 month"
+
+  # HTML – short cache so deploys are picked up
+  ExpiresByType text/html                     "access plus 0 seconds"
+
+  # Data
+  ExpiresByType application/json              "access plus 0 seconds"
+  ExpiresByType application/xml               "access plus 1 hour"
+  ExpiresByType text/xml                      "access plus 1 hour"
+
+  # Images
+  ExpiresByType image/jpg                     "access plus 1 year"
+  ExpiresByType image/jpeg                    "access plus 1 year"
+  ExpiresByType image/png                     "access plus 1 year"
+  ExpiresByType image/gif                     "access plus 1 year"
+  ExpiresByType image/webp                    "access plus 1 year"
+  ExpiresByType image/avif                    "access plus 1 year"
+  ExpiresByType image/svg+xml                 "access plus 1 year"
+  ExpiresByType image/x-icon                  "access plus 1 year"
+
+  # Video / Audio
+  ExpiresByType video/mp4                     "access plus 1 year"
+  ExpiresByType video/webm                    "access plus 1 year"
+  ExpiresByType video/ogg                     "access plus 1 year"
+  ExpiresByType audio/mpeg                    "access plus 1 year"
+
+  # Fonts
+  ExpiresByType font/woff                     "access plus 1 year"
+  ExpiresByType font/woff2                    "access plus 1 year"
+  ExpiresByType application/font-woff         "access plus 1 year"
+  ExpiresByType application/font-woff2        "access plus 1 year"
+  ExpiresByType application/vnd.ms-fontobject "access plus 1 year"
+
+  # CSS / JS – hashed by Vite, safe to cache long
+  ExpiresByType text/css                      "access plus 1 year"
+  ExpiresByType application/javascript        "access plus 1 year"
+  ExpiresByType application/x-javascript      "access plus 1 year"
 </IfModule>
 
+# ------------------------------------------------------------
+# 5. CACHE-CONTROL (immutable for hashed bundle assets)
+# ------------------------------------------------------------
+<IfModule mod_headers.c>
+  # Long-cache + immutable for assets that include a content hash (Vite output)
+  <FilesMatch "\.(jpg|jpeg|png|gif|webp|avif|svg|ico|mp4|webm|ogv|woff|woff2|ttf|otf|eot)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+
+  # Vite hashed JS / CSS – served from /assets/
+  <FilesMatch "^.+\.(js|css)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+
+  # HTML – always revalidate
+  <FilesMatch "\.(html|htm)$">
+    Header set Cache-Control "no-cache, must-revalidate"
+  </FilesMatch>
+
+  # Allow cross-origin asset loading (fonts, etc.)
+  Header set Access-Control-Allow-Origin "*"
+
+  # ----------------------------------------------------------
+  # Security headers (Google trust + light hardening)
+  # ----------------------------------------------------------
+  Header set X-Content-Type-Options "nosniff"
+  Header set X-Frame-Options "SAMEORIGIN"
+  Header set Referrer-Policy "strict-origin-when-cross-origin"
+  Header set Permissions-Policy "geolocation=(), microphone=(), camera=()"
+  # Enable HSTS only AFTER you confirm SSL works on every subdomain
+  # Header set Strict-Transport-Security "max-age=31536000; includeSubDomains" env=HTTPS
+</IfModule>
+
+# ------------------------------------------------------------
+# 6. KEEP-ALIVE + ETag tuning
+# ------------------------------------------------------------
+<IfModule mod_headers.c>
+  Header set Connection keep-alive
+</IfModule>
+
+# Disable ETags – we rely on Cache-Control + Expires
+FileETag None
+
+# ------------------------------------------------------------
+# 7. PROTECT SENSITIVE FILES
+# ------------------------------------------------------------
+<FilesMatch "(^\.htaccess|^\.htpasswd|^\.env|composer\.(json|lock)|package(-lock)?\.json|yarn\.lock|\.git.*)$">
+  Require all denied
+</FilesMatch>
+
+# ------------------------------------------------------------
+# 8. DEFAULT CHARSET
+# ------------------------------------------------------------
+AddDefaultCharset UTF-8
