@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { ContainerScroll } from "@/components/ui/container-scroll-animation";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -15,27 +16,72 @@ import {
   GraduationCap,
   Bot,
   PlayCircle,
+  CheckCircle2,
+  Users,
+  BarChart3,
+  Languages,
+  Award,
+  Network,
 } from "lucide-react";
 import Header from "@/components/Header";
 import ScrollReveal from "@/components/ScrollReveal";
 import Footer from "@/components/Footer";
 import { useNavigationWithScroll } from "@/utils/navigation";
 
-const primarySchoolImages = Array.from(
-  { length: 8 },
-  (_, i) => `/kinara/kinara${i + 1}.jpg`,
-);
+type ImageSlideshowProps = {
+  images: string[];
+  alt: string;
+  intervalMs?: number;
+};
 
-const secondarySchoolImages = [
-  "/kinara/kinara9.jpg",
-  "/kinara/kinara10.jpg",
-  "/kinara/kinara11.jpg",
-  "/kinara/kinara12.jpg",
-  "/kinara/kinara13.jpg",
-  "/kinara/kinara14.jpg",
-  "/kinara/kinara15.jpg",
-  "/kinara/kinara16.jpg",
-];
+const ImageSlideshow = ({ images, alt, intervalMs = 4500 }: ImageSlideshowProps) => {
+  const [index, setIndex] = useState(0);
+  const [paused, setPaused] = useState(false);
+
+  useEffect(() => {
+    if (paused || images.length <= 1) return;
+    const id = window.setInterval(
+      () => setIndex((i) => (i + 1) % images.length),
+      intervalMs,
+    );
+    return () => window.clearInterval(id);
+  }, [paused, images.length, intervalMs]);
+
+  return (
+    <div
+      className="absolute inset-0"
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
+    >
+      {images.map((src, i) => (
+        <img
+          key={src}
+          src={src}
+          alt={`${alt} ${i + 1}`}
+          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${
+            i === index ? "opacity-100" : "opacity-0"
+          }`}
+          loading={i === 0 ? "eager" : "lazy"}
+          draggable={false}
+        />
+      ))}
+      {images.length > 1 && (
+        <div className="absolute bottom-3 left-1/2 -translate-x-1/2 z-10 flex gap-1.5 px-3 py-1.5 rounded-full bg-black/30 backdrop-blur-sm">
+          {images.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setIndex(i)}
+              aria-label={`Show slide ${i + 1} of ${images.length}`}
+              className={`h-1.5 rounded-full transition-all ${
+                i === index ? "w-6 bg-white" : "w-1.5 bg-white/60 hover:bg-white/80"
+              }`}
+            />
+          ))}
+        </div>
+      )}
+    </div>
+  );
+};
 
 const kinaraFeatures = [
   {
@@ -300,144 +346,365 @@ const KinaraCopilot = () => {
         </div>
       </section>
 
-      {/* Our Work gallery – schools in the field */}
-      <section className="relative py-16 md:py-24 overflow-hidden">
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: "url('/kinara/kinara15.jpg')" }}
-          aria-hidden
-        />
-        <div
-          className="absolute inset-0 bg-background/85 backdrop-blur-sm"
-          aria-hidden
-        />
-        <div className="relative z-10 max-w-[1200px] mx-auto px-6">
-          <ScrollReveal className="text-center mb-12 md:mb-16">
-            <Badge variant="outline" className="border-primary/20 text-primary mb-4">
-              Our Work · In the field
-            </Badge>
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Kinara Copilot in schools across Tanzania
-            </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              From primary classrooms to secondary schools, we are putting an AI learning
-              companion in the hands of every learner.
-            </p>
-          </ScrollReveal>
-
-          {/* Primary schools */}
-          <div className="mb-16">
-            <ScrollReveal className="flex items-center gap-4 mb-6">
-              <span className="h-px flex-1 bg-border" />
-              <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-foreground whitespace-nowrap">
-                Primary Schools
-              </h3>
-              <span className="h-px flex-1 bg-border" />
-            </ScrollReveal>
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
-              {primarySchoolImages.map((src, i) => (
-                <ScrollReveal key={src} delay={i * 50}>
-                  <div className="group relative overflow-hidden rounded-2xl aspect-[4/3] bg-muted border border-border/50 hover:border-primary/30 transition-colors">
-                    <img
-                      src={src}
-                      alt={`Kinara Copilot in primary school ${i + 1}`}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                      loading="lazy"
-                      draggable={false}
-                    />
-                  </div>
-                </ScrollReveal>
-              ))}
-            </div>
-          </div>
-
-          {/* Secondary schools */}
-          <div>
-            <ScrollReveal className="flex items-center gap-4 mb-6">
-              <span className="h-px flex-1 bg-border" />
-              <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-foreground whitespace-nowrap">
-                Secondary Schools
-              </h3>
-              <span className="h-px flex-1 bg-border" />
-            </ScrollReveal>
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
-              {secondarySchoolImages.map((src, i) => (
-                <ScrollReveal key={src} delay={i * 50}>
-                  <div className="group relative overflow-hidden rounded-2xl aspect-[4/3] bg-muted border border-border/50 hover:border-primary/30 transition-colors">
-                    <img
-                      src={src}
-                      alt={`Kinara Copilot in secondary school ${i + 1}`}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                      loading="lazy"
-                      draggable={false}
-                    />
-                  </div>
-                </ScrollReveal>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Storytelling 1 – learner journey */}
-      <section className="py-12 md:py-16">
+      {/* ===== Section 1 — Primary · Anywhere learning (image RIGHT) ===== */}
+      <section className="py-16 md:py-24">
         <div className="max-w-[1200px] mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <ScrollReveal>
-              <div className="relative max-w-sm mx-auto">
-                <img
-                  src="/OUR%20WORK/iphone_PNG5735.png"
-                  alt="Kinara Copilot phone"
-                  className="w-full h-auto drop-shadow-2xl"
-                  draggable={false}
-                />
-                <div className="absolute inset-[15%] rounded-2xl overflow-hidden bg-black/95 flex flex-col p-3">
-                  <div className="flex justify-between text-[10px] text-white/80 mb-2">
-                    <span>Kinara</span>
-                    <span>SMS · WhatsApp</span>
-                  </div>
-                  <div className="flex-1 rounded-xl bg-white/10 p-3 text-white text-xs space-y-2">
-                    <div>
-                      <div className="font-semibold">Form 3 Physics · Waves</div>
-                      <p className="text-white/80 text-[11px] mt-1">
-                        Q: A bus horn sounds at 400 Hz. What happens to the pitch as it moves away from you?
-                      </p>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+            <ScrollReveal className="space-y-5 lg:order-1">
+              <Badge variant="outline" className="border-primary/20 text-primary inline-flex items-center gap-1.5">
+                <Smartphone className="h-3.5 w-3.5" />
+                Use case · Primary schools
+              </Badge>
+              <h2 className="text-3xl md:text-4xl font-bold leading-tight">
+                Learning that travels with the student
+              </h2>
+              <p className="text-muted-foreground text-base md:text-lg leading-relaxed">
+                From the home compound to the schoolyard, Kinara Copilot follows the learner.
+                Pupils get curriculum help on whichever device is in their hand — a parent&apos;s
+                feature phone, a shared family handset, or a basic smartphone — without ever
+                needing a data bundle.
+              </p>
+              <ul className="space-y-2.5 text-sm md:text-base text-foreground/90">
+                <li className="flex items-start gap-2.5">
+                  <CheckCircle2 className="h-5 w-5 text-primary shrink-0 mt-0.5" />
+                  <span>SMS-based revision that works on any GSM network in Tanzania</span>
+                </li>
+                <li className="flex items-start gap-2.5">
+                  <CheckCircle2 className="h-5 w-5 text-primary shrink-0 mt-0.5" />
+                  <span>WhatsApp tutor that explains in conversational Kiswahili</span>
+                </li>
+                <li className="flex items-start gap-2.5">
+                  <CheckCircle2 className="h-5 w-5 text-primary shrink-0 mt-0.5" />
+                  <span>Offline learning packs that sync when signal returns</span>
+                </li>
+              </ul>
+            </ScrollReveal>
+            <ScrollReveal className="lg:order-2">
+              <div className="relative">
+                <div className="absolute -inset-4 bg-gradient-to-br from-primary/15 to-emerald-400/15 rounded-3xl blur-2xl opacity-70" />
+                <div className="relative overflow-hidden rounded-3xl border border-border/50 shadow-2xl aspect-[4/3]">
+                  <ImageSlideshow
+                    images={[
+                      "/kinara/kinara1.jpg",
+                      "/kinara/kinara2.jpg",
+                      "/kinara/kinara3.jpg",
+                    ]}
+                    alt="Primary school student using Kinara Copilot"
+                  />
+                </div>
+                <div className="absolute -bottom-5 -left-5 bg-card border border-border rounded-xl p-3 shadow-lg max-w-[220px]">
+                  <div className="flex items-center gap-2.5">
+                    <div className="w-9 h-9 rounded-full bg-primary/15 flex items-center justify-center shrink-0">
+                      <WifiOff className="h-4 w-4 text-primary" />
                     </div>
-                    <div className="rounded-lg bg-black/40 px-2 py-1.5 text-[11px]">
-                      <span className="font-semibold">Kinara:</span>{" "}
-                      The pitch becomes lower because the wavefronts spread out. This is called the Doppler effect.
+                    <div>
+                      <p className="text-xs font-semibold text-foreground">Works offline</p>
+                      <p className="text-[10px] text-muted-foreground">No data bundle needed</p>
                     </div>
                   </div>
                 </div>
               </div>
             </ScrollReveal>
-            <ScrollReveal className="space-y-4">
-              <Badge variant="outline" className="border-primary/20 text-primary">
-                Learner experience
+          </div>
+        </div>
+      </section>
+
+      {/* ===== Section 2 — Primary · Kiswahili-first (image LEFT) ===== */}
+      <section className="py-16 md:py-24 bg-card/30">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+            <ScrollReveal className="order-2 lg:order-1">
+              <div className="relative">
+                <div className="absolute -inset-4 bg-gradient-to-tr from-emerald-400/15 to-primary/15 rounded-3xl blur-2xl opacity-70" />
+                <div className="relative overflow-hidden rounded-3xl border border-border/50 shadow-2xl aspect-[4/3]">
+                  <ImageSlideshow
+                    images={[
+                      "/kinara/kinara4.jpg",
+                      "/kinara/kinara5.jpg",
+                    ]}
+                    alt="Primary classroom learning in Kiswahili"
+                  />
+                </div>
+                <div className="absolute -bottom-5 -right-5 bg-card border border-border rounded-xl p-3 shadow-lg max-w-[230px]">
+                  <div className="flex items-center gap-2.5">
+                    <div className="w-9 h-9 rounded-full bg-emerald-400/15 flex items-center justify-center shrink-0">
+                      <Languages className="h-4 w-4 text-emerald-400" />
+                    </div>
+                    <div>
+                      <p className="text-xs font-semibold text-foreground">Bilingual responses</p>
+                      <p className="text-[10px] text-muted-foreground">Swahili ↔ English</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </ScrollReveal>
+            <ScrollReveal className="order-1 lg:order-2 space-y-5">
+              <Badge variant="outline" className="border-primary/20 text-primary inline-flex items-center gap-1.5">
+                <Languages className="h-3.5 w-3.5" />
+                Service · Bilingual tutoring
               </Badge>
-              <h2 className="text-3xl md:text-4xl font-bold">A tutor in every student's pocket</h2>
-              <p className="text-muted-foreground">
-                Students can ask questions, revise topics, and receive practice questions through SMS or WhatsApp,
-                even on basic phones. Responses are grounded in the NECTA syllabus with Kiswahili-friendly prompts.
+              <h2 className="text-3xl md:text-4xl font-bold leading-tight">
+                Kiswahili first. English ready.
+              </h2>
+              <p className="text-muted-foreground text-base md:text-lg leading-relaxed">
+                Most Tanzanian pupils think in Kiswahili long before they think in English.
+                Kinara Copilot meets them where they are — explaining concepts in mother tongue,
+                then bridging the same idea into the English vocabulary they&apos;ll be tested on.
               </p>
+              <blockquote className="border-l-2 border-primary pl-4 italic text-muted-foreground">
+                &ldquo;A Form 1 pupil asks &lsquo;nieleweshe nguvu ya msuguano&rsquo; — Kinara
+                explains friction in Kiswahili, then introduces the English term and a NECTA-style
+                practice question.&rdquo;
+              </blockquote>
             </ScrollReveal>
           </div>
         </div>
       </section>
 
-      {/* Storytelling 2 – teacher & school tools */}
-      <section className="py-12 md:py-16 bg-card/30">
+      {/* ===== Section 3 — Primary · Adaptive practice (image RIGHT) ===== */}
+      <section className="py-16 md:py-24">
         <div className="max-w-[1200px] mx-auto px-6">
-          <ScrollReveal className="space-y-4 max-w-2xl">
-            <Badge variant="outline" className="border-primary/20 text-primary">
-              Teachers & schools
-            </Badge>
-            <h2 className="text-3xl md:text-4xl font-bold">Turn questions into insight</h2>
-            <p className="text-muted-foreground">
-              Aggregate data shows which topics learners are struggling with, helping teachers adjust lessons and
-              schools plan interventions without needing extra infrastructure.
-            </p>
-          </ScrollReveal>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+            <ScrollReveal className="space-y-5 lg:order-1">
+              <Badge variant="outline" className="border-primary/20 text-primary inline-flex items-center gap-1.5">
+                <Bot className="h-3.5 w-3.5" />
+                Use case · Personalised practice
+              </Badge>
+              <h2 className="text-3xl md:text-4xl font-bold leading-tight">
+                Practice that adapts to every learner
+              </h2>
+              <p className="text-muted-foreground text-base md:text-lg leading-relaxed">
+                Every learner has a different weak spot. Kinara&apos;s AI tutor watches which
+                topics each student misses, then quietly builds the next quiz around those gaps —
+                so revision is never a one-size-fits-all worksheet again.
+              </p>
+              <div className="grid grid-cols-3 gap-3 pt-2">
+                <div className="rounded-2xl border border-border/50 bg-background/60 p-4 text-center">
+                  <p className="text-2xl font-bold text-primary">24/7</p>
+                  <p className="text-[11px] text-muted-foreground mt-1">Always-on tutor</p>
+                </div>
+                <div className="rounded-2xl border border-border/50 bg-background/60 p-4 text-center">
+                  <p className="text-2xl font-bold text-primary">10+</p>
+                  <p className="text-[11px] text-muted-foreground mt-1">Subjects covered</p>
+                </div>
+                <div className="rounded-2xl border border-border/50 bg-background/60 p-4 text-center">
+                  <p className="text-2xl font-bold text-primary">∞</p>
+                  <p className="text-[11px] text-muted-foreground mt-1">Practice questions</p>
+                </div>
+              </div>
+            </ScrollReveal>
+            <ScrollReveal className="lg:order-2">
+              <div className="relative">
+                <div className="absolute -inset-4 bg-gradient-to-bl from-primary/15 to-blue-500/15 rounded-3xl blur-2xl opacity-70" />
+                <div className="relative overflow-hidden rounded-3xl border border-border/50 shadow-2xl aspect-[4/3]">
+                  <ImageSlideshow
+                    images={[
+                      "/kinara/kinara7.jpg",
+                      "/kinara/kinara6.jpg",
+                      "/kinara/kinara8.jpg",
+                    ]}
+                    alt="Primary pupils with personalised AI practice"
+                  />
+                </div>
+                <div className="absolute -top-5 -right-5 bg-card border border-border rounded-xl p-3 shadow-lg">
+                  <div className="flex items-center gap-2.5">
+                    <div className="w-9 h-9 rounded-full bg-primary/15 flex items-center justify-center shrink-0">
+                      <CheckCircle2 className="h-4 w-4 text-primary" />
+                    </div>
+                    <div>
+                      <p className="text-xs font-semibold text-foreground">Daily streak</p>
+                      <p className="text-[10px] text-muted-foreground">12 days · 87% mastery</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </ScrollReveal>
+          </div>
+        </div>
+      </section>
+
+      {/* ===== Section 4 — Secondary · NECTA-aligned (image LEFT) ===== */}
+      <section className="py-16 md:py-24 bg-card/30">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+            <ScrollReveal className="order-2 lg:order-1">
+              <div className="relative">
+                <div className="absolute -inset-4 bg-gradient-to-br from-primary/15 to-amber-400/15 rounded-3xl blur-2xl opacity-70" />
+                <div className="relative overflow-hidden rounded-3xl border border-border/50 shadow-2xl aspect-[4/3]">
+                  <ImageSlideshow
+                    images={[
+                      "/kinara/kinara10.jpg",
+                      "/kinara/kinara9.jpg",
+                    ]}
+                    alt="Secondary school students preparing for NECTA"
+                  />
+                </div>
+                <div className="absolute -bottom-5 -left-5 bg-card border border-border rounded-xl p-3 shadow-lg">
+                  <div className="flex items-center gap-2.5">
+                    <div className="w-9 h-9 rounded-full bg-amber-400/15 flex items-center justify-center shrink-0">
+                      <Award className="h-4 w-4 text-amber-400" />
+                    </div>
+                    <div>
+                      <p className="text-xs font-semibold text-foreground">NECTA-aligned</p>
+                      <p className="text-[10px] text-muted-foreground">Forms I – IV · CSEE prep</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </ScrollReveal>
+            <ScrollReveal className="order-1 lg:order-2 space-y-5">
+              <Badge variant="outline" className="border-primary/20 text-primary inline-flex items-center gap-1.5">
+                <GraduationCap className="h-3.5 w-3.5" />
+                Service · Secondary schools
+              </Badge>
+              <h2 className="text-3xl md:text-4xl font-bold leading-tight">
+                Built for NECTA. Ready for Form IV.
+              </h2>
+              <p className="text-muted-foreground text-base md:text-lg leading-relaxed">
+                Every question, every explanation, every mock paper is mapped to the NECTA syllabus.
+                Students prepare with content that mirrors what they&apos;ll meet in CSEE — across
+                sciences, mathematics, humanities and languages.
+              </p>
+              <div className="flex flex-wrap gap-2 pt-1">
+                {["Biology", "Chemistry", "Physics", "Mathematics", "Geography", "History", "English", "Kiswahili"].map((subj) => (
+                  <span
+                    key={subj}
+                    className="px-3 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary border border-primary/20"
+                  >
+                    {subj}
+                  </span>
+                ))}
+              </div>
+            </ScrollReveal>
+          </div>
+        </div>
+      </section>
+
+      {/* ===== Section 5 — Secondary · Teacher insight (image RIGHT) ===== */}
+      <section className="py-16 md:py-24">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+            <ScrollReveal className="space-y-5 lg:order-1">
+              <Badge variant="outline" className="border-primary/20 text-primary inline-flex items-center gap-1.5">
+                <BarChart3 className="h-3.5 w-3.5" />
+                Service · Teacher copilot
+              </Badge>
+              <h2 className="text-3xl md:text-4xl font-bold leading-tight">
+                Teachers see what students miss
+              </h2>
+              <p className="text-muted-foreground text-base md:text-lg leading-relaxed">
+                Every question a learner asks becomes signal. Teachers open a simple dashboard
+                and see exactly which topics their class is struggling with — before the test,
+                not after. Lesson planning stops being a guess.
+              </p>
+              <ul className="space-y-2.5 text-sm md:text-base text-foreground/90">
+                <li className="flex items-start gap-2.5">
+                  <CheckCircle2 className="h-5 w-5 text-primary shrink-0 mt-0.5" />
+                  <span>Class-level mastery heatmaps by topic and sub-topic</span>
+                </li>
+                <li className="flex items-start gap-2.5">
+                  <CheckCircle2 className="h-5 w-5 text-primary shrink-0 mt-0.5" />
+                  <span>Auto-flagged learners who need one-on-one support</span>
+                </li>
+                <li className="flex items-start gap-2.5">
+                  <CheckCircle2 className="h-5 w-5 text-primary shrink-0 mt-0.5" />
+                  <span>Weekly digest sent via SMS or WhatsApp — no laptop required</span>
+                </li>
+              </ul>
+            </ScrollReveal>
+            <ScrollReveal className="lg:order-2">
+              <div className="relative">
+                <div className="absolute -inset-4 bg-gradient-to-tl from-primary/15 to-purple-500/15 rounded-3xl blur-2xl opacity-70" />
+                <div className="relative overflow-hidden rounded-3xl border border-border/50 shadow-2xl aspect-[4/3]">
+                  <ImageSlideshow
+                    images={[
+                      "/kinara/kinara13.jpg",
+                      "/kinara/kinara11.jpg",
+                      "/kinara/kinara12.jpg",
+                    ]}
+                    alt="Teacher reviewing Kinara Copilot class insights"
+                  />
+                </div>
+                <div className="absolute -top-5 -left-5 bg-card border border-border rounded-xl p-3 shadow-lg">
+                  <div className="flex items-center gap-2.5">
+                    <div className="w-9 h-9 rounded-full bg-primary/15 flex items-center justify-center shrink-0">
+                      <Users className="h-4 w-4 text-primary" />
+                    </div>
+                    <div>
+                      <p className="text-xs font-semibold text-foreground">Form 3 · Physics</p>
+                      <p className="text-[10px] text-muted-foreground">68% mastery · 4 to flag</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </ScrollReveal>
+          </div>
+        </div>
+      </section>
+
+      {/* ===== Section 6 — Secondary · School networks (image LEFT) ===== */}
+      <section className="py-16 md:py-24 bg-card/30">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+            <ScrollReveal className="order-2 lg:order-1">
+              <div className="relative">
+                <div className="absolute -inset-4 bg-gradient-to-r from-primary/15 to-emerald-400/15 rounded-3xl blur-2xl opacity-70" />
+                <div className="relative overflow-hidden rounded-3xl border border-border/50 shadow-2xl aspect-[4/3]">
+                  <ImageSlideshow
+                    images={[
+                      "/kinara/kinara16.jpg",
+                      "/kinara/kinara14.jpg",
+                      "/kinara/kinara15.jpg",
+                    ]}
+                    alt="Secondary school network adopting Kinara Copilot"
+                  />
+                </div>
+                <div className="absolute -bottom-5 -right-5 bg-card border border-border rounded-xl p-3 shadow-lg">
+                  <div className="flex items-center gap-2.5">
+                    <div className="w-9 h-9 rounded-full bg-emerald-400/15 flex items-center justify-center shrink-0">
+                      <Network className="h-4 w-4 text-emerald-400" />
+                    </div>
+                    <div>
+                      <p className="text-xs font-semibold text-foreground">District-ready</p>
+                      <p className="text-[10px] text-muted-foreground">Pilot → scale in 90 days</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </ScrollReveal>
+            <ScrollReveal className="order-1 lg:order-2 space-y-5">
+              <Badge variant="outline" className="border-primary/20 text-primary inline-flex items-center gap-1.5">
+                <Network className="h-3.5 w-3.5" />
+                Partnership · Schools & districts
+              </Badge>
+              <h2 className="text-3xl md:text-4xl font-bold leading-tight">
+                From one school to a national network
+              </h2>
+              <p className="text-muted-foreground text-base md:text-lg leading-relaxed">
+                Kinara Copilot is more than an app — it&apos;s a programme. We partner with schools,
+                districts and ministries to roll it out the right way: onboarding, teacher training,
+                monitoring, and reporting your stakeholders can trust.
+              </p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+                <div className="rounded-xl border border-border/50 bg-background/60 p-4">
+                  <p className="text-sm font-semibold text-foreground mb-1">Pilot programme</p>
+                  <p className="text-xs text-muted-foreground">2 – 5 schools · 30 days · KPIs reported weekly</p>
+                </div>
+                <div className="rounded-xl border border-border/50 bg-background/60 p-4">
+                  <p className="text-sm font-semibold text-foreground mb-1">District rollout</p>
+                  <p className="text-xs text-muted-foreground">Full setup, training and impact dashboard</p>
+                </div>
+                <div className="rounded-xl border border-border/50 bg-background/60 p-4">
+                  <p className="text-sm font-semibold text-foreground mb-1">Teacher training</p>
+                  <p className="text-xs text-muted-foreground">In-person and remote upskilling included</p>
+                </div>
+                <div className="rounded-xl border border-border/50 bg-background/60 p-4">
+                  <p className="text-sm font-semibold text-foreground mb-1">Ministry reporting</p>
+                  <p className="text-xs text-muted-foreground">Aggregate insights for policy decisions</p>
+                </div>
+              </div>
+            </ScrollReveal>
+          </div>
         </div>
       </section>
 
@@ -449,8 +716,8 @@ const KinaraCopilot = () => {
               Bring AI-powered learning to your school network.
             </h2>
             <p className="text-muted-foreground text-sm md:text-base max-w-lg">
-              Partner with Quantum Intelligence to pilot Kinara Copilot across classrooms, districts, or entire regions—with
-              clear reporting and support from our education team.
+              Pilot Kinara Copilot across classrooms, districts, or entire regions—with
+              clear reporting and support from our education team every step of the way.
             </p>
             <div className="flex flex-wrap gap-3">
               <Button
