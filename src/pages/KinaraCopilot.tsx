@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { ContainerScroll } from "@/components/ui/container-scroll-animation";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
 import {
   Dialog,
   DialogContent,
@@ -17,11 +16,6 @@ import {
   Bot,
   PlayCircle,
   CheckCircle2,
-  Users,
-  BarChart3,
-  Languages,
-  Award,
-  Network,
 } from "lucide-react";
 import Header from "@/components/Header";
 import ScrollReveal from "@/components/ScrollReveal";
@@ -131,15 +125,12 @@ const KinaraCopilot = () => {
           aria-hidden
         />
         <div
-          className="absolute inset-0 bg-background/85 backdrop-blur-sm"
+          className="absolute inset-0 bg-background/60"
           aria-hidden
         />
         <div className="max-w-[1200px] mx-auto px-6 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <ScrollReveal className="space-y-6">
-              <Badge variant="outline" className="border-primary/20 text-primary">
-                Our Work · EdTech
-              </Badge>
               <h1 className="text-4xl md:text-6xl font-bold leading-tight">
                 <span className="text-primary">Kinara Copilot</span>
               </h1>
@@ -266,29 +257,6 @@ const KinaraCopilot = () => {
                   />
                 </div>
 
-                {/* Floating labels */}
-                <div className="absolute -top-4 -right-4 bg-card border border-border rounded-xl p-3 shadow-lg animate-float z-20">
-                  <div className="flex items-center gap-2">
-                    <div className="w-8 h-8 rounded-full bg-primary/15 flex items-center justify-center">
-                      <span className="text-primary text-lg">✓</span>
-                    </div>
-                    <div>
-                      <p className="text-xs font-medium text-foreground">NECTA aligned</p>
-                      <p className="text-[10px] text-muted-foreground">Forms I–IV</p>
-                    </div>
-                  </div>
-                </div>
-                <div className="absolute -bottom-2 -left-4 bg-card border border-border rounded-xl p-3 shadow-lg animate-float delay-200 z-20">
-                  <div className="flex items-center gap-2">
-                    <div className="w-8 h-8 rounded-full bg-emerald-400/15 flex items-center justify-center">
-                      <span className="text-emerald-400 text-lg">🌍</span>
-                    </div>
-                    <div>
-                      <p className="text-xs font-medium text-foreground">Kiswahili & English</p>
-                      <p className="text-[10px] text-muted-foreground">Bilingual support</p>
-                    </div>
-                  </div>
-                </div>
               </div>
             </ScrollReveal>
           </div>
@@ -300,9 +268,6 @@ const KinaraCopilot = () => {
         <ContainerScroll
           titleComponent={
             <div className="text-center space-y-2">
-              <Badge variant="outline" className="border-primary/20 text-primary">
-                School & district view
-              </Badge>
               <h2 className="text-2xl md:text-4xl font-bold text-foreground">
                 See how learners engage across every topic
               </h2>
@@ -351,10 +316,6 @@ const KinaraCopilot = () => {
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
             <ScrollReveal className="space-y-5 lg:order-1">
-              <Badge variant="outline" className="border-primary/20 text-primary inline-flex items-center gap-1.5">
-                <Smartphone className="h-3.5 w-3.5" />
-                Use case · Primary schools
-              </Badge>
               <h2 className="text-3xl md:text-4xl font-bold leading-tight">
                 Learning that travels with the student
               </h2>
@@ -392,17 +353,6 @@ const KinaraCopilot = () => {
                     alt="Primary school student using Kinara Copilot"
                   />
                 </div>
-                <div className="absolute -bottom-5 -left-5 bg-card border border-border rounded-xl p-3 shadow-lg max-w-[220px]">
-                  <div className="flex items-center gap-2.5">
-                    <div className="w-9 h-9 rounded-full bg-primary/15 flex items-center justify-center shrink-0">
-                      <WifiOff className="h-4 w-4 text-primary" />
-                    </div>
-                    <div>
-                      <p className="text-xs font-semibold text-foreground">Works offline</p>
-                      <p className="text-[10px] text-muted-foreground">No data bundle needed</p>
-                    </div>
-                  </div>
-                </div>
               </div>
             </ScrollReveal>
           </div>
@@ -425,24 +375,9 @@ const KinaraCopilot = () => {
                     alt="Primary classroom learning in Kiswahili"
                   />
                 </div>
-                <div className="absolute -bottom-5 -right-5 bg-card border border-border rounded-xl p-3 shadow-lg max-w-[230px]">
-                  <div className="flex items-center gap-2.5">
-                    <div className="w-9 h-9 rounded-full bg-emerald-400/15 flex items-center justify-center shrink-0">
-                      <Languages className="h-4 w-4 text-emerald-400" />
-                    </div>
-                    <div>
-                      <p className="text-xs font-semibold text-foreground">Bilingual responses</p>
-                      <p className="text-[10px] text-muted-foreground">Swahili ↔ English</p>
-                    </div>
-                  </div>
-                </div>
               </div>
             </ScrollReveal>
             <ScrollReveal className="order-1 lg:order-2 space-y-5">
-              <Badge variant="outline" className="border-primary/20 text-primary inline-flex items-center gap-1.5">
-                <Languages className="h-3.5 w-3.5" />
-                Service · Bilingual tutoring
-              </Badge>
               <h2 className="text-3xl md:text-4xl font-bold leading-tight">
                 Kiswahili first. English ready.
               </h2>
@@ -451,11 +386,7 @@ const KinaraCopilot = () => {
                 Kinara Copilot meets them where they are — explaining concepts in mother tongue,
                 then bridging the same idea into the English vocabulary they&apos;ll be tested on.
               </p>
-              <blockquote className="border-l-2 border-primary pl-4 italic text-muted-foreground">
-                &ldquo;A Form 1 pupil asks &lsquo;nieleweshe nguvu ya msuguano&rsquo; — Kinara
-                explains friction in Kiswahili, then introduces the English term and a NECTA-style
-                practice question.&rdquo;
-              </blockquote>
+              
             </ScrollReveal>
           </div>
         </div>
@@ -466,10 +397,6 @@ const KinaraCopilot = () => {
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
             <ScrollReveal className="space-y-5 lg:order-1">
-              <Badge variant="outline" className="border-primary/20 text-primary inline-flex items-center gap-1.5">
-                <Bot className="h-3.5 w-3.5" />
-                Use case · Personalised practice
-              </Badge>
               <h2 className="text-3xl md:text-4xl font-bold leading-tight">
                 Practice that adapts to every learner
               </h2>
@@ -506,17 +433,6 @@ const KinaraCopilot = () => {
                     alt="Primary pupils with personalised AI practice"
                   />
                 </div>
-                <div className="absolute -top-5 -right-5 bg-card border border-border rounded-xl p-3 shadow-lg">
-                  <div className="flex items-center gap-2.5">
-                    <div className="w-9 h-9 rounded-full bg-primary/15 flex items-center justify-center shrink-0">
-                      <CheckCircle2 className="h-4 w-4 text-primary" />
-                    </div>
-                    <div>
-                      <p className="text-xs font-semibold text-foreground">Daily streak</p>
-                      <p className="text-[10px] text-muted-foreground">12 days · 87% mastery</p>
-                    </div>
-                  </div>
-                </div>
               </div>
             </ScrollReveal>
           </div>
@@ -539,24 +455,9 @@ const KinaraCopilot = () => {
                     alt="Secondary school students preparing for NECTA"
                   />
                 </div>
-                <div className="absolute -bottom-5 -left-5 bg-card border border-border rounded-xl p-3 shadow-lg">
-                  <div className="flex items-center gap-2.5">
-                    <div className="w-9 h-9 rounded-full bg-amber-400/15 flex items-center justify-center shrink-0">
-                      <Award className="h-4 w-4 text-amber-400" />
-                    </div>
-                    <div>
-                      <p className="text-xs font-semibold text-foreground">NECTA-aligned</p>
-                      <p className="text-[10px] text-muted-foreground">Forms I – IV · CSEE prep</p>
-                    </div>
-                  </div>
-                </div>
               </div>
             </ScrollReveal>
             <ScrollReveal className="order-1 lg:order-2 space-y-5">
-              <Badge variant="outline" className="border-primary/20 text-primary inline-flex items-center gap-1.5">
-                <GraduationCap className="h-3.5 w-3.5" />
-                Service · Secondary schools
-              </Badge>
               <h2 className="text-3xl md:text-4xl font-bold leading-tight">
                 Built for NECTA. Ready for Form IV.
               </h2>
@@ -585,10 +486,6 @@ const KinaraCopilot = () => {
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
             <ScrollReveal className="space-y-5 lg:order-1">
-              <Badge variant="outline" className="border-primary/20 text-primary inline-flex items-center gap-1.5">
-                <BarChart3 className="h-3.5 w-3.5" />
-                Service · Teacher copilot
-              </Badge>
               <h2 className="text-3xl md:text-4xl font-bold leading-tight">
                 Teachers see what students miss
               </h2>
@@ -625,17 +522,6 @@ const KinaraCopilot = () => {
                     alt="Teacher reviewing Kinara Copilot class insights"
                   />
                 </div>
-                <div className="absolute -top-5 -left-5 bg-card border border-border rounded-xl p-3 shadow-lg">
-                  <div className="flex items-center gap-2.5">
-                    <div className="w-9 h-9 rounded-full bg-primary/15 flex items-center justify-center shrink-0">
-                      <Users className="h-4 w-4 text-primary" />
-                    </div>
-                    <div>
-                      <p className="text-xs font-semibold text-foreground">Form 3 · Physics</p>
-                      <p className="text-[10px] text-muted-foreground">68% mastery · 4 to flag</p>
-                    </div>
-                  </div>
-                </div>
               </div>
             </ScrollReveal>
           </div>
@@ -659,24 +545,9 @@ const KinaraCopilot = () => {
                     alt="Secondary school network adopting Kinara Copilot"
                   />
                 </div>
-                <div className="absolute -bottom-5 -right-5 bg-card border border-border rounded-xl p-3 shadow-lg">
-                  <div className="flex items-center gap-2.5">
-                    <div className="w-9 h-9 rounded-full bg-emerald-400/15 flex items-center justify-center shrink-0">
-                      <Network className="h-4 w-4 text-emerald-400" />
-                    </div>
-                    <div>
-                      <p className="text-xs font-semibold text-foreground">District-ready</p>
-                      <p className="text-[10px] text-muted-foreground">Pilot → scale in 90 days</p>
-                    </div>
-                  </div>
-                </div>
               </div>
             </ScrollReveal>
             <ScrollReveal className="order-1 lg:order-2 space-y-5">
-              <Badge variant="outline" className="border-primary/20 text-primary inline-flex items-center gap-1.5">
-                <Network className="h-3.5 w-3.5" />
-                Partnership · Schools & districts
-              </Badge>
               <h2 className="text-3xl md:text-4xl font-bold leading-tight">
                 From one school to a national network
               </h2>
