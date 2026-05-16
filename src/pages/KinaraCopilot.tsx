@@ -118,7 +118,7 @@ const KinaraCopilot = () => {
       <Header />
 
       {/* Hero – same style as Mifumo SMS */}
-      <section className="relative py-16 md:py-24 overflow-hidden">
+      <section className="relative pt-28 pb-16 md:py-24 overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: "url('/kinara/kinara15.jpg')" }}
