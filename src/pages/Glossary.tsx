@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { Section, PageHero } from "@/components/ui/section";
 import { Card, CardContent } from "@/components/ui/card";
 
 const Glossary = () => {
@@ -42,17 +43,13 @@ const Glossary = () => {
     <div className="min-h-screen bg-background">
       <Header />
       
-      <main className="py-20">
-        <div className="container mx-auto px-6 max-w-4xl">
-          <div className="text-center mb-12">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              AI Glossary
-            </h1>
-            <p className="text-xl text-muted-foreground">
-              Key terms and definitions in artificial intelligence and data science.
-            </p>
-          </div>
+      <main>
+        <PageHero
+          title="AI Glossary"
+          description="Key terms and definitions in artificial intelligence and data science."
+        />
 
+        <Section spacing="compact" containerClassName="max-w-4xl">
           <div className="grid gap-6">
             {terms.map((item, index) => (
               <Card key={index} className="bg-card border-border hover:shadow-lg transition-shadow">
@@ -63,7 +60,7 @@ const Glossary = () => {
               </Card>
             ))}
           </div>
-        </div>
+        </Section>
       </main>
 
       <Footer />

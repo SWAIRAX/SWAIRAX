@@ -1,236 +1,204 @@
-import { Github, Instagram, Linkedin, Twitter, Youtube, Mail, Phone, MapPin, ArrowRight } from "lucide-react";
-import { Link, useNavigate } from "react-router-dom";
+import { Github, Instagram, Mail, Phone, MapPin } from "lucide-react";
+import { Link } from "react-router-dom";
 import { useNavigationWithScroll } from "@/utils/navigation";
+import SectionDivider from "@/components/SectionDivider";
+
+type FooterLink = { name: string; path: string; external?: boolean };
 
 const Footer = () => {
-  const navigate = useNavigate();
   const { navigateToTop } = useNavigationWithScroll();
   const currentYear = new Date().getFullYear();
 
+  const columns: { title: string; links: FooterLink[] }[] = [
+    {
+      title: "Products & Services",
+      links: [
+        { name: "All Services", path: "/services" },
+        { name: "Quantum Annotate", path: "/quantum-annotate" },
+        { name: "Quantum GenAI", path: "/quantum-genai" },
+        { name: "MLOps & DevOps", path: "/mlops-devops" },
+      ],
+    },
+    {
+      title: "Company",
+      links: [
+        { name: "About Us", path: "/about" },
+        { name: "Partnerships", path: "/partnerships" },
+        { name: "Industries", path: "/industries" },
+        { name: "Blog", path: "/blog" },
+        { name: "Research", path: "/research" },
+      ],
+    },
+    {
+      title: "Legal",
+      links: [
+        { name: "Privacy Policy", path: "/privacy" },
+        { name: "Terms of Use", path: "/terms" },
+      ],
+    },
+  ];
+
+  const socials: { name: string; href: string; icon: React.ReactNode }[] = [
+    {
+      name: "Instagram",
+      href: "https://www.instagram.com/qintelligencelab",
+      icon: <Instagram className="h-5 w-5" />,
+    },
+    {
+      name: "X",
+      href: "https://x.com/1ntelligencelab",
+      icon: (
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" className="h-5 w-5">
+          <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+        </svg>
+      ),
+    },
+    {
+      name: "LinkedIn",
+      href: "https://www.linkedin.com/company/quantum-intelligence-africa/",
+      icon: (
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" className="h-5 w-5">
+          <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+        </svg>
+      ),
+    },
+    {
+      name: "GitHub",
+      href: "https://github.com/quantum-intelligence-africa",
+      icon: <Github className="h-4 w-4" />,
+    },
+  ];
+
   return (
-    <footer className="bg-background border-t border-border/60 relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-primary/5" aria-hidden="true" />
-      <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-border/60 to-transparent" aria-hidden="true" />
+    <footer className="relative">
+      {/* The data-matrix ring divider overlaps the CTA section above via a
+          negative top-margin, so its SVG gaps inherit the CTA's plexus
+          backdrop instead of needing a separate plexus instance here. We stay
+          inside the CTA's bottom padding (py-16/py-20) so the divider's red
+          shapes don't paint over the CTA buttons. */}
+      <div className="pointer-events-none relative z-20 -mt-[40px] sm:-mt-[55px] lg:-mt-[70px]">
+        <SectionDivider
+          variant="ring"
+          className="w-full text-[#ff0000] -mb-px"
+        />
+      </div>
 
-      <div className="container mx-auto px-6 py-12 relative z-10">
-        {/* Top header strip */}
-        <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4 mb-6">
-          <div className="space-y-3">
+      {/* Red frame — shows on the left/right edges and rounded bottom corners */}
+      <div className="bg-[#ff0000] px-5 sm:px-10 lg:px-16 pt-4 sm:pt-5 pb-4 sm:pb-5">
+        <div className="rounded-[28px] bg-secondary text-foreground overflow-hidden">
+          <div className="container mx-auto px-6 lg:px-10 pt-10 pb-10">
+        {/* Main row — brand statement + link columns (lecdt ".conteudo") */}
+        <div className="flex flex-col gap-10 lg:flex-row lg:justify-between lg:gap-8">
+          {/* Brand column — wider, like lecdt's first ".parte" */}
+          <div className="max-w-md">
             <Link to="/" className="flex items-center gap-3 hover:opacity-90 transition-opacity">
-              <picture>
-                <img
-                  src="/uploads/logo.png"
-                  alt="Quantum Intelligence Logo"
-                  className="h-10 w-auto object-contain"
-                  style={{ maxWidth: "168px" }}
-                />
-              </picture>
-              <div className="leading-tight text-lg md:text-xl font-semibold text-foreground">
-                <div>Quantum</div>
-                <div>Intelligence</div>
-              </div>
+              <img
+                src="/uploads/logo.png"
+                alt="Quantum Intelligence"
+                className="h-14 w-auto object-contain"
+                style={{ maxWidth: "210px" }}
+              />
+              <span className="flex flex-col leading-none text-2xl font-semibold text-foreground">
+                <span>Quantum</span>
+                <span>Intelligence</span>
+              </span>
             </Link>
-            <p className="text-sm md:text-base text-muted-foreground max-w-2xl">
-             At the heart of this mission we're solving intelligence to advance science and benefit humanity.
-Solving intelligence and use it to solve everything else.
+            <p className="mt-5 text-base leading-relaxed text-muted-foreground">
+              We are Quantum Intelligence — solving intelligence to advance science and benefit
+              humanity, then using it to solve everything else.
             </p>
-          </div>
-          <div className="w-full lg:w-auto flex justify-start lg:justify-end">
-            <button
-              onClick={() => navigateToTop("/contact")}
-              className="inline-flex items-center gap-2 rounded-full bg-primary text-primary-foreground px-5 py-3 text-sm font-semibold shadow-lg shadow-primary/25 hover:shadow-primary/40 transition-all duration-200"
-            >
-              Talk to our team <ArrowRight className="h-4 w-4" />
-            </button>
-          </div>
-        </div>
 
-        <div className="h-px bg-border/60 mb-10" />
-
-        {/* Main Footer Content */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 mb-10">
-          {/* Company Info - Left Column */}
-          <div className="lg:col-span-2">
-            <h3 className="text-sm font-semibold text-foreground mb-3">Contact</h3>
-            <div className="space-y-2 mb-6">
-              <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                <Mail className="h-4 w-4" />
-                <a href="mailto:communications@quantumintelligence.co.tz" className="hover:text-primary transition-colors">
-                  communications@quantumintelligence.co.tz
-                </a>
-              </div>
-              <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                <Phone className="h-4 w-4" />
-                <a href="tel:+255689726060" className="hover:text-primary transition-colors">
-                  +255 689 726 060
-                </a>
-              </div>
-              <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                <MapPin className="h-4 w-4" />
-                <span>Dar es Salaam, Tanzania</span>
+            <div className="mt-6 space-y-3">
+              <a
+                href="mailto:communications@quantumintelligence.co.tz"
+                className="flex items-center gap-2.5 text-base text-muted-foreground hover:text-primary transition-colors"
+              >
+                <Mail className="h-5 w-5 shrink-0" />
+                communications@quantumintelligence.co.tz
+              </a>
+              <a
+                href="tel:+255689726060"
+                className="flex items-center gap-2.5 text-base text-muted-foreground hover:text-primary transition-colors"
+              >
+                <Phone className="h-5 w-5 shrink-0" />
+                +255 689 726 060
+              </a>
+              <div className="flex items-center gap-2.5 text-base text-muted-foreground">
+                <MapPin className="h-5 w-5 shrink-0" />
+                Dar es Salaam, Tanzania
               </div>
             </div>
-
           </div>
 
-          {/* Products & Services */}
-          <div>
-            <h3 className="text-sm font-semibold text-foreground mb-4">Products & Services</h3>
-            <ul className="space-y-2">
-              <li>
-                <button
-                  onClick={() => navigateToTop("/services")}
-                  className="text-sm text-muted-foreground hover:text-primary transition-colors text-left"
-                >
-                  All Services
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => navigateToTop("/deep-operator")}
-                  className="text-sm text-muted-foreground hover:text-primary transition-colors text-left"
-                >
-                  Deep Operator
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => navigateToTop("/quantum-annotate")}
-                  className="text-sm text-muted-foreground hover:text-primary transition-colors text-left"
-                >
-                  Quantum Annotate
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => navigateToTop("/quantum-genai")}
-                  className="text-sm text-muted-foreground hover:text-primary transition-colors text-left"
-                >
-                  Quantum GenAI
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => navigateToTop("/mlops-devops")}
-                  className="text-sm text-muted-foreground hover:text-primary transition-colors text-left"
-                >
-                  MLOps & DevOps
-                </button>
-              </li>
-            </ul>
+          {/* Link columns (lecdt ".parte") */}
+          <div className="grid grid-cols-2 gap-8 sm:grid-cols-4 lg:gap-12">
+            {/* Products & Services + Company */}
+            {columns.slice(0, 2).map((col) => (
+              <div key={col.title}>
+                <h3 className="mb-4 text-lg font-semibold text-foreground">{col.title}</h3>
+                <ul className="space-y-2.5">
+                  {col.links.map((link) => (
+                    <li key={link.name}>
+                      <button
+                        onClick={() => navigateToTop(link.path)}
+                        className="text-left text-base text-muted-foreground hover:text-primary transition-colors"
+                      >
+                        {link.name}
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+
+            {/* Follow us — social links (replaces the old Useful Links column) */}
+            <div>
+              <h3 className="mb-4 text-lg font-semibold text-foreground">Follow us</h3>
+              <ul className="space-y-2.5">
+                {socials.map((s) => (
+                  <li key={s.name}>
+                    <a
+                      href={s.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2.5 text-base text-muted-foreground hover:text-primary transition-colors"
+                    >
+                      {s.icon}
+                      {s.name}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Legal */}
+            {columns.slice(2).map((col) => (
+              <div key={col.title}>
+                <h3 className="mb-4 text-lg font-semibold text-foreground">{col.title}</h3>
+                <ul className="space-y-2.5">
+                  {col.links.map((link) => (
+                    <li key={link.name}>
+                      <button
+                        onClick={() => navigateToTop(link.path)}
+                        className="text-left text-base text-muted-foreground hover:text-primary transition-colors"
+                      >
+                        {link.name}
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
           </div>
-
-          {/* Company */}
-          <div>
-            <h3 className="text-sm font-semibold text-foreground mb-4">Company</h3>
-            <ul className="space-y-2">
-              <li>
-                <button
-                  onClick={() => navigateToTop("/about")}
-                  className="text-sm text-muted-foreground hover:text-primary transition-colors text-left"
-                >
-                  About Us
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => navigateToTop("/partnerships")}
-                  className="text-sm text-muted-foreground hover:text-primary transition-colors text-left"
-                >
-                  Partnerships
-                </button>
-              </li>
-            <li>
-              <button
-                onClick={() => navigateToTop("/blog")}
-                className="text-sm text-muted-foreground hover:text-primary transition-colors text-left"
-              >
-                Blog
-              </button>
-            </li>
-              <li>
-                <button
-                  onClick={() => navigateToTop("/industries")}
-                  className="text-sm text-muted-foreground hover:text-primary transition-colors text-left"
-                >
-                  Industries
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => navigateToTop("/privacy")}
-                  className="text-sm text-muted-foreground hover:text-primary transition-colors text-left"
-                >
-                  Privacy Policy
-                </button>
-              </li>
-
-            </ul>
-          </div>
-
-          {/* Social */}
-          <div>
-            <h3 className="text-sm font-semibold text-foreground mb-4">Social</h3>
-            <ul className="space-y-3">
-              <li>
-                <a
-                  href="https://www.instagram.com/qintelligencelab"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-3 text-sm text-muted-foreground hover:text-primary transition-colors"
-                >
-                  <Instagram className="h-5 w-5" />
-                  Instagram
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://x.com/1ntelligencelab"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-3 text-sm text-muted-foreground hover:text-primary transition-colors"
-                >
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" className="h-5 w-5">
-                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-                  </svg>
-                  X
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://www.linkedin.com/company/quantum-intelligence-africa/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-3 text-sm text-muted-foreground hover:text-primary transition-colors"
-                >
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" className="h-5 w-5">
-                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                  </svg>
-                  LinkedIn
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://github.com/quantum-intelligence-africa"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-3 text-sm text-muted-foreground hover:text-primary transition-colors"
-                >
-                  <Github className="h-5 w-5" />
-                  GitHub
-                </a>
-              </li>
-            </ul>
-          </div>
-
         </div>
 
-        {/* Bottom Bar */}
-        <div className="border-t border-border/60 pt-6 flex flex-col md:flex-row items-center justify-between gap-3">
-          <p className="text-sm text-muted-foreground text-center md:text-left">
-            © {currentYear} Quantum Intelligence. All rights reserved.
-          </p>
-          <div className="flex items-center gap-4 text-xs text-muted-foreground"></div>
+            {/* Copyright (lecdt ".copy") */}
+            <div className="mt-10 border-t border-border/60 pt-6">
+              <p className="text-base text-muted-foreground">
+                © {currentYear} Quantum Intelligence. All Rights Reserved.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </footer>

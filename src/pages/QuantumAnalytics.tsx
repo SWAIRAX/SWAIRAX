@@ -3,10 +3,14 @@ import { useNavigate } from "react-router-dom";
 import { useNavigationWithScroll } from "@/utils/navigation";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import SectionDivider from "@/components/SectionDivider";
+import HeroBackdrop from "@/components/HeroBackdrop";
+import FullBleedHero from "@/components/FullBleedHero";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { ArrowRight, Brain, Database, TrendingUp, CheckCircle, Sparkles, Target, BarChart3, PieChart, Activity, Shield, Clock, Zap, ChevronRight, Network, ArrowUp, Users, Settings, AlertTriangle, Calendar } from "lucide-react";
 import { Link } from "react-router-dom";
+import { Heading, Lead } from "@/components/ui/section";
 
 const QuantumAnalytics = () => {
   const navigate = useNavigate();
@@ -115,53 +119,45 @@ const QuantumAnalytics = () => {
     <div className="min-h-screen bg-background">
       <Header />
 
-      {/* Hero Section */}
-      <section className="relative overflow-hidden pt-24 md:pt-28 pb-14 bg-black text-white">
-        <div className="absolute inset-0">
-          <div
-            className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-85"
-            style={{ backgroundImage: "url('/uploads/QUANTUM ANALYTICS.png')" }}
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/75 to-black/90" />
-          <div className="absolute inset-0 holo-grid opacity-15" />
-          <div className="absolute -left-10 top-10 w-64 h-64 aurora-glow opacity-60" />
-          <div className="absolute -right-12 bottom-12 w-72 h-72 aurora-glow opacity-60 delay-300" />
-        </div>
-
-        <div className="container mx-auto px-6 relative z-10">
-          <div className="max-w-4xl mx-auto text-center">
-            <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-              <div className="flex items-center justify-center mb-3">
-                <div className="w-12 h-12 bg-white/10 rounded-lg flex items-center justify-center text-primary mr-3 shadow-inner shadow-red-500/20">
-                  <Brain className="h-6 w-6" />
-                </div>
-                <h1 className="text-4xl md:text-5xl font-black leading-tight bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent">
-                  Deep <span className="text-primary">Operator</span>
-                </h1>
-              </div>
-              <p className="text-base md:text-lg text-muted-foreground mb-4 max-w-3xl mx-auto">
-                Data-centric platform leveraging Machine Learning & RLHF to help organizations understand impact, learn from their data, measure progress, and make smarter decisions.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-3 justify-center">
-                <Button
-                  size="lg"
-                  className="bg-gradient-to-r from-red-600 via-red-500 to-red-400 hover:from-red-500 hover:to-red-500 text-white px-6 md:px-8 py-4 text-base font-semibold shadow-[0_20px_60px_-30px_rgba(255,0,0,0.75)]"
-                  onClick={() => scrollToSection("features")}
-                >
-                  Explore Platform <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
-                <Button
-                  variant="outline"
-                  className="border-white/30 text-white hover:bg-white/10"
-                  onClick={() => navigateToTop('/contact')}
-                >
-                  Get Started
-                </Button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Hero Section — scale.com FullBleedMediaSection pattern. */}
+      <FullBleedHero
+        imageSrc="/uploads/QUANTUM ANALYTICS.png"
+        imageAlt="Quantum Analytics platform"
+        eyebrow={
+          <>
+            <Brain className="h-4 w-4 mr-2" />
+            Deep Operator
+          </>
+        }
+        title={
+          <Heading as="h1" size="display" className="font-black text-white">
+            Turn data into the decisions your business runs on.
+          </Heading>
+        }
+        subtitle={
+          <>
+            Data-centric platform leveraging Machine Learning & RLHF to help organizations understand impact, learn from their data, measure progress, and make smarter decisions.
+          </>
+        }
+        cta={
+          <>
+            <Button
+              size="lg"
+              className="bg-primary hover:bg-primary/90 text-primary-foreground px-6 md:px-8 py-4 text-base font-semibold"
+              onClick={() => scrollToSection("features")}
+            >
+              Explore Platform <ArrowRight className="ml-2 h-5 w-5" />
+            </Button>
+            <Button
+              variant="outline"
+              className="border-white/40 text-white bg-transparent hover:bg-white/10 hover:text-white hover:border-white"
+              onClick={() => navigateToTop('/contact')}
+            >
+              Get Started
+            </Button>
+          </>
+        }
+      />
 
       {/* Stats Section */}
       <section className="py-8 bg-card">
@@ -187,48 +183,59 @@ const QuantumAnalytics = () => {
       </section>
 
       {/* Features Section */}
-      <section id="features" className="py-8">
-        <div className="container mx-auto px-6">
+      <section id="features" className="pb-8">
+        {/* Interlocking ring divider — flush with the section's top edge so
+            it visually belongs to this section instead of floating between
+            two sections. */}
+        <SectionDivider variant="ring" flip className="w-full text-[hsl(var(--card))]" />
+        <div className="container mx-auto px-6 pt-8">
             <div className="text-center mb-8">
             <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-8'}`}>
-              <h2 className="text-3xl md:text-4xl font-bold mb-3 bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent">Powerful Analytics Capabilities</h2>
-              <p className="text-base md:text-lg text-muted-foreground max-w-3xl mx-auto">
+              <Heading as="h2" size="h2" className="mb-3 text-foreground">Powerful Analytics Capabilities</Heading>
+              <Lead className="max-w-3xl mx-auto">
                 Our comprehensive analytics platform delivers measurable improvements in data understanding, decision-making speed, and business impact.
-              </p>
+              </Lead>
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             {features.map((feature, index) => (
               <Card
                 key={index}
-                className={`group relative overflow-hidden border border-red-500/15 bg-gradient-to-br from-neutral-900/80 via-neutral-900/60 to-black shadow-[0_20px_70px_-50px_rgba(0,0,0,0.8)] transition-all duration-500 hover:-translate-y-2 hover:border-red-400/40 ${
-                  isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-                }`}
-                style={{ transitionDelay: `${index * 0.1}s` }}
+                className="solution-card bg-secondary border-border animate-slide-in-bottom group relative overflow-hidden"
+                style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-r from-red-500/5 via-transparent to-red-500/10" />
-                <CardContent className="relative z-10 p-6 space-y-4">
-                  <div className="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center text-primary mb-4 shadow-inner shadow-red-500/20">
-                    {feature.icon}
+                <CardContent className="p-8 relative overflow-hidden">
+                  <div className="absolute inset-0 opacity-5">
+                    <svg className="w-full h-full" viewBox="0 0 100 100">
+                      <circle cx="50" cy="50" r="30" fill="none" stroke="currentColor" strokeWidth="1" className="animate-spin-slow" />
+                      <circle cx="50" cy="50" r="20" fill="none" stroke="currentColor" strokeWidth="0.5" className="animate-spin-slow" style={{ animationDirection: 'reverse' }} />
+                    </svg>
                   </div>
 
-                  <h3 className="text-lg font-semibold group-hover:text-primary transition-colors">
-                    {feature.title}
-                  </h3>
+                  <div className="flex items-center justify-between mb-6 relative z-10">
+                    <div className="rounded-xl bg-white/10 p-3 shadow-inner text-primary">
+                      {feature.icon}
+                    </div>
+                  </div>
 
-                  <p className="text-muted-foreground leading-relaxed text-sm">
+                  <h3 className="text-2xl font-bold mb-4 relative z-10 group-hover:text-primary transition-colors">{feature.title}</h3>
+                  <p className="text-muted-foreground mb-4 text-sm leading-relaxed relative z-10">
                     {feature.description}
                   </p>
 
-                  <ul className="space-y-2">
+                  <ul className="space-y-2 relative z-10">
                     {feature.benefits.map((benefit, benefitIndex) => (
-                      <li key={benefitIndex} className="flex items-center text-xs text-white/80 group-hover:text-white transition-colors">
+                      <li key={benefitIndex} className="flex items-center text-xs text-foreground/80 group-hover:text-foreground transition-colors">
                         <div className="w-1.5 h-1.5 bg-primary rounded-full mr-2 group-hover:scale-125 transition-transform" />
                         {benefit}
                       </li>
                     ))}
                   </ul>
+
+                  <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div className="w-2 h-2 bg-primary rounded-full animate-ping" />
+                  </div>
                 </CardContent>
               </Card>
             ))}
@@ -237,14 +244,16 @@ const QuantumAnalytics = () => {
       </section>
 
       {/* Capabilities Section */}
-      <section className="py-8 bg-card">
-        <div className="container mx-auto px-6">
+      <section className="bg-card pb-8">
+        {/* Interlocking matrix divider — flush with the section's top edge. */}
+        <SectionDivider variant="matrix" flip className="w-full text-[hsl(var(--background))]" />
+        <div className="container mx-auto px-6 pt-8">
             <div className="text-center mb-8">
             <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-8'}`}>
-              <h2 className="text-3xl md:text-4xl font-bold mb-3 bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent">Advanced Analytics Features</h2>
-              <p className="text-base md:text-lg text-muted-foreground max-w-3xl mx-auto">
+              <Heading as="h2" size="h2" className="mb-3 text-foreground">Advanced Analytics Features</Heading>
+              <Lead className="max-w-3xl mx-auto">
                 Comprehensive analytics tools designed to transform your data into actionable business intelligence.
-              </p>
+              </Lead>
             </div>
           </div>
 
@@ -252,15 +261,15 @@ const QuantumAnalytics = () => {
             {capabilities.map((capability, index) => (
               <div
                 key={index}
-                className={`p-4 rounded-lg border border-red-500/15 bg-gradient-to-br from-neutral-900/80 via-neutral-900/60 to-black hover:shadow-[0_20px_70px_-50px_rgba(0,0,0,0.8)] hover:border-red-400/40 transition-all duration-300 group ${
+                className={`p-4 rounded-lg border border-border bg-white hover:shadow-[0_20px_70px_-50px_rgba(0,0,0,0.25)] hover:border-secondary-accent/40 transition-all duration-300 group ${
                   isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
                 }`}
                 style={{ transitionDelay: `${index * 0.05}s` }}
               >
-                <div className="w-8 h-8 bg-white/10 rounded-lg flex items-center justify-center text-primary mb-3 group-hover:bg-primary/20 group-hover:scale-110 transition-all duration-300 shadow-inner shadow-red-500/20">
+                <div className="w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center text-primary mb-3 group-hover:bg-primary/20 group-hover:scale-110 transition-all duration-300 shadow-inner">
                   {capability.icon}
                 </div>
-                <h3 className="text-sm font-bold mb-2 group-hover:text-primary transition-colors">
+                <h3 className="text-sm font-bold mb-2 text-foreground group-hover:text-primary transition-colors">
                   {capability.title}
                 </h3>
                 <p className="text-muted-foreground text-xs leading-relaxed">
@@ -277,7 +286,7 @@ const QuantumAnalytics = () => {
         <div className="container mx-auto px-6">
           <div className="text-center mb-8">
             <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-8'}`}>
-              <h2 className="text-xl font-bold mb-3">Implementation Process</h2>
+              <Heading as="h2" size="h2" className="mb-3">Implementation Process</Heading>
               <p className="text-sm text-muted-foreground max-w-3xl mx-auto">
                 A systematic approach to implementing our analytics platform that ensures maximum value and adoption.
               </p>
@@ -319,24 +328,24 @@ const QuantumAnalytics = () => {
         </div>
       </section>
 
-      {/* Problem Solving Approach Section */}
-      <section className="py-16 bg-black text-white relative overflow-hidden">
+      {/* Problem Solving Approach Section — light theme. */}
+      <section className="py-16 bg-card text-foreground relative overflow-hidden">
         {/* Decorative elements */}
-        <div className="absolute inset-0 bg-gradient-to-br from-black via-black to-red-900/10" />
-        <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-red-500 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-br from-background via-card to-background" />
+        <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary to-transparent" />
 
         <div className="container mx-auto px-6 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
-            {/* Red accent line animation */}
+            {/* Accent line animation */}
             <div className="mb-8">
-              <div className={`h-0.5 bg-red-500 mx-auto transition-all duration-1000 ${isVisible ? 'w-24' : 'w-0'}`} />
+              <div className={`h-0.5 bg-primary mx-auto transition-all duration-1000 ${isVisible ? 'w-24' : 'w-0'}`} />
             </div>
 
             {/* Main headline */}
             <div className={`transition-all duration-1000 delay-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-8'}`}>
-              <h2 className="text-3xl md:text-4xl font-bold mb-8 bg-gradient-to-r from-white via-red-100 to-white bg-clip-text text-transparent">
+              <Heading as="h2" size="h2" className="mb-8 text-foreground">
                 How do we approach problem solving?
-              </h2>
+              </Heading>
             </div>
 
             {/* Body text with sequential fade-in */}
@@ -358,22 +367,24 @@ const QuantumAnalytics = () => {
               </div>
             </div>
 
-            {/* Animated red underline */}
+            {/* Animated underline */}
             <div className={`mt-8 transition-all duration-1000 delay-2000 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
-              <div className={`h-0.5 bg-red-500 mx-auto transition-all duration-2000 delay-2000 ${isVisible ? 'w-32' : 'w-0'}`} />
+              <div className={`h-0.5 bg-primary mx-auto transition-all duration-2000 delay-2000 ${isVisible ? 'w-32' : 'w-0'}`} />
             </div>
           </div>
         </div>
       </section>
 
       {/* Analytics Evolution Section */}
-      <section className="py-16 bg-gradient-to-br from-background via-background to-card">
-        <div className="container mx-auto px-6">
+      <section className="bg-gradient-to-br from-background via-background to-card pb-16">
+        {/* Interlocking ring divider — flush with the section's top edge. */}
+        <SectionDivider variant="ring" flip className="w-full text-[hsl(var(--card))]" />
+        <div className="container mx-auto px-6 pt-16">
           <div className="text-center mb-12">
             <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-8'}`}>
-              <h2 className="text-2xl md:text-3xl font-bold mb-4 bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent">
+              <Heading as="h2" size="h2" className="mb-4 text-foreground">
                 From Questions to Decisions
-              </h2>
+              </Heading>
               <p className="text-muted-foreground max-w-2xl mx-auto">
                 The evolution of data analytics maturity across four transformative stages
               </p>
@@ -382,15 +393,15 @@ const QuantumAnalytics = () => {
 
           {/* Analytics Evolution Panels */}
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6 max-w-6xl mx-auto">
-            {/* Panel 1 - Descriptive Analytics */}
+            {/* Panel 1 - Descriptive */}
             <div className={`group transition-all duration-1000 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}`}>
-              <Card className="h-full bg-gradient-to-br from-background to-background/50 border-border/50 hover:border-primary/30 transition-all duration-500 hover:shadow-lg">
+              <Card className="h-full bg-white border border-border hover:border-secondary-accent/40 hover:shadow-[0_20px_70px_-50px_rgba(0,0,0,0.25)] transition-all duration-500 group-hover:-translate-y-1">
                 <CardContent className="p-6 text-center">
-                  <div className="w-16 h-16 bg-gradient-to-br from-blue-500/10 to-blue-600/10 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-                    <PieChart className="h-8 w-8 text-blue-600" />
+                  <div className="w-16 h-16 bg-secondary-accent/10 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 group-hover:bg-secondary-accent/15 transition-all duration-300">
+                    <PieChart className="h-8 w-8 text-secondary-accent" />
                   </div>
-                  <h3 className="text-lg font-bold mb-2 text-foreground">What happened?</h3>
-                  <p className="text-sm font-semibold text-primary mb-3">DESCRIPTIVE ANALYTICS</p>
+                  <p className="text-[11px] font-semibold text-secondary-accent tracking-[0.14em] uppercase mb-2">Descriptive analytics</p>
+                  <h3 className="text-lg font-bold mb-3 text-foreground">What happened?</h3>
                   <p className="text-xs text-muted-foreground leading-relaxed">
                     Understanding historical data patterns and current business states through comprehensive reporting and dashboards.
                   </p>
@@ -398,15 +409,15 @@ const QuantumAnalytics = () => {
               </Card>
             </div>
 
-            {/* Panel 2 - Diagnostic Analytics */}
+            {/* Panel 2 - Diagnostic */}
             <div className={`group transition-all duration-1000 delay-200 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}`}>
-              <Card className="h-full bg-gradient-to-br from-background/80 to-background/60 border-border/50 hover:border-primary/30 transition-all duration-500 hover:shadow-lg">
+              <Card className="h-full bg-white border border-border hover:border-primary/40 hover:shadow-[0_20px_70px_-50px_rgba(0,0,0,0.25)] transition-all duration-500 group-hover:-translate-y-1">
                 <CardContent className="p-6 text-center">
-                  <div className="w-16 h-16 bg-gradient-to-br from-green-500/10 to-green-600/10 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-                    <BarChart3 className="h-8 w-8 text-green-600" />
+                  <div className="w-16 h-16 bg-primary/10 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 group-hover:bg-primary/15 transition-all duration-300">
+                    <BarChart3 className="h-8 w-8 text-primary" />
                   </div>
-                  <h3 className="text-lg font-bold mb-2 text-foreground">Why did it happen?</h3>
-                  <p className="text-sm font-semibold text-primary mb-3">DIAGNOSTIC ANALYTICS</p>
+                  <p className="text-[11px] font-semibold text-primary tracking-[0.14em] uppercase mb-2">Diagnostic analytics</p>
+                  <h3 className="text-lg font-bold mb-3 text-foreground">Why did it happen?</h3>
                   <p className="text-xs text-muted-foreground leading-relaxed">
                     Investigating root causes and correlations to understand the drivers behind observed patterns and outcomes.
                   </p>
@@ -414,15 +425,15 @@ const QuantumAnalytics = () => {
               </Card>
             </div>
 
-            {/* Panel 3 - Predictive Analytics */}
+            {/* Panel 3 - Predictive */}
             <div className={`group transition-all duration-1000 delay-400 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}`}>
-              <Card className="h-full bg-gradient-to-br from-primary/5 to-primary/10 border-border/50 hover:border-primary/50 transition-all duration-500 hover:shadow-lg">
+              <Card className="h-full bg-white border border-border hover:border-secondary-accent/40 hover:shadow-[0_20px_70px_-50px_rgba(0,0,0,0.25)] transition-all duration-500 group-hover:-translate-y-1">
                 <CardContent className="p-6 text-center">
-                  <div className="w-16 h-16 bg-gradient-to-br from-orange-500/10 to-orange-600/10 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-                    <Network className="h-8 w-8 text-orange-600" />
+                  <div className="w-16 h-16 bg-secondary-accent/10 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 group-hover:bg-secondary-accent/15 transition-all duration-300">
+                    <Network className="h-8 w-8 text-secondary-accent" />
                   </div>
-                  <h3 className="text-lg font-bold mb-2 text-foreground">What might happen?</h3>
-                  <p className="text-sm font-semibold text-primary mb-3">PREDICTIVE ANALYTICS</p>
+                  <p className="text-[11px] font-semibold text-secondary-accent tracking-[0.14em] uppercase mb-2">Predictive analytics</p>
+                  <h3 className="text-lg font-bold mb-3 text-foreground">What might happen?</h3>
                   <p className="text-xs text-muted-foreground leading-relaxed">
                     Forecasting future trends and scenarios using statistical models and machine learning algorithms.
                   </p>
@@ -430,16 +441,16 @@ const QuantumAnalytics = () => {
               </Card>
             </div>
 
-            {/* Panel 4 - Prescriptive Analytics */}
+            {/* Panel 4 - Prescriptive (brand highlight) */}
             <div className={`group transition-all duration-1000 delay-600 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}`}>
-              <Card className="h-full bg-gradient-to-br from-primary/10 to-primary/20 border-primary/50 hover:border-primary/70 transition-all duration-500 hover:shadow-lg">
+              <Card className="h-full bg-gradient-to-br from-primary to-primary/85 text-white border border-primary/40 hover:shadow-[0_20px_50px_-15px_rgba(214,46,10,0.55)] transition-all duration-500 group-hover:-translate-y-1">
                 <CardContent className="p-6 text-center">
-                  <div className="w-16 h-16 bg-gradient-to-br from-red-500/10 to-red-600/10 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-                    <ArrowUp className="h-8 w-8 text-red-600" />
+                  <div className="w-16 h-16 bg-white/15 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 group-hover:bg-white/25 transition-all duration-300">
+                    <ArrowUp className="h-8 w-8 text-white" />
                   </div>
-                  <h3 className="text-lg font-bold mb-2 text-white">How can we make it happen?</h3>
-                  <p className="text-sm font-semibold text-primary mb-3">PRESCRIPTIVE ANALYTICS</p>
-                  <p className="text-xs text-white/80 leading-relaxed">
+                  <p className="text-[11px] font-semibold text-white/85 tracking-[0.14em] uppercase mb-2">Prescriptive analytics</p>
+                  <h3 className="text-lg font-bold mb-3 text-white">How can we make it happen?</h3>
+                  <p className="text-xs text-white/85 leading-relaxed">
                     Recommending optimal actions and strategies to achieve desired outcomes and maximize business value.
                   </p>
                 </CardContent>
@@ -462,30 +473,35 @@ const QuantumAnalytics = () => {
         </div>
       </section>
 
-      {/* Business Problems to Growth Results Section */}
-      <section className="py-20 bg-gradient-to-br from-background via-card/30 to-background relative overflow-hidden">
-        {/* Decorative Background Elements */}
-        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/3 to-transparent" />
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-red-500/5 rounded-full blur-3xl animate-pulse" />
+      {/* Business Problems to Growth Results Section — pure white canvas
+          so the table reads as a polished panel against a clean surface. */}
+      <section className="py-20 bg-white relative overflow-hidden">
+        {/* Very subtle primary-tinted spotlight in the upper left, with a
+            tiny tint band across the middle. Both are quiet enough that
+            the section still reads as white. */}
+        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/[0.015] to-transparent" />
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-pulse opacity-40" />
         <div className="container mx-auto px-6">
           <div className="text-center">
 
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent leading-tight">
+            <Heading as="h2" size="h2" className="mb-6 text-foreground">
               From Business Problems<br />to Growth Results
-            </h2>
-            <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed mb-8">
+            </Heading>
+            <Lead className="text-lg md:text-xl max-w-3xl mx-auto mb-8">
               We bridge insight to impact, converting real business challenges into clear growth outcomes through intelligence.
-            </p>
+            </Lead>
 
-            {/* Executive Table */}
+            {/* Executive Table — light theme: white surface with a soft
+                primary-tinted ring instead of the dark blurred glow, and a
+                gentler header tint so the table reads as a polished panel
+                instead of a glassy dark overlay. */}
             <div className="relative w-full max-w-7xl mx-auto px-1 sm:px-2 md:px-4 lg:px-6">
-              {/* Table Glow Effect - Responsive blur and inset */}
-              <div className="absolute -inset-0.5 sm:-inset-1 bg-gradient-to-r from-primary/20 via-red-500/20 to-primary/20 rounded-xl sm:rounded-2xl blur-sm sm:blur-md opacity-20 sm:opacity-25" />
+              {/* Table outer halo — gentle primary tint at very low opacity. */}
+              <div className="absolute -inset-0.5 sm:-inset-1 bg-gradient-to-r from-primary/15 via-primary/5 to-primary/15 rounded-xl sm:rounded-2xl blur-md opacity-50" />
 
-              <div className="relative overflow-hidden rounded-2xl border border-border/60 shadow-2xl bg-card/80 backdrop-blur-md">
-                {/* Table Header - Visible on all screens */}
-                <div className="grid grid-cols-3 bg-gradient-to-r from-primary/15 via-primary/8 to-primary/15 border-b border-border/60">
+              <div className="relative overflow-hidden rounded-2xl border border-border bg-white shadow-[0_25px_60px_-30px_rgba(15,23,42,0.18)]">
+                {/* Table Header — softer primary wash so headings stay readable on white. */}
+                <div className="grid grid-cols-3 bg-gradient-to-r from-primary/10 via-primary/5 to-primary/10 border-b border-border">
                   <div className="p-2 sm:p-3 md:p-4 lg:p-6">
                     <h3 className="text-xs sm:text-sm md:text-base lg:text-lg font-bold text-foreground flex items-center space-x-1 sm:space-x-2 md:space-x-3">
                       <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 md:w-3 md:h-3 bg-primary rounded-full animate-pulse" />
@@ -509,9 +525,8 @@ const QuantumAnalytics = () => {
                 </div>
 
                 {/* Table Rows - Visible on all screens */}
-                <div className="grid grid-cols-3 border-b border-border/40 hover:bg-background/30 transition-all duration-1000">
-                  <div className="p-2 sm:p-3 md:p-4 lg:p-6 bg-gradient-to-r from-blue-500/20 to-blue-600/20 text-white relative overflow-hidden">
-                    <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/40 to-black/60" />
+                <div className="grid grid-cols-3 border-b border-border/40 hover:bg-slate-100/60 transition-colors duration-300">
+                  <div className="p-2 sm:p-3 md:p-4 lg:p-6 bg-gradient-to-br from-foreground to-foreground/80 text-white relative overflow-hidden">
                     <div className="relative flex items-center space-x-1 sm:space-x-2 md:space-x-3">
                       <div className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 bg-white/10 backdrop-blur-sm rounded-lg flex items-center justify-center border border-white/20">
                         <Brain className="h-3 w-3 sm:h-4 sm:w-4 md:h-5 md:w-5 text-white" />
@@ -522,7 +537,7 @@ const QuantumAnalytics = () => {
                       </div>
                     </div>
                   </div>
-                  <div className="p-2 sm:p-3 md:p-4 lg:p-6 border-l border-border/60 bg-gradient-to-r from-background/80 to-background/60">
+                  <div className="p-2 sm:p-3 md:p-4 lg:p-6 border-l border-border/60 bg-slate-50">
                     <div className="flex items-start space-x-1 sm:space-x-2 md:space-x-3">
                       <div className="flex-shrink-0 mt-1">
                         <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-orange-500 rounded-full animate-pulse" />
@@ -542,9 +557,8 @@ const QuantumAnalytics = () => {
                   </div>
                 </div>
 
-                <div className="grid grid-cols-3 border-b border-border/40 hover:bg-background/30 transition-all duration-1000">
-                  <div className="p-2 sm:p-3 md:p-4 lg:p-6 bg-gradient-to-r from-green-500/20 to-green-600/20 text-white relative overflow-hidden">
-                    <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/40 to-black/60" />
+                <div className="grid grid-cols-3 border-b border-border/40 hover:bg-slate-100/60 transition-colors duration-300">
+                  <div className="p-2 sm:p-3 md:p-4 lg:p-6 bg-gradient-to-br from-secondary-accent to-secondary-accent/80 text-white relative overflow-hidden">
                     <div className="relative flex items-center space-x-1 sm:space-x-2 md:space-x-3">
                       <div className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 bg-white/10 backdrop-blur-sm rounded-lg flex items-center justify-center border border-white/20">
                         <Users className="h-3 w-3 sm:h-4 sm:w-4 md:h-5 md:w-5 text-white" />
@@ -555,7 +569,7 @@ const QuantumAnalytics = () => {
                       </div>
                     </div>
                   </div>
-                  <div className="p-2 sm:p-3 md:p-4 lg:p-6 border-l border-border/60 bg-gradient-to-r from-background/80 to-background/60">
+                  <div className="p-2 sm:p-3 md:p-4 lg:p-6 border-l border-border/60 bg-slate-50">
                     <div className="flex items-start space-x-1 sm:space-x-2 md:space-x-3">
                       <div className="flex-shrink-0 mt-1">
                         <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-orange-500 rounded-full animate-pulse" />
@@ -575,9 +589,8 @@ const QuantumAnalytics = () => {
                   </div>
                 </div>
 
-                <div className="grid grid-cols-3 border-b border-border/40 hover:bg-background/30 transition-all duration-1000">
-                  <div className="p-2 sm:p-3 md:p-4 lg:p-6 bg-gradient-to-r from-purple-500/20 to-purple-600/20 text-white relative overflow-hidden">
-                    <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/40 to-black/60" />
+                <div className="grid grid-cols-3 border-b border-border/40 hover:bg-slate-100/60 transition-colors duration-300">
+                  <div className="p-2 sm:p-3 md:p-4 lg:p-6 bg-gradient-to-br from-foreground to-foreground/80 text-white relative overflow-hidden">
                     <div className="relative flex items-center space-x-1 sm:space-x-2 md:space-x-3">
                       <div className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 bg-white/10 backdrop-blur-sm rounded-lg flex items-center justify-center border border-white/20">
                         <Settings className="h-3 w-3 sm:h-4 sm:w-4 md:h-5 md:w-5 text-white" />
@@ -588,7 +601,7 @@ const QuantumAnalytics = () => {
                       </div>
                     </div>
                   </div>
-                  <div className="p-2 sm:p-3 md:p-4 lg:p-6 border-l border-border/60 bg-gradient-to-r from-background/80 to-background/60">
+                  <div className="p-2 sm:p-3 md:p-4 lg:p-6 border-l border-border/60 bg-slate-50">
                     <div className="flex items-start space-x-1 sm:space-x-2 md:space-x-3">
                       <div className="flex-shrink-0 mt-1">
                         <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-orange-500 rounded-full animate-pulse" />
@@ -608,9 +621,8 @@ const QuantumAnalytics = () => {
                   </div>
                 </div>
 
-                <div className="grid grid-cols-3 border-b border-border/40 hover:bg-background/30 transition-all duration-1000">
-                  <div className="p-2 sm:p-3 md:p-4 lg:p-6 bg-gradient-to-r from-orange-500/20 to-orange-600/20 text-white relative overflow-hidden">
-                    <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/40 to-black/60" />
+                <div className="grid grid-cols-3 border-b border-border/40 hover:bg-slate-100/60 transition-colors duration-300">
+                  <div className="p-2 sm:p-3 md:p-4 lg:p-6 bg-gradient-to-br from-orange-500 to-orange-700 text-white relative overflow-hidden">
                     <div className="relative flex items-center space-x-1 sm:space-x-2 md:space-x-3">
                       <div className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 bg-white/10 backdrop-blur-sm rounded-lg flex items-center justify-center border border-white/20">
                         <TrendingUp className="h-3 w-3 sm:h-4 sm:w-4 md:h-5 md:w-5 text-white" />
@@ -621,7 +633,7 @@ const QuantumAnalytics = () => {
                       </div>
                     </div>
                   </div>
-                  <div className="p-2 sm:p-3 md:p-4 lg:p-6 border-l border-border/60 bg-gradient-to-r from-background/80 to-background/60">
+                  <div className="p-2 sm:p-3 md:p-4 lg:p-6 border-l border-border/60 bg-slate-50">
                     <div className="flex items-start space-x-1 sm:space-x-2 md:space-x-3">
                       <div className="flex-shrink-0 mt-1">
                         <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-orange-500 rounded-full animate-pulse" />
@@ -641,9 +653,8 @@ const QuantumAnalytics = () => {
                   </div>
                 </div>
 
-                <div className="grid grid-cols-3 hover:bg-background/30 transition-all duration-1000">
-                  <div className="p-2 sm:p-3 md:p-4 lg:p-6 bg-gradient-to-r from-red-500/20 to-red-600/20 text-white relative overflow-hidden">
-                    <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/40 to-black/60" />
+                <div className="grid grid-cols-3 hover:bg-slate-100/60 transition-colors duration-300">
+                  <div className="p-2 sm:p-3 md:p-4 lg:p-6 bg-gradient-to-br from-primary to-primary/85 text-white relative overflow-hidden">
                     <div className="relative flex items-center space-x-1 sm:space-x-2 md:space-x-3">
                       <div className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 bg-white/10 backdrop-blur-sm rounded-lg flex items-center justify-center border border-white/20">
                         <Zap className="h-3 w-3 sm:h-4 sm:w-4 md:h-5 md:w-5 text-white" />
@@ -654,7 +665,7 @@ const QuantumAnalytics = () => {
                       </div>
                     </div>
                   </div>
-                  <div className="p-2 sm:p-3 md:p-4 lg:p-6 border-l border-border/60 bg-gradient-to-r from-background/80 to-background/60">
+                  <div className="p-2 sm:p-3 md:p-4 lg:p-6 border-l border-border/60 bg-slate-50">
                     <div className="flex items-start space-x-1 sm:space-x-2 md:space-x-3">
                       <div className="flex-shrink-0 mt-1">
                         <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-orange-500 rounded-full animate-pulse" />
@@ -692,9 +703,9 @@ const QuantumAnalytics = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
             <div>
               <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}`}>
-                <h2 className="text-xl font-bold mb-4">
+                <Heading as="h2" size="h2" className="mb-4">
                   Why Choose Deep Operator?
-                </h2>
+                </Heading>
                 <p className="text-sm text-muted-foreground mb-6">
                   Our data-centric approach helps organizations unlock the full potential of their data, driving smarter decisions and measurable business impact.
                 </p>
@@ -749,14 +760,16 @@ const QuantumAnalytics = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-8 bg-gradient-secondary">
-        <div className="container mx-auto px-6 text-center">
-          <div className={`max-w-4xl mx-auto transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-            <h2 className="text-xl font-bold mb-3">
+      {/* CTA Section — glass card wraps the content so it stays readable on
+          top of the HeroBackdrop's red plexus canvas. */}
+      <section className="relative overflow-hidden pt-12 pb-40 sm:pb-44 bg-background">
+        <HeroBackdrop />
+        <div className="container relative z-10 mx-auto px-6">
+          <div className={`max-w-3xl mx-auto rounded-2xl border border-border/60 bg-background/85 backdrop-blur-md shadow-[0_15px_40px_-25px_rgba(15,23,42,0.25)] p-6 md:p-10 text-center transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+            <Heading as="h2" size="h2" className="mb-3 text-foreground">
               Ready to Transform Your Data into Insights?
-            </h2>
-            <p className="text-sm text-muted-foreground mb-4 max-w-3xl mx-auto">
+            </Heading>
+            <p className="text-sm text-foreground/85 mb-4 max-w-2xl mx-auto">
               Let's discuss how our Deep Operator platform can help you understand your data, measure impact, and make smarter business decisions.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">

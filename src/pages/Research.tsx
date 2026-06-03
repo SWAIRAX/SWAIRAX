@@ -4,11 +4,12 @@ import { useNavigationWithScroll } from "@/utils/navigation";
 import { SEOSchema } from "@/components/SEOSchema";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import HeroBackdrop from "@/components/HeroBackdrop";
+import Parallax from "@/components/Parallax";
 import ScrollReveal from "@/components/ScrollReveal";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { SectionHeading, SectionLead } from "@/components/typography";
+import { SectionLead, Heading, Eyebrow } from "@/components/typography";
 import { TextRevealCard } from "@/components/ui/text-reveal-card";
 import { InfiniteMovingCards } from "@/components/ui/infinite-moving-cards";
 import { ArrowRight, Calendar, Shield, Users, FileText, ExternalLink, Sparkles, Play } from "lucide-react";
@@ -74,7 +75,7 @@ const Research = () => {
   const showreel = "https://cdn.coverr.co/videos/coverr-abstract-technology-10926/1080p.mp4";
 
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className="min-h-screen bg-background text-foreground">
       <SEOSchema
         breadcrumbs={[
           { name: "Home", url: "https://quantumintelligence.co.tz" },
@@ -83,164 +84,87 @@ const Research = () => {
       />
       <Header />
 
-      {/* Hero Section with asymmetric layout */}
-      <section className="relative overflow-hidden pt-16 md:pt-20 pb-8">
-        <div className="absolute inset-0 bg-gradient-to-br from-black via-[#0d0d12] to-black" />
-        <div className="absolute -left-20 top-10 w-80 h-80 bg-red-500/15 rounded-full blur-3xl" />
-        <div className="absolute right-0 -top-10 w-[520px] h-[520px] rotate-6 bg-gradient-to-br from-white/10 via-transparent to-red-500/20 opacity-60 animate-pan-slow" />
-        <div className="absolute inset-0 holo-grid opacity-20" />
-
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-center">
-            <div className="space-y-3">
-              <div className="inline-flex items-center gap-2">
-                <Badge className="bg-white/10 text-white border-white/10">Research & Innovation</Badge>
-              </div>
-              <TextRevealCard
-                text="Research that feeds production AI."
-                revealText="Innovation drives implementation"
-                className="bg-transparent border-none w-full p-0"
-              />
-              <SectionLead className="text-muted-foreground max-w-2xl text-sm md:text-base">
-              Explore archived experiments shaping Deep Operator, Annotate, GenAI, and MLOps—built with ethics, evals, and observability from day one.
-            </SectionLead>
-            </div>
-
-            <div className="relative max-w-xl mx-auto">
-              <div className="absolute -inset-6 bg-gradient-to-r from-red-500/15 via-transparent to-white/10 blur-2xl" />
-              <div className="relative overflow-hidden rounded-3xl border border-white/10 shadow-[0_30px_100px_-60px_rgba(255,0,0,0.6)]">
-                <img
-                  src="/uploads/RESEARCH.jpg"
-                  alt="Research spotlight"
-                  className="h-full w-full object-cover"
-                />
-                <div />
-
-              </div>
+      {/* Hero — passionlabs-style: our research image, red tint, crosshair lines through the CTA */}
+      <section className="relative overflow-hidden text-white pt-36 pb-24 sm:pt-44 sm:pb-32 lg:pt-52 lg:pb-40">
+        {/* Our research image — drifts on scroll for depth */}
+        <Parallax speed={-0.25} clamp={150} className="absolute inset-x-0 -inset-y-[24%] h-[148%]">
+          <div
+            className="absolute inset-0 bg-cover bg-center"
+            style={{ backgroundImage: "url('/uploads/RESEARCH.jpg')" }}
+          />
+        </Parallax>
+        {/* Brand-red tint + dark gradient so the white type stays legible */}
+        <div className="absolute inset-0 bg-[#b3210a]/80 mix-blend-multiply" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/55 via-black/25 to-black/10" />
+        <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-2xl lg:ml-[32%]">
+            <p className="mb-6 pl-6 text-xs font-semibold uppercase tracking-[0.25em] text-white/80">Research &amp; Strategy</p>
+            <h1 className="pl-6 text-5xl font-light leading-[1.03] tracking-tight text-white drop-shadow-sm sm:text-6xl lg:text-7xl">
+              AI research &amp; strategy to give you <span className="italic">the edge.</span>
+            </h1>
+            <div className="relative mt-10 inline-flex">
+              {/* passionlabs "button_outlines" — white lines emanate from the button edges to the page edges */}
+              <span className="pointer-events-none absolute top-1/2 right-full h-px w-screen -translate-y-1/2 bg-white/80" />
+              <span className="pointer-events-none absolute top-1/2 left-full h-px w-screen -translate-y-1/2 bg-white/80" />
+              <span className="pointer-events-none absolute bottom-full left-0 h-screen w-px bg-white/80" />
+              <span className="pointer-events-none absolute top-full left-0 h-[200vh] w-px bg-white/80" />
+              <button
+                onClick={() => navigateToTop("/contact")}
+                className="group relative z-10 inline-flex items-center gap-3 py-3 pr-4 text-sm font-semibold uppercase tracking-[0.2em] text-white drop-shadow-sm"
+              >
+                <span className="h-3 w-3 rounded-full bg-[#eb0000] transition-transform duration-300 group-hover:scale-150" />
+                Let&apos;s talk
+              </button>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Archived Solutions Grid */}
-      <section className="relative py-8 overflow-hidden -mt-2">
-        <div className="absolute inset-0 bg-gradient-to-b from-background via-background/90 to-background" />
-        <div className="absolute top-1/4 left-0 w-96 h-96 bg-red-500/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-white/5 rounded-full blur-3xl" />
-
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center mb-6">
-            {/* Desktop: TextRevealCard */}
-            <div className="hidden md:block">
-              <TextRevealCard
-                text="Impossible? Let's see."
-                revealText="Innovation drives implementation"
-                className="bg-transparent border-none w-full p-0 text-center"
-              />
+      {/* Intro — top-bordered editorial statement (passionlabs "custom-top-border") */}
+      <section className="bg-background">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="border-t border-border py-14 sm:py-20 lg:py-24">
+            <div className="grid gap-6 lg:grid-cols-[1fr_2.4fr] lg:gap-12">
+              <p className="text-xs font-semibold uppercase tracking-[0.25em] text-primary">Impossible? Let's see.</p>
+              <p className="max-w-3xl text-2xl font-light leading-snug text-foreground sm:text-3xl lg:text-[2.4rem] lg:leading-[1.25]">
+                Deep research paired with practical strategy—helping teams adopt, adapt, and ship
+                production-grade AI. Every experiment is built with ethics, evals, and observability
+                from day one, feeding directly into Deep Operator, Annotate, GenAI, and MLOps.
+              </p>
             </div>
-
-            {/* Mobile: Regular heading */}
-            <div className="block md:hidden">
-              <h2 className="text-xl font-semibold mb-2 bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent">
-                Impossible? Let's see.
-              </h2>
-            </div>
-
-            {/* <p className="text-base md:text-lg text-muted-foreground max-w-3xl mx-auto">
-              Whether we're shaping the future of sustainability, or optimizing algorithms,
-              or even exploring epidemiological studies, Our Research strives to continuously progress science,
-              advance society.
-            </p> */}
           </div>
+        </div>
+      </section>
 
-          {/* Mobile: Static Cards | Desktop: Infinite Moving Cards */}
-          <div className="block md:hidden">
-            {/* Mobile Layout - Static Cards */}
-            <div className="space-y-4">
-              {filteredSolutions.map((solution, index) => (
-                <div
-                  key={index}
-                  className="bg-gradient-to-br from-neutral-900/80 via-neutral-900/60 to-black border border-red-500/20 rounded-lg p-4 hover:border-red-400/50 transition-all duration-300"
-                >
-                  <div className="flex items-start justify-between mb-3">
-                    <div className="flex items-center space-x-3">
-                      <div className="w-8 h-8 bg-gradient-to-br from-red-500/30 to-white/10 rounded-lg flex items-center justify-center text-red-200">
-                        {solution.icon}
-                      </div>
-                      <div>
-                        <h3 className="text-base font-semibold text-white">{solution.title}</h3>
-                        <p className="text-xs text-gray-400">{solution.category}</p>
-                      </div>
-                    </div>
+      {/* Research archive — numbered editorial rows on a red background */}
+      <section className="bg-[#b3210a] text-white pt-14 pb-16 sm:pt-16 sm:pb-20 lg:pb-24">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <p className="mb-2 border-t border-white/25 pt-6 text-xs font-semibold uppercase tracking-[0.25em] text-white/70">
+            Research Archive
+          </p>
+          <div>
+            {filteredSolutions.map((solution, index) => (
+              <button
+                key={solution.title}
+                onClick={() => navigateToTop(`/research/${solution.title.toLowerCase().replace(/\s+/g, '-')}`)}
+                className="group block w-full border-t border-white/20 text-left transition-colors hover:bg-white/5"
+              >
+                <div className="flex flex-col gap-5 py-10 sm:flex-row sm:items-start sm:gap-12 lg:gap-24 lg:py-14">
+                  <span className="text-2xl font-light tabular-nums text-white sm:pt-1">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  <div className="flex-1 max-w-2xl">
+                    <h3 className="mb-3 text-2xl font-normal text-white transition-colors group-hover:text-white/80 sm:text-3xl">
+                      {solution.title}.
+                    </h3>
+                    <p className="text-base leading-relaxed text-white/75 sm:text-lg">
+                      {solution.description}
+                    </p>
                   </div>
-
-                  <p className="text-sm text-gray-300 leading-relaxed mb-3">
-                    {solution.description}
-                  </p>
-
-                  {solution.keyFeatures && solution.keyFeatures.length > 0 && (
-                    <div className="mb-3">
-                      <h4 className="text-xs font-semibold text-red-300 mb-2">Key Features:</h4>
-                      <div className="flex flex-wrap gap-1">
-                        {solution.keyFeatures.map((feature, featureIndex) => (
-                          <span key={featureIndex} className="text-xs bg-red-500/20 text-red-200 px-2 py-1 rounded-full">
-                            {feature}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                  )}
-
-                  {solution.tags && solution.tags.length > 0 && (
-                    <div className="mb-3">
-                      <div className="flex flex-wrap gap-1">
-                        {solution.tags.map((tag, tagIndex) => (
-                          <span key={tagIndex} className="text-xs bg-gray-500/20 text-gray-300 px-2 py-1 rounded-full">
-                            {tag}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                  )}
-
-                  <div className="flex justify-center">
-                    <Button
-                      size="sm"
-                      variant="outline"
-                      onClick={() => navigateToTop(`/research/${solution.title.toLowerCase().replace(/\s+/g, '-')}`)}
-                      className="w-auto text-xs border-white/20 text-white hover:bg-red-600 hover:text-white"
-                    >
-                      <ExternalLink className="w-3 h-3 mr-1" />
-                      Learn More
-                    </Button>
-                  </div>
+                  <ArrowRight className="hidden h-6 w-6 shrink-0 self-center text-white/70 transition-all group-hover:translate-x-1 group-hover:text-white sm:block" />
                 </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Desktop/Tablet: Infinite Moving Cards */}
-          <div className="hidden md:block">
-            <InfiniteMovingCards
-              items={filteredSolutions.map((solution) => ({
-                quote: solution.description,
-                name: solution.title,
-                title: solution.category,
-                keyFeatures: solution.keyFeatures,
-                tags: solution.tags,
-              }))}
-              direction="left"
-              speed="normal"
-              pauseOnHover={true}
-              className="mt-4"
-              onLearnMore={(item) => {
-                // Find the original solution by title
-                const solution = filteredSolutions.find(s => s.title === item.name);
-                if (solution) {
-                  navigateToTop(`/research/${solution.title.toLowerCase().replace(/\s+/g, '-')}`);
-                }
-              }}
-            />
+              </button>
+            ))}
           </div>
         </div>
       </section>
@@ -294,18 +218,19 @@ From security solutions to advanced AI platforms - our evolution continues
 
       {/* CTA Section */}
       {/* CTA with live reel */}
-      <section ref={showreelRef} className="py-12 bg-gradient-to-r from-red-600/20 via-black to-red-500/15">
-        <div className="container mx-auto px-3 sm:px-4 lg:px-6 grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6 items-center">
-          <ScrollReveal className="space-y-4">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold leading-tight bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent">
+      <section ref={showreelRef} className="relative overflow-hidden pt-12 pb-40 sm:pb-44 bg-background">
+        <HeroBackdrop />
+        <div className="relative z-10 container mx-auto px-3 sm:px-4 lg:px-6 grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6 items-center">
+          <ScrollReveal className="space-y-4 rounded-2xl border border-border/60 bg-background/85 p-6 md:p-8 shadow-[0_15px_40px_-25px_rgba(15,23,42,0.25)] backdrop-blur-md">
+            <Heading as="h2" size="h2" className="text-foreground font-bold leading-tight">
               Research in motion: security, education, guardrails.
-            </h2>
-            <p className="text-muted-foreground text-sm md:text-base max-w-lg lg:max-w-xl">
+            </Heading>
+            <p className="text-foreground/85 text-sm md:text-base max-w-lg lg:max-w-xl leading-relaxed">
               See how SURASOFT, AI Proctoring, and Askari LLM experiments flow into today's production-grade analytics, annotation, GenAI, and MLOps. Real footage, AI overlays, and production guardrails together.
             </p>
-            <div className="flex flex-col sm:flex-row items-start gap-3">
+            <div className="flex flex-col sm:flex-row items-start gap-3 pt-1">
               <Button
-                className="bg-red-600 hover:bg-red-500 text-white w-auto h-10 sm:h-12 px-4 sm:px-6 py-2 sm:py-3 text-sm sm:text-base"
+                className="bg-primary hover:bg-primary/90 text-primary-foreground w-auto h-10 sm:h-12 px-4 sm:px-6 py-2 sm:py-3 text-sm sm:text-base"
                 onClick={() => navigateToTop("/services")}
               >
                 Explore current solutions
@@ -313,8 +238,8 @@ From security solutions to advanced AI platforms - our evolution continues
             </div>
           </ScrollReveal>
 
-          <div className="relative group overflow-hidden rounded-2xl border border-red-500/20 bg-gradient-to-br from-neutral-900 via-neutral-900/70 to-black shadow-[0_30px_100px_-60px_rgba(255,0,0,0.6)]">
-            <div className="absolute -inset-12 bg-gradient-to-r from-red-500/20 via-transparent to-red-500/20 blur-3xl opacity-40 group-hover:opacity-60 transition-opacity duration-700" />
+          <div className="group relative overflow-hidden rounded-2xl border border-border bg-secondary text-card-foreground shadow-[var(--shadow-card)] transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-[var(--shadow-glow)]">
+            <div className="absolute -inset-12 bg-gradient-to-r from-card via-transparent to-card blur-3xl opacity-40 group-hover:opacity-60 transition-opacity duration-700" />
             <div className="relative">
               <video
                 className="h-full w-full object-cover animate-pan-slow"

@@ -3,10 +3,14 @@ import { useNavigate } from "react-router-dom";
 import { useNavigationWithScroll } from "@/utils/navigation";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import SectionDivider from "@/components/SectionDivider";
+import HeroBackdrop from "@/components/HeroBackdrop";
+import FullBleedHero from "@/components/FullBleedHero";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { ArrowRight, BarChart3, Cog, Cloud, Database, CheckCircle, Zap, Target, TrendingUp, Shield, Clock, GitBranch, Monitor, Settings } from "lucide-react";
 import { Link } from "react-router-dom";
+import { Heading, Lead } from "@/components/ui/section";
 
 const MLOpsDevOps = () => {
   const navigate = useNavigate();
@@ -97,53 +101,36 @@ const MLOpsDevOps = () => {
     <div className="min-h-screen bg-background">
       <Header />
 
-      {/* Hero Section */}
-      <section className="relative overflow-hidden pt-24 md:pt-28 pb-14 bg-black text-white">
-        <div className="absolute inset-0">
-          <div
-            className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-85"
-            style={{ backgroundImage: "url(\"/uploads/MLOPS&DEVOPS.webp\")" }}
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/75 to-black/90" />
-          <div className="absolute inset-0 holo-grid opacity-15" />
-          <div className="absolute -left-10 top-10 w-64 h-64 aurora-glow opacity-60" />
-          <div className="absolute -right-12 bottom-12 w-72 h-72 aurora-glow opacity-60 delay-300" />
-        </div>
-
-        <div className="container mx-auto px-6 relative z-10">
-          <div className="max-w-4xl mx-auto text-center">
-            <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-              <div className="flex items-center justify-center mb-3">
-                <div className="w-12 h-12 bg-white/10 rounded-lg flex items-center justify-center text-primary mr-3 shadow-inner shadow-red-500/20">
-                  <BarChart3 className="h-6 w-6" />
-                </div>
-                <h1 className="text-4xl md:text-5xl font-black leading-tight bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent">
-                  MLOps & <span className="text-primary">DevOps</span>
-                </h1>
-              </div>
-              <p className="text-base md:text-lg text-muted-foreground mb-4 max-w-3xl mx-auto">
-                Bridge the gap between data science and production with our MLOps expertise and deployment solutions. Transform your AI models into reliable, scalable business applications.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-3 justify-center">
-                <Button
-                  size="lg"
-                  className="bg-gradient-to-r from-red-600 via-red-500 to-red-400 hover:from-red-500 hover:to-red-500 text-white px-6 md:px-8 py-4 text-base font-semibold shadow-[0_20px_60px_-30px_rgba(255,0,0,0.75)]"
-                  onClick={() => scrollToSection("features")}
-                >
-                  Explore Solutions <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
-                <Button
-                  variant="outline"
-                  className="border-white/30 text-white hover:bg-white/10"
-                  onClick={() => navigateToTop('/contact')}
-                >
-                  Get Started
-                </Button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Hero Section — scale.com FullBleedMediaSection pattern. */}
+      <FullBleedHero
+        imageSrc="/uploads/MLOPS&DEVOPS.webp"
+        imageAlt="MLOps & DevOps"
+        eyebrow={<><BarChart3 className="h-4 w-4 mr-2" />MLOps & DevOps</>}
+        title={
+          <Heading as="h1" size="display" className="font-black text-white">
+            From data science to production-grade AI.
+          </Heading>
+        }
+        subtitle="Bridge the gap between data science and production with our MLOps expertise and deployment solutions. Transform your AI models into reliable, scalable business applications."
+        cta={
+          <>
+            <Button
+              size="lg"
+              className="bg-primary hover:bg-primary/90 text-primary-foreground px-6 md:px-8 py-4 text-base font-semibold"
+              onClick={() => scrollToSection("features")}
+            >
+              Explore Solutions <ArrowRight className="ml-2 h-5 w-5" />
+            </Button>
+            <Button
+              variant="outline"
+              className="border-white/40 text-white bg-transparent hover:bg-white/10 hover:text-white hover:border-white"
+              onClick={() => navigateToTop('/contact')}
+            >
+              Get Started
+            </Button>
+          </>
+        }
+      />
 
       {/* Stats Section */}
       <section className="py-8 bg-card">
@@ -169,47 +156,57 @@ const MLOpsDevOps = () => {
       </section>
 
       {/* Features Section */}
-      <section id="features" className="py-8">
-        <div className="container mx-auto px-6">
+      <section id="features" className="pb-8">
+        {/* Interlocking ring divider — flush with the section's top edge. */}
+        <SectionDivider variant="ring" flip className="w-full text-[hsl(var(--card))]" />
+        <div className="container mx-auto px-6 pt-8">
             <div className="text-center mb-8">
             <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-8'}`}>
-              <h2 className="text-3xl md:text-4xl font-bold mb-3 bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent">Comprehensive MLOps Solutions</h2>
-              <p className="text-base md:text-lg text-muted-foreground max-w-3xl mx-auto">
+              <Heading as="h2" size="h2" className="mb-3 text-foreground">Comprehensive MLOps Solutions</Heading>
+              <Lead className="max-w-3xl mx-auto">
                 Our end-to-end MLOps platform ensures your machine learning models are deployed, monitored, and maintained with enterprise-grade reliability.
-              </p>
+              </Lead>
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             {features.map((feature, index) => (
               <Card
                 key={index}
-                className={`bg-card border-border hover:shadow-card transition-all duration-500 group ${
-                  isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-                }`}
-                style={{ transitionDelay: `${index * 0.1}s` }}
+                className="solution-card bg-secondary border-border animate-slide-in-bottom group relative overflow-hidden"
+                style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <CardContent className="p-4">
-                  <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center text-primary mb-4 group-hover:bg-primary/30 group-hover:scale-110 transition-all duration-300">
-                    {feature.icon}
+                <CardContent className="p-8 relative overflow-hidden">
+                  <div className="absolute inset-0 opacity-5">
+                    <svg className="w-full h-full" viewBox="0 0 100 100">
+                      <circle cx="50" cy="50" r="30" fill="none" stroke="currentColor" strokeWidth="1" className="animate-spin-slow" />
+                      <circle cx="50" cy="50" r="20" fill="none" stroke="currentColor" strokeWidth="0.5" className="animate-spin-slow" style={{ animationDirection: 'reverse' }} />
+                    </svg>
                   </div>
 
-                  <h3 className="text-sm font-bold mb-3 group-hover:text-primary transition-colors">
-                    {feature.title}
-                  </h3>
+                  <div className="flex items-center justify-between mb-6 relative z-10">
+                    <div className="rounded-xl bg-white/10 p-3 shadow-inner text-primary">
+                      {feature.icon}
+                    </div>
+                  </div>
 
-                  <p className="text-muted-foreground mb-4 leading-relaxed text-sm">
+                  <h3 className="text-2xl font-bold mb-4 relative z-10 group-hover:text-primary transition-colors">{feature.title}</h3>
+                  <p className="text-muted-foreground mb-4 text-sm leading-relaxed relative z-10">
                     {feature.description}
                   </p>
 
-                  <ul className="space-y-2">
+                  <ul className="space-y-2 relative z-10">
                     {feature.benefits.map((benefit, benefitIndex) => (
-                      <li key={benefitIndex} className="flex items-center text-xs group-hover:text-foreground transition-colors">
-                        <div className="w-1.5 h-1.5 bg-primary rounded-full mr-2 group-hover:scale-125 transition-transform"></div>
+                      <li key={benefitIndex} className="flex items-center text-xs text-foreground/80 group-hover:text-foreground transition-colors">
+                        <div className="w-1.5 h-1.5 bg-primary rounded-full mr-2 group-hover:scale-125 transition-transform" />
                         {benefit}
                       </li>
                     ))}
                   </ul>
+
+                  <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div className="w-2 h-2 bg-primary rounded-full animate-ping" />
+                  </div>
                 </CardContent>
               </Card>
             ))}
@@ -218,14 +215,16 @@ const MLOpsDevOps = () => {
       </section>
 
       {/* Process Section */}
-      <section className="py-8 bg-card">
-        <div className="container mx-auto px-6">
+      <section className="bg-card pb-8">
+        {/* Interlocking matrix divider — flush with the section's top edge. */}
+        <SectionDivider variant="matrix" flip className="w-full text-[hsl(var(--background))]" />
+        <div className="container mx-auto px-6 pt-8">
             <div className="text-center mb-8">
             <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-8'}`}>
-              <h2 className="text-3xl md:text-4xl font-bold mb-3 bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent">Our MLOps Implementation Process</h2>
-              <p className="text-base md:text-lg text-muted-foreground max-w-3xl mx-auto">
+              <Heading as="h2" size="h2" className="mb-3 text-foreground">Our MLOps Implementation Process</Heading>
+              <Lead className="max-w-3xl mx-auto">
                 A systematic approach to implementing MLOps that ensures smooth deployment and long-term success of your machine learning initiatives.
-              </p>
+              </Lead>
             </div>
           </div>
 
@@ -269,7 +268,7 @@ const MLOpsDevOps = () => {
         <div className="container mx-auto px-6">
           <div className="text-center mb-8">
             <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-8'}`}>
-              <h2 className="text-xl font-bold mb-3">Enterprise-Grade Tools & Technologies</h2>
+              <Heading as="h2" size="h2" className="mb-3">Enterprise-Grade Tools & Technologies</Heading>
               <p className="text-sm text-muted-foreground max-w-3xl mx-auto">
                 We use industry-leading tools and technologies to build robust, scalable MLOps solutions that meet enterprise requirements.
               </p>
@@ -305,9 +304,9 @@ const MLOpsDevOps = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
             <div>
               <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}`}>
-                <h2 className="text-xl font-bold mb-4">
+                <Heading as="h2" size="h2" className="mb-4">
                   Why Choose Our MLOps Solutions?
-                </h2>
+                </Heading>
                 <p className="text-sm text-muted-foreground mb-6">
                   Our MLOps expertise helps organizations overcome the "last-mile" deployment problem that prevents 50-90% of AI models from reaching production.
                 </p>
@@ -362,14 +361,16 @@ const MLOpsDevOps = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-8 bg-gradient-secondary">
-        <div className="container mx-auto px-6 text-center">
-          <div className={`max-w-4xl mx-auto transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-            <h2 className="text-xl font-bold mb-3">
+      {/* CTA Section — glass card wraps the content so it stays readable on
+          top of the HeroBackdrop's red plexus canvas. */}
+      <section className="relative overflow-hidden pt-12 pb-40 sm:pb-44 bg-background">
+        <HeroBackdrop />
+        <div className="container relative z-10 mx-auto px-6">
+          <div className={`max-w-3xl mx-auto rounded-2xl border border-border/60 bg-background/85 backdrop-blur-md shadow-[0_15px_40px_-25px_rgba(15,23,42,0.25)] p-6 md:p-10 text-center transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+            <Heading as="h2" size="h2" className="mb-3 text-foreground">
               Ready to Deploy Your AI Models?
-            </h2>
-            <p className="text-sm text-muted-foreground mb-4 max-w-3xl mx-auto">
+            </Heading>
+            <p className="text-sm text-foreground/85 mb-4 max-w-2xl mx-auto">
               Let's discuss how our MLOps solutions can help you bridge the gap between data science and production, ensuring your AI models deliver real business value.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">

@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { Section, Heading, PageHero } from "@/components/ui/section";
 
 const sections = [
   {
@@ -145,23 +146,21 @@ const Privacy = () => {
     <div className="min-h-screen bg-background">
       <Header />
 
-      <main className="py-20">
-        <div className="container mx-auto px-6 max-w-5xl" style={{ opacity: 1, transform: 'none' }}>
-          <div className="mb-14">
-            <h1 className="text-3xl md:text-4xl font-semibold text-foreground mb-6">
-              Website Privacy Policy
-            </h1>
-            <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
-              Learn how Quantum Intelligence protects and processes your data.
-            </p>
-          </div>
+      <main>
+        <PageHero
+          align="left"
+          className="pb-2 sm:pb-3"
+          title="Website Privacy Policy"
+          description="Learn how Quantum Intelligence protects and processes your data."
+        />
 
+        <Section spacing="compact" className="pt-2 sm:pt-3 lg:pt-4 pb-14 sm:pb-16 lg:pb-20" containerClassName="max-w-5xl" style={{ opacity: 1, transform: 'none' }}>
           <article className="space-y-8 text-base md:text-lg leading-relaxed text-foreground">
             {sections.map((section) => (
               <section key={section.title} className="space-y-3">
-                <h2 className="text-xl md:text-2xl font-semibold">
+                <Heading as="h2" size="h3" className="font-semibold">
                   {section.number} {section.title}
-                </h2>
+                </Heading>
                 {section.body?.map((paragraph, idx) => (
                   <p key={idx} className="text-foreground/90">
                     {paragraph}
@@ -177,7 +176,7 @@ const Privacy = () => {
               </section>
             ))}
           </article>
-        </div>
+        </Section>
       </main>
 
       <Footer />

@@ -5,8 +5,10 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import FullBleedHero from "@/components/FullBleedHero";
+import HeroBackdrop from "@/components/HeroBackdrop";
 import { Badge } from "@/components/ui/badge";
-import { SectionHeading, SectionLead } from "@/components/typography";
+import { SectionLead, Heading, Lead } from "@/components/typography";
 import {
   Banknote,
   Radio,
@@ -78,64 +80,45 @@ const Industries = () => {
   const showreel = "https://cdn.coverr.co/videos/coverr-abstract-technology-10926/1080p.mp4";
 
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className="min-h-screen bg-background text-foreground">
       <Header />
 
-      {/* Hero Section with diagonal motion */}
-      <section className="relative overflow-hidden pt-24 md:pt-28 pb-14">
-        <div className="absolute inset-0">
-          <div
-            className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-90"
-            style={{ backgroundImage: "url('/uploads/INDUSTRY.jpg')", backgroundPosition: "center 30%" }}
-          />
-          <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-[#0b0c12]/70 to-black/85" />
-          <div className="absolute inset-0 holo-grid opacity-15" />
-          <div className="absolute -left-20 top-10 w-80 h-80 bg-red-500/12 rounded-full blur-2xl" />
-          <div className="absolute right-0 -top-20 w-[520px] h-[520px] bg-gradient-to-br from-white/10 via-transparent to-red-500/12 opacity-65 rotate-12 animate-pan-slow" />
-        </div>
-
-        <div className="container mx-auto px-4 sm:px-6 lg:px-10 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-            <div className="space-y-4">
-              <Badge variant="outline" className="mb-1 text-xs font-medium border-white/30 text-white">
-                Industry Solutions
-              </Badge>
-              <h2 className="text-4xl md:text-5xl font-black leading-tight bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent">
-                Industries we power with AI.
-              </h2>
-              <SectionLead className="text-muted-foreground text-base md:text-lg">
-                From finance to healthcare, telecom to logistics—we tailor AI, data, and MLOps to each sector’s reality.
-              </SectionLead>
-              <div className="flex flex-wrap gap-3">
-                <Button
-                  size="sm"
-                  onClick={() => document.getElementById('sectors')?.scrollIntoView({ behavior: 'smooth' })}
-                  className="bg-gradient-to-r from-red-600 via-red-500 to-red-400 hover:from-red-500 hover:to-red-500 text-white px-5 py-3 shadow-[0_20px_60px_-30px_rgba(255,0,0,0.75)]"
-                >
-                  Explore sectors
-                  <ArrowRight className="ml-1 h-3 w-3" />
-                </Button>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </section>
+      {/* Hero Section — scale.com FullBleedMediaSection pattern. */}
+      <FullBleedHero
+        imageSrc="/uploads/INDUSTRY.jpg"
+        imageAlt="Industries we power with AI"
+        title={
+          <Heading as="h1" size="display" className="font-black text-white">
+            Industries we power with AI.
+          </Heading>
+        }
+        subtitle="From finance to healthcare, telecom to logistics—we tailor AI, data, and MLOps to each sector’s reality."
+        cta={
+          <Button
+            size="lg"
+            onClick={() => document.getElementById('sectors')?.scrollIntoView({ behavior: 'smooth' })}
+            className="bg-primary hover:bg-primary/90 text-primary-foreground px-6 md:px-8 py-4 text-base font-semibold"
+          >
+            Explore sectors
+            <ArrowRight className="ml-2 h-5 w-5" />
+          </Button>
+        }
+      />
 
       {/* Industries Grid */}
       <section id="sectors" className="relative py-12 overflow-hidden -mt-6">
         <div className="absolute inset-0 bg-gradient-to-b from-background via-background/90 to-background" />
-        <div className="absolute top-1/4 left-0 w-96 h-96 bg-red-500/10 rounded-full blur-3xl" />
+        <div className="absolute top-1/4 left-0 w-96 h-96 bg-card rounded-full blur-3xl" />
         <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-white/5 rounded-full blur-3xl" />
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-10 relative z-10">
           <div className="text-center mb-8">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent">
+            <Heading as="h2" size="h2" className="mb-4">
               Transforming Industries with AI
-            </h2>
-            <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
+            </Heading>
+            <Lead className="max-w-2xl mx-auto">
               Discover how our specialized solutions are revolutionizing different sectors
-            </p>
+            </Lead>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -143,38 +126,44 @@ const Industries = () => {
               return (
                 <Card
                   key={industry.id}
-                  className="group relative overflow-hidden border border-white/10 hover:border-red-400/50 transition-all duration-500 hover:shadow-[0_25px_80px_-40px_rgba(255,0,0,0.6)] hover:-translate-y-2 bg-gradient-to-br from-neutral-900/80 via-neutral-900/60 to-black animate-fade-in"
-                  style={{ animationDelay: `${index * 100}ms` }}
+                  className="solution-card bg-secondary border-border animate-slide-in-bottom group relative overflow-hidden"
+                  style={{ animationDelay: `${index * 0.2}s` }}
                 >
-                  <div className={`absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-white/5 opacity-0 group-hover:opacity-10 transition-opacity duration-500`} />
-                  <div className={`absolute -inset-0.5 bg-gradient-to-r from-red-500/5 via-transparent to-red-500/10 rounded-lg opacity-0 group-hover:opacity-25 blur-sm transition-opacity duration-700 -z-10 animate-pan-slow`} />
-                  <CardContent className="p-6 relative z-10">
-                    <div className="flex items-center gap-3 mb-2">
-                      <div className="rounded-lg sm:rounded-xl bg-white/10 p-2 sm:p-3 text-red-200 shadow-inner shadow-red-500/20 shrink-0">
-                        {industry.icon}
-                      </div>
-                      <h3 className="text-lg font-bold group-hover:text-red-200 transition-colors">
-                        {industry.name}
-                      </h3>
+                  <CardContent className="p-8 relative overflow-hidden">
+                    {/* Animated SVG background */}
+                    <div className="absolute inset-0 opacity-5">
+                      <svg className="w-full h-full" viewBox="0 0 100 100">
+                        <circle cx="50" cy="50" r="30" fill="none" stroke="currentColor" strokeWidth="1" className="animate-spin-slow" />
+                        <circle cx="50" cy="50" r="20" fill="none" stroke="currentColor" strokeWidth="0.5" className="animate-spin-slow" style={{ animationDirection: 'reverse' }} />
+                      </svg>
                     </div>
 
-                    <p className="text-sm text-red-200 font-medium mb-3 italic">
-                      {industry.tagline}
-                    </p>
+                    <div className="flex items-center justify-between mb-6 relative z-10">
+                      <div className={`rounded-xl bg-white/10 p-3 shadow-inner ${index % 2 === 1 ? "text-secondary-accent" : "text-primary"}`}>
+                        {industry.icon}
+                      </div>
+                      <span className="text-xs px-3 py-1 rounded-full bg-muted text-muted-foreground group-hover:bg-primary/20 transition-colors duration-300">
+                        {industry.features[0]}
+                      </span>
+                    </div>
 
-                    <p className="text-muted-foreground mb-4 line-clamp-3 text-sm group-hover:text-white transition-colors">
+                    <h3 className="text-2xl font-bold mb-4 relative z-10">{industry.name}</h3>
+                    <p className="text-muted-foreground mb-6 text-sm leading-relaxed relative z-10">
                       {industry.description}
                     </p>
 
-                    <div className="flex flex-wrap gap-1 mb-4">
-                      {industry.features.map((feature) => (
-                        <Badge key={feature} variant="secondary" className="text-xs bg-white/10 text-white border-white/10">
-                          {feature}
-                        </Badge>
-                      ))}
-                    </div>
+                    <Button
+                      variant="ghost"
+                      className="text-foreground hover:text-primary bg-transparent hover:bg-transparent p-0 relative z-10 group-hover:translate-x-1 transition-transform duration-300 focus-visible:ring-0"
+                      onClick={() => navigateToTop(`/industries/${industry.id}`)}
+                    >
+                      Explore <ArrowRight className="ml-2 h-4 w-4" />
+                    </Button>
 
-                    {/* Button temporarily hidden per request */}
+                    {/* Sparkle effect on hover */}
+                    <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <div className="w-2 h-2 bg-primary rounded-full animate-ping"></div>
+                    </div>
                   </CardContent>
                 </Card>
               );
@@ -185,25 +174,26 @@ const Industries = () => {
 
       {/* CTA Section */}
       {/* CTA with live reel */}
-      <section ref={showreelRef} className="py-16 bg-gradient-to-r from-red-600/20 via-black to-red-500/15">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-10 grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-          <div className="space-y-4">
-            <h2 className="text-3xl md:text-4xl font-bold leading-tight">
+      <section ref={showreelRef} className="relative overflow-hidden pt-16 pb-40 sm:pb-44 bg-background">
+        <HeroBackdrop />
+        <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-10 grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+          <div className="space-y-4 rounded-2xl border border-border/60 bg-background/85 p-6 md:p-8 shadow-[0_15px_40px_-25px_rgba(15,23,42,0.25)] backdrop-blur-md">
+            <Heading as="h2" size="h2" className="text-foreground font-bold leading-tight">
               See AI in action across every sector we serve.
-            </h2>
-            <p className="text-muted-foreground text-sm md:text-base max-w-xl">
+            </Heading>
+            <p className="text-foreground/85 text-sm md:text-base max-w-xl leading-relaxed">
               A cinematic mix of financial fraud defense, telecom routing, adaptive learning, smart grids, logistics optimization, and healthcare imaging—paired with the MLOps rigor that keeps them live.
             </p>
-            <div className="flex flex-col sm:flex-row items-start gap-3">
+            <div className="flex flex-col sm:flex-row items-start gap-3 pt-1">
               <Button
-                className="hidden bg-red-600 hover:bg-red-500 text-white w-full sm:w-auto"
-                onClick={() => navigate("/contact")}
+                className="bg-primary hover:bg-primary/90 text-primary-foreground w-auto h-10 sm:h-12 px-4 sm:px-6 py-2 sm:py-3 text-sm sm:text-base"
+                onClick={() => navigateToTop("/contact")}
               >
                 Estimate project
               </Button>
               <Button
                 variant="outline"
-                className="border-white/20 text-white hover:bg-white/10 w-auto h-10 sm:h-12 px-4 sm:px-6 py-2 sm:py-3 text-sm sm:text-base"
+                className="border-foreground/30 text-foreground bg-transparent hover:bg-foreground/5 hover:border-foreground/50 hover:text-foreground w-auto h-10 sm:h-12 px-4 sm:px-6 py-2 sm:py-3 text-sm sm:text-base"
                 onClick={() => navigateToTop("/services")}
               >
                 Explore services
@@ -211,8 +201,8 @@ const Industries = () => {
             </div>
           </div>
 
-          <div className="relative group overflow-hidden rounded-2xl border border-red-500/20 bg-gradient-to-br from-neutral-900 via-neutral-900/70 to-black shadow-[0_30px_100px_-60px_rgba(255,0,0,0.6)]">
-            <div className="absolute -inset-12 bg-gradient-to-r from-red-500/20 via-transparent to-red-500/20 blur-3xl opacity-40 group-hover:opacity-60 transition-opacity duration-700" />
+          <div className="relative group overflow-hidden rounded-2xl border border-border bg-gradient-to-br from-neutral-900 via-neutral-900/70 to-black shadow-lg">
+            <div className="absolute -inset-12 bg-gradient-to-r from-card via-transparent to-card blur-3xl opacity-40 group-hover:opacity-60 transition-opacity duration-700" />
             <div className="relative">
               <video
                 className="h-full w-full object-cover animate-pan-slow"

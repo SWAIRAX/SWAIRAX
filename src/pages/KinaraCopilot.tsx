@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { ContainerScroll } from "@/components/ui/container-scroll-animation";
+import Parallax from "@/components/Parallax";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -20,7 +21,10 @@ import {
 import Header from "@/components/Header";
 import ScrollReveal from "@/components/ScrollReveal";
 import Footer from "@/components/Footer";
+import HeroBackdrop from "@/components/HeroBackdrop";
+import SectionDivider from "@/components/SectionDivider";
 import { useNavigationWithScroll } from "@/utils/navigation";
+import { Heading } from "@/components/ui/section";
 
 type ImageSlideshowProps = {
   images: string[];
@@ -118,22 +122,23 @@ const KinaraCopilot = () => {
       <Header />
 
       {/* Hero – same style as Mifumo SMS */}
-      <section className="relative pt-28 pb-16 md:py-24 overflow-hidden">
+      <section className="relative pt-28 pb-16 sm:pt-32 sm:pb-20 overflow-hidden">
+        <Parallax speed={-0.25} clamp={150} className="absolute inset-x-0 -inset-y-[24%] h-[148%]" aria-hidden>
+          <div
+            className="absolute inset-0 bg-cover bg-center"
+            style={{ backgroundImage: "url('/kinara/kinara15.jpg')" }}
+          />
+        </Parallax>
         <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: "url('/kinara/kinara15.jpg')" }}
-          aria-hidden
-        />
-        <div
-          className="absolute inset-0 bg-background/60"
+          className="absolute inset-0 bg-gradient-to-r from-background via-background/90 to-background/45"
           aria-hidden
         />
         <div className="max-w-[1200px] mx-auto px-6 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <ScrollReveal className="space-y-6">
-              <h1 className="text-4xl md:text-6xl font-bold leading-tight">
-                <span className="text-primary">Kinara Copilot</span>
-              </h1>
+              <Heading as="h1" size="display">
+                Kinara Copilot
+              </Heading>
               <p className="text-xl md:text-2xl font-semibold text-foreground">
                 Student learning assistant.
                 <br />
@@ -290,20 +295,39 @@ const KinaraCopilot = () => {
       <section className="py-12 md:py-16 bg-card/30">
         <div className="max-w-[1200px] mx-auto px-6">
           <ScrollReveal className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Designed for Tanzanian classrooms</h2>
+            <Heading as="h2" size="h2" className="mb-4">Designed for Tanzanian classrooms</Heading>
             <p className="text-muted-foreground max-w-2xl mx-auto">
               A learning companion that works in low-connectivity environments, for both students and teachers.
             </p>
           </ScrollReveal>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {kinaraFeatures.map((f, i) => (
               <ScrollReveal key={f.title} delay={i * 60}>
-                <div className="p-6 rounded-2xl bg-background/80 border border-border/50 hover:border-primary/30 hover:shadow-lg transition-all duration-300 group">
-                  <div className="text-primary mb-3 group-hover:scale-110 transition-transform">
-                    {f.icon}
+                <div
+                  className="solution-card bg-secondary border border-border rounded-lg animate-slide-in-bottom group relative overflow-hidden h-full"
+                  style={{ animationDelay: `${i * 0.1}s` }}
+                >
+                  <div className="p-8 relative overflow-hidden h-full">
+                    <div className="absolute inset-0 opacity-5">
+                      <svg className="w-full h-full" viewBox="0 0 100 100">
+                        <circle cx="50" cy="50" r="30" fill="none" stroke="currentColor" strokeWidth="1" className="animate-spin-slow" />
+                        <circle cx="50" cy="50" r="20" fill="none" stroke="currentColor" strokeWidth="0.5" className="animate-spin-slow" style={{ animationDirection: 'reverse' }} />
+                      </svg>
+                    </div>
+
+                    <div className="flex items-center justify-between mb-6 relative z-10">
+                      <div className="rounded-xl bg-white/10 p-3 shadow-inner text-primary">
+                        {f.icon}
+                      </div>
+                    </div>
+
+                    <h3 className="text-2xl font-bold mb-4 relative z-10 group-hover:text-primary transition-colors">{f.title}</h3>
+                    <p className="text-muted-foreground text-sm leading-relaxed relative z-10">{f.description}</p>
+
+                    <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <div className="w-2 h-2 bg-primary rounded-full animate-ping" />
+                    </div>
                   </div>
-                  <h3 className="font-semibold mb-2">{f.title}</h3>
-                  <p className="text-sm text-muted-foreground">{f.description}</p>
                 </div>
               </ScrollReveal>
             ))}
@@ -316,9 +340,9 @@ const KinaraCopilot = () => {
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
             <ScrollReveal className="space-y-5 lg:order-1">
-              <h2 className="text-3xl md:text-4xl font-bold leading-tight">
+              <Heading as="h2" size="h2" className="leading-tight">
                 Learning that travels with the student
-              </h2>
+              </Heading>
               <p className="text-muted-foreground text-base md:text-lg leading-relaxed">
                 From the home compound to the schoolyard, Kinara Copilot follows the learner.
                 Pupils get curriculum help on whichever device is in their hand — a parent&apos;s
@@ -378,9 +402,9 @@ const KinaraCopilot = () => {
               </div>
             </ScrollReveal>
             <ScrollReveal className="order-1 lg:order-2 space-y-5">
-              <h2 className="text-3xl md:text-4xl font-bold leading-tight">
+              <Heading as="h2" size="h2" className="leading-tight">
                 Kiswahili first. English ready.
-              </h2>
+              </Heading>
               <p className="text-muted-foreground text-base md:text-lg leading-relaxed">
                 Most Tanzanian pupils think in Kiswahili long before they think in English.
                 Kinara Copilot meets them where they are — explaining concepts in mother tongue,
@@ -397,9 +421,9 @@ const KinaraCopilot = () => {
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
             <ScrollReveal className="space-y-5 lg:order-1">
-              <h2 className="text-3xl md:text-4xl font-bold leading-tight">
+              <Heading as="h2" size="h2" className="leading-tight">
                 Practice that adapts to every learner
-              </h2>
+              </Heading>
               <p className="text-muted-foreground text-base md:text-lg leading-relaxed">
                 Every learner has a different weak spot. Kinara&apos;s AI tutor watches which
                 topics each student misses, then quietly builds the next quiz around those gaps —
@@ -458,9 +482,9 @@ const KinaraCopilot = () => {
               </div>
             </ScrollReveal>
             <ScrollReveal className="order-1 lg:order-2 space-y-5">
-              <h2 className="text-3xl md:text-4xl font-bold leading-tight">
+              <Heading as="h2" size="h2" className="leading-tight">
                 Built for NECTA. Ready for Form IV.
-              </h2>
+              </Heading>
               <p className="text-muted-foreground text-base md:text-lg leading-relaxed">
                 Every question, every explanation, every mock paper is mapped to the NECTA syllabus.
                 Students prepare with content that mirrors what they&apos;ll meet in CSEE — across
@@ -486,9 +510,9 @@ const KinaraCopilot = () => {
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
             <ScrollReveal className="space-y-5 lg:order-1">
-              <h2 className="text-3xl md:text-4xl font-bold leading-tight">
+              <Heading as="h2" size="h2" className="leading-tight">
                 Teachers see what students miss
-              </h2>
+              </Heading>
               <p className="text-muted-foreground text-base md:text-lg leading-relaxed">
                 Every question a learner asks becomes signal. Teachers open a simple dashboard
                 and see exactly which topics their class is struggling with — before the test,
@@ -548,9 +572,9 @@ const KinaraCopilot = () => {
               </div>
             </ScrollReveal>
             <ScrollReveal className="order-1 lg:order-2 space-y-5">
-              <h2 className="text-3xl md:text-4xl font-bold leading-tight">
+              <Heading as="h2" size="h2" className="leading-tight">
                 From one school to a national network
-              </h2>
+              </Heading>
               <p className="text-muted-foreground text-base md:text-lg leading-relaxed">
                 Kinara Copilot is more than an app — it&apos;s a programme. We partner with schools,
                 districts and ministries to roll it out the right way: onboarding, teacher training,
@@ -580,19 +604,20 @@ const KinaraCopilot = () => {
       </section>
 
       {/* CTA */}
-      <section className="py-10 bg-gradient-to-r from-red-600/20 via-black to-red-500/15">
-        <div className="max-w-[1200px] mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-          <ScrollReveal className="space-y-4">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold leading-tight bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent">
+      <section className="relative overflow-hidden pt-12 pb-40 sm:pb-44 bg-background">
+        <HeroBackdrop />
+        <div className="relative z-10 max-w-[1200px] mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+          <ScrollReveal className="space-y-4 rounded-2xl border border-border/60 bg-background/85 p-6 md:p-8 shadow-[0_15px_40px_-25px_rgba(15,23,42,0.25)] backdrop-blur-md">
+            <Heading as="h2" size="h2" className="leading-tight text-foreground font-bold">
               Bring AI-powered learning to your school network.
-            </h2>
-            <p className="text-muted-foreground text-sm md:text-base max-w-lg">
+            </Heading>
+            <p className="text-foreground/85 text-sm md:text-base max-w-lg leading-relaxed">
               Pilot Kinara Copilot across classrooms, districts, or entire regions—with
               clear reporting and support from our education team every step of the way.
             </p>
-            <div className="flex flex-wrap gap-3">
+            <div className="flex flex-wrap gap-3 pt-1">
               <Button
-                className="bg-red-600 hover:bg-red-500 text-white"
+                className="bg-primary hover:bg-primary/90 text-primary-foreground"
                 onClick={() => navigateToTop("/contact")}
               >
                 Book education demo
@@ -600,8 +625,8 @@ const KinaraCopilot = () => {
             </div>
           </ScrollReveal>
           <ScrollReveal>
-            <div className="relative group overflow-hidden rounded-2xl border border-red-500/20 bg-gradient-to-br from-neutral-900 via-neutral-900/70 to-black shadow-[0_30px_100px_-60px_rgba(255,0,0,0.6)]">
-              <div className="absolute -inset-12 bg-gradient-to-r from-red-500/20 via-transparent to-red-500/20 blur-3xl opacity-40 group-hover:opacity-60 transition-opacity duration-700" />
+            <div className="relative group overflow-hidden rounded-2xl border border-border bg-gradient-to-br from-neutral-900 via-neutral-900/70 to-black shadow-lg">
+              <div className="absolute -inset-12 bg-gradient-to-r from-card via-transparent to-card blur-3xl opacity-40 group-hover:opacity-60 transition-opacity duration-700" />
               <div className="relative">
                 <video
                   className="h-full w-full object-cover animate-pan-slow"

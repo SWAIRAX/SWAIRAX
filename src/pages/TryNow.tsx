@@ -1,8 +1,9 @@
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { ArrowRight, Zap, Globe, Shield } from "lucide-react";
+import HeroBackdrop from "@/components/HeroBackdrop";
+import { Section, Heading, Lead, PageHero } from "@/components/ui/section";
+import { ArrowRight, Zap, Globe, Shield, Check } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 
 const TryNow = () => {
@@ -31,175 +32,173 @@ const TryNow = () => {
     }
   ];
 
+  const benefits = [
+    {
+      icon: Zap,
+      title: "Fast Implementation",
+      description: "Get up and running in minutes with our easy-to-use platforms and comprehensive documentation."
+    },
+    {
+      icon: Globe,
+      title: "Global Scale",
+      description: "Cloud-native solutions that scale globally with enterprise-grade infrastructure and support."
+    },
+    {
+      icon: Shield,
+      title: "Enterprise Security",
+      description: "Bank-level security and compliance with industry standards to protect your data and operations."
+    }
+  ];
+
   return (
     <div className="min-h-screen bg-background">
       <Header />
 
       {/* Hero Section */}
-      <section className="py-20 bg-card">
-        <div className="container mx-auto px-6">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              Try Our <span className="text-primary">AI Solutions</span> Today
-            </h1>
-            <p className="text-xl text-muted-foreground mb-8">
-              Experience the power of our data-centric AI solutions. Get started with free trials,
-              demos, and developer packages to transform your business operations.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button
-                size="lg"
-                className="bg-primary hover:bg-primary/90 text-primary-foreground"
-                onClick={() => navigate("/contact")}
-              >
-                Get Started Free
-              </Button>
-              <Button
-                variant="outline"
-                size="lg"
-                onClick={() => navigate("/contact")}
-              >
-                Schedule Demo
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        className="bg-card"
+        title={<>Try Our AI Solutions Today</>}
+        description={<>Experience the power of our data-centric AI solutions. Get started with free trials, demos, and developer packages to transform your business operations.</>}
+        actions={
+          <>
+            <Button
+              size="lg"
+              className="bg-primary hover:bg-primary/90 text-primary-foreground"
+              onClick={() => navigate("/contact")}
+            >
+              Get Started Free
+            </Button>
+            <Button
+              variant="outline"
+              size="lg"
+              onClick={() => navigate("/contact")}
+            >
+              Schedule Demo
+            </Button>
+          </>
+        }
+      />
 
       {/* Platforms Section */}
-      <section className="py-20">
-        <div className="container mx-auto px-6">
+      <Section>
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Choose Your Platform</h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            <Heading as="h2" size="h2" className="mb-4">Choose Your Platform</Heading>
+            <Lead className="max-w-2xl mx-auto">
               Select from our suite of AI-powered solutions designed for different business needs
-            </p>
+            </Lead>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
             {platforms.map((platform, index) => (
-              <Card key={index} className="bg-card border-border hover:shadow-card transition-all duration-300">
-                <CardContent className="p-8">
-                  <div className="mb-6">
-                    <span className="text-xs px-3 py-1 rounded-full bg-primary/20 text-primary">
-                      {platform.type}
-                    </span>
-                  </div>
+              <div
+                key={index}
+                className="group relative flex flex-col overflow-hidden rounded-2xl border border-border bg-gradient-to-b from-card to-card/50 p-8 shadow-[var(--shadow-card)] transition-all duration-300 hover:-translate-y-1.5 hover:border-primary/40 hover:shadow-[var(--shadow-glow)]"
+              >
+                {/* top edge sheen */}
+                <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/15 to-transparent" />
+                {/* corner glow on hover */}
+                <div className="pointer-events-none absolute -right-16 -top-16 h-40 w-40 rounded-full bg-primary/10 opacity-0 blur-3xl transition-opacity duration-500 group-hover:opacity-100" />
 
-                  <h3 className="text-2xl font-bold mb-4">{platform.name}</h3>
-                  <p className="text-muted-foreground mb-6">{platform.description}</p>
+                <span className="mb-6 inline-flex w-fit items-center rounded-full bg-primary/10 px-3 py-1 text-xs font-medium uppercase tracking-wide text-primary ring-1 ring-primary/20">
+                  {platform.type}
+                </span>
 
-                  <ul className="space-y-2 mb-8">
-                    {platform.features.map((feature, idx) => (
-                      <li key={idx} className="flex items-center text-sm">
-                        <ArrowRight className="h-4 w-4 text-primary mr-2 flex-shrink-0" />
-                        <span>{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
+                <h3 className="text-2xl font-bold text-foreground mb-3">{platform.name}</h3>
+                <p className="text-sm leading-relaxed text-muted-foreground mb-6">{platform.description}</p>
 
-                  <Button
-                    className="w-full"
-                    variant="outline"
-                    onClick={() => navigate("/contact")}
-                  >
-                    {platform.cta} <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
-                </CardContent>
-              </Card>
+                <ul className="space-y-3 mb-8">
+                  {platform.features.map((feature, idx) => (
+                    <li key={idx} className="flex items-center gap-3 text-sm text-foreground/90">
+                      <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/15 text-primary">
+                        <Check className="h-3 w-3" />
+                      </span>
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+
+                <Button
+                  className="mt-auto w-full"
+                  variant="outline"
+                  onClick={() => navigate("/contact")}
+                >
+                  {platform.cta} <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </Button>
+              </div>
             ))}
           </div>
-        </div>
-      </section>
+      </Section>
 
       {/* Benefits Section */}
-      <section className="py-20 bg-card">
-        <div className="container mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            <div className="text-center">
-              <div className="w-16 h-16 bg-primary/20 rounded-lg flex items-center justify-center mx-auto mb-6">
-                <Zap className="h-8 w-8 text-primary" />
+      <Section bg="card">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
+            {benefits.map(({ icon: Icon, title, description }, i) => (
+              <div
+                key={i}
+                className="group relative overflow-hidden rounded-2xl border border-border bg-background/40 p-8 text-center transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:bg-background/60"
+              >
+                <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+                <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-primary/25 to-primary/5 ring-1 ring-primary/20 transition-transform duration-300 group-hover:scale-105">
+                  <Icon className="h-8 w-8 text-primary" />
+                </div>
+                <h3 className="text-xl font-bold text-foreground mb-3">{title}</h3>
+                <p className="text-sm leading-relaxed text-muted-foreground">{description}</p>
               </div>
-              <h3 className="text-xl font-bold mb-4">Fast Implementation</h3>
-              <p className="text-muted-foreground">
-                Get up and running in minutes with our easy-to-use platforms and comprehensive documentation.
-              </p>
-            </div>
-
-            <div className="text-center">
-              <div className="w-16 h-16 bg-primary/20 rounded-lg flex items-center justify-center mx-auto mb-6">
-                <Globe className="h-8 w-8 text-primary" />
-              </div>
-              <h3 className="text-xl font-bold mb-4">Global Scale</h3>
-              <p className="text-muted-foreground">
-                Cloud-native solutions that scale globally with enterprise-grade infrastructure and support.
-              </p>
-            </div>
-
-            <div className="text-center">
-              <div className="w-16 h-16 bg-primary/20 rounded-lg flex items-center justify-center mx-auto mb-6">
-                <Shield className="h-8 w-8 text-primary" />
-              </div>
-              <h3 className="text-xl font-bold mb-4">Enterprise Security</h3>
-              <p className="text-muted-foreground">
-                Bank-level security and compliance with industry standards to protect your data and operations.
-              </p>
-            </div>
+            ))}
           </div>
-        </div>
-      </section>
+      </Section>
 
       {/* Stats Section */}
-      <section className="py-20">
-        <div className="container mx-auto px-6">
+      <Section>
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              <Heading as="h2" size="h2" className="mb-4">
                 Join the Data-Centric AI Movement
-              </h2>
-              <p className="text-lg text-muted-foreground">
+              </Heading>
+              <Lead>
                 Connect, profile, understand & orchestrate your data preparation flows to train models more efficiently
-              </p>
+              </Lead>
             </div>
 
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-              <div>
-                <div className="text-3xl font-bold text-primary mb-2">40x</div>
-                <p className="text-sm text-muted-foreground">More productivity</p>
-              </div>
-              <div>
-                <div className="text-3xl font-bold text-primary mb-2">20%</div>
-                <p className="text-sm text-muted-foreground">Faster delivery</p>
-              </div>
-              <div>
-                <div className="text-3xl font-bold text-primary mb-2">20+</div>
-                <p className="text-sm text-muted-foreground">Happy customers</p>
-              </div>
-              <div>
-                <div className="text-3xl font-bold text-primary mb-2">2k+</div>
-                <p className="text-sm text-muted-foreground">Downloads</p>
+            <div className="relative overflow-hidden rounded-2xl border border-border bg-gradient-to-b from-card to-card/40 shadow-[var(--shadow-card)]">
+              <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/15 to-transparent" />
+              <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-y md:divide-y-0 divide-border/70">
+                {[
+                  { value: "40x", label: "More productivity" },
+                  { value: "20%", label: "Faster delivery" },
+                  { value: "20+", label: "Happy customers" },
+                  { value: "2k+", label: "Downloads" }
+                ].map((stat, i) => (
+                  <div key={i} className="text-center p-6 sm:p-8">
+                    <div className="text-3xl sm:text-4xl font-bold text-primary mb-2">{stat.value}</div>
+                    <p className="text-sm text-muted-foreground">{stat.label}</p>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
-        </div>
-      </section>
+      </Section>
 
-      {/* CTA Section */}
-      <section className="py-20 bg-card">
-        <div className="container mx-auto px-6 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Ready to Get Started?
-          </h2>
-          <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Choose your platform and start your AI transformation journey today. No credit card required for trials.
-          </p>
-          <Button
-            size="lg"
-            className="bg-primary hover:bg-primary/90 text-primary-foreground"
-            onClick={() => navigate("/contact")}
-          >
-            Start Your Free Trial
-          </Button>
+      {/* CTA Section — glass card wraps the content so it stays readable on
+          top of the HeroBackdrop's red plexus canvas. */}
+      <section className="relative overflow-hidden pt-16 sm:pt-20 pb-40 sm:pb-44 bg-background">
+        <HeroBackdrop />
+        <div className="container relative z-10 mx-auto px-6">
+          <div className="max-w-3xl mx-auto rounded-2xl border border-border/60 bg-background/85 backdrop-blur-md shadow-[0_15px_40px_-25px_rgba(15,23,42,0.25)] p-6 md:p-10 text-center">
+            <Heading as="h2" size="h2" className="mb-6 text-foreground">
+              Ready to Get Started?
+            </Heading>
+            <Lead className="mb-8 max-w-2xl mx-auto text-foreground/85">
+              Choose your platform and start your AI transformation journey today. No credit card required for trials.
+            </Lead>
+            <Button
+              size="lg"
+              className="bg-primary hover:bg-primary/90 text-primary-foreground"
+              onClick={() => navigate("/contact")}
+            >
+              Start Your Free Trial
+            </Button>
+          </div>
         </div>
       </section>
 

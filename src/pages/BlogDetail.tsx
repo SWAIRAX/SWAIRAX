@@ -2,12 +2,14 @@ import { useParams } from "react-router-dom";
 import { useNavigationWithScroll } from "@/utils/navigation";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import CTASection from "@/components/CTASection";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { Calendar, Clock, User, ArrowLeft, Share2, Tag, BookOpen } from "lucide-react";
 import { blogPosts, BlogPost } from "@/data/blogPosts";
 import { useEffect, useState } from "react";
+import { Eyebrow, Heading } from "@/components/ui/section";
 
 const BlogDetail = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -77,7 +79,7 @@ const BlogDetail = () => {
       </div>
 
       {/* Enhanced Hero Section */}
-      <section className="py-16 bg-background relative overflow-hidden">
+      <section className="pt-28 pb-16 sm:pt-32 sm:pb-20 bg-background relative overflow-hidden">
         {/* Background Pattern */}
         <div className="absolute inset-0 holo-grid opacity-30" />
 
@@ -101,9 +103,9 @@ const BlogDetail = () => {
             </div>
 
             {/* Title */}
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight tracking-tight">
+            <Heading as="h1" size="display" className="mb-6">
               {post.title}
-            </h1>
+            </Heading>
 
             {/* Excerpt */}
             <p className="text-xl md:text-2xl text-muted-foreground mb-8 leading-relaxed font-light">
@@ -342,66 +344,13 @@ const BlogDetail = () => {
       </section>
 
       {/* Enhanced CTA Section */}
-      <section className="py-20 bg-gradient-to-br from-primary/10 via-secondary/5 to-background relative overflow-hidden">
-        {/* Background Elements */}
-        <div className="absolute inset-0 holo-grid opacity-20" />
-        <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-primary/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 right-1/4 w-48 h-48 bg-secondary/5 rounded-full blur-3xl" />
-
-        <div className="container mx-auto px-6 relative">
-          <div className="max-w-4xl mx-auto text-center">
-            <div className="mb-6">
-              <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/20 rounded-full px-4 py-2 mb-4">
-                <div className="w-2 h-2 bg-primary rounded-full animate-pulse" />
-                <span className="text-sm font-medium text-primary">Article Complete</span>
-              </div>
-            </div>
-
-            <h2 className="text-3xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-foreground to-foreground/80 bg-clip-text text-transparent leading-tight">
-              Ready for More Insights?
-            </h2>
-            <p className="text-lg md:text-xl text-muted-foreground mb-12 max-w-3xl mx-auto leading-relaxed">
-              Join thousands of professionals who trust Quantum Intelligence for cutting-edge AI and data science solutions.
-              Let's transform your data challenges into competitive advantages.
-            </p>
-
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-              <Button
-                size="lg"
-                onClick={() => navigateToTop('/blog')}
-                className="bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary text-primary-foreground px-8 py-6 text-base font-semibold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 group"
-              >
-                Explore More Articles
-                <ArrowLeft className="ml-2 h-5 w-5 rotate-180 group-hover:translate-x-1 transition-transform" />
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                onClick={() => navigateToTop('/contact')}
-                className="border-2 border-primary/30 hover:bg-primary/5 hover:border-primary/50 px-8 py-6 text-base font-semibold backdrop-blur-sm transition-all duration-300 hover:scale-105"
-              >
-                Start Your Project
-              </Button>
-            </div>
-
-            {/* Trust Indicators */}
-            <div className="flex flex-wrap justify-center items-center gap-6 text-sm text-muted-foreground">
-              <div className="flex items-center gap-2">
-                <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
-                <span>Free Consultation</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse" />
-                <span>Expert Team</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <div className="w-2 h-2 bg-purple-500 rounded-full animate-pulse" />
-                <span>Proven Results</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <CTASection
+        eyebrow="Article Complete"
+        title="Ready for More Insights?"
+        description="Join thousands of professionals who trust Quantum Intelligence for cutting-edge AI and data science solutions. Let's transform your data challenges into competitive advantages."
+        primary={{ label: "Explore More Articles", href: "/blog" }}
+        secondary={{ label: "Start Your Project", href: "/contact" }}
+      />
 
       {/* Enhanced Related Articles Section */}
       {relatedPosts.length > 0 && (
@@ -412,11 +361,14 @@ const BlogDetail = () => {
           <div className="container mx-auto px-6 relative">
             <div className="max-w-6xl mx-auto">
               <div className="text-center mb-12">
-                <div className="inline-flex items-center gap-3 bg-primary/10 border border-primary/20 rounded-full px-4 py-2 mb-4">
-                  <BookOpen className="h-5 w-5 text-primary" />
-                  <span className="text-sm font-medium text-primary">Continue Reading</span>
-                </div>
-                <h2 className="text-3xl md:text-4xl font-bold mb-4">You Might Also Like</h2>
+                <Eyebrow
+                  variant="pill"
+                  icon={<BookOpen className="h-5 w-5 text-primary" />}
+                  className="border border-primary/20 mb-4"
+                >
+                  Continue Reading
+                </Eyebrow>
+                <Heading as="h2" size="h2" className="mb-4">You Might Also Like</Heading>
                 <p className="text-muted-foreground max-w-2xl mx-auto">
                   Discover more insights from our collection of articles on AI, data science, and business intelligence.
                 </p>

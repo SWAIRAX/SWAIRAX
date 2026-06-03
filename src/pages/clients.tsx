@@ -3,7 +3,10 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import HeroBackdrop from "@/components/HeroBackdrop";
 import ClientModal from "@/components/clientsmodal";
+import CTASection from "@/components/CTASection";
+import { Heading, Lead, PageHero } from "@/components/ui/section";
 
 import { MapPin, Clock, Users, ArrowRight, Zap, Heart, Globe } from "lucide-react";
 
@@ -208,42 +211,35 @@ return (
     <Header />
 
       {/* Hero Section */}
-    <section className="pt-24 pb-16 bg-card">
-        <div className="container mx-auto px-6">
-        <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
-            We Make Complexity  <span className="text-primary">Feel Effortless</span>
-            </h1>
-            <p className="text-xl text-muted-foreground mb-8">
-            At Quantum Intelligence, our clients aren’t just customers—they’re collaborators in innovation.
-            Whether you're a startup aiming to scale or a global enterprise seeking tech solutions,
-            we tailor every project to your goals. Your success is our mission—and our measure.
-            </p>
-            <Button
-              size="lg"
-              onClick={() => window.location.href = '/services'}
-              className="bg-primary hover:bg-primary/90 text-primary-foreground px-8"
-            >
-              Explore our Solutions
-            </Button>
-        </div>
-        </div>
-    </section>
+    <PageHero
+        className="bg-card"
+        title={<>We Make Complexity  Feel Effortless</>}
+        description={<>At Quantum Intelligence, our clients aren’t just customers—they’re collaborators in innovation. Whether you're a startup aiming to scale or a global enterprise seeking tech solutions, we tailor every project to your goals. Your success is our mission—and our measure.</>}
+        actions={
+          <Button
+            size="lg"
+            onClick={() => window.location.href = '/services'}
+            className="bg-primary hover:bg-primary/90 text-primary-foreground px-8"
+          >
+            Explore our Solutions
+          </Button>
+        }
+    />
 
 
 
 
 
     {/* Client Stories Section */}
-    <section className="py-20">
+    <section className="py-16 sm:py-20 lg:py-24">
     <div className="container mx-auto px-6 max-w-6xl">
         <div className="text-center mb-16">
-        <h2 className="text-3xl md:text-5xl font-bold mb-6">
-            How our clients are <span className="text-primary">leading the change</span>
-            </h2>
-        <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+        <Heading as="h2" size="h2" className="mb-6">
+            How our clients are leading the change
+            </Heading>
+        <Lead className="max-w-2xl mx-auto">
             We have helped 15+ companies accelerate their business with top-notch technology solutions.
-        </p>
+        </Lead>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -350,25 +346,11 @@ return (
     </section>
 
       {/* CTA Section */}
-    <section className="py-20 bg-card/50 text-center">
-        <div className="container mx-auto px-6 max-w-4xl">
-        <div className="space-y-6">
-            <h2 className="text-3xl md:text-5xl font-bold mb-6">
-            Want to be our next <span className="text-primary">success story?</span>
-            </h2>
-            <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-            Ready to transform your business with intelligent solutions? Let's collaborate to turn your vision into reality.
-            </p>
-            <Button
-              size="lg"
-              onClick={() => window.location.href = '/contact'}
-              className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 hover-scale"
-            >
-              Estimate Project
-            </Button>
-        </div>
-        </div>
-    </section>
+    <CTASection
+        title="Want to be our next success story?"
+        description="Ready to transform your business with intelligent solutions? Let's collaborate to turn your vision into reality."
+        primary={{ label: "Estimate Project", href: "/contact" }}
+    />
 
     <Footer />
     </div>

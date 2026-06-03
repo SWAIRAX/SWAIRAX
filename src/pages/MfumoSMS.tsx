@@ -12,12 +12,18 @@ import {
   FileText,
   Cpu,
   ShoppingCart,
+  Signal,
+  Wifi,
+  BatteryFull,
 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import Header from "@/components/Header";
 import ScrollReveal from "@/components/ScrollReveal";
 import Footer from "@/components/Footer";
+import HeroBackdrop from "@/components/HeroBackdrop";
+import Parallax from "@/components/Parallax";
 import { useNavigationWithScroll } from "@/utils/navigation";
+import { Heading } from "@/components/ui/section";
 
 const heroSmsMessages = [
   {
@@ -91,18 +97,20 @@ const MfumoSMS = () => {
     <div className="min-h-screen bg-background overflow-x-hidden">
       <Header />
       {/* Hero: LEFT text, RIGHT phone mockup */}
-      <section className="relative py-16 md:py-24 overflow-hidden">
-        <div
-          className="absolute inset-0 opacity-[0.03] bg-cover bg-center"
-          style={{ backgroundImage: "url('/OUR WORK/MIFUMOSMS.png')" }}
-          aria-hidden
-        />
+      <section className="relative pt-28 pb-16 sm:pt-32 sm:pb-20 overflow-hidden">
+        <Parallax speed={-0.25} clamp={150} className="absolute inset-x-0 -inset-y-[24%] h-[148%]">
+          <div
+            className="absolute inset-0 opacity-[0.03] bg-cover bg-center"
+            style={{ backgroundImage: "url('/OUR WORK/MIFUMOSMS.png')" }}
+            aria-hidden
+          />
+        </Parallax>
         <div className="max-w-[1200px] mx-auto px-6 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <ScrollReveal className="space-y-6">
-              <h1 className="text-4xl md:text-6xl font-bold leading-tight">
-                <span className="text-primary">Mifumo SMS</span>
-              </h1>
+              <Heading as="h1" size="display">
+                Mifumo SMS
+              </Heading>
               <p className="text-xl md:text-2xl font-semibold text-foreground">
                 Don’t lose customers.
                 <br />
@@ -145,7 +153,11 @@ const MfumoSMS = () => {
                   <div className="flex h-full w-full flex-col rounded-2xl bg-black/95 overflow-hidden px-2 pt-1.5 pb-2 md:px-3 md:pt-2 md:pb-3">
                     <div className="flex items-center justify-between text-[9px] md:text-[10px] text-white/80 mb-1.5 md:mb-2">
                       <span className="font-semibold">Mifumo</span>
-                      <span>4G · WiFi · 🔋</span>
+                      <span className="flex items-center gap-1">
+                        <Signal className="h-2.5 w-2.5 md:h-3 md:w-3" />
+                        <Wifi className="h-2.5 w-2.5 md:h-3 md:w-3" />
+                        <BatteryFull className="h-2.5 w-2.5 md:h-3 md:w-3" />
+                      </span>
                     </div>
                     <div className="flex-1 space-y-1.5 md:space-y-2 overflow-auto">
                       {heroSmsMessages.map((sms, i) => (
@@ -205,20 +217,39 @@ const MfumoSMS = () => {
       <section id="features" className="py-12 md:py-16 bg-card/30">
         <div className="max-w-[1200px] mx-auto px-6">
           <ScrollReveal className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Everything you need to scale messaging</h2>
+            <Heading as="h2" size="h2" className="mb-4">Everything you need to scale messaging</Heading>
             <p className="text-muted-foreground max-w-2xl mx-auto">
               From one-off alerts to bulk campaigns and POS integrations.
             </p>
           </ScrollReveal>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {features.map((f, i) => (
               <ScrollReveal key={f.title} delay={i * 50}>
-                <div className="p-6 rounded-2xl bg-background/80 border border-border/50 hover:border-primary/30 hover:shadow-lg transition-all duration-300 group">
-                  <div className="text-primary mb-3 group-hover:scale-110 transition-transform">
-                    {f.icon}
+                <div
+                  className="solution-card bg-secondary border border-border rounded-lg animate-slide-in-bottom group relative overflow-hidden h-full"
+                  style={{ animationDelay: `${i * 0.1}s` }}
+                >
+                  <div className="p-8 relative overflow-hidden h-full">
+                    <div className="absolute inset-0 opacity-5">
+                      <svg className="w-full h-full" viewBox="0 0 100 100">
+                        <circle cx="50" cy="50" r="30" fill="none" stroke="currentColor" strokeWidth="1" className="animate-spin-slow" />
+                        <circle cx="50" cy="50" r="20" fill="none" stroke="currentColor" strokeWidth="0.5" className="animate-spin-slow" style={{ animationDirection: 'reverse' }} />
+                      </svg>
+                    </div>
+
+                    <div className="flex items-center justify-between mb-6 relative z-10">
+                      <div className="rounded-xl bg-white/10 p-3 shadow-inner text-primary">
+                        {f.icon}
+                      </div>
+                    </div>
+
+                    <h3 className="text-2xl font-bold mb-4 relative z-10 group-hover:text-primary transition-colors">{f.title}</h3>
+                    <p className="text-muted-foreground text-sm leading-relaxed relative z-10">{f.description}</p>
+
+                    <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <div className="w-2 h-2 bg-primary rounded-full animate-ping" />
+                    </div>
                   </div>
-                  <h3 className="font-semibold mb-2">{f.title}</h3>
-                  <p className="text-sm text-muted-foreground">{f.description}</p>
                 </div>
               </ScrollReveal>
             ))}
@@ -250,7 +281,7 @@ const MfumoSMS = () => {
             </ScrollReveal>
             <ScrollReveal className="space-y-4">
               <Badge variant="outline" className="border-primary/20 text-primary">Campaigns</Badge>
-              <h2 className="text-3xl md:text-4xl font-bold">Send single SMS, bulk messages, or target segments</h2>
+              <Heading as="h2" size="h2">Send single SMS, bulk messages, or target segments</Heading>
               <p className="text-muted-foreground">
                 Use Quick SMS for one-off messages, upload a CSV for File SMS, or target contacts from saved segments with Group SMS. All from one clean interface.
               </p>
@@ -265,7 +296,7 @@ const MfumoSMS = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <ScrollReveal className="space-y-4 order-2 lg:order-1">
               <Badge variant="outline" className="border-primary/20 text-primary">Credits & analytics</Badge>
-              <h2 className="text-3xl md:text-4xl font-bold">Purchase credits and track every message</h2>
+              <Heading as="h2" size="h2">Purchase credits and track every message</Heading>
               <p className="text-muted-foreground">
                 Top up with Lite, Standard, or Pro packages. View balance, delivery reports, and campaign performance in real time.
               </p>
@@ -276,7 +307,11 @@ const MfumoSMS = () => {
                 <div className="absolute inset-[15%] rounded-2xl overflow-hidden bg-black/95 flex flex-col p-3">
                   <div className="flex justify-between text-[10px] text-white/80 mb-2">
                     <span>Mifumo</span>
-                    <span>4G · WiFi · 🔋</span>
+                    <span className="flex items-center gap-1">
+                        <Signal className="h-2.5 w-2.5 md:h-3 md:w-3" />
+                        <Wifi className="h-2.5 w-2.5 md:h-3 md:w-3" />
+                        <BatteryFull className="h-2.5 w-2.5 md:h-3 md:w-3" />
+                      </span>
                   </div>
                   <div className="flex-1 rounded-xl bg-white/10 p-3 text-white text-xs">
                     <div className="font-semibold mb-1">Balance: 0 SMS</div>
@@ -290,18 +325,19 @@ const MfumoSMS = () => {
       </section>
 
       {/* CTA – Research page style */}
-      <section className="py-10 bg-gradient-to-r from-red-600/20 via-black to-red-500/15">
-        <div className="max-w-[1200px] mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-          <ScrollReveal className="space-y-4">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold leading-tight bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent">
+      <section className="relative overflow-hidden pt-12 pb-40 sm:pb-44 bg-background">
+        <HeroBackdrop />
+        <div className="relative z-10 max-w-[1200px] mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+          <ScrollReveal className="space-y-4 rounded-2xl border border-border/60 bg-background/85 p-6 md:p-8 shadow-[0_15px_40px_-25px_rgba(15,23,42,0.25)] backdrop-blur-md">
+            <Heading as="h2" size="h2" className="text-foreground font-bold leading-tight">
               Start communicating with customers smarter.
-            </h2>
-            <p className="text-muted-foreground text-sm md:text-base max-w-lg">
+            </Heading>
+            <p className="text-foreground/85 leading-relaxed text-sm md:text-base max-w-lg">
               Whether you run a retail store, hospital, logistics company, or school, Mifumo SMS helps you reach thousands of customers instantly and measure the impact of every message.
             </p>
             <div className="flex flex-wrap gap-3">
               <Button
-                className="bg-red-600 hover:bg-red-500 text-white"
+                className="bg-primary hover:bg-primary/90 text-primary-foreground"
                 onClick={() => navigateToTop("/contact")}
               >
                 Book Demo
@@ -310,8 +346,8 @@ const MfumoSMS = () => {
             </div>
           </ScrollReveal>
           <ScrollReveal>
-            <div className="relative group overflow-hidden rounded-2xl border border-red-500/20 bg-gradient-to-br from-neutral-900 via-neutral-900/70 to-black shadow-[0_30px_100px_-60px_rgba(255,0,0,0.6)]">
-              <div className="absolute -inset-12 bg-gradient-to-r from-red-500/20 via-transparent to-red-500/20 blur-3xl opacity-40 group-hover:opacity-60 transition-opacity duration-700" />
+            <div className="relative group overflow-hidden rounded-2xl border border-border bg-gradient-to-br from-neutral-900 via-neutral-900/70 to-black shadow-lg">
+              <div className="absolute -inset-12 bg-gradient-to-r from-secondary-accent/10 via-transparent to-secondary-accent/10 blur-3xl opacity-40 group-hover:opacity-60 transition-opacity duration-700" />
               <div className="relative">
                 <video
                   className="h-full w-full object-cover animate-pan-slow"

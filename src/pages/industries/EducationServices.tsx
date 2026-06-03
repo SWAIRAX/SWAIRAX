@@ -4,8 +4,10 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { Badge } from "@/components/ui/badge";
-import { SectionHeading, SectionLead } from "@/components/typography";
+import HeroBackdrop from "@/components/HeroBackdrop";
+import CTASection from "@/components/CTASection";
+import Parallax from "@/components/Parallax";
+import { SectionHeading, SectionLead, Section, Heading } from "@/components/typography";
 import {
   GraduationCap,
   Brain,
@@ -71,27 +73,25 @@ const EducationServices = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className="min-h-screen bg-background text-foreground">
       <Header />
 
       {/* Hero Section */}
-      <section className="relative pt-24 md:pt-28 pb-10 md:pb-10 overflow-hidden">
-        <div className="absolute inset-x-0 top-0 h-[280px] md:h-[300px] bg-gradient-to-b from-red-600/15 via-red-500/20 to-transparent pointer-events-none" />
-        <div className="absolute inset-0 bg-gradient-to-br from-red-700/10 via-red-600/10 to-transparent" />
+      <section className="relative pt-28 pb-16 sm:pt-32 sm:pb-20 overflow-hidden">
+        <div className="absolute inset-x-0 top-0 h-[280px] md:h-[300px] bg-gradient-to-b from-secondary-accent/10 via-secondary-accent/5 to-transparent pointer-events-none" />
+        <Parallax speed={-0.25} clamp={150} className="absolute inset-x-0 -inset-y-[24%] h-[148%]">
+          <div className="absolute inset-0 bg-gradient-to-br from-card via-card to-transparent" />
+        </Parallax>
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-10 relative z-10">
           <div className="max-w-4xl mx-auto text-left">
-            <div className="w-12 h-12 mx-auto mb-3 rounded-xl bg-gradient-to-r from-red-600 to-red-400 flex items-center justify-center shadow-lg shadow-red-600/40">
-              <GraduationCap className="h-6 w-6 text-white" />
+            <div className="w-12 h-12 mx-auto mb-3 rounded-xl bg-primary flex items-center justify-center shadow-lg">
+              <GraduationCap className="h-6 w-6 text-primary-foreground" />
             </div>
 
-            <Badge variant="outline" className="mb-3 text-xs">
-              Education Services
-            </Badge>
-
-            <SectionHeading className="text-white text-left">
+            <SectionHeading className="text-foreground text-left">
               Everything that involves
-              <span className="bg-gradient-to-r from-red-600 to-red-400 bg-clip-text text-transparent"> Learning and Students</span>
+              Learning and Students
             </SectionHeading>
 
             <SectionLead className="max-w-3xl text-muted-foreground text-left mx-0">
@@ -103,7 +103,7 @@ const EducationServices = () => {
               <Button
                 size="sm"
                 onClick={() => navigateToTop('/contact')}
-                className="bg-gradient-to-r from-red-600 to-red-400 hover:from-red-500 hover:to-red-300 text-white"
+                className="bg-primary text-primary-foreground hover:bg-primary/90"
               >
                 Get Started
                 <ArrowRight className="ml-1 h-3 w-3" />
@@ -112,7 +112,7 @@ const EducationServices = () => {
                 size="sm"
                 variant="outline"
                 onClick={() => scrollToSection('solutions')}
-                className="border-white/20 text-white hover:bg-white/10"
+                className="border-border text-foreground hover:bg-muted"
               >
                 View Solutions
               </Button>
@@ -125,14 +125,14 @@ const EducationServices = () => {
       <section id="solutions" className="relative py-12 overflow-hidden">
         {/* Decorative Background Elements */}
         <div className="absolute inset-0 bg-gradient-to-b from-background via-background to-background" />
-        <div className="absolute top-1/4 left-0 w-96 h-96 bg-red-600/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-red-500/10 rounded-full blur-3xl" />
+        <div className="absolute top-1/4 left-0 w-96 h-96 bg-card rounded-full blur-3xl" />
+        <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-secondary rounded-full blur-3xl" />
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-10 relative z-10">
           <div className="text-left mb-10 max-w-4xl mx-auto space-y-4">
-            <h2 className="text-3xl md:text-4xl font-bold mb-2 bg-gradient-to-r from-white via-red-500 to-white bg-clip-text text-transparent">
+            <Heading as="h2" size="h2" className="mb-2">
               AI for Education, designed to adapt
-            </h2>
+            </Heading>
             <p className="text-base md:text-lg text-muted-foreground">
               We build learner-first AI—adaptive content, always-on tutoring, and fair grading that frees educators to teach.
             </p>
@@ -144,7 +144,7 @@ const EducationServices = () => {
       </section>
 
       {/* Future Outcomes */}
-      <section className="relative py-20 bg-gradient-to-br from-neutral-900 via-neutral-900/80 to-black overflow-hidden">
+      <section className="relative py-20 bg-card overflow-hidden">
         {/* Decorative Pattern */}
         <div className="absolute inset-0 opacity-5">
           <div className="absolute inset-0" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, hsl(var(--primary)) 1px, transparent 0)', backgroundSize: '40px 40px' }} />
@@ -152,9 +152,9 @@ const EducationServices = () => {
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-10 relative z-10">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-white via-red-500 to-white bg-clip-text text-transparent">
+            <Heading as="h2" size="h2" className="mb-4">
               What AI will do for Education
-            </h2>
+            </Heading>
             <p className="text-base md:text-lg text-muted-foreground">
               Future-state outcomes you can expect as we deploy AI across learning
             </p>
@@ -163,7 +163,7 @@ const EducationServices = () => {
           <div className="max-w-3xl mx-auto space-y-4 text-left text-muted-foreground">
             {outcomes.map((item, index) => (
               <p key={item.title} className="text-sm md:text-base leading-relaxed animate-fade-in" style={{ animationDelay: `${index * 120}ms` }}>
-                <span className="text-white font-semibold">{item.title}:</span> {item.result}. {item.description}
+                <span className="text-foreground font-semibold">{item.title}:</span> {item.result}. {item.description}
               </p>
             ))}
           </div>
@@ -171,37 +171,12 @@ const EducationServices = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-red-700/15 via-red-600/10 to-red-500/10">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-10 text-center">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-5xl font-bold mb-4">
-              Partner with Quantum Intelligence in transforming your industry
-            </h2>
-            <p className="text-base md:text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-              Ready to revolutionize education with AI? Let's discuss how we can help you
-              improve learning outcomes, reduce administrative burden, and enhance student engagement.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button
-                size="lg"
-                onClick={() => navigateToTop('/contact')}
-                className="bg-gradient-to-r from-red-600 to-red-400 hover:from-red-500 hover:to-red-300 text-white px-8 py-6 text-base font-semibold shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300"
-              >
-                Estimate Project
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                onClick={() => navigateToTop('/services')}
-                className="px-8 py-6 text-base font-semibold border-2 border-white/20 text-white hover:bg-white/10 hover:border-white/30 transition-all duration-300"
-              >
-                Explore Services
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
+      <CTASection
+        title="Partner with Quantum Intelligence in transforming your industry"
+        description="Ready to revolutionize education with AI? Let's discuss how we can help you improve learning outcomes, reduce administrative burden, and enhance student engagement."
+        primary={{ label: "Estimate Project", href: "/contact" }}
+        secondary={{ label: "Explore Services", href: "/services" }}
+      />
 
       <Footer />
     </div>

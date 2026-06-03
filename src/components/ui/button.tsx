@@ -9,15 +9,15 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-gradient-to-r from-red-600 to-red-700 text-white shadow-lg hover:from-red-700 hover:to-red-800 hover:scale-105 hover:shadow-xl hover:shadow-red-500/25 active:scale-95",
+        default: "bg-primary text-primary-foreground shadow-sm hover:bg-primary/90 hover:shadow-md active:scale-[0.98]",
         destructive:
-          "bg-gradient-to-r from-red-600 to-red-700 text-white shadow-lg hover:from-red-700 hover:to-red-800 hover:scale-105 hover:shadow-xl hover:shadow-red-500/25 active:scale-95",
+          "bg-destructive text-destructive-foreground shadow-sm hover:bg-destructive/90 active:scale-[0.98]",
         outline:
-          "border-2 border-red-600 bg-transparent text-red-600 hover:bg-red-600 hover:text-white hover:scale-105 hover:shadow-lg hover:shadow-red-500/25 active:scale-95",
+          "border border-border bg-transparent text-foreground hover:bg-accent hover:text-accent-foreground active:scale-[0.98]",
         secondary:
-          "bg-gradient-to-r from-slate-700 to-slate-800 text-white shadow-lg hover:from-slate-800 hover:to-slate-900 hover:scale-105 hover:shadow-xl hover:shadow-slate-500/25 active:scale-95",
-        ghost: "text-slate-700 hover:bg-slate-100 hover:text-slate-900 hover:scale-105",
-        link: "text-red-600 underline-offset-4 hover:underline hover:text-red-700",
+          "bg-secondary text-secondary-foreground shadow-sm hover:bg-secondary/80 active:scale-[0.98]",
+        ghost: "text-foreground hover:bg-accent hover:text-accent-foreground",
+        link: "text-primary underline-offset-4 hover:underline hover:text-primary/80",
       },
       size: {
         default: "h-12 px-6 py-3 text-base",

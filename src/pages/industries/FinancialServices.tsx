@@ -1,11 +1,11 @@
-import { useNavigate } from "react-router-dom";
 import { useNavigationWithScroll } from "@/utils/navigation";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { Badge } from "@/components/ui/badge";
-import { SectionHeading, SectionLead } from "@/components/typography";
+import HeroBackdrop from "@/components/HeroBackdrop";
+import CTASection from "@/components/CTASection";
+import { Eyebrow, Heading, Lead } from "@/components/typography";
 import {
   Banknote,
   Shield,
@@ -13,11 +13,9 @@ import {
   Smartphone,
   Brain,
   ArrowRight,
-  CheckCircle
 } from "lucide-react";
 
 const FinancialServices = () => {
-  const navigate = useNavigate();
   const { navigateToTop, scrollToSection } = useNavigationWithScroll();
 
   const solutions = [
@@ -71,48 +69,43 @@ const FinancialServices = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className="min-h-screen bg-background text-foreground">
       <Header />
 
       {/* Hero Section */}
-      <section className="relative pt-24 md:pt-28 pb-10 md:pb-10 overflow-hidden">
-        <div className="absolute inset-x-0 top-0 h-[280px] md:h-[300px] bg-gradient-to-b from-red-600/15 via-red-500/20 to-transparent pointer-events-none" />
-        <div className="absolute inset-0 bg-gradient-to-br from-red-700/10 via-red-600/10 to-transparent" />
-
-          <div className="container mx-auto px-4 sm:px-6 lg:px-10 relative z-10">
+      <section className="relative overflow-hidden pt-28 pb-16 sm:pt-32 sm:pb-20">
+        <HeroBackdrop />
+        <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-10">
           <div className="max-w-4xl mx-auto text-left">
-            <div className="w-12 h-12 mb-3 rounded-xl bg-gradient-to-r from-red-600 to-red-400 flex items-center justify-center shadow-lg shadow-red-600/40">
-              <Banknote className="h-6 w-6 text-white" />
+            <div className="mb-4 inline-flex rounded-xl bg-primary/10 p-3 text-primary">
+              <Banknote className="h-7 w-7" />
             </div>
 
-            <Badge variant="outline" className="mb-3 text-xs">
-              Financial Services
-            </Badge>
+            <Eyebrow className="mb-3">Financial Services</Eyebrow>
 
-            <SectionHeading className="text-white text-left">
-              Getting Easy with the
-              <span className="bg-gradient-to-r from-red-600 to-red-400 bg-clip-text text-transparent"> Payment Sector</span>
-            </SectionHeading>
+            <Heading as="h1" size="display" className="mb-5 text-foreground">
+              Getting Easy with the Payment Sector
+            </Heading>
 
-            <SectionLead className="max-w-3xl text-muted-foreground text-left mx-0">
+            <Lead className="mb-8 max-w-3xl mx-0 text-muted-foreground">
               Transform your financial services with intelligent automation, advanced fraud detection,
               and AI-powered analytics that deliver secure, efficient, and customer-centric solutions.
-            </SectionLead>
+            </Lead>
 
-            <div className="flex flex-col sm:flex-row gap-3 justify-center">
+            <div className="flex flex-col sm:flex-row gap-3">
               <Button
-                size="sm"
+                size="lg"
                 onClick={() => navigateToTop('/contact')}
-                className="bg-gradient-to-r from-red-600 to-red-400 hover:from-red-500 hover:to-red-300 text-white"
+                className="bg-primary text-primary-foreground hover:bg-primary/90"
               >
                 Get Started
-                <ArrowRight className="ml-1 h-3 w-3" />
+                <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
               <Button
-                size="sm"
+                size="lg"
                 variant="outline"
-                onClick={() => document.getElementById('solutions')?.scrollIntoView({ behavior: 'smooth' })}
-                className="border-white/20 text-white hover:bg-white/10"
+                onClick={() => scrollToSection('solutions')}
+                className="border-border text-foreground hover:bg-muted"
               >
                 View Solutions
               </Button>
@@ -122,17 +115,13 @@ const FinancialServices = () => {
       </section>
 
       {/* Solutions Section */}
-      <section id="solutions" className="relative py-12 overflow-hidden">
-        {/* Decorative Background Elements */}
-        <div className="absolute inset-0 bg-gradient-to-b from-background via-background to-background" />
-        <div className="absolute top-1/4 left-0 w-96 h-96 bg-red-600/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-red-500/10 rounded-full blur-3xl" />
-
+      <section id="solutions" className="relative py-16 sm:py-20 lg:py-24 overflow-hidden">
         <div className="container mx-auto px-4 sm:px-6 lg:px-10 relative z-10">
           <div className="text-left mb-10 max-w-4xl mx-auto space-y-4">
-            <h2 className="text-3xl md:text-4xl font-bold mb-2 bg-gradient-to-r from-white via-red-500 to-white bg-clip-text text-transparent">
+            <Eyebrow>Solutions</Eyebrow>
+            <Heading as="h2" size="h2" className="mb-2">
               AI for Financial Services, with production safety
-            </h2>
+            </Heading>
             <p className="text-base md:text-lg text-muted-foreground">
               We build fraud-safe, compliant AI for banks and payments—precision scoring, smarter routing, and trusted automation that protect revenue.
             </p>
@@ -140,11 +129,60 @@ const FinancialServices = () => {
               We will target fraud, routing, risk scoring, and digital CX where they drive impact. Some capabilities may be phased or co-developed—let's pick the bets that move approvals, lower losses, and earn trust.
             </p>
           </div>
+
+          <div className="grid md:grid-cols-2 gap-4">
+            {solutions.map((solution, index) => {
+              const Icon = solution.icon;
+              return (
+                <Card
+                  key={solution.title}
+                  className="solution-card bg-secondary border-border animate-slide-in-bottom group relative overflow-hidden"
+                  style={{ animationDelay: `${index * 0.2}s` }}
+                >
+                  <CardContent className="p-8 relative overflow-hidden">
+                    <div className="absolute inset-0 opacity-5">
+                      <svg className="w-full h-full" viewBox="0 0 100 100">
+                        <circle cx="50" cy="50" r="30" fill="none" stroke="currentColor" strokeWidth="1" className="animate-spin-slow" />
+                        <circle cx="50" cy="50" r="20" fill="none" stroke="currentColor" strokeWidth="0.5" className="animate-spin-slow" style={{ animationDirection: 'reverse' }} />
+                      </svg>
+                    </div>
+
+                    <div className="flex items-center justify-between mb-6 relative z-10">
+                      <div className={`rounded-xl bg-primary/10 p-3 ${index % 2 === 1 ? "text-secondary-accent" : "text-primary"}`}>
+                        <Icon className="h-6 w-6" />
+                      </div>
+                      <span className="text-xs px-3 py-1 rounded-full bg-muted text-muted-foreground group-hover:bg-primary/20 transition-colors duration-300">
+                        {solution.features[0]}
+                      </span>
+                    </div>
+
+                    <h3 className="text-2xl font-bold mb-4 relative z-10">{solution.title}</h3>
+                    <p className="text-muted-foreground mb-6 text-sm leading-relaxed relative z-10">
+                      {solution.description}
+                    </p>
+
+                    <ul className="space-y-2 relative z-10">
+                      {solution.features.map((feature) => (
+                        <li key={feature} className="flex items-center gap-2 text-sm text-muted-foreground">
+                          <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+                          {feature}
+                        </li>
+                      ))}
+                    </ul>
+
+                    <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <div className="w-2 h-2 bg-primary rounded-full animate-ping"></div>
+                    </div>
+                  </CardContent>
+                </Card>
+              );
+            })}
+          </div>
         </div>
       </section>
 
       {/* Future Outcomes */}
-      <section className="relative py-20 bg-gradient-to-br from-neutral-900 via-neutral-900/80 to-black overflow-hidden">
+      <section className="relative py-16 sm:py-20 lg:py-24 bg-card overflow-hidden">
         {/* Decorative Pattern */}
         <div className="absolute inset-0 opacity-5">
           <div className="absolute inset-0" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, hsl(var(--primary)) 1px, transparent 0)', backgroundSize: '40px 40px' }} />
@@ -152,9 +190,9 @@ const FinancialServices = () => {
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-10 relative z-10">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-white via-red-500 to-white bg-clip-text text-transparent">
+            <Heading as="h2" size="h2" className="mb-4">
               What AI will do for Financial Services
-            </h2>
+            </Heading>
             <p className="text-base md:text-lg text-muted-foreground">
               Future-state outcomes you can expect as we deploy AI across your stack
             </p>
@@ -163,7 +201,7 @@ const FinancialServices = () => {
           <div className="max-w-3xl mx-auto space-y-4 text-left text-muted-foreground">
             {outcomes.map((item, index) => (
               <p key={item.title} className="text-sm md:text-base leading-relaxed animate-fade-in" style={{ animationDelay: `${index * 120}ms` }}>
-                <span className="text-white font-semibold">{item.title}:</span> {item.result}. {item.description}
+                <span className="text-foreground font-semibold">{item.title}:</span> {item.result}. {item.description}
               </p>
             ))}
           </div>
@@ -171,37 +209,12 @@ const FinancialServices = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-red-700/15 via-red-600/10 to-red-500/10">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-10 text-center">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-5xl font-bold mb-4">
-              Partner with Quantum Intelligence in transforming your industry
-            </h2>
-            <p className="text-base md:text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-              Ready to revolutionize your financial services with AI? Let's discuss how we can
-              help you achieve better security, efficiency, and customer satisfaction.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button
-                size="lg"
-                onClick={() => navigateToTop('/contact')}
-                className="bg-gradient-to-r from-red-600 to-red-400 hover:from-red-500 hover:to-red-300 text-white px-8 py-6 text-base font-semibold shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300"
-              >
-                Estimate Project
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                onClick={() => scrollToSection('solutions')}
-                className="px-8 py-6 text-base font-semibold border-2 border-white/20 text-white hover:bg-white/10 hover:border-white/30 transition-all duration-300"
-              >
-                View Solutions
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
+      <CTASection
+        title="Partner with Quantum Intelligence in transforming your industry"
+        description="Ready to revolutionize your financial services with AI? Let's discuss how we can help you achieve better security, efficiency, and customer satisfaction."
+        primary={{ label: "Estimate Project", href: "/contact" }}
+        secondary={{ label: "View Solutions", href: "#solutions" }}
+      />
 
       <Footer />
     </div>

@@ -58,4 +58,10 @@ export default defineConfig(({ mode }) => ({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+
+  // Pre-bundle the plexus background deps so their dynamic import works in dev.
+  // vanta ships a CommonJS build; without this it fails to load under `vite dev`.
+  optimizeDeps: {
+    include: ["three", "vanta/dist/vanta.net.min"],
+  },
 }));

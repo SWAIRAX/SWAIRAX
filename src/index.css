@@ -13,6 +13,34 @@
     animation: scroll var(--scroll-duration, 40s) var(--scroll-direction, forwards) linear infinite;
 }
 
+/* Seamless logo marquee (duplicated track translated by exactly -50%) */
+@keyframes logo-marquee {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+.animate-logo-marquee {
+    animation: logo-marquee var(--marquee-duration, 32s) linear infinite;
+}
+
+/* Hide scrollbars (cross-browser) — used by horizontal scrollers */
+.no-scrollbar {
+    scrollbar-width: none;
+    /* Firefox */
+    -ms-overflow-style: none;
+    /* IE/Edge */
+}
+
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+    /* Chrome/Safari */
+}
+
 /* Definition of the design system. All colors, gradients, fonts, etc should be defined here.
 All colors MUST be HSL.
 */
@@ -23,41 +51,72 @@ All colors MUST be HSL.
     }
 
     :root {
-        --background: 222.2 84% 4.9%;
-        --foreground: 210 40% 98%;
+        /* ----------------------------------------------------------------
+           PALETTE
+           Brand red (warm vermilion, from the logo) is the PRIMARY accent —
+           reserved for primary CTAs, key metrics and active states.
+           Neutrals are a cool slate ramp so the warm red reads as an accent
+           instead of flooding the whole UI.
+           The supporting hue (calm blue) is for links, secondary accents
+           and data-viz.
+           ---------------------------------------------------------------- */
 
-        --card: 240 10% 8%;
-        --card-foreground: 210 40% 98%;
+        /* Neutral ramp (cool slate) */
+        --neutral-50: 216 30% 96%;
+        --neutral-100: 218 24% 88%;
+        --neutral-200: 218 18% 74%;
+        --neutral-300: 218 15% 62%;
+        --neutral-400: 218 14% 48%;
+        --neutral-500: 219 16% 34%;
+        --neutral-600: 220 18% 24%;
+        --neutral-700: 220 20% 18%;
+        --neutral-800: 220 24% 12%;
+        --neutral-900: 222 33% 7%;
 
-        --popover: 240 10% 8%;
-        --popover-foreground: 210 40% 98%;
+        --background: 220 22% 96%;
+        --foreground: 222 24% 12%;
 
-        --primary: 0 72% 51%;
-        --primary-foreground: 210 40% 98%;
+        --card: 0 0% 100%;
+        --card-foreground: 222 24% 12%;
 
-        --secondary: 240 6% 20%;
-        --secondary-foreground: 210 40% 98%;
+        --popover: 0 0% 100%;
+        --popover-foreground: 222 24% 12%;
 
-        --muted: 240 6% 15%;
-        --muted-foreground: 215.4 16.3% 65%;
+        /* Brand red — primary accent only */
+        --primary: 13 88% 47%;
+        --primary-foreground: 0 0% 100%;
 
-        --accent: 0 72% 51%;
-        --accent-foreground: 210 40% 98%;
+        --secondary: 220 16% 92%;
+        --secondary-foreground: 222 24% 14%;
 
-        --destructive: 0 84.2% 60.2%;
-        --destructive-foreground: 210 40% 98%;
+        --muted: 220 16% 93%;
+        --muted-foreground: 220 10% 40%;
 
-        --border: 240 6% 20%;
-        --input: 240 6% 15%;
-        --ring: 0 72% 51%;
+        /* Subtle neutral hover/active surface */
+        --accent: 220 16% 91%;
+        --accent-foreground: 222 24% 14%;
+
+        /* Supporting hue — links, secondary accents, data-viz */
+        --secondary-accent: 217 88% 55%;
+        --secondary-accent-foreground: 0 0% 100%;
+
+        --destructive: 0 75% 50%;
+        --destructive-foreground: 0 0% 100%;
+
+        --border: 220 14% 85%;
+        --input: 220 14% 85%;
+        --ring: 13 88% 47%;
 
         --radius: 0.75rem;
 
         /* Custom design tokens */
-        --gradient-primary: linear-gradient(135deg, hsl(0 72% 51%), hsl(15 80% 55%));
-        --gradient-secondary: linear-gradient(135deg, hsl(240 10% 8%), hsl(240 6% 15%));
-        --shadow-glow: 0 0 40px hsl(0 72% 51% / 0.3);
-        --shadow-card: 0 10px 30px -10px hsl(0 0% 0% / 0.3);
+        --gradient-primary: linear-gradient(135deg, hsl(13 88% 47%), hsl(22 90% 55%));
+        --gradient-secondary: linear-gradient(135deg, hsl(220 20% 98%), hsl(220 16% 94%));
+        --gradient-accent: linear-gradient(135deg, hsl(217 88% 55%), hsl(199 90% 50%));
+        /* Elevation shadows */
+        --shadow-glow: 0 18px 40px -18px hsl(220 40% 30% / 0.18);
+        --shadow-card: 0 10px 30px -12px hsl(220 40% 30% / 0.14);
+        --shadow-brand: 0 14px 36px -18px hsl(13 88% 47% / 0.35);
         --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
         --sidebar-background: 0 0% 98%;
@@ -78,33 +137,37 @@ All colors MUST be HSL.
     }
 
     .dark {
-        --background: 222.2 84% 4.9%;
-        --foreground: 210 40% 98%;
+        /* Mirror :root — the app is always dark, so these must not diverge */
+        --background: 222 33% 7%;
+        --foreground: 216 30% 92%;
 
-        --card: 222.2 84% 4.9%;
-        --card-foreground: 210 40% 98%;
+        --card: 220 24% 11%;
+        --card-foreground: 216 30% 92%;
 
-        --popover: 222.2 84% 4.9%;
-        --popover-foreground: 210 40% 98%;
+        --popover: 220 24% 11%;
+        --popover-foreground: 216 30% 92%;
 
-        --primary: 210 40% 98%;
-        --primary-foreground: 222.2 47.4% 11.2%;
+        --primary: 13 88% 47%;
+        --primary-foreground: 0 0% 100%;
 
-        --secondary: 217.2 32.6% 17.5%;
-        --secondary-foreground: 210 40% 98%;
+        --secondary: 220 22% 15%;
+        --secondary-foreground: 216 30% 92%;
 
-        --muted: 217.2 32.6% 17.5%;
-        --muted-foreground: 215 20.2% 65.1%;
+        --muted: 220 20% 14%;
+        --muted-foreground: 218 14% 62%;
 
-        --accent: 217.2 32.6% 17.5%;
-        --accent-foreground: 210 40% 98%;
+        --accent: 220 20% 17%;
+        --accent-foreground: 216 30% 92%;
 
-        --destructive: 0 62.8% 30.6%;
-        --destructive-foreground: 210 40% 98%;
+        --secondary-accent: 217 88% 60%;
+        --secondary-accent-foreground: 0 0% 100%;
 
-        --border: 217.2 32.6% 17.5%;
-        --input: 217.2 32.6% 17.5%;
-        --ring: 212.7 26.8% 83.9%;
+        --destructive: 0 75% 55%;
+        --destructive-foreground: 0 0% 100%;
+
+        --border: 220 18% 20%;
+        --input: 220 18% 20%;
+        --ring: 217 88% 60%;
         --sidebar-background: 240 5.9% 10%;
         --sidebar-foreground: 240 4.8% 95.9%;
         --sidebar-primary: 224.3 76.3% 48%;
@@ -151,11 +214,11 @@ All colors MUST be HSL.
 
 @keyframes glow-pulse {
     0% {
-        box-shadow: 0 0 20px hsl(var(--primary) / 0.3);
+        box-shadow: 0 0 14px hsl(var(--primary) / 0.18);
     }
 
     100% {
-        box-shadow: 0 0 30px hsl(var(--primary) / 0.6);
+        box-shadow: 0 0 22px hsl(var(--primary) / 0.32);
     }
 }
 
@@ -221,11 +284,11 @@ All colors MUST be HSL.
 
     0%,
     100% {
-        box-shadow: 0 0 20px hsl(var(--primary) / 0.2);
+        box-shadow: 0 0 16px hsl(var(--secondary-accent) / 0.12);
     }
 
     50% {
-        box-shadow: 0 0 40px hsl(var(--primary) / 0.4);
+        box-shadow: 0 0 28px hsl(var(--secondary-accent) / 0.22);
     }
 }
 
@@ -250,12 +313,12 @@ All colors MUST be HSL.
     0%,
     100% {
         transform: scale(1);
-        box-shadow: 0 0 0 0 hsl(var(--primary) / 0.7);
+        box-shadow: 0 0 0 0 hsl(var(--primary) / 0.4);
     }
 
     50% {
-        transform: scale(1.05);
-        box-shadow: 0 0 0 10px hsl(var(--primary) / 0);
+        transform: scale(1.04);
+        box-shadow: 0 0 0 8px hsl(var(--primary) / 0);
     }
 }
 
@@ -430,6 +493,10 @@ All colors MUST be HSL.
     animation: scale-in 0.5s ease-out;
 }
 
+/* (The bright travelling bead on ServiceGraphHero edges is driven by JS
+   in the component's requestAnimationFrame loop — no CSS animation here
+   so nothing fights the per-frame stroke-dashoffset write.) */
+
 .animate-shimmer {
     background: linear-gradient(90deg, transparent, hsl(var(--primary) / 0.2), transparent);
     background-size: 200% 100%;
@@ -461,10 +528,12 @@ All colors MUST be HSL.
 }
 
 .aurora-glow {
-    background: radial-gradient(circle at 30% 30%, rgba(255, 0, 0, 0.35), transparent 45%);
-    filter: blur(60px);
+    background:
+        radial-gradient(circle at 30% 30%, hsl(217 88% 60% / 0.18), transparent 45%),
+        radial-gradient(circle at 70% 60%, hsl(13 88% 47% / 0.10), transparent 50%);
+    filter: blur(70px);
     animation: aurora-shift 12s ease-in-out infinite;
-    opacity: 0.45;
+    opacity: 0.32;
 }
 
 .holo-grid {
@@ -536,16 +605,10 @@ All colors MUST be HSL.
     }
 }
 
-/* Mobile-first readability: left-align centered text on small screens */
-@media (max-width: 767px) {
-    .text-center {
-        text-align: left !important;
-    }
-}
-
 /* Interactive elements with animation feedback */
 .solution-card {
     transition: var(--transition-smooth);
+    box-shadow: var(--shadow-card);
 }
 
 .solution-card:hover {
@@ -555,15 +618,22 @@ All colors MUST be HSL.
 
 .partner-card {
     transition: var(--transition-smooth);
+    box-shadow: var(--shadow-card);
 }
 
 .partner-card:hover {
     transform: translateY(-2px);
-    box-shadow: var(--shadow-card);
+    box-shadow: var(--shadow-glow);
 }
 
 .metric-card {
     transition: var(--transition-smooth);
+    box-shadow: var(--shadow-card);
+}
+
+.metric-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-glow);
 }
 
 .metric-card:hover .metric-value {
@@ -572,6 +642,7 @@ All colors MUST be HSL.
 
 .research-card {
     transition: var(--transition-smooth);
+    box-shadow: var(--shadow-card);
 }
 
 .research-card:hover {
@@ -729,7 +800,8 @@ All colors MUST be HSL.
     position: relative;
     max-width: 100%;
     min-height: 320px;
-    background: linear-gradient(to bottom, rgba(239, 68, 68, 0.1), rgba(185, 28, 28, 0.15));
+    background: linear-gradient(to bottom, hsl(220 20% 98%), hsl(220 16% 94%));
+    border: 1px solid hsl(220 14% 88%);
     border-radius: 8px;
     padding: 1.5em;
     margin: 8px;
@@ -756,7 +828,7 @@ All colors MUST be HSL.
     z-index: -1;
     top: -20px;
     right: -20px;
-    background: linear-gradient(135deg, #7f1d1d, #991b1b);
+    background: linear-gradient(135deg, hsl(220 30% 16%), hsl(217 45% 24%));
     height: 40px;
     width: 40px;
     border-radius: 40px;
@@ -791,7 +863,7 @@ All colors MUST be HSL.
 }
 
 .card-title {
-    color: #e5e5e5;
+    color: #1a1a1a;
     font-size: 1.25em;
     line-height: 1.2;
     font-weight: 700;
@@ -803,7 +875,7 @@ All colors MUST be HSL.
     font-size: 0.875em;
     font-weight: 400;
     line-height: 1.5em;
-    color: #d1d5db;
+    color: #4b5563;
     transition: color 0.3s ease;
 }
 
@@ -830,7 +902,7 @@ All colors MUST be HSL.
     overflow: hidden;
     top: 0;
     right: 0;
-    background: linear-gradient(135deg, #dc2626, #b91c1c);
+    background: linear-gradient(135deg, #e23a17, #c1290a);
     border-radius: 0 4px 0 24px;
 }
 
@@ -859,7 +931,7 @@ All colors MUST be HSL.
 
 /* Social Media Button Animation */
 .btn {
-    --btn-color: rgb(255, 0, 0);
+    --btn-color: #d62e0a;
     position: relative;
     padding: 16px 32px;
     font-family: Roboto, sans-serif;
@@ -980,13 +1052,13 @@ All colors MUST be HSL.
 
 .estimate-project-btn .circle {
     transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
-    box-shadow: 0 0 5px 1px #dc2626;
+    box-shadow: 0 0 5px 1px #d62e0a;
     position: relative;
     display: block;
     margin: 0;
     width: 3rem;
     height: 3rem;
-    background: #dc2626;
+    background: #d62e0a;
     border-radius: 1.625rem;
 }
 
@@ -1028,7 +1100,7 @@ All colors MUST be HSL.
     bottom: 0;
     padding: 0.75rem 0;
     margin: 0 0 0 1.85rem;
-    color: #ffffff;
+    color: #000000;
     font-weight: 700;
     line-height: 1.6;
     text-align: center;
@@ -1037,7 +1109,7 @@ All colors MUST be HSL.
 
 .estimate-project-btn:hover .circle {
     width: 100%;
-    box-shadow: 0 0 10px 2px #dc2626;
+    box-shadow: 0 0 10px 2px #d62e0a;
 }
 
 .estimate-project-btn:hover .button-text {
@@ -1057,7 +1129,7 @@ All colors MUST be HSL.
 .estimate-project-btn:active .circle {
     transform: scale(0.9);
     transition: all 0.3s;
-    box-shadow: 0 0 5px 0.5px #dc2626;
+    box-shadow: 0 0 5px 0.5px #d62e0a;
 }
 
 .estimate-project-btn:hover .button-text {
@@ -1066,55 +1138,4 @@ All colors MUST be HSL.
 
 .estimate-project-btn:active .button-text {
     color: rgba(255, 255, 255, 0.9);
-}
-
-/* 3D CTA Button Style */
-.cta-btn-3d {
-    --color1: #1a1919;
-    --color2: #e81f1f;
-    perspective: 1000px;
-    padding: 1em 1em;
-    background: linear-gradient(var(--color1), var(--color2));
-    border: none;
-    outline: none;
-    font-size: 20px;
-    text-transform: uppercase;
-    letter-spacing: 4px;
-    color: #fff;
-    text-shadow: 0 10px 10px #000;
-    cursor: pointer;
-    transform: rotateX(70deg) rotateZ(30deg);
-    transform-style: preserve-3d;
-    transition: transform 0.5s;
-    font-weight: 600;
-    border-radius: 8px;
-    position: relative;
-}
-
-.cta-btn-3d::before {
-    content: "";
-    width: 100%;
-    height: 15px;
-    background-color: var(--color2);
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    transform: rotateX(90deg);
-    transform-origin: bottom;
-}
-
-.cta-btn-3d::after {
-    content: "";
-    width: 15px;
-    height: 100%;
-    background-color: var(--color1);
-    position: absolute;
-    top: 0;
-    right: 0;
-    transform: rotateY(-90deg);
-    transform-origin: right;
-}
-
-.cta-btn-3d:hover {
-    transform: rotateX(30deg) rotateZ(0);
 }

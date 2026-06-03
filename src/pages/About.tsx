@@ -4,13 +4,16 @@ import { useNavigationWithScroll } from "@/utils/navigation";
 import { SEOSchema } from "@/components/SEOSchema";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import HeroBackdrop from "@/components/HeroBackdrop";
+import Parallax from "@/components/Parallax";
+import SectionDivider from "@/components/SectionDivider";
 import ScrollReveal from "@/components/ScrollReveal";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import { Users, Target, Eye, Award, ChevronDown, ChevronUp, CheckCircle, ArrowRight } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
-import { SectionHeading, SectionLead } from "@/components/typography";
+import { Heading } from "@/components/ui/section";
 
 const About = () => {
   const navigate = useNavigate();
@@ -84,100 +87,80 @@ const About = () => {
       />
       <Header />
 
-      {/* Hero Section - Split Layout */}
-      <section className="relative pt-24 pb-8 md:pt-18 md:pb-8 bg-background overflow-hidden">
-        <div className="absolute inset-x-0 top-0 h-[280px] md:h-[300px] bg-gradient-to-b from-background via-background/90 to-transparent pointer-events-none" />
-        <div className="container mx-auto px-4 sm:px-6 lg:px-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 xl:gap-12 items-center max-w-6xl mx-auto">
-            {/* Left Side - Text Content */}
-            <ScrollReveal className="flex flex-col justify-center relative z-10 text-left">
-              <SectionHeading className="text-left">
-                <span className="text-foreground">Quantum </span>
-                <span className="text-primary">Intelligence</span>
-              </SectionHeading>
+      {/* Hero — research-page style: the team photo as a full-bleed background */}
+      <section className="relative overflow-hidden text-white pt-20 pb-4 sm:pt-24 sm:pb-5 lg:pt-28 lg:pb-6">
+        {/* Team photo background — focal point just below the top — drifts on scroll for depth */}
+        <Parallax speed={-0.25} clamp={150} className="absolute inset-x-0 -inset-y-[24%] h-[148%]">
+          <div
+            className="absolute inset-0 bg-cover bg-[center_22%]"
+            style={{ backgroundImage: "url('/uploads/TEAM.jpeg')" }}
+          />
+        </Parallax>
+        {/* Light brand-red tint + soft dark gradient so the white type stays legible */}
+        <div className="pointer-events-none absolute inset-0 bg-[#b3210a]/25 mix-blend-multiply" />
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-black/60 via-black/30 to-black/5" />
+        <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-2xl lg:ml-[28%]">
+            <h1 className="pl-6 text-5xl font-light leading-[1.03] tracking-tight text-white drop-shadow-sm sm:text-6xl lg:text-7xl">
+              Solving intelligence to benefit <span className="italic">humanity.</span>
+            </h1>
+            <p className="mt-6 pl-6 max-w-xl text-base leading-relaxed text-white/85 md:text-lg">
+              We&apos;re an AI research and deployment company building innovative, ethical, and
+              accessible AI — so businesses and people can unlock the full potential of their data.
+            </p>
 
-              <p className="text-base text-muted-foreground mb-8 max-w-3xl">
-                We're an AI research and deployment company building innovative, ethical, and accessible AI solutions that empower businesses and individuals to unlock the full potential of their data.
-              </p>
-              <div className="flex flex-col sm:flex-row items-start gap-3">
-                <Button
-                  size="sm"
-                  onClick={() => navigateToTop('/contact')}
-                  className="bg-primary hover:bg-primary/90 text-primary-foreground h-9 sm:h-10 px-4 sm:px-5 py-2 sm:py-2.5 text-sm sm:text-base"
-                >
-                  Get Started
-                </Button>
-                {/* <Button
-                  variant="outline"
-                  size="sm"
-                  onClick={() => navigateToTop('/careers')}
-                >
-                  Join Our Team
-                </Button> */}
-              </div>
-            </ScrollReveal>
+            <div className="relative mt-9 inline-flex">
+              {/* passionlabs "button_outlines" — white lines emanate from the button edges */}
+              <span className="pointer-events-none absolute top-1/2 right-full h-px w-screen -translate-y-1/2 bg-white/80" />
+              <span className="pointer-events-none absolute top-1/2 left-full h-px w-screen -translate-y-1/2 bg-white/80" />
+              <span className="pointer-events-none absolute bottom-full left-0 h-screen w-px bg-white/80" />
+              <span className="pointer-events-none absolute top-full left-0 h-[200vh] w-px bg-white/80" />
+              <button
+                onClick={() => navigateToTop("/contact")}
+                className="group relative z-10 inline-flex items-center gap-3 py-3 pr-4 text-sm font-semibold uppercase tracking-[0.2em] text-white drop-shadow-sm"
+              >
+                <span className="h-3 w-3 rounded-full bg-[#eb0000] transition-transform duration-300 group-hover:scale-150" />
+                Get in touch
+              </button>
+            </div>
 
-            {/* Right Side - Image with Overlay Cards */}
-            <ScrollReveal delay={200} className="relative">
-            <div className="relative overflow-hidden rounded-2xl shadow-2xl h-[400px] lg:h-[450px] hidden md:block mt-6 lg:mt-10">
-                <img
-                  src="/uploads/TEAM.jpeg"
-                  alt="Quantum Intelligence Team"
-                  className="w-full h-full object-cover"
-                  loading="eager"
-                />
-                {/* Gradient Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent pointer-events-none" />
-
-                {/* Overlay Stat Cards */}
-                <div className="absolute top-48 right-4 space-y-3">
-                  <div className="bg-background/95 backdrop-blur-sm rounded-lg p-4 shadow-xl border border-border/50 min-w-[150px]">
-                    <div className="text-2xl font-bold text-primary mb-1">20+</div>
-                    <div className="text-xs text-muted-foreground">Projects Delivered</div>
-                  </div>
-                  <div className="bg-background/95 backdrop-blur-sm rounded-lg p-4 shadow-xl border border-border/50 min-w-[150px]">
-                    <div className="text-2xl font-bold text-primary mb-1">09+</div>
-                    <div className="text-xs text-muted-foreground">Team Members</div>
-                  </div>
+            {/* Stats — tucked into the hero with thin accent rules */}
+            <div className="mt-12 flex flex-wrap gap-x-10 gap-y-6 pl-6">
+              {[
+                { v: "20+", l: "Projects Delivered" },
+                { v: "09+", l: "Team Members" },
+                { v: "99%", l: "Client Satisfaction" },
+              ].map((s) => (
+                <div key={s.l} className="border-l-2 border-[#eb0000] pl-4">
+                  <div className="text-3xl font-light leading-none text-white sm:text-4xl">{s.v}</div>
+                  <div className="mt-1.5 text-xs uppercase tracking-wide text-white/65">{s.l}</div>
                 </div>
-
-              <div className="absolute bottom-4 left-4 space-y-3">
-                  <div className="bg-background/95 backdrop-blur-sm rounded-lg p-4 shadow-xl border border-border/50 min-w-[150px]">
-                    <div className="text-2xl font-bold text-primary mb-1">99%</div>
-                    <div className="text-xs text-muted-foreground">Client Satisfaction</div>
-                  </div>
-                </div>
-              </div>
-            </ScrollReveal>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Mission & Vision */}
-      <section className="relative py-12 md:py-16 overflow-hidden">
-        {/* Decorative Background */}
-        <div className="absolute inset-0 bg-gradient-to-b from-background via-background/95 to-background" />
-        <div className="absolute top-0 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-secondary/5 rounded-full blur-3xl" />
-
+      {/* Mission & Vision — red block */}
+      <section className="relative py-10 sm:py-12 lg:py-14 overflow-hidden bg-[#b3210a] text-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-10 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 xl:gap-12 max-w-6xl mx-auto">
             <ScrollReveal>
-              <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent">Our Mission</h2>
-              <p className="text-base text-muted-foreground mb-3">
+              <Heading as="h2" size="h2" className="mb-4 text-white">Our Mission</Heading>
+              <p className="text-base text-white/90 mb-3">
                   To democratize artificial intelligence by building innovative, ethical, and accessible AI solutions that empower businesses and individuals to unlock the full potential of their data.
                 </p>
-              <p className="text-sm text-muted-foreground">
+              <p className="text-sm text-white/75">
                   We believe that AI should be a force for good, driving positive change across industries while maintaining the highest standards of ethics and transparency.
                 </p>
             </ScrollReveal>
             <ScrollReveal delay={100}>
-              <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent">Our Vision</h2>
-              <p className="text-base text-muted-foreground mb-3">
+              <Heading as="h2" size="h2" className="mb-4 text-white">Our Vision</Heading>
+              <p className="text-base text-white/90 mb-3">
                   We live in an exciting time when AI research and technology are delivering extraordinary advances.
                   In the coming years, AI — and ultimately artificial general intelligence (AGI) — has the potential to drive one of the greatest transformations in history.
                 </p>
-              <p className="text-sm text-muted-foreground">
+              <p className="text-sm text-white/75">
 
 We're a team of scientists, engineers, ethicists and more, working to build the next generation of AI systems safely and responsibly.              </p>
             </ScrollReveal>
@@ -185,14 +168,17 @@ We're a team of scientists, engineers, ethicists and more, working to build the 
         </div>
       </section>
 
-      <section className="relative py-12 md:py-16 bg-gradient-to-br from-card via-card/50 to-background overflow-hidden">
+      {/* Interlocking divider — white surface with red data-matrix teeth */}
+      <SectionDivider variant="ring" flip className="-mt-1 -mb-1 w-full bg-card text-[#b3210a]" />
+
+      <section className="relative py-16 sm:py-20 lg:py-24 bg-gradient-to-br from-card via-card/50 to-background overflow-hidden">
         {/* Decorative Elements */}
         <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl" />
         <div className="absolute bottom-0 left-0 w-64 h-64 bg-secondary/5 rounded-full blur-3xl" />
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-10 relative z-10">
           <ScrollReveal className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent">Our Values</h2>
+            <Heading as="h2" size="h2" className="mb-4 text-foreground">Our Values</Heading>
             <p className="text-base md:text-lg text-muted-foreground max-w-3xl mx-auto">
               By solving some of the hardest scientific and engineering challenges of our time, we're working to create breakthrough technologies that could advance science, transform work, serve diverse communities — and improve billions of people's lives.
             </p>
@@ -218,7 +204,7 @@ We're a team of scientists, engineers, ethicists and more, working to build the 
                       <Button
                         variant="ghost"
                         size="sm"
-                        className="p-0 text-white hover:text-red-400 hover:bg-transparent bg-transparent focus-visible:ring-0"
+                        className="p-0 text-white hover:text-primary hover:bg-transparent bg-transparent focus-visible:ring-0"
                         aria-expanded={expandedValues[value.title]}
                       >
                         Learn More
@@ -306,7 +292,7 @@ We're a team of scientists, engineers, ethicists and more, working to build the 
       </section>
 
       {/* Company Story */}
-      <section className="relative py-12 md:py-16 overflow-hidden">
+      <section className="relative pt-16 sm:pt-20 lg:pt-24 overflow-hidden">
         {/* Decorative Pattern */}
         <div className="absolute inset-0 opacity-5">
           <div className="absolute inset-0" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, hsl(var(--primary)) 1px, transparent 0)', backgroundSize: '40px 40px' }} />
@@ -315,7 +301,7 @@ We're a team of scientists, engineers, ethicists and more, working to build the 
         <div className="container mx-auto px-4 sm:px-6 lg:px-10 relative z-10">
           <ScrollReveal className="max-w-4xl mx-auto">
             <div className="text-center mb-8">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent">Our Story</h2>
+              <Heading as="h2" size="h2" className="mb-4 text-foreground">Our Story</Heading>
             </div>
             <div className="space-y-3 text-base text-muted-foreground">
                 <p>
@@ -342,14 +328,18 @@ It’s about what it can do for you.
       </section>
 
 
-      {/* CTA */}
-      <section className="py-20 bg-gradient-to-r from-primary/10 via-secondary/10 to-primary/10">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-10 text-center">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-5xl font-bold mb-4">
+      {/* CTA — glass card wraps the content so it stays readable on top of
+          the HeroBackdrop's red plexus canvas. */}
+      <section className="relative overflow-hidden pb-40 sm:pb-44 lg:pb-48 bg-background">
+        <HeroBackdrop />
+        {/* Data-matrix divider — teeth match the section above (bg-background); transparent backing so the plexus shows through the gaps */}
+        <SectionDivider variant="matrix" className="relative z-10 w-full text-[hsl(var(--background))]" />
+        <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-10 pt-16 sm:pt-20 lg:pt-24">
+          <div className="max-w-3xl mx-auto rounded-2xl border border-border/60 bg-background/85 backdrop-blur-md shadow-[0_15px_40px_-25px_rgba(15,23,42,0.25)] p-6 md:p-10 text-center">
+            <Heading as="h2" size="h2" className="mb-4 text-foreground">
               Join Our Journey
-            </h2>
-            <p className="text-base md:text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
+            </Heading>
+            <p className="text-base md:text-lg text-foreground/85 mb-8 max-w-2xl mx-auto">
               Ready to be part of the AI revolution? Let's build the future together.
             </p>
             <div className="flex flex-col sm:flex-row items-start sm:justify-center gap-4">

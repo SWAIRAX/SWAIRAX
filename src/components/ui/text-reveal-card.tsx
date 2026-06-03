@@ -78,7 +78,10 @@ export const TextRevealCard = ({
     }
   }
 
-  const rotateDeg = (widthPercentage - 50) * 0.1;
+  // Smoothly clamp the cursor position to 0–100 so the gradient reveal
+  // never spills past the text edges.
+  const clampedPct = Math.max(0, Math.min(100, widthPercentage));
+
   return (
     <div
       onMouseEnter={isDesktop ? mouseEnterHandler : undefined}
@@ -88,60 +91,74 @@ export const TextRevealCard = ({
       onTouchEnd={isDesktop ? mouseLeaveHandler : undefined}
       onTouchMove={isDesktop ? touchMoveHandler : undefined}
       ref={cardRef}
-      className={cn(
-        "bg-black/80 border border-red-500/20 rounded-lg p-8 relative overflow-hidden backdrop-blur-sm",
-        className
-      )}
+      className={cn("relative", className)}
     >
       {children}
 
-      <div className="h-90  relative flex items-center overflow-hidden">
-        {isDesktop && (
-          <motion.div
-            style={{
-              width: "100%",
-            }}
-            animate={
-              isMouseOver
-                ? {
-                    opacity: widthPercentage > 0 ? 1 : 0,
-                    clipPath: `inset(0 ${100 - widthPercentage}% 0 0)`,
-                  }
-                : {
-                    clipPath: `inset(0 ${100 - widthPercentage}% 0 0)`,
-                  }
-            }
-            transition={isMouseOver ? { duration: 0 } : { duration: 0.4 }}
-            className="absolute bg-black/95 z-20 will-change-transform"
-          >
-            <p
-              style={{
-                textShadow: "4px 4px 15px rgba(0,0,0,0.5)",
-              }}
-              className="text-2xl sm:text-3xl md:text-4xl lg:text-3xl font-black leading-tight bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent"
-            >
-              {revealText}
-            </p>
-          </motion.div>
-        )}
-        {isDesktop && (
-          <motion.div
+      {/*
+        Two stacked text layers:
+          1) BASE — the everyday text, always visible in the page's
+             foreground colour. Reads cleanly on any theme.
+          2) REVEAL — the alternate text in the brand primary colour,
+             revealed left-to-right by a clip-path that tracks the cursor.
+        A thin gradient bar follows the cursor as a subtle "pen tip".
+      */}
+      <div className="relative inline-block w-full">
+        {/* BASE text — hidden by clipPath from the LEFT in lockstep with
+            the reveal text, so the two never appear at the same character
+            position. At rest, no clipping → fully visible. */}
+        {isDesktop ? (
+          <motion.p
             animate={{
-              left: `${widthPercentage}%`,
-              rotate: `${rotateDeg}deg`,
-              opacity: widthPercentage > 0 ? 1 : 0,
+              clipPath: `inset(0 0 0 ${isMouseOver ? clampedPct : 0}%)`,
             }}
             transition={isMouseOver ? { duration: 0 } : { duration: 0.4 }}
-            className="hidden md:block h-90 w-[8px] bg-gradient-to-b from-transparent via-red-500 to-transparent absolute z-50 will-change-transform"
-          ></motion.div>
-        )}
-
-        <div className=" overflow-hidden [mask-image:linear-gradient(to_bottom,transparent,white,transparent)]">
-          <p className="text-2xl sm:text-3xl md:text-4xl lg:text-3xl font-black leading-tight bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent">
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-3xl font-black leading-tight text-foreground"
+            style={{ willChange: "clip-path" }}
+          >
+            {text}
+          </motion.p>
+        ) : (
+          <p className="text-2xl sm:text-3xl md:text-4xl lg:text-3xl font-black leading-tight text-foreground">
             {text}
           </p>
-          {isDesktop && <MemoizedStars />}
-        </div>
+        )}
+
+        {/* REVEAL text — overlaid, clipped from the RIGHT by cursor pct.
+            The two clips meet at the cursor X, swapping the base text out
+            for the brand-coloured reveal text wherever the cursor has
+            already passed. */}
+        {isDesktop && (
+          <motion.p
+            aria-hidden="true"
+            animate={{
+              clipPath: `inset(0 ${100 - clampedPct}% 0 0)`,
+              opacity: isMouseOver && clampedPct > 0 ? 1 : 0,
+            }}
+            transition={isMouseOver ? { duration: 0 } : { duration: 0.4 }}
+            className={cn(
+              "absolute inset-0 text-2xl sm:text-3xl md:text-4xl lg:text-3xl font-black leading-tight",
+              "bg-gradient-to-r from-primary via-primary to-primary/70 bg-clip-text text-transparent",
+            )}
+            style={{ willChange: "clip-path" }}
+          >
+            {revealText}
+          </motion.p>
+        )}
+
+        {/* Cursor "pen tip" — a slim vertical gradient bar that rides
+            along with the reveal edge. Sits on top of both layers. */}
+        {isDesktop && (
+          <motion.div
+            aria-hidden="true"
+            animate={{
+              left: `${clampedPct}%`,
+              opacity: isMouseOver && clampedPct > 0 ? 1 : 0,
+            }}
+            transition={isMouseOver ? { duration: 0 } : { duration: 0.4 }}
+            className="pointer-events-none absolute top-0 bottom-0 w-[2px] bg-gradient-to-b from-transparent via-primary to-transparent"
+          />
+        )}
       </div>
     </div>
   );
@@ -199,7 +216,7 @@ const Stars = () => {
             left: `${random() * 100}%`,
             width: `2px`,
             height: `2px`,
-            backgroundColor: "rgb(239 68 68)", // red-500
+            backgroundColor: "#d62e0a", // brand red
             borderRadius: "50%",
             zIndex: 1,
           }}

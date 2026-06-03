@@ -3,7 +3,9 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { MapPin, Clock, Users, ArrowRight, Zap, Heart, Globe } from "lucide-react";
+import HeroBackdrop from "@/components/HeroBackdrop";
+import { MapPin, Clock, Users, ArrowRight, Zap, Heart, Globe, Briefcase, Sparkles } from "lucide-react";
+import { Section, Eyebrow, Heading, Lead, PageHero } from "@/components/ui/section";
 
 const Careers = () => {
   const openPositions = [
@@ -120,48 +122,42 @@ const Careers = () => {
       <Header />
 
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-primary/10"></div>
-        <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-1/4 left-1/4 w-64 h-64 bg-primary/5 rounded-full blur-2xl"></div>
-
-        <div className="container mx-auto px-6 relative z-10">
-          <div className="max-w-5xl mx-auto text-center">
-            <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-6">
-              🚀 We're Hiring
-            </div>
-            <h1 className="text-4xl md:text-7xl font-bold mb-6 leading-tight">
-              Shape the Future of <span className="text-primary">Enterprise AI</span>
-            </h1>
-            <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto leading-relaxed">
-              Join a world-class team of AI researchers and engineers building the next generation of intelligent systems that transform how businesses operate.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <Button
-                size="lg"
-                onClick={() => document.getElementById('positions')?.scrollIntoView({ behavior: 'smooth' })}
-                className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-4 text-lg shadow-lg hover:shadow-xl transition-all duration-300"
-              >
-                Explore Opportunities <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-              <Button
-                variant="outline"
-                size="lg"
-                className="border-primary/20 text-primary hover:bg-primary/5 px-8 py-4 text-lg"
-                onClick={() => document.getElementById('values')?.scrollIntoView({ behavior: 'smooth' })}
-              >
-                Our Culture
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        align="center"
+        background={
+          <>
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-primary/10"></div>
+            <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl"></div>
+            <div className="absolute bottom-1/4 left-1/4 w-64 h-64 bg-primary/5 rounded-full blur-2xl"></div>
+          </>
+        }
+        title={<>Shape the Future of Enterprise AI</>}
+        description="Join a world-class team of AI researchers and engineers building the next generation of intelligent systems that transform how businesses operate."
+        actions={
+          <>
+            <Button
+              size="lg"
+              onClick={() => document.getElementById('positions')?.scrollIntoView({ behavior: 'smooth' })}
+              className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-4 text-lg shadow-lg hover:shadow-xl transition-all duration-300"
+            >
+              Explore Opportunities <ArrowRight className="ml-2 h-5 w-5" />
+            </Button>
+            <Button
+              variant="outline"
+              size="lg"
+              className="border-primary/20 text-primary hover:bg-primary/5 px-8 py-4 text-lg"
+              onClick={() => document.getElementById('values')?.scrollIntoView({ behavior: 'smooth' })}
+            >
+              Our Culture
+            </Button>
+          </>
+        }
+      />
 
       {/* Company Values */}
-      <section id="values" className="py-20 bg-card">
-        <div className="container mx-auto px-6">
+      <Section id="values" bg="card">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold mb-6">Our Core Values</h2>
+            <Heading as="h2" size="h2" className="mb-6">Our Core Values</Heading>
             <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
               These principles drive our innovation and shape how we collaborate, learn, and create impact together.
             </p>
@@ -177,14 +173,12 @@ const Careers = () => {
               </Card>
             ))}
           </div>
-        </div>
-      </section>
+      </Section>
 
       {/* Benefits Section */}
-      <section className="py-20">
-        <div className="container mx-auto px-6">
+      <Section>
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold mb-6">Why Choose Quantum Intelligence?</h2>
+            <Heading as="h2" size="h2" className="mb-6">Why Choose Quantum Intelligence?</Heading>
             <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
               Join a team where innovation meets impact. We provide world-class resources, mentorship, and opportunities to work on projects that matter.
             </p>
@@ -199,17 +193,13 @@ const Careers = () => {
               </div>
             ))}
           </div>
-        </div>
-      </section>
+      </Section>
 
       {/* Open Positions */}
-      <section id="positions" className="py-20 bg-card">
-        <div className="container mx-auto px-6">
+      <Section id="positions" bg="card">
           <div className="text-center mb-16">
-            <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-6">
-              💼 Open Roles
-            </div>
-            <h2 className="text-3xl md:text-5xl font-bold mb-6">Join Our Growing Team</h2>
+            <Eyebrow variant="pill" icon={<Briefcase className="h-4 w-4" />} className="mb-6">Open Roles</Eyebrow>
+            <Heading as="h2" size="h2" className="mb-6">Join Our Growing Team</Heading>
             <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
               We're looking for exceptional talent to help us build the future of AI. Each role offers the opportunity to work on groundbreaking projects with global impact.
             </p>
@@ -264,21 +254,21 @@ const Careers = () => {
               </Card>
             ))}
           </div>
-        </div>
-      </section>
+      </Section>
 
-      {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-primary/5 via-primary/10 to-primary/5 text-center relative overflow-hidden">
-        <div className="absolute inset-0 opacity-30" style={{ backgroundImage: 'radial-gradient(circle at 25% 25%, rgba(0,0,0,0.1) 2px, transparent 2px), radial-gradient(circle at 75% 75%, rgba(0,0,0,0.1) 2px, transparent 2px)', backgroundSize: '60px 60px' }}></div>
+      {/* CTA Section — glass card wraps the content so it stays readable on
+          top of the HeroBackdrop's red plexus canvas. */}
+      <section className="pt-20 pb-40 sm:pb-44 bg-background relative overflow-hidden">
+        <HeroBackdrop />
         <div className="container mx-auto px-6 relative z-10">
-          <div className="max-w-4xl mx-auto">
-            <div className="inline-flex items-center gap-2 bg-white/10 text-white px-4 py-2 rounded-full text-sm font-medium mb-6">
-              🌟 Always Hiring
+          <div className="max-w-3xl mx-auto rounded-2xl border border-border/60 bg-background/85 backdrop-blur-md shadow-[0_15px_40px_-25px_rgba(15,23,42,0.25)] p-6 md:p-10 text-center">
+            <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-6">
+              <Sparkles className="h-4 w-4" /> Always Hiring
             </div>
-            <h2 className="text-3xl md:text-5xl font-bold mb-6">
+            <Heading as="h2" size="h2" className="mb-6 text-foreground">
               Ready to Make an Impact?
-            </h2>
-            <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed">
+            </Heading>
+            <p className="text-lg md:text-xl text-foreground/85 mb-8 max-w-2xl mx-auto leading-relaxed">
               Even if you don't see a perfect match above, we're always interested in connecting with talented individuals who share our vision for AI innovation.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -297,7 +287,7 @@ const Careers = () => {
               <Button
                 variant="outline"
                 size="lg"
-                className="border-white/20 text-white hover:bg-white/10 px-8 py-4 text-lg"
+                className="border-foreground/30 text-foreground hover:bg-foreground/5 hover:border-foreground/50 px-8 py-4 text-lg"
                 onClick={() =>
                   window.open(
                     'mailto:communications@quantumintelligence.co.tz?subject=General Inquiry&body=I\'d like to learn more about career opportunities at Quantum Intelligence.',

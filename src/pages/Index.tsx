@@ -7,11 +7,18 @@ import Cube3D from "@/components/3DCube";
 import AnimatedCounter from "@/components/AnimatedCounter";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import HeroBackdrop from "@/components/HeroBackdrop";
 import ScrollReveal from "@/components/ScrollReveal";
 import { SocialMediaButton } from "@/components/SocialMediaButton";
-import { ArrowRight, CheckCircle, Database, Cog, Cloud, BarChart3, PieChart, TrendingUp, User, Clock } from "lucide-react";
+import { ArrowRight, CheckCircle, Database, Cog, Cloud, BarChart3, PieChart, TrendingUp, User, Clock, Target } from "lucide-react";
 import { blogPosts, BlogPost } from "@/data/blogPosts";
 import { InfiniteMovingCards } from "@/components/ui/infinite-moving-cards";
+import { Eyebrow, Heading } from "@/components/ui/section";
+import PlexusBackground from "@/components/PlexusBackground";
+import Parallax from "@/components/Parallax";
+import HeroDivider from "@/components/HeroDivider";
+import LogoMarquee from "@/components/LogoMarquee";
+import SectionDivider from "@/components/SectionDivider";
 
 const Index = () => {
   const navigate = useNavigate();
@@ -84,55 +91,83 @@ const Index = () => {
       <Header />
 
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-       {/* Background Video */}
-       <div className="absolute inset-0 w-full h-full">
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="absolute inset-0 w-full h-full object-cover"
-            style={{ filter: 'brightness(1.0)' }}
-          >
-            <source src="https://6266199.fs1.hubspotusercontent-na1.net/hubfs/6266199/YData_background_large_compressed.mp4#t=0.001" type="video/mp4" />
-          </video>
-          <div className="absolute inset-0 bg-background/60"></div>
-        </div>
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background pt-24 pb-32 sm:py-0">
+        {/* Animated red plexus network background — drifts on scroll for depth */}
+        <Parallax speed={-0.22} clamp={170} className="absolute inset-x-0 -inset-y-[26%] h-[152%]">
+          <PlexusBackground backgroundColor={0xeff1f5} className="absolute inset-0 h-full w-full" />
+        </Parallax>
+        {/* Radial vignette so the headline stays legible over the network */}
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,hsl(var(--background)/0.4)_58%,hsl(var(--background)/0.85)_100%)]" />
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <div className="max-w-4xl mx-auto animate-fade-in">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-bold mb-4 sm:mb-6 leading-tight">
-             AI-powered Automation <br />
-             {/* <span className="text-blue-400">AI-powered Automation</span>  */}
-               <span className="text-primary"> For every decision</span>
-            </h1>
-            <p className="text-lg sm:text-xl md:text-xl lg:text-xl text-muted-foreground mb-1 sm:mb-1.5 leading-relaxed">
-              Adopting data-centric operations and building AI solutions has never been easier,
-            </p>
-            <p className="text-lg sm:text-xl md:text-xl lg:text-xl text-muted-foreground leading-relaxed font-medium -mt-1 sm:-mt-2">
+            <Heading
+              as="h1"
+              size="display"
+              className="mb-5 sm:mb-6 text-[clamp(1.75rem,11vw,2.5rem)] sm:text-5xl lg:text-6xl uppercase tracking-tight text-foreground"
+            >
+              AI-powered Automation <br />
+              For every decision
+            </Heading>
+            <p className="mx-auto max-w-2xl text-lg sm:text-xl lg:text-2xl font-semibold text-foreground leading-relaxed">
+              Adopting data-centric operations and building AI solutions has never been easier —
               we are working on that.
             </p>
-            <Button
-              size="sm"
-              className="bg-primary hover:bg-primary/90 text-primary-foreground px-6 sm:px-8 py-3 sm:py-4 text-sm animate-glow-pulse shadow-lg hover:shadow-xl transition-all duration-300 mt-4 sm:mt-6"
-              onClick={() => scrollToSection("why-quantum")}
-            >
-              Scroll to Explore
-            </Button>
+
+            <div className="mt-8 flex flex-col sm:flex-row gap-4 items-center justify-center">
+              {/* Glossy primary button */}
+              <button
+                onClick={() => navigateToTop("/contact")}
+                className="group relative inline-flex items-center justify-center rounded-full px-8 py-3.5 text-sm font-semibold text-white shadow-[0_8px_30px_-8px_rgba(0,0,0,0.8)] transition-transform duration-200 hover:scale-[1.03] active:scale-95
+                  bg-[linear-gradient(180deg,rgba(255,255,255,0.18),rgba(255,255,255,0.04)),linear-gradient(180deg,#3a3a42,#15151b)]
+                  ring-1 ring-white/10"
+              >
+                Get Started
+              </button>
+              {/* Red outline button */}
+              <button
+                onClick={() => navigateToTop("/kinara-copilot")}
+                className="group inline-flex items-center justify-center gap-2 rounded-full border border-primary/60 bg-primary/5 px-8 py-3.5 text-sm font-semibold text-foreground transition-all duration-200 hover:bg-primary/10 hover:border-primary active:scale-95"
+              >
+                <CheckCircle className="h-4 w-4 text-primary" />
+                Projects of Success
+              </button>
+            </div>
           </div>
         </div>
+
+        {/* Red data-matrix divider (with central scroll-ring) along the bottom — lecdt-style */}
+        <HeroDivider className="pointer-events-none absolute inset-x-0 bottom-0 z-10 w-full text-[#ff0000]" />
       </section>
+
+      {/* Partner logos — red auto-scrolling band (lecdt-style).
+          Pulled up under the hero divider so its red fills the divider's gaps —
+          no white seam between the data-matrix divider and the red band. */}
+      <LogoMarquee
+        className="-mt-1"
+        logos={[
+          { src: "/uploads/buni.png", alt: "Buni Innovation Hub" },
+          { src: "/uploads/costech.png", alt: "COSTECH" },
+          { src: "/uploads/dtbi.png", alt: "DTBI" },
+          { src: "/uploads/udsm.png", alt: "UDSM" },
+          { src: "/uploads/swahilies.png", alt: "Swahilies" },
+          { src: "/uploads/sinnovate-logo.png", alt: "SINNOVATE" },
+        ]}
+      />
+
+      {/* Red data-matrix divider (lecdt projects-style) — red teeth on a white (bg-card)
+          backing so the gaps match the why-quantum section below */}
+      <SectionDivider className="-mt-1 w-full bg-card text-[#ff0000]" />
 
       {/* Why Quantum Intelligence Section */}
       <section id="why-quantum" className="py-12 sm:py-16 lg:py-20 bg-card">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal className="text-center mb-8 sm:mb-12 lg:mb-16">
-            <p className="text-primary text-sm sm:text-base md:text-lg font-semibold mb-3 sm:mb-4">Why Quantum Intelligence?</p>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-6 sm:mb-8 leading-tight">
+            <Eyebrow className="mb-3 sm:mb-4">Why Quantum Intelligence?</Eyebrow>
+            <Heading as="h2" size="h2" className="mb-6 sm:mb-8">
               We help Business & Data Scientists to unlock<br />
               data & artificial intelligence full potential.
-            </h2>
+            </Heading>
           </ScrollReveal>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
@@ -175,15 +210,15 @@ const Index = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
             <ScrollReveal>
-              <p className="text-primary text-sm sm:text-base md:text-lg font-semibold mb-3 sm:mb-4">What do we do?</p>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 lg:mb-8 leading-tight">
+              <Eyebrow className="mb-3 sm:mb-4">What do we do?</Eyebrow>
+              <Heading as="h2" size="h2" className="mb-4 sm:mb-6 lg:mb-8">
                 Data-Centric and AI solutions
-              </h2>
+              </Heading>
             </ScrollReveal>
 
             <ScrollReveal delay={150}>
               <div className="bg-card p-8 rounded-lg border">
-                <p className="text-primary text-sm font-semibold mb-4">AI STUDIO & IDEAS</p>
+                <Eyebrow className="mb-4">AI STUDIO & IDEAS</Eyebrow>
                 <h3 className="text-2xl font-bold mb-4">
                   Get Customized AI powered solution for a research or business.
                 </h3>
@@ -206,14 +241,16 @@ const Index = () => {
       </section>
 
       {/* MLOps Section */}
-      <section className="py-12 sm:py-16 lg:py-20 bg-card">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="bg-card pb-12 sm:pb-16 lg:pb-20">
+        {/* Tone-on-tone interlocking top divider (lecdt "divisor um") */}
+        <SectionDivider variant="ring" flip className="w-full text-[hsl(var(--background))]" />
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-12 sm:pt-16 lg:pt-20">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
             <ScrollReveal>
-              <p className="text-primary text-sm sm:text-base md:text-lg font-semibold mb-3 sm:mb-4">MLOps</p>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 lg:mb-8 leading-tight">
+              <Eyebrow className="mb-3 sm:mb-4">MLOps</Eyebrow>
+              <Heading as="h2" size="h2" className="mb-4 sm:mb-6 lg:mb-8">
                 Machine Learning + Devops
-              </h2>
+              </Heading>
               <p className="text-muted-foreground text-sm sm:text-base mb-4 sm:mb-6 leading-relaxed">
                 You have the data and the model, but you still can't see the return on investment for your AI
                 projects. Research shows that 50 - 90% of AI models are never commercialized because of
@@ -399,19 +436,19 @@ const Index = () => {
 
                 {/* Floating Analytics Icons */}
                 <div className="absolute -top-4 -right-4 w-8 h-8 bg-primary/20 rounded-full flex items-center justify-center animate-bounce">
-                  <span className="text-xs">📊</span>
+                  <BarChart3 className="h-4 w-4 text-primary" />
                 </div>
                 <div className="absolute -bottom-2 -left-2 w-6 h-6 bg-primary/20 rounded-full flex items-center justify-center animate-pulse">
-                  <span className="text-xs">🎯</span>
+                  <Target className="h-3.5 w-3.5 text-primary" />
                 </div>
               </div>
             </ScrollReveal>
 
             <ScrollReveal delay={150}>
-              <p className="text-primary text-base md:text-lg font-semibold mb-4">Business Analysis</p>
-              <h2 className="text-4xl md:text-5xl font-bold mb-8">
+              <Eyebrow className="mb-4">Business Analysis</Eyebrow>
+              <Heading as="h2" size="h2" className="mb-8">
                 Turn Insight Into Strategy
-              </h2>
+              </Heading>
               <p className="text-muted-foreground mb-6">
                 A free SaaS option to start with Data analysis and visualization with AI with drag and drop a
                 dataset in a minute. We help to you to see opportunities from your data.
@@ -429,13 +466,15 @@ const Index = () => {
       </section>
 
       {/* Products Section */}
-      <section className="py-12 sm:py-16 lg:py-20 bg-card">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="bg-card pb-12 sm:pb-16 lg:pb-20">
+        {/* Tone-on-tone interlocking top divider (lecdt "divisor dois") */}
+        <SectionDivider variant="matrix" flip className="w-full text-[hsl(var(--background))]" />
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-12 sm:pt-16 lg:pt-20">
           <ScrollReveal className="text-center mb-8 sm:mb-12 lg:mb-16">
-            <p className="text-primary text-sm sm:text-base md:text-lg font-semibold mb-3 sm:mb-4">Ready to start?</p>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight">
+            <Eyebrow className="mb-3 sm:mb-4">Ready to start?</Eyebrow>
+            <Heading as="h2" size="h2">
               Solutions Built to Scale
-            </h2>
+            </Heading>
           </ScrollReveal>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
@@ -472,7 +511,7 @@ const Index = () => {
                   </div>
 
                   <div className="flex items-center justify-between mb-6 relative z-10">
-                    <div className="rounded-xl bg-white/10 p-3 text-red-200 shadow-inner shadow-red-500/20">
+                    <div className={`rounded-xl bg-white/10 p-3 shadow-inner ${index % 2 === 1 ? "text-secondary-accent" : "text-primary"}`}>
                       {productIcons[index % productIcons.length]}
                     </div>
                     <span className="text-xs px-3 py-1 rounded-full bg-muted text-muted-foreground group-hover:bg-primary/20 transition-colors duration-300">
@@ -487,7 +526,7 @@ const Index = () => {
 
                   <Button
                     variant="ghost"
-                    className="text-foreground hover:text-red-400 bg-transparent hover:bg-transparent p-0 relative z-10 group-hover:translate-x-1 transition-transform duration-300 focus-visible:ring-0"
+                    className="text-foreground hover:text-primary bg-transparent hover:bg-transparent p-0 relative z-10 group-hover:translate-x-1 transition-transform duration-300 focus-visible:ring-0"
                     onClick={() => navigateToTop('/contact')}
                   >
                     {product.cta} <ArrowRight className="ml-2 h-4 w-4" />
@@ -505,12 +544,14 @@ const Index = () => {
       </section>
 
       {/* Infrastructure Section */}
-      <section className="py-12 sm:py-16 lg:py-20">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="pb-12 sm:pb-16 lg:pb-20">
+        {/* Tone-on-tone interlocking top divider (lecdt "divisor um") */}
+        <SectionDivider variant="ring" flip className="w-full text-[hsl(var(--card))]" />
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-12 sm:pt-16 lg:pt-20">
           <ScrollReveal className="max-w-4xl">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 lg:mb-8 leading-tight">
+            <Heading as="h2" size="h2" className="mb-4 sm:mb-6 lg:mb-8">
               Want to develop AI and data related solutions on-premises?
-            </h2>
+            </Heading>
             <p className="text-base sm:text-lg lg:text-xl text-muted-foreground mb-4 sm:mb-6 lg:mb-8 leading-relaxed">
               Quantum Intelligence offers AI related solutions that can be deployed in any infrastructure for
               anyone eager to enter in the industry.
@@ -529,13 +570,13 @@ const Index = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-12 sm:py-16 lg:py-20 bg-card text-center">
+      {/* CTA Section — keeps the original light card background instead of the plexus canvas */}
+      <section className="relative pt-12 sm:pt-16 lg:pt-20 pb-40 sm:pb-44 lg:pb-48 bg-card text-center">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 lg:mb-8 leading-tight">
-              Join the <span className="text-primary">Data-Centric AI</span> movement!
-            </h2>
+            <Heading as="h2" size="h2" className="mb-4 sm:mb-6 lg:mb-8">
+              Join the Data-Centric AI movement!
+            </Heading>
             <p className="text-base sm:text-lg lg:text-xl text-muted-foreground mb-6 sm:mb-8 lg:mb-12 max-w-3xl mx-auto leading-relaxed">
               Connect, profile, understand & orchestrate your data preparation flows to train models more
               efficiently! Improve AI initiatives performance in a iterative way.
@@ -561,11 +602,19 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Featured Articles Section */}
-      <section className="py-12 sm:py-16 lg:py-20">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Featured Articles Section — hero-style plexus background */}
+      <section className="relative overflow-hidden bg-background pb-12 sm:pb-16 lg:pb-20">
+        {/* Animated red plexus network background (same as hero) — drifts on scroll */}
+        <Parallax speed={-0.18} clamp={140} className="absolute inset-x-0 -inset-y-[22%] h-[144%]">
+          <PlexusBackground backgroundColor={0xeff1f5} className="absolute inset-0 h-full w-full" />
+        </Parallax>
+        {/* Radial vignette so content stays legible over the network */}
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,hsl(var(--background)/0.4)_58%,hsl(var(--background)/0.85)_100%)]" />
+        {/* Tone-on-tone interlocking top divider (lecdt "divisor dois") */}
+        <SectionDivider variant="matrix" flip className="relative z-10 w-full text-[hsl(var(--card))]" />
+        <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8 pt-12 sm:pt-16 lg:pt-20">
           <ScrollReveal>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-8 sm:mb-12 lg:mb-16 leading-tight">Our Latest Articles</h2>
+            <Heading as="h2" size="h2" className="mb-8 sm:mb-12 lg:mb-16">Our Latest Articles</Heading>
           </ScrollReveal>
 
           <InfiniteMovingCards
@@ -581,6 +630,7 @@ const Index = () => {
             className="mt-8"
             cardType="simple"
             showImages={true}
+            maskEdges={false}
             onLearnMore={(item) => {
               const article = allBlogPosts.find(a => a.title === item.name);
               if (article) {

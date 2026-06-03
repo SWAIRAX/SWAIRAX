@@ -3,6 +3,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { Container, Section, Heading, Lead, PageHero } from "@/components/ui/section";
 import { Download, BookOpen, Video, FileText, ExternalLink, Wrench } from "lucide-react";
 
 const Resources = () => {
@@ -99,35 +100,28 @@ const Resources = () => {
       <Header />
       
       {/* Hero Section */}
-      <section className="pt-24 pb-16 bg-card">
-        <div className="container mx-auto px-6">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              Knowledge <span className="text-primary">Resources</span>
-            </h1>
-            <p className="text-xl text-muted-foreground mb-8">
-              Access comprehensive guides, tools, and insights to accelerate your AI journey. 
-              Everything you need to build successful AI solutions.
-            </p>
-            <Button 
-              size="lg" 
-              onClick={() => document.getElementById('featured')?.scrollIntoView({ behavior: 'smooth' })}
-              className="bg-primary hover:bg-primary/90 text-primary-foreground px-8"
-            >
-              Explore Resources
-            </Button>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        className="bg-card"
+        title={<>Knowledge Resources</>}
+        description={<>Access comprehensive guides, tools, and insights to accelerate your AI journey. Everything you need to build successful AI solutions.</>}
+        actions={
+          <Button
+            size="lg"
+            onClick={() => document.getElementById('featured')?.scrollIntoView({ behavior: 'smooth' })}
+            className="bg-primary hover:bg-primary/90 text-primary-foreground px-8"
+          >
+            Explore Resources
+          </Button>
+        }
+      />
 
       {/* Featured Resources */}
-      <section id="featured" className="py-16">
-        <div className="container mx-auto px-6">
+      <Section id="featured">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Featured Resources</h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            <Heading as="h2" size="h2" className="mb-4">Featured Resources</Heading>
+            <Lead className="max-w-2xl mx-auto">
               Our most popular and comprehensive resources to help you get started quickly.
-            </p>
+            </Lead>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
@@ -155,17 +149,15 @@ const Resources = () => {
               </Card>
             ))}
           </div>
-        </div>
-      </section>
+      </Section>
 
       {/* Resource Categories */}
-      <section className="py-16 bg-card">
-        <div className="container mx-auto px-6">
+      <Section bg="card">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Browse by Category</h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            <Heading as="h2" size="h2" className="mb-4">Browse by Category</Heading>
+            <Lead className="max-w-2xl mx-auto">
               Find the right resources for your specific needs and expertise level.
-            </p>
+            </Lead>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -211,18 +203,16 @@ const Resources = () => {
               </Card>
             ))}
           </div>
-        </div>
-      </section>
+      </Section>
 
       {/* Upcoming Webinars */}
-      <section className="py-16">
-        <div className="container mx-auto px-6">
+      <Section>
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">Upcoming Webinars</h2>
-              <p className="text-lg text-muted-foreground">
+              <Heading as="h2" size="h2" className="mb-4">Upcoming Webinars</Heading>
+              <Lead>
                 Join our experts for live sessions on the latest AI trends and best practices.
-              </p>
+              </Lead>
             </div>
 
             <div className="space-y-6">
@@ -250,19 +240,17 @@ const Resources = () => {
               ))}
             </div>
           </div>
-        </div>
-      </section>
+      </Section>
 
       {/* Newsletter Signup */}
-      <section className="py-16 bg-card text-center">
-        <div className="container mx-auto px-6">
+      <Section bg="card" className="text-center">
           <div className="max-w-2xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            <Heading as="h2" size="h2" className="mb-4">
               Stay Updated
-            </h2>
-            <p className="text-lg text-muted-foreground mb-8">
+            </Heading>
+            <Lead className="mb-8">
               Subscribe to our newsletter to get the latest resources, insights, and updates delivered to your inbox.
-            </p>
+            </Lead>
             <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
               <input
                 type="email"
@@ -277,8 +265,7 @@ const Resources = () => {
               </Button>
             </div>
           </div>
-        </div>
-      </section>
+      </Section>
 
       <Footer />
     </div>

@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { Section, PageHero } from "@/components/ui/section";
 import {
   Accordion,
   AccordionContent,
@@ -39,17 +40,13 @@ const FAQ = () => {
     <div className="min-h-screen bg-background">
       <Header />
       
-      <main className="py-20">
-        <div className="container mx-auto px-6 max-w-4xl">
-          <div className="text-center mb-12">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              Frequently Asked Questions
-            </h1>
-            <p className="text-xl text-muted-foreground">
-              Find answers to common questions about our AI services and solutions.
-            </p>
-          </div>
+      <main>
+        <PageHero
+          title="Frequently Asked Questions"
+          description="Find answers to common questions about our AI services and solutions."
+        />
 
+        <Section spacing="compact" containerClassName="max-w-4xl">
           <Accordion type="single" collapsible className="space-y-4">
             {faqs.map((faq, index) => (
               <AccordionItem key={index} value={`item-${index}`} className="border border-border rounded-lg px-6">
@@ -62,7 +59,7 @@ const FAQ = () => {
               </AccordionItem>
             ))}
           </Accordion>
-        </div>
+        </Section>
       </main>
 
       <Footer />

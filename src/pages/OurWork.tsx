@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ArrowRight } from "lucide-react";
 import { useNavigationWithScroll } from "@/utils/navigation";
+import { Heading, Lead } from "@/components/ui/section";
 
 const OurWork = () => {
   const { navigateToTop } = useNavigationWithScroll();
@@ -26,19 +27,16 @@ const OurWork = () => {
     <div className="min-h-screen bg-background">
       <Header />
 
-      <section className="relative py-16 md:py-24">
+      <section className="relative py-16 sm:py-20 lg:py-24">
         <div className="max-w-[1200px] mx-auto px-6">
           <ScrollReveal className="text-center space-y-4 mb-12">
-            <Badge variant="outline" className="border-primary/20 text-primary">
-              Our Work
-            </Badge>
-            <h1 className="text-3xl md:text-5xl font-bold">
+            <Heading as="h1" size="display">
               Products built by Quantum Intelligence
-            </h1>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
+            </Heading>
+            <Lead className="max-w-2xl mx-auto">
               A focused portfolio of tools designed for African businesses,
               schools, and institutions.
-            </p>
+            </Lead>
           </ScrollReveal>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">

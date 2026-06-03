@@ -12,12 +12,14 @@ import { useToast } from "@/hooks/use-toast";
 import { SEOSchema } from "@/components/SEOSchema";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import PlexusBackground from "@/components/PlexusBackground";
+import Parallax from "@/components/Parallax";
 import { Mail, Phone, MapPin, Globe, Send, Calendar, X } from "lucide-react";
 
 // Background pattern styles
 const patternStyles = `
   .pattern-bg {
-    --color: rgba(255, 50, 50, 0.8);
+    --color: rgba(214, 46, 10, 0.5);
     background-color: rgb(0, 0, 0);
     background-size: 30px 30px;
     background-image: linear-gradient(45deg, var(--color), transparent 40%), linear-gradient(-90deg, var(--color), transparent 20%);
@@ -26,7 +28,8 @@ const patternStyles = `
   .card-container {
     width: 100%;
     max-width: 400px;
-    height: 533px;
+    min-height: 533px;
+    display: flex;
     position: relative;
     border-radius: 16px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
@@ -38,7 +41,7 @@ const patternStyles = `
 
   .card {
     width: 100%;
-    height: 100%;
+    display: flex;
     border-radius: inherit;
     position: relative;
   }
@@ -58,7 +61,7 @@ const patternStyles = `
     font-size: 22px;
     font-weight: 700;
     opacity: 1;
-    background: linear-gradient(-45deg, #000000 0%, #dc2626 100%);
+    background: linear-gradient(-45deg, #000000 0%, #d62e0a 100%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -83,20 +86,18 @@ const patternStyles = `
   }
 
   .card .content {
-    position: absolute;
-    top: 0;
-    left: 0;
+    position: relative;
+    flex: 1;
     width: 100%;
-    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
     gap: 16px;
-    background: linear-gradient(-45deg, #000000 0%, #dc2626 100%);
+    background: linear-gradient(-45deg, #000000 0%, #d62e0a 100%);
     color: #e8e8e8;
-    padding: 20px;
+    padding: 24px 20px;
     line-height: 1.5;
     border-radius: 16px;
     pointer-events: none;
@@ -110,16 +111,17 @@ const patternStyles = `
   }
 
   .card .content .heading {
-    font-size: 20px;
+    font-size: 30px;
     font-weight: 700;
     color: white;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
   }
 
   .card .content .description {
-    font-size: 14px;
-    color: rgba(255, 255, 255, 0.9);
-    margin-bottom: 12px;
+    font-size: 16px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.92);
+    margin-bottom: 14px;
   }
 
   /* Hover effects removed - content is now visible by default */
@@ -162,14 +164,14 @@ const patternStyles = `
     content: "";
     left: 0;
     justify-content: flex-end;
-    background: linear-gradient(-45deg, #000000 0%, #dc2626 100%);
+    background: linear-gradient(-45deg, #000000 0%, #d62e0a 100%);
   }
 
   .social-card::after {
     content: "";
     right: 0;
     justify-content: flex-start;
-    background: linear-gradient(45deg, #dc2626 0%, #000000 100%);
+    background: linear-gradient(45deg, #d62e0a 0%, #000000 100%);
   }
 
   .social-card:hover {
@@ -230,7 +232,7 @@ const patternStyles = `
   }
 
   .social-link:hover {
-    background-color: rgba(220, 38, 38, 0.8);
+    background-color: rgba(214, 46, 10, 0.8);
     animation: bounce_613 0.4s linear;
   }
 
@@ -341,57 +343,39 @@ const Contact = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-[#0c0c19]">
       <SEOSchema
         breadcrumbs={[
           { name: "Home", url: "https://quantumintelligence.co.tz" },
           { name: "Contact", url: "https://quantumintelligence.co.tz/contact" }
         ]}
       />
-      <div className="relative overflow-hidden">
-        {/* Subtle glow accents inspired by references */}
-        <div className="pointer-events-none absolute inset-0">
-          <div className="absolute -left-32 top-10 h-64 w-64 rounded-full bg-primary/15 blur-3xl" />
-          <div className="absolute right-0 bottom-10 h-72 w-72 rounded-full bg-primary/10 blur-3xl" />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,hsl(var(--card))/30,transparent_45%)]" />
-        </div>
+      <div className="relative overflow-hidden bg-[#0c0c19]">
+        {/* lecdt-style red plexus network + radial "sombra" vignette — plexus drifts on scroll */}
+        <Parallax speed={-0.2} clamp={150} className="absolute inset-x-0 -inset-y-[24%] h-[148%]">
+          <PlexusBackground backgroundColor={0x0c0c19} className="absolute inset-0 h-full w-full" />
+        </Parallax>
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_50%_28%,rgba(12,12,25,0.2),rgba(12,12,25,0.82)_78%)]" />
 
         <Header />
 
-        {/* Hero */}
-        <section className="relative pt-20 pb-10 overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-secondary/5 to-accent/5" />
-          <div className="absolute inset-0 pattern-bg opacity-20" />
-          <div className="container mx-auto px-5 max-w-5xl relative z-10">
-            <div className="text-center space-y-4">
-              <h1 className="text-3xl md:text-4xl font-bold leading-tight">
-                Contact with our <span className="text-primary">Development team</span>
-              </h1>
-              <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
-                Tell us a bit about your project and we&apos;ll reach out soon. We respond within one business day.
-              </p>
-            </div>
-          </div>
-        </section>
+        {/* Hero — lecdt "VAMOS CONVERSAR" style: big centered title on the dark plexus */}
+        <div className="relative z-10 px-5 pt-24 pb-10 text-center sm:pt-28">
+          <h1 className="mx-auto max-w-3xl text-4xl font-bold uppercase tracking-tight text-white sm:text-5xl lg:text-6xl">
+            Let&apos;s talk
+          </h1>
+          <p className="mx-auto mt-5 max-w-xl text-base text-white/70 md:text-lg">
+            Tell us a bit about your project and we&apos;ll reach out soon. We respond within one business day.
+          </p>
+        </div>
 
         {/* Main layout */}
-        <section className="relative pb-10">
-          <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-background via-background/85 to-background/60" />
-          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_10%,hsl(var(--primary))/10,transparent_45%)]" />
-          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,hsl(var(--primary))/8,transparent_50%)]" />
-          <div className="pointer-events-none absolute inset-0 pattern-bg opacity-20" />
+        <section className="relative z-10 pb-28 sm:pb-36 lg:pb-44">
           <div className="container mx-auto px-5 max-w-5xl relative">
             <div className="grid lg:grid-cols-2 gap-8 items-start">
               {/* Left info panel */}
               <div className="card-container">
                 <div className="card">
-                  {/* Front Content */}
-                  {/* <div className="front-content hidden">
-                    <div className="icon">📞</div>
-                    <div className="title">Contact Details</div>
-                    <div className="subtitle"> We're ready to build with you</div>
-                  </div> */}
-
                   {/* Sliding Content */}
                   <div className="content">
                     <div className="heading">Get In Touch</div>
@@ -401,14 +385,14 @@ const Contact = () => {
 
                     <div className="space-y-3 w-full">
                       <div className="flex items-center gap-3 bg-white/10 rounded-lg p-3">
-                        <div className="h-8 w-8 rounded-lg bg-red-100 flex items-center justify-center">
-                          <Mail className="h-4 w-4 text-red-600" />
+                        <div className="h-11 w-11 shrink-0 rounded-xl bg-white/15 ring-1 ring-white/25 flex items-center justify-center">
+                          <Mail className="h-5 w-5 text-white" />
                       </div>
                         <div className="text-left">
-                          <p className="text-[10px] uppercase text-white/70">Email</p>
+                          <p className="text-xs uppercase tracking-wide text-white/70">Email</p>
                         <a
                           href="mailto:communications@quantumintelligence.co.tz"
-                            className="text-sm font-semibold text-red-600 hover:text-red-700 transition-colors"
+                            className="text-[13px] sm:text-sm font-semibold text-white hover:text-white/80 transition-colors break-all leading-snug"
                         >
                           communications@quantumintelligence.co.tz
                         </a>
@@ -416,14 +400,14 @@ const Contact = () => {
                     </div>
 
                       <div className="flex items-center gap-3 bg-white/10 rounded-lg p-3">
-                        <div className="h-8 w-8 rounded-lg bg-red-100 flex items-center justify-center">
-                          <Phone className="h-4 w-4 text-red-600" />
+                        <div className="h-11 w-11 shrink-0 rounded-xl bg-white/15 ring-1 ring-white/25 flex items-center justify-center">
+                          <Phone className="h-5 w-5 text-white" />
                       </div>
                         <div className="text-left">
-                          <p className="text-[10px] uppercase text-white/70">Phone</p>
+                          <p className="text-xs uppercase tracking-wide text-white/70">Phone</p>
                         <a
                           href="tel:+255689726060"
-                            className="text-sm font-semibold text-red-600 hover:text-red-700 transition-colors"
+                            className="text-base font-semibold text-white hover:text-white/80 transition-colors"
                         >
                           +255 689 726 060
                         </a>
@@ -431,12 +415,12 @@ const Contact = () => {
                     </div>
 
                       <div className="flex items-center gap-3 bg-white/10 rounded-lg p-3">
-                        <div className="h-8 w-8 rounded-lg bg-red-100 flex items-center justify-center">
-                          <MapPin className="h-4 w-4 text-red-600" />
+                        <div className="h-11 w-11 shrink-0 rounded-xl bg-white/15 ring-1 ring-white/25 flex items-center justify-center">
+                          <MapPin className="h-5 w-5 text-white" />
                         </div>
                         <div className="text-left">
-                          <p className="text-[10px] uppercase text-white/70">Location</p>
-                          <p className="text-sm font-semibold text-red-600">Dar es Salaam, Tanzania</p>
+                          <p className="text-xs uppercase tracking-wide text-white/70">Location</p>
+                          <p className="text-base font-semibold text-white">Dar es Salaam, Tanzania</p>
                         </div>
                       </div>
                     </div>
@@ -502,7 +486,7 @@ const Contact = () => {
                   <div className="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-primary/8 blur-3xl" />
                   <div className="pointer-events-none absolute inset-2 rounded-xl border border-primary/50" />
                   <div className="relative space-y-3">
-                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-[11px] font-semibold uppercase tracking-[0.2em]">
+                    <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/20 text-white text-sm font-semibold uppercase tracking-[0.2em]">
                       Project inquiry
                     </div>
                     <Form {...form}>
@@ -512,9 +496,9 @@ const Contact = () => {
                           name="fullName"
                           render={({ field }) => (
                             <FormItem>
-                              <FormLabel className="text-[10px] font-medium">Full Name<span className="text-destructive">*</span></FormLabel>
+                              <FormLabel className="text-sm font-semibold text-white">Full Name<span className="text-destructive">*</span></FormLabel>
                               <FormControl>
-                                <Input {...field} placeholder="Enter your full name" className="h-10 rounded-lg bg-background/60 border-border text-xs focus-visible:ring-2 focus-visible:ring-primary/70" aria-required="true" />
+                                <Input {...field} placeholder="Enter your full name" className="h-10 rounded-lg bg-white/5 border-white/25 text-sm text-white placeholder:text-white/50 focus-visible:ring-2 focus-visible:ring-primary/70" aria-required="true" />
                               </FormControl>
                               <FormMessage className="text-[11px]" />
                             </FormItem>
@@ -525,9 +509,9 @@ const Contact = () => {
                         name="email"
                         render={({ field }) => (
                           <FormItem>
-                            <FormLabel className="text-[10px] font-medium">Email<span className="text-destructive">*</span></FormLabel>
+                            <FormLabel className="text-sm font-semibold text-white">Email<span className="text-destructive">*</span></FormLabel>
                             <FormControl>
-                              <Input {...field} type="email" placeholder="sway@example.com" className="h-10 rounded-lg bg-background/60 border-border text-xs focus-visible:ring-2 focus-visible:ring-primary/70" aria-required="true" />
+                              <Input {...field} type="email" placeholder="sway@example.com" className="h-10 rounded-lg bg-white/5 border-white/25 text-sm text-white placeholder:text-white/50 focus-visible:ring-2 focus-visible:ring-primary/70" aria-required="true" />
                             </FormControl>
                             <FormMessage className="text-[11px]" />
                           </FormItem>
@@ -539,9 +523,9 @@ const Contact = () => {
                         name="phone"
                         render={({ field }) => (
                           <FormItem>
-                            <FormLabel className="text-[10px] font-medium">Phone<span className="text-destructive">*</span></FormLabel>
+                            <FormLabel className="text-sm font-semibold text-white">Phone<span className="text-destructive">*</span></FormLabel>
                             <FormControl>
-                              <Input {...field} type="tel" placeholder="+255 XXX XXX XXX" className="h-10 rounded-lg bg-background/60 border-border text-xs focus-visible:ring-2 focus-visible:ring-primary/70" aria-required="true" />
+                              <Input {...field} type="tel" placeholder="+255 XXX XXX XXX" className="h-10 rounded-lg bg-white/5 border-white/25 text-sm text-white placeholder:text-white/50 focus-visible:ring-2 focus-visible:ring-primary/70" aria-required="true" />
                             </FormControl>
                             <FormMessage className="text-[11px]" />
                           </FormItem>
@@ -552,12 +536,12 @@ const Contact = () => {
                         name="helpWith"
                         render={({ field }) => (
                           <FormItem>
-                            <FormLabel className="text-[10px] font-medium">Service Needed<span className="text-destructive">*</span></FormLabel>
+                            <FormLabel className="text-sm font-semibold text-white">Service Needed<span className="text-destructive">*</span></FormLabel>
                             <Select onValueChange={field.onChange} defaultValue={field.value}>
                               <FormControl>
                                 <SelectTrigger
                                   aria-required="true"
-                                  className="h-10 rounded-lg bg-background/60 border-border text-xs focus:ring-0 focus-visible:ring-2 focus-visible:ring-primary/70"
+                                  className="h-10 rounded-lg bg-white/5 border-white/25 text-sm text-white placeholder:text-white/50 focus:ring-0 focus-visible:ring-2 focus-visible:ring-primary/70"
                                 >
                                   <SelectValue placeholder="Select service" />
                                 </SelectTrigger>
@@ -578,12 +562,12 @@ const Contact = () => {
                         name="projectDescription"
                         render={({ field }) => (
                           <FormItem>
-                            <FormLabel className="text-[10px] font-medium">Project Description<span className="text-destructive">*</span></FormLabel>
+                            <FormLabel className="text-sm font-semibold text-white">Project Description<span className="text-destructive">*</span></FormLabel>
                             <FormControl>
                             <Textarea
                               {...field}
                               placeholder="Tell us about the project, goals, and timelines..."
-                              className="min-h-[72px] rounded-lg bg-background/60 border-border text-xs resize-y focus-visible:ring-2 focus-visible:ring-primary/70"
+                              className="min-h-[72px] rounded-lg bg-white/5 border-white/25 text-sm text-white placeholder:text-white/50 resize-y focus-visible:ring-2 focus-visible:ring-primary/70"
                               aria-required="true"
                             />
                             </FormControl>
@@ -608,7 +592,7 @@ const Contact = () => {
                         </Button>
                       </div>
 
-                      <p className="text-center text-[10px] text-muted-foreground">
+                      <p className="text-center text-sm text-white/60">
                         By submitting, you agree to our <a href="/terms" className="text-primary hover:underline">Terms</a> and <a href="/privacy" className="text-primary hover:underline">Privacy Policy</a>.
                       </p>
                     </form>
