@@ -59,9 +59,9 @@ const Sectors = () => {
 
         {/* Transparent brand graphic — small, anchored to the left, blends into the dark hero */}
         <img
-          src="/SWAY.png"
+          src="/SWAIRAXLOGO.png"
           alt="SWAIRAX"
-          className="pointer-events-none absolute left-4 top-1/2 z-10 hidden w-44 -translate-y-1/2 object-contain sm:left-10 lg:left-16 lg:block lg:w-60 xl:w-64"
+          className="pointer-events-none absolute left-4 top-1/2 z-10 hidden w-40 -translate-y-1/2 object-contain sm:left-10 lg:left-16 lg:block lg:w-52 xl:w-56"
         />
       </section>
 

@@ -22,8 +22,8 @@ const Logo: React.FC<LogoProps> = ({
   if (useImage) {
     return (
       <img
-        src="/uploads/logo.png"
-        alt="Logo"
+        src="/SWAY.png"
+        alt="SWAIRAX"
         className={classes}
         style={{ objectFit: "contain" }}
       />
@@ -32,8 +32,8 @@ const Logo: React.FC<LogoProps> = ({
 
     return (
       <img
-        src="/uploads/logo.png"
-        alt="Logo"
+        src="/SWAY.png"
+        alt="SWAIRAX"
         className={classes}
         style={{ objectFit: "contain" }}
       />

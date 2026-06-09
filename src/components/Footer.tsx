@@ -2,6 +2,7 @@ import { Github, Instagram, Mail, Phone, MapPin } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useNavigationWithScroll } from "@/utils/navigation";
 import SectionDivider from "@/components/SectionDivider";
+import BrandLogo from "@/components/BrandLogo";
 
 type FooterLink = { name: string; path: string; external?: boolean };
 
@@ -82,8 +83,8 @@ const Footer = () => {
         <div className="flex flex-col gap-10 lg:flex-row lg:justify-between lg:gap-8">
           {/* Brand column — wider, like lecdt's first ".parte" */}
           <div className="max-w-md">
-            <Link to="/" className="-my-3 sm:-my-4 flex items-center gap-3 hover:opacity-90 transition-opacity">
-              <img src="/SWAI3.png" alt="SWAIRAX" className="h-24 sm:h-28 w-auto object-contain" style={{ maxWidth: "460px" }} />
+            <Link to="/" className="flex items-center gap-3 hover:opacity-90 transition-opacity">
+              <BrandLogo iconClassName="h-14 sm:h-16 w-auto" wordmarkClassName="h-6 sm:h-8 w-auto text-foreground" />
             </Link>
             <p className="mt-1 text-base leading-relaxed text-muted-foreground">
               Building Africa's Digital Future — cutting-edge AI, Data Science, Cybersecurity, and

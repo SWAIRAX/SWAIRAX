@@ -15,7 +15,7 @@ export const defaultSEO: SEOConfig = {
 	title: "SWAIRAX - AI, Data Science & Software Engineering | swairax.com",
 	description: "SWAIRAX is an Africa-first technology company based in Tanzania, offering AI, Data Science, Cybersecurity, Big Data Analytics, and Software Engineering solutions.",
 	keywords: "AI, Data Science, Cybersecurity, Big Data Analytics, Software Engineering, Tanzania, Africa Tech",
-	ogImage: "https://swairax.com/uploads/logo.png",
+	ogImage: "https://swairax.com/og-image.jpg",
 	ogType: "website",
 };
 

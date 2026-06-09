@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Menu, X, CheckCheck, ChevronDown, Sun, Moon } from "lucide-react";
 import { useLocation } from "react-router-dom";
 import { useNavigationWithScroll } from "@/utils/navigation";
+import BrandLogo from "@/components/BrandLogo";
 
 type NavItem = {
   name: string;
@@ -164,7 +165,7 @@ const Header = () => {
       className={`flex items-center gap-2 hover:opacity-90 transition-opacity ${className}`}
       aria-label="Go to home"
     >
-      <img src="/SWAI3.png" alt="SWAIRAX" className="h-24 w-auto object-contain" style={{ maxWidth: "380px" }} />
+      <BrandLogo iconClassName="h-11 sm:h-12 w-auto" wordmarkClassName="h-5 sm:h-6 w-auto text-foreground" />
     </button>
   );
 
