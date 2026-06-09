@@ -1,5 +1,3 @@
-// React imports removed (no hooks needed here)
-import { useNavigate } from "react-router-dom";
 import { useNavigationWithScroll } from "@/utils/navigation";
 import { SEOSchema } from "@/components/SEOSchema";
 import Header from "@/components/Header";
@@ -10,51 +8,26 @@ import ServiceGraphHero from "@/components/ServiceGraphHero";
 import SectionDivider from "@/components/SectionDivider";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import { Heading, Lead } from "@/components/ui/section";
 import { TextRevealCard } from "@/components/ui/text-reveal-card";
 import { services } from "@/data/services";
-import {
-  ArrowRight,
-  BarChart3,
-  Brain,
-  Code2,
-  Cpu,
-  Database,
-  Lightbulb,
-  Play,
-  Rocket,
-  ShieldCheck,
-} from "lucide-react";
+import { ArrowRight, Code2, Cpu, Lightbulb, Rocket } from "lucide-react";
 
-// Module-level constants — passing inline JSX arrays would re-trigger the
-// graph hero's effects on every parent paint.
+// Module-level constant — passing an inline JSX array would re-trigger the
+// graph hero's effects on every parent paint. `href` makes each tile
+// clickable; array order drives parallax depth (1 + 0.4 * index).
 //
-// Layout mirrors scale.com/enterprise: tiles ring the centred headline
-// along the perimeter of the section so none of them sit underneath the
-// title/subtitle/CTA block. 7 tiles: 3 across the top, 2 on the sides,
-// 2 across the bottom.
-//
-// `connections` forms TWO triangles (left + right) so the network reads as
-// two clusters "pushing each other" across the page.
-//
-// `href` makes the tile clickable with the "card opens" hover affordance.
-// Array order drives parallax depth via `parallaxDepth = 1 + 0.4 * index`.
+// The 6 SWAIRAX services, ringed around the centred headline and linked to
+// their detail pages. `connections` form a closed hexagon so the network
+// reads as one connected system:
+//   0-1 (top) · 0-2 / 1-3 (upper sides) · 2-4 / 3-5 (lower sides) · 4-5 (bottom)
 const HERO_GRAPH_NODES = [
-  // ─── LEFT TRIANGLE: Annotate (0) ─ Analytics (1) ─ AI Studio (3) ───
-  //   Each of these 3 nodes lists the OTHER TWO in its connections array,
-  //   so the deduped edges (0-1, 0-3, 1-3) form a closed triangle.
-  { id: "annotate",  src: "/uploads/ANNOTATE.jpg",         alt: "SWAIRAX Annotate",   label: "Annotate",  href: "/quantum-annotate",  x: 9,  y: 22, size: 130, rotation: -3, connections: [1, 3] },
-  { id: "analytics", src: "/uploads/QUANTUM ANALYTICS.png", alt: "SWAIRAX Analytics",  label: "Analytics", href: "/quantum-analytics", x: 50, y: 10, size: 100, rotation:  2, connections: [0, 3, 2] },
-  // ─── RIGHT TRIANGLE: GenAI (2) ─ MLOps (4) ─ Finance (6) ───
-  { id: "genai",     src: "/uploads/GENAI.webp",            alt: "SWAIRAX GenAI",      label: "GenAI",     href: "/quantum-genai",     x: 91, y: 22, size: 130, rotation: -2, connections: [1, 4, 6] },
-  // AI Studio closes the left triangle; bridges down to Health.
-  { id: "service",   src: "/uploads/SERVICE.webp",          alt: "AI Studio",          label: "AI Studio", href: "/ai-studio",         x: 5,  y: 52, size: 110, rotation:  3, connections: [0, 1, 5] },
-  // MLOps closes the right triangle; bridges down to Finance.
-  { id: "mlops",     src: "/uploads/MLOPS&DEVOPS.webp",     alt: "MLOps & DevOps",     label: "MLOps",     href: "/mlops-devops",      x: 95, y: 52, size: 130, rotation: -1, connections: [2, 6] },
-  // Bottom bridges.
-  { id: "health",    src: "/uploads/HEALTHCARE.webp",       alt: "Healthcare",         label: "Health",    href: "/industries/healthcare-pharmacy", x: 22, y: 86, size: 100, rotation:  1, connections: [3, 6] },
-  { id: "finance",   src: "/uploads/FINANCIAL SERVICE.jpg", alt: "Financial Services", label: "Finance",   href: "/industries/financial-services",  x: 78, y: 86, size: 110, rotation: -3, connections: [2, 4, 5] },
+  { id: "ai",            src: "/service/AI.png",               alt: "Artificial Intelligence", label: "AI",             href: "/services/ai",            x: 13, y: 20, size: 124, rotation: -3, connections: [1, 2] },
+  { id: "data-science",  src: "/service/data-science.png",     alt: "Data Science",            label: "Data Science",   href: "/services/data-science",  x: 87, y: 20, size: 124, rotation:  2, connections: [0, 3] },
+  { id: "cybersecurity", src: "/service/cybersercurity.png",   alt: "Cybersecurity",           label: "Cybersecurity",  href: "/services/cybersecurity", x: 7,  y: 54, size: 116, rotation:  3, connections: [0, 4] },
+  { id: "big-data",      src: "/service/bigdata.png",          alt: "Big Data Analytics",      label: "Big Data",       href: "/services/big-data",      x: 93, y: 54, size: 116, rotation: -2, connections: [1, 5] },
+  { id: "software",      src: "/service/softwareengineer.png", alt: "Software Engineering",    label: "Software",       href: "/services/software",      x: 27, y: 86, size: 120, rotation:  1, connections: [2, 5] },
+  { id: "cloud-devops",  src: "/service/devops.png",           alt: "Cloud & DevOps",          label: "Cloud & DevOps", href: "/services/cloud-devops",  x: 73, y: 86, size: 120, rotation: -3, connections: [3, 4] },
 ];
 
 // Edges are now derived from each node's `connections` array — keep an empty
@@ -62,26 +35,7 @@ const HERO_GRAPH_NODES = [
 const HERO_GRAPH_EDGES: Array<[number, number]> = [];
 
 const Services = () => {
-  const navigate = useNavigate();
   const { navigateToTop } = useNavigationWithScroll();
-
-  const heroHighlights = [
-    {
-      title: "AI that ships",
-      description: "Copilots and automations with evals, safety, and uptime baked in.",
-      pill: "Production ready",
-    },
-    {
-      title: "Data-first & ethical",
-      description: "Human + machine pipelines to keep datasets current, inclusive, and trusted.",
-      pill: "Responsible AI",
-    },
-    {
-      title: "Operational MLOps",
-      description: "CI/CD, observability, and drift defense so models stay healthy after launch.",
-      pill: "Always-on",
-    },
-  ];
 
   const process = [
     {
