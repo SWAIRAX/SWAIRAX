@@ -11,7 +11,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Heading, Lead } from "@/components/ui/section";
 import { ArrowRight, TrendingUp, Clock, Target, Shield } from "lucide-react";
-import { getServiceBySlug } from "@/data/services";
+import { getServiceBySlug, getTechLogo } from "@/data/services";
 import { setSEO } from "@/utils/seo";
 
 const STAT_ICONS = [TrendingUp, Clock, Target, Shield];
@@ -56,7 +56,7 @@ const ServiceDetail = () => {
 
       {/* Hero — FullBleedHero pattern, matching the previous detail-page style. */}
       <FullBleedHero
-        imageSrc={`/uploads/${service.image}`}
+        imageSrc={service.image}
         imageAlt={service.title}
         size="md"
         eyebrow={<><Icon className="h-4 w-4 mr-2" />{service.badge}</>}
@@ -187,7 +187,7 @@ const ServiceDetail = () => {
             {service.process.map((step, index) => (
               <div
                 key={step.step}
-                className={`group relative overflow-hidden rounded-2xl border border-border bg-white p-6 hover:border-primary/40 hover:shadow-[0_15px_40px_-20px_rgba(214,46,10,0.25)] hover:-translate-y-1 transition-all duration-500 ${
+                className={`group relative overflow-hidden rounded-2xl border border-border bg-card p-6 hover:border-primary/40 hover:shadow-[0_15px_40px_-20px_rgba(214,46,10,0.25)] hover:-translate-y-1 transition-all duration-500 ${
                   isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
                 }`}
                 style={{ transitionDelay: `${index * 0.1}s` }}
@@ -225,21 +225,28 @@ const ServiceDetail = () => {
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {service.tech.map((tech, index) => (
-              <div
-                key={tech.name}
-                className={`text-center p-4 rounded-lg border border-border/50 hover:shadow-lg hover:border-primary/50 transition-all duration-300 group ${
-                  isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-                }`}
-                style={{ transitionDelay: `${index * 0.05}s` }}
-              >
-                <div className="w-9 h-9 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-3 group-hover:bg-primary/20 group-hover:scale-110 transition-all duration-300">
-                  <span className="text-sm font-bold text-primary">{tech.name.charAt(0)}</span>
+            {service.tech.map((tech, index) => {
+              const logo = getTechLogo(tech.name);
+              return (
+                <div
+                  key={tech.name}
+                  className={`text-center p-4 rounded-lg border border-border/50 hover:shadow-lg hover:border-primary/50 transition-all duration-300 group ${
+                    isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+                  }`}
+                  style={{ transitionDelay: `${index * 0.05}s` }}
+                >
+                  <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-3 group-hover:bg-primary/20 group-hover:scale-110 transition-all duration-300">
+                    {logo ? (
+                      <img src={logo} alt={`${tech.name} logo`} loading="lazy" className="h-5 w-5 object-contain" />
+                    ) : (
+                      <span className="text-sm font-bold text-primary">{tech.name.charAt(0)}</span>
+                    )}
+                  </div>
+                  <h3 className="font-bold mb-1 text-sm group-hover:text-primary transition-colors">{tech.name}</h3>
+                  <p className="text-xs text-muted-foreground">{tech.description}</p>
                 </div>
-                <h3 className="font-bold mb-1 text-sm group-hover:text-primary transition-colors">{tech.name}</h3>
-                <p className="text-xs text-muted-foreground">{tech.description}</p>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>

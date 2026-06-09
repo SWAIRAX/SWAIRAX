@@ -67,7 +67,7 @@ export const sectors: Sector[] = [
     description:
       "Grow yields and cut waste with forecasting, IoT monitoring, and supply-chain visibility.",
     solutions: ["Yield forecasting", "IoT monitoring", "Supply-chain analytics"],
-    image: "INDUSTRY.webp",
+    image: "/sectors/agriculture.png",
     heroTitle: "Produce more, waste less — from farm to market.",
     founderNote:
       "I started SWAIRAX because I watched hardworking producers lose margin to problems that data can quietly solve. In agriculture, small improvements compound: a better planting forecast, a spoilage alert that arrives in time, a clearer view of who's buying what. We don't sell you buzzwords — we sit with your team, learn your season, and build tools that earn their keep. Let's grow your output together.",
@@ -114,7 +114,7 @@ export const sectors: Sector[] = [
     description:
       "Increase output and quality with predictive maintenance, process analytics, and automation.",
     solutions: ["Predictive maintenance", "Process analytics", "Automation"],
-    image: "INDUSTRY.jpg",
+    image: "/sectors/manufacturing.png",
     heroTitle: "More uptime. Fewer defects. Higher output.",
     founderNote:
       "Every hour a line is down, and every defect that slips through, is money you'll never get back. At SWAIRAX we believe the factory floor is one of the most rewarding places to apply AI — because the gains are immediate and measurable. We start small on your highest-pain process, prove the value, then scale. Partner with us and turn your data into throughput.",
@@ -161,7 +161,7 @@ export const sectors: Sector[] = [
     description:
       "Streamline material sourcing, costing, and project delivery — the engine behind TanzaBuild.",
     solutions: ["Material sourcing", "Cost analytics", "Project platforms"],
-    image: "INDUSTRY.jpg",
+    image: "/sectors/realestate.png",
     heroTitle: "Build faster, source smarter, deliver on budget.",
     founderNote:
       "We know this sector deeply — we built TanzaBuild to fix the exact pain we kept seeing: scattered suppliers, prices in people's heads, and orders lost in chat threads. That product is proof of how we work. Whether you're a contractor, supplier, or developer, we can bring that same clarity to your business. Let's take the guesswork out of your next build.",
@@ -208,7 +208,7 @@ export const sectors: Sector[] = [
     description:
       "Optimize inventory, demand forecasting, and last-mile delivery.",
     solutions: ["Demand forecasting", "Inventory optimization", "Route intelligence"],
-    image: "RETAIL.webp",
+    image: "/sectors/logistic.png",
     heroTitle: "Right stock, right place, right time.",
     founderNote:
       "Retail runs on thin margins, and the difference between profit and loss is often just better timing — knowing what to stock, when, and where. We help you replace gut-feel with evidence, so you stop tying up cash in dead stock and stop losing sales to empty shelves. Work with us and let your data run the warehouse.",
@@ -255,7 +255,7 @@ export const sectors: Sector[] = [
     description:
       "Smarter credit scoring, fraud detection, and risk analytics built on your data.",
     solutions: ["Credit scoring", "Fraud detection", "Risk analytics"],
-    image: "FINANCIAL SERVICE.jpg",
+    image: "/sectors/finance.png",
     heroTitle: "Lend with confidence. Operate with insight.",
     founderNote:
       "Finance is where good data science pays for itself fastest. Better credit decisions mean more good loans and fewer bad ones; better fraud detection protects every shilling you move. We build models you can explain and trust — not black boxes — so your team and your regulators stay comfortable. Let's turn your data into a durable advantage.",
@@ -302,7 +302,7 @@ export const sectors: Sector[] = [
     description:
       "Better patient insights, inventory intelligence, and efficient digital workflows.",
     solutions: ["Patient insights", "Inventory intelligence", "Digital workflows"],
-    image: "HEALTHCARE.webp",
+    image: "/sectors/healthcare.png",
     heroTitle: "More time for patients, less lost to paperwork.",
     founderNote:
       "In healthcare, efficiency isn't just about money — it's about care. Every hour saved on admin is an hour back with a patient, and every drug that doesn't expire on a shelf is one that reaches someone who needs it. We build careful, privacy-respecting tools that make your clinic or pharmacy run smoother. Let's help your team do more of what matters.",
@@ -349,7 +349,7 @@ export const sectors: Sector[] = [
     description:
       "Raise learning outcomes with personalized platforms, analytics, and accessible tools.",
     solutions: ["Learning platforms", "Performance analytics", "Personalization"],
-    image: "EDUCATION.avif",
+    image: "/uploads/EDUCATION.avif",
     heroTitle: "Help every learner reach their potential.",
     founderNote:
       "Education changed my life, so this sector is personal. Technology done right can meet learners where they are — in their language, on the devices they have, at the pace they need. We build platforms and analytics that help educators teach better and help institutions run efficiently. Let's expand access and lift outcomes together.",
@@ -396,7 +396,7 @@ export const sectors: Sector[] = [
     description:
       "Boost reliability and efficiency with demand forecasting and smart-metering analytics.",
     solutions: ["Demand forecasting", "Smart-metering analytics", "Predictive ops"],
-    image: "UTILITIES.jpg",
+    image: "/uploads/UTILITIES.jpg",
     heroTitle: "Keep the lights on — efficiently.",
     founderNote:
       "Reliable power and water are the backbone of every other sector we serve. When utilities run on data, outages drop, losses shrink, and customers trust the service more. We help you forecast demand, spot losses, and act before failures happen. Let's build infrastructure intelligence that your whole region benefits from.",
@@ -443,7 +443,7 @@ export const sectors: Sector[] = [
     description:
       "Grow and retain customers with churn prediction, network analytics, and customer intelligence.",
     solutions: ["Churn prediction", "Network analytics", "Customer intelligence"],
-    image: "Telecommunication-towers.jpg",
+    image: "/uploads/Telecommunication-towers.jpg",
     heroTitle: "Win customers, keep them, serve them better.",
     founderNote:
       "Telcos sit on some of the richest data in the world — and most of it goes unused. The opportunity is enormous: predict who's about to leave, understand what customers truly value, and run the network smarter. We help you turn that data into growth and loyalty. Let's unlock the value already inside your business.",
@@ -490,7 +490,7 @@ export const sectors: Sector[] = [
     description:
       "Reach more customers with discovery and booking platforms — the idea behind Florré.",
     solutions: ["Booking platforms", "Discovery apps", "Customer analytics"],
-    image: "blog5.jpg",
+    image: "/uploads/blog5.jpg",
     heroTitle: "Fill your calendar. Delight your clients.",
     founderNote:
       "We love this space so much we're building Florré for it. Beauty and wellness businesses thrive on reputation and repeat clients — and the right technology makes both easier: get discovered, let clients book in seconds, and take payment with mobile money. We bring that experience to salons, spas, and independent professionals. Let's help your bookings grow.",

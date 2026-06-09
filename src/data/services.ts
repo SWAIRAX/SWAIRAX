@@ -89,7 +89,7 @@ export const services: Service[] = [
     heroTitle: "AI that ships — and works for your business.",
     description:
       "Custom AI models, automation, and intelligent systems tailored to your business.",
-    image: "services/ai.jpg",
+    image: "/service/AI.png",
     overview:
       "We design, build, and deploy custom AI and ML solutions tailored to your business needs. From intelligent automation to predictive systems, we bring AI to work for you — with evals, safety, and monitoring baked in so models stay reliable long after launch.",
     outcomes: [
@@ -155,7 +155,7 @@ export const services: Service[] = [
       { name: "Hugging Face", description: "Transformers" },
       { name: "scikit-learn", description: "Classical ML" },
       { name: "LangChain", description: "LLM Apps" },
-      { name: "OpenAI API", description: "Language Models" },
+      { name: "Keras", description: "Deep Learning" },
       { name: "Docker", description: "Containerization" },
       { name: "MLflow", description: "Experiment Tracking" },
     ],
@@ -172,7 +172,7 @@ export const services: Service[] = [
     heroTitle: "Turn raw data into smarter decisions.",
     description:
       "Advanced analytics, insights, and data-driven decisions for your organization.",
-    image: "services/data-science.jpg",
+    image: "/service/data-science.png",
     overview:
       "Transform raw data into powerful business insights. Our data science team helps you understand your data, find patterns, and make smarter decisions — translating findings into clear, actionable recommendations, not just charts.",
     outcomes: [
@@ -236,8 +236,8 @@ export const services: Service[] = [
       { name: "Python", description: "Analysis" },
       { name: "pandas", description: "Data Wrangling" },
       { name: "scikit-learn", description: "Modeling" },
-      { name: "SQL", description: "Querying" },
-      { name: "Power BI", description: "Dashboards" },
+      { name: "MySQL", description: "Database" },
+      { name: "Plotly", description: "Visualization" },
       { name: "Looker Studio", description: "Reporting" },
       { name: "Airflow", description: "Pipelines" },
       { name: "Jupyter", description: "Notebooks" },
@@ -255,7 +255,7 @@ export const services: Service[] = [
     heroTitle: "Protect your business from modern threats.",
     description:
       "Enterprise-grade security from vulnerability assessment to full security architecture.",
-    image: "services/cybersecurity.jpg",
+    image: "/service/cybersercurity.png",
     overview:
       "Protect your business from modern cyber threats. We provide comprehensive security solutions from vulnerability assessment to full enterprise security architecture — and we help your team build the habits that keep you safe.",
     outcomes: [
@@ -316,14 +316,14 @@ export const services: Service[] = [
       },
     ],
     tech: [
-      { name: "OWASP", description: "Methodology" },
+      { name: "Kali Linux", description: "Pentest OS" },
       { name: "Burp Suite", description: "Web Testing" },
-      { name: "Nmap", description: "Recon" },
+      { name: "Splunk", description: "SIEM & Logs" },
       { name: "Metasploit", description: "Exploitation" },
       { name: "Wireshark", description: "Traffic Analysis" },
       { name: "Cloudflare", description: "Edge Security" },
-      { name: "SIEM", description: "Monitoring" },
-      { name: "Zero Trust", description: "Architecture" },
+      { name: "Elastic", description: "Search & SIEM" },
+      { name: "Okta", description: "Identity & Access" },
     ],
     ctaTitle: "Secure your business today",
     ctaText:
@@ -338,7 +338,7 @@ export const services: Service[] = [
     heroTitle: "Handle massive datasets at scale.",
     description:
       "Infrastructure that processes, stores, and analyzes large-scale data in real time.",
-    image: "services/big-data.jpg",
+    image: "/service/bigdata.png",
     overview:
       "Handle massive datasets at scale. We design and build data infrastructure that processes, stores, and analyzes large volumes of data in real time — so insight keeps up with the speed of your business.",
     outcomes: [
@@ -404,8 +404,8 @@ export const services: Service[] = [
       { name: "Airflow", description: "Orchestration" },
       { name: "PostgreSQL", description: "Database" },
       { name: "BigQuery", description: "Warehouse" },
-      { name: "dbt", description: "Transformation" },
-      { name: "AWS", description: "Cloud Infra" },
+      { name: "Snowflake", description: "Warehouse" },
+      { name: "Hadoop", description: "Big Data" },
       { name: "Docker", description: "Containers" },
     ],
     ctaTitle: "Scale your data with confidence",
@@ -421,7 +421,7 @@ export const services: Service[] = [
     heroTitle: "Reliable, scalable, beautiful software.",
     description:
       "Full-stack web, mobile, and backend development, built for performance.",
-    image: "services/software.jpg",
+    image: "/service/softwareengineer.png",
     overview:
       "From mobile apps to enterprise backends, we build reliable, scalable, and beautiful software. Every line of code is written with performance and maintainability in mind — and an Africa-first eye for mobile money, local languages, and real infrastructure.",
     outcomes: [
@@ -504,7 +504,7 @@ export const services: Service[] = [
     heroTitle: "Ship faster. Run reliably. Sleep at night.",
     description:
       "Cloud infrastructure, CI/CD, and automation so your software ships fast and stays up.",
-    image: "services/cloud-devops.jpg",
+    image: "/service/devops.png",
     overview:
       "We set up the cloud infrastructure and automation that lets your team ship confidently and operate reliably. From CI/CD pipelines to containerized deployments and observability, we make releases boring — in the best way.",
     outcomes: [
@@ -569,7 +569,7 @@ export const services: Service[] = [
       { name: "Kubernetes", description: "Orchestration" },
       { name: "GitHub Actions", description: "CI/CD" },
       { name: "Terraform", description: "IaC" },
-      { name: "AWS", description: "Cloud" },
+      { name: "Vercel", description: "Deployment" },
       { name: "Railway", description: "Deployment" },
       { name: "Grafana", description: "Dashboards" },
       { name: "Prometheus", description: "Metrics" },
@@ -582,3 +582,54 @@ export const services: Service[] = [
 
 export const getServiceBySlug = (slug?: string): Service | undefined =>
   services.find((s) => s.slug === slug);
+
+// Maps a tool name to its logo (in /public/uploads/tech). Tools without a
+// recognizable brand mark (AWS, SQL, OWASP, SIEM, Zero Trust, etc.) are
+// intentionally omitted so the UI falls back to the tool's initial letter.
+const TECH_LOGOS: Record<string, string> = {
+  PyTorch: "/uploads/tech/pytorch.svg",
+  TensorFlow: "/uploads/tech/tensorflow.svg",
+  "Hugging Face": "/uploads/tech/huggingface.svg",
+  "scikit-learn": "/uploads/tech/scikitlearn.svg",
+  LangChain: "/uploads/tech/langchain.svg",
+  Docker: "/uploads/tech/docker.svg",
+  MLflow: "/uploads/tech/mlflow.svg",
+  Python: "/uploads/tech/python.svg",
+  pandas: "/uploads/tech/pandas.svg",
+  "Looker Studio": "/uploads/tech/looker.svg",
+  Airflow: "/uploads/tech/apacheairflow.svg",
+  Jupyter: "/uploads/tech/jupyter.svg",
+  "Burp Suite": "/uploads/tech/burpsuite.svg",
+  Metasploit: "/uploads/tech/metasploit.svg",
+  Wireshark: "/uploads/tech/wireshark.svg",
+  Cloudflare: "/uploads/tech/cloudflare.svg",
+  "Apache Spark": "/uploads/tech/apachespark.svg",
+  Kafka: "/uploads/tech/apachekafka.svg",
+  BigQuery: "/uploads/tech/googlebigquery.svg",
+  React: "/uploads/tech/react.svg",
+  "React Native": "/uploads/tech/react.svg",
+  "Node.js": "/uploads/tech/nodedotjs.svg",
+  Django: "/uploads/tech/django.svg",
+  PostgreSQL: "/uploads/tech/postgresql.svg",
+  Supabase: "/uploads/tech/supabase.svg",
+  Firebase: "/uploads/tech/firebase.svg",
+  TypeScript: "/uploads/tech/typescript.svg",
+  Kubernetes: "/uploads/tech/kubernetes.svg",
+  "GitHub Actions": "/uploads/tech/github.svg",
+  Terraform: "/uploads/tech/terraform.svg",
+  Railway: "/uploads/tech/railway.svg",
+  Grafana: "/uploads/tech/grafana.svg",
+  Prometheus: "/uploads/tech/prometheus.svg",
+  Keras: "/uploads/tech/keras.svg",
+  MySQL: "/uploads/tech/mysql.svg",
+  Plotly: "/uploads/tech/plotly.svg",
+  "Kali Linux": "/uploads/tech/kalilinux.svg",
+  Splunk: "/uploads/tech/splunk.svg",
+  Elastic: "/uploads/tech/elastic.svg",
+  Okta: "/uploads/tech/okta.svg",
+  Snowflake: "/uploads/tech/snowflake.svg",
+  Hadoop: "/uploads/tech/apachehadoop.svg",
+  Vercel: "/uploads/tech/vercel.svg",
+};
+
+export const getTechLogo = (name: string): string | undefined => TECH_LOGOS[name];

@@ -64,13 +64,14 @@ const FullBleedHero = ({
   const sizeClasses = SIZE_CLASSES[size];
   const overlayOpacity = Math.max(0, Math.min(1, overlayStrength));
   // Background image lags behind the content as you scroll (oversized so the
-  // shift never reveals an edge).
-  const imgRef = useParallax<HTMLImageElement>(-0.28, "y", 110);
+  // shift never reveals an edge). Kept gentle so the image stays centred and
+  // fits the hero instead of being heavily cropped/zoomed.
+  const imgRef = useParallax<HTMLImageElement>(-0.12, "y", 48);
 
   return (
-    <div className="ClipScrollSection isolate relative w-full bg-white pt-24 pb-10 px-4 md:px-8 lg:px-12">
+    <div className="ClipScrollSection isolate relative w-full bg-background pt-24 pb-10 px-4 md:px-8 lg:px-12">
       <section
-        className={`FullBleedMediaSection relative overflow-hidden rounded-3xl bg-white text-black ${className}`}
+        className={`FullBleedMediaSection relative overflow-hidden rounded-3xl bg-background text-foreground ${className}`}
         style={{ clipPath: "inset(0 round 1.5rem)" }}
       >
         <div className={`relative flex ${sizeClasses} ${alignClasses}`}>
@@ -82,7 +83,7 @@ const FullBleedHero = ({
               alt={imageAlt}
               loading="eager"
               decoding="async"
-              className="absolute inset-x-0 -inset-y-[42%] h-[184%] w-full object-cover"
+              className="absolute inset-x-0 -inset-y-[12%] h-[124%] w-full object-cover object-center"
             />
             {/* Bottom-anchored dark shadow — mirrors scale.com/enterprise.
                 Heavy black at the floor, eases to mid-dark around 30 %, and
@@ -95,7 +96,7 @@ const FullBleedHero = ({
               style={{
                 opacity: overlayOpacity,
                 backgroundImage:
-                  "linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.68) 40%, rgba(0,0,0,0.32) 62%, rgba(0,0,0,0) 82%)",
+                  "linear-gradient(to top, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.74) 35%, rgba(0,0,0,0.55) 65%, rgba(0,0,0,0.4) 100%)",
               }}
             />
           </div>

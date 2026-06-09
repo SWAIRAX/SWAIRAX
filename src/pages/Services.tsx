@@ -119,12 +119,12 @@ const Services = () => {
       {/* Hero — Scale.com-style graph network with service tiles as nodes */}
       <ServiceGraphHero
         title={
-          <Heading as="h1" size="display" className="leading-tight text-black">
+          <Heading as="h1" size="display" className="leading-tight text-foreground">
             Our Services
           </Heading>
         }
         subtitle={
-          <Lead className="mx-auto max-w-2xl text-lg sm:text-xl lg:text-2xl font-semibold text-slate-800">
+          <Lead className="mx-auto max-w-2xl text-lg sm:text-xl lg:text-2xl font-semibold text-foreground/80">
             End-to-end technology solutions for businesses of all sizes.
           </Lead>
         }

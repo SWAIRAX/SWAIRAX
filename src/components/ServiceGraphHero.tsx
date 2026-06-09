@@ -347,7 +347,7 @@ const ServiceGraphHero = ({
   return (
     <section
       ref={sectionRef}
-      className={`EnterpriseHero relative isolate h-[100dvh] min-h-[640px] overflow-hidden bg-white text-black ${className}`}
+      className={`EnterpriseHero relative isolate h-[100dvh] min-h-[640px] overflow-hidden bg-background text-foreground ${className}`}
     >
       <div ref={containerRef} className="absolute inset-0">
         {/* Exact class string from scale.com/enterprise so the SVG layer
@@ -386,7 +386,8 @@ const ServiceGraphHero = ({
                   y1={na.y}
                   x2={nb.x}
                   y2={nb.y}
-                  stroke="rgba(15, 23, 42, 0.4)"
+                  stroke="currentColor"
+                  strokeOpacity={0.3}
                   strokeWidth={0.2}
                   vectorEffect="non-scaling-stroke"
                   strokeDasharray={LINE_DASH}
@@ -510,7 +511,7 @@ const ServiceGraphHero = ({
         })}
       </div>
 
-      <div className="relative z-10 mx-auto flex h-full max-w-3xl flex-col items-center justify-center px-6 text-center text-black">
+      <div className="relative z-10 mx-auto flex h-full max-w-3xl flex-col items-center justify-center px-6 text-center text-foreground">
         {title}
         {subtitle && (
           <div className="mt-4 max-w-2xl text-base text-slate-600 sm:text-lg">

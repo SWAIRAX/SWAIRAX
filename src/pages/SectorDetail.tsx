@@ -53,7 +53,7 @@ const SectorDetail = () => {
 
       {/* Hero */}
       <FullBleedHero
-        imageSrc={`/uploads/${sector.image}`}
+        imageSrc={sector.image}
         imageAlt={sector.name}
         size="md"
         eyebrow={<><Icon className="h-4 w-4 mr-2" />{sector.name}</>}
