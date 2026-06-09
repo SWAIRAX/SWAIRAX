@@ -89,7 +89,7 @@ export const services: Service[] = [
     heroTitle: "AI that ships — and works for your business.",
     description:
       "Custom AI models, automation, and intelligent systems tailored to your business.",
-    image: "GENAI.avif",
+    image: "services/ai.jpg",
     overview:
       "We design, build, and deploy custom AI and ML solutions tailored to your business needs. From intelligent automation to predictive systems, we bring AI to work for you — with evals, safety, and monitoring baked in so models stay reliable long after launch.",
     outcomes: [
@@ -172,7 +172,7 @@ export const services: Service[] = [
     heroTitle: "Turn raw data into smarter decisions.",
     description:
       "Advanced analytics, insights, and data-driven decisions for your organization.",
-    image: "analytics.jpg",
+    image: "services/data-science.jpg",
     overview:
       "Transform raw data into powerful business insights. Our data science team helps you understand your data, find patterns, and make smarter decisions — translating findings into clear, actionable recommendations, not just charts.",
     outcomes: [
@@ -255,7 +255,7 @@ export const services: Service[] = [
     heroTitle: "Protect your business from modern threats.",
     description:
       "Enterprise-grade security from vulnerability assessment to full security architecture.",
-    image: "SERVICE2.webp",
+    image: "services/cybersecurity.jpg",
     overview:
       "Protect your business from modern cyber threats. We provide comprehensive security solutions from vulnerability assessment to full enterprise security architecture — and we help your team build the habits that keep you safe.",
     outcomes: [
@@ -338,7 +338,7 @@ export const services: Service[] = [
     heroTitle: "Handle massive datasets at scale.",
     description:
       "Infrastructure that processes, stores, and analyzes large-scale data in real time.",
-    image: "data.jpg",
+    image: "services/big-data.jpg",
     overview:
       "Handle massive datasets at scale. We design and build data infrastructure that processes, stores, and analyzes large volumes of data in real time — so insight keeps up with the speed of your business.",
     outcomes: [
@@ -421,7 +421,7 @@ export const services: Service[] = [
     heroTitle: "Reliable, scalable, beautiful software.",
     description:
       "Full-stack web, mobile, and backend development, built for performance.",
-    image: "SERVICE.webp",
+    image: "services/software.jpg",
     overview:
       "From mobile apps to enterprise backends, we build reliable, scalable, and beautiful software. Every line of code is written with performance and maintainability in mind — and an Africa-first eye for mobile money, local languages, and real infrastructure.",
     outcomes: [
@@ -504,7 +504,7 @@ export const services: Service[] = [
     heroTitle: "Ship faster. Run reliably. Sleep at night.",
     description:
       "Cloud infrastructure, CI/CD, and automation so your software ships fast and stays up.",
-    image: "MLOPS&DEVOPS.webp",
+    image: "services/cloud-devops.jpg",
     overview:
       "We set up the cloud infrastructure and automation that lets your team ship confidently and operate reliably. From CI/CD pipelines to containerized deployments and observability, we make releases boring — in the best way.",
     outcomes: [

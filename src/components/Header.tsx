@@ -23,7 +23,7 @@ const ThemeToggle = ({ className = "" }: { className?: string }) => {
       type="button"
       onClick={() => setTheme(isDark ? "light" : "dark")}
       aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
-      className={`inline-flex h-9 w-9 items-center justify-center rounded-full border border-border text-foreground/70 hover:text-foreground hover:bg-muted transition-colors ${className}`}
+      className={`inline-flex h-9 w-9 items-center justify-center bg-transparent text-foreground/60 hover:text-foreground hover:scale-110 transition-all ${className}`}
     >
       {mounted && isDark ? <Sun className="h-[18px] w-[18px]" /> : <Moon className="h-[18px] w-[18px]" />}
     </button>
@@ -58,7 +58,6 @@ const Header = () => {
     path: "/about",
     dropdown: [
       { name: "About Us", desc: "Our story, mission, and team", path: "/about" },
-      { name: "Partnership", desc: "Explore partnership opportunities", path: "/partnerships" },
       { name: "Contact Us", desc: "Start a project or get in touch", path: "/contact" },
     ],
   };
@@ -70,7 +69,6 @@ const Header = () => {
     { name: "Sectors", path: "/sectors" },
     { name: "Blog", path: "/blog" },
     { name: "About Us", path: "/about" },
-    { name: "Partnership", path: "/partnerships" },
     { name: "Contact", path: "/contact" },
   ];
 
