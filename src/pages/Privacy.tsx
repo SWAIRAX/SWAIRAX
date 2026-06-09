@@ -15,7 +15,7 @@ const sections = [
     number: "1.1",
     title: "Important information and who we are",
     body: [
-      "SWAIRAX is the Data Controller for your personal data. We have not appointed a Data Protection Officer. Contact us at hello@swairax.com. You may lodge a complaint with the Tanzanian Personal Data Protection Commission, but we would appreciate the chance to address your concerns first.",
+      "SWAIRAX is the Data Controller for your personal data. We have not appointed a Data Protection Officer. Contact us at info@swairax.com. You may lodge a complaint with the Tanzanian Personal Data Protection Commission, but we would appreciate the chance to address your concerns first.",
     ],
   },
   {
@@ -68,7 +68,7 @@ const sections = [
     title: "Your rights",
     body: [
       "Subject to Tanzanian law, you may: be informed about our processing; access your data; rectify inaccurate data; erase data (where applicable); object to processing (including direct marketing, and where we rely on legitimate interests); restrict processing in certain circumstances; and request data portability where applicable.",
-      "To exercise these rights, contact hello@swairax.com. We may need to verify your identity. Requests are free unless manifestly unfounded or excessive.",
+      "To exercise these rights, contact info@swairax.com. We may need to verify your identity. Requests are free unless manifestly unfounded or excessive.",
     ],
   },
   {

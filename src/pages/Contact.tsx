@@ -396,10 +396,10 @@ const Contact = () => {
                   <div className="text-left min-w-0">
                     <p className="text-xs uppercase tracking-wide text-muted-foreground">Email</p>
                     <a
-                      href="mailto:hello@swairax.com"
+                      href="mailto:info@swairax.com"
                       className="block text-sm font-semibold text-foreground hover:text-primary transition-colors break-all leading-snug"
                     >
-                      hello@swairax.com
+                      info@swairax.com
                     </a>
                   </div>
                 </div>
@@ -411,10 +411,10 @@ const Contact = () => {
                   <div className="text-left">
                     <p className="text-xs uppercase tracking-wide text-muted-foreground">Phone</p>
                     <a
-                      href="tel:+255000000000"
+                      href="tel:+255684475390"
                       className="text-sm font-semibold text-foreground hover:text-primary transition-colors"
                     >
-                      +255 XXX XXX XXX
+                      +255 684 475 390
                     </a>
                   </div>
                 </div>

@@ -93,18 +93,18 @@ const Footer = () => {
 
             <div className="mt-6 space-y-3">
               <a
-                href="mailto:hello@swairax.com"
+                href="mailto:info@swairax.com"
                 className="flex items-center gap-2.5 text-base text-muted-foreground hover:text-primary transition-colors"
               >
                 <Mail className="h-5 w-5 shrink-0" />
-                hello@swairax.com
+                info@swairax.com
               </a>
               <a
-                href="tel:+255000000000"
+                href="tel:+255684475390"
                 className="flex items-center gap-2.5 text-base text-muted-foreground hover:text-primary transition-colors"
               >
                 <Phone className="h-5 w-5 shrink-0" />
-                +255 XXX XXX XXX
+                +255 684 475 390
               </a>
               <div className="flex items-center gap-2.5 text-base text-muted-foreground">
                 <MapPin className="h-5 w-5 shrink-0" />
