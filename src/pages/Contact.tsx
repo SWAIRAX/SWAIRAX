@@ -259,8 +259,9 @@ const patternStyles = `
 const contactFormSchema = z.object({
   fullName: z.string().min(1, "Full name is required"),
   email: z.string().email("Please enter a valid email address"),
-  phone: z.string().min(1, "Phone number is required"),
-  helpWith: z.string().min(1, "Please select what we can help you with"),
+  company: z.string().optional(),
+  helpWith: z.string().min(1, "Please select the service you're interested in"),
+  budget: z.string().optional(),
   projectDescription: z.string().min(10, "Please provide more details about your project")
 });
 
@@ -285,8 +286,9 @@ const Contact = () => {
     defaultValues: {
       fullName: "",
       email: "",
-      phone: "",
+      company: "",
       helpWith: "",
+      budget: "",
       projectDescription: ""
     }
   });
@@ -334,104 +336,117 @@ const Contact = () => {
   };
 
   const helpOptions = [
-    "General AI Development",
-    "MVP Development",
-    "Research Project",
-    "Staff Augmentation",
-    "Data Analytics",
-    "Rapid Prototyping"
+    "AI",
+    "Data Science",
+    "Cybersecurity",
+    "Big Data",
+    "Software Engineering",
+    "Product / Other"
+  ];
+
+  const budgetOptions = [
+    "Under $1K",
+    "$1K–$5K",
+    "$5K–$20K",
+    "$20K+",
+    "Let's Discuss"
   ];
 
   return (
-    <div className="min-h-screen bg-[#0c0c19]">
+    <div className="min-h-screen bg-background">
       <SEOSchema
         breadcrumbs={[
-          { name: "Home", url: "https://quantumintelligence.co.tz" },
-          { name: "Contact", url: "https://quantumintelligence.co.tz/contact" }
+          { name: "Home", url: "https://swairax.com" },
+          { name: "Contact", url: "https://swairax.com/contact" }
         ]}
       />
-      <div className="relative overflow-hidden bg-[#0c0c19]">
-        {/* lecdt-style red plexus network + radial "sombra" vignette — plexus drifts on scroll */}
+      <div className="relative overflow-hidden bg-background">
+        {/* red plexus network on a soft gray canvas + gradient overlay so it isn't bright — drifts on scroll */}
         <Parallax speed={-0.2} clamp={150} className="absolute inset-x-0 -inset-y-[24%] h-[148%]">
-          <PlexusBackground backgroundColor={0x0c0c19} className="absolute inset-0 h-full w-full" />
+          <PlexusBackground className="absolute inset-0 h-full w-full" />
         </Parallax>
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_50%_28%,rgba(12,12,25,0.2),rgba(12,12,25,0.82)_78%)]" />
+        {/* gradient tint dims the canvas (deeper toward the edges/bottom) */}
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-primary/5 via-secondary/35 to-secondary/75" />
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_30%,hsl(var(--secondary)/0.6)_100%)]" />
 
         <Header />
 
-        {/* Hero — lecdt "VAMOS CONVERSAR" style: big centered title on the dark plexus */}
+        {/* Hero — big centered title on the light plexus */}
         <div className="relative z-10 px-5 pt-24 pb-10 text-center sm:pt-28">
-          <h1 className="mx-auto max-w-3xl text-4xl font-bold uppercase tracking-tight text-white sm:text-5xl lg:text-6xl">
-            Let&apos;s talk
+          <h1 className="mx-auto max-w-3xl text-4xl font-bold uppercase tracking-tight text-foreground sm:text-5xl lg:text-6xl">
+            Let&apos;s Work Together
           </h1>
-          <p className="mx-auto mt-5 max-w-xl text-base text-white/70 md:text-lg">
-            Tell us a bit about your project and we&apos;ll reach out soon. We respond within one business day.
+          <p className="mx-auto mt-5 max-w-xl text-base text-muted-foreground md:text-lg">
+            Have a project, a problem, or just an idea? Tell us where you want to go, and we&apos;ll
+            help you get there.
           </p>
         </div>
 
         {/* Main layout */}
         <section className="relative z-10 pb-28 sm:pb-36 lg:pb-44">
           <div className="container mx-auto px-5 max-w-5xl relative">
-            <div className="grid lg:grid-cols-2 gap-8 items-start">
-              {/* Left info panel */}
-              <div className="card-container">
-                <div className="card">
-                  {/* Sliding Content */}
-                  <div className="content">
-                    <div className="heading">Get In Touch</div>
-                    <div className="description">
-                      We're ready to build with you. Share your goals and we'll align the right team to your project.
-                    </div>
+            <div className="mx-auto max-w-2xl space-y-10">
+              {/* Info cards — sit on top, 2 per row */}
+              <div className="space-y-3">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div className="flex items-center gap-3 rounded-xl border border-border bg-card p-4 shadow-sm transition-colors hover:border-primary/40">
+                  <div className="h-11 w-11 shrink-0 rounded-xl bg-primary/10 flex items-center justify-center">
+                    <Mail className="h-5 w-5 text-primary" />
+                  </div>
+                  <div className="text-left min-w-0">
+                    <p className="text-xs uppercase tracking-wide text-muted-foreground">Email</p>
+                    <a
+                      href="mailto:hello@swairax.com"
+                      className="block text-sm font-semibold text-foreground hover:text-primary transition-colors break-all leading-snug"
+                    >
+                      hello@swairax.com
+                    </a>
+                  </div>
+                </div>
 
-                    <div className="space-y-3 w-full">
-                      <div className="flex items-center gap-3 bg-white/10 rounded-lg p-3">
-                        <div className="h-11 w-11 shrink-0 rounded-xl bg-white/15 ring-1 ring-white/25 flex items-center justify-center">
-                          <Mail className="h-5 w-5 text-white" />
-                      </div>
-                        <div className="text-left">
-                          <p className="text-xs uppercase tracking-wide text-white/70">Email</p>
-                        <a
-                          href="mailto:communications@quantumintelligence.co.tz"
-                            className="text-[13px] sm:text-sm font-semibold text-white hover:text-white/80 transition-colors break-all leading-snug"
-                        >
-                          communications@quantumintelligence.co.tz
-                        </a>
-                      </div>
-                    </div>
+                <div className="flex items-center gap-3 rounded-xl border border-border bg-card p-4 shadow-sm transition-colors hover:border-primary/40">
+                  <div className="h-11 w-11 shrink-0 rounded-xl bg-primary/10 flex items-center justify-center">
+                    <Phone className="h-5 w-5 text-primary" />
+                  </div>
+                  <div className="text-left">
+                    <p className="text-xs uppercase tracking-wide text-muted-foreground">Phone</p>
+                    <a
+                      href="tel:+255000000000"
+                      className="text-sm font-semibold text-foreground hover:text-primary transition-colors"
+                    >
+                      +255 XXX XXX XXX
+                    </a>
+                  </div>
+                </div>
 
-                      <div className="flex items-center gap-3 bg-white/10 rounded-lg p-3">
-                        <div className="h-11 w-11 shrink-0 rounded-xl bg-white/15 ring-1 ring-white/25 flex items-center justify-center">
-                          <Phone className="h-5 w-5 text-white" />
-                      </div>
-                        <div className="text-left">
-                          <p className="text-xs uppercase tracking-wide text-white/70">Phone</p>
-                        <a
-                          href="tel:+255689726060"
-                            className="text-base font-semibold text-white hover:text-white/80 transition-colors"
-                        >
-                          +255 689 726 060
-                        </a>
-                      </div>
-                    </div>
+                <div className="flex items-center gap-3 rounded-xl border border-border bg-card p-4 shadow-sm transition-colors hover:border-primary/40">
+                  <div className="h-11 w-11 shrink-0 rounded-xl bg-primary/10 flex items-center justify-center">
+                    <MapPin className="h-5 w-5 text-primary" />
+                  </div>
+                  <div className="text-left">
+                    <p className="text-xs uppercase tracking-wide text-muted-foreground">Location</p>
+                    <p className="text-sm font-semibold text-foreground">Dar es Salaam, Tanzania</p>
+                  </div>
+                </div>
 
-                      <div className="flex items-center gap-3 bg-white/10 rounded-lg p-3">
-                        <div className="h-11 w-11 shrink-0 rounded-xl bg-white/15 ring-1 ring-white/25 flex items-center justify-center">
-                          <MapPin className="h-5 w-5 text-white" />
-                        </div>
-                        <div className="text-left">
-                          <p className="text-xs uppercase tracking-wide text-white/70">Location</p>
-                          <p className="text-base font-semibold text-white">Dar es Salaam, Tanzania</p>
-                        </div>
-                      </div>
-                    </div>
+                <div className="flex items-center gap-3 rounded-xl border border-border bg-card p-4 shadow-sm transition-colors hover:border-primary/40">
+                  <div className="h-11 w-11 shrink-0 rounded-xl bg-primary/10 flex items-center justify-center">
+                    <Calendar className="h-5 w-5 text-primary" />
+                  </div>
+                  <div className="text-left">
+                    <p className="text-xs uppercase tracking-wide text-muted-foreground">Hours</p>
+                    <p className="text-sm font-semibold text-foreground leading-snug">Monday – Friday, 9:00 AM – 6:00 PM EAT</p>
+                  </div>
+                </div>
+                </div>
 
-                    {/* Social Links */}
-                    <div className="mt-4 pt-3 border-t border-white/20">
+                {/* Social Links */}
+                <div className="pt-1">
                       <div className="social-card">
                         <span className="social-label">Follow Us</span>
 
                         <a
-                          href="https://www.instagram.com/qintelligencelab"
+                          href="https://www.instagram.com/swairax"
                           target="_blank"
                           rel="noopener noreferrer"
                           className="social-link"
@@ -442,7 +457,7 @@ const Contact = () => {
                         </a>
 
                         <a
-                          href="https://x.com/1ntelligencelab"
+                          href="https://x.com/swairax"
                           target="_blank"
                           rel="noopener noreferrer"
                           className="social-link"
@@ -453,7 +468,7 @@ const Contact = () => {
                         </a>
 
                         <a
-                          href="https://www.linkedin.com/company/quantum-intelligence-africa/"
+                          href="https://www.linkedin.com/company/swairax"
                           target="_blank"
                           rel="noopener noreferrer"
                           className="social-link"
@@ -464,7 +479,7 @@ const Contact = () => {
                         </a>
 
                         <a
-                          href="https://github.com/quantum-intelligence-africa"
+                          href="https://github.com/swairax"
                           target="_blank"
                           rel="noopener noreferrer"
                           className="social-link"
@@ -476,18 +491,16 @@ const Contact = () => {
                       </div>
                     </div>
                   </div>
-                </div>
-              </div>
 
               {/* Form panel */}
               <div className="relative">
                 <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-primary/20 via-transparent to-primary/5 blur-3xl" />
-                <div className="relative overflow-hidden rounded-2xl bg-transparent p-5 md:p-6">
+                <div className="relative overflow-hidden rounded-2xl bg-card border border-border shadow-xl p-5 md:p-6">
                   <div className="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-primary/8 blur-3xl" />
                   <div className="pointer-events-none absolute inset-2 rounded-xl border border-primary/50" />
                   <div className="relative space-y-3">
-                    <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/20 text-white text-sm font-semibold uppercase tracking-[0.2em]">
-                      Project inquiry
+                    <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-semibold uppercase tracking-[0.2em]">
+                      Let&apos;s talk
                     </div>
                     <Form {...form}>
                       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-3.5" role="form" aria-label="Project inquiry form">
@@ -496,9 +509,9 @@ const Contact = () => {
                           name="fullName"
                           render={({ field }) => (
                             <FormItem>
-                              <FormLabel className="text-sm font-semibold text-white">Full Name<span className="text-destructive">*</span></FormLabel>
+                              <FormLabel className="text-sm font-semibold text-foreground">Full Name<span className="text-destructive">*</span></FormLabel>
                               <FormControl>
-                                <Input {...field} placeholder="Enter your full name" className="h-10 rounded-lg bg-white/5 border-white/25 text-sm text-white placeholder:text-white/50 focus-visible:ring-2 focus-visible:ring-primary/70" aria-required="true" />
+                                <Input {...field} placeholder="Enter your full name" className="h-10 rounded-lg bg-background border-border text-sm text-foreground placeholder:text-muted-foreground focus-visible:ring-2 focus-visible:ring-primary/70" aria-required="true" />
                               </FormControl>
                               <FormMessage className="text-[11px]" />
                             </FormItem>
@@ -509,9 +522,22 @@ const Contact = () => {
                         name="email"
                         render={({ field }) => (
                           <FormItem>
-                            <FormLabel className="text-sm font-semibold text-white">Email<span className="text-destructive">*</span></FormLabel>
+                            <FormLabel className="text-sm font-semibold text-foreground">Email<span className="text-destructive">*</span></FormLabel>
                             <FormControl>
-                              <Input {...field} type="email" placeholder="sway@example.com" className="h-10 rounded-lg bg-white/5 border-white/25 text-sm text-white placeholder:text-white/50 focus-visible:ring-2 focus-visible:ring-primary/70" aria-required="true" />
+                              <Input {...field} type="email" placeholder="sway@example.com" className="h-10 rounded-lg bg-background border-border text-sm text-foreground placeholder:text-muted-foreground focus-visible:ring-2 focus-visible:ring-primary/70" aria-required="true" />
+                            </FormControl>
+                            <FormMessage className="text-[11px]" />
+                          </FormItem>
+                        )}
+                      />
+                      <FormField
+                        control={form.control}
+                        name="company"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel className="text-sm font-semibold text-foreground">Company / Organization</FormLabel>
+                            <FormControl>
+                              <Input {...field} placeholder="Your company or organization" className="h-10 rounded-lg bg-background border-border text-sm text-foreground placeholder:text-muted-foreground focus-visible:ring-2 focus-visible:ring-primary/70" />
                             </FormControl>
                             <FormMessage className="text-[11px]" />
                           </FormItem>
@@ -520,28 +546,15 @@ const Contact = () => {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <FormField
                         control={form.control}
-                        name="phone"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel className="text-sm font-semibold text-white">Phone<span className="text-destructive">*</span></FormLabel>
-                            <FormControl>
-                              <Input {...field} type="tel" placeholder="+255 XXX XXX XXX" className="h-10 rounded-lg bg-white/5 border-white/25 text-sm text-white placeholder:text-white/50 focus-visible:ring-2 focus-visible:ring-primary/70" aria-required="true" />
-                            </FormControl>
-                            <FormMessage className="text-[11px]" />
-                          </FormItem>
-                        )}
-                      />
-                      <FormField
-                        control={form.control}
                         name="helpWith"
                         render={({ field }) => (
                           <FormItem>
-                            <FormLabel className="text-sm font-semibold text-white">Service Needed<span className="text-destructive">*</span></FormLabel>
+                            <FormLabel className="text-sm font-semibold text-foreground">Service Interested In<span className="text-destructive">*</span></FormLabel>
                             <Select onValueChange={field.onChange} defaultValue={field.value}>
                               <FormControl>
                                 <SelectTrigger
                                   aria-required="true"
-                                  className="h-10 rounded-lg bg-white/5 border-white/25 text-sm text-white placeholder:text-white/50 focus:ring-0 focus-visible:ring-2 focus-visible:ring-primary/70"
+                                  className="h-10 rounded-lg bg-background border-border text-sm text-foreground placeholder:text-muted-foreground focus:ring-0 focus-visible:ring-2 focus-visible:ring-primary/70"
                                 >
                                   <SelectValue placeholder="Select service" />
                                 </SelectTrigger>
@@ -556,18 +569,42 @@ const Contact = () => {
                           </FormItem>
                         )}
                       />
+                      <FormField
+                        control={form.control}
+                        name="budget"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel className="text-sm font-semibold text-foreground">Project Budget</FormLabel>
+                            <Select onValueChange={field.onChange} defaultValue={field.value}>
+                              <FormControl>
+                                <SelectTrigger
+                                  className="h-10 rounded-lg bg-background border-border text-sm text-foreground placeholder:text-muted-foreground focus:ring-0 focus-visible:ring-2 focus-visible:ring-primary/70"
+                                >
+                                  <SelectValue placeholder="Select budget" />
+                                </SelectTrigger>
+                              </FormControl>
+                              <SelectContent className="bg-card border-border">
+                                {budgetOptions.map((option) => (
+                                  <SelectItem key={option} value={option} className="text-xs">{option}</SelectItem>
+                                ))}
+                              </SelectContent>
+                            </Select>
+                            <FormMessage className="text-[11px]" />
+                          </FormItem>
+                        )}
+                      />
                     </div>
                       <FormField
                         control={form.control}
                         name="projectDescription"
                         render={({ field }) => (
                           <FormItem>
-                            <FormLabel className="text-sm font-semibold text-white">Project Description<span className="text-destructive">*</span></FormLabel>
+                            <FormLabel className="text-sm font-semibold text-foreground">Message<span className="text-destructive">*</span></FormLabel>
                             <FormControl>
                             <Textarea
                               {...field}
                               placeholder="Tell us about the project, goals, and timelines..."
-                              className="min-h-[72px] rounded-lg bg-white/5 border-white/25 text-sm text-white placeholder:text-white/50 resize-y focus-visible:ring-2 focus-visible:ring-primary/70"
+                              className="min-h-[72px] rounded-lg bg-background border-border text-sm text-foreground placeholder:text-muted-foreground resize-y focus-visible:ring-2 focus-visible:ring-primary/70"
                               aria-required="true"
                             />
                             </FormControl>
@@ -586,13 +623,13 @@ const Contact = () => {
                           ) : (
                             <>
                               <Send className="w-4 h-4 mr-2" />
-                              Send Message
+                              Send Message →
                             </>
                           )}
                         </Button>
                       </div>
 
-                      <p className="text-center text-sm text-white/60">
+                      <p className="text-center text-sm text-muted-foreground">
                         By submitting, you agree to our <a href="/terms" className="text-primary hover:underline">Terms</a> and <a href="/privacy" className="text-primary hover:underline">Privacy Policy</a>.
                       </p>
                     </form>
@@ -615,7 +652,7 @@ const Contact = () => {
               Information Successfully Submitted!
             </DialogTitle>
             <DialogDescription id="booking-modal-description" className="text-lg text-muted-foreground">
-              Would you like to book a meeting with Quantum Intelligence now?
+              Would you like to book a meeting with SWAIRAX now?
             </DialogDescription>
           </DialogHeader>
 

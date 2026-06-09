@@ -1,5 +1,5 @@
 # ============================================================
-#  Quantum Intelligence – Production .htaccess (cPanel / Apache)
+#  SWAIRAX – Production .htaccess (cPanel / Apache)
 #  - SPA routing (React Router)
 #  - Gzip + Brotli compression
 #  - Long-cache headers for images, video, fonts, JS, CSS

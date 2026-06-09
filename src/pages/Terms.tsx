@@ -45,7 +45,7 @@ const Terms = () => {
               <div>
                 <Heading as="h2" size="h3" className="mb-4">Limitation of Liability</Heading>
                 <p className="text-muted-foreground">
-                  In no event shall Quantum Intelligence be liable for any damages arising 
+                  In no event shall SWAIRAX Limited be liable for any damages arising
                   out of the use or inability to use our services.
                 </p>
               </div>

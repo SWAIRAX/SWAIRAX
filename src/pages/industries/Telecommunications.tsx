@@ -172,7 +172,7 @@ const Telecommunications = () => {
 
       {/* CTA Section */}
       <CTASection
-        title="Partner with Quantum Intelligence in transforming your industry"
+        title="Partner with SWAIRAX in transforming your industry"
         description="Ready to enhance your telecommunications infrastructure with AI? Let's discuss how we can help you improve network performance, customer satisfaction, and operational efficiency."
         primary={{ label: "Estimate Project", href: "/contact" }}
         secondary={{ label: "View Solutions", href: "#solutions" }}

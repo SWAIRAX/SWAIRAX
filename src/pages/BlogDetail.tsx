@@ -347,7 +347,7 @@ const BlogDetail = () => {
       <CTASection
         eyebrow="Article Complete"
         title="Ready for More Insights?"
-        description="Join thousands of professionals who trust Quantum Intelligence for cutting-edge AI and data science solutions. Let's transform your data challenges into competitive advantages."
+        description="Join thousands of professionals who trust SWAIRAX for cutting-edge AI and data science solutions. Let's transform your data challenges into competitive advantages."
         primary={{ label: "Explore More Articles", href: "/blog" }}
         secondary={{ label: "Start Your Project", href: "/contact" }}
       />

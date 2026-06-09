@@ -172,7 +172,7 @@ const RetailLogistics = () => {
 
       {/* CTA Section */}
       <CTASection
-        title="Partner with Quantum Intelligence in transforming your industry"
+        title="Partner with SWAIRAX in transforming your industry"
         description="Ready to optimize your retail and logistics operations with AI? Let's discuss how we can help you improve efficiency, reduce costs, and enhance customer experiences."
         primary={{ label: "Estimate Project", href: "/contact" }}
         secondary={{ label: "View Solutions", href: "#solutions" }}

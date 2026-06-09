@@ -1,14 +1,26 @@
 import { useEffect, useRef } from "react";
+import { useTheme } from "next-themes";
 
 interface PlexusBackgroundProps {
   className?: string;
   /** hex line/dot color (brand vermilion by default) */
   color?: number;
-  /** hex background color */
+  /** hex background color. When omitted, follows the current theme's page
+   *  background (white in light mode, near-black in dark mode). */
   backgroundColor?: number;
   /** how far (px) the network pans toward the cursor */
   parallax?: number;
 }
+
+// Reads the live page background colour so the canvas matches the active
+// theme. Returns a decimal hex (e.g. 0xeff1f5).
+const readThemeBackground = (): number => {
+  if (typeof window === "undefined") return 0x0a0a0f;
+  const rgb = getComputedStyle(document.body).backgroundColor;
+  const m = rgb.match(/\d+/g);
+  if (!m || m.length < 3) return 0x0a0a0f;
+  return (parseInt(m[0], 10) << 16) | (parseInt(m[1], 10) << 8) | parseInt(m[2], 10);
+};
 
 /**
  * Red "plexus" network background — the open-source Vanta.js NET effect
@@ -25,15 +37,27 @@ interface PlexusBackgroundProps {
 const PlexusBackground = ({
   className = "",
   color = 0xd62e0a,
-  backgroundColor = 0x0a0a0f,
+  backgroundColor,
   parallax = 28,
 }: PlexusBackgroundProps) => {
   const panRef = useRef<HTMLDivElement>(null);
   const effectRef = useRef<{ destroy: () => void } | null>(null);
+  const { resolvedTheme } = useTheme();
 
   useEffect(() => {
     let cancelled = false;
     const el = panRef.current;
+    // Derive from the resolved theme (already current when this effect runs)
+    // rather than reading the DOM, which can still hold the previous theme's
+    // colour for a tick right after a toggle. Fall back to a DOM read only
+    // before the theme has resolved on first paint.
+    const bgColor =
+      backgroundColor ??
+      (resolvedTheme === "dark"
+        ? 0x0c0f15
+        : resolvedTheme === "light"
+          ? 0xeff1f5
+          : readThemeBackground());
 
     (async () => {
       const [THREE, { default: NET }] = await Promise.all([
@@ -53,7 +77,7 @@ const PlexusBackground = ({
         scale: 1.0,
         scaleMobile: 1.0,
         color,
-        backgroundColor,
+        backgroundColor: bgColor,
         points: 12.0,
         maxDistance: 22.0,
         spacing: 16.0,
@@ -92,7 +116,7 @@ const PlexusBackground = ({
         effectRef.current = null;
       }
     };
-  }, [color, backgroundColor, parallax]);
+  }, [color, backgroundColor, parallax, resolvedTheme]);
 
   return (
     <div className={className} aria-hidden="true" style={{ overflow: "hidden" }}>

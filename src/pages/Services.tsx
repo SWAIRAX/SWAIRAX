@@ -13,11 +13,13 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Heading, Lead } from "@/components/ui/section";
 import { TextRevealCard } from "@/components/ui/text-reveal-card";
+import { services } from "@/data/services";
 import {
   ArrowRight,
   BarChart3,
   Brain,
-  Cog,
+  Code2,
+  Cpu,
   Database,
   Lightbulb,
   Play,
@@ -42,10 +44,10 @@ const HERO_GRAPH_NODES = [
   // ─── LEFT TRIANGLE: Annotate (0) ─ Analytics (1) ─ AI Studio (3) ───
   //   Each of these 3 nodes lists the OTHER TWO in its connections array,
   //   so the deduped edges (0-1, 0-3, 1-3) form a closed triangle.
-  { id: "annotate",  src: "/uploads/ANNOTATE.jpg",         alt: "Quantum Annotate",   label: "Annotate",  href: "/quantum-annotate",  x: 9,  y: 22, size: 130, rotation: -3, connections: [1, 3] },
-  { id: "analytics", src: "/uploads/QUANTUM ANALYTICS.png", alt: "Quantum Analytics",  label: "Analytics", href: "/quantum-analytics", x: 50, y: 10, size: 100, rotation:  2, connections: [0, 3, 2] },
+  { id: "annotate",  src: "/uploads/ANNOTATE.jpg",         alt: "SWAIRAX Annotate",   label: "Annotate",  href: "/quantum-annotate",  x: 9,  y: 22, size: 130, rotation: -3, connections: [1, 3] },
+  { id: "analytics", src: "/uploads/QUANTUM ANALYTICS.png", alt: "SWAIRAX Analytics",  label: "Analytics", href: "/quantum-analytics", x: 50, y: 10, size: 100, rotation:  2, connections: [0, 3, 2] },
   // ─── RIGHT TRIANGLE: GenAI (2) ─ MLOps (4) ─ Finance (6) ───
-  { id: "genai",     src: "/uploads/GENAI.webp",            alt: "Quantum GenAI",      label: "GenAI",     href: "/quantum-genai",     x: 91, y: 22, size: 130, rotation: -2, connections: [1, 4, 6] },
+  { id: "genai",     src: "/uploads/GENAI.webp",            alt: "SWAIRAX GenAI",      label: "GenAI",     href: "/quantum-genai",     x: 91, y: 22, size: 130, rotation: -2, connections: [1, 4, 6] },
   // AI Studio closes the left triangle; bridges down to Health.
   { id: "service",   src: "/uploads/SERVICE.webp",          alt: "AI Studio",          label: "AI Studio", href: "/ai-studio",         x: 5,  y: 52, size: 110, rotation:  3, connections: [0, 1, 5] },
   // MLOps closes the right triangle; bridges down to Finance.
@@ -81,85 +83,35 @@ const Services = () => {
     },
   ];
 
-  const services = [
-    {
-      id: "analytics",
-      icon: <Brain className="h-8 w-8" />,
-      title: "Deep Operator",
-      description:
-        "Data-centric platform leveraging Machine Learning & RLHF to help organizations understand impactt of their work, learn from their data, measure progress, and make smarter decisions.",
-      outcomes: ["Machine Learning & RLHF", "Impact Measurement", "Progress Tracking", "Smart Decision Making"],
-      href: "/deep-operator",
-      timeline: "4-6 weeks to first lift",
-      badge: "Analytics",
-    },
-    {
-      id: "annotate",
-      icon: <Database className="h-8 w-8" />,
-      title: "Quantum Annotate",
-      description:
-        "Robust annotation solution supported by a full workforce, offering industry-grade labeling for text, image, audio, and video datasets.",
-      outcomes: ["Multi-modal Annotation", "Professional Workforce", "Industry-Grade Quality", "Scalable Solutions"],
-      href: "/quantum-annotate",
-      timeline: "Launch in days",
-      badge: "Data Ops",
-    },
-    {
-      id: "genai",
-      icon: <Cog className="h-8 w-8" />,
-      title: "Quantum GenAI",
-      description:
-        "Enhance generative AI model accuracy, reliability, and speed through in-house data expertise and fine-tuning techniques.",
-      outcomes: ["Model Fine-tuning", "Data Expertise", "Performance Enhancement", "Speed Optimization"],
-      href: "/quantum-genai",
-      timeline: "Pilot in 3-4 weeks",
-      badge: "GenAI",
-    },
-    {
-      id: "mlops",
-      icon: <BarChart3 className="h-8 w-8" />,
-      title: "MLOps & DevOps",
-      description:
-        "Bridge the gap between data science and production with our MLOps expertise and deployment solutions.",
-      outcomes: ["Model Deployment", "CI/CD for ML", "Model Monitoring", "Infrastructure as Code"],
-      href: "/mlops-devops",
-      timeline: "Prod-ready in 6 weeks",
-      badge: "Ops",
-    },
-  ];
-
   const process = [
     {
-      title: "Discovery Sprint",
-      description: "Shape the smallest valuable AI slice with measurable success criteria.",
+      title: "Discover",
+      description: "We learn your business, goals, and challenges.",
       icon: <Lightbulb className="h-5 w-5" />,
     },
     {
-      title: "Co-Create & Validate",
-      description: "Design, prototype, and test the human-AI loop with your team involved.",
-      icon: <ShieldCheck className="h-5 w-5" />,
+      title: "Design",
+      description: "We design the solution architecture and roadmap.",
+      icon: <Cpu className="h-5 w-5" />,
     },
     {
-      title: "Ship & Observe",
-      description: "Harden infra, add evaluations, and monitor performance in production.",
+      title: "Build",
+      description: "We develop, test, and iterate rapidly.",
+      icon: <Code2 className="h-5 w-5" />,
+    },
+    {
+      title: "Deploy & Support",
+      description: "We launch and provide ongoing support.",
       icon: <Rocket className="h-5 w-5" />,
     },
-    {
-      title: "Optimize",
-      description: "Tight feedback loops, cost/perf tuning, and continuous retraining cadence.",
-      icon: <BarChart3 className="h-5 w-5" />,
-    },
   ];
-
-  const showreel =
-    "https://cdn.coverr.co/videos/coverr-abstract-technology-10926/1080p.mp4";
 
   return (
     <div className="min-h-screen bg-background text-foreground">
       <SEOSchema
         breadcrumbs={[
-          { name: "Home", url: "https://quantumintelligence.co.tz" },
-          { name: "Services", url: "https://quantumintelligence.co.tz/services" }
+          { name: "Home", url: "https://swairax.com" },
+          { name: "Services", url: "https://swairax.com/services" }
         ]}
       />
       <Header />
@@ -168,12 +120,12 @@ const Services = () => {
       <ServiceGraphHero
         title={
           <Heading as="h1" size="display" className="leading-tight text-black">
-            AI-powered automation for every decision, safely in production.
+            Our Services
           </Heading>
         }
         subtitle={
           <Lead className="mx-auto max-w-2xl text-lg sm:text-xl lg:text-2xl font-semibold text-slate-800">
-            The data-centric, ethical AI team that blends human talent with resilient MLOps so automation, copilots, and analytics reach production safely.
+            End-to-end technology solutions for businesses of all sizes.
           </Lead>
         }
         cta={
@@ -245,8 +197,10 @@ const Services = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             {services.map((service, index) => (
               <Card
-                key={service.id}
-                className="solution-card bg-secondary border-border animate-slide-in-bottom group relative overflow-hidden"
+                key={service.slug}
+                id={service.slug}
+                onClick={() => navigateToTop(`/services/${service.slug}`)}
+                className="solution-card scroll-mt-24 bg-secondary border-border animate-slide-in-bottom group relative overflow-hidden cursor-pointer hover:border-primary/40 transition-colors"
                 style={{ animationDelay: `${index * 0.2}s` }}
               >
                 <CardContent className="p-8 relative overflow-hidden">
@@ -259,8 +213,8 @@ const Services = () => {
                   </div>
 
                   <div className="flex items-center justify-between mb-6 relative z-10">
-                    <div className={`rounded-xl bg-white/10 p-3 shadow-inner ${index % 2 === 1 ? "text-secondary-accent" : "text-primary"}`}>
-                      {service.icon}
+                    <div className={`card-icon rounded-xl bg-white/10 p-3 shadow-inner ${index % 2 === 1 ? "text-secondary-accent" : "text-primary"}`}>
+                      <service.icon className="h-8 w-8" />
                     </div>
                     <span className="text-xs px-3 py-1 rounded-full bg-muted text-muted-foreground group-hover:bg-primary/20 transition-colors duration-300">
                       {service.badge}
@@ -272,18 +226,29 @@ const Services = () => {
                     {service.description}
                   </p>
 
+                  <ul className="mb-6 space-y-2 relative z-10">
+                    {service.outcomes.map((outcome) => (
+                      <li
+                        key={outcome}
+                        className="flex items-start gap-2 text-sm text-muted-foreground"
+                      >
+                        <span className={`mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full ${index % 2 === 1 ? "bg-secondary-accent" : "bg-primary"}`} />
+                        <span>{outcome}</span>
+                      </li>
+                    ))}
+                  </ul>
+
                   <Button
                     variant="ghost"
                     className="text-foreground hover:text-primary bg-transparent hover:bg-transparent p-0 relative z-10 group-hover:translate-x-1 transition-transform duration-300 focus-visible:ring-0"
-                    onClick={() => navigateToTop(service.href)}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      navigateToTop(`/services/${service.slug}`);
+                    }}
                   >
-                    Dive deeper <ArrowRight className="ml-2 h-4 w-4" />
+                    {service.cta}
                   </Button>
 
-                  {/* Sparkle effect on hover */}
-                  <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <div className="w-2 h-2 bg-primary rounded-full animate-ping"></div>
-                  </div>
                 </CardContent>
               </Card>
             ))}
@@ -350,17 +315,17 @@ const Services = () => {
               size="h2"
               className="leading-tight text-foreground font-bold"
             >
-              Motion that sells your core: Analytics, Annotate, GenAI, MLOps.
+              Not Sure Which Service You Need?
             </Heading>
             <p className="text-foreground/85 text-sm md:text-base max-w-xl leading-relaxed">
-              We choreograph cinematic motion with real product proof: data-centric analytics, human-led annotation, safety-checked GenAI, and production MLOps. Evals, observability, and on-call rituals keep everything calm in production.
+              Tell us your challenge and we'll recommend the right solution.
             </p>
             <div className="flex flex-col sm:flex-row items-start gap-3 pt-1">
               <Button
                 className="bg-primary hover:bg-primary/90 text-primary-foreground w-auto h-10 sm:h-12 px-4 sm:px-6 py-2 sm:py-3 text-sm sm:text-base"
                 onClick={() => navigateToTop("/contact")}
               >
-                Start a project
+                Talk to Us →
               </Button>
               <Button
                 variant="outline"
@@ -375,22 +340,12 @@ const Services = () => {
           <div className="relative group overflow-hidden rounded-2xl border border-border bg-gradient-to-br from-neutral-900 via-neutral-900/70 to-black shadow-lg">
             <div className="absolute -inset-12 bg-gradient-to-r from-primary/10 via-transparent to-primary/10 blur-3xl opacity-40 group-hover:opacity-60 transition-opacity duration-700" />
             <div className="relative">
-              <video
-                className="h-full w-full object-cover animate-pan-slow"
-                autoPlay
-                loop
-                muted
-                playsInline
-                poster="/uploads/Quantum.png"
-              >
-                <source src={showreel} type="video/mp4" />
-              </video>
-              <div
-                className="absolute inset-0 bg-center bg-cover"
-                style={{ backgroundImage: "url('/uploads/CTA%20GIF.gif')" }}
-                aria-hidden="true"
+              <img
+                src="/uploads/cta-square.gif"
+                alt="SWAIRAX in motion"
+                loading="lazy"
+                className="h-64 w-full object-cover sm:h-72 transition-transform duration-700 group-hover:scale-105"
               />
-
             </div>
           </div>
         </div>

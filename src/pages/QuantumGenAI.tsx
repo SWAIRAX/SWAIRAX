@@ -8,7 +8,7 @@ import HeroBackdrop from "@/components/HeroBackdrop";
 import FullBleedHero from "@/components/FullBleedHero";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { ArrowRight, Brain, Cog, Database, Zap, CheckCircle, Sparkles, Target, TrendingUp, Shield, Clock } from "lucide-react";
+import { ArrowRight, Brain, Cog, Database, Zap, CheckCircle, Target, TrendingUp, Shield, Clock } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Heading, Lead } from "@/components/ui/section";
 
@@ -77,8 +77,8 @@ const QuantumGenAI = () => {
       {/* Hero Section — scale.com FullBleedMediaSection pattern. */}
       <FullBleedHero
         imageSrc="/uploads/GENAI.avif"
-        imageAlt="Quantum GenAI"
-        eyebrow={<><Brain className="h-4 w-4 mr-2" />Quantum GenAI</>}
+        imageAlt="SWAIRAX GenAI"
+        eyebrow={<><Brain className="h-4 w-4 mr-2" />SWAIRAX GenAI</>}
         title={
           <Heading as="h1" size="display" className="font-black text-white">
             Generative AI that's accurate, reliable, and fast.
@@ -158,7 +158,7 @@ const QuantumGenAI = () => {
                   </div>
 
                   <div className="flex items-center justify-between mb-6 relative z-10">
-                    <div className="rounded-xl bg-white/10 p-3 shadow-inner text-primary">
+                    <div className="card-icon rounded-xl bg-white/10 p-3 shadow-inner text-primary">
                       {feature.icon}
                     </div>
                   </div>
@@ -176,10 +176,6 @@ const QuantumGenAI = () => {
                       </li>
                     ))}
                   </ul>
-
-                  <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <div className="w-2 h-2 bg-primary rounded-full animate-ping" />
-                  </div>
                 </CardContent>
               </Card>
             ))}
@@ -264,7 +260,7 @@ const QuantumGenAI = () => {
                 style={{ transitionDelay: `${index * 0.05}s` }}
               >
                 <div className="w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-3 group-hover:bg-primary/20 group-hover:scale-110 transition-all duration-300">
-                  <Sparkles className="h-4 w-4 text-primary" />
+                  <span className="text-sm font-bold text-primary">{tech.name.charAt(0)}</span>
                 </div>
                 <h3 className="font-bold mb-1 text-sm group-hover:text-primary transition-colors">{tech.name}</h3>
                 <p className="text-xs text-muted-foreground">{tech.description}</p>
@@ -284,7 +280,7 @@ const QuantumGenAI = () => {
               Ready to Transform Your AI Capabilities?
             </Heading>
             <p className="text-sm text-foreground/85 mb-4 max-w-2xl mx-auto">
-              Let's discuss how our Quantum GenAI services can enhance your AI models and drive better business outcomes.
+              Let's discuss how our SWAIRAX GenAI services can enhance your AI models and drive better business outcomes.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <Button

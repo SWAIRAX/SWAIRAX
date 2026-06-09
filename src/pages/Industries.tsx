@@ -17,7 +17,6 @@ import {
   Package,
   Heart,
   ArrowRight,
-  Sparkles,
 } from "lucide-react";
 
 const Industries = () => {
@@ -139,7 +138,7 @@ const Industries = () => {
                     </div>
 
                     <div className="flex items-center justify-between mb-6 relative z-10">
-                      <div className={`rounded-xl bg-white/10 p-3 shadow-inner ${index % 2 === 1 ? "text-secondary-accent" : "text-primary"}`}>
+                      <div className={`card-icon rounded-xl bg-white/10 p-3 shadow-inner ${index % 2 === 1 ? "text-secondary-accent" : "text-primary"}`}>
                         {industry.icon}
                       </div>
                       <span className="text-xs px-3 py-1 rounded-full bg-muted text-muted-foreground group-hover:bg-primary/20 transition-colors duration-300">
@@ -159,11 +158,6 @@ const Industries = () => {
                     >
                       Explore <ArrowRight className="ml-2 h-4 w-4" />
                     </Button>
-
-                    {/* Sparkle effect on hover */}
-                    <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <div className="w-2 h-2 bg-primary rounded-full animate-ping"></div>
-                    </div>
                   </CardContent>
                 </Card>
               );

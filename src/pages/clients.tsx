@@ -214,7 +214,7 @@ return (
     <PageHero
         className="bg-card"
         title={<>We Make Complexity  Feel Effortless</>}
-        description={<>At Quantum Intelligence, our clients aren’t just customers—they’re collaborators in innovation. Whether you're a startup aiming to scale or a global enterprise seeking tech solutions, we tailor every project to your goals. Your success is our mission—and our measure.</>}
+        description={<>At SWAIRAX, our clients aren’t just customers—they’re collaborators in innovation. Whether you're a startup aiming to scale or a global enterprise seeking tech solutions, we tailor every project to your goals. Your success is our mission—and our measure.</>}
         actions={
           <Button
             size="lg"

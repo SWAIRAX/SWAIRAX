@@ -31,7 +31,7 @@ const OurWork = () => {
         <div className="max-w-[1200px] mx-auto px-6">
           <ScrollReveal className="text-center space-y-4 mb-12">
             <Heading as="h1" size="display">
-              Products built by Quantum Intelligence
+              Products built by SWAIRAX
             </Heading>
             <Lead className="max-w-2xl mx-auto">
               A focused portfolio of tools designed for African businesses,

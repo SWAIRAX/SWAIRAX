@@ -30,23 +30,23 @@ const About = () => {
   const values = [
     {
       icon: <Target className="h-8 w-8" />,
-      title: "Innovation First",
-      description: "We continuously push the boundaries of what's possible with AI and data science."
+      title: "Innovation",
+      description: "We push boundaries and embrace new technologies."
     },
     {
       icon: <Users className="h-8 w-8" />,
-      title: "Inclusive Culture",
-      description: "We believe diverse perspectives drive better solutions and innovation."
+      title: "Integrity",
+      description: "We build trust through transparency and honesty."
     },
     {
       icon: <Eye className="h-8 w-8" />,
-      title: "Transparency",
-      description: "We maintain open communication and ethical practices in all our work."
+      title: "Impact",
+      description: "Every solution we build must create real-world value."
     },
     {
       icon: <Award className="h-8 w-8" />,
       title: "Excellence",
-      description: "We strive for excellence in every project and interaction."
+      description: "We never compromise on quality."
     }
   ];
 
@@ -81,36 +81,39 @@ const About = () => {
     <div className="min-h-screen bg-background">
       <SEOSchema
         breadcrumbs={[
-          { name: "Home", url: "https://quantumintelligence.co.tz" },
-          { name: "About", url: "https://quantumintelligence.co.tz/about" }
+          { name: "Home", url: "https://swairax.com" },
+          { name: "About", url: "https://swairax.com/about" }
         ]}
       />
       <Header />
 
-      {/* Hero — research-page style: the team photo as a full-bleed background */}
-      <section className="relative overflow-hidden text-white pt-20 pb-4 sm:pt-24 sm:pb-5 lg:pt-28 lg:pb-6">
-        {/* Team photo background — focal point just below the top — drifts on scroll for depth */}
+      {/* Hero — Sectors-page style: dotted red pattern, light editorial headline */}
+      <section className="relative overflow-hidden text-white pt-36 pb-24 sm:pt-44 sm:pb-32 lg:pt-52 lg:pb-40">
+        {/* dotted red pattern background — drifts on scroll for depth */}
         <Parallax speed={-0.25} clamp={150} className="absolute inset-x-0 -inset-y-[24%] h-[148%]">
           <div
-            className="absolute inset-0 bg-cover bg-[center_22%]"
-            style={{ backgroundImage: "url('/uploads/TEAM.jpeg')" }}
+            className="absolute inset-0"
+            style={{
+              backgroundColor: "rgb(0,0,0)",
+              backgroundSize: "40px 40px",
+              backgroundImage:
+                "linear-gradient(45deg, rgba(214,46,10,0.35), transparent 40%), linear-gradient(-90deg, rgba(214,46,10,0.35), transparent 20%)",
+            }}
           />
         </Parallax>
-        {/* Light brand-red tint + soft dark gradient so the white type stays legible */}
-        <div className="pointer-events-none absolute inset-0 bg-[#b3210a]/25 mix-blend-multiply" />
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-black/60 via-black/30 to-black/5" />
+        {/* brand-red glow + dark gradient so the white type stays legible */}
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_30%_40%,rgba(179,33,10,0.5),transparent_60%)]" />
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-black/65 via-black/35 to-black/10" />
         <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-2xl lg:ml-[28%]">
-            <h1 className="pl-6 text-5xl font-light leading-[1.03] tracking-tight text-white drop-shadow-sm sm:text-6xl lg:text-7xl">
-              Solving intelligence to benefit <span className="italic">humanity.</span>
-            </h1>
-            <p className="mt-6 pl-6 max-w-xl text-base leading-relaxed text-white/85 md:text-lg">
-              We&apos;re an AI research and deployment company building innovative, ethical, and
-              accessible AI — so businesses and people can unlock the full potential of their data.
+          <div className="max-w-2xl lg:ml-[32%]">
+            <p className="mb-6 pl-6 text-xs font-semibold uppercase tracking-[0.25em] text-white/70">
+              About SWAIRAX
             </p>
-
-            <div className="relative mt-9 inline-flex">
-              {/* passionlabs "button_outlines" — white lines emanate from the button edges */}
+            <h1 className="pl-6 text-5xl font-light leading-[1.03] tracking-tight text-white drop-shadow-sm sm:text-6xl lg:text-7xl">
+              A technology company <span className="italic">born in Tanzania.</span>
+            </h1>
+            <div className="relative mt-10 inline-flex">
+              {/* crosshair lines emanating from the button edges */}
               <span className="pointer-events-none absolute top-1/2 right-full h-px w-screen -translate-y-1/2 bg-white/80" />
               <span className="pointer-events-none absolute top-1/2 left-full h-px w-screen -translate-y-1/2 bg-white/80" />
               <span className="pointer-events-none absolute bottom-full left-0 h-screen w-px bg-white/80" />
@@ -123,22 +126,15 @@ const About = () => {
                 Get in touch
               </button>
             </div>
-
-            {/* Stats — tucked into the hero with thin accent rules */}
-            <div className="mt-12 flex flex-wrap gap-x-10 gap-y-6 pl-6">
-              {[
-                { v: "20+", l: "Projects Delivered" },
-                { v: "09+", l: "Team Members" },
-                { v: "99%", l: "Client Satisfaction" },
-              ].map((s) => (
-                <div key={s.l} className="border-l-2 border-[#eb0000] pl-4">
-                  <div className="text-3xl font-light leading-none text-white sm:text-4xl">{s.v}</div>
-                  <div className="mt-1.5 text-xs uppercase tracking-wide text-white/65">{s.l}</div>
-                </div>
-              ))}
-            </div>
           </div>
         </div>
+
+        {/* Transparent brand graphic — small, anchored to the left, blends into the dark hero */}
+        <img
+          src="/SWAY.png"
+          alt="SWAIRAX"
+          className="pointer-events-none absolute left-4 top-1/2 z-10 hidden w-44 -translate-y-1/2 object-contain sm:left-10 lg:left-16 lg:block lg:w-60 xl:w-64"
+        />
       </section>
 
       {/* Mission & Vision — red block */}
@@ -146,23 +142,31 @@ const About = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-10 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 xl:gap-12 max-w-6xl mx-auto">
             <ScrollReveal>
-              <Heading as="h2" size="h2" className="mb-4 text-white">Our Mission</Heading>
+              <div className="mb-4 flex items-center gap-3">
+                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-white/15 text-white">
+                  <Target className="h-5 w-5" />
+                </div>
+                <Heading as="h2" size="h2" className="text-white">Our Mission</Heading>
+              </div>
               <p className="text-base text-white/90 mb-3">
-                  To democratize artificial intelligence by building innovative, ethical, and accessible AI solutions that empower businesses and individuals to unlock the full potential of their data.
+                  To bridge the technology gap in Africa by building innovative, locally relevant digital solutions that empower businesses and communities.
                 </p>
               <p className="text-sm text-white/75">
-                  We believe that AI should be a force for good, driving positive change across industries while maintaining the highest standards of ethics and transparency.
+                  We design for the realities of our market — mobile money, local languages, and infrastructure on the ground — so technology works for the people who use it.
                 </p>
             </ScrollReveal>
             <ScrollReveal delay={100}>
-              <Heading as="h2" size="h2" className="mb-4 text-white">Our Vision</Heading>
+              <div className="mb-4 flex items-center gap-3">
+                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-white/15 text-white">
+                  <Eye className="h-5 w-5" />
+                </div>
+                <Heading as="h2" size="h2" className="text-white">Our Vision</Heading>
+              </div>
               <p className="text-base text-white/90 mb-3">
-                  We live in an exciting time when AI research and technology are delivering extraordinary advances.
-                  In the coming years, AI — and ultimately artificial general intelligence (AGI) — has the potential to drive one of the greatest transformations in history.
+                  To become Africa's most trusted technology company — a place where world-class innovation meets local impact.
                 </p>
               <p className="text-sm text-white/75">
-
-We're a team of scientists, engineers, ethicists and more, working to build the next generation of AI systems safely and responsibly.              </p>
+                  We're a team of engineers, designers, and builders working to deliver full-stack expertise, from AI to mobile apps, for businesses across the continent.              </p>
             </ScrollReveal>
           </div>
         </div>
@@ -178,9 +182,9 @@ We're a team of scientists, engineers, ethicists and more, working to build the 
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-10 relative z-10">
           <ScrollReveal className="text-center mb-12">
-            <Heading as="h2" size="h2" className="mb-4 text-foreground">Our Values</Heading>
+            <Heading as="h2" size="h2" className="mb-4 text-foreground">Core Values</Heading>
             <p className="text-base md:text-lg text-muted-foreground max-w-3xl mx-auto">
-              By solving some of the hardest scientific and engineering challenges of our time, we're working to create breakthrough technologies that could advance science, transform work, serve diverse communities — and improve billions of people's lives.
+              By solving real problems with an Africa-first approach, we build technology that creates lasting value — for the businesses we serve and the communities they belong to.
             </p>
           </ScrollReveal>
 
@@ -305,22 +309,21 @@ We're a team of scientists, engineers, ethicists and more, working to build the 
             </div>
             <div className="space-y-3 text-base text-muted-foreground">
                 <p>
-                  Founded in 2024 by a group of dreamers, builders, and researchers, Quantum Intelligence was born from a simple but powerful belief:
-                  Artificial intelligence should serve humanity—not just optimize it.
-
+                  SWAIRAX was founded with a simple but powerful belief: that Africa shouldn't just
+                  consume technology built elsewhere — it should build its own. Based in Dar es Salaam,
+                  Tanzania 🇹🇿, we exist to bridge the technology gap in Africa by building innovative,
+                  locally relevant digital solutions for businesses and communities across Tanzania and beyond.
                 </p>
                 <p>
-                  We started small—with curiosity, conviction, and a deep respect for what AI could become. Not just a tool for efficiency, but a way to solve meaningful problems, spark new ideas, and build a better future.
-                  As we grew, so did our purpose. We listened more. Learned faster. Built with intention. And always stayed close to the people behind the data—the teams, the communities, the individuals who inspire everything we do.
+                  Everything we build starts with an Africa-first approach. That means designing for the
+                  realities of our market — mobile money, local languages, and the infrastructure people
+                  actually use — instead of forcing global templates onto local problems. We bring
+                  full-stack expertise to every project, from AI and data science to web and mobile apps.
                 </p>
                 <p>
-                  Today, Quantum Intelligence is shaped by that same spirit.
-We’re here to create, to collaborate, and to make every interaction—every insight—count.
-
-                </p>
-                <p>
-                Because for us, it’s not just about what AI can do.
-It’s about what it can do for you.
+                  We're still early in our journey, but our purpose is clear: to make every solution we
+                  ship create real-world value. Because for us, technology isn't the goal — what it does
+                  for the people who use it is.
                 </p>
             </div>
           </ScrollReveal>
@@ -337,10 +340,10 @@ It’s about what it can do for you.
         <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-10 pt-16 sm:pt-20 lg:pt-24">
           <div className="max-w-3xl mx-auto rounded-2xl border border-border/60 bg-background/85 backdrop-blur-md shadow-[0_15px_40px_-25px_rgba(15,23,42,0.25)] p-6 md:p-10 text-center">
             <Heading as="h2" size="h2" className="mb-4 text-foreground">
-              Join Our Journey
+              Want to Work With Us?
             </Heading>
             <p className="text-base md:text-lg text-foreground/85 mb-8 max-w-2xl mx-auto">
-              Ready to be part of the AI revolution? Let's build the future together.
+              Let's build Africa's digital future together. Reach out and tell us what you're building.
             </p>
             <div className="flex flex-col sm:flex-row items-start sm:justify-center gap-4">
               {/* <Button
@@ -357,7 +360,8 @@ It’s about what it can do for you.
                 onClick={() => navigateToTop('/contact')}
                 className="px-6 sm:px-8 py-4 sm:py-6 text-sm sm:text-base font-semibold border-2 hover:bg-primary/10 hover:border-primary transition-all duration-300 h-12 sm:h-14"
               >
-                Partner With Us
+                Get in Touch
+                <ArrowRight className="ml-2 h-4 sm:h-5 w-4 sm:w-5" />
               </Button>
             </div>
           </div>

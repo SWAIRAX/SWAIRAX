@@ -8,7 +8,7 @@ import HeroBackdrop from "@/components/HeroBackdrop";
 import FullBleedHero from "@/components/FullBleedHero";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { ArrowRight, Database, Image, Volume2, Video, CheckCircle, Sparkles, Target, Users, Shield, Clock, Zap, FileText, Eye } from "lucide-react";
+import { ArrowRight, Database, Image, Volume2, Video, CheckCircle, Target, Users, Shield, Clock, Zap, FileText, Eye } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Heading, Lead } from "@/components/ui/section";
 
@@ -89,8 +89,8 @@ const QuantumAnnotate = () => {
       {/* Hero Section — scale.com FullBleedMediaSection pattern. */}
       <FullBleedHero
         imageSrc="/uploads/ANNOTATE.jpg"
-        imageAlt="Quantum Annotate"
-        eyebrow={<><Database className="h-4 w-4 mr-2" />Quantum Annotate</>}
+        imageAlt="SWAIRAX Annotate"
+        eyebrow={<><Database className="h-4 w-4 mr-2" />SWAIRAX Annotate</>}
         title={
           <Heading as="h1" size="display" className="font-black text-white">
             Industry-grade labeling for every modality.
@@ -170,7 +170,7 @@ const QuantumAnnotate = () => {
                   </div>
 
                   <div className="flex items-center justify-between mb-6 relative z-10">
-                    <div className="rounded-xl bg-white/10 p-3 shadow-inner text-primary">
+                    <div className="card-icon rounded-xl bg-white/10 p-3 shadow-inner text-primary">
                       {feature.icon}
                     </div>
                   </div>
@@ -188,10 +188,6 @@ const QuantumAnnotate = () => {
                       </li>
                     ))}
                   </ul>
-
-                  <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <div className="w-2 h-2 bg-primary rounded-full animate-ping" />
-                  </div>
                 </CardContent>
               </Card>
             ))}

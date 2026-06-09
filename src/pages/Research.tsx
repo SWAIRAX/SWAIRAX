@@ -12,7 +12,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { SectionLead, Heading, Eyebrow } from "@/components/typography";
 import { TextRevealCard } from "@/components/ui/text-reveal-card";
 import { InfiniteMovingCards } from "@/components/ui/infinite-moving-cards";
-import { ArrowRight, Calendar, Shield, Users, FileText, ExternalLink, Sparkles, Play } from "lucide-react";
+import { ArrowRight, Calendar, Shield, Users, FileText, ExternalLink, Play } from "lucide-react";
 
 const Research = () => {
   const navigate = useNavigate();
@@ -78,8 +78,8 @@ const Research = () => {
     <div className="min-h-screen bg-background text-foreground">
       <SEOSchema
         breadcrumbs={[
-          { name: "Home", url: "https://quantumintelligence.co.tz" },
-          { name: "Research", url: "https://quantumintelligence.co.tz/research" }
+          { name: "Home", url: "https://swairax.com" },
+          { name: "Research", url: "https://swairax.com/research" }
         ]}
       />
       <Header />

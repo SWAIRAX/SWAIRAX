@@ -185,7 +185,7 @@ const MLOpsDevOps = () => {
                   </div>
 
                   <div className="flex items-center justify-between mb-6 relative z-10">
-                    <div className="rounded-xl bg-white/10 p-3 shadow-inner text-primary">
+                    <div className="card-icon rounded-xl bg-white/10 p-3 shadow-inner text-primary">
                       {feature.icon}
                     </div>
                   </div>
@@ -203,10 +203,6 @@ const MLOpsDevOps = () => {
                       </li>
                     ))}
                   </ul>
-
-                  <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <div className="w-2 h-2 bg-primary rounded-full animate-ping" />
-                  </div>
                 </CardContent>
               </Card>
             ))}

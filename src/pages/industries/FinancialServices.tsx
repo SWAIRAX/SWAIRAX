@@ -77,7 +77,7 @@ const FinancialServices = () => {
         <HeroBackdrop />
         <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-10">
           <div className="max-w-4xl mx-auto text-left">
-            <div className="mb-4 inline-flex rounded-xl bg-primary/10 p-3 text-primary">
+            <div className="mb-4 inline-flex card-icon rounded-xl bg-primary/10 p-3 text-primary">
               <Banknote className="h-7 w-7" />
             </div>
 
@@ -148,7 +148,7 @@ const FinancialServices = () => {
                     </div>
 
                     <div className="flex items-center justify-between mb-6 relative z-10">
-                      <div className={`rounded-xl bg-primary/10 p-3 ${index % 2 === 1 ? "text-secondary-accent" : "text-primary"}`}>
+                      <div className={`card-icon rounded-xl bg-primary/10 p-3 ${index % 2 === 1 ? "text-secondary-accent" : "text-primary"}`}>
                         <Icon className="h-6 w-6" />
                       </div>
                       <span className="text-xs px-3 py-1 rounded-full bg-muted text-muted-foreground group-hover:bg-primary/20 transition-colors duration-300">
@@ -169,10 +169,6 @@ const FinancialServices = () => {
                         </li>
                       ))}
                     </ul>
-
-                    <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <div className="w-2 h-2 bg-primary rounded-full animate-ping"></div>
-                    </div>
                   </CardContent>
                 </Card>
               );
@@ -210,7 +206,7 @@ const FinancialServices = () => {
 
       {/* CTA Section */}
       <CTASection
-        title="Partner with Quantum Intelligence in transforming your industry"
+        title="Partner with SWAIRAX in transforming your industry"
         description="Ready to revolutionize your financial services with AI? Let's discuss how we can help you achieve better security, efficiency, and customer satisfaction."
         primary={{ label: "Estimate Project", href: "/contact" }}
         secondary={{ label: "View Solutions", href: "#solutions" }}

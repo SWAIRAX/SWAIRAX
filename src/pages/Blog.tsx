@@ -39,9 +39,9 @@ const Blog = () => {
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-black/65 via-black/35 to-black/10" />
         <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl lg:ml-[32%]">
-            <p className="mb-6 pl-6 text-xs font-semibold uppercase tracking-[0.25em] text-white/70">Blog</p>
+            <p className="mb-6 pl-6 text-xs font-semibold uppercase tracking-[0.25em] text-white/70">SWAIRAX Blog</p>
             <h1 className="pl-6 text-5xl font-light leading-[1.03] tracking-tight text-white drop-shadow-sm sm:text-6xl lg:text-7xl">
-              Insights &amp; <span className="italic">innovation.</span>
+              Insights on AI, Data Science, and <span className="italic">Technology in Africa.</span>
             </h1>
             <div className="relative mt-10 inline-flex">
               {/* passionlabs "button_outlines" — white lines emanate from the button edges */}

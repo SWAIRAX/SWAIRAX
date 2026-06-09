@@ -11,8 +11,8 @@ import {
 const FAQ = () => {
   const faqs = [
     {
-      question: "What services does Quantum Intelligence offer?",
-      answer: "We offer AI solutions, MLOps services, business analysis, and custom AI development including computer vision, NLP, and generative AI solutions."
+      question: "What services does SWAIRAX offer?",
+      answer: "SWAIRAX is an Africa-first technology company offering AI, Data Science, Cybersecurity, Big Data Analytics, and Software Engineering solutions."
     },
     {
       question: "How long does it take to deploy an AI model?",
@@ -31,7 +31,7 @@ const FAQ = () => {
       answer: "We serve various industries including healthcare, finance, education, retail, telecommunications, and more, providing tailored AI solutions for each sector."
     },
     {
-      question: "How do I get started with Quantum Intelligence?",
+      question: "How do I get started with SWAIRAX?",
       answer: "Simply contact us through our website or schedule a consultation. We'll discuss your needs and provide a customized AI solution proposal."
     }
   ];

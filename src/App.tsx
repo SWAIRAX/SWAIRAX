@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { ThemeProvider } from "next-themes";
 import { HelmetProvider } from "react-helmet-async";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
@@ -7,6 +8,10 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import Index from "./pages/Index";
 import Services from "./pages/Services";
+import ServiceDetail from "./pages/ServiceDetail";
+import Products from "./pages/Products";
+import Sectors from "./pages/Sectors";
+import SectorDetail from "./pages/SectorDetail";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Careers from "./pages/Careers";
@@ -57,6 +62,10 @@ const AppRoutes = () => {
       setSEO(pageSEO.home);
     } else if (pathname === "/services") {
       setSEO(pageSEO.services);
+    } else if (pathname === "/products") {
+      setSEO(pageSEO.products);
+    } else if (pathname === "/sectors") {
+      setSEO(pageSEO.sectors);
     } else if (pathname === "/about") {
       setSEO(pageSEO.about);
     } else if (pathname === "/contact") {
@@ -103,6 +112,10 @@ const AppRoutes = () => {
     <Routes>
       <Route path="/" element={<Index />} />
       <Route path="/services" element={<Services />} />
+      <Route path="/services/:slug" element={<ServiceDetail />} />
+      <Route path="/products" element={<Products />} />
+      <Route path="/sectors" element={<Sectors />} />
+      <Route path="/sectors/:slug" element={<SectorDetail />} />
       <Route path="/clients" element={<Clients />} />
       <Route path="/industries" element={<Industries />} />
       <Route path="/industries/financial-services" element={<FinancialServices />} />
@@ -143,17 +156,25 @@ const AppRoutes = () => {
 };
 
 const App = () => (
-  <HelmetProvider>
-    <QueryClientProvider client={queryClient}>
-      <TooltipProvider>
-        <Toaster />
-        <Sonner />
-        <BrowserRouter>
-          <AppRoutes />
-        </BrowserRouter>
-      </TooltipProvider>
-    </QueryClientProvider>
-  </HelmetProvider>
+  <ThemeProvider
+    attribute="class"
+    defaultTheme="light"
+    enableSystem={false}
+    storageKey="swairax-theme"
+    disableTransitionOnChange
+  >
+    <HelmetProvider>
+      <QueryClientProvider client={queryClient}>
+        <TooltipProvider>
+          <Toaster />
+          <Sonner />
+          <BrowserRouter>
+            <AppRoutes />
+          </BrowserRouter>
+        </TooltipProvider>
+      </QueryClientProvider>
+    </HelmetProvider>
+  </ThemeProvider>
 );
 
 export default App;

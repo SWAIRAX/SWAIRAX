@@ -8,7 +8,7 @@ import HeroBackdrop from "@/components/HeroBackdrop";
 import FullBleedHero from "@/components/FullBleedHero";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { ArrowRight, Brain, Database, TrendingUp, CheckCircle, Sparkles, Target, BarChart3, PieChart, Activity, Shield, Clock, Zap, ChevronRight, Network, ArrowUp, Users, Settings, AlertTriangle, Calendar } from "lucide-react";
+import { ArrowRight, Brain, Database, TrendingUp, CheckCircle, Target, BarChart3, PieChart, Activity, Shield, Clock, Zap, ChevronRight, Network, ArrowUp, Users, Settings, AlertTriangle, Calendar } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Heading, Lead } from "@/components/ui/section";
 
@@ -121,8 +121,8 @@ const QuantumAnalytics = () => {
 
       {/* Hero Section — scale.com FullBleedMediaSection pattern. */}
       <FullBleedHero
-        imageSrc="/uploads/QUANTUM ANALYTICS.png"
-        imageAlt="Quantum Analytics platform"
+        imageSrc="/uploads/SWAIRAX ANALYTICS.png"
+        imageAlt="SWAIRAX Analytics platform"
         eyebrow={
           <>
             <Brain className="h-4 w-4 mr-2" />
@@ -214,7 +214,7 @@ const QuantumAnalytics = () => {
                   </div>
 
                   <div className="flex items-center justify-between mb-6 relative z-10">
-                    <div className="rounded-xl bg-white/10 p-3 shadow-inner text-primary">
+                    <div className="card-icon rounded-xl bg-white/10 p-3 shadow-inner text-primary">
                       {feature.icon}
                     </div>
                   </div>
@@ -232,10 +232,6 @@ const QuantumAnalytics = () => {
                       </li>
                     ))}
                   </ul>
-
-                  <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <div className="w-2 h-2 bg-primary rounded-full animate-ping" />
-                  </div>
                 </CardContent>
               </Card>
             ))}

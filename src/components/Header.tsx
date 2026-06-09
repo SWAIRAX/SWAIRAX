@@ -1,6 +1,7 @@
 import { useEffect, useState, useRef } from "react";
+import { useTheme } from "next-themes";
 import { Button } from "@/components/ui/button";
-import { Menu, X, CheckCheck, ChevronDown } from "lucide-react";
+import { Menu, X, CheckCheck, ChevronDown, Sun, Moon } from "lucide-react";
 import { useLocation } from "react-router-dom";
 import { useNavigationWithScroll } from "@/utils/navigation";
 
@@ -8,6 +9,25 @@ type NavItem = {
   name: string;
   path: string;
   dropdown?: { name: string; desc: string; path: string }[];
+};
+
+// Light/dark switch — guarded with a mounted flag so the icon matches the
+// resolved theme on first paint.
+const ThemeToggle = ({ className = "" }: { className?: string }) => {
+  const { resolvedTheme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+  const isDark = resolvedTheme === "dark";
+  return (
+    <button
+      type="button"
+      onClick={() => setTheme(isDark ? "light" : "dark")}
+      aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
+      className={`inline-flex h-9 w-9 items-center justify-center rounded-full border border-border text-foreground/70 hover:text-foreground hover:bg-muted transition-colors ${className}`}
+    >
+      {mounted && isDark ? <Sun className="h-[18px] w-[18px]" /> : <Moon className="h-[18px] w-[18px]" />}
+    </button>
+  );
 };
 
 const Header = () => {
@@ -27,40 +47,31 @@ const Header = () => {
   }, [isMenuOpen]);
 
   const navItems: NavItem[] = [
-    { name: "Products & Services", path: "/services" },
-    { name: "Industries", path: "/industries" },
-    {
-      name: "Our Work",
-      path: "/our-work",
-      dropdown: [
-        {
-          name: "Kinara Copilot",
-          desc: "SMS & WhatsApp learning assistant aligned with the NECTA curriculum.",
-          path: "/kinara-copilot",
-        },
-      ],
-    },
-    { name: "Research", path: "/research" },
+    { name: "Services", path: "/services" },
+    { name: "Products", path: "/products" },
+    { name: "Sectors", path: "/sectors" },
+    { name: "Blog", path: "/blog" },
   ];
 
   const companyItem: NavItem = {
     name: "Company",
-    path: "/contact",
+    path: "/about",
     dropdown: [
-      { name: "About Us", desc: "Learn about our mission and vision", path: "/about" },
-      { name: "Contact Us", desc: "Technical support and assistance", path: "/contact" },
-      { name: "Partnerships", desc: "Explore partnership opportunities", path: "/partnerships" },
+      { name: "About Us", desc: "Our story, mission, and team", path: "/about" },
+      { name: "Partnership", desc: "Explore partnership opportunities", path: "/partnerships" },
+      { name: "Contact Us", desc: "Start a project or get in touch", path: "/contact" },
     ],
   };
 
   // Mobile-only simplified menu (no dropdowns)
   const mobileNavItems = [
     { name: "Services", path: "/services" },
-    { name: "Industries", path: "/industries" },
-    { name: "Our Work", path: "/kinara-copilot" },
-    { name: "Research", path: "/research" },
+    { name: "Products", path: "/products" },
+    { name: "Sectors", path: "/sectors" },
+    { name: "Blog", path: "/blog" },
     { name: "About Us", path: "/about" },
-    { name: "Partnerships", path: "/partnerships" },
+    { name: "Partnership", path: "/partnerships" },
+    { name: "Contact", path: "/contact" },
   ];
 
   const isActive = (path: string) => location.pathname === path;
@@ -155,17 +166,13 @@ const Header = () => {
       className={`flex items-center gap-2 hover:opacity-90 transition-opacity ${className}`}
       aria-label="Go to home"
     >
-      <img src="/uploads/logo.png" alt="Quantum Intelligence" className="h-9 w-auto object-contain" style={{ maxWidth: "150px" }} />
-      <span className="flex flex-col items-start leading-none text-base font-semibold text-foreground" style={{ lineHeight: 1.05 }}>
-        <span>Quantum</span>
-        <span>Intelligence</span>
-      </span>
+      <img src="/SWAI3.png" alt="SWAIRAX" className="h-24 w-auto object-contain" style={{ maxWidth: "380px" }} />
     </button>
   );
 
   return (
     <header className="fixed top-0 inset-x-0 z-[70] px-3 sm:px-6 lg:px-16 xl:px-20">
-      <div className="relative mx-auto flex h-[70px] items-center justify-between rounded-b-[20px] border-x border-b border-black/5 px-4 sm:px-6 shadow-[0_12px_30px_-16px_rgba(0,0,0,0.25)] bg-[linear-gradient(to_right,hsl(220_20%_96%),hsl(0_0%_100%)_18%,hsl(0_0%_100%)_82%,hsl(220_20%_96%))]">
+      <div className="relative mx-auto flex h-[70px] items-center justify-between rounded-b-[20px] border-x border-b border-border/60 px-4 sm:px-6 shadow-[0_12px_30px_-16px_rgba(0,0,0,0.25)] bg-card/95 backdrop-blur-sm supports-[backdrop-filter]:bg-card/80">
         {/* LEFT — desktop nav links */}
         <nav className="hidden lg:flex items-center gap-7">
           {navItems.map((item) => renderNavItem(item))}
@@ -179,27 +186,31 @@ const Header = () => {
           <Wordmark />
         </div>
 
-        {/* RIGHT — Company menu + CTA (desktop) */}
-        <div className="hidden lg:flex items-center gap-6">
+        {/* RIGHT — Company menu + theme toggle + CTA (desktop) */}
+        <div className="hidden lg:flex items-center gap-4">
           {renderNavItem(companyItem, true)}
+          <ThemeToggle />
           <button
             onClick={() => navigateToTop("/contact")}
             className="inline-flex items-center gap-1.5 rounded-full bg-foreground px-5 py-2 text-sm font-semibold text-background hover:bg-foreground/90 transition-colors"
           >
             <CheckCheck className="h-4 w-4" />
-            Estimate Project
+            Get Started
           </button>
         </div>
 
-        {/* RIGHT — mobile hamburger */}
-        <button
-          className="lg:hidden text-foreground"
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-          aria-expanded={isMenuOpen}
-        >
-          {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-        </button>
+        {/* RIGHT — mobile theme toggle + hamburger */}
+        <div className="lg:hidden flex items-center gap-2">
+          <ThemeToggle />
+          <button
+            className="text-foreground"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+            aria-expanded={isMenuOpen}
+          >
+            {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile Menu */}
@@ -238,7 +249,7 @@ const Header = () => {
                 className="w-full inline-flex items-center justify-center gap-1.5 rounded-full bg-foreground px-5 py-4 text-base font-semibold text-background hover:bg-foreground/90"
               >
                 <CheckCheck className="h-4 w-4" />
-                Estimate Project
+                Get Started
               </Button>
             </div>
           </div>

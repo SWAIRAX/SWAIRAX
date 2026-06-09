@@ -172,7 +172,7 @@ const EducationServices = () => {
 
       {/* CTA Section */}
       <CTASection
-        title="Partner with Quantum Intelligence in transforming your industry"
+        title="Partner with SWAIRAX in transforming your industry"
         description="Ready to revolutionize education with AI? Let's discuss how we can help you improve learning outcomes, reduce administrative burden, and enhance student engagement."
         primary={{ label: "Estimate Project", href: "/contact" }}
         secondary={{ label: "Explore Services", href: "/services" }}

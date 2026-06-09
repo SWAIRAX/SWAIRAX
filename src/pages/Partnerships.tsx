@@ -223,7 +223,7 @@ const Partnerships = () => {
                   <Handshake className="h-6 w-6 text-primary" />
                 </div>
                 <p className="text-muted-foreground leading-relaxed">
-                  Quantum Intelligence partnered with the <span className="font-semibold text-primary">Swahilies Business team</span> to embed data intelligence directly into
+                  SWAIRAX partnered with the <span className="font-semibold text-primary">Swahilies Business team</span> to embed data intelligence directly into
                   their product and operational layer:
                 </p>
               </div>
@@ -286,7 +286,7 @@ const Partnerships = () => {
 
       {/* Call to Action */}
       <CTASection
-        title="Ready to Partner with Quantum Intelligence?"
+        title="Ready to Partner with SWAIRAX?"
         description="Join our ecosystem of innovation and help shape the future of AI in Tanzania and beyond."
         primary={{ label: "Get In Touch", href: "/contact" }}
       />

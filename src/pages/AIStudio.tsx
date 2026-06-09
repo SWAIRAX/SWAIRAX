@@ -70,17 +70,13 @@ const AIStudio = () => {
                   </div>
 
                   <div className="flex items-center justify-between mb-6 relative z-10">
-                    <div className="rounded-xl bg-white/10 p-3 shadow-inner text-primary">
+                    <div className="card-icon rounded-xl bg-white/10 p-3 shadow-inner text-primary">
                       {service.icon}
                     </div>
                   </div>
 
                   <h3 className="text-2xl font-bold mb-4 relative z-10 group-hover:text-primary transition-colors">{service.title}</h3>
                   <p className="text-muted-foreground text-sm leading-relaxed relative z-10">{service.description}</p>
-
-                  <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <div className="w-2 h-2 bg-primary rounded-full animate-ping" />
-                  </div>
                 </CardContent>
               </Card>
             ))}

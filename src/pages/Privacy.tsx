@@ -7,15 +7,15 @@ const sections = [
     number: "1.",
     title: "Introduction",
     body: [
-      "Welcome to Quantum Intelligence’s Privacy and Data Protection Policy (“Privacy Policy”). At Quantum Intelligence (“we”, “us”, “our”), we are committed to protecting and respecting your privacy and personal data in compliance with the Personal Data Protection Act, 2022 (Tanzania) and other applicable Tanzanian laws.",
-      "This Privacy Policy explains how we collect, process, and keep your data safe when you use our website at quantumintelligence.co.tz (“Site”). It applies to customers/users of the Site, suppliers, business contacts, employees/staff, and related third parties.",
+      "Welcome to SWAIRAX’s Privacy and Data Protection Policy (“Privacy Policy”). At SWAIRAX (“we”, “us”, “our”), we are committed to protecting and respecting your privacy and personal data in compliance with the Personal Data Protection Act, 2022 (Tanzania) and other applicable Tanzanian laws.",
+      "This Privacy Policy explains how we collect, process, and keep your data safe when you use our website at swairax.com (“Site”). It applies to customers/users of the Site, suppliers, business contacts, employees/staff, and related third parties.",
     ],
   },
   {
     number: "1.1",
     title: "Important information and who we are",
     body: [
-      "Quantum Intelligence is the Data Controller for your personal data. We have not appointed a Data Protection Officer. Contact us at communications@quantumintelligence.co.tz. You may lodge a complaint with the Tanzanian Personal Data Protection Commission, but we would appreciate the chance to address your concerns first.",
+      "SWAIRAX is the Data Controller for your personal data. We have not appointed a Data Protection Officer. Contact us at hello@swairax.com. You may lodge a complaint with the Tanzanian Personal Data Protection Commission, but we would appreciate the chance to address your concerns first.",
     ],
   },
   {
@@ -68,7 +68,7 @@ const sections = [
     title: "Your rights",
     body: [
       "Subject to Tanzanian law, you may: be informed about our processing; access your data; rectify inaccurate data; erase data (where applicable); object to processing (including direct marketing, and where we rely on legitimate interests); restrict processing in certain circumstances; and request data portability where applicable.",
-      "To exercise these rights, contact communications@quantumintelligence.co.tz. We may need to verify your identity. Requests are free unless manifestly unfounded or excessive.",
+      "To exercise these rights, contact hello@swairax.com. We may need to verify your identity. Requests are free unless manifestly unfounded or excessive.",
     ],
   },
   {
@@ -151,7 +151,7 @@ const Privacy = () => {
           align="left"
           className="pb-2 sm:pb-3"
           title="Website Privacy Policy"
-          description="Learn how Quantum Intelligence protects and processes your data."
+          description="Learn how SWAIRAX protects and processes your data."
         />
 
         <Section spacing="compact" className="pt-2 sm:pt-3 lg:pt-4 pb-14 sm:pb-16 lg:pb-20" containerClassName="max-w-5xl" style={{ opacity: 1, transform: 'none' }}>

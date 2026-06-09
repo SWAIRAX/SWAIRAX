@@ -17,14 +17,14 @@ const TryNow = () => {
       cta: "Get Started"
     },
     {
-      name: "Quantum Annotate",
+      name: "SWAIRAX Annotate",
       type: "Annotation Service",
       description: "Robust annotation solution supported by a full workforce, offering industry-grade labeling for text, image, audio, and video datasets.",
       features: ["Multi-modal Annotation", "Professional Workforce", "Industry-Grade Quality", "Scalable Solutions"],
       cta: "Request Demo"
     },
     {
-      name: "Quantum GenAI",
+      name: "SWAIRAX GenAI",
       type: "AI Enhancement",
       description: "Enhance generative AI model accuracy, reliability, and speed through in-house data expertise and fine-tuning techniques.",
       features: ["Model Fine-tuning", "Data Expertise", "Performance Enhancement", "Speed Optimization"],

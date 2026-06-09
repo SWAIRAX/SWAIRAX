@@ -11,29 +11,21 @@ const Footer = () => {
 
   const columns: { title: string; links: FooterLink[] }[] = [
     {
-      title: "Products & Services",
-      links: [
-        { name: "All Services", path: "/services" },
-        { name: "Quantum Annotate", path: "/quantum-annotate" },
-        { name: "Quantum GenAI", path: "/quantum-genai" },
-        { name: "MLOps & DevOps", path: "/mlops-devops" },
-      ],
-    },
-    {
       title: "Company",
       links: [
-        { name: "About Us", path: "/about" },
-        { name: "Partnerships", path: "/partnerships" },
-        { name: "Industries", path: "/industries" },
+        { name: "About", path: "/about" },
+        { name: "Services", path: "/services" },
+        { name: "Products", path: "/products" },
+        { name: "Sectors", path: "/sectors" },
         { name: "Blog", path: "/blog" },
-        { name: "Research", path: "/research" },
+        { name: "Partnership", path: "/partnerships" },
       ],
     },
     {
       title: "Legal",
       links: [
         { name: "Privacy Policy", path: "/privacy" },
-        { name: "Terms of Use", path: "/terms" },
+        { name: "Terms of Service", path: "/terms" },
       ],
     },
   ];
@@ -41,12 +33,12 @@ const Footer = () => {
   const socials: { name: string; href: string; icon: React.ReactNode }[] = [
     {
       name: "Instagram",
-      href: "https://www.instagram.com/qintelligencelab",
+      href: "https://www.instagram.com/swairax",
       icon: <Instagram className="h-5 w-5" />,
     },
     {
       name: "X",
-      href: "https://x.com/1ntelligencelab",
+      href: "https://x.com/swairax",
       icon: (
         <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" className="h-5 w-5">
           <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
@@ -55,7 +47,7 @@ const Footer = () => {
     },
     {
       name: "LinkedIn",
-      href: "https://www.linkedin.com/company/quantum-intelligence-africa/",
+      href: "https://www.linkedin.com/company/swairax",
       icon: (
         <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" className="h-5 w-5">
           <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
@@ -64,7 +56,7 @@ const Footer = () => {
     },
     {
       name: "GitHub",
-      href: "https://github.com/quantum-intelligence-africa",
+      href: "https://github.com/swairax",
       icon: <Github className="h-4 w-4" />,
     },
   ];
@@ -91,37 +83,28 @@ const Footer = () => {
         <div className="flex flex-col gap-10 lg:flex-row lg:justify-between lg:gap-8">
           {/* Brand column — wider, like lecdt's first ".parte" */}
           <div className="max-w-md">
-            <Link to="/" className="flex items-center gap-3 hover:opacity-90 transition-opacity">
-              <img
-                src="/uploads/logo.png"
-                alt="Quantum Intelligence"
-                className="h-14 w-auto object-contain"
-                style={{ maxWidth: "210px" }}
-              />
-              <span className="flex flex-col leading-none text-2xl font-semibold text-foreground">
-                <span>Quantum</span>
-                <span>Intelligence</span>
-              </span>
+            <Link to="/" className="-my-3 sm:-my-4 flex items-center gap-3 hover:opacity-90 transition-opacity">
+              <img src="/SWAI3.png" alt="SWAIRAX" className="h-24 sm:h-28 w-auto object-contain" style={{ maxWidth: "460px" }} />
             </Link>
-            <p className="mt-5 text-base leading-relaxed text-muted-foreground">
-              We are Quantum Intelligence — solving intelligence to advance science and benefit
-              humanity, then using it to solve everything else.
+            <p className="mt-1 text-base leading-relaxed text-muted-foreground">
+              Building Africa's Digital Future — cutting-edge AI, Data Science, Cybersecurity, and
+              Software Engineering solutions, built for Africa and ready for the world.
             </p>
 
             <div className="mt-6 space-y-3">
               <a
-                href="mailto:communications@quantumintelligence.co.tz"
+                href="mailto:hello@swairax.com"
                 className="flex items-center gap-2.5 text-base text-muted-foreground hover:text-primary transition-colors"
               >
                 <Mail className="h-5 w-5 shrink-0" />
-                communications@quantumintelligence.co.tz
+                hello@swairax.com
               </a>
               <a
-                href="tel:+255689726060"
+                href="tel:+255000000000"
                 className="flex items-center gap-2.5 text-base text-muted-foreground hover:text-primary transition-colors"
               >
                 <Phone className="h-5 w-5 shrink-0" />
-                +255 689 726 060
+                +255 XXX XXX XXX
               </a>
               <div className="flex items-center gap-2.5 text-base text-muted-foreground">
                 <MapPin className="h-5 w-5 shrink-0" />
@@ -195,7 +178,7 @@ const Footer = () => {
             {/* Copyright (lecdt ".copy") */}
             <div className="mt-10 border-t border-border/60 pt-6">
               <p className="text-base text-muted-foreground">
-                © {currentYear} Quantum Intelligence. All Rights Reserved.
+                © {currentYear} SWAIRAX Limited. All Rights Reserved. | Dar es Salaam, Tanzania 🇹🇿
               </p>
             </div>
           </div>
