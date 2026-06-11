@@ -197,25 +197,13 @@ const Services = () => {
         </div>
 
         <div className="container relative z-10 mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
-          <p className="mb-5 text-xs font-semibold uppercase tracking-[0.3em] text-primary">
-            Services
-          </p>
           <h1 className="text-4xl font-bold leading-[1.08] tracking-tight text-foreground sm:text-5xl lg:text-6xl">
-            Turning complex challenges into a competitive advantage.
+            End-to-end technology that moves your business forward.
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-            End-to-end AI, Data Science, Cybersecurity, Big Data, Software Engineering, and Cloud &amp;
-            DevOps — for businesses of all sizes.
+            AI, Data Science, Cybersecurity, Big Data, Software Engineering, and Cloud &amp; DevOps —
+            for businesses of all sizes.
           </p>
-          <div className="mt-9 flex justify-center">
-            <button
-              onClick={() => openMeeting()}
-              className="group inline-flex items-center gap-3 text-sm font-semibold uppercase tracking-[0.2em] text-foreground transition-colors hover:text-primary"
-            >
-              <span className="h-3 w-3 rounded-full bg-primary transition-transform duration-300 group-hover:scale-150" />
-              Book a Call
-            </button>
-          </div>
         </div>
       </section>
 

@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useNavigationWithScroll } from "@/utils/navigation";
 import { openMeeting } from "@/utils/meeting";
 import { Button } from "@/components/ui/button";
@@ -14,6 +15,8 @@ import {
   Users,
   Building2,
   Scissors,
+  ChevronLeft,
+  ChevronRight,
 } from "lucide-react";
 import { Eyebrow, Heading } from "@/components/ui/section";
 import PlexusBackground from "@/components/PlexusBackground";
@@ -21,10 +24,11 @@ import Parallax from "@/components/Parallax";
 import HeroDivider from "@/components/HeroDivider";
 import SectionDivider from "@/components/SectionDivider";
 import TechMarquee from "@/components/TechMarquee";
-import { services } from "@/data/services";
+import { services, getTechLogo } from "@/data/services";
 
 const Index = () => {
   const { navigateToTop } = useNavigationWithScroll();
+  const [productIndex, setProductIndex] = useState(0);
 
   const stats = [
     { value: "2+", label: "Products Launched" },
@@ -151,7 +155,7 @@ const Index = () => {
       {/* Stats Section — Two Column Layout with Top Border */}
       <section className="relative py-0 bg-card border-t-2 border-primary/20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+          <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-[1fr_1.25fr] lg:gap-12">
             {/* Left Column — Content */}
             <ScrollReveal className="space-y-6 sm:space-y-8">
               <div>
@@ -165,7 +169,7 @@ const Index = () => {
               </p>
 
               {/* Stats Grid */}
-              <div className="grid grid-cols-2 gap-4 sm:gap-6 max-w-md">
+              <div className="grid grid-cols-2 gap-4 sm:gap-6 max-w-md md:max-w-none md:grid-cols-4 lg:max-w-md lg:grid-cols-2">
                 {stats.map((stat, index) => (
                   <div
                     key={index}
@@ -181,22 +185,77 @@ const Index = () => {
               </div>
             </ScrollReveal>
 
-            {/* Right Column — Media */}
-            <ScrollReveal className="relative overflow-hidden rounded-2xl border border-border bg-gradient-to-br from-neutral-900 via-neutral-900/70 to-black shadow-lg">
-              <div className="absolute -inset-12 bg-gradient-to-r from-primary/10 via-transparent to-primary/10 blur-3xl opacity-40 group-hover:opacity-60 transition-opacity duration-700" />
-              <div className="relative aspect-video lg:aspect-auto lg:h-96">
-                {/* Placeholder for video or image — customize with your media */}
-                <video
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  poster="/uploads/EDUCATION.avif"
-                  className="w-full h-full object-cover"
-                >
-                  <source src="https://cdn.coverr.co/videos/coverr-abstract-technology-10926/1080p.mp4" type="video/mp4" />
-                </video>
-              </div>
+            {/* Right Column — on-brand recreation of the POS-style visual:
+                animated concentric red-dot rings with OUR capability labels
+                radiating from the circle's arc (like passionlabs). Drawn in a
+                single SVG so the dots, rings and labels stay aligned and scale
+                together; dots are red, labels use the theme foreground colour,
+                so it blends on both light and dark backgrounds. */}
+            <ScrollReveal className="relative flex items-center justify-center lg:h-[480px]">
+              <svg
+                viewBox="0 0 380 200"
+                className="h-auto w-full max-w-[560px] text-primary lg:max-w-none"
+                aria-hidden="true"
+                style={{ fontFamily: "'JetBrains Mono', 'Courier New', monospace" }}
+              >
+                {/* concentric rotating rings of red dots */}
+                {[
+                  { r: 92, n: 46, dr: 3, op: 0.95, dur: "42s", rev: false },
+                  { r: 66, n: 34, dr: 2.3, op: 0.7, dur: "30s", rev: true },
+                  { r: 42, n: 24, dr: 1.7, op: 0.5, dur: "22s", rev: false },
+                ].map((ring, ri) => (
+                  <g
+                    key={ri}
+                    className={`animate-spin-slow origin-center [transform-box:fill-box] ${ring.rev ? "[animation-direction:reverse]" : ""}`}
+                    style={{ animationDuration: ring.dur }}
+                  >
+                    {Array.from({ length: ring.n }).map((_, i) => {
+                      const a = (i / ring.n) * Math.PI * 2;
+                      return (
+                        <circle
+                          key={i}
+                          cx={100 + ring.r * Math.cos(a)}
+                          cy={100 + ring.r * Math.sin(a)}
+                          r={ring.dr}
+                          fill="currentColor"
+                          opacity={ring.op}
+                        />
+                      );
+                    })}
+                  </g>
+                ))}
+
+                {/* labels radiating from the right arc — SWAIRAX capabilities */}
+                {[
+                  "AI & Machine Learning",
+                  "Data Science & Analytics",
+                  "Cybersecurity",
+                  "Big Data Engineering",
+                  "Software Engineering",
+                  "Cloud & DevOps",
+                ].map((label, i) => {
+                  const a = ((-52 + i * 20.8) * Math.PI) / 180;
+                  const dx = 100 + 110 * Math.cos(a);
+                  const dy = 100 + 110 * Math.sin(a);
+                  return (
+                    <g key={label}>
+                      <circle cx={dx} cy={dy} r={3.5} className="fill-[hsl(var(--primary))]" />
+                      <text
+                        x={dx + 9}
+                        y={dy}
+                        dominantBaseline="middle"
+                        fontSize="10"
+                        fontWeight="600"
+                        letterSpacing="0.6"
+                        className="fill-[hsl(var(--foreground))]"
+                        style={{ textTransform: "uppercase" }}
+                      >
+                        {label}
+                      </text>
+                    </g>
+                  );
+                })}
+              </svg>
             </ScrollReveal>
           </div>
         </div>
@@ -250,77 +309,113 @@ const Index = () => {
       </section>
 
       {/* Products Showcase */}
-      <section className="bg-card pb-12 sm:pb-16 lg:pb-20">
+      <section className="bg-card pb-8 sm:pb-10 lg:pb-12">
         {/* Tone-on-tone interlocking top divider */}
         <SectionDivider variant="matrix" flip className="w-full text-[hsl(var(--background))]" />
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-12 sm:pt-16 lg:pt-20">
-          <ScrollReveal className="text-center mb-8 sm:mb-12 lg:mb-16">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-8 sm:pt-10 lg:pt-12">
+          <ScrollReveal className="mx-auto mb-8 max-w-4xl sm:mb-12 lg:mb-16">
             <Eyebrow className="mb-3 sm:mb-4">Our Products</Eyebrow>
             <Heading as="h2" size="h2">
               Innovative platforms solving real problems
             </Heading>
-            <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
+            <p className="mt-4 max-w-2xl text-muted-foreground">
               In Tanzania and beyond.
             </p>
           </ScrollReveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
-            {products.map((product, index) => (
-              <Card
-                key={index}
-                className="solution-card bg-secondary border-border group relative overflow-hidden animate-slide-in-bottom"
-                style={{ animationDelay: `${index * 0.15}s` }}
+          {/* One product at a time, stepped through with prev/next controls
+              (passionlabs "how it works" slider). */}
+          <div className="mx-auto max-w-4xl">
+            {(() => {
+              const product = products[productIndex];
+              return (
+                <div
+                  key={productIndex}
+                  className="group animate-fade-in border-y border-border py-8 sm:py-10"
+                >
+                  <div className="flex flex-col gap-4 sm:flex-row sm:gap-8">
+                    <span className="w-16 shrink-0 text-5xl font-bold tabular-nums leading-none text-primary sm:w-32 sm:text-7xl lg:w-40 lg:text-8xl">
+                      {String(productIndex + 1).padStart(2, "0")}
+                    </span>
+                    <div className="flex-1 sm:border-l sm:border-border sm:pl-8">
+                      <div className="mb-3 flex flex-wrap items-center gap-3">
+                        <h3 className="text-2xl font-bold text-foreground">{product.title}</h3>
+                        <span className="inline-flex items-center gap-1.5 text-xs font-medium uppercase tracking-wide text-muted-foreground">
+                          <product.icon className="h-3.5 w-3.5 text-primary" />
+                          {product.tag}
+                        </span>
+                        <span className="inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">
+                          <span className={`h-2 w-2 rounded-full ${product.live ? "bg-green-500" : "bg-amber-500"}`} />
+                          {product.status}
+                        </span>
+                      </div>
+                      <p className="mb-5 max-w-2xl text-sm leading-relaxed text-muted-foreground sm:text-base">
+                        {product.description}
+                      </p>
+                      <div className="mb-5 flex flex-wrap items-center gap-x-5 gap-y-2">
+                        {product.stack.map((tech) => {
+                          const logo = getTechLogo(tech);
+                          return (
+                            <span key={tech} className="inline-flex items-center gap-1.5">
+                              {logo ? (
+                                <img src={logo} alt="" loading="lazy" className="h-4 w-4 object-contain" />
+                              ) : (
+                                <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+                              )}
+                              <span className="font-mono text-[11px] font-medium tracking-tight text-foreground/70">
+                                {tech}
+                              </span>
+                            </span>
+                          );
+                        })}
+                      </div>
+                      <div className="flex flex-wrap items-center gap-4">
+                        <Button
+                          variant="ghost"
+                          className="bg-transparent p-0 text-foreground transition-transform hover:bg-transparent hover:text-primary focus-visible:ring-0 group-hover:translate-x-1"
+                          onClick={() => navigateToTop(product.learnMore)}
+                        >
+                          Learn More <ArrowRight className="ml-2 h-4 w-4" />
+                        </Button>
+                        {product.website && (
+                          <a
+                            href={product.website}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-sm font-semibold text-primary hover:underline"
+                          >
+                            Visit Website
+                          </a>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              );
+            })()}
+
+            {/* slider controls — prev / next + position */}
+            <div className="mt-7 flex items-center gap-3">
+              <button
+                type="button"
+                onClick={() => setProductIndex((i) => (i - 1 + products.length) % products.length)}
+                aria-label="Previous product"
+                className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-border text-foreground transition-colors hover:border-primary hover:text-primary"
               >
-                <CardContent className="p-8">
-                  <div className="flex items-center justify-between mb-6">
-                    <span className="inline-flex items-center gap-1.5 text-xs px-3 py-1 rounded-full bg-muted text-muted-foreground">
-                      <product.icon className="h-3.5 w-3.5" />
-                      {product.tag}
-                    </span>
-                    <span className="inline-flex items-center gap-1.5 text-xs px-3 py-1 rounded-full bg-primary/10 text-primary font-semibold">
-                      <span className={`h-2 w-2 rounded-full ${product.live ? "bg-green-500" : "bg-amber-500"}`} />
-                      {product.status}
-                    </span>
-                  </div>
-
-                  <h3 className="text-2xl font-bold mb-4">{product.title}</h3>
-                  <p className="text-muted-foreground mb-6 text-sm leading-relaxed">
-                    {product.description}
-                  </p>
-
-                  <div className="flex flex-wrap gap-2 mb-6">
-                    {product.stack.map((tech) => (
-                      <span
-                        key={tech}
-                        className="text-xs px-2.5 py-1 rounded-md border border-primary/20 text-muted-foreground"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-
-                  <div className="flex flex-wrap items-center gap-4">
-                    <Button
-                      variant="ghost"
-                      className="text-foreground hover:text-primary bg-transparent hover:bg-transparent p-0 group-hover:translate-x-1 transition-transform focus-visible:ring-0"
-                      onClick={() => navigateToTop(product.learnMore)}
-                    >
-                      Learn More <ArrowRight className="ml-2 h-4 w-4" />
-                    </Button>
-                    {product.website && (
-                      <a
-                        href={product.website}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-sm font-semibold text-primary hover:underline"
-                      >
-                        Visit Website
-                      </a>
-                    )}
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
+                <ChevronLeft className="h-5 w-5" />
+              </button>
+              <button
+                type="button"
+                onClick={() => setProductIndex((i) => (i + 1) % products.length)}
+                aria-label="Next product"
+                className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-border text-foreground transition-colors hover:border-primary hover:text-primary"
+              >
+                <ChevronRight className="h-5 w-5" />
+              </button>
+              <span className="ml-1 text-sm tabular-nums text-muted-foreground">
+                {String(productIndex + 1).padStart(2, "0")} / {String(products.length).padStart(2, "0")}
+              </span>
+            </div>
           </div>
         </div>
       </section>

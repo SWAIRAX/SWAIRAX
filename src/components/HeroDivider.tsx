@@ -66,7 +66,7 @@ const HeroDivider = ({ className = "", spinFactor = 0.45 }: HeroDividerProps) =>
       <div className="absolute left-1/2 top-[6%] -translate-x-1/2 -translate-y-1/2">
         <span
           ref={spinnerRef}
-          className="block h-10 w-10 sm:h-12 sm:w-12 lg:h-14 lg:w-14 rounded-full border-4 border-y-transparent border-x-black will-change-transform"
+          className="block h-10 w-10 sm:h-12 sm:w-12 lg:h-14 lg:w-14 rounded-full border-4 border-y-transparent border-x-black dark:border-x-white will-change-transform"
         />
       </div>
     </div>
