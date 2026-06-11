@@ -29,7 +29,7 @@ const BrandLogo = ({
       viewBox="0 0 332 72"
       xmlns="http://www.w3.org/2000/svg"
       aria-hidden="true"
-      className={`-ml-6 sm:-ml-6 ${wordmarkClassName}`}
+      className={`-ml-5 mt-1 sm:-ml-6 sm:mt-0 ${wordmarkClassName}`}
     >
       <text
         x="0"

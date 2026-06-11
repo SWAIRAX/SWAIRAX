@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { openMeeting } from "@/utils/meeting";
 import { useNavigate } from "react-router-dom";
 import { useNavigationWithScroll } from "@/utils/navigation";
 import Header from "@/components/Header";
@@ -124,7 +125,7 @@ const MLOpsDevOps = () => {
             <Button
               variant="outline"
               className="border-white/40 text-white bg-transparent hover:bg-white/10 hover:text-white hover:border-white"
-              onClick={() => navigateToTop('/contact')}
+              onClick={() => openMeeting()}
             >
               Get Started
             </Button>
@@ -373,7 +374,7 @@ const MLOpsDevOps = () => {
               <Button
                 size="sm"
                 className="bg-primary hover:bg-primary/90 text-primary-foreground px-4 py-2 text-sm group"
-                onClick={() => navigateToTop('/contact')}
+                onClick={() => openMeeting()}
               >
                 Start Your MLOps Journey <ArrowRight className="ml-1 h-3 w-3 group-hover:translate-x-1 transition-transform" />
               </Button>

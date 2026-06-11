@@ -34,8 +34,7 @@ const Blog = () => {
             }}
           />
         </Parallax>
-        {/* brand-red glow + dark gradient so the white type stays legible */}
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_30%_40%,rgba(179,33,10,0.5),transparent_60%)]" />
+        {/* dark gradient so the white type stays legible */}
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-black/65 via-black/35 to-black/10" />
         <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl lg:ml-[32%]">
@@ -59,6 +58,13 @@ const Blog = () => {
             </div>
           </div>
         </div>
+
+        {/* Transparent brand graphic — small, anchored to the left, blends into the dark hero */}
+        <img
+          src="/SWAY.png"
+          alt="SWAIRAX"
+          className="pointer-events-none absolute left-4 top-1/2 z-10 hidden w-40 -translate-y-1/2 object-contain sm:left-10 lg:left-16 lg:block lg:w-52 xl:w-56"
+        />
       </section>
 
       {/* Blog Posts Grid */}

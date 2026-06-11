@@ -14,6 +14,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PlexusBackground from "@/components/PlexusBackground";
 import Parallax from "@/components/Parallax";
+import HubSpotMeetings from "@/components/HubSpotMeetings";
 import { Mail, Phone, MapPin, Globe, Send, Calendar, X } from "lucide-react";
 
 // Background pattern styles
@@ -143,7 +144,8 @@ const patternStyles = `
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     overflow: hidden;
     height: 60px;
-    width: 240px;
+    width: 100%;
+    max-width: 380px;
     margin: 0 auto;
     border-radius: 12px;
     backdrop-filter: blur(10px);
@@ -216,7 +218,7 @@ const patternStyles = `
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 25%;
+    width: 16.6667%;
     height: 100%;
     color: #ffffff;
     font-size: 20px;
@@ -384,66 +386,36 @@ const Contact = () => {
 
         {/* Main layout */}
         <section className="relative z-10 pb-28 sm:pb-36 lg:pb-44">
-          <div className="container mx-auto px-5 max-w-5xl relative">
-            <div className="mx-auto max-w-2xl space-y-10">
-              {/* Info cards — sit on top, 2 per row */}
+          <div className="w-full relative">
+            <div className="w-full space-y-10">
+              {/* Info cards — sit on top, up to 4 per row on desktop */}
               <div className="space-y-3">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                <div className="flex items-center gap-3 rounded-xl border border-border bg-card p-4 shadow-sm transition-colors hover:border-primary/40">
-                  <div className="h-11 w-11 shrink-0 rounded-xl bg-primary/10 flex items-center justify-center">
-                    <Mail className="h-5 w-5 text-primary" />
-                  </div>
-                  <div className="text-left min-w-0">
-                    <p className="text-xs uppercase tracking-wide text-muted-foreground">Email</p>
-                    <a
-                      href="mailto:info@swairax.com"
-                      className="block text-sm font-semibold text-foreground hover:text-primary transition-colors break-all leading-snug"
-                    >
-                      info@swairax.com
-                    </a>
-                  </div>
-                </div>
-
-                <div className="flex items-center gap-3 rounded-xl border border-border bg-card p-4 shadow-sm transition-colors hover:border-primary/40">
-                  <div className="h-11 w-11 shrink-0 rounded-xl bg-primary/10 flex items-center justify-center">
-                    <Phone className="h-5 w-5 text-primary" />
-                  </div>
-                  <div className="text-left">
-                    <p className="text-xs uppercase tracking-wide text-muted-foreground">Phone</p>
-                    <a
-                      href="tel:+255684475390"
-                      className="text-sm font-semibold text-foreground hover:text-primary transition-colors"
-                    >
-                      +255 684 475 390
-                    </a>
-                  </div>
-                </div>
-
-                <div className="flex items-center gap-3 rounded-xl border border-border bg-card p-4 shadow-sm transition-colors hover:border-primary/40">
-                  <div className="h-11 w-11 shrink-0 rounded-xl bg-primary/10 flex items-center justify-center">
-                    <MapPin className="h-5 w-5 text-primary" />
-                  </div>
-                  <div className="text-left">
-                    <p className="text-xs uppercase tracking-wide text-muted-foreground">Location</p>
-                    <p className="text-sm font-semibold text-foreground">Dar es Salaam, Tanzania</p>
-                  </div>
-                </div>
-
-                <div className="flex items-center gap-3 rounded-xl border border-border bg-card p-4 shadow-sm transition-colors hover:border-primary/40">
-                  <div className="h-11 w-11 shrink-0 rounded-xl bg-primary/10 flex items-center justify-center">
-                    <Calendar className="h-5 w-5 text-primary" />
-                  </div>
-                  <div className="text-left">
-                    <p className="text-xs uppercase tracking-wide text-muted-foreground">Hours</p>
-                    <p className="text-sm font-semibold text-foreground leading-snug">Monday – Friday, 9:00 AM – 6:00 PM EAT</p>
-                  </div>
-                </div>
-                </div>
 
                 {/* Social Links */}
                 <div className="pt-1">
                       <div className="social-card">
-                        <span className="social-label">Follow Us</span>
+                        <span className="social-label">Get in touch</span>
+
+                        <a
+                          href="mailto:info@swairax.com"
+                          aria-label="Email SWAIRAX"
+                          className="social-link"
+                        >
+                          <svg fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M1.5 8.67v8.58a3 3 0 0 0 3 3h15a3 3 0 0 0 3-3V8.67l-8.928 5.493a3 3 0 0 1-3.144 0L1.5 8.67Z"/>
+                            <path d="M22.5 6.908V6.75a3 3 0 0 0-3-3h-15a3 3 0 0 0-3 3v.158l9.714 5.978a1.5 1.5 0 0 0 1.572 0L22.5 6.908Z"/>
+                          </svg>
+                        </a>
+
+                        <a
+                          href="tel:+255684475390"
+                          aria-label="Call SWAIRAX"
+                          className="social-link"
+                        >
+                          <svg fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M1.5 4.5a3 3 0 0 1 3-3h1.372c.86 0 1.61.586 1.819 1.42l1.105 4.423a1.875 1.875 0 0 1-.694 1.955l-1.293.97c-.135.101-.164.249-.126.352a11.285 11.285 0 0 0 6.697 6.697c.103.038.25.009.352-.126l.97-1.293a1.875 1.875 0 0 1 1.955-.694l4.423 1.105c.834.209 1.42.959 1.42 1.82V19.5a3 3 0 0 1-3 3h-2.25C8.552 22.5 1.5 15.448 1.5 6.75V4.5Z"/>
+                          </svg>
+                        </a>
 
                         <a
                           href="https://www.instagram.com/swairax"
@@ -492,150 +464,20 @@ const Contact = () => {
                     </div>
                   </div>
 
-              {/* Form panel */}
-              <div className="relative">
-                <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-primary/20 via-transparent to-primary/5 blur-3xl" />
-                <div className="relative overflow-hidden rounded-2xl bg-card border border-border shadow-xl p-5 md:p-6">
-                  <div className="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-primary/8 blur-3xl" />
-                  <div className="pointer-events-none absolute inset-2 rounded-xl border border-primary/50" />
-                  <div className="relative space-y-3">
-                    <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-semibold uppercase tracking-[0.2em]">
-                      Let&apos;s talk
-                    </div>
-                    <Form {...form}>
-                      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-3.5" role="form" aria-label="Project inquiry form">
-                        <FormField
-                          control={form.control}
-                          name="fullName"
-                          render={({ field }) => (
-                            <FormItem>
-                              <FormLabel className="text-sm font-semibold text-foreground">Full Name<span className="text-destructive">*</span></FormLabel>
-                              <FormControl>
-                                <Input {...field} placeholder="Enter your full name" className="h-10 rounded-lg bg-background border-border text-sm text-foreground placeholder:text-muted-foreground focus-visible:ring-2 focus-visible:ring-primary/70" aria-required="true" />
-                              </FormControl>
-                              <FormMessage className="text-[11px]" />
-                            </FormItem>
-                          )}
-                        />
-                      <FormField
-                        control={form.control}
-                        name="email"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel className="text-sm font-semibold text-foreground">Email<span className="text-destructive">*</span></FormLabel>
-                            <FormControl>
-                              <Input {...field} type="email" placeholder="sway@example.com" className="h-10 rounded-lg bg-background border-border text-sm text-foreground placeholder:text-muted-foreground focus-visible:ring-2 focus-visible:ring-primary/70" aria-required="true" />
-                            </FormControl>
-                            <FormMessage className="text-[11px]" />
-                          </FormItem>
-                        )}
-                      />
-                      <FormField
-                        control={form.control}
-                        name="company"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel className="text-sm font-semibold text-foreground">Company / Organization</FormLabel>
-                            <FormControl>
-                              <Input {...field} placeholder="Your company or organization" className="h-10 rounded-lg bg-background border-border text-sm text-foreground placeholder:text-muted-foreground focus-visible:ring-2 focus-visible:ring-primary/70" />
-                            </FormControl>
-                            <FormMessage className="text-[11px]" />
-                          </FormItem>
-                        )}
-                      />
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      <FormField
-                        control={form.control}
-                        name="helpWith"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel className="text-sm font-semibold text-foreground">Service Interested In<span className="text-destructive">*</span></FormLabel>
-                            <Select onValueChange={field.onChange} defaultValue={field.value}>
-                              <FormControl>
-                                <SelectTrigger
-                                  aria-required="true"
-                                  className="h-10 rounded-lg bg-background border-border text-sm text-foreground placeholder:text-muted-foreground focus:ring-0 focus-visible:ring-2 focus-visible:ring-primary/70"
-                                >
-                                  <SelectValue placeholder="Select service" />
-                                </SelectTrigger>
-                              </FormControl>
-                              <SelectContent className="bg-card border-border">
-                                {helpOptions.map((option) => (
-                                  <SelectItem key={option} value={option} className="text-xs">{option}</SelectItem>
-                                ))}
-                              </SelectContent>
-                            </Select>
-                            <FormMessage className="text-[11px]" />
-                          </FormItem>
-                        )}
-                      />
-                      <FormField
-                        control={form.control}
-                        name="budget"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel className="text-sm font-semibold text-foreground">Project Budget</FormLabel>
-                            <Select onValueChange={field.onChange} defaultValue={field.value}>
-                              <FormControl>
-                                <SelectTrigger
-                                  className="h-10 rounded-lg bg-background border-border text-sm text-foreground placeholder:text-muted-foreground focus:ring-0 focus-visible:ring-2 focus-visible:ring-primary/70"
-                                >
-                                  <SelectValue placeholder="Select budget" />
-                                </SelectTrigger>
-                              </FormControl>
-                              <SelectContent className="bg-card border-border">
-                                {budgetOptions.map((option) => (
-                                  <SelectItem key={option} value={option} className="text-xs">{option}</SelectItem>
-                                ))}
-                              </SelectContent>
-                            </Select>
-                            <FormMessage className="text-[11px]" />
-                          </FormItem>
-                        )}
-                      />
-                    </div>
-                      <FormField
-                        control={form.control}
-                        name="projectDescription"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel className="text-sm font-semibold text-foreground">Message<span className="text-destructive">*</span></FormLabel>
-                            <FormControl>
-                            <Textarea
-                              {...field}
-                              placeholder="Tell us about the project, goals, and timelines..."
-                              className="min-h-[72px] rounded-lg bg-background border-border text-sm text-foreground placeholder:text-muted-foreground resize-y focus-visible:ring-2 focus-visible:ring-primary/70"
-                              aria-required="true"
-                            />
-                            </FormControl>
-                            <FormMessage className="text-[11px]" />
-                          </FormItem>
-                        )}
-                      />
 
-                      <div className="flex justify-center">
-                        <Button type="submit" disabled={form.formState.isSubmitting} className="w-auto h-10 rounded-lg bg-gradient-to-r from-primary to-primary/80 shadow-lg shadow-primary/30 hover:shadow-primary/50 transition text-xs">
-                          {form.formState.isSubmitting ? (
-                            <>
-                              <div className="h-4 w-4 mr-2 animate-spin rounded-full border-2 border-primary-foreground border-t-transparent" />
-                              Sending...
-                            </>
-                          ) : (
-                            <>
-                              <Send className="w-4 h-4 mr-2" />
-                              Send Message →
-                            </>
-                          )}
-                        </Button>
-                      </div>
-
-                      <p className="text-center text-sm text-muted-foreground">
-                        By submitting, you agree to our <a href="/terms" className="text-primary hover:underline">Terms</a> and <a href="/privacy" className="text-primary hover:underline">Privacy Policy</a>.
-                      </p>
-                    </form>
-                  </Form>
-                </div>
+            {/* Book a discovery call — Calendly inline scheduler */}
+            <div className="relative overflow-hidden rounded-2xl bg-card border border-border shadow-xl p-2 sm:p-5 md:p-6">
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-semibold uppercase tracking-[0.2em] mb-4">
+                Book a call
               </div>
+              <h3 className="text-lg sm:text-xl font-semibold text-foreground">Schedule a discovery call</h3>
+              <p className="mb-4 text-sm text-muted-foreground">
+                Pick a time that works for you and we&apos;ll meet you there.
+              </p>
+              <HubSpotMeetings
+                url="https://meetings-eu1.hubspot.com/swairax?embed=true"
+                className="overflow-hidden rounded-xl min-h-[680px]"
+              />
             </div>
             </div>
           </div>

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { openMeeting } from "@/utils/meeting";
 import { useNavigate } from "react-router-dom";
 import { useNavigationWithScroll } from "@/utils/navigation";
 import { SEOSchema } from "@/components/SEOSchema";
@@ -101,8 +102,7 @@ const About = () => {
             }}
           />
         </Parallax>
-        {/* brand-red glow + dark gradient so the white type stays legible */}
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_30%_40%,rgba(179,33,10,0.5),transparent_60%)]" />
+        {/* dark gradient so the white type stays legible */}
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-black/65 via-black/35 to-black/10" />
         <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl lg:ml-[32%]">
@@ -119,7 +119,7 @@ const About = () => {
               <span className="pointer-events-none absolute bottom-full left-0 h-screen w-px bg-white/80" />
               <span className="pointer-events-none absolute top-full left-0 h-[200vh] w-px bg-white/80" />
               <button
-                onClick={() => navigateToTop("/contact")}
+                onClick={() => openMeeting()}
                 className="group relative z-10 inline-flex items-center gap-3 py-3 pr-4 text-sm font-semibold uppercase tracking-[0.2em] text-white drop-shadow-sm"
               >
                 <span className="h-3 w-3 rounded-full bg-[#eb0000] transition-transform duration-300 group-hover:scale-150" />
@@ -131,7 +131,7 @@ const About = () => {
 
         {/* Transparent brand graphic — small, anchored to the left, blends into the dark hero */}
         <img
-          src="/SWAIRAXLOGO.png"
+          src="/SWAY.png"
           alt="SWAIRAX"
           className="pointer-events-none absolute left-4 top-1/2 z-10 hidden w-40 -translate-y-1/2 object-contain sm:left-10 lg:left-16 lg:block lg:w-52 xl:w-56"
         />
@@ -357,7 +357,7 @@ const About = () => {
               <Button
                 variant="outline"
                 size="lg"
-                onClick={() => navigateToTop('/contact')}
+                onClick={() => openMeeting()}
                 className="px-6 sm:px-8 py-4 sm:py-6 text-sm sm:text-base font-semibold border-2 hover:bg-primary/10 hover:border-primary transition-all duration-300 h-12 sm:h-14"
               >
                 Get in Touch

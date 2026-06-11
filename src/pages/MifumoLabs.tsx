@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useTheme } from "next-themes";
+import { openMeeting } from "@/utils/meeting";
 import { ContainerScroll } from "@/components/ui/container-scroll-animation";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -53,6 +55,16 @@ const labsFeatures = [
 
 const MifumoLabs = () => {
   const { navigateToTop } = useNavigationWithScroll();
+  const { resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const ctaBackgroundImage = mounted
+    ? `url('${resolvedTheme === "dark" ? "/services/hero-network-dark.gif" : "/services/hero-network-light.gif"}')`
+    : "url('/services/hero-network-light.gif')"
 
   return (
     <div className="min-h-screen bg-background overflow-x-hidden">
@@ -83,7 +95,7 @@ const MifumoLabs = () => {
               <div className="flex flex-wrap gap-4">
                 <Button
                   size="lg"
-                  onClick={() => navigateToTop("/contact")}
+                  onClick={() => openMeeting()}
                   className="bg-primary hover:bg-primary/90 text-primary-foreground px-6 py-3"
                 >
                   Talk to our team
@@ -250,7 +262,7 @@ const MifumoLabs = () => {
             <div className="flex flex-wrap gap-3">
               <Button
                 className="bg-primary hover:bg-primary/90 text-primary-foreground"
-                onClick={() => navigateToTop("/contact")}
+                onClick={() => openMeeting()}
               >
                 Book discovery call
               </Button>
@@ -279,7 +291,7 @@ const MifumoLabs = () => {
                 </video>
                 <div
                   className="absolute inset-0 bg-center bg-cover"
-                  style={{ backgroundImage: "url('/uploads/CTA%20GIF.gif')" }}
+                  style={{ backgroundImage: ctaBackgroundImage }}
                   aria-hidden="true"
                 />
               </div>

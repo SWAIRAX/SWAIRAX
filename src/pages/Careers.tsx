@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { MEETING_URL } from "@/utils/meeting";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import Header from "@/components/Header";
@@ -202,9 +203,9 @@ const Careers = () => {
                     size="lg"
                     className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-4 text-lg shadow-lg hover:shadow-xl transition-all duration-300"
                   >
-                    <Link to="/contact?subject=Open%20Application">
+                    <a href={MEETING_URL} target="_blank" rel="noopener noreferrer">
                       Send Open Application →
-                    </Link>
+                    </a>
                   </Button>
                 </CardContent>
               </Card>
@@ -233,9 +234,9 @@ const Careers = () => {
                 size="lg"
                 className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-4 text-lg shadow-lg hover:shadow-xl transition-all duration-300"
               >
-                <Link to="/contact?subject=Open%20Application">
+                <a href={MEETING_URL} target="_blank" rel="noopener noreferrer">
                   Send Open Application <ArrowRight className="ml-2 h-5 w-5" />
-                </Link>
+                </a>
               </Button>
               <Button
                 asChild
@@ -243,9 +244,9 @@ const Careers = () => {
                 size="lg"
                 className="border-foreground/30 text-foreground hover:bg-foreground/5 hover:border-foreground/50 px-8 py-4 text-lg"
               >
-                <Link to="/contact">
+                <a href={MEETING_URL} target="_blank" rel="noopener noreferrer">
                   Learn More
-                </Link>
+                </a>
               </Button>
             </div>
           </div>

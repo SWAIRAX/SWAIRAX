@@ -1,4 +1,6 @@
-import { useRef } from "react";
+import { useRef, useEffect, useState } from "react";
+import { useTheme } from "next-themes";
+import { openMeeting } from "@/utils/meeting";
 import { useNavigate } from "react-router-dom";
 import { useNavigationWithScroll } from "@/utils/navigation";
 import { Button } from "@/components/ui/button";
@@ -23,6 +25,16 @@ const Industries = () => {
   const navigate = useNavigate();
   const { navigateToTop } = useNavigationWithScroll();
   const showreelRef = useRef<HTMLDivElement | null>(null);
+  const { resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const ctaBackgroundImage = mounted
+    ? `url('${resolvedTheme === "dark" ? "/services/hero-network-dark.gif" : "/services/hero-network-light.gif"}')`
+    : "url('/services/hero-network-light.gif')"
 
   const industries = [
     {
@@ -104,6 +116,15 @@ const Industries = () => {
         }
       />
 
+      {/* Transparent brand graphic — small, anchored to the left, blends into the image */}
+      <div className="absolute left-0 top-0 h-full w-full flex items-center pointer-events-none z-40 lg:z-50">
+        <img
+          src="/SWAY.png"
+          alt="SWAIRAX"
+          className="hidden lg:block w-40 lg:w-52 xl:w-56 lg:ml-16 xl:ml-20 object-contain"
+        />
+      </div>
+
       {/* Industries Grid */}
       <section id="sectors" className="relative py-12 overflow-hidden -mt-6">
         <div className="absolute inset-0 bg-gradient-to-b from-background via-background/90 to-background" />
@@ -181,7 +202,7 @@ const Industries = () => {
             <div className="flex flex-col sm:flex-row items-start gap-3 pt-1">
               <Button
                 className="bg-primary hover:bg-primary/90 text-primary-foreground w-auto h-10 sm:h-12 px-4 sm:px-6 py-2 sm:py-3 text-sm sm:text-base"
-                onClick={() => navigateToTop("/contact")}
+                onClick={() => openMeeting()}
               >
                 Estimate project
               </Button>
@@ -210,7 +231,7 @@ const Industries = () => {
               </video>
               <div
                 className="absolute inset-0 bg-center bg-cover"
-                style={{ backgroundImage: "url('/uploads/CTA%20GIF.gif')" }}
+                style={{ backgroundImage: ctaBackgroundImage }}
                 aria-hidden="true"
               />
 

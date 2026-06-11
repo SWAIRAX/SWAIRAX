@@ -1,4 +1,5 @@
 import { Fragment } from "react";
+import { openMeeting } from "@/utils/meeting";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
@@ -198,7 +199,7 @@ const Products = () => {
             <Button
               variant="outline"
               className="border-white/40 text-white bg-transparent hover:bg-white/10 hover:text-white hover:border-white"
-              onClick={() => navigateToTop("/contact")}
+              onClick={() => openMeeting()}
             >
               Start a Project
             </Button>
@@ -257,7 +258,7 @@ const Products = () => {
                         <Button
                           variant="outline"
                           className="border-border text-foreground hover:bg-muted"
-                          onClick={() => navigateToTop("/contact")}
+                          onClick={() => openMeeting()}
                         >
                           Download App <ArrowRight className="ml-2 h-4 w-4" />
                         </Button>
@@ -265,7 +266,7 @@ const Products = () => {
                     ) : (
                       <Button
                         className="bg-primary hover:bg-primary/90 text-primary-foreground w-fit"
-                        onClick={() => navigateToTop("/contact")}
+                        onClick={() => openMeeting()}
                       >
                         Join the Waitlist <ArrowRight className="ml-2 h-4 w-4" />
                       </Button>

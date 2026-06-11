@@ -1,4 +1,5 @@
 import { useNavigationWithScroll } from "@/utils/navigation";
+import { openMeeting } from "@/utils/meeting";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import AnimatedCounter from "@/components/AnimatedCounter";
@@ -147,29 +148,56 @@ const Index = () => {
       {/* Red data-matrix divider — red teeth on a white (bg-card) backing */}
       <SectionDivider className="-mt-1 w-full bg-card text-[#ff0000]" />
 
-      {/* Stats Bar */}
-      <section className="py-12 sm:py-16 lg:py-20 bg-card">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <ScrollReveal className="text-center mb-8 sm:mb-12">
-            <Eyebrow className="mb-3 sm:mb-4">By the numbers</Eyebrow>
-            <Heading as="h2" size="h2">
-              An Africa-first technology company
-            </Heading>
-          </ScrollReveal>
-
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
-            {stats.map((stat, index) => (
-              <div
-                key={index}
-                className="metric-card text-center p-4 sm:p-6 rounded-lg border border-primary/10 animate-slide-in-bottom"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                <div className="metric-value text-4xl sm:text-5xl font-bold mb-1 sm:mb-2 text-foreground">
-                  <AnimatedCounter value={stat.value} />
-                </div>
-                <p className="text-xs sm:text-sm text-muted-foreground">{stat.label}</p>
+      {/* Stats Section — Two Column Layout with Top Border */}
+      <section className="relative py-0 bg-card border-t-2 border-primary/20">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+            {/* Left Column — Content */}
+            <ScrollReveal className="space-y-6 sm:space-y-8">
+              <div>
+                <Eyebrow className="mb-3 sm:mb-4">By the numbers</Eyebrow>
+                <Heading as="h2" size="h2" className="leading-tight">
+                  An Africa-first technology company
+                </Heading>
               </div>
-            ))}
+              <p className="text-muted-foreground text-base sm:text-lg leading-relaxed max-w-xl">
+                Driving innovation across the continent with trusted products, comprehensive service lines, and cutting-edge technologies that empower businesses to thrive.
+              </p>
+
+              {/* Stats Grid */}
+              <div className="grid grid-cols-2 gap-4 sm:gap-6 max-w-md">
+                {stats.map((stat, index) => (
+                  <div
+                    key={index}
+                    className="metric-card p-4 sm:p-5 rounded-lg border border-primary/10 animate-slide-in-bottom"
+                    style={{ animationDelay: `${index * 0.1}s` }}
+                  >
+                    <div className="metric-value text-3xl sm:text-4xl font-bold mb-1 sm:mb-2 text-primary">
+                      <AnimatedCounter value={stat.value} />
+                    </div>
+                    <p className="text-xs sm:text-sm text-muted-foreground leading-tight">{stat.label}</p>
+                  </div>
+                ))}
+              </div>
+            </ScrollReveal>
+
+            {/* Right Column — Media */}
+            <ScrollReveal className="relative overflow-hidden rounded-2xl border border-border bg-gradient-to-br from-neutral-900 via-neutral-900/70 to-black shadow-lg">
+              <div className="absolute -inset-12 bg-gradient-to-r from-primary/10 via-transparent to-primary/10 blur-3xl opacity-40 group-hover:opacity-60 transition-opacity duration-700" />
+              <div className="relative aspect-video lg:aspect-auto lg:h-96">
+                {/* Placeholder for video or image — customize with your media */}
+                <video
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  poster="/uploads/EDUCATION.avif"
+                  className="w-full h-full object-cover"
+                >
+                  <source src="https://cdn.coverr.co/videos/coverr-abstract-technology-10926/1080p.mp4" type="video/mp4" />
+                </video>
+              </div>
+            </ScrollReveal>
           </div>
         </div>
       </section>
@@ -337,7 +365,7 @@ const Index = () => {
             <Button
               size="lg"
               className="bg-background text-foreground hover:bg-background/90 px-6 sm:px-8 h-12 sm:h-14 text-sm sm:text-lg"
-              onClick={() => navigateToTop("/contact")}
+              onClick={() => openMeeting()}
             >
               Start a Project <ArrowRight className="ml-2 h-4 w-4" />
             </Button>

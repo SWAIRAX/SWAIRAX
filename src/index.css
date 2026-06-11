@@ -200,6 +200,19 @@ All colors MUST be HSL.
     }
 }
 
+/* Equalizer bar bounce — used by the Services hero motif tiles. */
+@keyframes eq-bar {
+    0%, 100% { transform: scaleY(0.3); }
+    50% { transform: scaleY(1); }
+}
+.animate-eq-bar {
+    transform-origin: bottom;
+    animation: eq-bar 1s ease-in-out infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+    .animate-eq-bar { animation: none; }
+}
+
 @keyframes float {
 
     0%,

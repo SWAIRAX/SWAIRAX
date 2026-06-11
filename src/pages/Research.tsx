@@ -1,4 +1,6 @@
-import React, { useRef } from "react";
+import React, { useRef, useEffect, useState } from "react";
+import { useTheme } from "next-themes";
+import { openMeeting } from "@/utils/meeting";
 import { useNavigate } from "react-router-dom";
 import { useNavigationWithScroll } from "@/utils/navigation";
 import { SEOSchema } from "@/components/SEOSchema";
@@ -18,6 +20,16 @@ const Research = () => {
   const navigate = useNavigate();
   const { navigateToTop } = useNavigationWithScroll();
   const showreelRef = useRef<HTMLDivElement | null>(null);
+  const { resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const ctaBackgroundImage = mounted
+    ? `url('${resolvedTheme === "dark" ? "/services/hero-network-dark.gif" : "/services/hero-network-light.gif"}')`
+    : "url('/services/hero-network-light.gif')";
 
   const archivedSolutions = [
     {
@@ -109,7 +121,7 @@ const Research = () => {
               <span className="pointer-events-none absolute bottom-full left-0 h-screen w-px bg-white/80" />
               <span className="pointer-events-none absolute top-full left-0 h-[200vh] w-px bg-white/80" />
               <button
-                onClick={() => navigateToTop("/contact")}
+                onClick={() => openMeeting()}
                 className="group relative z-10 inline-flex items-center gap-3 py-3 pr-4 text-sm font-semibold uppercase tracking-[0.2em] text-white drop-shadow-sm"
               >
                 <span className="h-3 w-3 rounded-full bg-[#eb0000] transition-transform duration-300 group-hover:scale-150" />
@@ -253,7 +265,7 @@ From security solutions to advanced AI platforms - our evolution continues
               </video>
               <div
                 className="absolute inset-0 bg-center bg-cover"
-                style={{ backgroundImage: "url('/uploads/CTA%20GIF.gif')" }}
+                style={{ backgroundImage: ctaBackgroundImage }}
                 aria-hidden="true"
               />
 

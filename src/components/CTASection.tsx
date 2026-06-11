@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Heading } from "@/components/ui/section";
 import HeroBackdrop from "@/components/HeroBackdrop";
 import { useNavigationWithScroll } from "@/utils/navigation";
+import { openMeeting } from "@/utils/meeting";
 
 interface CTAAction {
   label: string;
@@ -38,7 +39,10 @@ const CTASection = ({
   // In-page anchors (e.g. "#solutions") scroll to the element; everything else
   // is a route navigation.
   const go = (href: string) => {
-    if (href.startsWith("#")) {
+    if (href === "/contact" || href.startsWith("http")) {
+      // All "contact / book" CTAs open the HubSpot meeting scheduler.
+      openMeeting();
+    } else if (href.startsWith("#")) {
       scrollToSection(href.slice(1));
     } else {
       navigateToTop(href);

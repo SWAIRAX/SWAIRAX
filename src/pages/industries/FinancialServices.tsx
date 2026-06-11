@@ -1,4 +1,5 @@
 import { useNavigationWithScroll } from "@/utils/navigation";
+import { openMeeting } from "@/utils/meeting";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import Header from "@/components/Header";
@@ -95,7 +96,7 @@ const FinancialServices = () => {
             <div className="flex flex-col sm:flex-row gap-3">
               <Button
                 size="lg"
-                onClick={() => navigateToTop('/contact')}
+                onClick={() => openMeeting()}
                 className="bg-primary text-primary-foreground hover:bg-primary/90"
               >
                 Get Started

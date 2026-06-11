@@ -1,41 +1,121 @@
 import { useNavigationWithScroll } from "@/utils/navigation";
+import { openMeeting } from "@/utils/meeting";
 import { SEOSchema } from "@/components/SEOSchema";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import HeroBackdrop from "@/components/HeroBackdrop";
 import ScrollReveal from "@/components/ScrollReveal";
-import ServiceGraphHero from "@/components/ServiceGraphHero";
 import SectionDivider from "@/components/SectionDivider";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Heading, Lead } from "@/components/ui/section";
+import { Heading } from "@/components/ui/section";
 import { TextRevealCard } from "@/components/ui/text-reveal-card";
 import { services } from "@/data/services";
 import { ArrowRight, Code2, Cpu, Lightbulb, Rocket } from "lucide-react";
+import { useTheme } from "next-themes";
+import { useEffect, useState } from "react";
 
-// Module-level constant — passing an inline JSX array would re-trigger the
-// graph hero's effects on every parent paint. `href` makes each tile
-// clickable; array order drives parallax depth (1 + 0.4 * index).
-//
-// The 6 SWAIRAX services, ringed around the centred headline and linked to
-// their detail pages. `connections` form a closed hexagon so the network
-// reads as one connected system:
-//   0-1 (top) · 0-2 / 1-3 (upper sides) · 2-4 / 3-5 (lower sides) · 4-5 (bottom)
-const HERO_GRAPH_NODES = [
-  { id: "ai",            src: "/service/AI.png",               alt: "Artificial Intelligence", label: "AI",             href: "/services/ai",            x: 13, y: 20, size: 124, rotation: -3, connections: [1, 2] },
-  { id: "data-science",  src: "/service/data-science.png",     alt: "Data Science",            label: "Data Science",   href: "/services/data-science",  x: 87, y: 20, size: 124, rotation:  2, connections: [0, 3] },
-  { id: "cybersecurity", src: "/service/cybersercurity.png",   alt: "Cybersecurity",           label: "Cybersecurity",  href: "/services/cybersecurity", x: 7,  y: 54, size: 116, rotation:  3, connections: [0, 4] },
-  { id: "big-data",      src: "/service/bigdata.png",          alt: "Big Data Analytics",      label: "Big Data",       href: "/services/big-data",      x: 93, y: 54, size: 116, rotation: -2, connections: [1, 5] },
-  { id: "software",      src: "/service/softwareengineer.png", alt: "Software Engineering",    label: "Software",       href: "/services/software",      x: 27, y: 86, size: 120, rotation:  1, connections: [2, 5] },
-  { id: "cloud-devops",  src: "/service/devops.png",           alt: "Cloud & DevOps",          label: "Cloud & DevOps", href: "/services/cloud-devops",  x: 73, y: 86, size: 120, rotation: -3, connections: [3, 4] },
+// Hero decoration (passionlabs style): six red animated dot-motifs placed
+// around the headline and joined by faint connecting lines. The motifs sit
+// directly on the page background (no card) so they blend in; the dots are
+// red (text-primary) and visible in both light and dark themes.
+const HERO_NODES = [
+  { x: 11, y: 23, motif: "eq", show: "md" },
+  { x: 89, y: 23, motif: "ring", show: "md" },
+  { x: 5, y: 52, motif: "concentric", show: "lg" },
+  { x: 95, y: 52, motif: "cross", show: "lg" },
+  { x: 17, y: 80, motif: "rows", show: "md" },
+  { x: 83, y: 80, motif: "scatter", show: "md" },
+] as const;
+
+const HERO_EDGES: [number, number][] = [
+  [0, 1], [0, 2], [1, 3], [2, 4], [3, 5], [4, 5], [0, 3], [1, 2],
 ];
 
-// Edges are now derived from each node's `connections` array — keep an empty
-// fallback so the legacy prop on the component doesn't kick in.
-const HERO_GRAPH_EDGES: Array<[number, number]> = [];
+const renderMotif = (type: string) => {
+  switch (type) {
+    case "eq":
+      return (
+        <div className="flex h-12 items-end gap-1.5">
+          {[0, 1, 2, 3, 4].map((i) => (
+            <span
+              key={i}
+              className="animate-eq-bar h-full w-1.5 rounded-full bg-primary"
+              style={{ animationDelay: `${i * 0.13}s` }}
+            />
+          ))}
+        </div>
+      );
+    case "ring":
+      return (
+        <svg className="animate-spin-slow h-14 w-14" viewBox="0 0 100 100" fill="currentColor">
+          {Array.from({ length: 12 }).map((_, i) => {
+            const a = (i / 12) * Math.PI * 2;
+            return <circle key={i} cx={50 + 38 * Math.cos(a)} cy={50 + 38 * Math.sin(a)} r="5" opacity={0.2 + (i / 11) * 0.8} />;
+          })}
+        </svg>
+      );
+    case "concentric":
+      return (
+        <svg className="h-16 w-16 animate-pulse" viewBox="0 0 100 100" fill="none" stroke="currentColor">
+          <circle cx="50" cy="50" r="14" strokeWidth="3" strokeDasharray="1 7" strokeLinecap="round" />
+          <circle cx="50" cy="50" r="30" strokeWidth="3" strokeDasharray="1 8" strokeLinecap="round" />
+          <circle cx="50" cy="50" r="46" strokeWidth="3" strokeDasharray="1 9" strokeLinecap="round" />
+        </svg>
+      );
+    case "cross":
+      return (
+        <svg className="h-14 w-14 animate-pulse" viewBox="0 0 100 100" fill="currentColor">
+          <circle cx="50" cy="50" r="6" />
+          <circle cx="50" cy="33" r="4" /><circle cx="50" cy="16" r="5.5" />
+          <circle cx="50" cy="67" r="4" /><circle cx="50" cy="84" r="5.5" />
+          <circle cx="33" cy="50" r="4" /><circle cx="16" cy="50" r="5.5" />
+          <circle cx="67" cy="50" r="4" /><circle cx="84" cy="50" r="5.5" />
+        </svg>
+      );
+    case "rows":
+      return (
+        <svg className="h-14 w-14 animate-pulse" viewBox="0 0 100 100" fill="currentColor">
+          {[20, 40, 60, 80].map((x) =>
+            [16, 34, 52, 70, 86].map((y, r) => (
+              <circle key={`${x}-${y}`} cx={x} cy={y} r="4" opacity={1 - r * 0.17} />
+            )),
+          )}
+        </svg>
+      );
+    case "scatter":
+      return (
+        <svg className="h-14 w-14 animate-pulse" viewBox="0 0 100 100" fill="currentColor">
+          <circle cx="18" cy="22" r="3" opacity="0.5" />
+          <circle cx="40" cy="14" r="5" opacity="0.9" />
+          <circle cx="70" cy="24" r="2.5" opacity="0.4" />
+          <circle cx="84" cy="40" r="4" opacity="0.7" />
+          <circle cx="26" cy="46" r="6" opacity="1" />
+          <circle cx="56" cy="50" r="3" opacity="0.5" />
+          <circle cx="80" cy="68" r="5" opacity="0.85" />
+          <circle cx="34" cy="74" r="3.5" opacity="0.6" />
+          <circle cx="60" cy="82" r="4.5" opacity="0.8" />
+        </svg>
+      );
+    default:
+      return null;
+  }
+};
 
 const Services = () => {
   const { navigateToTop } = useNavigationWithScroll();
+  const { resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const ctaImageSrc = mounted
+    ? resolvedTheme === "dark"
+      ? "/services/hero-network-dark.gif"
+      : "/services/hero-network-light.gif"
+    : "/services/hero-network-light.gif";
 
   const process = [
     {
@@ -70,54 +150,76 @@ const Services = () => {
       />
       <Header />
 
-      {/* Hero — Scale.com-style graph network with service tiles as nodes */}
-      <ServiceGraphHero
-        title={
-          <Heading as="h1" size="display" className="leading-tight text-foreground">
-            Our Services
-          </Heading>
-        }
-        subtitle={
-          <Lead className="mx-auto max-w-2xl text-lg sm:text-xl lg:text-2xl font-semibold text-foreground/80">
-            End-to-end technology solutions for businesses of all sizes.
-          </Lead>
-        }
-        cta={
-          <Button
-            size="lg"
-            className="bg-primary hover:bg-primary/90 text-primary-foreground px-6 md:px-8 py-6 text-base font-semibold shadow-lg"
-            onClick={() => navigateToTop("/contact")}
-          >
-            Build with our team <ArrowRight className="ml-2 h-5 w-5" />
-          </Button>
-        }
-        nodes={HERO_GRAPH_NODES}
-        edges={HERO_GRAPH_EDGES}
-        onNodeClick={(node) => {
-          // Use React Router's navigateToTop so we get smooth SPA routing +
-          // scroll-to-top, not a full page reload via window.location.
-          if (node.href) navigateToTop(node.href);
-        }}
-      />
+      {/* Hero — passionlabs/sectors style: centred bold headline on a
+          theme-aware canvas (white in light, dark in dark). No image. */}
+      <section className="relative isolate flex min-h-[80vh] items-center justify-center overflow-hidden bg-background text-foreground pt-28 pb-20 sm:min-h-[76vh] lg:min-h-[600px]">
+        {/* very faint dot-grid texture (theme-agnostic, subtle) */}
+        <div
+          className="pointer-events-none absolute inset-0 opacity-[0.05]"
+          style={{
+            backgroundImage: "radial-gradient(hsl(var(--primary)) 1px, transparent 1px)",
+            backgroundSize: "28px 28px",
+          }}
+        />
 
-      {/*
-        Ring-variant divider matching the lecdt-style `class="divisor"`
-        SVG (1920×150 viewBox).
+        {/* Decorative network: six red animated dot-motifs joined by faint
+            connecting lines (passionlabs style). The motifs sit directly on the
+            page background so they blend in. Hidden on small screens. */}
+        <div className="pointer-events-none absolute inset-0 hidden overflow-hidden text-primary md:block" aria-hidden="true">
+          {/* connecting lines between the motif nodes */}
+          <svg className="absolute inset-0 h-full w-full text-foreground/15" viewBox="0 0 100 100" preserveAspectRatio="none">
+            {HERO_EDGES.map(([a, b], i) => (
+              <line
+                key={i}
+                x1={HERO_NODES[a].x}
+                y1={HERO_NODES[a].y}
+                x2={HERO_NODES[b].x}
+                y2={HERO_NODES[b].y}
+                stroke="currentColor"
+                strokeWidth="0.12"
+                vectorEffect="non-scaling-stroke"
+              />
+            ))}
+          </svg>
 
-        Positioning: pulled up with a large negative margin so the entire
-        95-px divider overlaps the bottom of the hero card. With
-        `bg-transparent` + `relative z-10` the red SVG shapes paint on top
-        of the hero, and the drifting graph tiles remain visible through
-        the gaps in the maze — exactly the "components in the hero are
-        visible across the SVG" effect.
+          {/* the six animated motifs, centred on their nodes */}
+          {HERO_NODES.map((n, i) => (
+            <div
+              key={i}
+              className={`absolute flex -translate-x-1/2 -translate-y-1/2 items-center justify-center ${
+                n.show === "lg" ? "hidden lg:flex" : ""
+              }`}
+              style={{ left: `${n.x}%`, top: `${n.y}%` }}
+            >
+              {renderMotif(n.motif)}
+            </div>
+          ))}
+        </div>
 
-        `pointer-events-none` ensures the divider doesn't intercept clicks
-        from the tiles underneath.
-      */}
-      <SectionDivider
-        variant="ring"
-        className="relative z-10 -mt-[65px] w-full bg-transparent text-[#ff0000] pointer-events-none"
-      />
+        <div className="container relative z-10 mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
+          <p className="mb-5 text-xs font-semibold uppercase tracking-[0.3em] text-primary">
+            Services
+          </p>
+          <h1 className="text-4xl font-bold leading-[1.08] tracking-tight text-foreground sm:text-5xl lg:text-6xl">
+            Turning complex challenges into a competitive advantage.
+          </h1>
+          <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
+            End-to-end AI, Data Science, Cybersecurity, Big Data, Software Engineering, and Cloud &amp;
+            DevOps — for businesses of all sizes.
+          </p>
+          <div className="mt-9 flex justify-center">
+            <button
+              onClick={() => openMeeting()}
+              className="group inline-flex items-center gap-3 text-sm font-semibold uppercase tracking-[0.2em] text-foreground transition-colors hover:text-primary"
+            >
+              <span className="h-3 w-3 rounded-full bg-primary transition-transform duration-300 group-hover:scale-150" />
+              Book a Call
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <SectionDivider className="-mt-px w-full text-[#ff0000]" />
 
       {/* Services — brand-red canvas, white type for contrast. */}
       <section className="relative py-16 sm:py-20 lg:py-24 bg-[#ff0000] text-white">
@@ -277,7 +379,7 @@ const Services = () => {
             <div className="flex flex-col sm:flex-row items-start gap-3 pt-1">
               <Button
                 className="bg-primary hover:bg-primary/90 text-primary-foreground w-auto h-10 sm:h-12 px-4 sm:px-6 py-2 sm:py-3 text-sm sm:text-base"
-                onClick={() => navigateToTop("/contact")}
+                onClick={() => openMeeting()}
               >
                 Talk to Us →
               </Button>
@@ -295,7 +397,7 @@ const Services = () => {
             <div className="absolute -inset-12 bg-gradient-to-r from-primary/10 via-transparent to-primary/10 blur-3xl opacity-40 group-hover:opacity-60 transition-opacity duration-700" />
             <div className="relative">
               <img
-                src="/uploads/cta-square.gif"
+                src={ctaImageSrc}
                 alt="SWAIRAX in motion"
                 loading="lazy"
                 className="h-64 w-full object-cover sm:h-72 transition-transform duration-700 group-hover:scale-105"

@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { MEETING_URL } from "@/utils/meeting";
 import { Card, CardContent } from "@/components/ui/card";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -44,7 +45,7 @@ const MLOps = () => {
               value by deploying your models into production with our MLOps expertise.</>}
         actions={
           <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground">
-            <Link to="/contact">Deploy Your Models</Link>
+            <a href={MEETING_URL} target="_blank" rel="noopener noreferrer">Deploy Your Models</a>
           </Button>
         }
       />
@@ -171,7 +172,7 @@ const MLOps = () => {
               Let our MLOps experts help you bridge the gap between development and production.
             </Lead>
             <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground">
-              <Link to="/contact">Start MLOps Journey</Link>
+              <a href={MEETING_URL} target="_blank" rel="noopener noreferrer">Start MLOps Journey</a>
             </Button>
           </div>
         </div>

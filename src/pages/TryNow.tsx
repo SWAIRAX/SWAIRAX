@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { openMeeting } from "@/utils/meeting";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import HeroBackdrop from "@/components/HeroBackdrop";
@@ -64,14 +65,14 @@ const TryNow = () => {
             <Button
               size="lg"
               className="bg-primary hover:bg-primary/90 text-primary-foreground"
-              onClick={() => navigate("/contact")}
+              onClick={() => openMeeting()}
             >
               Get Started Free
             </Button>
             <Button
               variant="outline"
               size="lg"
-              onClick={() => navigate("/contact")}
+              onClick={() => openMeeting()}
             >
               Schedule Demo
             </Button>
@@ -120,7 +121,7 @@ const TryNow = () => {
                 <Button
                   className="mt-auto w-full"
                   variant="outline"
-                  onClick={() => navigate("/contact")}
+                  onClick={() => openMeeting()}
                 >
                   {platform.cta} <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </Button>
@@ -194,7 +195,7 @@ const TryNow = () => {
             <Button
               size="lg"
               className="bg-primary hover:bg-primary/90 text-primary-foreground"
-              onClick={() => navigate("/contact")}
+              onClick={() => openMeeting()}
             >
               Start Your Free Trial
             </Button>

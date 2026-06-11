@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { openMeeting } from "@/utils/meeting";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import Header from "@/components/Header";
@@ -139,7 +140,7 @@ const Resources = () => {
                   </p>
                   
                   <Button 
-                    onClick={() => window.location.href = '/contact'}
+                    onClick={() => openMeeting()}
                     className="w-full bg-primary hover:bg-primary/90 text-primary-foreground"
                   >
                     <Download className="mr-2 h-4 w-4" />
@@ -184,7 +185,7 @@ const Resources = () => {
                         <Button 
                           size="sm" 
                           variant="outline"
-                          onClick={() => window.location.href = '/contact'}
+                          onClick={() => openMeeting()}
                         >
                           <ExternalLink className="h-4 w-4" />
                         </Button>
@@ -194,7 +195,7 @@ const Resources = () => {
                   
                   <Button 
                     variant="ghost" 
-                    onClick={() => window.location.href = '/contact'}
+                    onClick={() => openMeeting()}
                     className="w-full mt-4 text-primary hover:text-primary"
                   >
                     View All in {category.title}
@@ -229,7 +230,7 @@ const Resources = () => {
                         </div>
                       </div>
                       <Button 
-                        onClick={() => window.location.href = '/contact'}
+                        onClick={() => openMeeting()}
                         className="bg-primary hover:bg-primary/90 text-primary-foreground"
                       >
                         Register Now
@@ -258,7 +259,7 @@ const Resources = () => {
                 className="flex-1 px-4 py-3 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
               />
               <Button 
-                onClick={() => window.location.href = '/contact'}
+                onClick={() => openMeeting()}
                 className="bg-primary hover:bg-primary/90 text-primary-foreground px-6"
               >
                 Subscribe

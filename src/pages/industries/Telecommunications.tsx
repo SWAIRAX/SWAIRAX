@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import { openMeeting } from "@/utils/meeting";
 import { useNavigationWithScroll } from "@/utils/navigation";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -102,7 +103,7 @@ const Telecommunications = () => {
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <Button
                 size="sm"
-                onClick={() => navigateToTop('/contact')}
+                onClick={() => openMeeting()}
                 className="bg-primary text-primary-foreground hover:bg-primary/90"
               >
                 Get Started

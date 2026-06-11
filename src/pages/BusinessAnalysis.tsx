@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { MEETING_URL } from "@/utils/meeting";
 import { Card, CardContent } from "@/components/ui/card";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -44,7 +45,7 @@ const BusinessAnalysis = () => {
               Simply drag and drop your dataset and discover opportunities in minutes.</>}
         actions={
           <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground">
-            <Link to="/contact">Start Free Analysis</Link>
+            <a href={MEETING_URL} target="_blank" rel="noopener noreferrer">Start Free Analysis</a>
           </Button>
         }
       />
@@ -173,10 +174,10 @@ const BusinessAnalysis = () => {
           </Lead>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground">
-              <Link to="/contact">Try Free Demo</Link>
+              <a href={MEETING_URL} target="_blank" rel="noopener noreferrer">Try Free Demo</a>
             </Button>
             <Button asChild variant="outline" size="lg">
-              <Link to="/contact">Schedule Consultation</Link>
+              <a href={MEETING_URL} target="_blank" rel="noopener noreferrer">Schedule Consultation</a>
             </Button>
           </div>
           </div>

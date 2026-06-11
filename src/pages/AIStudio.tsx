@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { MEETING_URL } from "@/utils/meeting";
 import { Card, CardContent } from "@/components/ui/card";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -40,7 +41,7 @@ const AIStudio = () => {
               to deliver innovative solutions.</>}
         actions={
           <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground">
-            <Link to="/contact">Start Your Project</Link>
+            <a href={MEETING_URL} target="_blank" rel="noopener noreferrer">Start Your Project</a>
           </Button>
         }
       />
@@ -137,7 +138,7 @@ const AIStudio = () => {
               Let's discuss your project and explore how our AI solutions can drive your success.
             </Lead>
             <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground">
-              <Link to="/contact">Get Started Today</Link>
+              <a href={MEETING_URL} target="_blank" rel="noopener noreferrer">Get Started Today</a>
             </Button>
           </div>
         </div>

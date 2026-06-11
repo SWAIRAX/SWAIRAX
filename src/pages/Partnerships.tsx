@@ -1,4 +1,5 @@
 import Header from "@/components/Header";
+import { openMeeting } from "@/utils/meeting";
 import Footer from "@/components/Footer";
 import CTASection from "@/components/CTASection";
 import Parallax from "@/components/Parallax";
@@ -120,7 +121,7 @@ const Partnerships = () => {
               <span className="pointer-events-none absolute bottom-full left-0 h-screen w-px bg-white/80" />
               <span className="pointer-events-none absolute top-full left-0 h-[200vh] w-px bg-white/80" />
               <button
-                onClick={() => navigateToTop("/contact")}
+                onClick={() => openMeeting()}
                 className="group relative z-10 inline-flex items-center gap-3 py-3 pr-4 text-sm font-semibold uppercase tracking-[0.2em] text-white drop-shadow-sm"
               >
                 <span className="h-3 w-3 rounded-full bg-[#eb0000] transition-transform duration-300 group-hover:scale-150" />

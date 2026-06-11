@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Menu, X, CheckCheck, ChevronDown, Sun, Moon } from "lucide-react";
 import { useLocation } from "react-router-dom";
 import { useNavigationWithScroll } from "@/utils/navigation";
+import { openMeeting } from "@/utils/meeting";
 import BrandLogo from "@/components/BrandLogo";
 
 type NavItem = {
@@ -55,12 +56,8 @@ const Header = () => {
   ];
 
   const companyItem: NavItem = {
-    name: "Company",
+    name: "About Us",
     path: "/about",
-    dropdown: [
-      { name: "About Us", desc: "Our story, mission, and team", path: "/about" },
-      { name: "Contact Us", desc: "Start a project or get in touch", path: "/contact" },
-    ],
   };
 
   // Mobile-only simplified menu (no dropdowns)
@@ -190,11 +187,11 @@ const Header = () => {
           {renderNavItem(companyItem, true)}
           <ThemeToggle />
           <button
-            onClick={() => navigateToTop("/contact")}
+            onClick={openMeeting}
             className="inline-flex items-center gap-1.5 rounded-full bg-foreground px-5 py-2 text-sm font-semibold text-background hover:bg-foreground/90 transition-colors"
           >
             <CheckCheck className="h-4 w-4" />
-            Get Started
+            Book a Call
           </button>
         </div>
 
@@ -231,7 +228,14 @@ const Header = () => {
               {mobileNavItems.map((item) => (
                 <div key={item.name} className="border-b border-border/60 pb-3">
                   <button
-                    onClick={() => handleNavClick(item.path)}
+                    onClick={() => {
+                      if (item.path === "/contact") {
+                        setIsMenuOpen(false);
+                        openMeeting();
+                      } else {
+                        handleNavClick(item.path);
+                      }
+                    }}
                     className={`w-full text-left text-base font-semibold tracking-wide transition-colors ${
                       isActive(item.path) ? "text-primary" : "text-foreground"
                     }`}
@@ -244,11 +248,14 @@ const Header = () => {
 
             <div className="pt-6 border-t border-border/60">
               <Button
-                onClick={() => handleNavClick("/contact")}
+                onClick={() => {
+                  setIsMenuOpen(false);
+                  openMeeting();
+                }}
                 className="w-full inline-flex items-center justify-center gap-1.5 rounded-full bg-foreground px-5 py-4 text-base font-semibold text-background hover:bg-foreground/90"
               >
                 <CheckCheck className="h-4 w-4" />
-                Get Started
+                Book a Call
               </Button>
             </div>
           </div>

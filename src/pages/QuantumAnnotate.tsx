@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { openMeeting } from "@/utils/meeting";
 import { useNavigate } from "react-router-dom";
 import { useNavigationWithScroll } from "@/utils/navigation";
 import Header from "@/components/Header";
@@ -109,7 +110,7 @@ const QuantumAnnotate = () => {
             <Button
               variant="outline"
               className="border-white/40 text-white bg-transparent hover:bg-white/10 hover:text-white hover:border-white"
-              onClick={() => navigateToTop('/contact')}
+              onClick={() => openMeeting()}
             >
               Get Started
             </Button>
@@ -257,7 +258,7 @@ const QuantumAnnotate = () => {
               <Button
                 size="lg"
                 className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-4 text-lg group"
-                onClick={() => navigateToTop('/contact')}
+                onClick={() => openMeeting()}
               >
                 Start Your Project <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </Button>
