@@ -11,6 +11,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Heading, Lead } from "@/components/ui/section";
 import { useNavigationWithScroll } from "@/utils/navigation";
+import { getTechLogo, logoToneClass } from "@/data/services";
 import {
   ArrowRight,
   CheckCircle2,
@@ -239,12 +240,27 @@ const Products = () => {
                   <p className="text-muted-foreground leading-relaxed">{product.description}</p>
                   <p className="text-muted-foreground leading-relaxed">{product.overview}</p>
 
-                  <div className="flex flex-wrap gap-2 pt-1">
-                    {product.stack.map((tech) => (
-                      <Badge key={tech} variant="outline" className="border-border">
-                        {tech}
-                      </Badge>
-                    ))}
+                  <div className="flex flex-wrap items-center gap-x-5 gap-y-2 pt-1">
+                    {product.stack.map((tech) => {
+                      const logo = getTechLogo(tech);
+                      return (
+                        <span key={tech} className="inline-flex items-center gap-1.5">
+                          {logo ? (
+                            <img
+                              src={logo}
+                              alt=""
+                              loading="lazy"
+                              className={`h-4 w-auto max-w-[64px] object-contain ${logoToneClass(tech)}`}
+                            />
+                          ) : (
+                            <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+                          )}
+                          <span className="font-mono text-[11px] font-medium tracking-tight text-foreground/70">
+                            {tech}
+                          </span>
+                        </span>
+                      );
+                    })}
                   </div>
 
                   <div className="flex flex-col sm:flex-row gap-3 pt-2">

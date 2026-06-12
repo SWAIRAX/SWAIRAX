@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useTheme } from "next-themes";
 import { openMeeting } from "@/utils/meeting";
 import { useParams, Navigate } from "react-router-dom";
 import { useNavigationWithScroll } from "@/utils/navigation";
@@ -12,7 +13,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Heading, Lead } from "@/components/ui/section";
 import { ArrowRight, TrendingUp, Clock, Target, Shield } from "lucide-react";
-import { getServiceBySlug, getTechLogo } from "@/data/services";
+import { getServiceBySlug, getTechLogo, logoToneClass } from "@/data/services";
 import { setSEO } from "@/utils/seo";
 
 const STAT_ICONS = [TrendingUp, Clock, Target, Shield];
@@ -21,7 +22,14 @@ const ServiceDetail = () => {
   const { slug } = useParams();
   const service = getServiceBySlug(slug);
   const { navigateToTop, scrollToSection } = useNavigationWithScroll();
+  const { resolvedTheme } = useTheme();
   const [isVisible, setIsVisible] = useState(false);
+
+  // Theme-aware CTA visual (matches the Services page CTA).
+  const ctaImageSrc =
+    isVisible && resolvedTheme === "dark"
+      ? "/services/hero-network-dark.gif"
+      : "/services/hero-network-light.gif";
 
   useEffect(() => {
     setIsVisible(true);
@@ -238,7 +246,7 @@ const ServiceDetail = () => {
                 >
                   <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-3 group-hover:bg-primary/20 group-hover:scale-110 transition-all duration-300">
                     {logo ? (
-                      <img src={logo} alt={`${tech.name} logo`} loading="lazy" className="h-5 w-5 object-contain" />
+                      <img src={logo} alt={`${tech.name} logo`} loading="lazy" className={`h-5 w-5 object-contain ${logoToneClass(tech.name)}`} />
                     ) : (
                       <span className="text-sm font-bold text-primary">{tech.name.charAt(0)}</span>
                     )}
@@ -255,30 +263,49 @@ const ServiceDetail = () => {
       {/* CTA Section */}
       <section className="relative overflow-hidden pt-12 pb-40 sm:pb-44 bg-background">
         <HeroBackdrop />
-        <div className="container relative z-10 mx-auto px-6">
-          <div className={`max-w-3xl mx-auto rounded-2xl border border-border/60 bg-background/85 backdrop-blur-md shadow-[0_15px_40px_-25px_rgba(15,23,42,0.25)] p-6 md:p-10 text-center transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
-            <Heading as="h2" size="h2" className="mb-3 text-foreground">
-              {service.ctaTitle}
-            </Heading>
-            <p className="text-sm text-foreground/85 mb-4 max-w-2xl mx-auto">
-              {service.ctaText}
-            </p>
-            <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <Button
-                size="sm"
-                className="bg-primary hover:bg-primary/90 text-primary-foreground px-4 py-2 text-sm group"
-                onClick={() => openMeeting()}
-              >
-                Start Your Project <ArrowRight className="ml-1 h-3 w-3 group-hover:translate-x-1 transition-transform" />
-              </Button>
-              <Button
-                size="sm"
-                variant="outline"
-                className="border-primary text-primary hover:bg-primary hover:text-primary-foreground px-4 py-2 text-sm"
-                onClick={() => navigateToTop("/services")}
-              >
-                View All Services
-              </Button>
+        <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-10">
+          {/* Text + visual combined into one panel (matches the Services CTA);
+              the image fades into the card so the two halves read as one. */}
+          <div
+            className={`group mx-auto max-w-5xl overflow-hidden rounded-2xl border border-border bg-card shadow-[0_18px_50px_-28px_rgba(15,23,42,0.4)] transition-all duration-1000 ${
+              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+            }`}
+          >
+            <div className="grid grid-cols-1 items-stretch lg:grid-cols-2">
+              <div className="flex flex-col justify-center space-y-4 p-8 md:p-10">
+                <Heading as="h2" size="h2" className="font-bold leading-tight text-foreground">
+                  {service.ctaTitle}
+                </Heading>
+                <p className="max-w-xl text-sm leading-relaxed text-foreground/85 md:text-base">
+                  {service.ctaText}
+                </p>
+                <div className="flex flex-col items-start gap-3 pt-1 sm:flex-row">
+                  <Button
+                    className="group h-10 w-auto bg-primary px-4 py-2 text-sm text-primary-foreground hover:bg-primary/90 sm:h-12 sm:px-6 sm:py-3 sm:text-base"
+                    onClick={() => openMeeting()}
+                  >
+                    Start Your Project <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  </Button>
+                  <Button
+                    variant="outline"
+                    className="h-10 w-auto border-primary px-4 py-2 text-sm text-primary hover:bg-primary hover:text-primary-foreground sm:h-12 sm:px-6 sm:py-3 sm:text-base"
+                    onClick={() => navigateToTop("/services")}
+                  >
+                    View All Services
+                  </Button>
+                </div>
+              </div>
+
+              <div className="relative min-h-[240px] lg:min-h-full">
+                <img
+                  src={ctaImageSrc}
+                  alt="SWAIRAX in motion"
+                  loading="lazy"
+                  className="absolute inset-0 h-full w-full object-cover"
+                />
+                {/* fade the image into the card so there's no hard seam */}
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-card via-card/20 to-transparent lg:bg-gradient-to-r" />
+              </div>
             </div>
           </div>
         </div>

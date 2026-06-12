@@ -11,7 +11,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Heading } from "@/components/ui/section";
 import { TextRevealCard } from "@/components/ui/text-reveal-card";
 import { services } from "@/data/services";
-import { ArrowRight, Code2, Cpu, Lightbulb, Rocket } from "lucide-react";
+import { Code2, Cpu, Lightbulb, Rocket } from "lucide-react";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 
@@ -28,8 +28,10 @@ const HERO_NODES = [
   { x: 83, y: 80, motif: "scatter", show: "md" },
 ] as const;
 
+// Perimeter only — no diagonals through the centre, so lines never cross the
+// headline/subtext in the middle of the hero.
 const HERO_EDGES: [number, number][] = [
-  [0, 1], [0, 2], [1, 3], [2, 4], [3, 5], [4, 5], [0, 3], [1, 2],
+  [0, 1], [0, 2], [2, 4], [1, 3], [3, 5], [4, 5],
 ];
 
 const renderMotif = (type: string) => {
@@ -164,10 +166,13 @@ const Services = () => {
 
         {/* Decorative network: six red animated dot-motifs joined by faint
             connecting lines (passionlabs style). The motifs sit directly on the
-            page background so they blend in. Hidden on small screens. */}
-        <div className="pointer-events-none absolute inset-0 hidden overflow-hidden text-primary md:block" aria-hidden="true">
-          {/* connecting lines between the motif nodes */}
-          <svg className="absolute inset-0 h-full w-full text-foreground/15" viewBox="0 0 100 100" preserveAspectRatio="none">
+            page background so they blend in. The 4 corner motifs show on every
+            screen (incl. mobile); the 2 mid-side ones stay lg-only so they
+            never crowd the centred headline. */}
+        <div className="pointer-events-none absolute inset-0 overflow-hidden text-primary" aria-hidden="true">
+          {/* connecting lines between the motif nodes — black in light theme,
+              white in dark (text-foreground), at a clearly visible weight */}
+          <svg className="absolute inset-0 h-full w-full text-foreground/45" viewBox="0 0 100 100" preserveAspectRatio="none">
             {HERO_EDGES.map(([a, b], i) => (
               <line
                 key={i}
@@ -176,7 +181,7 @@ const Services = () => {
                 x2={HERO_NODES[b].x}
                 y2={HERO_NODES[b].y}
                 stroke="currentColor"
-                strokeWidth="0.12"
+                strokeWidth="1.25"
                 vectorEffect="non-scaling-stroke"
               />
             ))}
@@ -191,7 +196,10 @@ const Services = () => {
               }`}
               style={{ left: `${n.x}%`, top: `${n.y}%` }}
             >
-              {renderMotif(n.motif)}
+              {/* background-coloured halo masks the connecting lines around the
+                  motif, so the lines stop short and never touch the animation */}
+              <span className="pointer-events-none absolute left-1/2 top-1/2 h-[88px] w-[88px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-background" />
+              <span className="relative">{renderMotif(n.motif)}</span>
             </div>
           ))}
         </div>
@@ -228,13 +236,6 @@ const Services = () => {
               <p className="text-base md:text-lg text-white/85 max-w-2xl mt-3">
                 Select the lane you need. We pair bold visuals with resilient engineering so every interaction feels alive and every release feels safe.
               </p>
-              <Button
-                variant="outline"
-                className="border-white bg-white text-[#ff0000] hover:bg-transparent hover:text-white hover:border-white w-fit mt-4 md:mt-0"
-                onClick={() => navigateToTop("/research")}
-              >
-                View proofs & case notes <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
             </div>
           </div>
 
@@ -350,48 +351,40 @@ const Services = () => {
       {/* CTA (Live experience moved here) */}
       <section className="relative overflow-hidden pt-16 sm:pt-20 lg:pt-24 pb-40 sm:pb-44 lg:pb-48 bg-background">
         <HeroBackdrop />
-        <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-10 grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-          {/* Text column wrapped in a glass card so it stays readable on
-              top of the HeroBackdrop's red plexus canvas. */}
-          <ScrollReveal className="space-y-4 rounded-2xl border border-border/60 bg-background/85 p-6 md:p-8 shadow-[0_15px_40px_-25px_rgba(15,23,42,0.25)] backdrop-blur-md">
-            <Heading
-              as="h2"
-              size="h2"
-              className="leading-tight text-foreground font-bold"
-            >
-              Not Sure Which Service You Need?
-            </Heading>
-            <p className="text-foreground/85 text-sm md:text-base max-w-xl leading-relaxed">
-              Tell us your challenge and we'll recommend the right solution.
-            </p>
-            <div className="flex flex-col sm:flex-row items-start gap-3 pt-1">
-              <Button
-                className="bg-primary hover:bg-primary/90 text-primary-foreground w-auto h-10 sm:h-12 px-4 sm:px-6 py-2 sm:py-3 text-sm sm:text-base"
-                onClick={() => openMeeting()}
-              >
-                Talk to Us →
-              </Button>
-              <Button
-                variant="outline"
-                className="hidden border-foreground/30 text-foreground bg-transparent hover:bg-foreground/5 hover:border-foreground/50 hover:text-foreground w-full sm:w-auto"
-                onClick={() => navigateToTop("/careers")}
-              >
-                Partner with us
-              </Button>
+        <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-10">
+          {/* Text + visual combined into one panel; the image fades into the
+              card via a gradient so the two halves read as a single block. */}
+          <ScrollReveal className="group mx-auto max-w-5xl overflow-hidden rounded-2xl border border-border bg-card shadow-[0_18px_50px_-28px_rgba(15,23,42,0.4)]">
+            <div className="grid grid-cols-1 items-stretch lg:grid-cols-2">
+              <div className="flex flex-col justify-center space-y-4 p-8 md:p-10">
+                <Heading as="h2" size="h2" className="font-bold leading-tight text-foreground">
+                  Not Sure Which Service You Need?
+                </Heading>
+                <p className="max-w-xl text-sm leading-relaxed text-foreground/85 md:text-base">
+                  Tell us your challenge and we'll recommend the right solution.
+                </p>
+                <div className="flex flex-col items-start gap-3 pt-1 sm:flex-row">
+                  <Button
+                    className="h-10 w-auto bg-primary px-4 py-2 text-sm text-primary-foreground hover:bg-primary/90 sm:h-12 sm:px-6 sm:py-3 sm:text-base"
+                    onClick={() => openMeeting()}
+                  >
+                    Talk to Us →
+                  </Button>
+                </div>
+              </div>
+
+              <div className="relative min-h-[240px] lg:min-h-full">
+                <img
+                  src={ctaImageSrc}
+                  alt="SWAIRAX in motion"
+                  loading="lazy"
+                  className="absolute inset-0 h-full w-full object-cover"
+                />
+                {/* fade the image into the card so there's no hard seam */}
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-card via-card/20 to-transparent lg:bg-gradient-to-r" />
+              </div>
             </div>
           </ScrollReveal>
-
-          <div className="relative group overflow-hidden rounded-2xl border border-border bg-gradient-to-br from-neutral-900 via-neutral-900/70 to-black shadow-lg">
-            <div className="absolute -inset-12 bg-gradient-to-r from-primary/10 via-transparent to-primary/10 blur-3xl opacity-40 group-hover:opacity-60 transition-opacity duration-700" />
-            <div className="relative">
-              <img
-                src={ctaImageSrc}
-                alt="SWAIRAX in motion"
-                loading="lazy"
-                className="h-64 w-full object-cover sm:h-72 transition-transform duration-700 group-hover:scale-105"
-              />
-            </div>
-          </div>
         </div>
       </section>
 

@@ -1,16 +1,32 @@
+import { useEffect, useState } from "react";
+import { useTheme } from "next-themes";
 import Header from "@/components/Header";
 import { openMeeting } from "@/utils/meeting";
 import Footer from "@/components/Footer";
 import Parallax from "@/components/Parallax";
+import HeroBackdrop from "@/components/HeroBackdrop";
+import SectionDivider from "@/components/SectionDivider";
 import ScrollReveal from "@/components/ScrollReveal";
 import { Button } from "@/components/ui/button";
-import { Heading, Lead } from "@/components/ui/section";
+import { Heading } from "@/components/ui/section";
 import { useNavigationWithScroll } from "@/utils/navigation";
 import { ArrowRight } from "lucide-react";
 import { sectors } from "@/data/sectors";
 
 const Sectors = () => {
   const { navigateToTop, scrollToSection } = useNavigationWithScroll();
+  const { resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const ctaImageSrc = mounted
+    ? resolvedTheme === "dark"
+      ? "/services/hero-network-dark.gif"
+      : "/services/hero-network-light.gif"
+    : "/services/hero-network-light.gif";
 
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -65,10 +81,10 @@ const Sectors = () => {
         />
       </section>
 
-      {/* Intro — top-bordered editorial statement (Research style) */}
+      {/* Intro — editorial statement, closed by an interlocking matrix divider */}
       <section className="bg-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="border-t border-border py-14 sm:py-20 lg:py-24">
+          <div className="py-14 sm:py-20 lg:py-24">
             <div className="grid gap-6 lg:grid-cols-[1fr_2.4fr] lg:gap-12">
               <p className="text-xs font-semibold uppercase tracking-[0.25em] text-primary">
                 Built for your industry.
@@ -81,6 +97,7 @@ const Sectors = () => {
             </div>
           </div>
         </div>
+        <SectionDivider variant="ring" className="-mb-px w-full bg-background text-[#b3210a]" />
       </section>
 
       {/* Sector list — numbered editorial rows on a red background (Research style) */}
@@ -129,24 +146,42 @@ const Sectors = () => {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-16 sm:py-20 lg:py-24 bg-card">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <ScrollReveal className="mx-auto max-w-2xl text-center space-y-5">
-            <Heading as="h2" size="h2">
-              Don't see your sector?
-            </Heading>
-            <Lead className="mx-auto">
-              If your business produces, serves, or sells — we can help you do it smarter. Tell us
-              your challenge and we'll recommend the right solution.
-            </Lead>
-            <div className="flex justify-center pt-2">
-              <Button
-                className="bg-primary hover:bg-primary/90 text-primary-foreground"
-                onClick={() => openMeeting()}
-              >
-                Talk to Us <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
+      {/* CTA — same combined panel style as the Services page */}
+      <section className="relative overflow-hidden pt-16 sm:pt-20 lg:pt-24 pb-40 sm:pb-44 lg:pb-48 bg-background">
+        <HeroBackdrop />
+        <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-10">
+          {/* Text + visual combined into one panel; the image fades into the
+              card via a gradient so the two halves read as a single block. */}
+          <ScrollReveal className="group mx-auto max-w-5xl overflow-hidden rounded-2xl border border-border bg-card shadow-[0_18px_50px_-28px_rgba(15,23,42,0.4)]">
+            <div className="grid grid-cols-1 items-stretch lg:grid-cols-2">
+              <div className="flex flex-col justify-center space-y-4 p-8 md:p-10">
+                <Heading as="h2" size="h2" className="font-bold leading-tight text-foreground">
+                  Don't see your sector?
+                </Heading>
+                <p className="max-w-xl text-sm leading-relaxed text-foreground/85 md:text-base">
+                  If your business produces, serves, or sells — we can help you do it smarter. Tell us
+                  your challenge and we'll recommend the right solution.
+                </p>
+                <div className="flex flex-col items-start gap-3 pt-1 sm:flex-row">
+                  <Button
+                    className="h-10 w-auto bg-primary px-4 py-2 text-sm text-primary-foreground hover:bg-primary/90 sm:h-12 sm:px-6 sm:py-3 sm:text-base"
+                    onClick={() => openMeeting()}
+                  >
+                    Talk to Us →
+                  </Button>
+                </div>
+              </div>
+
+              <div className="relative min-h-[240px] lg:min-h-full">
+                <img
+                  src={ctaImageSrc}
+                  alt="SWAIRAX in motion"
+                  loading="lazy"
+                  className="absolute inset-0 h-full w-full object-cover"
+                />
+                {/* fade the image into the card so there's no hard seam */}
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-card via-card/20 to-transparent lg:bg-gradient-to-r" />
+              </div>
             </div>
           </ScrollReveal>
         </div>

@@ -24,10 +24,10 @@ import Parallax from "@/components/Parallax";
 import HeroDivider from "@/components/HeroDivider";
 import SectionDivider from "@/components/SectionDivider";
 import TechMarquee from "@/components/TechMarquee";
-import { services, getTechLogo } from "@/data/services";
+import { services, getTechLogo, logoToneClass } from "@/data/services";
 
 const Index = () => {
-  const { navigateToTop } = useNavigationWithScroll();
+  const { navigateToTop, navigateToAnchor } = useNavigationWithScroll();
   const [productIndex, setProductIndex] = useState(0);
 
   const stats = [
@@ -40,6 +40,7 @@ const Index = () => {
   const products = [
     {
       icon: Building2,
+      image: "/build.png",
       tag: "Construction Tech",
       title: "TanzaBuild",
       description:
@@ -52,6 +53,7 @@ const Index = () => {
     },
     {
       icon: Scissors,
+      image: "/florre.png",
       tag: "Beauty Tech",
       title: "Florré",
       description:
@@ -309,7 +311,7 @@ const Index = () => {
       </section>
 
       {/* Products Showcase */}
-      <section className="bg-card pb-8 sm:pb-10 lg:pb-12">
+      <section className="bg-card pb-4 sm:pb-5 lg:pb-6">
         {/* Tone-on-tone interlocking top divider */}
         <SectionDivider variant="matrix" flip className="w-full text-[hsl(var(--background))]" />
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-8 sm:pt-10 lg:pt-12">
@@ -333,10 +335,15 @@ const Index = () => {
                   key={productIndex}
                   className="group animate-fade-in border-y border-border py-8 sm:py-10"
                 >
-                  <div className="flex flex-col gap-4 sm:flex-row sm:gap-8">
-                    <span className="w-16 shrink-0 text-5xl font-bold tabular-nums leading-none text-primary sm:w-32 sm:text-7xl lg:w-40 lg:text-8xl">
-                      {String(productIndex + 1).padStart(2, "0")}
-                    </span>
+                  <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-8">
+                    <div className="flex w-full shrink-0 items-center justify-center sm:w-44 lg:w-56">
+                      <img
+                        src={product.image}
+                        alt={`${product.title} app mockup`}
+                        loading="lazy"
+                        className="h-48 w-auto rotate-6 object-contain drop-shadow-2xl transition-transform duration-300 ease-out hover:rotate-0 hover:scale-105 sm:h-72 lg:h-[24rem]"
+                      />
+                    </div>
                     <div className="flex-1 sm:border-l sm:border-border sm:pl-8">
                       <div className="mb-3 flex flex-wrap items-center gap-3">
                         <h3 className="text-2xl font-bold text-foreground">{product.title}</h3>
@@ -358,7 +365,12 @@ const Index = () => {
                           return (
                             <span key={tech} className="inline-flex items-center gap-1.5">
                               {logo ? (
-                                <img src={logo} alt="" loading="lazy" className="h-4 w-4 object-contain" />
+                                <img
+                                  src={logo}
+                                  alt=""
+                                  loading="lazy"
+                                  className={`h-4 w-auto max-w-[64px] object-contain ${logoToneClass(tech)}`}
+                                />
                               ) : (
                                 <span className="h-1.5 w-1.5 rounded-full bg-primary" />
                               )}
@@ -373,7 +385,7 @@ const Index = () => {
                         <Button
                           variant="ghost"
                           className="bg-transparent p-0 text-foreground transition-transform hover:bg-transparent hover:text-primary focus-visible:ring-0 group-hover:translate-x-1"
-                          onClick={() => navigateToTop(product.learnMore)}
+                          onClick={() => navigateToAnchor(product.learnMore)}
                         >
                           Learn More <ArrowRight className="ml-2 h-4 w-4" />
                         </Button>

@@ -630,6 +630,21 @@ const TECH_LOGOS: Record<string, string> = {
   Snowflake: "/uploads/tech/snowflake.svg",
   Hadoop: "/uploads/tech/apachehadoop.svg",
   Vercel: "/uploads/tech/vercel.svg",
+  Resend: "/uploads/tech/resend.svg",
+  cPanel: "/uploads/tech/cpanel.svg",
+  Selcom: "/uploads/tech/selcom.png",
 };
 
 export const getTechLogo = (name: string): string | undefined => TECH_LOGOS[name];
+
+// Flat single-colour logos need theme help so they stay visible:
+//  • DARK_LOGOS  = near-black marks → invert in dark theme (black → white).
+//  • LIGHT_LOGOS = white marks      → invert in light theme (white → black).
+const DARK_LOGOS = new Set(["Resend", "Railway", "Vercel", "GitHub Actions"]);
+const LIGHT_LOGOS = new Set(["Selcom"]);
+export const logoToneClass = (name: string): string =>
+  DARK_LOGOS.has(name)
+    ? "dark:invert"
+    : LIGHT_LOGOS.has(name)
+      ? "invert dark:invert-0"
+      : "";
