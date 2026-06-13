@@ -285,7 +285,7 @@ Florré reflects everything we believe in: **Africa-first design, mobile money b
     date: "May 12, 2026",
     category: "Product Updates",
     readTime: "6 min read",
-    imageUrl: "blog5.jpg",
+    imageUrl: "blog-florre.png",
     tags: ["florre", "beauty-tech", "product", "mobile-money", "tanzania"]
   },
   {
@@ -337,7 +337,7 @@ That's the difference between technology that demos well and technology that cre
     date: "May 5, 2026",
     category: "Africa Tech",
     readTime: "7 min read",
-    imageUrl: "data.jpg",
+    imageUrl: "blog-tanzabuild.png",
     tags: ["africa-tech", "mobile-money", "engineering", "localization", "infrastructure"]
   },
   {

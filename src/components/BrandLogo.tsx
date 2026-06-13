@@ -4,6 +4,9 @@ interface BrandLogoProps {
   iconClassName?: string;
   /** Tailwind size + color classes for the WAIRAX wordmark SVG. */
   wordmarkClassName?: string;
+  /** Margin classes positioning the wordmark relative to the "S" mark. Bigger
+   *  logos (e.g. the footer) need a larger negative ml to sit close. */
+  wordmarkOffset?: string;
 }
 
 /**
@@ -16,20 +19,28 @@ const BrandLogo = ({
   className = "",
   iconClassName = "h-12 w-auto",
   wordmarkClassName = "h-5 w-auto text-foreground",
+  wordmarkOffset = "-ml-5 mt-3 sm:-ml-5 sm:mt-3",
 }: BrandLogoProps) => (
   <span className={`inline-flex items-center gap-0 ${className}`} role="img" aria-label="SWAIRAX">
     <img
-      src="/SWAIRAXLOGO.png"
+      src="/swairax.png"
       alt=""
       aria-hidden="true"
       draggable={false}
-      className={`${iconClassName} object-contain`}
+      className={`${iconClassName} object-contain dark:hidden`}
+    />
+    <img
+      src="/swairax1.png"
+      alt=""
+      aria-hidden="true"
+      draggable={false}
+      className={`${iconClassName} hidden object-contain dark:block`}
     />
     <svg
       viewBox="0 0 332 72"
       xmlns="http://www.w3.org/2000/svg"
       aria-hidden="true"
-      className={`-ml-5 mt-1 sm:-ml-6 sm:mt-0 ${wordmarkClassName}`}
+      className={`${wordmarkOffset} ${wordmarkClassName}`}
     >
       <text
         x="0"

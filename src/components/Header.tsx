@@ -162,7 +162,7 @@ const Header = () => {
       className={`flex items-center gap-2 hover:opacity-90 transition-opacity ${className}`}
       aria-label="Go to home"
     >
-      <BrandLogo iconClassName="h-11 sm:h-12 w-auto" wordmarkClassName="h-5 sm:h-6 w-auto text-foreground" />
+      <BrandLogo iconClassName="h-16 sm:h-[4.25rem] w-auto" wordmarkClassName="h-5 sm:h-6 w-auto text-foreground" />
     </button>
   );
 
