@@ -82,8 +82,10 @@ All colors MUST be HSL.
         --popover: 0 0% 100%;
         --popover-foreground: 222 24% 12%;
 
-        /* Brand red — primary accent only */
-        --primary: 13 88% 47%;
+        /* Brand red — primary accent only. Light theme uses a slightly deeper
+           red (43% L) so small red text & white-on-red buttons meet WCAG AA
+           (~5:1) contrast; the dark theme keeps the brighter red below. */
+        --primary: 13 88% 43%;
         --primary-foreground: 0 0% 100%;
 
         --secondary: 220 16% 92%;

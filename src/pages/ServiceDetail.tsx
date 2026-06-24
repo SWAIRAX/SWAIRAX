@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Helmet } from "react-helmet-async";
 import { useTheme } from "next-themes";
 import { openMeeting } from "@/utils/meeting";
 import { useParams, Navigate } from "react-router-dom";
@@ -61,6 +62,24 @@ const ServiceDetail = () => {
           { name: service.badge, url: `https://swairax.com/services/${service.slug}` },
         ]}
       />
+      <Helmet>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Service",
+            name: service.title,
+            serviceType: service.title,
+            description: service.description,
+            url: `https://swairax.com/services/${service.slug}`,
+            provider: {
+              "@type": "Organization",
+              name: "SWAIRAX",
+              url: "https://swairax.com",
+            },
+            areaServed: { "@type": "Place", name: "Africa" },
+          })}
+        </script>
+      </Helmet>
       <Header />
 
       {/* Hero — FullBleedHero pattern, matching the previous detail-page style. */}

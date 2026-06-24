@@ -59,7 +59,29 @@ const PlexusBackground = ({
           ? 0xeff1f5
           : readThemeBackground());
 
-    (async () => {
+    // Eased mouse-pan state (started only after the effect mounts).
+    let targetX = 0;
+    let targetY = 0;
+    let curX = 0;
+    let curY = 0;
+    let raf = 0;
+    let idleId: number | undefined;
+
+    const onMove = (e: MouseEvent) => {
+      targetX = (e.clientX / window.innerWidth - 0.5) * parallax;
+      targetY = (e.clientY / window.innerHeight - 0.5) * parallax;
+    };
+
+    const tick = () => {
+      curX += (targetX - curX) * 0.06;
+      curY += (targetY - curY) * 0.06;
+      if (el) el.style.transform = `scale(1.08) translate3d(${curX}px, ${curY}px, 0)`;
+      raf = requestAnimationFrame(tick);
+    };
+
+    // Load three.js + Vanta (heavy) only once the browser is idle, so they
+    // don't block first paint / LCP — but always render the animation.
+    const startVisuals = async () => {
       const [THREE, { default: NET }] = await Promise.all([
         import("three"),
         import("vanta/dist/vanta.net.min"),
@@ -83,32 +105,26 @@ const PlexusBackground = ({
         spacing: 16.0,
         showDots: true,
       });
-    })();
 
-    // Explicit eased mouse-pan: glide the whole network toward the cursor.
-    let targetX = 0;
-    let targetY = 0;
-    let curX = 0;
-    let curY = 0;
-    let raf = 0;
-
-    const onMove = (e: MouseEvent) => {
-      targetX = (e.clientX / window.innerWidth - 0.5) * parallax;
-      targetY = (e.clientY / window.innerHeight - 0.5) * parallax;
-    };
-
-    const tick = () => {
-      curX += (targetX - curX) * 0.06;
-      curY += (targetY - curY) * 0.06;
-      if (el) el.style.transform = `scale(1.08) translate3d(${curX}px, ${curY}px, 0)`;
+      window.addEventListener("mousemove", onMove);
       raf = requestAnimationFrame(tick);
     };
 
-    window.addEventListener("mousemove", onMove);
-    raf = requestAnimationFrame(tick);
+    const w = window as unknown as {
+      requestIdleCallback?: (cb: () => void, opts?: { timeout: number }) => number;
+      cancelIdleCallback?: (id: number) => void;
+    };
+    idleId =
+      typeof w.requestIdleCallback === "function"
+        ? w.requestIdleCallback(startVisuals, { timeout: 2000 })
+        : window.setTimeout(startVisuals, 800);
 
     return () => {
       cancelled = true;
+      if (idleId !== undefined) {
+        if (typeof w.cancelIdleCallback === "function") w.cancelIdleCallback(idleId);
+        else clearTimeout(idleId);
+      }
       window.removeEventListener("mousemove", onMove);
       if (raf) cancelAnimationFrame(raf);
       if (effectRef.current) {

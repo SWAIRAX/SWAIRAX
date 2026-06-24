@@ -2,6 +2,8 @@ import { useRef, useState, type MouseEvent } from "react";
 
 interface FloatingMockupProps {
   src: string;
+  /** Optional dark-theme variant; shown via `dark:` when provided. */
+  srcDark?: string;
   alt: string;
   /** Max parallax shift in px when the cursor is at the edge. */
   strength?: number;
@@ -18,7 +20,7 @@ interface FloatingMockupProps {
  * (translate) lives on the wrapper, so the two transforms compose without
  * fighting each other.
  */
-const FloatingMockup = ({ src, alt, strength = 22, className = "" }: FloatingMockupProps) => {
+const FloatingMockup = ({ src, srcDark, alt, strength = 22, className = "" }: FloatingMockupProps) => {
   const areaRef = useRef<HTMLDivElement>(null);
   const [offset, setOffset] = useState({ x: 0, y: 0 });
 
@@ -56,8 +58,16 @@ const FloatingMockup = ({ src, alt, strength = 22, className = "" }: FloatingMoc
           src={src}
           alt={alt}
           loading="lazy"
-          className="animate-float h-[26rem] w-auto max-w-full object-contain drop-shadow-2xl sm:h-[32rem] lg:h-[38rem]"
+          className={`animate-float h-[30rem] w-auto max-w-full object-contain drop-shadow-2xl sm:h-[38rem] lg:h-[44rem] ${srcDark ? "dark:hidden" : ""}`}
         />
+        {srcDark && (
+          <img
+            src={srcDark}
+            alt={alt}
+            loading="lazy"
+            className="animate-float hidden h-[30rem] w-auto max-w-full object-contain drop-shadow-2xl sm:h-[38rem] lg:h-[44rem] dark:block"
+          />
+        )}
       </div>
     </div>
   );

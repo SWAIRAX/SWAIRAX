@@ -1,4 +1,5 @@
 import { Fragment } from "react";
+import { Helmet } from "react-helmet-async";
 import { openMeeting } from "@/utils/meeting";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -48,6 +49,7 @@ type Product = {
   status: string;
   live: boolean;
   heroImage: string;
+  heroImageDark?: string;
   description: string;
   overview: string;
   stats: Stat[];
@@ -66,7 +68,8 @@ const products: Product[] = [
     tagline: "Tanzania's Construction Services Platform",
     status: "Live",
     live: true,
-    heroImage: "/build.png",
+    heroImage: "/build.webp",
+    heroImageDark: "/build2.webp",
     description:
       "TanzaBuild connects contractors, material suppliers, and clients across Tanzania on one powerful platform. Search, compare, and order construction materials priced in TZS — with WhatsApp ordering and Swahili/English support.",
     overview:
@@ -120,7 +123,7 @@ const products: Product[] = [
     tagline: "Luxury Salon Booking for Tanzania",
     status: "Coming Soon",
     live: false,
-    heroImage: "/florre.png",
+    heroImage: "/florre.webp",
     description:
       "Florré is a premium beauty discovery and salon booking app designed for Tanzania. Find top-rated stylists near you, book appointments in seconds, and pay with your favourite mobile money service.",
     overview:
@@ -174,6 +177,38 @@ const Products = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <Helmet>
+        <script type="application/ld+json">
+          {JSON.stringify([
+            {
+              "@context": "https://schema.org",
+              "@type": "SoftwareApplication",
+              name: "TanzaBuild",
+              description:
+                "Tanzania's construction services platform — connect with contractors, source materials, and manage your build in one place.",
+              applicationCategory: "BusinessApplication",
+              operatingSystem: "Android, iOS",
+              image: "https://swairax.com/build.webp",
+              url: "https://swairax.com/products#tanzabuild",
+              offers: { "@type": "Offer", price: "0", priceCurrency: "TZS" },
+              publisher: { "@type": "Organization", name: "SWAIRAX", url: "https://swairax.com" },
+            },
+            {
+              "@context": "https://schema.org",
+              "@type": "SoftwareApplication",
+              name: "Florré",
+              description:
+                "Luxury salon booking and beauty discovery app for Tanzania — find a stylist, book in seconds, pay with mobile money.",
+              applicationCategory: "LifestyleApplication",
+              operatingSystem: "Android, iOS",
+              image: "https://swairax.com/florre.webp",
+              url: "https://swairax.com/products#florre",
+              offers: { "@type": "Offer", price: "0", priceCurrency: "TZS" },
+              publisher: { "@type": "Organization", name: "SWAIRAX", url: "https://swairax.com" },
+            },
+          ])}
+        </script>
+      </Helmet>
       <Header />
 
       {/* Hero — FullBleedHero (same style as the service detail pages) */}
@@ -271,13 +306,19 @@ const Products = () => {
                             Visit TanzaBuild <ArrowRight className="ml-2 h-4 w-4" />
                           </Button>
                         </a>
-                        <Button
-                          variant="outline"
-                          className="border-border text-foreground hover:bg-muted"
-                          onClick={() => openMeeting()}
+                        <a
+                          href="https://tanzabuild.com/downloads/tanzabuild-release.apk"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          download
                         >
-                          Download App <ArrowRight className="ml-2 h-4 w-4" />
-                        </Button>
+                          <Button
+                            variant="outline"
+                            className="border-border text-foreground hover:bg-muted"
+                          >
+                            Download App <ArrowRight className="ml-2 h-4 w-4" />
+                          </Button>
+                        </a>
                       </>
                     ) : (
                       <Button
@@ -293,6 +334,7 @@ const Products = () => {
                 {/* Right — interactive free-floating product mobile mockup */}
                 <FloatingMockup
                   src={product.heroImage}
+                  srcDark={product.heroImageDark}
                   alt={`${product.title} mobile app mockup`}
                 />
               </div>

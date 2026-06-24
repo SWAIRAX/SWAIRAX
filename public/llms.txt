@@ -1,0 +1,30 @@
+# SWAIRAX
+
+> SWAIRAX is an Africa-first technology company based in Dar es Salaam, Tanzania. We deliver AI, Data Science, Cybersecurity, Big Data Analytics, Software Engineering, and Cloud & DevOps solutions — built for African realities and ready for the world.
+
+SWAIRAX builds production-grade software, data, and AI systems for businesses of all sizes, and ships its own products. We design for local realities — mobile money, local languages, and on-the-ground infrastructure.
+
+- Founded in and operating from: Dar es Salaam, Tanzania
+- Contact: info@swairax.com · +255 684 475 390
+- Website: https://swairax.com
+
+## Services
+- [AI & Machine Learning](https://swairax.com/services/ai): Custom models, LLMs, computer vision, and ML systems.
+- [Data Science & Analytics](https://swairax.com/services/data-science): Analytics, dashboards, and decision intelligence.
+- [Cybersecurity](https://swairax.com/services/cybersecurity): Security assessments, hardening, and monitoring.
+- [Big Data Engineering](https://swairax.com/services/big-data): Pipelines, warehousing, and large-scale processing.
+- [Software Engineering](https://swairax.com/services/software): Web and mobile apps, MVPs to production platforms.
+- [Cloud & DevOps](https://swairax.com/services/cloud-devops): Cloud infrastructure, CI/CD, and reliability engineering.
+
+## Products
+- [TanzaBuild](https://swairax.com/products#tanzabuild): Tanzania's construction services platform — connect with contractors, source materials, and manage your build.
+- [Florré](https://swairax.com/products#florre): Luxury salon booking and beauty discovery app for Tanzania.
+
+## Key pages
+- [Home](https://swairax.com/)
+- [About SWAIRAX](https://swairax.com/about)
+- [Services](https://swairax.com/services)
+- [Products](https://swairax.com/products)
+- [Sectors we serve](https://swairax.com/sectors)
+- [Blog](https://swairax.com/blog)
+- [Contact](https://swairax.com/contact)

@@ -40,7 +40,8 @@ const Index = () => {
   const products = [
     {
       icon: Building2,
-      image: "/build.png",
+      image: "/build.webp",
+      imageDark: "/build2.webp",
       tag: "Construction Tech",
       title: "TanzaBuild",
       description:
@@ -53,7 +54,8 @@ const Index = () => {
     },
     {
       icon: Scissors,
-      image: "/florre.png",
+      image: "/florre.webp",
+      imageDark: "/florre.webp",
       tag: "Beauty Tech",
       title: "Florré",
       description:
@@ -315,118 +317,127 @@ const Index = () => {
         {/* Tone-on-tone interlocking top divider */}
         <SectionDivider variant="matrix" flip className="w-full text-[hsl(var(--background))]" />
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-8 sm:pt-10 lg:pt-12">
-          <ScrollReveal className="mx-auto mb-8 max-w-4xl sm:mb-12 lg:mb-16">
-            <Eyebrow className="mb-3 sm:mb-4">Our Products</Eyebrow>
-            <Heading as="h2" size="h2">
-              Innovative platforms solving real problems
-            </Heading>
-            <p className="mt-4 max-w-2xl text-muted-foreground">
-              In Tanzania and beyond.
-            </p>
-          </ScrollReveal>
-
-          {/* One product at a time, stepped through with prev/next controls
-              (passionlabs "how it works" slider). */}
-          <div className="mx-auto max-w-4xl">
+          {/* Big mockup on the left covers the whole section; the header + the
+              one-at-a-time product details + controls sit on the right. */}
+          <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:gap-14">
+            {/* LEFT — large, theme-aware mockup for the active product */}
             {(() => {
               const product = products[productIndex];
               return (
-                <div
-                  key={productIndex}
-                  className="group animate-fade-in border-y border-border py-8 sm:py-10"
-                >
-                  <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-8">
-                    <div className="flex w-full shrink-0 items-center justify-center sm:w-44 lg:w-56">
-                      <img
-                        src={product.image}
-                        alt={`${product.title} app mockup`}
-                        loading="lazy"
-                        className="h-48 w-auto rotate-6 object-contain drop-shadow-2xl transition-transform duration-300 ease-out hover:rotate-0 hover:scale-105 sm:h-72 lg:h-[24rem]"
-                      />
-                    </div>
-                    <div className="flex-1 sm:border-l sm:border-border sm:pl-8">
-                      <div className="mb-3 flex flex-wrap items-center gap-3">
-                        <h3 className="text-2xl font-bold text-foreground">{product.title}</h3>
-                        <span className="inline-flex items-center gap-1.5 text-xs font-medium uppercase tracking-wide text-muted-foreground">
-                          <product.icon className="h-3.5 w-3.5 text-primary" />
-                          {product.tag}
-                        </span>
-                        <span className="inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">
-                          <span className={`h-2 w-2 rounded-full ${product.live ? "bg-green-500" : "bg-amber-500"}`} />
-                          {product.status}
-                        </span>
-                      </div>
-                      <p className="mb-5 max-w-2xl text-sm leading-relaxed text-muted-foreground sm:text-base">
-                        {product.description}
-                      </p>
-                      <div className="mb-5 flex flex-wrap items-center gap-x-5 gap-y-2">
-                        {product.stack.map((tech) => {
-                          const logo = getTechLogo(tech);
-                          return (
-                            <span key={tech} className="inline-flex items-center gap-1.5">
-                              {logo ? (
-                                <img
-                                  src={logo}
-                                  alt=""
-                                  loading="lazy"
-                                  className={`h-4 w-auto max-w-[64px] object-contain ${logoToneClass(tech)}`}
-                                />
-                              ) : (
-                                <span className="h-1.5 w-1.5 rounded-full bg-primary" />
-                              )}
-                              <span className="font-mono text-[11px] font-medium tracking-tight text-foreground/70">
-                                {tech}
-                              </span>
-                            </span>
-                          );
-                        })}
-                      </div>
-                      <div className="flex flex-wrap items-center gap-4">
-                        <Button
-                          variant="ghost"
-                          className="bg-transparent p-0 text-foreground transition-transform hover:bg-transparent hover:text-primary focus-visible:ring-0 group-hover:translate-x-1"
-                          onClick={() => navigateToAnchor(product.learnMore)}
-                        >
-                          Learn More <ArrowRight className="ml-2 h-4 w-4" />
-                        </Button>
-                        {product.website && (
-                          <a
-                            href={product.website}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-sm font-semibold text-primary hover:underline"
-                          >
-                            Visit Website
-                          </a>
-                        )}
-                      </div>
-                    </div>
-                  </div>
+                <div key={`img-${productIndex}`} className="group order-1 flex animate-fade-in justify-center">
+                  <img
+                    src={product.image}
+                    alt={`${product.title} app mockup`}
+                    loading="lazy"
+                    className="h-80 w-auto rotate-6 object-contain drop-shadow-2xl transition-transform duration-300 ease-out hover:rotate-0 hover:scale-105 sm:h-[28rem] lg:h-[34rem] dark:hidden"
+                  />
+                  <img
+                    src={product.imageDark}
+                    alt={`${product.title} app mockup`}
+                    loading="lazy"
+                    className="hidden h-80 w-auto rotate-6 object-contain drop-shadow-2xl transition-transform duration-300 ease-out hover:rotate-0 hover:scale-105 sm:h-[28rem] lg:h-[34rem] dark:block"
+                  />
                 </div>
               );
             })()}
 
-            {/* slider controls — prev / next + position */}
-            <div className="mt-7 flex items-center gap-3">
-              <button
-                type="button"
-                onClick={() => setProductIndex((i) => (i - 1 + products.length) % products.length)}
-                aria-label="Previous product"
-                className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-border text-foreground transition-colors hover:border-primary hover:text-primary"
-              >
-                <ChevronLeft className="h-5 w-5" />
-              </button>
-              <button
-                type="button"
-                onClick={() => setProductIndex((i) => (i + 1) % products.length)}
-                aria-label="Next product"
-                className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-border text-foreground transition-colors hover:border-primary hover:text-primary"
-              >
-                <ChevronRight className="h-5 w-5" />
-              </button>
-              <span className="ml-1 text-sm tabular-nums text-muted-foreground">
-                {String(productIndex + 1).padStart(2, "0")} / {String(products.length).padStart(2, "0")}
-              </span>
+            {/* RIGHT — header + active product details + slider controls */}
+            <div className="order-2">
+              <ScrollReveal className="mb-8">
+                <Eyebrow className="mb-3 sm:mb-4">Our Products</Eyebrow>
+                <Heading as="h2" size="h2">
+                  Innovative platforms solving real problems
+                </Heading>
+                <p className="mt-4 max-w-2xl text-muted-foreground">
+                  In Tanzania and beyond.
+                </p>
+              </ScrollReveal>
+
+              {(() => {
+                const product = products[productIndex];
+                return (
+                  <div key={productIndex} className="group animate-fade-in border-t border-border pt-6">
+                    <div className="mb-3 flex flex-wrap items-center gap-3">
+                      <h3 className="text-2xl font-bold text-foreground">{product.title}</h3>
+                      <span className="inline-flex items-center gap-1.5 text-xs font-medium uppercase tracking-wide text-muted-foreground">
+                        <product.icon className="h-3.5 w-3.5 text-primary" />
+                        {product.tag}
+                      </span>
+                      <span className="inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">
+                        <span className={`h-2 w-2 rounded-full ${product.live ? "bg-green-500" : "bg-amber-500"}`} />
+                        {product.status}
+                      </span>
+                    </div>
+                    <p className="mb-5 max-w-2xl text-sm leading-relaxed text-muted-foreground sm:text-base">
+                      {product.description}
+                    </p>
+                    <div className="mb-5 flex flex-wrap items-center gap-x-5 gap-y-2">
+                      {product.stack.map((tech) => {
+                        const logo = getTechLogo(tech);
+                        return (
+                          <span key={tech} className="inline-flex items-center gap-1.5">
+                            {logo ? (
+                              <img
+                                src={logo}
+                                alt=""
+                                loading="lazy"
+                                className={`h-4 w-auto max-w-[64px] object-contain ${logoToneClass(tech)}`}
+                              />
+                            ) : (
+                              <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+                            )}
+                            <span className="font-mono text-[11px] font-medium tracking-tight text-foreground/70">
+                              {tech}
+                            </span>
+                          </span>
+                        );
+                      })}
+                    </div>
+                    <div className="flex flex-wrap items-center gap-4">
+                      <Button
+                        variant="ghost"
+                        className="bg-transparent p-0 text-foreground transition-transform hover:bg-transparent hover:text-primary focus-visible:ring-0 group-hover:translate-x-1"
+                        onClick={() => navigateToAnchor(product.learnMore)}
+                      >
+                        Learn More <ArrowRight className="ml-2 h-4 w-4" />
+                      </Button>
+                      {product.website && (
+                        <a
+                          href={product.website}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-sm font-semibold text-primary hover:underline"
+                        >
+                          Visit Website
+                        </a>
+                      )}
+                    </div>
+                  </div>
+                );
+              })()}
+
+              {/* slider controls — prev / next + position */}
+              <div className="mt-7 flex items-center gap-3">
+                <button
+                  type="button"
+                  onClick={() => setProductIndex((i) => (i - 1 + products.length) % products.length)}
+                  aria-label="Previous product"
+                  className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-border text-foreground transition-colors hover:border-primary hover:text-primary"
+                >
+                  <ChevronLeft className="h-5 w-5" />
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setProductIndex((i) => (i + 1) % products.length)}
+                  aria-label="Next product"
+                  className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-border text-foreground transition-colors hover:border-primary hover:text-primary"
+                >
+                  <ChevronRight className="h-5 w-5" />
+                </button>
+                <span className="ml-1 text-sm tabular-nums text-muted-foreground">
+                  {String(productIndex + 1).padStart(2, "0")} / {String(products.length).padStart(2, "0")}
+                </span>
+              </div>
             </div>
           </div>
         </div>

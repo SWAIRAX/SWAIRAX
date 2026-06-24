@@ -1,4 +1,5 @@
 import { useParams } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import { useNavigationWithScroll } from "@/utils/navigation";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -47,6 +48,36 @@ const BlogDetail = () => {
     .filter((p) => p.slug !== slug)
     .slice(0, 3);
 
+  // SEO: canonical URL, image, and an ISO publish date for the Article schema.
+  const canonical = `https://swairax.com/blog/${post.slug}`;
+  const imageAbs = post.imageUrl
+    ? `https://swairax.com/uploads/${post.imageUrl.replace(/^\/+/, "")}`
+    : "https://swairax.com/og-image.jpg";
+  const publishedISO = (() => {
+    const d = new Date(post.date);
+    return isNaN(d.getTime()) ? undefined : d.toISOString();
+  })();
+
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: post.title,
+    description: post.excerpt,
+    image: imageAbs,
+    ...(publishedISO ? { datePublished: publishedISO, dateModified: publishedISO } : {}),
+    author: { "@type": "Organization", name: post.author, url: "https://swairax.com" },
+    publisher: {
+      "@type": "Organization",
+      name: "SWAIRAX",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://swairax.com/favicon/web-app-manifest-512x512.png",
+      },
+    },
+    mainEntityOfPage: { "@type": "WebPage", "@id": canonical },
+    ...(post.tags?.length ? { keywords: post.tags.join(", ") } : {}),
+  };
+
   const handleShare = async () => {
     if (navigator.share) {
       try {
@@ -66,6 +97,21 @@ const BlogDetail = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <Helmet>
+        <title>{`${post.title} | SWAIRAX Blog`}</title>
+        <meta name="description" content={post.excerpt} />
+        <link rel="canonical" href={canonical} />
+        <meta property="og:type" content="article" />
+        <meta property="og:title" content={post.title} />
+        <meta property="og:description" content={post.excerpt} />
+        <meta property="og:url" content={canonical} />
+        <meta property="og:image" content={imageAbs} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={post.title} />
+        <meta name="twitter:description" content={post.excerpt} />
+        <meta name="twitter:image" content={imageAbs} />
+        <script type="application/ld+json">{JSON.stringify(articleSchema)}</script>
+      </Helmet>
       <Header />
 
       {/* Reading Progress Bar */}
@@ -153,7 +199,6 @@ const BlogDetail = () => {
           <div className="container mx-auto px-6 relative">
             <div className="max-w-6xl mx-auto">
               <div className="relative overflow-hidden rounded-3xl shadow-2xl group">
-                <div className="absolute inset-0 bg-gradient-to-r from-primary/20 via-transparent to-secondary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 <img
                   src={`/uploads/${post.imageUrl.replace(/^\/+/,'')}`}
                   alt={post.title}
@@ -161,7 +206,6 @@ const BlogDetail = () => {
                   style={{ maxHeight: '600px' }}
                   loading="eager"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-background/30 via-transparent to-background/10 pointer-events-none" />
 
                 {/* Image Caption */}
                 <div className="absolute bottom-6 left-6 right-6 hidden lg:block">

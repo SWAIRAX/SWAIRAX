@@ -27,6 +27,8 @@ const BrandLogo = ({
       alt=""
       aria-hidden="true"
       draggable={false}
+      width={305}
+      height={312}
       className={`${iconClassName} object-contain dark:hidden`}
     />
     <img
@@ -34,6 +36,8 @@ const BrandLogo = ({
       alt=""
       aria-hidden="true"
       draggable={false}
+      width={1024}
+      height={1024}
       className={`${iconClassName} hidden object-contain dark:block`}
     />
     <svg

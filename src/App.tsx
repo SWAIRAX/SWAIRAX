@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, lazy, Suspense } from "react";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/react";
 import { ThemeProvider } from "next-themes";
@@ -8,46 +8,48 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+// Home + 404 stay eager (landing page + fallback); everything else is
+// code-split so it isn't shipped in the initial bundle.
 import Index from "./pages/Index";
-import Services from "./pages/Services";
-import ServiceDetail from "./pages/ServiceDetail";
-import Products from "./pages/Products";
-import Sectors from "./pages/Sectors";
-import SectorDetail from "./pages/SectorDetail";
-import About from "./pages/About";
-import Contact from "./pages/Contact";
-import Careers from "./pages/Careers";
-import Resources from "./pages/Resources";
-import Blog from "./pages/Blog";
 import NotFound from "./pages/NotFound";
-import Clients from '@/pages/clients';
-import Industries from '@/pages/Industries';
-import FinancialServices from '@/pages/industries/FinancialServices';
-import Telecommunications from '@/pages/industries/Telecommunications';
-import EducationServices from '@/pages/industries/EducationServices';
-import Utilities from '@/pages/industries/Utilities';
-import RetailLogistics from '@/pages/industries/RetailLogistics';
-import HealthcarePharmacy from '@/pages/industries/HealthcarePharmacy';
-import AIStudio from '@/pages/AIStudio';
-import MLOps from '@/pages/MLOps';
-import MLOpsDevOps from '@/pages/MLOpsDevOps';
-import QuantumGenAI from '@/pages/QuantumGenAI';
-import QuantumAnalytics from '@/pages/QuantumAnalytics';
-import QuantumAnnotate from '@/pages/QuantumAnnotate';
-import BusinessAnalysis from '@/pages/BusinessAnalysis';
-import TryNow from '@/pages/TryNow';
-import Privacy from '@/pages/Privacy';
-import Terms from '@/pages/Terms';
-import FAQ from '@/pages/FAQ';
-import Glossary from '@/pages/Glossary';
-import Research from '@/pages/Research';
-import ResearchDetail from '@/pages/ResearchDetail';
-import BlogDetail from '@/pages/BlogDetail';
-import Partnerships from '@/pages/Partnerships';
-import OurWork from '@/pages/OurWork';
-import MfumoSMS from '@/pages/MfumoSMS';
-import MifumoLabs from '@/pages/MifumoLabs';
-import KinaraCopilot from '@/pages/KinaraCopilot';
+const Services = lazy(() => import("./pages/Services"));
+const ServiceDetail = lazy(() => import("./pages/ServiceDetail"));
+const Products = lazy(() => import("./pages/Products"));
+const Sectors = lazy(() => import("./pages/Sectors"));
+const SectorDetail = lazy(() => import("./pages/SectorDetail"));
+const About = lazy(() => import("./pages/About"));
+const Contact = lazy(() => import("./pages/Contact"));
+const Careers = lazy(() => import("./pages/Careers"));
+const Resources = lazy(() => import("./pages/Resources"));
+const Blog = lazy(() => import("./pages/Blog"));
+const Clients = lazy(() => import("@/pages/clients"));
+const Industries = lazy(() => import("@/pages/Industries"));
+const FinancialServices = lazy(() => import("@/pages/industries/FinancialServices"));
+const Telecommunications = lazy(() => import("@/pages/industries/Telecommunications"));
+const EducationServices = lazy(() => import("@/pages/industries/EducationServices"));
+const Utilities = lazy(() => import("@/pages/industries/Utilities"));
+const RetailLogistics = lazy(() => import("@/pages/industries/RetailLogistics"));
+const HealthcarePharmacy = lazy(() => import("@/pages/industries/HealthcarePharmacy"));
+const AIStudio = lazy(() => import("@/pages/AIStudio"));
+const MLOps = lazy(() => import("@/pages/MLOps"));
+const MLOpsDevOps = lazy(() => import("@/pages/MLOpsDevOps"));
+const QuantumGenAI = lazy(() => import("@/pages/QuantumGenAI"));
+const QuantumAnalytics = lazy(() => import("@/pages/QuantumAnalytics"));
+const QuantumAnnotate = lazy(() => import("@/pages/QuantumAnnotate"));
+const BusinessAnalysis = lazy(() => import("@/pages/BusinessAnalysis"));
+const TryNow = lazy(() => import("@/pages/TryNow"));
+const Privacy = lazy(() => import("@/pages/Privacy"));
+const Terms = lazy(() => import("@/pages/Terms"));
+const FAQ = lazy(() => import("@/pages/FAQ"));
+const Glossary = lazy(() => import("@/pages/Glossary"));
+const Research = lazy(() => import("@/pages/Research"));
+const ResearchDetail = lazy(() => import("@/pages/ResearchDetail"));
+const BlogDetail = lazy(() => import("@/pages/BlogDetail"));
+const Partnerships = lazy(() => import("@/pages/Partnerships"));
+const OurWork = lazy(() => import("@/pages/OurWork"));
+const MfumoSMS = lazy(() => import("@/pages/MfumoSMS"));
+const MifumoLabs = lazy(() => import("@/pages/MifumoLabs"));
+const KinaraCopilot = lazy(() => import("@/pages/KinaraCopilot"));
 import { initScrollReveal } from "./hooks/useScrollReveal";
 import { setSEO, pageSEO } from "@/utils/seo";
 
@@ -111,6 +113,7 @@ const AppRoutes = () => {
   }, [location.pathname]);
 
   return (
+    <Suspense fallback={<div className="min-h-screen bg-background" />}>
     <Routes>
       <Route path="/" element={<Index />} />
       <Route path="/services" element={<Services />} />
@@ -154,6 +157,7 @@ const AppRoutes = () => {
       {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
       <Route path="*" element={<NotFound />} />
     </Routes>
+    </Suspense>
   );
 };
 

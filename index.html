@@ -232,8 +232,30 @@
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
 
-    <!-- Start of HubSpot Embed Code -->
-    <script type="text/javascript" id="hs-script-loader" async defer src="//js-eu1.hs-scripts.com/148669380.js"></script>
-    <!-- End of HubSpot Embed Code -->
+    <!-- HubSpot — loaded after first interaction (or 4s after load) so its
+         ~100KB of 3rd-party JS stays off the critical path and doesn't hurt
+         LCP / Total Blocking Time. -->
+    <script>
+      (function () {
+        var loaded = false;
+        var events = ["scroll", "mousemove", "touchstart", "keydown", "click"];
+        function loadHubSpot() {
+          if (loaded) return;
+          loaded = true;
+          events.forEach(function (e) { window.removeEventListener(e, loadHubSpot); });
+          var s = document.createElement("script");
+          s.type = "text/javascript";
+          s.id = "hs-script-loader";
+          s.async = true;
+          s.defer = true;
+          s.src = "//js-eu1.hs-scripts.com/148669380.js";
+          document.body.appendChild(s);
+        }
+        events.forEach(function (e) {
+          window.addEventListener(e, loadHubSpot, { passive: true, once: false });
+        });
+        window.addEventListener("load", function () { setTimeout(loadHubSpot, 4000); });
+      })();
+    </script>
   </body>
 </html>
