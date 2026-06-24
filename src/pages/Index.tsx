@@ -156,8 +156,8 @@ const Index = () => {
       {/* Red data-matrix divider — red teeth on a white (bg-card) backing */}
       <SectionDivider className="-mt-1 w-full bg-card text-[#ff0000]" />
 
-      {/* Stats Section — Two Column Layout with Top Border */}
-      <section className="relative py-0 bg-card border-t-2 border-primary/20">
+      {/* Stats Section — Two Column Layout */}
+      <section className="relative py-0 bg-card">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
           <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-[1fr_1.25fr] lg:gap-12">
             {/* Left Column — Content */}
@@ -324,7 +324,7 @@ const Index = () => {
             {(() => {
               const product = products[productIndex];
               return (
-                <div key={`img-${productIndex}`} className="group order-1 flex animate-fade-in justify-center">
+                <div key={`img-${productIndex}`} className="group order-2 flex animate-fade-in justify-center lg:order-1">
                   <img
                     src={product.image}
                     alt={`${product.title} app mockup`}
@@ -342,7 +342,7 @@ const Index = () => {
             })()}
 
             {/* RIGHT — header + active product details + slider controls */}
-            <div className="order-2">
+            <div className="order-1 lg:order-2">
               <ScrollReveal className="mb-8">
                 <Eyebrow className="mb-3 sm:mb-4">Our Products</Eyebrow>
                 <Heading as="h2" size="h2">
