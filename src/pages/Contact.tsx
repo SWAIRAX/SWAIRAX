@@ -418,7 +418,7 @@ const Contact = () => {
                         </a>
 
                         <a
-                          href="https://www.instagram.com/swairax"
+                          href="https://www.instagram.com/swairaxtech/"
                           target="_blank"
                           rel="noopener noreferrer"
                           className="social-link"
@@ -429,7 +429,7 @@ const Contact = () => {
                         </a>
 
                         <a
-                          href="https://x.com/swairax"
+                          href="https://x.com/SWAIRAXTECH"
                           target="_blank"
                           rel="noopener noreferrer"
                           className="social-link"
