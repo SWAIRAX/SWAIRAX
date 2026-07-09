@@ -357,6 +357,25 @@ All colors MUST be HSL.
     }
 }
 
+/* Scale-only pulse — no box-shadow, so it stays invisible on transparent
+   PNGs (a shadow would render as a glowing rectangle around the image's
+   letterboxed transparent padding). */
+@keyframes scale-pulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.06);
+    }
+}
+
+.animate-scale-pulse {
+    animation: scale-pulse 3.5s ease-in-out infinite;
+}
+
 @keyframes grow-bar {
     0% {
         transform: scaleY(0);

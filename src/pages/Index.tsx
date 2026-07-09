@@ -2,7 +2,6 @@ import { useState } from "react";
 import { useNavigationWithScroll } from "@/utils/navigation";
 import { openMeeting } from "@/utils/meeting";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
 import AnimatedCounter from "@/components/AnimatedCounter";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -265,7 +264,8 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Services Overview */}
+      {/* Services Overview — "quadro" style: cards flank a centre logo with
+          rotating rings (desktop); a simple icon list on mobile. */}
       <section className="py-12 sm:py-16 lg:py-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal className="text-center mb-8 sm:mb-12 lg:mb-16">
@@ -275,28 +275,140 @@ const Index = () => {
             </Heading>
           </ScrollReveal>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            {services.map((service, index) => (
-              <Card
-                key={service.slug}
-                onClick={() => navigateToTop(`/services/${service.slug}`)}
-                className="feature-card bg-card border-border group hover:border-primary/40 transition-colors animate-slide-in-bottom cursor-pointer"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                <CardContent className="p-8">
-                  <div className="card-icon rounded-xl bg-primary/10 p-3 w-fit text-primary mb-5 group-hover:bg-primary/20 transition-colors">
-                    <service.icon className="h-6 w-6" />
-                  </div>
-                  <h3 className="text-xl font-bold mb-3">{service.cardTitle}</h3>
-                  <p className="text-muted-foreground text-sm leading-relaxed">
-                    {service.description}
-                  </p>
-                  <span className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-primary opacity-0 group-hover:opacity-100 transition-opacity">
-                    Learn more <ArrowRight className="h-4 w-4" />
+          {/* Desktop / tablet: left column — centre rings+logo — right column.
+              Each column is its own flex stack (not equal-height grid rows),
+              so every card sizes to its own content instead of stretching. */}
+          <div className="hidden md:grid md:grid-cols-[minmax(220px,1fr)_minmax(220px,480px)_minmax(220px,1fr)] md:items-center md:gap-x-6 lg:gap-x-10">
+            <div className="flex flex-col gap-5">
+              {services.slice(0, 3).map((service) => (
+                <button
+                  type="button"
+                  key={service.slug}
+                  onClick={() => navigateToTop(`/services/${service.slug}`)}
+                  className="group flex items-center gap-4 rounded-xl bg-card p-5 text-left shadow-[var(--shadow-card)] transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+                >
+                  {/* left column: icon faces right (inward, toward the centre) */}
+                  <span className="flex flex-col">
+                    <h3 className="text-base font-bold text-foreground">{service.cardTitle}</h3>
+                    <p className="text-sm text-muted-foreground">{service.description}</p>
                   </span>
-                </CardContent>
-              </Card>
-            ))}
+                  <span className="ml-auto flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
+                    <service.icon className="h-6 w-6" />
+                  </span>
+                </button>
+              ))}
+            </div>
+
+            {/* Centre — rotating rings around a still, gently pulsing logo */}
+            <div className="relative mx-auto aspect-square w-full max-w-[480px]" aria-hidden="true">
+              <svg viewBox="0 0 400 400" className="absolute inset-0 h-full w-full text-primary">
+                {/* outer ring — anticlockwise, slow. Inline animation (not a
+                    class) so duration/direction always win, regardless of
+                    Tailwind/CSS source order against the base .animate-spin-slow rule. */}
+                <circle
+                  className="origin-center [transform-box:fill-box]"
+                  style={{ animation: "spin-slow 110s linear infinite reverse" }}
+                  cx="200" cy="200" r="192" fill="none" stroke="currentColor" strokeOpacity="0.35" strokeWidth="1.5" strokeDasharray="12 14"
+                />
+                <circle cx="200" cy="200" r="156" fill="none" stroke="currentColor" strokeOpacity="0.18" strokeWidth="1.5" />
+                {/* inner ring — clockwise, slow */}
+                <circle
+                  className="origin-center [transform-box:fill-box]"
+                  style={{ animation: "spin-slow 80s linear infinite" }}
+                  cx="200" cy="200" r="120" fill="none" stroke="currentColor" strokeOpacity="0.45" strokeWidth="1.5" strokeDasharray="4 10"
+                />
+              </svg>
+              {/* Symmetric inset (not translate math) so the mark is centred
+                  by the browser's own object-fit — robust regardless of the
+                  image's internal padding. */}
+              <div className="absolute inset-[5%] animate-scale-pulse">
+                <img
+                  src="/SWAY.png"
+                  alt="SWAIRAX"
+                  width={686}
+                  height={988}
+                  className="h-full w-full object-contain"
+                />
+              </div>
+            </div>
+
+            <div className="flex flex-col gap-5">
+              {services.slice(3, 6).map((service) => (
+                <button
+                  type="button"
+                  key={service.slug}
+                  onClick={() => navigateToTop(`/services/${service.slug}`)}
+                  className="group flex items-center gap-4 rounded-xl bg-card p-5 text-left shadow-[var(--shadow-card)] transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+                >
+                  <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
+                    <service.icon className="h-6 w-6" />
+                  </span>
+                  <span className="flex flex-col">
+                    <h3 className="text-base font-bold text-foreground">{service.cardTitle}</h3>
+                    <p className="text-sm text-muted-foreground">{service.description}</p>
+                  </span>
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Mobile: logo mark above a single-column list */}
+          <div className="md:hidden">
+            <div className="relative mx-auto mb-8 aspect-square w-full max-w-[260px]" aria-hidden="true">
+              <svg viewBox="0 0 400 400" className="absolute inset-0 h-full w-full text-primary">
+                {/* outer ring — anticlockwise, slow (inline animation so it
+                    always wins, matching the desktop rings above) */}
+                <circle
+                  className="origin-center [transform-box:fill-box]"
+                  style={{ animation: "spin-slow 110s linear infinite reverse" }}
+                  cx="200" cy="200" r="192" fill="none" stroke="currentColor" strokeOpacity="0.35" strokeWidth="1.5" strokeDasharray="12 14"
+                />
+                <circle cx="200" cy="200" r="156" fill="none" stroke="currentColor" strokeOpacity="0.18" strokeWidth="1.5" />
+                {/* inner ring — clockwise, slow */}
+                <circle
+                  className="origin-center [transform-box:fill-box]"
+                  style={{ animation: "spin-slow 80s linear infinite" }}
+                  cx="200" cy="200" r="120" fill="none" stroke="currentColor" strokeOpacity="0.45" strokeWidth="1.5" strokeDasharray="4 10"
+                />
+              </svg>
+              {/* Symmetric inset (not translate math) so the mark is centred
+                  by the browser's own object-fit — robust regardless of the
+                  image's internal padding. */}
+              <div className="absolute inset-[8%] animate-scale-pulse">
+                <img
+                  src="/SWAY.png"
+                  alt="SWAIRAX"
+                  width={686}
+                  height={988}
+                  className="h-full w-full object-contain"
+                />
+              </div>
+            </div>
+            {/* Sticky stacking deck — each card pins below the header as you
+                scroll, and the next one slides up over it (rising z-index +
+                a shadow cast upward), matching the reference's mobile
+                "services-home__item" behaviour. */}
+            <div className="flex flex-col">
+              {services.map((service, index) => (
+                <button
+                  type="button"
+                  key={service.slug}
+                  onClick={() => navigateToTop(`/services/${service.slug}`)}
+                  style={{ zIndex: index + 1 }}
+                  className={`sticky top-[78px] flex min-h-[220px] flex-col items-start gap-3.5 rounded-2xl bg-card px-6 pb-[30px] pt-[26px] text-left shadow-[0_-12px_30px_-6px_rgba(16,18,35,0.18)] ${
+                    index < services.length - 1 ? "mb-8" : ""
+                  }`}
+                >
+                  <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
+                    <service.icon className="h-6 w-6" />
+                  </span>
+                  <span className="flex flex-col">
+                    <h3 className="text-lg font-bold text-foreground">{service.cardTitle}</h3>
+                    <p className="mt-1 text-base text-muted-foreground">{service.description}</p>
+                  </span>
+                </button>
+              ))}
+            </div>
           </div>
 
           <div className="text-center mt-10 sm:mt-12">

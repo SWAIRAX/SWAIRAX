@@ -161,7 +161,7 @@ export const sectors: Sector[] = [
     description:
       "Streamline material sourcing, costing, and project delivery — the engine behind TanzaBuild.",
     solutions: ["Material sourcing", "Cost analytics", "Project platforms"],
-    image: "/sectors/realestate.png",
+    image: "/sectors/realestate.jpg",
     heroTitle: "Build faster, source smarter, deliver on budget.",
     founderNote:
       "We know this sector deeply — we built TanzaBuild to fix the exact pain we kept seeing: scattered suppliers, prices in people's heads, and orders lost in chat threads. That product is proof of how we work. Whether you're a contractor, supplier, or developer, we can bring that same clarity to your business. Let's take the guesswork out of your next build.",
@@ -490,7 +490,7 @@ export const sectors: Sector[] = [
     description:
       "Reach more customers with discovery and booking platforms — the idea behind Florré.",
     solutions: ["Booking platforms", "Discovery apps", "Customer analytics"],
-    image: "/uploads/blog5.jpg",
+    image: "/sectors/beatysaloon.jpg",
     heroTitle: "Fill your calendar. Delight your clients.",
     founderNote:
       "We love this space so much we're building Florré for it. Beauty and wellness businesses thrive on reputation and repeat clients — and the right technology makes both easier: get discovered, let clients book in seconds, and take payment with mobile money. We bring that experience to salons, spas, and independent professionals. Let's help your bookings grow.",

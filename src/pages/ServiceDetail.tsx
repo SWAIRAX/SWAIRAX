@@ -13,8 +13,15 @@ import { SEOSchema } from "@/components/SEOSchema";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Heading, Lead } from "@/components/ui/section";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+} from "@/components/ui/dialog";
 import { ArrowRight, TrendingUp, Clock, Target, Shield } from "lucide-react";
-import { getServiceBySlug, getTechLogo, logoToneClass } from "@/data/services";
+import { getServiceBySlug, getTechLogo, logoToneClass, type ServiceTech } from "@/data/services";
 import { setSEO } from "@/utils/seo";
 
 const STAT_ICONS = [TrendingUp, Clock, Target, Shield];
@@ -23,6 +30,7 @@ const ServiceDetail = () => {
   const { slug } = useParams();
   const service = getServiceBySlug(slug);
   const { navigateToTop, scrollToSection } = useNavigationWithScroll();
+  const [activeTech, setActiveTech] = useState<ServiceTech | null>(null);
   const { resolvedTheme } = useTheme();
   const [isVisible, setIsVisible] = useState(false);
 
@@ -256,9 +264,11 @@ const ServiceDetail = () => {
             {service.tech.map((tech, index) => {
               const logo = getTechLogo(tech.name);
               return (
-                <div
+                <button
+                  type="button"
                   key={tech.name}
-                  className={`text-center p-4 rounded-lg border border-border/50 hover:shadow-lg hover:border-primary/50 transition-all duration-300 group ${
+                  onClick={() => setActiveTech(tech)}
+                  className={`text-center p-4 rounded-lg border border-border/50 hover:shadow-lg hover:border-primary/50 transition-all duration-300 group cursor-pointer ${
                     isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
                   }`}
                   style={{ transitionDelay: `${index * 0.05}s` }}
@@ -272,12 +282,55 @@ const ServiceDetail = () => {
                   </div>
                   <h3 className="font-bold mb-1 text-sm group-hover:text-primary transition-colors">{tech.name}</h3>
                   <p className="text-xs text-muted-foreground">{tech.description}</p>
-                </div>
+                </button>
               );
             })}
           </div>
         </div>
       </section>
+
+      {/* Tool detail dialog — why we use it, what it does for the client */}
+      <Dialog open={!!activeTech} onOpenChange={(open) => !open && setActiveTech(null)}>
+        <DialogContent className="sm:max-w-md">
+          {activeTech && (
+            <>
+              <DialogHeader>
+                <div className="mb-2 flex items-center gap-3">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-primary/10">
+                    {getTechLogo(activeTech.name) ? (
+                      <img
+                        src={getTechLogo(activeTech.name)}
+                        alt={`${activeTech.name} logo`}
+                        className={`h-6 w-6 object-contain ${logoToneClass(activeTech.name)}`}
+                      />
+                    ) : (
+                      <span className="text-base font-bold text-primary">{activeTech.name.charAt(0)}</span>
+                    )}
+                  </div>
+                  <div>
+                    <DialogTitle className="text-left">{activeTech.name}</DialogTitle>
+                    <p className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
+                      {activeTech.description}
+                    </p>
+                  </div>
+                </div>
+                <DialogDescription className="text-left text-sm leading-relaxed text-foreground/85">
+                  {activeTech.useCase}
+                </DialogDescription>
+              </DialogHeader>
+              <Button
+                className="mt-2 w-full bg-primary text-primary-foreground hover:bg-primary/90"
+                onClick={() => {
+                  setActiveTech(null);
+                  openMeeting();
+                }}
+              >
+                Talk to us about this <ArrowRight className="ml-2 h-4 w-4" />
+              </Button>
+            </>
+          )}
+        </DialogContent>
+      </Dialog>
 
       {/* CTA Section */}
       <section className="relative overflow-hidden pt-12 pb-40 sm:pb-44 bg-background">

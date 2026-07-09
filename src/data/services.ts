@@ -46,6 +46,9 @@ export interface ServiceProcessStep {
 export interface ServiceTech {
   name: string;
   description: string;
+  /** Longer, honest explanation of why SWAIRAX uses this tool and what it
+   *  does for the client — shown when the visitor clicks the tool card. */
+  useCase: string;
 }
 
 export interface Service {
@@ -150,14 +153,54 @@ export const services: Service[] = [
       },
     ],
     tech: [
-      { name: "PyTorch", description: "Deep Learning" },
-      { name: "TensorFlow", description: "ML Platform" },
-      { name: "Hugging Face", description: "Transformers" },
-      { name: "scikit-learn", description: "Classical ML" },
-      { name: "LangChain", description: "LLM Apps" },
-      { name: "Keras", description: "Deep Learning" },
-      { name: "Docker", description: "Containerization" },
-      { name: "MLflow", description: "Experiment Tracking" },
+      {
+        name: "PyTorch",
+        description: "Deep Learning",
+        useCase:
+          "We use PyTorch to build and train custom deep learning models — from computer vision to NLP — because its flexibility lets us iterate quickly during research and still ship production-ready models.",
+      },
+      {
+        name: "TensorFlow",
+        description: "ML Platform",
+        useCase:
+          "TensorFlow powers the models we deploy at scale, especially where we need mobile or edge inference alongside a mature, well-supported production ecosystem.",
+      },
+      {
+        name: "Hugging Face",
+        description: "Transformers",
+        useCase:
+          "We use Hugging Face's model hub and Transformers library to fine-tune state-of-the-art language and vision models on your data instead of training from scratch — cutting both cost and time to launch.",
+      },
+      {
+        name: "scikit-learn",
+        description: "Classical ML",
+        useCase:
+          "For problems that don't need deep learning — fraud scoring, churn prediction, segmentation — we use scikit-learn's proven classical algorithms, which are faster to train, easier to explain, and cheaper to run in production.",
+      },
+      {
+        name: "LangChain",
+        description: "LLM Apps",
+        useCase:
+          "LangChain is how we wire large language models into real applications — chaining prompts, retrieval, and tools together to build assistants and automation that reason over your business data.",
+      },
+      {
+        name: "Keras",
+        description: "Deep Learning",
+        useCase:
+          "Keras gives us a fast, high-level way to prototype neural network architectures before committing to a full build-out, so we can validate an idea with your team before investing in production engineering.",
+      },
+      {
+        name: "Docker",
+        description: "Containerization",
+        useCase:
+          "We package every model in Docker so it runs identically on our machines, your servers, and the cloud — no environment surprises when a model goes live.",
+      },
+      {
+        name: "MLflow",
+        description: "Experiment Tracking",
+        useCase:
+          "MLflow tracks every model version, its parameters, and its performance, so we can prove which model is live, reproduce results, and roll back safely if a new version underperforms.",
+      },
     ],
     ctaTitle: "Ready to put AI to work?",
     ctaText:
@@ -233,14 +276,54 @@ export const services: Service[] = [
       },
     ],
     tech: [
-      { name: "Python", description: "Analysis" },
-      { name: "pandas", description: "Data Wrangling" },
-      { name: "scikit-learn", description: "Modeling" },
-      { name: "MySQL", description: "Database" },
-      { name: "Plotly", description: "Visualization" },
-      { name: "Looker Studio", description: "Reporting" },
-      { name: "Airflow", description: "Pipelines" },
-      { name: "Jupyter", description: "Notebooks" },
+      {
+        name: "Python",
+        description: "Analysis",
+        useCase:
+          "Python is the backbone of our analysis work — its data ecosystem lets us go from raw data to a tested finding in one language, with no handoff friction between tools.",
+      },
+      {
+        name: "pandas",
+        description: "Data Wrangling",
+        useCase:
+          "Before any insight is possible, data has to be cleaned, joined, and reshaped — pandas is the tool we use to do that reliably, at the scale of a typical business's operational data.",
+      },
+      {
+        name: "scikit-learn",
+        description: "Modeling",
+        useCase:
+          "We use scikit-learn to build the predictive models behind forecasts and scoring — it's battle-tested and lets us explain to your team exactly why a model made a prediction.",
+      },
+      {
+        name: "MySQL",
+        description: "Database",
+        useCase:
+          "Most of the business systems we integrate with already run on MySQL — we work directly with it so your existing data doesn't need a costly migration before we can start delivering insight.",
+      },
+      {
+        name: "Plotly",
+        description: "Visualization",
+        useCase:
+          "Plotly lets us build interactive charts your team can actually explore — filter, zoom, drill down — instead of static images that only answer the question we thought to ask.",
+      },
+      {
+        name: "Looker Studio",
+        description: "Reporting",
+        useCase:
+          "For recurring reporting, we build dashboards in Looker Studio so your team can check the numbers themselves, daily, without waiting on us to run a new report.",
+      },
+      {
+        name: "Airflow",
+        description: "Pipelines",
+        useCase:
+          "Airflow schedules and monitors the data pipelines that keep your dashboards and models fed with fresh data automatically, so yesterday's numbers are always ready when you need them.",
+      },
+      {
+        name: "Jupyter",
+        description: "Notebooks",
+        useCase:
+          "We use Jupyter notebooks to explore your data and document our reasoning step by step, so any finding we hand over comes with a transparent, reviewable trail — not a black box.",
+      },
     ],
     ctaTitle: "Unlock the insights in your data",
     ctaText:
@@ -316,14 +399,54 @@ export const services: Service[] = [
       },
     ],
     tech: [
-      { name: "Kali Linux", description: "Pentest OS" },
-      { name: "Burp Suite", description: "Web Testing" },
-      { name: "Splunk", description: "SIEM & Logs" },
-      { name: "Metasploit", description: "Exploitation" },
-      { name: "Wireshark", description: "Traffic Analysis" },
-      { name: "Cloudflare", description: "Edge Security" },
-      { name: "Elastic", description: "Search & SIEM" },
-      { name: "Okta", description: "Identity & Access" },
+      {
+        name: "Kali Linux",
+        description: "Pentest OS",
+        useCase:
+          "Kali Linux is our penetration-testing toolkit — a full suite of security tools we use to safely simulate a real attacker and find the gaps before they do.",
+      },
+      {
+        name: "Burp Suite",
+        description: "Web Testing",
+        useCase:
+          "We use Burp Suite to probe your web applications for the vulnerabilities attackers actually exploit — injection flaws, broken authentication, exposed data — before they reach production.",
+      },
+      {
+        name: "Splunk",
+        description: "SIEM & Logs",
+        useCase:
+          "Splunk centralizes your security logs so we can detect suspicious activity across your systems in one place, instead of chasing scattered logs after an incident has already happened.",
+      },
+      {
+        name: "Metasploit",
+        description: "Exploitation",
+        useCase:
+          "Metasploit lets us verify that a vulnerability we find is actually exploitable — not just theoretical — so your fixes are prioritized by real risk, not guesswork.",
+      },
+      {
+        name: "Wireshark",
+        description: "Traffic Analysis",
+        useCase:
+          "When something looks wrong on the network, Wireshark lets us inspect the actual traffic packet by packet to find the root cause instead of speculating.",
+      },
+      {
+        name: "Cloudflare",
+        description: "Edge Security",
+        useCase:
+          "We put Cloudflare in front of your public-facing systems to absorb DDoS attacks and filter malicious traffic before it ever reaches your servers.",
+      },
+      {
+        name: "Elastic",
+        description: "Search & SIEM",
+        useCase:
+          "Elastic gives us fast, searchable storage for security and application logs, so investigating an incident takes minutes of searching instead of hours of grepping through files.",
+      },
+      {
+        name: "Okta",
+        description: "Identity & Access",
+        useCase:
+          "We use Okta to enforce single sign-on and multi-factor authentication across your systems, so a single compromised password can't become a company-wide breach.",
+      },
     ],
     ctaTitle: "Secure your business today",
     ctaText:
@@ -399,14 +522,54 @@ export const services: Service[] = [
       },
     ],
     tech: [
-      { name: "Apache Spark", description: "Processing" },
-      { name: "Kafka", description: "Streaming" },
-      { name: "Airflow", description: "Orchestration" },
-      { name: "PostgreSQL", description: "Database" },
-      { name: "BigQuery", description: "Warehouse" },
-      { name: "Snowflake", description: "Warehouse" },
-      { name: "Hadoop", description: "Big Data" },
-      { name: "Docker", description: "Containers" },
+      {
+        name: "Apache Spark",
+        description: "Processing",
+        useCase:
+          "Apache Spark lets us process datasets too large for a single machine — transforming millions of records in minutes instead of hours by spreading the work across a cluster.",
+      },
+      {
+        name: "Kafka",
+        description: "Streaming",
+        useCase:
+          "We use Kafka to move data in real time between your systems — so an order, a payment, or a sensor reading is available to every system that needs it within seconds, not overnight batches.",
+      },
+      {
+        name: "Airflow",
+        description: "Orchestration",
+        useCase:
+          "Airflow orchestrates the full chain of jobs behind your data platform — extracting, transforming, and loading data on schedule, with alerts if any step fails.",
+      },
+      {
+        name: "PostgreSQL",
+        description: "Database",
+        useCase:
+          "PostgreSQL is our default operational database — reliable, SQL-standard, and powerful enough to handle both transactional workloads and analytical queries without a second system.",
+      },
+      {
+        name: "BigQuery",
+        description: "Warehouse",
+        useCase:
+          "For businesses already on Google Cloud, we use BigQuery as the analytical warehouse — it can query billions of rows in seconds without you managing any infrastructure.",
+      },
+      {
+        name: "Snowflake",
+        description: "Warehouse",
+        useCase:
+          "Snowflake gives us a cloud data warehouse that scales storage and compute independently, so you pay for what you use as your data grows, without a costly re-platform later.",
+      },
+      {
+        name: "Hadoop",
+        description: "Big Data",
+        useCase:
+          "For organizations with large on-premises datasets, Hadoop lets us store and process that data across commodity servers instead of requiring expensive specialized hardware.",
+      },
+      {
+        name: "Docker",
+        description: "Containers",
+        useCase:
+          "We containerize every stage of the data pipeline with Docker, so the exact same processing job runs identically in development, testing, and production.",
+      },
     ],
     ctaTitle: "Scale your data with confidence",
     ctaText:
@@ -482,14 +645,54 @@ export const services: Service[] = [
       },
     ],
     tech: [
-      { name: "React", description: "Web UI" },
-      { name: "React Native", description: "Mobile" },
-      { name: "Node.js", description: "Backend" },
-      { name: "Django", description: "Backend" },
-      { name: "PostgreSQL", description: "Database" },
-      { name: "Supabase", description: "BaaS" },
-      { name: "Firebase", description: "Realtime" },
-      { name: "TypeScript", description: "Type Safety" },
+      {
+        name: "React",
+        description: "Web UI",
+        useCase:
+          "We build web interfaces in React because its component model lets us ship fast without sacrificing maintainability — your product can grow feature by feature without a rewrite.",
+      },
+      {
+        name: "React Native",
+        description: "Mobile",
+        useCase:
+          "React Native lets us build one mobile codebase that ships to both iOS and Android, cutting development time and cost versus building two separate native apps — this is what powers TanzaBuild and Florré.",
+      },
+      {
+        name: "Node.js",
+        description: "Backend",
+        useCase:
+          "Node.js powers many of our backend APIs — using JavaScript across the whole stack means faster development and a smaller, more focused engineering team for your project.",
+      },
+      {
+        name: "Django",
+        description: "Backend",
+        useCase:
+          "For applications that need strong data modeling and admin tooling out of the box, we use Django — it's what powers TanzaBuild's backend, handling contractors, materials, and orders reliably.",
+      },
+      {
+        name: "PostgreSQL",
+        description: "Database",
+        useCase:
+          "PostgreSQL is our default choice for application data — it's rock-solid, open-source, and scales from a first prototype to millions of users without switching databases.",
+      },
+      {
+        name: "Supabase",
+        description: "BaaS",
+        useCase:
+          "For projects that need to move fast, Supabase gives us a production-grade Postgres database, authentication, and file storage out of the box — so we spend engineering time on your product, not infrastructure.",
+      },
+      {
+        name: "Firebase",
+        description: "Realtime",
+        useCase:
+          "We use Firebase when an app needs real-time updates — live chat, live tracking, live notifications — syncing instantly across every connected device.",
+      },
+      {
+        name: "TypeScript",
+        description: "Type Safety",
+        useCase:
+          "We write in TypeScript, not plain JavaScript, because catching errors while coding — instead of after a client reports them — means fewer bugs reach your users.",
+      },
     ],
     ctaTitle: "Let's build your product",
     ctaText:
@@ -565,14 +768,54 @@ export const services: Service[] = [
       },
     ],
     tech: [
-      { name: "Docker", description: "Containers" },
-      { name: "Kubernetes", description: "Orchestration" },
-      { name: "GitHub Actions", description: "CI/CD" },
-      { name: "Terraform", description: "IaC" },
-      { name: "Vercel", description: "Deployment" },
-      { name: "Railway", description: "Deployment" },
-      { name: "Grafana", description: "Dashboards" },
-      { name: "Prometheus", description: "Metrics" },
+      {
+        name: "Docker",
+        description: "Containers",
+        useCase:
+          "Docker packages your application and everything it needs to run into one portable unit, eliminating environment mismatches between development, staging, and production.",
+      },
+      {
+        name: "Kubernetes",
+        description: "Orchestration",
+        useCase:
+          "For applications that need to handle real traffic growth, Kubernetes automatically scales, restarts, and load-balances your services — so a spike in demand doesn't mean downtime.",
+      },
+      {
+        name: "GitHub Actions",
+        description: "CI/CD",
+        useCase:
+          "Every code change we ship runs through automated tests and deployment via GitHub Actions, so releases happen safely and consistently, without manual, error-prone deployment steps.",
+      },
+      {
+        name: "Terraform",
+        description: "IaC",
+        useCase:
+          "We define your cloud infrastructure as code with Terraform, so your environment is documented, version-controlled, and reproducible — not a fragile setup only one engineer understands.",
+      },
+      {
+        name: "Vercel",
+        description: "Deployment",
+        useCase:
+          "For fast-moving frontend projects, we deploy on Vercel, giving you instant global delivery and automatic preview deployments for every change before it goes live.",
+      },
+      {
+        name: "Railway",
+        description: "Deployment",
+        useCase:
+          "Railway lets us deploy and manage backend services quickly for projects that need simple, reliable hosting without the overhead of managing raw cloud infrastructure.",
+      },
+      {
+        name: "Grafana",
+        description: "Dashboards",
+        useCase:
+          "Grafana turns your system's metrics into live dashboards, so your team can see performance and health at a glance instead of waiting for something to break.",
+      },
+      {
+        name: "Prometheus",
+        description: "Metrics",
+        useCase:
+          "Prometheus continuously collects metrics from your systems and can alert us the moment something looks wrong — often before your users notice.",
+      },
     ],
     ctaTitle: "Modernize your delivery pipeline",
     ctaText:

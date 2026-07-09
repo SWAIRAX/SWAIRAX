@@ -110,15 +110,15 @@ const Sectors = () => {
             Sectors We Empower
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 md:gap-x-10 lg:gap-x-16">
-            {sectors.map((sector, index) => (
+            {sectors.map((sector) => (
               <button
                 key={sector.slug}
                 onClick={() => navigateToTop(`/sectors/${sector.slug}`)}
                 className="group block w-full border-t border-white/20 text-left transition-colors hover:bg-white/5"
               >
                 <div className="flex gap-5 py-8 sm:gap-6 lg:py-10">
-                  <span className="text-2xl font-light tabular-nums text-white sm:pt-1">
-                    {String(index + 1).padStart(2, "0")}
+                  <span className="flex shrink-0 items-center justify-center text-white">
+                    <sector.icon className="h-8 w-8 sm:h-9 sm:w-9" />
                   </span>
                   <div className="flex-1">
                     <h3 className="mb-2 text-xl font-normal text-white transition-colors group-hover:text-white/80 sm:text-2xl">

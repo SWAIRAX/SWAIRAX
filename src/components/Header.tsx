@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import { useTheme } from "next-themes";
 import { Button } from "@/components/ui/button";
-import { Menu, X, CheckCheck, ChevronDown, Sun, Moon } from "lucide-react";
+import { X, CheckCheck, ChevronDown, Sun, Moon } from "lucide-react";
 import { useLocation } from "react-router-dom";
 import { useNavigationWithScroll } from "@/utils/navigation";
 import { openMeeting } from "@/utils/meeting";
@@ -198,13 +198,26 @@ const Header = () => {
         {/* RIGHT — mobile theme toggle + hamburger */}
         <div className="lg:hidden flex items-center gap-2">
           <ThemeToggle />
+          {/* Two-bar hamburger that morphs into an X — asymmetric closed
+              state (full-width top bar, short bottom bar), both bars grow to
+              equal length and rotate ±45° into a cross when open. */}
           <button
-            className="text-foreground"
+            type="button"
+            className="relative h-[30px] w-[30px] shrink-0 bg-transparent"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label={isMenuOpen ? "Close menu" : "Open menu"}
             aria-expanded={isMenuOpen}
           >
-            {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            <span
+              className={`absolute right-0 h-[3px] rounded-full bg-primary transition-all duration-300 ${
+                isMenuOpen ? "top-[13px] w-[30px] rotate-45" : "top-[7px] w-[30px]"
+              }`}
+            />
+            <span
+              className={`absolute right-0 h-[3px] rounded-full bg-primary transition-all duration-300 ${
+                isMenuOpen ? "bottom-[13px] w-[30px] -rotate-45" : "bottom-[7px] w-[20px]"
+              }`}
+            />
           </button>
         </div>
       </div>
